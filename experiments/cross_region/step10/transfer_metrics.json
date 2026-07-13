@@ -1,0 +1,592 @@
+{
+  "created_at": "2026-07-12T23:47:50.628658+00:00",
+  "step": "step10_run_a_cross_region_transfer",
+  "seed": 42,
+  "n_bootstrap": 1000,
+  "bootstrap_block_size_cells": 2,
+  "feature_sets": {
+    "thermal": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "baseline": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean"
+    ]
+  },
+  "categorical_features": [
+    "landcover_dominant"
+  ],
+  "variants": [
+    "raw",
+    "zscore",
+    "coral"
+  ],
+  "directions": [
+    "manavgat_2021__bejis_2022",
+    "bejis_2022__manavgat_2021"
+  ],
+  "results": {
+    "manavgat_2021__bejis_2022": {
+      "thermal": {
+        "raw": {
+          "n_source": 24087,
+          "n_target": 15759,
+          "target_positive_count": 1103,
+          "target_negative_count": 14656,
+          "roc_auc": 0.3856097416434733,
+          "pr_auc": 0.051518988392309326,
+          "roc_auc_ci95": [
+            0.3633703079606157,
+            0.41207048220537673
+          ],
+          "pr_auc_ci95": [
+            0.04557754903966911,
+            0.0576141593809609
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 4004,
+            "roc_auc": {
+              "mean": 0.3858524926767619,
+              "p2_5": 0.3633703079606157,
+              "p50": 0.3860015072594921,
+              "p97_5": 0.41207048220537673
+            },
+            "pr_auc": {
+              "mean": 0.05160229845077665,
+              "p2_5": 0.04557754903966911,
+              "p50": 0.05144103722694455,
+              "p97_5": 0.0576141593809609
+            },
+            "roc_auc_ci95": [
+              0.3633703079606157,
+              0.41207048220537673
+            ],
+            "pr_auc_ci95": [
+              0.04557754903966911,
+              0.0576141593809609
+            ]
+          }
+        },
+        "zscore": {
+          "n_source": 24087,
+          "n_target": 15759,
+          "target_positive_count": 1103,
+          "target_negative_count": 14656,
+          "roc_auc": 0.5574778133375826,
+          "pr_auc": 0.0909150244519614,
+          "roc_auc_ci95": [
+            0.5308530372623756,
+            0.5854742851000065
+          ],
+          "pr_auc_ci95": [
+            0.07642970955819427,
+            0.1080893109887259
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 4004,
+            "roc_auc": {
+              "mean": 0.5570433791363548,
+              "p2_5": 0.5308530372623756,
+              "p50": 0.5566043041602005,
+              "p97_5": 0.5854742851000065
+            },
+            "pr_auc": {
+              "mean": 0.09147814081634249,
+              "p2_5": 0.07642970955819427,
+              "p50": 0.09111879810389356,
+              "p97_5": 0.1080893109887259
+            },
+            "roc_auc_ci95": [
+              0.5308530372623756,
+              0.5854742851000065
+            ],
+            "pr_auc_ci95": [
+              0.07642970955819427,
+              0.1080893109887259
+            ]
+          }
+        },
+        "coral": {
+          "n_source": 24087,
+          "n_target": 15759,
+          "target_positive_count": 1103,
+          "target_negative_count": 14656,
+          "roc_auc": 0.5528119086196043,
+          "pr_auc": 0.07813665697088097,
+          "roc_auc_ci95": [
+            0.5279410959742546,
+            0.5783883194377685
+          ],
+          "pr_auc_ci95": [
+            0.067718025921043,
+            0.0897685165316326
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 4004,
+            "roc_auc": {
+              "mean": 0.5525563397378327,
+              "p2_5": 0.5279410959742546,
+              "p50": 0.5521894973778707,
+              "p97_5": 0.5783883194377685
+            },
+            "pr_auc": {
+              "mean": 0.07855708381522632,
+              "p2_5": 0.067718025921043,
+              "p50": 0.07866390602420117,
+              "p97_5": 0.0897685165316326
+            },
+            "roc_auc_ci95": [
+              0.5279410959742546,
+              0.5783883194377685
+            ],
+            "pr_auc_ci95": [
+              0.067718025921043,
+              0.0897685165316326
+            ]
+          }
+        }
+      },
+      "baseline": {
+        "raw": {
+          "n_source": 24087,
+          "n_target": 15759,
+          "target_positive_count": 1103,
+          "target_negative_count": 14656,
+          "roc_auc": 0.38579321802982736,
+          "pr_auc": 0.051540089963288654,
+          "roc_auc_ci95": [
+            0.365506923701125,
+            0.40576885274607394
+          ],
+          "pr_auc_ci95": [
+            0.0457295587584734,
+            0.05765903852383007
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 4004,
+            "roc_auc": {
+              "mean": 0.38549980363591324,
+              "p2_5": 0.365506923701125,
+              "p50": 0.38543084176926445,
+              "p97_5": 0.40576885274607394
+            },
+            "pr_auc": {
+              "mean": 0.05156496192775226,
+              "p2_5": 0.0457295587584734,
+              "p50": 0.05144391380958478,
+              "p97_5": 0.05765903852383007
+            },
+            "roc_auc_ci95": [
+              0.365506923701125,
+              0.40576885274607394
+            ],
+            "pr_auc_ci95": [
+              0.0457295587584734,
+              0.05765903852383007
+            ]
+          }
+        },
+        "zscore": {
+          "n_source": 24087,
+          "n_target": 15759,
+          "target_positive_count": 1103,
+          "target_negative_count": 14656,
+          "roc_auc": 0.4639180943100793,
+          "pr_auc": 0.0638841470730826,
+          "roc_auc_ci95": [
+            0.44036176810864747,
+            0.48800552882834497
+          ],
+          "pr_auc_ci95": [
+            0.055991595754581694,
+            0.07310098648884514
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 4004,
+            "roc_auc": {
+              "mean": 0.4638722731074595,
+              "p2_5": 0.44036176810864747,
+              "p50": 0.46355958085433335,
+              "p97_5": 0.48800552882834497
+            },
+            "pr_auc": {
+              "mean": 0.06419586080199226,
+              "p2_5": 0.055991595754581694,
+              "p50": 0.06410298340640654,
+              "p97_5": 0.07310098648884514
+            },
+            "roc_auc_ci95": [
+              0.44036176810864747,
+              0.48800552882834497
+            ],
+            "pr_auc_ci95": [
+              0.055991595754581694,
+              0.07310098648884514
+            ]
+          }
+        },
+        "coral": {
+          "n_source": 24087,
+          "n_target": 15759,
+          "target_positive_count": 1103,
+          "target_negative_count": 14656,
+          "roc_auc": 0.45413665637978207,
+          "pr_auc": 0.06164348723267042,
+          "roc_auc_ci95": [
+            0.43041908101315657,
+            0.4787438211387251
+          ],
+          "pr_auc_ci95": [
+            0.05428579397132974,
+            0.0702624110965808
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 4004,
+            "roc_auc": {
+              "mean": 0.4543336226895273,
+              "p2_5": 0.43041908101315657,
+              "p50": 0.45431551518804614,
+              "p97_5": 0.4787438211387251
+            },
+            "pr_auc": {
+              "mean": 0.06202327110548739,
+              "p2_5": 0.05428579397132974,
+              "p50": 0.06186765485865359,
+              "p97_5": 0.0702624110965808
+            },
+            "roc_auc_ci95": [
+              0.43041908101315657,
+              0.4787438211387251
+            ],
+            "pr_auc_ci95": [
+              0.05428579397132974,
+              0.0702624110965808
+            ]
+          }
+        }
+      }
+    },
+    "bejis_2022__manavgat_2021": {
+      "thermal": {
+        "raw": {
+          "n_source": 15759,
+          "n_target": 24087,
+          "target_positive_count": 796,
+          "target_negative_count": 23291,
+          "roc_auc": 0.4071302424707799,
+          "pr_auc": 0.02850171740226455,
+          "roc_auc_ci95": [
+            0.3750976554019282,
+            0.4421590001735163
+          ],
+          "pr_auc_ci95": [
+            0.02396332982764278,
+            0.034735653068351864
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 6070,
+            "roc_auc": {
+              "mean": 0.4076949081306637,
+              "p2_5": 0.3750976554019282,
+              "p50": 0.40679147908867136,
+              "p97_5": 0.4421590001735163
+            },
+            "pr_auc": {
+              "mean": 0.02885341372388436,
+              "p2_5": 0.02396332982764278,
+              "p50": 0.02877767192723844,
+              "p97_5": 0.034735653068351864
+            },
+            "roc_auc_ci95": [
+              0.3750976554019282,
+              0.4421590001735163
+            ],
+            "pr_auc_ci95": [
+              0.02396332982764278,
+              0.034735653068351864
+            ]
+          }
+        },
+        "zscore": {
+          "n_source": 15759,
+          "n_target": 24087,
+          "target_positive_count": 796,
+          "target_negative_count": 23291,
+          "roc_auc": 0.5684080582811875,
+          "pr_auc": 0.04335960675471065,
+          "roc_auc_ci95": [
+            0.5313055158134852,
+            0.6045311064880025
+          ],
+          "pr_auc_ci95": [
+            0.03628960086546808,
+            0.05242689550986473
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 6070,
+            "roc_auc": {
+              "mean": 0.5696745615931285,
+              "p2_5": 0.5313055158134852,
+              "p50": 0.5697552290575021,
+              "p97_5": 0.6045311064880025
+            },
+            "pr_auc": {
+              "mean": 0.04404278839493576,
+              "p2_5": 0.03628960086546808,
+              "p50": 0.043756896119078875,
+              "p97_5": 0.05242689550986473
+            },
+            "roc_auc_ci95": [
+              0.5313055158134852,
+              0.6045311064880025
+            ],
+            "pr_auc_ci95": [
+              0.03628960086546808,
+              0.05242689550986473
+            ]
+          }
+        },
+        "coral": {
+          "n_source": 15759,
+          "n_target": 24087,
+          "target_positive_count": 796,
+          "target_negative_count": 23291,
+          "roc_auc": 0.5575199264969388,
+          "pr_auc": 0.035478362062035355,
+          "roc_auc_ci95": [
+            0.5328564759492521,
+            0.5842892591537582
+          ],
+          "pr_auc_ci95": [
+            0.03081286798106613,
+            0.041239990212065494
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 6070,
+            "roc_auc": {
+              "mean": 0.5586117448155223,
+              "p2_5": 0.5328564759492521,
+              "p50": 0.5585125071217234,
+              "p97_5": 0.5842892591537582
+            },
+            "pr_auc": {
+              "mean": 0.03582375851971171,
+              "p2_5": 0.03081286798106613,
+              "p50": 0.035807568190377934,
+              "p97_5": 0.041239990212065494
+            },
+            "roc_auc_ci95": [
+              0.5328564759492521,
+              0.5842892591537582
+            ],
+            "pr_auc_ci95": [
+              0.03081286798106613,
+              0.041239990212065494
+            ]
+          }
+        }
+      },
+      "baseline": {
+        "raw": {
+          "n_source": 15759,
+          "n_target": 24087,
+          "target_positive_count": 796,
+          "target_negative_count": 23291,
+          "roc_auc": 0.4867843144277483,
+          "pr_auc": 0.0335047232524089,
+          "roc_auc_ci95": [
+            0.45650927655642487,
+            0.5206428944374671
+          ],
+          "pr_auc_ci95": [
+            0.027685138785655292,
+            0.04096275797097868
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 6070,
+            "roc_auc": {
+              "mean": 0.48731162658209565,
+              "p2_5": 0.45650927655642487,
+              "p50": 0.4876098835381487,
+              "p97_5": 0.5206428944374671
+            },
+            "pr_auc": {
+              "mean": 0.03408518989248179,
+              "p2_5": 0.027685138785655292,
+              "p50": 0.03401149789510685,
+              "p97_5": 0.04096275797097868
+            },
+            "roc_auc_ci95": [
+              0.45650927655642487,
+              0.5206428944374671
+            ],
+            "pr_auc_ci95": [
+              0.027685138785655292,
+              0.04096275797097868
+            ]
+          }
+        },
+        "zscore": {
+          "n_source": 15759,
+          "n_target": 24087,
+          "target_positive_count": 796,
+          "target_negative_count": 23291,
+          "roc_auc": 0.5281815673187974,
+          "pr_auc": 0.03637423776049279,
+          "roc_auc_ci95": [
+            0.49624577405557757,
+            0.5613337726072668
+          ],
+          "pr_auc_ci95": [
+            0.030598538501366707,
+            0.04413916361568973
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 6070,
+            "roc_auc": {
+              "mean": 0.5288026874318529,
+              "p2_5": 0.49624577405557757,
+              "p50": 0.5293937203610366,
+              "p97_5": 0.5613337726072668
+            },
+            "pr_auc": {
+              "mean": 0.036887188290524606,
+              "p2_5": 0.030598538501366707,
+              "p50": 0.0367843975827649,
+              "p97_5": 0.04413916361568973
+            },
+            "roc_auc_ci95": [
+              0.49624577405557757,
+              0.5613337726072668
+            ],
+            "pr_auc_ci95": [
+              0.030598538501366707,
+              0.04413916361568973
+            ]
+          }
+        },
+        "coral": {
+          "n_source": 15759,
+          "n_target": 24087,
+          "target_positive_count": 796,
+          "target_negative_count": 23291,
+          "roc_auc": 0.50169439680477,
+          "pr_auc": 0.03219544180379702,
+          "roc_auc_ci95": [
+            0.47433115265219866,
+            0.5313817694818037
+          ],
+          "pr_auc_ci95": [
+            0.027597900129456954,
+            0.038107643765881036
+          ],
+          "bootstrap": {
+            "n_bootstrap_requested": 1000,
+            "n_bootstrap_successful": 1000,
+            "n_bootstrap_skipped": 0,
+            "n_blocks": 6070,
+            "roc_auc": {
+              "mean": 0.5024278802078057,
+              "p2_5": 0.47433115265219866,
+              "p50": 0.5027647928475083,
+              "p97_5": 0.5313817694818037
+            },
+            "pr_auc": {
+              "mean": 0.03256009718928281,
+              "p2_5": 0.027597900129456954,
+              "p50": 0.03256054734010885,
+              "p97_5": 0.038107643765881036
+            },
+            "roc_auc_ci95": [
+              0.47433115265219866,
+              0.5313817694818037
+            ],
+            "pr_auc_ci95": [
+              0.027597900129456954,
+              0.038107643765881036
+            ]
+          }
+        }
+      }
+    }
+  },
+  "sanity_gate": {
+    "passed": true,
+    "raw_below_0.5_both_directions": true,
+    "zscore_above_0.5_both_directions": true,
+    "checks": {
+      "manavgat_2021__bejis_2022": {
+        "raw_auc": 0.3856097416434733,
+        "raw_below_0.5": true,
+        "zscore_auc": 0.5574778133375826,
+        "zscore_above_0.5": true,
+        "zscore_in_0.55_0.57_band": true,
+        "coral_auc": 0.5528119086196043
+      },
+      "bejis_2022__manavgat_2021": {
+        "raw_auc": 0.4071302424707799,
+        "raw_below_0.5": true,
+        "zscore_auc": 0.5684080582811875,
+        "zscore_above_0.5": true,
+        "zscore_in_0.55_0.57_band": true,
+        "coral_auc": 0.5575199264969388
+      }
+    },
+    "thresholds": {
+      "raw_auc_max": 0.5,
+      "zscore_auc_min": 0.5,
+      "zscore_expected_band": [
+        0.55,
+        0.57
+      ]
+    },
+    "detail_lines": [
+      "manavgat_2021__bejis_2022: raw=0.3856 (<0.5? True) | zscore=0.5575 (>0.5? True, in-band? True) | coral=0.5528",
+      "bejis_2022__manavgat_2021: raw=0.4071 (<0.5? True) | zscore=0.5684 (>0.5? True, in-band? True) | coral=0.5575"
+    ],
+    "action_if_failed": "Gate KALIRSA Is2 (decomposition) ve Is4 (robustness) baslatilmamali; cikti kullaniciya raporlanip beklenmeli."
+  },
+  "notes": "Tum onisleme unsupervised (hedef etiketi kullanilmadi). ROC/PR-AUC hedef bolgenin TUM valid_for_modeling hucrelerinde. Bootstrap birimi spatial_block_id. Sayilar oldugu gibi raporlanir."
+}

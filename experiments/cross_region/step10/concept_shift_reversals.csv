@@ -1,0 +1,6 @@
+feature,auc_manavgat_2021,auc_bejis_2022,relation_manavgat_2021,relation_bejis_2022
+elevation_mean,0.4529006125039348,0.6410001801359532,negative,positive
+current_lst_mean,0.5478519243789588,0.46158044314554986,positive,negative
+tvdi_difference_mean,0.4639397168955506,0.512087103203547,negative,positive
+downscaled_lst_mean,0.5596129826928641,0.4681771157066674,positive,negative
+fused_lst_mean,0.549640645587648,0.4655090684100923,positive,negative

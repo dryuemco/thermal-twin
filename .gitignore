@@ -1,0 +1,56 @@
+# === Emrehan'in ayri deposu (nested repo karmasasi olmasin) ===
+repo/
+
+# === Sanal ortam ===
+.venv-step10/
+
+# === Agir / bizim uretmedigimiz mevcut ciktilar ===
+outputs/
+data/
+
+# Agir step ciktilari (Step10 disi)
+experiments/*/step0/
+experiments/*/step5*/
+experiments/*/step7*/
+experiments/*/step8a/
+experiments/*/step8b/
+experiments/*/step8c/
+experiments/*/step8d/
+experiments/*/gate_inputs/
+experiments/*/validation/
+
+# Emrehan'in kok-seviye yardimci dosyalari (bizim isimiz degil)
+experiments/*/predictor_export_metadata.json
+
+# step8e: SADECE JSON raporunu tut (provenance); .md ve digerleri disari
+experiments/*/step8e/*
+!experiments/*/step8e/final_step8_report.json
+
+# =====================================================================
+# MUAFIYETLER: bizim Step10 urunlerimiz dahil (whitelist)
+# =====================================================================
+!step10/
+!step10/**
+
+# Step10 metin ciktilari (cross_region)
+!experiments/cross_region/
+!experiments/cross_region/step10/
+!experiments/cross_region/step10/**
+
+# Step10 within-robustness JSON'lari (bolge bazli)
+!experiments/*/step10/
+!experiments/*/step10/**
+
+# =====================================================================
+# SON SOZ (whitelist'i ezer): agir ikililer + build/OS artiklari HER YERDE
+# ignore. Bu, step10 dizinlerindeki predictions.parquet ve __pycache__/*.pyc
+# gibi dosyalarin da ASLA staged olmamasini garanti eder.
+# =====================================================================
+*.parquet
+*.tif
+*.tiff
+*.joblib
+*.zip
+.DS_Store
+__pycache__/
+*.pyc

@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "raw_below_0.5_both_directions": true,
+  "zscore_above_0.5_both_directions": true,
+  "checks": {
+    "manavgat_2021__bejis_2022": {
+      "raw_auc": 0.3856097416434733,
+      "raw_below_0.5": true,
+      "zscore_auc": 0.5574778133375826,
+      "zscore_above_0.5": true,
+      "zscore_in_0.55_0.57_band": true,
+      "coral_auc": 0.5528119086196043
+    },
+    "bejis_2022__manavgat_2021": {
+      "raw_auc": 0.4071302424707799,
+      "raw_below_0.5": true,
+      "zscore_auc": 0.5684080582811875,
+      "zscore_above_0.5": true,
+      "zscore_in_0.55_0.57_band": true,
+      "coral_auc": 0.5575199264969388
+    }
+  },
+  "thresholds": {
+    "raw_auc_max": 0.5,
+    "zscore_auc_min": 0.5,
+    "zscore_expected_band": [
+      0.55,
+      0.57
+    ]
+  },
+  "detail_lines": [
+    "manavgat_2021__bejis_2022: raw=0.3856 (<0.5? True) | zscore=0.5575 (>0.5? True, in-band? True) | coral=0.5528",
+    "bejis_2022__manavgat_2021: raw=0.4071 (<0.5? True) | zscore=0.5684 (>0.5? True, in-band? True) | coral=0.5575"
+  ],
+  "action_if_failed": "Gate KALIRSA Is2 (decomposition) ve Is4 (robustness) baslatilmamali; cikti kullaniciya raporlanip beklenmeli."
+}
