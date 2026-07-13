@@ -1,0 +1,5 @@
+target_region,source_region,adaptation,within_thermal_auc,raw_transfer_auc,adapted_transfer_auc,total_gap,recovered,concept_remaining,fraction_recovered,fraction_concept_remaining
+bejis_2022,manavgat_2021,zscore,0.9171,0.3856,0.5575,0.5314,0.1719,0.3596,0.3234,0.6766
+bejis_2022,manavgat_2021,coral,0.9171,0.3856,0.5528,0.5314,0.1672,0.3642,0.3146,0.6854
+manavgat_2021,bejis_2022,zscore,0.8866,0.4071,0.5684,0.4795,0.1613,0.3182,0.3364,0.6636
+manavgat_2021,bejis_2022,coral,0.8866,0.4071,0.5575,0.4795,0.1504,0.3291,0.3137,0.6863

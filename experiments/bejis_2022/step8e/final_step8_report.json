@@ -1,0 +1,3551 @@
+{
+  "experiment_id": "bejis_2022",
+  "region_key": "bejis_aoi",
+  "role": "mediterranean_transfer_wildfire",
+  "predictor_window": [
+    "2022-06-15",
+    "2022-08-14"
+  ],
+  "label_window": [
+    "2022-08-15",
+    "2022-09-30"
+  ],
+  "baseline_years": [
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "created_at": "2026-07-10T22:17:07.244653+00:00",
+  "gate_result": {
+    "decision": "wildfire_candidate_pass",
+    "reason": "burned_tree_shrub_grass_count/burned_count=0.991 >= natural_threshold=0.5.",
+    "burned_count": 1103,
+    "burned_natural_vegetation_fraction": 0.9909338168631007,
+    "gate_level": "500m_reconstructed_mcd64a1_cell"
+  },
+  "step7_fused_lst_coverage": {
+    "observed_coverage_pct": 90.2996,
+    "fused_coverage_pct": 99.9998,
+    "gapfilled_pixels": 439927,
+    "coverage_gain_pct": 9.700199999999995
+  },
+  "step8a_dataset": {
+    "cell_level": "500m_reconstructed_mcd64a1_cell",
+    "no_30m_label_claim": true,
+    "total_500m_cells": 15759,
+    "valid_modeling_cells": 15759,
+    "burned_cell_count": 1103,
+    "unburned_cell_count": 14656,
+    "burned_rate": 0.06999175074560568
+  },
+  "step8b_baseline_vs_fused_model": {
+    "all_valid": {
+      "n_splits_used": 5,
+      "n_positives": 1103,
+      "n_negatives": 14656,
+      "overall_baseline": {
+        "positive_count": 1103,
+        "negative_count": 14656,
+        "roc_auc": 0.8688307456935631,
+        "pr_auc": 0.30925902451498816,
+        "brier_score": 0.08915966005493263,
+        "balanced_accuracy": 0.7381357091813909,
+        "precision": 0.2844600526777875,
+        "recall": 0.5874886672710788,
+        "f1": 0.38331854480922806
+      },
+      "overall_thermal": {
+        "positive_count": 1103,
+        "negative_count": 14656,
+        "roc_auc": 0.9170545693167105,
+        "pr_auc": 0.48697468873386673,
+        "brier_score": 0.06166085693053473,
+        "balanced_accuracy": 0.7669882060438582,
+        "precision": 0.4308300395256917,
+        "recall": 0.5929283771532184,
+        "f1": 0.49904616558565434
+      },
+      "delta_auc": 0.048223823623147366,
+      "delta_pr_auc": 0.17771566421887858,
+      "delta_brier": -0.027498803124397897,
+      "interpretation": "thermal_improves",
+      "monthly": {
+        "august": {
+          "positive_count": 1103,
+          "negative_count": 14656,
+          "auc_baseline": 0.8688307456935631,
+          "auc_thermal": 0.9170545693167105,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_thermal": 0.48697468873386673,
+          "delta_auc": 0.048223823623147366,
+          "delta_pr_auc": 0.17771566421887858
+        },
+        "september": {
+          "positive_count": 0,
+          "negative_count": 14656,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month september has too few positives (0 < 10)"
+        },
+        "october": {
+          "positive_count": 0,
+          "negative_count": 14656,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month october has too few positives (0 < 10)"
+        }
+      }
+    },
+    "burnable_tree_shrub_grass": {
+      "n_splits_used": 5,
+      "n_positives": 1100,
+      "n_negatives": 14090,
+      "overall_baseline": {
+        "positive_count": 1100,
+        "negative_count": 14090,
+        "roc_auc": 0.8616776566230079,
+        "pr_auc": 0.3027735748414686,
+        "brier_score": 0.09190976069961188,
+        "balanced_accuracy": 0.7328098587005614,
+        "precision": 0.28622862286228623,
+        "recall": 0.5781818181818181,
+        "f1": 0.38290186634557494
+      },
+      "overall_thermal": {
+        "positive_count": 1100,
+        "negative_count": 14090,
+        "roc_auc": 0.9178110845861024,
+        "pr_auc": 0.49780780629444993,
+        "brier_score": 0.06278801735974437,
+        "balanced_accuracy": 0.7663204077682431,
+        "precision": 0.4418762746430999,
+        "recall": 0.5909090909090909,
+        "f1": 0.5056398288603656
+      },
+      "delta_auc": 0.05613342796309451,
+      "delta_pr_auc": 0.19503423145298132,
+      "delta_brier": -0.0291217433398675,
+      "interpretation": "thermal_improves",
+      "monthly": {
+        "august": {
+          "positive_count": 1100,
+          "negative_count": 14090,
+          "auc_baseline": 0.8616776566230079,
+          "auc_thermal": 0.9178110845861024,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_thermal": 0.49780780629444993,
+          "delta_auc": 0.05613342796309451,
+          "delta_pr_auc": 0.19503423145298132
+        },
+        "september": {
+          "positive_count": 0,
+          "negative_count": 14090,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month september has too few positives (0 < 10)"
+        },
+        "october": {
+          "positive_count": 0,
+          "negative_count": 14090,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month october has too few positives (0 < 10)"
+        }
+      }
+    },
+    "burnable_tree_shrub": {
+      "n_splits_used": 5,
+      "n_positives": 1032,
+      "n_negatives": 11871,
+      "overall_baseline": {
+        "positive_count": 1032,
+        "negative_count": 11871,
+        "roc_auc": 0.8609550405881312,
+        "pr_auc": 0.32430726813921895,
+        "brier_score": 0.09930861050273956,
+        "balanced_accuracy": 0.7454239175790915,
+        "precision": 0.29674418604651165,
+        "recall": 0.6182170542635659,
+        "f1": 0.4010056568196103
+      },
+      "overall_thermal": {
+        "positive_count": 1032,
+        "negative_count": 11871,
+        "roc_auc": 0.9169924393953346,
+        "pr_auc": 0.5060934019003923,
+        "brier_score": 0.06817920320657733,
+        "balanced_accuracy": 0.7789940993588048,
+        "precision": 0.44459738472126636,
+        "recall": 0.625968992248062,
+        "f1": 0.5199195171026157
+      },
+      "delta_auc": 0.056037398807203376,
+      "delta_pr_auc": 0.18178613376117336,
+      "delta_brier": -0.03112940729616223,
+      "interpretation": "thermal_improves",
+      "monthly": {
+        "august": {
+          "positive_count": 1032,
+          "negative_count": 11871,
+          "auc_baseline": 0.8609550405881312,
+          "auc_thermal": 0.9169924393953346,
+          "pr_auc_baseline": 0.32430726813921895,
+          "pr_auc_thermal": 0.5060934019003923,
+          "delta_auc": 0.056037398807203376,
+          "delta_pr_auc": 0.18178613376117336
+        },
+        "september": {
+          "positive_count": 0,
+          "negative_count": 11871,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month september has too few positives (0 < 10)"
+        },
+        "october": {
+          "positive_count": 0,
+          "negative_count": 11871,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month october has too few positives (0 < 10)"
+        }
+      }
+    }
+  },
+  "step8c_bootstrap_uncertainty": {
+    "created_at": "2026-07-10T22:12:21.364108+00:00",
+    "step": "step8c_spatial_block_bootstrap_uncertainty",
+    "input_predictions_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_predictions.parquet",
+    "n_bootstrap_requested": 1000,
+    "n_bootstrap_successful_by_population": {
+      "all_valid": 1000,
+      "burnable_tree_shrub_grass": 1000,
+      "burnable_tree_shrub": 1000
+    },
+    "random_seed": 42,
+    "populations_evaluated": [
+      "all_valid",
+      "burnable_tree_shrub_grass",
+      "burnable_tree_shrub"
+    ],
+    "overall_point_estimates_from_predictions": {
+      "all_valid": {
+        "auc_baseline": 0.8688307456935631,
+        "auc_thermal": 0.9170545693167105,
+        "delta_auc": 0.048223823623147366,
+        "pr_auc_baseline": 0.30925902451498816,
+        "pr_auc_thermal": 0.48697468873386673,
+        "delta_pr_auc": 0.17771566421887858,
+        "brier_baseline": 0.08915966005493263,
+        "brier_thermal": 0.06166085693053473,
+        "delta_brier": -0.027498803124397897
+      },
+      "burnable_tree_shrub_grass": {
+        "auc_baseline": 0.8616776566230079,
+        "auc_thermal": 0.9178110845861024,
+        "delta_auc": 0.05613342796309451,
+        "pr_auc_baseline": 0.3027735748414686,
+        "pr_auc_thermal": 0.49780780629444993,
+        "delta_pr_auc": 0.19503423145298132,
+        "brier_baseline": 0.09190976069961188,
+        "brier_thermal": 0.06278801735974437,
+        "delta_brier": -0.0291217433398675
+      },
+      "burnable_tree_shrub": {
+        "auc_baseline": 0.8609550405881312,
+        "auc_thermal": 0.9169924393953346,
+        "delta_auc": 0.056037398807203376,
+        "pr_auc_baseline": 0.32430726813921895,
+        "pr_auc_thermal": 0.5060934019003923,
+        "delta_pr_auc": 0.18178613376117336,
+        "brier_baseline": 0.09930861050273956,
+        "brier_thermal": 0.06817920320657733,
+        "delta_brier": -0.03112940729616223
+      }
+    },
+    "bootstrap_ci_by_population": {
+      "all_valid": {
+        "n_bootstrap_requested": 1000,
+        "n_bootstrap_successful": 1000,
+        "n_bootstrap_skipped": 0,
+        "available": true,
+        "auc_baseline": {
+          "mean": 0.8686848071835923,
+          "std": 0.006444428123274064,
+          "p2_5": 0.8562077989436166,
+          "p50": 0.8686669554792794,
+          "p97_5": 0.8809510544803821
+        },
+        "auc_thermal": {
+          "mean": 0.9171431174751575,
+          "std": 0.005315955194623736,
+          "p2_5": 0.90693799034458,
+          "p50": 0.9171467345096976,
+          "p97_5": 0.9276175447760182
+        },
+        "delta_auc": {
+          "mean": 0.0484583102915652,
+          "std": 0.004428518777356272,
+          "p2_5": 0.03981277516507251,
+          "p50": 0.04854789047600022,
+          "p97_5": 0.057127725326546516
+        },
+        "pr_auc_baseline": {
+          "mean": 0.31035106054023115,
+          "std": 0.021333705933480388,
+          "p2_5": 0.2692162497440602,
+          "p50": 0.31037306433639467,
+          "p97_5": 0.353655172513853
+        },
+        "pr_auc_thermal": {
+          "mean": 0.48777471735516403,
+          "std": 0.02745116548085148,
+          "p2_5": 0.4355867554912406,
+          "p50": 0.48799020223259093,
+          "p97_5": 0.5415259094923444
+        },
+        "delta_pr_auc": {
+          "mean": 0.17742365681493288,
+          "std": 0.019516934173612596,
+          "p2_5": 0.1400509712307868,
+          "p50": 0.17685250087903723,
+          "p97_5": 0.21583857808509538
+        },
+        "brier_baseline": {
+          "mean": 0.0891999723244659,
+          "std": 0.0021445907513662874,
+          "p2_5": 0.08482414849595583,
+          "p50": 0.08913378587157103,
+          "p97_5": 0.09349610906739833
+        },
+        "brier_thermal": {
+          "mean": 0.06166009104689447,
+          "std": 0.0018308252728371907,
+          "p2_5": 0.05832889227625138,
+          "p50": 0.061614309190231545,
+          "p97_5": 0.06535208505413216
+        },
+        "delta_brier": {
+          "mean": -0.027539881277571444,
+          "std": 0.0014366305302393838,
+          "p2_5": -0.030261393885701916,
+          "p50": -0.027527985260923624,
+          "p97_5": -0.024744902705983098
+        },
+        "delta_auc_ci95": [
+          0.03981277516507251,
+          0.057127725326546516
+        ],
+        "delta_pr_auc_ci95": [
+          0.1400509712307868,
+          0.21583857808509538
+        ],
+        "delta_brier_ci95": [
+          -0.030261393885701916,
+          -0.024744902705983098
+        ],
+        "probability_delta_auc_gt_0": 1.0,
+        "probability_delta_pr_auc_gt_0": 1.0,
+        "probability_delta_brier_lt_0": 1.0,
+        "delta_auc_interpretation": "positive_bootstrap_support",
+        "delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "burnable_tree_shrub_grass": {
+        "n_bootstrap_requested": 1000,
+        "n_bootstrap_successful": 1000,
+        "n_bootstrap_skipped": 0,
+        "available": true,
+        "auc_baseline": {
+          "mean": 0.86159250515288,
+          "std": 0.0067282486240567855,
+          "p2_5": 0.8479251603350519,
+          "p50": 0.8615569362211175,
+          "p97_5": 0.874151360125484
+        },
+        "auc_thermal": {
+          "mean": 0.9175812864022391,
+          "std": 0.005397537463521451,
+          "p2_5": 0.9068280713223104,
+          "p50": 0.9177784128516147,
+          "p97_5": 0.9282259704141103
+        },
+        "delta_auc": {
+          "mean": 0.05598878124935936,
+          "std": 0.004417288778100444,
+          "p2_5": 0.04785293453566909,
+          "p50": 0.0558243407986313,
+          "p97_5": 0.06532669211393939
+        },
+        "pr_auc_baseline": {
+          "mean": 0.3041307583751453,
+          "std": 0.019731983295345378,
+          "p2_5": 0.2646033003786148,
+          "p50": 0.3041147110274739,
+          "p97_5": 0.34189790036555173
+        },
+        "pr_auc_thermal": {
+          "mean": 0.4984083310123559,
+          "std": 0.027138414761531508,
+          "p2_5": 0.4440087989230195,
+          "p50": 0.4980922658228971,
+          "p97_5": 0.5494102729160615
+        },
+        "delta_pr_auc": {
+          "mean": 0.19427757263721057,
+          "std": 0.019476221150587752,
+          "p2_5": 0.15561515941809942,
+          "p50": 0.19485538499337962,
+          "p97_5": 0.2310227015727393
+        },
+        "brier_baseline": {
+          "mean": 0.09194253625055,
+          "std": 0.0022753730399903455,
+          "p2_5": 0.08727956982823444,
+          "p50": 0.09202155673766274,
+          "p97_5": 0.0964618132433212
+        },
+        "brier_thermal": {
+          "mean": 0.06285149036551609,
+          "std": 0.001839464144839438,
+          "p2_5": 0.05911522291498797,
+          "p50": 0.06281495774092924,
+          "p97_5": 0.06645824146265916
+        },
+        "delta_brier": {
+          "mean": -0.029091045885033917,
+          "std": 0.0014656340339753754,
+          "p2_5": -0.03205206600346264,
+          "p50": -0.029094145362902356,
+          "p97_5": -0.02621059711003805
+        },
+        "delta_auc_ci95": [
+          0.04785293453566909,
+          0.06532669211393939
+        ],
+        "delta_pr_auc_ci95": [
+          0.15561515941809942,
+          0.2310227015727393
+        ],
+        "delta_brier_ci95": [
+          -0.03205206600346264,
+          -0.02621059711003805
+        ],
+        "probability_delta_auc_gt_0": 1.0,
+        "probability_delta_pr_auc_gt_0": 1.0,
+        "probability_delta_brier_lt_0": 1.0,
+        "delta_auc_interpretation": "positive_bootstrap_support",
+        "delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "burnable_tree_shrub": {
+        "n_bootstrap_requested": 1000,
+        "n_bootstrap_successful": 1000,
+        "n_bootstrap_skipped": 0,
+        "available": true,
+        "auc_baseline": {
+          "mean": 0.8610647038291243,
+          "std": 0.006988807489099236,
+          "p2_5": 0.8467559003512893,
+          "p50": 0.8610826087629051,
+          "p97_5": 0.8743594509274722
+        },
+        "auc_thermal": {
+          "mean": 0.9169336632436634,
+          "std": 0.005059711806933903,
+          "p2_5": 0.9070061866604389,
+          "p50": 0.9173141047559459,
+          "p97_5": 0.9266484312075108
+        },
+        "delta_auc": {
+          "mean": 0.055868959414539246,
+          "std": 0.004701199563831813,
+          "p2_5": 0.04713926969372307,
+          "p50": 0.05579440221231485,
+          "p97_5": 0.06576649713834148
+        },
+        "pr_auc_baseline": {
+          "mean": 0.3264933863822686,
+          "std": 0.020823166585097936,
+          "p2_5": 0.28742480447060587,
+          "p50": 0.32620953043872236,
+          "p97_5": 0.3683513115772996
+        },
+        "pr_auc_thermal": {
+          "mean": 0.5069173636514536,
+          "std": 0.02676403184538265,
+          "p2_5": 0.45561135630371913,
+          "p50": 0.5072748660051791,
+          "p97_5": 0.5591073581172136
+        },
+        "delta_pr_auc": {
+          "mean": 0.18042397726918483,
+          "std": 0.019306888336904398,
+          "p2_5": 0.14210205321709907,
+          "p50": 0.18029018113392234,
+          "p97_5": 0.21688185677420835
+        },
+        "brier_baseline": {
+          "mean": 0.09931074340112539,
+          "std": 0.002284419415908029,
+          "p2_5": 0.09464917137856041,
+          "p50": 0.09930447859468533,
+          "p97_5": 0.10363681400254462
+        },
+        "brier_thermal": {
+          "mean": 0.06822860749752856,
+          "std": 0.0019219853955953024,
+          "p2_5": 0.06438597120223155,
+          "p50": 0.0682465436481612,
+          "p97_5": 0.07201141510354482
+        },
+        "delta_brier": {
+          "mean": -0.031082135903596837,
+          "std": 0.0015968068964591037,
+          "p2_5": -0.03407519332723416,
+          "p50": -0.03108317487634999,
+          "p97_5": -0.02799752458983612
+        },
+        "delta_auc_ci95": [
+          0.04713926969372307,
+          0.06576649713834148
+        ],
+        "delta_pr_auc_ci95": [
+          0.14210205321709907,
+          0.21688185677420835
+        ],
+        "delta_brier_ci95": [
+          -0.03407519332723416,
+          -0.02799752458983612
+        ],
+        "probability_delta_auc_gt_0": 1.0,
+        "probability_delta_pr_auc_gt_0": 1.0,
+        "probability_delta_brier_lt_0": 1.0,
+        "delta_auc_interpretation": "positive_bootstrap_support",
+        "delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "delta_brier_interpretation": "positive_bootstrap_support"
+      }
+    },
+    "monthly_bootstrap_ci_by_population": {
+      "all_valid": {
+        "august": {
+          "n_bootstrap_requested": 1000,
+          "n_bootstrap_successful": 1000,
+          "n_bootstrap_skipped": 0,
+          "available": true,
+          "auc_baseline": {
+            "mean": 0.8686501491697318,
+            "std": 0.006534826687024201,
+            "p2_5": 0.8556234143608372,
+            "p50": 0.8685282916753094,
+            "p97_5": 0.8809917901907552
+          },
+          "auc_thermal": {
+            "mean": 0.9169868842685162,
+            "std": 0.005481142845476881,
+            "p2_5": 0.906001300252559,
+            "p50": 0.9170201995575313,
+            "p97_5": 0.9273807251467133
+          },
+          "delta_auc": {
+            "mean": 0.04833673509878437,
+            "std": 0.00435149563247855,
+            "p2_5": 0.04015310737476684,
+            "p50": 0.04834129477549792,
+            "p97_5": 0.056867233059526096
+          },
+          "pr_auc_baseline": {
+            "mean": 0.3104916014963388,
+            "std": 0.020510803852508693,
+            "p2_5": 0.27042538418863604,
+            "p50": 0.3103600099779083,
+            "p97_5": 0.35057334407448054
+          },
+          "pr_auc_thermal": {
+            "mean": 0.48765029859798303,
+            "std": 0.02699829415217394,
+            "p2_5": 0.43559881850533194,
+            "p50": 0.4874332236792891,
+            "p97_5": 0.5419915473907937
+          },
+          "delta_pr_auc": {
+            "mean": 0.17715869710164409,
+            "std": 0.019061034833273087,
+            "p2_5": 0.14180927886856107,
+            "p50": 0.17581585855300141,
+            "p97_5": 0.2166234729657359
+          },
+          "brier_baseline": {
+            "mean": 0.08916667581552908,
+            "std": 0.002258894033336841,
+            "p2_5": 0.08462781035156931,
+            "p50": 0.08918529767346306,
+            "p97_5": 0.09359239890909968
+          },
+          "brier_thermal": {
+            "mean": 0.061643634501615495,
+            "std": 0.001889589813230487,
+            "p2_5": 0.05783513695244208,
+            "p50": 0.06173317644462905,
+            "p97_5": 0.06509822395128194
+          },
+          "delta_brier": {
+            "mean": -0.02752304131391358,
+            "std": 0.0014433909584299185,
+            "p2_5": -0.030353433431829738,
+            "p50": -0.027502091078815044,
+            "p97_5": -0.02474819328380667
+          },
+          "delta_auc_ci95": [
+            0.04015310737476684,
+            0.056867233059526096
+          ],
+          "delta_pr_auc_ci95": [
+            0.14180927886856107,
+            0.2166234729657359
+          ],
+          "delta_brier_ci95": [
+            -0.030353433431829738,
+            -0.02474819328380667
+          ],
+          "probability_delta_auc_gt_0": 1.0,
+          "probability_delta_pr_auc_gt_0": 1.0,
+          "probability_delta_brier_lt_0": 1.0,
+          "delta_auc_interpretation": "positive_bootstrap_support",
+          "delta_pr_auc_interpretation": "positive_bootstrap_support",
+          "delta_brier_interpretation": "positive_bootstrap_support",
+          "positive_count": 1103,
+          "negative_count": 14656
+        },
+        "september": {
+          "available": false,
+          "positive_count": 0,
+          "reason": "positives (0) < min_month_positives (10)"
+        },
+        "october": {
+          "available": false,
+          "positive_count": 0,
+          "reason": "positives (0) < min_month_positives (10)"
+        }
+      },
+      "burnable_tree_shrub_grass": {
+        "august": {
+          "n_bootstrap_requested": 1000,
+          "n_bootstrap_successful": 1000,
+          "n_bootstrap_skipped": 0,
+          "available": true,
+          "auc_baseline": {
+            "mean": 0.8613521217933932,
+            "std": 0.00670020367521577,
+            "p2_5": 0.8480613131119046,
+            "p50": 0.8613674269600284,
+            "p97_5": 0.8744608333537673
+          },
+          "auc_thermal": {
+            "mean": 0.917620194755552,
+            "std": 0.005388965402856795,
+            "p2_5": 0.9077302034886832,
+            "p50": 0.9172202387073369,
+            "p97_5": 0.9278695795409185
+          },
+          "delta_auc": {
+            "mean": 0.05626807296215884,
+            "std": 0.004247955808221271,
+            "p2_5": 0.04795127499630821,
+            "p50": 0.05634679882223881,
+            "p97_5": 0.06425355829061905
+          },
+          "pr_auc_baseline": {
+            "mean": 0.30254613892628884,
+            "std": 0.019532129826230156,
+            "p2_5": 0.2655865265026266,
+            "p50": 0.30185375419613325,
+            "p97_5": 0.342248126862307
+          },
+          "pr_auc_thermal": {
+            "mean": 0.4982642809339341,
+            "std": 0.027174302054724625,
+            "p2_5": 0.4440317092080404,
+            "p50": 0.49864236789715455,
+            "p97_5": 0.5507369732619156
+          },
+          "delta_pr_auc": {
+            "mean": 0.19571814200764523,
+            "std": 0.019880407648405617,
+            "p2_5": 0.15496945411096263,
+            "p50": 0.19574997015744836,
+            "p97_5": 0.23215477393248357
+          },
+          "brier_baseline": {
+            "mean": 0.09198067818156215,
+            "std": 0.0023338124454504706,
+            "p2_5": 0.08754585175441977,
+            "p50": 0.09201178912695623,
+            "p97_5": 0.09663966360123419
+          },
+          "brier_thermal": {
+            "mean": 0.06278660682571073,
+            "std": 0.002020208796085628,
+            "p2_5": 0.058791575415275805,
+            "p50": 0.06284592736111619,
+            "p97_5": 0.0666030756538657
+          },
+          "delta_brier": {
+            "mean": -0.02919407135585142,
+            "std": 0.0014367330329316775,
+            "p2_5": -0.03197951371188847,
+            "p50": -0.02920660413517499,
+            "p97_5": -0.026410552625695628
+          },
+          "delta_auc_ci95": [
+            0.04795127499630821,
+            0.06425355829061905
+          ],
+          "delta_pr_auc_ci95": [
+            0.15496945411096263,
+            0.23215477393248357
+          ],
+          "delta_brier_ci95": [
+            -0.03197951371188847,
+            -0.026410552625695628
+          ],
+          "probability_delta_auc_gt_0": 1.0,
+          "probability_delta_pr_auc_gt_0": 1.0,
+          "probability_delta_brier_lt_0": 1.0,
+          "delta_auc_interpretation": "positive_bootstrap_support",
+          "delta_pr_auc_interpretation": "positive_bootstrap_support",
+          "delta_brier_interpretation": "positive_bootstrap_support",
+          "positive_count": 1100,
+          "negative_count": 14090
+        },
+        "september": {
+          "available": false,
+          "positive_count": 0,
+          "reason": "positives (0) < min_month_positives (10)"
+        },
+        "october": {
+          "available": false,
+          "positive_count": 0,
+          "reason": "positives (0) < min_month_positives (10)"
+        }
+      },
+      "burnable_tree_shrub": {
+        "august": {
+          "n_bootstrap_requested": 1000,
+          "n_bootstrap_successful": 1000,
+          "n_bootstrap_skipped": 0,
+          "available": true,
+          "auc_baseline": {
+            "mean": 0.8608396821997498,
+            "std": 0.00692172698107359,
+            "p2_5": 0.8477104979228383,
+            "p50": 0.8608924810989516,
+            "p97_5": 0.8739308493975965
+          },
+          "auc_thermal": {
+            "mean": 0.9168727974851951,
+            "std": 0.005171893240803582,
+            "p2_5": 0.9068781208215132,
+            "p50": 0.9169008737830551,
+            "p97_5": 0.9268217958579421
+          },
+          "delta_auc": {
+            "mean": 0.05603311528544523,
+            "std": 0.004668904409517926,
+            "p2_5": 0.04647822531462352,
+            "p50": 0.055967192479450034,
+            "p97_5": 0.0647594542718547
+          },
+          "pr_auc_baseline": {
+            "mean": 0.324750208861159,
+            "std": 0.020156032409984086,
+            "p2_5": 0.2853989430857735,
+            "p50": 0.3245680827776272,
+            "p97_5": 0.3657040332479665
+          },
+          "pr_auc_thermal": {
+            "mean": 0.5064698094658875,
+            "std": 0.02642010952902135,
+            "p2_5": 0.45506054922391453,
+            "p50": 0.5063298763884491,
+            "p97_5": 0.5564309717168339
+          },
+          "delta_pr_auc": {
+            "mean": 0.18171960060472842,
+            "std": 0.019818264685512357,
+            "p2_5": 0.1431609538385017,
+            "p50": 0.18168150778697167,
+            "p97_5": 0.21986625695818632
+          },
+          "brier_baseline": {
+            "mean": 0.09930925287647652,
+            "std": 0.0023195160690533197,
+            "p2_5": 0.09480934438018045,
+            "p50": 0.09927251532431414,
+            "p97_5": 0.10391806421102091
+          },
+          "brier_thermal": {
+            "mean": 0.06816993127064837,
+            "std": 0.0020633624354190016,
+            "p2_5": 0.06403526566302521,
+            "p50": 0.06813847503428822,
+            "p97_5": 0.07221726341890859
+          },
+          "delta_brier": {
+            "mean": -0.03113932160582815,
+            "std": 0.0015167788181445615,
+            "p2_5": -0.03397428751388625,
+            "p50": -0.031103211565324536,
+            "p97_5": -0.028292302770084456
+          },
+          "delta_auc_ci95": [
+            0.04647822531462352,
+            0.0647594542718547
+          ],
+          "delta_pr_auc_ci95": [
+            0.1431609538385017,
+            0.21986625695818632
+          ],
+          "delta_brier_ci95": [
+            -0.03397428751388625,
+            -0.028292302770084456
+          ],
+          "probability_delta_auc_gt_0": 1.0,
+          "probability_delta_pr_auc_gt_0": 1.0,
+          "probability_delta_brier_lt_0": 1.0,
+          "delta_auc_interpretation": "positive_bootstrap_support",
+          "delta_pr_auc_interpretation": "positive_bootstrap_support",
+          "delta_brier_interpretation": "positive_bootstrap_support",
+          "positive_count": 1032,
+          "negative_count": 11871
+        },
+        "september": {
+          "available": false,
+          "positive_count": 0,
+          "reason": "positives (0) < min_month_positives (10)"
+        },
+        "october": {
+          "available": false,
+          "positive_count": 0,
+          "reason": "positives (0) < min_month_positives (10)"
+        }
+      }
+    },
+    "gapfill_sensitivity_bootstrap_ci": {
+      "all_valid": {
+        "no_filter": {
+          "n_bootstrap_requested": 1000,
+          "n_bootstrap_successful": 1000,
+          "n_bootstrap_skipped": 0,
+          "available": true,
+          "auc_baseline": {
+            "mean": 0.8689594985059493,
+            "std": 0.006194211743357082,
+            "p2_5": 0.8557109427902492,
+            "p50": 0.8688622014142107,
+            "p97_5": 0.8809798516837286
+          },
+          "auc_thermal": {
+            "mean": 0.9171166755043078,
+            "std": 0.005277209515745064,
+            "p2_5": 0.9063162480423366,
+            "p50": 0.9171264791896185,
+            "p97_5": 0.9270465603401814
+          },
+          "delta_auc": {
+            "mean": 0.04815717699835828,
+            "std": 0.004229410071753583,
+            "p2_5": 0.04009648600830243,
+            "p50": 0.04801605899611572,
+            "p97_5": 0.056616048147970166
+          },
+          "pr_auc_baseline": {
+            "mean": 0.3107036151915356,
+            "std": 0.019711789396671054,
+            "p2_5": 0.27341687437803874,
+            "p50": 0.31098122319253796,
+            "p97_5": 0.34891754355793403
+          },
+          "pr_auc_thermal": {
+            "mean": 0.4877693008151896,
+            "std": 0.025957966309736315,
+            "p2_5": 0.4345630985317503,
+            "p50": 0.487945070950232,
+            "p97_5": 0.536629827844659
+          },
+          "delta_pr_auc": {
+            "mean": 0.177065685623654,
+            "std": 0.0190779799622359,
+            "p2_5": 0.14087337031676658,
+            "p50": 0.17679165041789058,
+            "p97_5": 0.2155516593061663
+          },
+          "brier_baseline": {
+            "mean": 0.08903622903599821,
+            "std": 0.002119419797541427,
+            "p2_5": 0.08491350522733879,
+            "p50": 0.08899572148389528,
+            "p97_5": 0.0930360042169045
+          },
+          "brier_thermal": {
+            "mean": 0.06161240248169331,
+            "std": 0.0018444958819461232,
+            "p2_5": 0.05816795301908364,
+            "p50": 0.06160954056019122,
+            "p97_5": 0.06504264800835086
+          },
+          "delta_brier": {
+            "mean": -0.027423826554304916,
+            "std": 0.0013986895025722525,
+            "p2_5": -0.03025522381814145,
+            "p50": -0.02741674388864585,
+            "p97_5": -0.024761986781608666
+          },
+          "delta_auc_ci95": [
+            0.04009648600830243,
+            0.056616048147970166
+          ],
+          "delta_pr_auc_ci95": [
+            0.14087337031676658,
+            0.2155516593061663
+          ],
+          "delta_brier_ci95": [
+            -0.03025522381814145,
+            -0.024761986781608666
+          ],
+          "probability_delta_auc_gt_0": 1.0,
+          "probability_delta_pr_auc_gt_0": 1.0,
+          "probability_delta_brier_lt_0": 1.0,
+          "delta_auc_interpretation": "positive_bootstrap_support",
+          "delta_pr_auc_interpretation": "positive_bootstrap_support",
+          "delta_brier_interpretation": "positive_bootstrap_support",
+          "n_rows_after_filter": 15759
+        },
+        "lt_0.25": {
+          "n_bootstrap_requested": 1000,
+          "n_bootstrap_successful": 1000,
+          "n_bootstrap_skipped": 0,
+          "available": true,
+          "auc_baseline": {
+            "mean": 0.8736870729686436,
+            "std": 0.00707197713158643,
+            "p2_5": 0.8586863985123192,
+            "p50": 0.8737973165086699,
+            "p97_5": 0.8873565148456797
+          },
+          "auc_thermal": {
+            "mean": 0.9134668059741391,
+            "std": 0.006350822665338543,
+            "p2_5": 0.8996713547047166,
+            "p50": 0.9137136509847672,
+            "p97_5": 0.9252545698954049
+          },
+          "delta_auc": {
+            "mean": 0.03977973300549556,
+            "std": 0.004837090621553537,
+            "p2_5": 0.030534180149302533,
+            "p50": 0.0397146189944933,
+            "p97_5": 0.04924236233143582
+          },
+          "pr_auc_baseline": {
+            "mean": 0.280110927606247,
+            "std": 0.021219998917096385,
+            "p2_5": 0.23934272153075403,
+            "p50": 0.27996825151629623,
+            "p97_5": 0.32173897155470693
+          },
+          "pr_auc_thermal": {
+            "mean": 0.41848943430745056,
+            "std": 0.027541758917735238,
+            "p2_5": 0.36411356391638017,
+            "p50": 0.41874901948982274,
+            "p97_5": 0.4730363240474077
+          },
+          "delta_pr_auc": {
+            "mean": 0.13837850670120355,
+            "std": 0.019508432485629845,
+            "p2_5": 0.10232661407747672,
+            "p50": 0.13822136078434294,
+            "p97_5": 0.17684192938597718
+          },
+          "brier_baseline": {
+            "mean": 0.08329132590537518,
+            "std": 0.0021724981423777334,
+            "p2_5": 0.07897737222363899,
+            "p50": 0.08331363304360531,
+            "p97_5": 0.08750882204549676
+          },
+          "brier_thermal": {
+            "mean": 0.056196735965511106,
+            "std": 0.0017921044870997985,
+            "p2_5": 0.05268696664621548,
+            "p50": 0.056171182371215406,
+            "p97_5": 0.05984136230554514
+          },
+          "delta_brier": {
+            "mean": -0.027094589939864074,
+            "std": 0.0014943018495492285,
+            "p2_5": -0.030234148602328655,
+            "p50": -0.027022958061269434,
+            "p97_5": -0.024312729393706742
+          },
+          "delta_auc_ci95": [
+            0.030534180149302533,
+            0.04924236233143582
+          ],
+          "delta_pr_auc_ci95": [
+            0.10232661407747672,
+            0.17684192938597718
+          ],
+          "delta_brier_ci95": [
+            -0.030234148602328655,
+            -0.024312729393706742
+          ],
+          "probability_delta_auc_gt_0": 1.0,
+          "probability_delta_pr_auc_gt_0": 1.0,
+          "probability_delta_brier_lt_0": 1.0,
+          "delta_auc_interpretation": "positive_bootstrap_support",
+          "delta_pr_auc_interpretation": "positive_bootstrap_support",
+          "delta_brier_interpretation": "positive_bootstrap_support",
+          "n_rows_after_filter": 13816
+        },
+        "lt_0.50": {
+          "n_bootstrap_requested": 1000,
+          "n_bootstrap_successful": 1000,
+          "n_bootstrap_skipped": 0,
+          "available": true,
+          "auc_baseline": {
+            "mean": 0.8704187220685503,
+            "std": 0.007160103365695451,
+            "p2_5": 0.8560452102774585,
+            "p50": 0.8704986320625819,
+            "p97_5": 0.8838105612366034
+          },
+          "auc_thermal": {
+            "mean": 0.9144246895098718,
+            "std": 0.006122369212679484,
+            "p2_5": 0.9019603446834488,
+            "p50": 0.9144486443759199,
+            "p97_5": 0.9258005155330732
+          },
+          "delta_auc": {
+            "mean": 0.04400596744132146,
+            "std": 0.00486186254097408,
+            "p2_5": 0.03495657263572501,
+            "p50": 0.043767059494986826,
+            "p97_5": 0.053836259565713175
+          },
+          "pr_auc_baseline": {
+            "mean": 0.2899449391091823,
+            "std": 0.021712021136577612,
+            "p2_5": 0.24843879136743266,
+            "p50": 0.2893768997210983,
+            "p97_5": 0.33423321726837096
+          },
+          "pr_auc_thermal": {
+            "mean": 0.440864194706244,
+            "std": 0.026604738578951386,
+            "p2_5": 0.387094108892922,
+            "p50": 0.4408928894418711,
+            "p97_5": 0.4933691252513663
+          },
+          "delta_pr_auc": {
+            "mean": 0.15091925559706165,
+            "std": 0.019521974071747307,
+            "p2_5": 0.11183102569220449,
+            "p50": 0.15061258295974433,
+            "p97_5": 0.18938881443884756
+          },
+          "brier_baseline": {
+            "mean": 0.08543512511848078,
+            "std": 0.0022062321345679746,
+            "p2_5": 0.08122194534490512,
+            "p50": 0.08544788431342272,
+            "p97_5": 0.08972359693871639
+          },
+          "brier_thermal": {
+            "mean": 0.057856743243362145,
+            "std": 0.0018548799880228053,
+            "p2_5": 0.054408786965320255,
+            "p50": 0.05782770973304904,
+            "p97_5": 0.061808906734795076
+          },
+          "delta_brier": {
+            "mean": -0.02757838187511862,
+            "std": 0.0015202151755031833,
+            "p2_5": -0.030660880543930017,
+            "p50": -0.02753985123076515,
+            "p97_5": -0.024656612008617584
+          },
+          "delta_auc_ci95": [
+            0.03495657263572501,
+            0.053836259565713175
+          ],
+          "delta_pr_auc_ci95": [
+            0.11183102569220449,
+            0.18938881443884756
+          ],
+          "delta_brier_ci95": [
+            -0.030660880543930017,
+            -0.024656612008617584
+          ],
+          "probability_delta_auc_gt_0": 1.0,
+          "probability_delta_pr_auc_gt_0": 1.0,
+          "probability_delta_brier_lt_0": 1.0,
+          "delta_auc_interpretation": "positive_bootstrap_support",
+          "delta_pr_auc_interpretation": "positive_bootstrap_support",
+          "delta_brier_interpretation": "positive_bootstrap_support",
+          "n_rows_after_filter": 14294
+        }
+      }
+    },
+    "warnings": [
+      "all_valid: October burn_month positives are low (n=0 < 10); monthly October bootstrap CI unavailable.",
+      "burnable_tree_shrub_grass: October burn_month positives are low (n=0 < 10); monthly October bootstrap CI unavailable.",
+      "burnable_tree_shrub: October burn_month positives are low (n=0 < 10); monthly October bootstrap CI unavailable."
+    ],
+    "no_model_trained": true,
+    "no_firms_label_used": true,
+    "no_30m_pixel_samples": true,
+    "bootstrap_unit": "spatial_block_id",
+    "wording_note": "No classical p-value or formal statistical significance is reported. Interpretation labels ('positive_bootstrap_support', 'uncertain', 'negative_bootstrap_support') describe whether the 95% bootstrap percentile interval excludes zero, not a hypothesis-test result.",
+    "experiment_id": "bejis_2022",
+    "region_key": "bejis_aoi",
+    "role": "mediterranean_transfer_wildfire",
+    "predictor_window": [
+      "2022-06-15",
+      "2022-08-14"
+    ],
+    "label_window": [
+      "2022-08-15",
+      "2022-09-30"
+    ],
+    "baseline_years": [
+      2018,
+      2019,
+      2020,
+      2021
+    ]
+  },
+  "step8d_thermal_ablation": {
+    "created_at": "2026-07-10T22:17:07.231066+00:00",
+    "step": "step8d_thermal_feature_ablation",
+    "input_dataset_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8a/step8a_500m_modeling_dataset.parquet",
+    "row_count": 15759,
+    "target_counts": {
+      "burned": 1103,
+      "unburned": 14656
+    },
+    "feature_groups": {
+      "baseline": [
+        "ndvi_mean",
+        "elevation_mean",
+        "slope_mean",
+        "landcover_dominant"
+      ],
+      "lst_anomaly_only": [
+        "lst_anomaly_mean"
+      ],
+      "current_lst_only": [
+        "current_lst_mean"
+      ],
+      "tvdi_only": [
+        "current_tvdi_mean"
+      ],
+      "tvdi_difference_only": [
+        "tvdi_difference_mean"
+      ],
+      "downscaled_only": [
+        "downscaled_lst_mean"
+      ],
+      "fused_lst_only": [
+        "fused_lst_mean"
+      ],
+      "lst_anomaly_group": [
+        "lst_anomaly_mean",
+        "current_lst_mean"
+      ],
+      "tvdi_group": [
+        "current_tvdi_mean",
+        "tvdi_difference_mean"
+      ],
+      "fused_downscaled_group": [
+        "downscaled_lst_mean",
+        "fused_lst_mean"
+      ],
+      "all_thermal": [
+        "lst_anomaly_mean",
+        "current_lst_mean",
+        "current_tvdi_mean",
+        "tvdi_difference_mean",
+        "downscaled_lst_mean",
+        "fused_lst_mean"
+      ]
+    },
+    "forbidden_columns_checked": [
+      "burned",
+      "burn_date",
+      "burn_month",
+      "burn_day_of_year",
+      "label_source",
+      "cell_id",
+      "row_500m",
+      "col_500m",
+      "valid_for_modeling",
+      "invalid_reason",
+      "burn_date_pixel_agreement_fraction",
+      "out_of_window_burndate",
+      "lon",
+      "lat",
+      "spatial_block_id",
+      "fold_id",
+      "source_mask_majority",
+      "observed_fraction",
+      "gapfilled_fraction",
+      "invalid_source_fraction",
+      "valid_30m_fraction"
+    ],
+    "spatial_cv_config": {
+      "method": "StratifiedGroupKFold",
+      "groups": "spatial_block_id (row_500m // block, col_500m // block)",
+      "spatial_block_size_cells": 2,
+      "n_splits_requested": 5,
+      "random_split_used": false,
+      "random_state": 42
+    },
+    "model": "random_forest",
+    "n_estimators": 300,
+    "population_counts": {
+      "all_valid": 15759,
+      "cropland_dominant": 645,
+      "burnable_tree_shrub_grass": 15190,
+      "burnable_tree_shrub": 12903
+    },
+    "skipped_populations": {
+      "cropland_dominant": "insufficient_positives_or_negatives (positives=10, negatives=635, min_required=30)"
+    },
+    "model_metrics_by_population": {
+      "all_valid": {
+        "baseline": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.868830745693563,
+            "pr_auc": 0.30925902451498816,
+            "brier_score": 0.08915966005493263,
+            "balanced_accuracy": 0.7381357091813909,
+            "precision": 0.2844600526777875,
+            "recall": 0.5874886672710788,
+            "f1": 0.38331854480922806
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.868830745693563,
+              "pr_auc": 0.30925902451498816
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "lst_anomaly_only": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.8874364946533275,
+            "pr_auc": 0.3865844212603396,
+            "brier_score": 0.0787730916981162,
+            "balanced_accuracy": 0.7631104270508775,
+            "precision": 0.333822091886608,
+            "recall": 0.6192203082502267,
+            "f1": 0.43378850428707527
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.8874364946533275,
+              "pr_auc": 0.3865844212603396
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "current_lst_only": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.8882821500611671,
+            "pr_auc": 0.39910584408862876,
+            "brier_score": 0.07761425448116727,
+            "balanced_accuracy": 0.753873263222177,
+            "precision": 0.33972035214914553,
+            "recall": 0.5947416137805984,
+            "f1": 0.43243243243243246
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.8882821500611671,
+              "pr_auc": 0.39910584408862876
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_only": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.8932180421993213,
+            "pr_auc": 0.4032347373122107,
+            "brier_score": 0.07668779687312481,
+            "balanced_accuracy": 0.7534297588553647,
+            "precision": 0.3374485596707819,
+            "recall": 0.5947416137805984,
+            "f1": 0.4305874630784378
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.8932180421993213,
+              "pr_auc": 0.4032347373122107
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_difference_only": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.8798258434222663,
+            "pr_auc": 0.353345243033236,
+            "brier_score": 0.08070087681647198,
+            "balanced_accuracy": 0.747546946695594,
+            "precision": 0.3183374083129584,
+            "recall": 0.5902085222121487,
+            "f1": 0.4135959339263024
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.8798258434222663,
+              "pr_auc": 0.353345243033236
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "downscaled_only": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.9039262956921773,
+            "pr_auc": 0.43768072923905377,
+            "brier_score": 0.07313892089247705,
+            "balanced_accuracy": 0.7716593688511286,
+            "precision": 0.3596673596673597,
+            "recall": 0.6273798730734361,
+            "f1": 0.4572183680211431
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.9039262956921773,
+              "pr_auc": 0.43768072923905377
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "fused_lst_only": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.8954956299710595,
+            "pr_auc": 0.4124782300180757,
+            "brier_score": 0.07614204641785913,
+            "balanced_accuracy": 0.766078494736467,
+            "precision": 0.3486472690148035,
+            "recall": 0.6192203082502267,
+            "f1": 0.44611365120836055
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.8954956299710595,
+              "pr_auc": 0.4124782300180757
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "lst_anomaly_group": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.8993421078677841,
+            "pr_auc": 0.432127145066355,
+            "brier_score": 0.07181018009978844,
+            "balanced_accuracy": 0.7696602433023076,
+            "precision": 0.38540478905359177,
+            "recall": 0.6128739800543971,
+            "f1": 0.47322366118305914
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.8993421078677841,
+              "pr_auc": 0.432127145066355
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_group": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.9031854927708076,
+            "pr_auc": 0.44373885455144724,
+            "brier_score": 0.07005789783221676,
+            "balanced_accuracy": 0.7606524868164237,
+            "precision": 0.38125727590221187,
+            "recall": 0.5938349954669084,
+            "f1": 0.4643743353420773
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.9031854927708076,
+              "pr_auc": 0.44373885455144724
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "fused_downscaled_group": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.9046224048545649,
+            "pr_auc": 0.44663955511056286,
+            "brier_score": 0.07137889333646114,
+            "balanced_accuracy": 0.7649032499198296,
+            "precision": 0.36827661909989023,
+            "recall": 0.6083408884859474,
+            "f1": 0.4588034188034188
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.9046224048545649,
+              "pr_auc": 0.44663955511056286
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "all_thermal": {
+          "overall": {
+            "positive_count": 1103,
+            "negative_count": 14656,
+            "roc_auc": 0.9170545693167105,
+            "pr_auc": 0.48697468873386673,
+            "brier_score": 0.061660856930534726,
+            "balanced_accuracy": 0.7669882060438582,
+            "precision": 0.4308300395256917,
+            "recall": 0.5929283771532184,
+            "f1": 0.49904616558565434
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1103,
+              "negative_count": 14656,
+              "roc_auc": 0.9170545693167105,
+              "pr_auc": 0.48697468873386673
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14656,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        }
+      },
+      "burnable_tree_shrub_grass": {
+        "baseline": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.8616776566230079,
+            "pr_auc": 0.3027735748414686,
+            "brier_score": 0.09190976069961188,
+            "balanced_accuracy": 0.7328098587005614,
+            "precision": 0.28622862286228623,
+            "recall": 0.5781818181818181,
+            "f1": 0.38290186634557494
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.8616776566230079,
+              "pr_auc": 0.3027735748414686
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "lst_anomaly_only": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.8849057358539261,
+            "pr_auc": 0.37471098928569185,
+            "brier_score": 0.08113800112382963,
+            "balanced_accuracy": 0.7499696754629331,
+            "precision": 0.3291394061399094,
+            "recall": 0.5945454545454546,
+            "f1": 0.423712342079689
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.8849057358539261,
+              "pr_auc": 0.37471098928569185
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "current_lst_only": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.8869753532485967,
+            "pr_auc": 0.39226970145079365,
+            "brier_score": 0.0798378960359584,
+            "balanced_accuracy": 0.7469704497064327,
+            "precision": 0.33879492600422834,
+            "recall": 0.5827272727272728,
+            "f1": 0.428475935828877
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.8869753532485967,
+              "pr_auc": 0.39226970145079365
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_only": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.8875685528098587,
+            "pr_auc": 0.3917298277637445,
+            "brier_score": 0.08029512207717013,
+            "balanced_accuracy": 0.7489812245951352,
+            "precision": 0.33540372670807456,
+            "recall": 0.5890909090909091,
+            "f1": 0.42744063324538256
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.8875685528098587,
+              "pr_auc": 0.3917298277637445
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_difference_only": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.877856700432286,
+            "pr_auc": 0.35374253090709756,
+            "brier_score": 0.08286418990285943,
+            "balanced_accuracy": 0.7379385766823666,
+            "precision": 0.31926792069140825,
+            "recall": 0.5709090909090909,
+            "f1": 0.40952070427127485
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.877856700432286,
+              "pr_auc": 0.35374253090709756
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "downscaled_only": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.9014956448803148,
+            "pr_auc": 0.4447091788767987,
+            "brier_score": 0.07508511614969426,
+            "balanced_accuracy": 0.7600374217691463,
+            "precision": 0.3563402889245586,
+            "recall": 0.6054545454545455,
+            "f1": 0.44863590434489725
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.9014956448803148,
+              "pr_auc": 0.4447091788767987
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "fused_lst_only": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.8904731272985353,
+            "pr_auc": 0.403123574260385,
+            "brier_score": 0.07869159009311745,
+            "balanced_accuracy": 0.7536753984128008,
+            "precision": 0.3414760914760915,
+            "recall": 0.5972727272727273,
+            "f1": 0.43452380952380953
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.8904731272985353,
+              "pr_auc": 0.403123574260385
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "lst_anomaly_group": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.9003893154397058,
+            "pr_auc": 0.4317754146045991,
+            "brier_score": 0.07343097720200266,
+            "balanced_accuracy": 0.7635286147493386,
+            "precision": 0.38095238095238093,
+            "recall": 0.6036363636363636,
+            "f1": 0.46711220541681325
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.9003893154397058,
+              "pr_auc": 0.4317754146045991
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_group": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.8995440996193302,
+            "pr_auc": 0.4366270822942942,
+            "brier_score": 0.0726673380776376,
+            "balanced_accuracy": 0.7593515710691012,
+            "precision": 0.3846607669616519,
+            "recall": 0.5927272727272728,
+            "f1": 0.4665474060822898
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.8995440996193302,
+              "pr_auc": 0.4366270822942942
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "fused_downscaled_group": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.9017826311374927,
+            "pr_auc": 0.44508639199852346,
+            "brier_score": 0.0731964061841641,
+            "balanced_accuracy": 0.7592754371249758,
+            "precision": 0.36966292134831463,
+            "recall": 0.5981818181818181,
+            "f1": 0.45694444444444443
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.9017826311374927,
+              "pr_auc": 0.44508639199852346
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "all_thermal": {
+          "overall": {
+            "positive_count": 1100,
+            "negative_count": 14090,
+            "roc_auc": 0.9178110845861024,
+            "pr_auc": 0.49780780629444993,
+            "brier_score": 0.06278801735974437,
+            "balanced_accuracy": 0.7663204077682431,
+            "precision": 0.4418762746430999,
+            "recall": 0.5909090909090909,
+            "f1": 0.5056398288603656
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1100,
+              "negative_count": 14090,
+              "roc_auc": 0.9178110845861024,
+              "pr_auc": 0.49780780629444993
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 14090,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        }
+      },
+      "burnable_tree_shrub": {
+        "baseline": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.8609550405881312,
+            "pr_auc": 0.3243072681392189,
+            "brier_score": 0.09930861050273956,
+            "balanced_accuracy": 0.7454239175790915,
+            "precision": 0.29674418604651165,
+            "recall": 0.6182170542635659,
+            "f1": 0.4010056568196103
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.8609550405881312,
+              "pr_auc": 0.3243072681392189
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "lst_anomaly_only": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.8831186057612879,
+            "pr_auc": 0.39690911977408866,
+            "brier_score": 0.08810379477044095,
+            "balanced_accuracy": 0.7603982394069582,
+            "precision": 0.3427205100956429,
+            "recall": 0.625,
+            "f1": 0.4426904598490048
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.8831186057612879,
+              "pr_auc": 0.39690911977408866
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "current_lst_only": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.8861394519508488,
+            "pr_auc": 0.4148967552745412,
+            "brier_score": 0.08676869628772994,
+            "balanced_accuracy": 0.7629256513332275,
+            "precision": 0.3502977801840823,
+            "recall": 0.626937984496124,
+            "f1": 0.44946161861757555
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.8861394519508488,
+              "pr_auc": 0.4148967552745412
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_only": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.8871438702485832,
+            "pr_auc": 0.42103308729639133,
+            "brier_score": 0.08663776335969287,
+            "balanced_accuracy": 0.7677708574540654,
+            "precision": 0.35015940488841657,
+            "recall": 0.6385658914728682,
+            "f1": 0.45229924502402197
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.8871438702485832,
+              "pr_auc": 0.42103308729639133
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_difference_only": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.8745983551211702,
+            "pr_auc": 0.36315184202694206,
+            "brier_score": 0.09046854499362314,
+            "balanced_accuracy": 0.7523310177430635,
+            "precision": 0.3274793388429752,
+            "recall": 0.6143410852713178,
+            "f1": 0.4272237196765499
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.8745983551211702,
+              "pr_auc": 0.36315184202694206
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "downscaled_only": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.9028030820989723,
+            "pr_auc": 0.4640900538609541,
+            "brier_score": 0.08100755950487454,
+            "balanced_accuracy": 0.7756272369836205,
+            "precision": 0.3694690265486726,
+            "recall": 0.6472868217054264,
+            "f1": 0.4704225352112676
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.9028030820989723,
+              "pr_auc": 0.4640900538609541
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "fused_lst_only": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.8917089330457456,
+            "pr_auc": 0.432393113460781,
+            "brier_score": 0.08524874414205136,
+            "balanced_accuracy": 0.7627992929809404,
+            "precision": 0.3497297297297297,
+            "recall": 0.626937984496124,
+            "f1": 0.4489937543372658
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.8917089330457456,
+              "pr_auc": 0.432393113460781
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "lst_anomaly_group": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.9004705950727425,
+            "pr_auc": 0.45037083829879676,
+            "brier_score": 0.0796943410009315,
+            "balanced_accuracy": 0.7845366027822347,
+            "precision": 0.39613809245172615,
+            "recall": 0.6560077519379846,
+            "f1": 0.4939802991608902
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.9004705950727425,
+              "pr_auc": 0.45037083829879676
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "tvdi_group": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.8980483185196939,
+            "pr_auc": 0.45100099408015426,
+            "brier_score": 0.07926588468609645,
+            "balanced_accuracy": 0.7701490146987088,
+            "precision": 0.38845460012026456,
+            "recall": 0.625968992248062,
+            "f1": 0.47940630797773653
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.8980483185196939,
+              "pr_auc": 0.45100099408015426
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "fused_downscaled_group": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.9037518308900787,
+            "pr_auc": 0.46739545835710966,
+            "brier_score": 0.07887941473030352,
+            "balanced_accuracy": 0.7741730139699443,
+            "precision": 0.3809248554913295,
+            "recall": 0.6385658914728682,
+            "f1": 0.47719044170890657
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.9037518308900787,
+              "pr_auc": 0.46739545835710966
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        },
+        "all_thermal": {
+          "overall": {
+            "positive_count": 1032,
+            "negative_count": 11871,
+            "roc_auc": 0.9169924393953346,
+            "pr_auc": 0.5060934019003923,
+            "brier_score": 0.06817920320657733,
+            "balanced_accuracy": 0.7789940993588048,
+            "precision": 0.44459738472126636,
+            "recall": 0.625968992248062,
+            "f1": 0.5199195171026157
+          },
+          "monthly": {
+            "august": {
+              "positive_count": 1032,
+              "negative_count": 11871,
+              "roc_auc": 0.9169924393953346,
+              "pr_auc": 0.5060934019003923
+            },
+            "september": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            },
+            "october": {
+              "positive_count": 0,
+              "negative_count": 11871,
+              "roc_auc": null,
+              "pr_auc": null,
+              "warning": "positives (0) < min_month_positives (10)"
+            }
+          },
+          "n_splits_used": 5
+        }
+      }
+    },
+    "ablation_delta_metrics_by_population": {
+      "all_valid": {
+        "lst_anomaly_only": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.8874364946533275,
+          "delta_auc": 0.018605748959764523,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.3865844212603396,
+          "delta_pr_auc": 0.07732539674535144,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.0787730916981162,
+          "delta_brier": -0.010386568356816436,
+          "rank_by_delta_pr_auc": 9,
+          "rank_by_delta_auc": 9
+        },
+        "current_lst_only": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.8882821500611671,
+          "delta_auc": 0.019451404367604064,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.39910584408862876,
+          "delta_pr_auc": 0.0898468195736406,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.07761425448116727,
+          "delta_brier": -0.011545405573765363,
+          "rank_by_delta_pr_auc": 8,
+          "rank_by_delta_auc": 8
+        },
+        "tvdi_only": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.8932180421993213,
+          "delta_auc": 0.024387296505758327,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.4032347373122107,
+          "delta_pr_auc": 0.09397571279722255,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.07668779687312481,
+          "delta_brier": -0.012471863181807818,
+          "rank_by_delta_pr_auc": 7,
+          "rank_by_delta_auc": 7
+        },
+        "tvdi_difference_only": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.8798258434222663,
+          "delta_auc": 0.010995097728703329,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.353345243033236,
+          "delta_pr_auc": 0.044086218518247844,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.08070087681647198,
+          "delta_brier": -0.008458783238460651,
+          "rank_by_delta_pr_auc": 10,
+          "rank_by_delta_auc": 10
+        },
+        "downscaled_only": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.9039262956921773,
+          "delta_auc": 0.035095549998614306,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.43768072923905377,
+          "delta_pr_auc": 0.1284217047240656,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.07313892089247705,
+          "delta_brier": -0.016020739162455583,
+          "rank_by_delta_pr_auc": 4,
+          "rank_by_delta_auc": 3
+        },
+        "fused_lst_only": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.8954956299710595,
+          "delta_auc": 0.02666488427749647,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.4124782300180757,
+          "delta_pr_auc": 0.10321920550308755,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.07614204641785913,
+          "delta_brier": -0.013017613637073502,
+          "rank_by_delta_pr_auc": 6,
+          "rank_by_delta_auc": 6
+        },
+        "lst_anomaly_group": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.8993421078677841,
+          "delta_auc": 0.030511362174221124,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.432127145066355,
+          "delta_pr_auc": 0.12286812055136687,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.07181018009978844,
+          "delta_brier": -0.017349479955144187,
+          "rank_by_delta_pr_auc": 5,
+          "rank_by_delta_auc": 5
+        },
+        "tvdi_group": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.9031854927708076,
+          "delta_auc": 0.03435474707724462,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.44373885455144724,
+          "delta_pr_auc": 0.13447983003645908,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.07005789783221676,
+          "delta_brier": -0.019101762222715868,
+          "rank_by_delta_pr_auc": 3,
+          "rank_by_delta_auc": 4
+        },
+        "fused_downscaled_group": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.9046224048545649,
+          "delta_auc": 0.03579165916100191,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.44663955511056286,
+          "delta_pr_auc": 0.1373805305955747,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.07137889333646114,
+          "delta_brier": -0.017780766718471494,
+          "rank_by_delta_pr_auc": 2,
+          "rank_by_delta_auc": 2
+        },
+        "all_thermal": {
+          "auc_baseline": 0.868830745693563,
+          "auc_ablation": 0.9170545693167105,
+          "delta_auc": 0.04822382362314748,
+          "pr_auc_baseline": 0.30925902451498816,
+          "pr_auc_ablation": 0.48697468873386673,
+          "delta_pr_auc": 0.17771566421887858,
+          "brier_baseline": 0.08915966005493263,
+          "brier_ablation": 0.061660856930534726,
+          "delta_brier": -0.027498803124397904,
+          "rank_by_delta_pr_auc": 1,
+          "rank_by_delta_auc": 1
+        }
+      },
+      "burnable_tree_shrub_grass": {
+        "lst_anomaly_only": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.8849057358539261,
+          "delta_auc": 0.023228079230918186,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.37471098928569185,
+          "delta_pr_auc": 0.07193741444422325,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.08113800112382963,
+          "delta_brier": -0.010771759575782247,
+          "rank_by_delta_pr_auc": 9,
+          "rank_by_delta_auc": 9
+        },
+        "current_lst_only": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.8869753532485967,
+          "delta_auc": 0.025297696625588784,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.39226970145079365,
+          "delta_pr_auc": 0.08949612660932504,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.0798378960359584,
+          "delta_brier": -0.012071864663653481,
+          "rank_by_delta_pr_auc": 7,
+          "rank_by_delta_auc": 8
+        },
+        "tvdi_only": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.8875685528098587,
+          "delta_auc": 0.02589089618685081,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.3917298277637445,
+          "delta_pr_auc": 0.08895625292227588,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.08029512207717013,
+          "delta_brier": -0.011614638622441747,
+          "rank_by_delta_pr_auc": 8,
+          "rank_by_delta_auc": 7
+        },
+        "tvdi_difference_only": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.877856700432286,
+          "delta_auc": 0.01617904380927815,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.35374253090709756,
+          "delta_pr_auc": 0.050968956065628956,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.08286418990285943,
+          "delta_brier": -0.009045570796752445,
+          "rank_by_delta_pr_auc": 10,
+          "rank_by_delta_auc": 10
+        },
+        "downscaled_only": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.9014956448803148,
+          "delta_auc": 0.03981798825730687,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.4447091788767987,
+          "delta_pr_auc": 0.14193560403533012,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.07508511614969426,
+          "delta_brier": -0.01682464454991761,
+          "rank_by_delta_pr_auc": 3,
+          "rank_by_delta_auc": 3
+        },
+        "fused_lst_only": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.8904731272985353,
+          "delta_auc": 0.028795470675527457,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.403123574260385,
+          "delta_pr_auc": 0.10034999941891637,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.07869159009311745,
+          "delta_brier": -0.013218170606494425,
+          "rank_by_delta_pr_auc": 6,
+          "rank_by_delta_auc": 6
+        },
+        "lst_anomaly_group": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.9003893154397058,
+          "delta_auc": 0.038711658816697914,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.4317754146045991,
+          "delta_pr_auc": 0.1290018397631305,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.07343097720200266,
+          "delta_brier": -0.018478783497609216,
+          "rank_by_delta_pr_auc": 5,
+          "rank_by_delta_auc": 4
+        },
+        "tvdi_group": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.8995440996193302,
+          "delta_auc": 0.03786644299632236,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.4366270822942942,
+          "delta_pr_auc": 0.1338535074528256,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.0726673380776376,
+          "delta_brier": -0.019242422621974273,
+          "rank_by_delta_pr_auc": 4,
+          "rank_by_delta_auc": 5
+        },
+        "fused_downscaled_group": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.9017826311374927,
+          "delta_auc": 0.040104974514484804,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.44508639199852346,
+          "delta_pr_auc": 0.14231281715705485,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.0731964061841641,
+          "delta_brier": -0.01871335451544777,
+          "rank_by_delta_pr_auc": 2,
+          "rank_by_delta_auc": 2
+        },
+        "all_thermal": {
+          "auc_baseline": 0.8616776566230079,
+          "auc_ablation": 0.9178110845861024,
+          "delta_auc": 0.05613342796309451,
+          "pr_auc_baseline": 0.3027735748414686,
+          "pr_auc_ablation": 0.49780780629444993,
+          "delta_pr_auc": 0.19503423145298132,
+          "brier_baseline": 0.09190976069961188,
+          "brier_ablation": 0.06278801735974437,
+          "delta_brier": -0.0291217433398675,
+          "rank_by_delta_pr_auc": 1,
+          "rank_by_delta_auc": 1
+        }
+      },
+      "burnable_tree_shrub": {
+        "lst_anomaly_only": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.8831186057612879,
+          "delta_auc": 0.022163565173156652,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.39690911977408866,
+          "delta_pr_auc": 0.07260185163486976,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.08810379477044095,
+          "delta_brier": -0.011204815732298617,
+          "rank_by_delta_pr_auc": 9,
+          "rank_by_delta_auc": 9
+        },
+        "current_lst_only": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.8861394519508488,
+          "delta_auc": 0.02518441136271754,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.4148967552745412,
+          "delta_pr_auc": 0.09058948713532228,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.08676869628772994,
+          "delta_brier": -0.01253991421500962,
+          "rank_by_delta_pr_auc": 8,
+          "rank_by_delta_auc": 8
+        },
+        "tvdi_only": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.8871438702485832,
+          "delta_auc": 0.026188829660451995,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.42103308729639133,
+          "delta_pr_auc": 0.09672581915717243,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.08663776335969287,
+          "delta_brier": -0.012670847143046698,
+          "rank_by_delta_pr_auc": 7,
+          "rank_by_delta_auc": 7
+        },
+        "tvdi_difference_only": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.8745983551211702,
+          "delta_auc": 0.01364331453303902,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.36315184202694206,
+          "delta_pr_auc": 0.038844573887723166,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.09046854499362314,
+          "delta_brier": -0.008840065509116424,
+          "rank_by_delta_pr_auc": 10,
+          "rank_by_delta_auc": 10
+        },
+        "downscaled_only": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.9028030820989723,
+          "delta_auc": 0.041848041510841094,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.4640900538609541,
+          "delta_pr_auc": 0.1397827857217352,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.08100755950487454,
+          "delta_brier": -0.018301050997865026,
+          "rank_by_delta_pr_auc": 3,
+          "rank_by_delta_auc": 3
+        },
+        "fused_lst_only": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.8917089330457456,
+          "delta_auc": 0.030753892457614396,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.432393113460781,
+          "delta_pr_auc": 0.10808584532156212,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.08524874414205136,
+          "delta_brier": -0.014059866360688206,
+          "rank_by_delta_pr_auc": 6,
+          "rank_by_delta_auc": 6
+        },
+        "lst_anomaly_group": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.9004705950727425,
+          "delta_auc": 0.039515554484611304,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.45037083829879676,
+          "delta_pr_auc": 0.12606357015957786,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.0796943410009315,
+          "delta_brier": -0.019614269501808057,
+          "rank_by_delta_pr_auc": 5,
+          "rank_by_delta_auc": 4
+        },
+        "tvdi_group": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.8980483185196939,
+          "delta_auc": 0.037093277931562696,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.45100099408015426,
+          "delta_pr_auc": 0.12669372594093536,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.07926588468609645,
+          "delta_brier": -0.02004272581664311,
+          "rank_by_delta_pr_auc": 4,
+          "rank_by_delta_auc": 5
+        },
+        "fused_downscaled_group": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.9037518308900787,
+          "delta_auc": 0.042796790301947496,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.46739545835710966,
+          "delta_pr_auc": 0.14308819021789076,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.07887941473030352,
+          "delta_brier": -0.020429195772436043,
+          "rank_by_delta_pr_auc": 2,
+          "rank_by_delta_auc": 2
+        },
+        "all_thermal": {
+          "auc_baseline": 0.8609550405881312,
+          "auc_ablation": 0.9169924393953346,
+          "delta_auc": 0.056037398807203376,
+          "pr_auc_baseline": 0.3243072681392189,
+          "pr_auc_ablation": 0.5060934019003923,
+          "delta_pr_auc": 0.18178613376117342,
+          "brier_baseline": 0.09930861050273956,
+          "brier_ablation": 0.06817920320657733,
+          "delta_brier": -0.03112940729616223,
+          "rank_by_delta_pr_auc": 1,
+          "rank_by_delta_auc": 1
+        }
+      }
+    },
+    "ablation_rankings_by_population": {
+      "all_valid": [
+        "all_thermal",
+        "fused_downscaled_group",
+        "tvdi_group",
+        "downscaled_only",
+        "lst_anomaly_group",
+        "fused_lst_only",
+        "tvdi_only",
+        "current_lst_only",
+        "lst_anomaly_only",
+        "tvdi_difference_only"
+      ],
+      "burnable_tree_shrub_grass": [
+        "all_thermal",
+        "fused_downscaled_group",
+        "downscaled_only",
+        "tvdi_group",
+        "lst_anomaly_group",
+        "fused_lst_only",
+        "current_lst_only",
+        "tvdi_only",
+        "lst_anomaly_only",
+        "tvdi_difference_only"
+      ],
+      "burnable_tree_shrub": [
+        "all_thermal",
+        "fused_downscaled_group",
+        "downscaled_only",
+        "tvdi_group",
+        "lst_anomaly_group",
+        "fused_lst_only",
+        "tvdi_only",
+        "current_lst_only",
+        "lst_anomaly_only",
+        "tvdi_difference_only"
+      ]
+    },
+    "monthly_ablation_metrics": {
+      "all_valid": {
+        "lst_anomaly_only": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.018605748959764523,
+            "delta_pr_auc": 0.07732539674535144
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "current_lst_only": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.019451404367604064,
+            "delta_pr_auc": 0.0898468195736406
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_only": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.024387296505758327,
+            "delta_pr_auc": 0.09397571279722255
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_difference_only": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.010995097728703329,
+            "delta_pr_auc": 0.044086218518247844
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "downscaled_only": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.035095549998614306,
+            "delta_pr_auc": 0.1284217047240656
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "fused_lst_only": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.02666488427749647,
+            "delta_pr_auc": 0.10321920550308755
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "lst_anomaly_group": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.030511362174221124,
+            "delta_pr_auc": 0.12286812055136687
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_group": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.03435474707724462,
+            "delta_pr_auc": 0.13447983003645908
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "fused_downscaled_group": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.03579165916100191,
+            "delta_pr_auc": 0.1373805305955747
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "all_thermal": {
+          "august": {
+            "positive_count": 1103,
+            "delta_auc": 0.04822382362314748,
+            "delta_pr_auc": 0.17771566421887858
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        }
+      },
+      "burnable_tree_shrub_grass": {
+        "lst_anomaly_only": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.023228079230918186,
+            "delta_pr_auc": 0.07193741444422325
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "current_lst_only": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.025297696625588784,
+            "delta_pr_auc": 0.08949612660932504
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_only": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.02589089618685081,
+            "delta_pr_auc": 0.08895625292227588
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_difference_only": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.01617904380927815,
+            "delta_pr_auc": 0.050968956065628956
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "downscaled_only": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.03981798825730687,
+            "delta_pr_auc": 0.14193560403533012
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "fused_lst_only": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.028795470675527457,
+            "delta_pr_auc": 0.10034999941891637
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "lst_anomaly_group": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.038711658816697914,
+            "delta_pr_auc": 0.1290018397631305
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_group": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.03786644299632236,
+            "delta_pr_auc": 0.1338535074528256
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "fused_downscaled_group": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.040104974514484804,
+            "delta_pr_auc": 0.14231281715705485
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "all_thermal": {
+          "august": {
+            "positive_count": 1100,
+            "delta_auc": 0.05613342796309451,
+            "delta_pr_auc": 0.19503423145298132
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        }
+      },
+      "burnable_tree_shrub": {
+        "lst_anomaly_only": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.022163565173156652,
+            "delta_pr_auc": 0.07260185163486976
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "current_lst_only": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.02518441136271754,
+            "delta_pr_auc": 0.09058948713532228
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_only": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.026188829660451995,
+            "delta_pr_auc": 0.09672581915717243
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_difference_only": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.01364331453303902,
+            "delta_pr_auc": 0.038844573887723166
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "downscaled_only": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.041848041510841094,
+            "delta_pr_auc": 0.1397827857217352
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "fused_lst_only": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.030753892457614396,
+            "delta_pr_auc": 0.10808584532156212
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "lst_anomaly_group": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.039515554484611304,
+            "delta_pr_auc": 0.12606357015957786
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "tvdi_group": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.037093277931562696,
+            "delta_pr_auc": 0.12669372594093536
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "fused_downscaled_group": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.042796790301947496,
+            "delta_pr_auc": 0.14308819021789076
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        },
+        "all_thermal": {
+          "august": {
+            "positive_count": 1032,
+            "delta_auc": 0.056037398807203376,
+            "delta_pr_auc": 0.18178613376117342
+          },
+          "september": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          },
+          "october": {
+            "positive_count": 0,
+            "delta_auc": null,
+            "delta_pr_auc": null,
+            "warning": "positives (0) < min_month_positives (10)"
+          }
+        }
+      }
+    },
+    "optional_bootstrap_results": {},
+    "bootstrap_enabled": false,
+    "feature_missing_counts": {
+      "lst_anomaly_mean": 984,
+      "current_lst_mean": 532,
+      "current_tvdi_mean": 532,
+      "tvdi_difference_mean": 532,
+      "downscaled_lst_mean": 0,
+      "fused_lst_mean": 0
+    },
+    "warnings": [
+      "October burn_month positives are low (n=0 < 10); October ablation metrics may be null."
+    ],
+    "no_firms_label_used": true,
+    "no_30m_pixel_samples": true,
+    "label_source": "MCD64A1",
+    "results_are_point_estimates_unless_bootstrap": true,
+    "experiment_id": "bejis_2022",
+    "region_key": "bejis_aoi",
+    "role": "mediterranean_transfer_wildfire",
+    "predictor_window": [
+      "2022-06-15",
+      "2022-08-14"
+    ],
+    "label_window": [
+      "2022-08-15",
+      "2022-09-30"
+    ],
+    "baseline_years": [
+      2018,
+      2019,
+      2020,
+      2021
+    ]
+  },
+  "limitations": [
+    "Labels are MCD64A1 ~500 m native-grid cells, not 30 m pixels; no 30 m burned-area prediction is made or implied.",
+    "This is pre-fire/association modeling evaluated retrospectively on a single historical fire season, not real-time or operational fire detection.",
+    "Step7 fused LST (fused_lst_celsius.tif) is a predictor-window summary/fusion product (single-season MODIS context + observed Landsat, gap-filled with downscaled LST), not a daily operational MODIS downscaling/gap-filling product.",
+    "Burned labels (MCD64A1) are used only for this Step8 supervised evaluation; Step7's downscaling model never saw burned-area labels during training.",
+    "Delta metrics (delta_auc, delta_pr_auc) are reported with spatial-block bootstrap percentile intervals, not classical p-values; wording is limited to 'measurable improvement' / 'spatial-block-bootstrap-supported improvement', never 'statistically significant'."
+  ],
+  "claim_policy": {
+    "no_30m_burned_area_prediction_claim": true,
+    "no_operational_wildfire_prediction_claim": true,
+    "no_fire_detection_claim": true
+  },
+  "results_ran": {
+    "step8a": {
+      "csv_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8a/step8a_500m_modeling_dataset.csv",
+      "parquet_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8a/step8a_500m_modeling_dataset.parquet",
+      "stats_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8a/step8a_dataset_stats.json",
+      "summary_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8a/step8a_dataset_summary.md",
+      "row_count": 15759,
+      "valid_modeling_cells": 15759,
+      "experiment_id": "bejis_2022"
+    },
+    "step8b": {
+      "stats_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_model_comparison_metrics.json",
+      "summary_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_summary.md",
+      "predictions_csv": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_predictions.csv",
+      "predictions_parquet": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_predictions.parquet",
+      "fold_metrics_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_fold_metrics.csv",
+      "feature_importance_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_feature_importance.csv",
+      "delta_auc_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_delta_auc_by_population.csv",
+      "monthly_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8b/step8b_monthly_leadtime_metrics.csv",
+      "experiment_id": "bejis_2022"
+    },
+    "step8c": {
+      "stats_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8c/step8c_bootstrap_metrics.json",
+      "samples_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8c/step8c_bootstrap_samples.csv",
+      "summary_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8c/step8c_summary.md",
+      "roc_plot": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8c/step8c_delta_auc_distribution.png",
+      "pr_plot": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8c/step8c_delta_pr_auc_distribution.png",
+      "monthly_csv": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8c/step8c_monthly_bootstrap_metrics.csv",
+      "experiment_id": "bejis_2022"
+    },
+    "step8d": {
+      "stats_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_metrics.json",
+      "summary_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_summary.md",
+      "predictions_csv": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_predictions.csv",
+      "predictions_parquet": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_predictions.parquet",
+      "fold_metrics_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_fold_metrics.csv",
+      "feature_importance_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_feature_importance.csv",
+      "delta_auc_csv": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_delta_auc_by_population.csv",
+      "delta_pr_csv": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_delta_pr_auc_by_population.csv",
+      "barplot_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/bejis_2022/step8d/step8d_ablation_barplot.png",
+      "experiment_id": "bejis_2022"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "created_at": "2026-07-12T23:48:01.210005+00:00",
+  "step": "step10_run_c_concept_shift",
+  "regions": [
+    "manavgat_2021",
+    "bejis_2022"
+  ],
+  "features_analyzed": [
+    "ndvi_mean",
+    "elevation_mean",
+    "slope_mean",
+    "lst_anomaly_mean",
+    "current_lst_mean",
+    "current_tvdi_mean",
+    "tvdi_difference_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "per_region": {
+    "manavgat_2021": {
+      "n": 24087,
+      "burned": 796,
+      "features": {
+        "ndvi_mean": {
+          "auc": 0.6806380664647353,
+          "n_used": 24087,
+          "mean": 0.45979140700432464,
+          "std": 0.1630017133998981
+        },
+        "elevation_mean": {
+          "auc": 0.4529006125039348,
+          "n_used": 24087,
+          "mean": 753.7905970506202,
+          "std": 604.6284604006572
+        },
+        "slope_mean": {
+          "auc": 0.5915100490646095,
+          "n_used": 24087,
+          "mean": 16.052878075121836,
+          "std": 9.55084823499667
+        },
+        "lst_anomaly_mean": {
+          "auc": 0.4932453326464707,
+          "n_used": 22039,
+          "mean": -0.29509632974579136,
+          "std": 1.261708165481593
+        },
+        "current_lst_mean": {
+          "auc": 0.5478519243789588,
+          "n_used": 24012,
+          "mean": 35.28472878244665,
+          "std": 5.25358260549052
+        },
+        "current_tvdi_mean": {
+          "auc": 0.5603893671424236,
+          "n_used": 24010,
+          "mean": 0.48138551965245324,
+          "std": 0.26188161135022675
+        },
+        "tvdi_difference_mean": {
+          "auc": 0.4639397168955506,
+          "n_used": 24006,
+          "mean": -0.03792391991457776,
+          "std": 0.11038839070751157
+        },
+        "downscaled_lst_mean": {
+          "auc": 0.5596129826928641,
+          "n_used": 24087,
+          "mean": 35.27206851495041,
+          "std": 5.033940350131677
+        },
+        "fused_lst_mean": {
+          "auc": 0.549640645587648,
+          "n_used": 24087,
+          "mean": 35.2723319424675,
+          "std": 5.240998887586957
+        }
+      }
+    },
+    "bejis_2022": {
+      "n": 15759,
+      "burned": 1103,
+      "features": {
+        "ndvi_mean": {
+          "auc": 0.574128264469272,
+          "n_used": 15759,
+          "mean": 0.4755642633419809,
+          "std": 0.11010562774944423
+        },
+        "elevation_mean": {
+          "auc": 0.6410001801359532,
+          "n_used": 15759,
+          "mean": 841.4709931189687,
+          "std": 361.04569432091876
+        },
+        "slope_mean": {
+          "auc": 0.5360666881609109,
+          "n_used": 15759,
+          "mean": 13.53892326887901,
+          "std": 6.768487492854356
+        },
+        "lst_anomaly_mean": {
+          "auc": 0.4160465098850368,
+          "n_used": 14775,
+          "mean": 0.4365003632904088,
+          "std": 0.7021320037855261
+        },
+        "current_lst_mean": {
+          "auc": 0.46158044314554986,
+          "n_used": 15227,
+          "mean": 39.445955747094686,
+          "std": 3.479381564252097
+        },
+        "current_tvdi_mean": {
+          "auc": 0.5076442441582898,
+          "n_used": 15227,
+          "mean": 0.48706808297230303,
+          "std": 0.1963938150161776
+        },
+        "tvdi_difference_mean": {
+          "auc": 0.512087103203547,
+          "n_used": 15227,
+          "mean": 0.12148352203271877,
+          "std": 0.13292345653417592
+        },
+        "downscaled_lst_mean": {
+          "auc": 0.4681771157066674,
+          "n_used": 15759,
+          "mean": 39.39351471681206,
+          "std": 3.217071161712278
+        },
+        "fused_lst_mean": {
+          "auc": 0.4655090684100923,
+          "n_used": 15759,
+          "mean": 39.390431244169534,
+          "std": 3.4259367374406606
+        }
+      }
+    }
+  },
+  "reversal_features": [
+    "elevation_mean",
+    "current_lst_mean",
+    "tvdi_difference_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "n_reversals": 5,
+  "method": "Her feature icin burned'a karsi isaretli univariate ROC-AUC (max(auc,1-auc) YAPILMADI). Reversal: (auc_r0-0.5)*(auc_r1-0.5)<0, yani feature iki bolgede 0.5'in ters taraflarinda -> concept shift."
+}
