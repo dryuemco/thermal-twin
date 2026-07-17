@@ -21,6 +21,8 @@ from __future__ import annotations
 
 import numpy as np
 
+from config10 import CORAL_EIGVAL_FLOOR, CORAL_LAMBDA, CORAL_VARIANT
+
 
 def _standardize(x: np.ndarray) -> np.ndarray:
     """Kolon bazli z-score; std==0 olan kolon icin std=1 (bolme guvenligi)."""
@@ -42,13 +44,18 @@ def _sym_matrix_power(mat: np.ndarray, power: float, eps: float) -> np.ndarray:
 
 
 def adapt_numeric(
-    xs: np.ndarray, xt: np.ndarray, variant: str, eps: float = 1e-6
+    xs: np.ndarray, xt: np.ndarray, variant: str, eps: float = 1e-6,
+    coral_lambda: float | None = None,
 ) -> tuple[np.ndarray, np.ndarray]:
     """Kaynak (xs) ve hedef (xt) numerik matrislerini varyanta gore donusturur.
+
+    coral_lambda verilmezse CORAL_LAMBDA (=1e-5) kullanilir; λ duyarlilik
+    taramasinda override edilir.
 
     Girdilerde NaN OLMAMALIDIR (once impute edilir). (n_samples, n_features).
     Doner: (xs_transformed, xt_transformed).
     """
+    lam = CORAL_LAMBDA if coral_lambda is None else coral_lambda
     xs = np.asarray(xs, dtype="float64")
     xt = np.asarray(xt, dtype="float64")
 
@@ -59,22 +66,22 @@ def adapt_numeric(
         # Her bolge KENDI istatistigiyle standardize edilir (unsupervised).
         return _standardize(xs), _standardize(xt)
 
-    if variant == "coral":
-        # Once ortak olcek icin her ikisini de kendi mean/std'siyle z-score'la,
-        # sonra kaynagin kovaryansini hedefe hizala (klasik CORAL + mean-shift).
+    if variant == CORAL_VARIANT or variant == "coral":
+        # Emrehan'in tanimi (coral_after_regionwise_zscore), core/step10_shared.py
+        # ile BİREBİR:
+        #   1) her bolge KENDI mean/std'siyle z-score (regionwise, ddof=0)
+        #   2) CORAL: Cs = cov(Xs_z, ddof=0) + λI, Ct = cov(Xt_z, ddof=0) + λI,
+        #      A = Cs^{-1/2} @ Ct^{1/2}, Xs* = Xs_z @ A   (λ = STEP10_CORAL_LAMBDA = 1e-5)
+        #   3) CORAL yalniz SOURCE'a uygulanir; TARGET z-score'lu haliyle DEGISMEZ.
         xs_z = _standardize(xs)
         xt_z = _standardize(xt)
-        mu_s = xs_z.mean(axis=0)
-        mu_t = xt_z.mean(axis=0)
-        cs = np.cov(xs_z, rowvar=False)
-        ct = np.cov(xt_z, rowvar=False)
-        cs = np.atleast_2d(cs)
-        ct = np.atleast_2d(ct)
-        # A = Cs^{-1/2} @ Ct^{1/2}
-        cs_inv_sqrt = _sym_matrix_power(cs, -0.5, eps)
-        ct_sqrt = _sym_matrix_power(ct, 0.5, eps)
+        d = xs_z.shape[1]
+        cs = np.atleast_2d(np.cov(xs_z, rowvar=False, ddof=0)) + lam * np.eye(d)
+        ct = np.atleast_2d(np.cov(xt_z, rowvar=False, ddof=0)) + lam * np.eye(d)
+        cs_inv_sqrt = _sym_matrix_power(cs, -0.5, CORAL_EIGVAL_FLOOR)
+        ct_sqrt = _sym_matrix_power(ct, 0.5, CORAL_EIGVAL_FLOOR)
         a = cs_inv_sqrt @ ct_sqrt
-        xs_coral = (xs_z - mu_s) @ a + mu_t
+        xs_coral = xs_z @ a
         return xs_coral, xt_z
 
     raise ValueError(f"Bilinmeyen varyant: {variant}")

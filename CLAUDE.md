@@ -64,15 +64,12 @@ Parquet 77 kolonlu. Kullanılacaklar:
   - Doğal vejetasyonda (tree+shrub+grass) da korunuyor.
 - **Cross-region transfer (naif):** AUC **0.5 ALTINDA (~0.33–0.44)** → anti-öngörücü. Domain shift.
 
-## Prototip bulgu (Step10'un doğrulayacağı hedef)
-- Ham transfer AUC ~**0.39**.
-- Transferden önce feature'ları **her bölgede kendi mean/std'siyle z-score standardize**
-  edince (unsupervised, target etiketi kullanılmadan) transfer AUC ~**0.56** (0.5 üstü).
-- **CORAL** standardizasyondan daha iyi çıkmadı.
-- 0.56, within-region 0.87'nin çok altında.
-- **Yorum:** başarısızlığın bir kısmı kurtarılabilir **COVARIATE shift** (self-kalibrasyon çözer),
-  asıl kısmı kurtarılamaz **CONCEPT shift** (elevation ve LST feature'ları bölgeler arası
-  yön değiştiriyor).
+## Prototip bulgu (tarihsel — DÜZELTİLDİ, aşağıdaki "Step10 Sonuçları"na bak)
+- İlk prototip **karışık popülasyonda (all_valid)**: ham ~0.39, z-score ~0.56 (0.5 üstü).
+- **DÜZELTME:** birincil analiz doğal-vejetasyon popülasyonuyla (burnable) tekrarlanınca
+  z-score transferi 0.5 **üstüne çıkarmıyor** (~0.45–0.48). Eski "self-kalibrasyon işareti
+  kurtarıyor" yorumu **geri çekildi** — o kazanım büyük ölçüde arazi-örtüsü kompozisyonu
+  artefaktıydı (karışık popülasyona özgü). Concept shift baskın; etiketsiz hizalama kapatamıyor.
 
 ## Step10'un yapacağı (henüz KOD YAZILMADI — sadece plan)
 1. **Cross-region transfer** — iki yön (Man→Bej, Bej→Man) × üç varyant:
@@ -87,73 +84,100 @@ Parquet 77 kolonlu. Kullanılacaklar:
    (`STEP8B_SPATIAL_BLOCK_SIZE_CELLS ≈ 10–20`) tekrar koş; termal delta CI'si hâlâ pozitif mi?
 
 ## Model (Step10 standardı)
-- `RandomForestClassifier(n_estimators=300, min_samples_leaf=2, random_state=42)`
-- `landcover_dominant` → one-hot
-- Standardizasyon/CORAL **target etiketi kullanmadan** (unsupervised) yapılır.
+- **Birincil RF (primary):** `RandomForestClassifier(n_estimators=300, max_depth=None,
+  min_samples_leaf=3, class_weight="balanced", random_state=42)` — Emrehan/step8b ile birebir.
+- Sensitivity RF (eski): `min_samples_leaf=2`, class_weight yok.
+- **Birincil popülasyon:** doğal vejetasyon (`valid_for_modeling AND burnable_tree_shrub_grass`).
+  Sensitivity: `all_valid`. İkisi de `config10.py`'de seçilebilir.
+- `landcover_dominant` → one-hot. Standardizasyon/CORAL **target etiketi kullanmadan** (unsupervised).
 
-## Step10 Sonuçları (tamamlandı)
+## Step10 Sonuçları (tamamlandı — BİRİNCİL = doğal vejetasyon)
 Kod: `step10/` (config10, data_io, metrics, adaptation, transfer, spatial_bootstrap,
 within_cv, run_a..run_d). Ortam: proje kökünde ayrı `.venv-step10/` (scikit-learn 1.9,
-pandas 3.0, numpy 2.5 — `repo/` sklearn içermiyordu). seed=42, leakage hard-exclude,
-`repo/` ve mevcut `step8*/step9*` çıktılarına dokunulmadı.
+pandas 3.0, numpy 2.5). seed=42, leakage hard-exclude, `repo/` ve mevcut `step8*/step9*`
+çıktılarına dokunulmadı. **Birincil popülasyon = burnable_tree_shrub_grass**, birincil RF =
+msl3+balanced. Emrehan'ın reposundaki (`core/step10_shared.py`) CORAL tanımıyla (λ=1e-5,
+ddof=0) eşitlendi; raw/z-score/CORAL reprodüksiyonu tuttu (`reproduction_check.json`).
 
-### 1) Cross-region transfer, 3 varyant (thermal feature seti, primary)
-Kaynak: `experiments/cross_region/step10/transfer_metrics.json` (+ `.csv`, `sanity_gate.json`)
-| Yön | ham | per-region z-score | CORAL |
+**ANA BULGU (dürüst):** Doğal vejetasyonda naif transfer 0.5 altında; **etiketsiz adaptasyon
+(z-score / CORAL) transferi güvenilir biçimde şans üstüne ÇIKARAMIYOR** — en iyi CORAL ~0.51–0.56,
+ve **yalnız bir yönde (Bej→Man CORAL) CI'si 0.5 üstünde** — o da **λ≤0.1'e bağlı, λ=1'de şansa düşüyor** (§6).
+within-region 0.87–0.92'ye kıyasla kalan açık ezici → **concept shift baskın** (best-CORAL decomp ~%69–73).
+Concept mekanizması: spatial-block (~5km) CI ile **yalnız elevation reversalı istatistiksel** (kanıtlanmış),
+LST/TVDI reversalları düşündürücü ama n=2'de değil. Etiketsiz hizalama sign-flip'i kapatamaz.
+
+### 1) Cross-region transfer, 3 varyant (thermal, BİRİNCİL burnable + msl3+bal)
+Kaynak: `transfer_metrics.json/.csv`, `reproduction_check.json`
+| Yön | ham | per-region z-score | CORAL (after regionwise z-score) |
 |-----|-----|--------------------|-------|
-| Man→Bej | 0.386 `[0.363,0.412]` | **0.557** `[0.531,0.586]` | 0.553 `[0.528,0.578]` |
-| Bej→Man | 0.407 `[0.375,0.442]` | **0.568** `[0.531,0.605]` | 0.558 `[0.533,0.584]` |
+| Man→Bej | 0.3245 `[0.304,0.348]` | 0.4834 `[0.455,0.509]` | **0.5108** `[0.486,0.534]` |
+| Bej→Man | 0.4444 `[0.411,0.477]` | 0.4520 `[0.413,0.489]` | **0.5571** `[0.529,0.586]` |
 
-ROC-AUC, `[...]` = spatial-block bootstrap %95 CI (n=1000). **Sanity gate GEÇTİ**:
-ham < 0.5 (iki yön), z-score 0.55–0.57 bandında, CORAL z-score'u geçmedi. Prototip deseni tuttu.
+Hiçbir adapte varyant noktasal olarak sağlamca 0.5 üstünde değil; yalnız **Bej→Man CORAL** CI'si
+tümüyle 0.5 üstünde. Man→Bej CORAL 0.5'i kesiyor. Reprodüksiyon: raw ±0.03, z-score ±0.01, CORAL ±0.002.
 
-### 2) Bonus bulgu: z-score kazanımı yalnız thermal feature'larda
-Kaynak: `experiments/cross_region/step10/transfer_metrics.csv`
-- Thermal set: z-score ham'ı **yukarı** çekiyor (0.386→0.557, 0.407→0.568).
-- Baseline set: z-score **yardım etmiyor / düşürüyor** — Man→Bej 0.386→**0.464**, Bej→Man 0.487→0.528.
-- Yorum: self-kalibrasyonun transfer kaldıracı termal sinyale özgü; baseline (ndvi/elev/slope)
-  covariate hizalamasıyla kurtarılamıyor.
+### 2) Popülasyon kontrastı: z-score "kurtarma"sı arazi-örtüsü artefaktı
+RF sabit (msl3+bal), yalnız popülasyon değişiyor (thermal z-score):
+| Popülasyon | Man→Bej z | Bej→Man z |
+|-----------|-----------|-----------|
+| all_valid (karışık) | **0.5423** (>0.5) | **0.5907** (>0.5) |
+| burnable (doğal vej., BİRİNCİL) | 0.4834 (<0.5) | 0.4520 (<0.5) |
 
-### 3) Concept-shift kanıtı (işaretli univariate AUC, yön reversal)
-Kaynak: `experiments/cross_region/step10/concept_shift.json`, `concept_shift_univariate_auc.csv`,
-`concept_shift_reversals.csv`. 9 numerik feature'ın **5'i** 0.5'in ters taraflarına düşüyor:
-| Feature | AUC Manavgat | AUC Bejís | yön |
-|---------|-------------|-----------|-----|
-| **elevation_mean** | 0.453 | 0.641 | neg→poz (en büyük sapma, gap 0.19) |
-| current_lst_mean | 0.548 | 0.462 | poz→neg |
-| downscaled_lst_mean | 0.560 | 0.468 | poz→neg |
-| fused_lst_mean | 0.550 | 0.466 | poz→neg |
-| tvdi_difference_mean | 0.464 | 0.512 | neg→poz |
+Aynı model/feature/adaptasyon — sadece popülasyon farkı. z-score karışık popülasyonda 0.5 üstüne
+çıkarıyor, doğal vejetasyonda çıkaramıyor → eski "kurtarma" büyük ölçüde **kompozisyon artefaktı**.
+Baseline feature seti (doğal vej.) de kurtarmıyor: Man→Bej z 0.407, Bej→Man z 0.442 (ikisi <0.5).
 
-Elevation ve LST feature'ları bölgeler arası yön değiştiriyor → kurtarılamayan concept shift'in mekanizması.
+### 3) Concept-shift kanıtı (işaretli univariate AUC + SPATIAL-BLOCK bootstrap CI)
+Kaynak: `concept_shift.json`, `concept_shift_univariate_auc.csv`, `concept_shift_reversals.csv`.
+CI'ler **10 hücre (~5km) spatial-block** bootstrap ile (Emrehan step9g ile aynı). Önceki 2-hücre
+(1km) bootstrap mekansal otokorelasyonu yok sayıp CI'yi ~4× daraltmıştı; DÜZELTİLDİ.
+9 feature'ın **5'i** nokta tahminde ters tarafa düşüyor; ama **yalnız elevation bootstrap-supported**
+(CI'ler ayrık), 4'ü point-reversal (CI'ler örtüşüyor) — Emrehan'ın muhafazakar sonucuyla aynı:
+| Feature | AUC Manavgat (CI) | AUC Bejís (CI) | destek |
+|---------|-------------------|----------------|--------|
+| **elevation_mean** | 0.374 `[0.290,0.472]` | 0.643 `[0.559,0.727]` | **bootstrap-supported** |
+| current_lst_mean | 0.538 `[0.450,0.619]` | 0.477 `[0.405,0.540]` | point-reversal |
+| downscaled_lst_mean | 0.552 `[0.460,0.635]` | 0.484 `[0.405,0.553]` | point-reversal |
+| fused_lst_mean | 0.540 `[0.452,0.621]` | 0.481 `[0.407,0.544]` | point-reversal |
+| tvdi_difference_mean | 0.449 `[0.385,0.507]` | 0.512 `[0.446,0.581]` | point-reversal |
 
-### 4) Within-region robustness (blok 2/10/20)
-Kaynak: `experiments/<bolge>/step10/within_robustness.json`,
-`experiments/cross_region/step10/within_robustness_summary.csv`.
-step8b-replika CV (StratifiedGroupKFold n=5, RF min_samples_leaf=3, class_weight=balanced).
-**Reprodüksiyon (blok=2) tuttu**: sapma 0.0001 (±0.02 içinde; sklearn 1.9 vs 1.4.2'ye rağmen).
+Dürüst kanıt gücü: **elevation kanıtlanmış, LST/TVDI reversalları düşündürücü ama n=2'de istatistiksel değil.**
+
+### 4) Within-region robustness (blok 2/10/20, BİRİNCİL burnable)
+Kaynak: `experiments/<bolge>/step10/within_robustness.json` (`by_population`),
+`within_robustness_summary.csv`. **Reprodüksiyon (blok=2) tuttu**: sapma ≤0.0001.
 | Bölge | Blok | baseline | thermal | ΔAUC | ΔAUC %95 CI | sonuç |
 |-------|------|----------|---------|------|-------------|-------|
-| Manavgat | 2 (~1km) | 0.828 | 0.887 | +0.059 | `[+0.050,+0.068]` | poz destek |
-| Manavgat | 10 (~5km) | 0.771 | 0.824 | +0.053 | `[+0.032,+0.076]` | poz destek |
-| Manavgat | 20 (~10km) | 0.719 | 0.763 | +0.044 | `[+0.014,+0.077]` | poz destek |
-| Bejís | 2 (~1km) | 0.869 | 0.917 | +0.048 | `[+0.040,+0.057]` | poz destek |
-| Bejís | 10 (~5km) | 0.790 | 0.846 | +0.056 | `[+0.033,+0.079]` | poz destek |
-| Bejís | 20 (~10km) | 0.716 | 0.777 | +0.061 | `[+0.039,+0.087]` | poz destek |
+| Manavgat | 2 (~1km) | 0.803 | 0.870 | +0.067 | `[+0.055,+0.078]` | poz destek |
+| Manavgat | 10 (~5km) | 0.747 | 0.798 | +0.050 | `[+0.023,+0.078]` | poz destek |
+| Manavgat | 20 (~10km) | 0.682 | 0.731 | +0.049 | `[+0.015,+0.086]` | poz destek |
+| Bejís | 2 (~1km) | 0.862 | 0.918 | +0.056 | `[+0.048,+0.065]` | poz destek |
+| Bejís | 10 (~5km) | 0.779 | 0.825 | +0.046 | `[+0.019,+0.069]` | poz destek |
+| Bejís | 20 (~10km) | 0.738 | 0.795 | +0.057 | `[+0.031,+0.090]` | poz destek |
 
-Termal ΔAUC CI'si **her blok boyutunda sıfırın üstünde**, hiçbir yerde sıfırı kesmedi.
-Mutlak AUC'ler blok büyüdükçe düşüyor (spatial autocorrelation iyimserliği kalkıyor); ΔAUC trendi
-zayıf ve bölgeye göre farklı (Man hafif ↓, Bej hafif ↑), net erime yok. En dar CI: Man ~10km, alt sınır +0.014.
+Termal ΔAUC CI'si **her blok boyutunda sıfırın üstünde** (all_valid sensitivity'de de öyle).
+Mutlak AUC blok büyüdükçe düşüyor; ΔAUC net erime göstermiyor.
 
-### 5) Decomposition (İş2) — transfer açığının ayrışması
-Kaynak: `experiments/cross_region/step10/decomposition.json` (+ `.csv`). within = hedef bölgenin
-kendi thermal AUC'si; adapte = z-score.
-| Hedef | within | ham | adapte(z) | toplam açık | kurtarılan (covariate) | kalan (concept) |
-|-------|--------|-----|-----------|-------------|------------------------|-----------------|
-| Bejís (Man→Bej) | 0.917 | 0.386 | 0.557 | 0.531 | +0.172 (**%32**) | +0.360 (**%68**) |
-| Manavgat (Bej→Man) | 0.887 | 0.407 | 0.568 | 0.480 | +0.161 (**%34**) | +0.318 (**%66**) |
+### 5) Decomposition (İş2) — transfer açığının ayrışması (BİRİNCİL burnable)
+Kaynak: `decomposition.json/.csv`. Within, raw, adapte HEPSİ burnable + msl3+bal (geçerli kıyas).
+Kurtarılabilir pay **en iyi etiketsiz yöntemle** tanımlanır = CORAL (iki yönde de z-score'u geçiyor);
+z-score ikincil satır. "Etiketsiz hizalama açığın ne kadarını kapatabilir?" → en iyisinin kadar.
+| Hedef | within | ham | adapte | toplam açık | kurtarılan | kalan (concept) |
+|-------|--------|-----|--------|-------------|-----------|-----------------|
+| **Bejís (Man→Bej) CORAL (best)** | 0.918 | 0.324 | 0.511 | 0.593 | +0.186 (**%31**) | +0.407 (**%69**) |
+| **Manavgat (Bej→Man) CORAL (best)** | 0.870 | 0.444 | 0.557 | 0.425 | +0.113 (**%27**) | +0.313 (**%73**) |
+| Bejís (Man→Bej) z (ikincil) | 0.918 | 0.324 | 0.483 | 0.593 | +0.159 (%27) | +0.434 (%73) |
+| Manavgat (Bej→Man) z (ikincil) | 0.870 | 0.444 | 0.452 | 0.425 | +0.008 (%2) | +0.418 (%98) |
 
-Transfer açığının ~1/3'ü kurtarılabilir covariate shift, ~2/3'ü kurtarılamaz concept shift (iki yönde tutarlı).
+En iyi etiketsiz (CORAL) ile: kurtarılan **~%27–31 covariate**, kalan **~%69–73 concept shift**
+(iki yönde tutarlı). z-score bazlı %2 rakamı kurtarılabilir kısmı olduğundan az gösterir (yanlış payda).
+
+### 6) CORAL λ duyarlılığı — tek şansüstü sonuç ne kadar sağlam?
+Kaynak: `coral_lambda_sensitivity.csv/.json`. Tek CI'si 0.5 üstünde olan sonuç = Bej→Man CORAL.
+λ ∈ {1e-5,1e-3,1e-1,1.0}: Bej→Man CORAL sırasıyla 0.557/0.564/0.547/**0.485** — λ≤0.1'de CI 0.5 üstünde,
+**λ=1'de şansa düşüyor** (CI 0.5'i kesiyor). Man→Bej hiçbir λ'da 0.5 üstüne çıkmıyor. Yorum: sonuç
+küçük λ'da (3 mertebe) sağlam ama λ'dan bağımsız değil; ağır regularizasyon siliyor. λ=1e-5 (Emrehan
+ile aynı, minimal reg.) savunulabilir seçim; bağımlılık açıkça raporlanıyor.
 
 ## Genel kurallar
 - **Tüm rastgelelikte `seed=42`.**

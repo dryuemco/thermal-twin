@@ -31,17 +31,28 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import pandas as pd
 
-from config10 import CROSS_REGION_DIR, EXPERIMENTS_DIR, TRANSFER_DIRECTIONS
+from config10 import (
+    CORAL_VARIANT,
+    CROSS_REGION_DIR,
+    EXPERIMENTS_DIR,
+    PRIMARY_POPULATION,
+    TRANSFER_DIRECTIONS,
+)
 
 OUT_DIR = CROSS_REGION_DIR / "step10"
-ADAPTED_VARIANTS = ["zscore", "coral"]  # zscore primary
+ADAPTED_VARIANTS = ["zscore", CORAL_VARIANT]  # zscore primary
+# Decomposition BİRİNCİL popülasyonda: within, transfer ve concept-shift HEPSİ
+# burnable_tree_shrub_grass olmali (aksi halde kiyaslama gecersiz).
+WITHIN_POPULATION = PRIMARY_POPULATION
+PRIMARY_CONFIG_NAME = "primary_burnable_rf3bal"
 
 
-def load_within(region: str) -> dict:
+def load_within(region: str, population: str) -> dict:
     d = json.load(open(EXPERIMENTS_DIR / region / "step8e" / "final_step8_report.json"))
-    b = d["step8b_baseline_vs_fused_model"]["all_valid"]
-    c = d["step8c_bootstrap_uncertainty"]["bootstrap_ci_by_population"]["all_valid"]
+    b = d["step8b_baseline_vs_fused_model"][population]
+    c = d["step8c_bootstrap_uncertainty"]["bootstrap_ci_by_population"][population]
     return {
+        "within_population": population,
         "within_baseline_auc": b["overall_baseline"]["roc_auc"],
         "within_thermal_auc": b["overall_thermal"]["roc_auc"],
         "within_delta_auc": b["delta_auc"],
@@ -51,17 +62,24 @@ def load_within(region: str) -> dict:
 
 def main() -> None:
     transfer = json.load(open(OUT_DIR / "transfer_metrics.json"))
-    tr = transfer["results"]
+    # BİRİNCİL config'in thermal sonuclari (burnable + msl3 + balanced).
+    tr = transfer["results"][PRIMARY_CONFIG_NAME]["directions"]
 
     rows: list[dict] = []
     decomp: dict = {}
 
     for src, tgt in TRANSFER_DIRECTIONS:
         direction = f"{src}__{tgt}"
-        within = load_within(tgt)  # decomposition hedef bolgenin within'ine gore
+        within = load_within(tgt, WITHIN_POPULATION)  # hedef bolgenin within'i (burnable)
         w = within["within_thermal_auc"]
         raw = tr[direction]["thermal"]["raw"]["roc_auc"]
         total_gap = w - raw
+
+        # En iyi ETİKETSİZ yöntem = adapte AUC'si en yuksek olan (pratikte CORAL).
+        # Sorunun mantigi: "etiketsiz hizalama acigin ne kadarini kapatabilir?"
+        # -> cevap en iyi etiketsiz yontemin basardigi kadar.
+        adapted_aucs = {v: tr[direction]["thermal"][v]["roc_auc"] for v in ADAPTED_VARIANTS}
+        best_variant = max(adapted_aucs, key=lambda v: adapted_aucs[v])
 
         decomp[tgt] = {
             "target_region": tgt,
@@ -72,24 +90,28 @@ def main() -> None:
             "within_delta_auc_ci95": within["within_delta_auc_ci95"],
             "raw_transfer_auc": raw,
             "total_gap_within_minus_raw": total_gap,
+            "best_unsupervised_variant": best_variant,
             "adaptations": {},
         }
 
         for variant in ADAPTED_VARIANTS:
-            adapted = tr[direction]["thermal"][variant]["roc_auc"]
+            adapted = adapted_aucs[variant]
             recovered = adapted - raw
             concept_remaining = w - adapted
             frac_recovered = recovered / total_gap if total_gap else None
             frac_concept = concept_remaining / total_gap if total_gap else None
+            is_best = variant == best_variant
             decomp[tgt]["adaptations"][variant] = {
                 "adapted_transfer_auc": adapted,
                 "recovered_adapted_minus_raw": recovered,
                 "concept_remaining_within_minus_adapted": concept_remaining,
                 "fraction_recovered": frac_recovered,
                 "fraction_concept_remaining": frac_concept,
+                "is_best_unsupervised": is_best,
             }
             rows.append({
                 "target_region": tgt, "source_region": src, "adaptation": variant,
+                "is_best_unsupervised": is_best,
                 "within_thermal_auc": round(w, 4),
                 "raw_transfer_auc": round(raw, 4),
                 "adapted_transfer_auc": round(adapted, 4),
@@ -100,7 +122,7 @@ def main() -> None:
                 "fraction_concept_remaining": round(frac_concept, 4) if frac_concept is not None else None,
             })
             print(
-                f"[decomp] target={tgt:14s} adapt={variant:6s} | "
+                f"[decomp] target={tgt:14s} adapt={variant:28s}{' *BEST' if is_best else '      '} | "
                 f"within={w:.4f} raw={raw:.4f} adapted={adapted:.4f} | "
                 f"gap={total_gap:.4f} recovered={recovered:+.4f} "
                 f"({frac_recovered:.0%}) concept={concept_remaining:+.4f} "
@@ -110,15 +132,23 @@ def main() -> None:
     out = {
         "created_at": datetime.now(timezone.utc).isoformat(),
         "step": "step10_run_b_decomposition",
+        "population": WITHIN_POPULATION,
+        "transfer_config": PRIMARY_CONFIG_NAME,
+        "note": (
+            "TÜM bileşenler (within, raw, adapted) AYNI popülasyonda "
+            f"({WITHIN_POPULATION}) ve aynı RF (msl=3, class_weight=balanced); "
+            "decomposition ancak böyle geçerlidir."
+        ),
         "definition": {
-            "within": "target region's own within-region thermal ROC-AUC (step8e)",
-            "raw": "naive cross-region transfer into target (Is1)",
-            "adapted": "adapted (z-score/CORAL) cross-region transfer into target (Is1)",
+            "within": f"target region's own within-region thermal ROC-AUC (step8e, {WITHIN_POPULATION})",
+            "raw": "naive cross-region transfer into target (Is1, primary config)",
+            "adapted": "adapted transfer; BEST unsupervised = max(z-score, CORAL) adapted AUC",
             "total_gap": "within - raw",
-            "recovered": "adapted - raw (covariate-shift, self-calibration kurtardigi)",
-            "concept_remaining": "within - adapted (kurtarilamayan concept shift)",
+            "recovered": "adapted - raw (etiketsiz hizalamanin kapattigi kisim)",
+            "concept_remaining": "within - adapted (etiketsiz hizalamanin KAPATAMADIGI kalan)",
         },
-        "primary_adaptation": "zscore",
+        "primary_adaptation": "best_unsupervised (= CORAL, both directions)",
+        "secondary_adaptation": "zscore",
         "by_target_region": decomp,
     }
     (OUT_DIR / "decomposition.json").write_text(json.dumps(out, indent=2, default=str), encoding="utf-8")
