@@ -1,5 +1,5 @@
-target_region,source_region,adaptation,within_thermal_auc,raw_transfer_auc,adapted_transfer_auc,total_gap,recovered,concept_remaining,fraction_recovered,fraction_concept_remaining
-bejis_2022,manavgat_2021,zscore,0.9171,0.3856,0.5575,0.5314,0.1719,0.3596,0.3234,0.6766
-bejis_2022,manavgat_2021,coral,0.9171,0.3856,0.5528,0.5314,0.1672,0.3642,0.3146,0.6854
-manavgat_2021,bejis_2022,zscore,0.8866,0.4071,0.5684,0.4795,0.1613,0.3182,0.3364,0.6636
-manavgat_2021,bejis_2022,coral,0.8866,0.4071,0.5575,0.4795,0.1504,0.3291,0.3137,0.6863
+target_region,source_region,adaptation,is_best_unsupervised,within_thermal_auc,raw_transfer_auc,adapted_transfer_auc,total_gap,recovered,concept_remaining,fraction_recovered,fraction_concept_remaining
+bejis_2022,manavgat_2021,zscore,False,0.9178,0.3245,0.4834,0.5933,0.159,0.4344,0.2679,0.7321
+bejis_2022,manavgat_2021,coral_after_regionwise_zscore,True,0.9178,0.3245,0.5108,0.5933,0.1863,0.407,0.314,0.686
+manavgat_2021,bejis_2022,zscore,False,0.8696,0.4444,0.452,0.4253,0.0076,0.4176,0.0179,0.9821
+manavgat_2021,bejis_2022,coral_after_regionwise_zscore,True,0.8696,0.4444,0.5571,0.4253,0.1127,0.3125,0.2651,0.7349

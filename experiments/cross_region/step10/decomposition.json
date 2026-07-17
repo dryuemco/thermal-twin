@@ -1,42 +1,49 @@
 {
-  "created_at": "2026-07-12T23:53:11.167599+00:00",
+  "created_at": "2026-07-17T07:14:55.090007+00:00",
   "step": "step10_run_b_decomposition",
+  "population": "burnable_tree_shrub_grass",
+  "transfer_config": "primary_burnable_rf3bal",
+  "note": "T\u00dcM bile\u015fenler (within, raw, adapted) AYNI pop\u00fclasyonda (burnable_tree_shrub_grass) ve ayn\u0131 RF (msl=3, class_weight=balanced); decomposition ancak b\u00f6yle ge\u00e7erlidir.",
   "definition": {
-    "within": "target region's own within-region thermal ROC-AUC (step8e)",
-    "raw": "naive cross-region transfer into target (Is1)",
-    "adapted": "adapted (z-score/CORAL) cross-region transfer into target (Is1)",
+    "within": "target region's own within-region thermal ROC-AUC (step8e, burnable_tree_shrub_grass)",
+    "raw": "naive cross-region transfer into target (Is1, primary config)",
+    "adapted": "adapted transfer; BEST unsupervised = max(z-score, CORAL) adapted AUC",
     "total_gap": "within - raw",
-    "recovered": "adapted - raw (covariate-shift, self-calibration kurtardigi)",
-    "concept_remaining": "within - adapted (kurtarilamayan concept shift)"
+    "recovered": "adapted - raw (etiketsiz hizalamanin kapattigi kisim)",
+    "concept_remaining": "within - adapted (etiketsiz hizalamanin KAPATAMADIGI kalan)"
   },
-  "primary_adaptation": "zscore",
+  "primary_adaptation": "best_unsupervised (= CORAL, both directions)",
+  "secondary_adaptation": "zscore",
   "by_target_region": {
     "bejis_2022": {
       "target_region": "bejis_2022",
       "source_region": "manavgat_2021",
       "direction": "manavgat_2021__bejis_2022",
-      "within_thermal_auc": 0.9170545693167105,
-      "within_delta_auc": 0.048223823623147366,
+      "within_thermal_auc": 0.9178110845861024,
+      "within_delta_auc": 0.05613342796309451,
       "within_delta_auc_ci95": [
-        0.03981277516507251,
-        0.057127725326546516
+        0.04785293453566909,
+        0.06532669211393939
       ],
-      "raw_transfer_auc": 0.3856097416434733,
-      "total_gap_within_minus_raw": 0.5314448276732372,
+      "raw_transfer_auc": 0.32447274017678557,
+      "total_gap_within_minus_raw": 0.5933383444093168,
+      "best_unsupervised_variant": "coral_after_regionwise_zscore",
       "adaptations": {
         "zscore": {
-          "adapted_transfer_auc": 0.5574778133375826,
-          "recovered_adapted_minus_raw": 0.17186807169410934,
-          "concept_remaining_within_minus_adapted": 0.35957675597912786,
-          "fraction_recovered": 0.3233977691467602,
-          "fraction_concept_remaining": 0.6766022308532398
+          "adapted_transfer_auc": 0.4834233498935415,
+          "recovered_adapted_minus_raw": 0.15895060971675595,
+          "concept_remaining_within_minus_adapted": 0.43438773469256087,
+          "fraction_recovered": 0.26789202352157987,
+          "fraction_concept_remaining": 0.7321079764784202,
+          "is_best_unsupervised": false
         },
-        "coral": {
-          "adapted_transfer_auc": 0.5528119086196043,
-          "recovered_adapted_minus_raw": 0.167202166976131,
-          "concept_remaining_within_minus_adapted": 0.3642426606971062,
-          "fraction_recovered": 0.3146181094812282,
-          "fraction_concept_remaining": 0.6853818905187719
+        "coral_after_regionwise_zscore": {
+          "adapted_transfer_auc": 0.5107833086005549,
+          "recovered_adapted_minus_raw": 0.1863105684237693,
+          "concept_remaining_within_minus_adapted": 0.4070277759855475,
+          "fraction_recovered": 0.31400392403300037,
+          "fraction_concept_remaining": 0.6859960759669997,
+          "is_best_unsupervised": true
         }
       }
     },
@@ -44,28 +51,31 @@
       "target_region": "manavgat_2021",
       "source_region": "bejis_2022",
       "direction": "bejis_2022__manavgat_2021",
-      "within_thermal_auc": 0.8866097209244022,
-      "within_delta_auc": 0.05894293178140064,
+      "within_thermal_auc": 0.8696419777927898,
+      "within_delta_auc": 0.06690615808852052,
       "within_delta_auc_ci95": [
-        0.04898041944711662,
-        0.06835816504452065
+        0.0545588578350628,
+        0.07857226414798622
       ],
-      "raw_transfer_auc": 0.4071302424707799,
-      "total_gap_within_minus_raw": 0.47947947845362227,
+      "raw_transfer_auc": 0.4443790715201273,
+      "total_gap_within_minus_raw": 0.42526290627266256,
+      "best_unsupervised_variant": "coral_after_regionwise_zscore",
       "adaptations": {
         "zscore": {
-          "adapted_transfer_auc": 0.5684080582811875,
-          "recovered_adapted_minus_raw": 0.16127781581040757,
-          "concept_remaining_within_minus_adapted": 0.3182016626432147,
-          "fraction_recovered": 0.33636020530127275,
-          "fraction_concept_remaining": 0.6636397946987272
+          "adapted_transfer_auc": 0.4520004179499143,
+          "recovered_adapted_minus_raw": 0.007621346429787013,
+          "concept_remaining_within_minus_adapted": 0.41764155984287554,
+          "fraction_recovered": 0.017921493545219984,
+          "fraction_concept_remaining": 0.98207850645478,
+          "is_best_unsupervised": false
         },
-        "coral": {
-          "adapted_transfer_auc": 0.5575199264969388,
-          "recovered_adapted_minus_raw": 0.15038968402615893,
-          "concept_remaining_within_minus_adapted": 0.32908979442746333,
-          "fraction_recovered": 0.31365197215777274,
-          "fraction_concept_remaining": 0.6863480278422273
+        "coral_after_regionwise_zscore": {
+          "adapted_transfer_auc": 0.5571013725102755,
+          "recovered_adapted_minus_raw": 0.11272230099014818,
+          "concept_remaining_within_minus_adapted": 0.31254060528251437,
+          "fraction_recovered": 0.2650649735198745,
+          "fraction_concept_remaining": 0.7349350264801254,
+          "is_best_unsupervised": true
         }
       }
     }

@@ -15,7 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import OneHotEncoder
 
 from adaptation import adapt_numeric
-from config10 import TRANSFER_RF_PARAMS
+from config10 import TRANSFER_RF_PARAMS_PRIMARY
 
 
 def _impute_by_own_median(x_num: pd.DataFrame) -> tuple[np.ndarray, dict]:
@@ -47,18 +47,24 @@ def run_transfer(
     categorical_features: list[str],
     target_col: str,
     variant: str,
+    rf_params: dict | None = None,
+    coral_lambda: float | None = None,
 ) -> dict:
     """Kaynakta egitip hedefte tahmin uretir.
+
+    rf_params verilmezse BİRİNCİL profil (msl=3, class_weight='balanced')
+    kullanilir. coral_lambda yalniz CORAL varyantinda etkilidir.
 
     Doner: {"y_target": np.ndarray, "y_prob": np.ndarray,
             "n_source": int, "n_target": int}
     """
+    rf_params = rf_params if rf_params is not None else TRANSFER_RF_PARAMS_PRIMARY
     xs_num_df = source_df[numeric_features]
     xt_num_df = target_df[numeric_features]
     xs_num, _ = _impute_by_own_median(xs_num_df)
     xt_num, _ = _impute_by_own_median(xt_num_df)
 
-    xs_num_a, xt_num_a = adapt_numeric(xs_num, xt_num, variant)
+    xs_num_a, xt_num_a = adapt_numeric(xs_num, xt_num, variant, coral_lambda=coral_lambda)
 
     xs_cat = source_df[categorical_features] if categorical_features else pd.DataFrame(index=source_df.index)
     xt_cat = target_df[categorical_features] if categorical_features else pd.DataFrame(index=target_df.index)
@@ -70,7 +76,7 @@ def run_transfer(
     ys = source_df[target_col].astype(int).to_numpy()
     yt = target_df[target_col].astype(int).to_numpy()
 
-    clf = RandomForestClassifier(**TRANSFER_RF_PARAMS)
+    clf = RandomForestClassifier(**rf_params)
     clf.fit(xs, ys)
     y_prob = clf.predict_proba(xt)[:, 1]
 

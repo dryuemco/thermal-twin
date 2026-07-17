@@ -15,6 +15,7 @@ import pandas as pd
 from config10 import (
     CATEGORICAL_FEATURES,
     FORBIDDEN_FEATURE_COLUMNS,
+    POPULATIONS,
     REGIONS,
     TARGET_COLUMN,
 )
@@ -24,11 +25,21 @@ class Step10DataError(RuntimeError):
     pass
 
 
-def load_region(region_key: str) -> pd.DataFrame:
-    """Bir bolgenin step8a parquet'ini yukler, valid_for_modeling==True
-    satirlarini filtreler ve index'i sifirlar."""
+def load_region(region_key: str, population: str = "all_valid") -> pd.DataFrame:
+    """Bir bolgenin step8a parquet'ini yukler, valid_for_modeling==True (+ secili
+    popülasyon maskesi) satirlarini filtreler ve index'i sifirlar.
+
+    population:
+        "all_valid"                 -> yalniz valid_for_modeling==True
+        "burnable_tree_shrub_grass" -> valid_for_modeling==True AND
+                                       burnable_tree_shrub_grass==True (BİRİNCİL)
+    """
     if region_key not in REGIONS:
         raise Step10DataError(f"Bilinmeyen bolge: {region_key}. Secenekler: {list(REGIONS)}")
+    if population not in POPULATIONS:
+        raise Step10DataError(
+            f"Bilinmeyen popülasyon: {population}. Secenekler: {list(POPULATIONS)}"
+        )
     path = Path(REGIONS[region_key])
     if not path.exists():
         raise Step10DataError(f"Veri bulunamadi: {path}")
@@ -37,9 +48,19 @@ def load_region(region_key: str) -> pd.DataFrame:
         raise Step10DataError(f"{region_key}: valid_for_modeling kolonu yok.")
     if TARGET_COLUMN not in df.columns:
         raise Step10DataError(f"{region_key}: hedef kolon '{TARGET_COLUMN}' yok.")
-    df = df[df["valid_for_modeling"] == True].reset_index(drop=True)  # noqa: E712
+    df = df[df["valid_for_modeling"] == True]  # noqa: E712
+    mask_col = POPULATIONS[population]["mask_column"]
+    if mask_col is not None:
+        if mask_col not in df.columns:
+            raise Step10DataError(
+                f"{region_key}: popülasyon maske kolonu '{mask_col}' yok."
+            )
+        df = df[df[mask_col] == True]  # noqa: E712
+    df = df.reset_index(drop=True)
     if len(df) == 0:
-        raise Step10DataError(f"{region_key}: valid_for_modeling==True satir yok.")
+        raise Step10DataError(
+            f"{region_key}: popülasyon '{population}' icin satir yok."
+        )
     return df
 
 

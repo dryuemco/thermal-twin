@@ -1,0 +1,126 @@
+{
+  "created_at": "2026-07-17T07:16:05.613608+00:00",
+  "step": "step10_run_e_coral_lambda_sensitivity",
+  "population": "burnable_tree_shrub_grass",
+  "feature_set": "thermal",
+  "rf": "primary (msl=3, class_weight=balanced)",
+  "primary_lambda": 1e-05,
+  "lambda_grid": [
+    1e-05,
+    0.001,
+    0.1,
+    1.0
+  ],
+  "seed": 42,
+  "n_bootstrap": 1000,
+  "bootstrap_block_size_cells": 2,
+  "results": {
+    "manavgat_2021__bejis_2022": {
+      "zscore_reference": {
+        "roc_auc": 0.4834233498935415,
+        "roc_auc_ci95": [
+          0.4549819297595961,
+          0.5085968586305473
+        ]
+      },
+      "coral_lambda_1e-05": {
+        "lambda": 1e-05,
+        "roc_auc": 0.5107833086005549,
+        "pr_auc": 0.06957479507953356,
+        "roc_auc_ci95": [
+          0.4861646023440264,
+          0.5339157893580424
+        ],
+        "ci_entirely_above_0.5": false,
+        "is_primary_lambda": true
+      },
+      "coral_lambda_0.001": {
+        "lambda": 0.001,
+        "roc_auc": 0.5053381831085877,
+        "pr_auc": 0.06865985517342565,
+        "roc_auc_ci95": [
+          0.4813011721064795,
+          0.5282550849834673
+        ],
+        "ci_entirely_above_0.5": false,
+        "is_primary_lambda": false
+      },
+      "coral_lambda_0.1": {
+        "lambda": 0.1,
+        "roc_auc": 0.48331482676301696,
+        "pr_auc": 0.06532457050980361,
+        "roc_auc_ci95": [
+          0.4583101594676516,
+          0.5059783865242008
+        ],
+        "ci_entirely_above_0.5": false,
+        "is_primary_lambda": false
+      },
+      "coral_lambda_1": {
+        "lambda": 1.0,
+        "roc_auc": 0.47758171494935153,
+        "pr_auc": 0.06596475787036069,
+        "roc_auc_ci95": [
+          0.45005353498479633,
+          0.5013328620197994
+        ],
+        "ci_entirely_above_0.5": false,
+        "is_primary_lambda": false
+      }
+    },
+    "bejis_2022__manavgat_2021": {
+      "zscore_reference": {
+        "roc_auc": 0.4520004179499143,
+        "roc_auc_ci95": [
+          0.4132027142515496,
+          0.4891839384270087
+        ]
+      },
+      "coral_lambda_1e-05": {
+        "lambda": 1e-05,
+        "roc_auc": 0.5571013725102755,
+        "pr_auc": 0.04353485676649538,
+        "roc_auc_ci95": [
+          0.5291809900362803,
+          0.5856811446046148
+        ],
+        "ci_entirely_above_0.5": true,
+        "is_primary_lambda": true
+      },
+      "coral_lambda_0.001": {
+        "lambda": 0.001,
+        "roc_auc": 0.5644032109726336,
+        "pr_auc": 0.04377712094272295,
+        "roc_auc_ci95": [
+          0.5345920531266597,
+          0.592061503823138
+        ],
+        "ci_entirely_above_0.5": true,
+        "is_primary_lambda": false
+      },
+      "coral_lambda_0.1": {
+        "lambda": 0.1,
+        "roc_auc": 0.5473277844619878,
+        "pr_auc": 0.04211015482068711,
+        "roc_auc_ci95": [
+          0.5202978203443972,
+          0.5774907114195997
+        ],
+        "ci_entirely_above_0.5": true,
+        "is_primary_lambda": false
+      },
+      "coral_lambda_1": {
+        "lambda": 1.0,
+        "roc_auc": 0.48498658473882783,
+        "pr_auc": 0.038200470856514304,
+        "roc_auc_ci95": [
+          0.44963073042611057,
+          0.5197346078252651
+        ],
+        "ci_entirely_above_0.5": false,
+        "is_primary_lambda": false
+      }
+    }
+  },
+  "note": "Birincil sonuc Bej->Man CORAL'in sansustu olup olmadigi \u03bb'ya bagli. Sonuclar oldugu gibi raporlanir."
+}
