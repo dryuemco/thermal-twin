@@ -1,0 +1,9 @@
+{
+ "figure": "Fig. 2 - methods schematic",
+ "script": "paper/figures/fig2_schematic.py",
+ "data": "none (schematic; labels mirror 03_methods section numbering)",
+ "asserts": "none (no numbers)",
+ "palette": "Okabe-Ito accents on grey; no red-green",
+ "min_font_pt": 7.0,
+ "environment": "matplotlib 3.11.1"
+}

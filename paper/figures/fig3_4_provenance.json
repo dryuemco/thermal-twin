@@ -1,0 +1,9 @@
+{
+ "figure": "Figs 3+4 combined - within-region increment and block robustness",
+ "script": "paper/figures/fig3_4_within_robustness.py",
+ "data": "paper/figures/data/fig_data.json (step8c + robustness outputs; per-source sha256 inside)",
+ "asserts": "spot values vs 04 Table 3; every delta CI lower bound > 0 (15 region-block cells)",
+ "palette": "Okabe-Ito 5-colour + distinct markers for greyscale; no red-green pair",
+ "min_font_pt": 7.0,
+ "environment": "matplotlib 3.11.1"
+}
