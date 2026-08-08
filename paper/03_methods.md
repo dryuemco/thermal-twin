@@ -8,7 +8,7 @@
 
 ## 3.1 Study regions and temporal windows
 
-Four Mediterranean-basin wildfire regions are analysed. Each is defined as a place-based rectangular
+Five Mediterranean-basin wildfire regions are analysed. Each is defined as a place-based rectangular
 area of interest (AOI) in EPSG:4326, fixed **before** any burned-area label was inspected; the AOIs
 are deliberately *not* clipped to fire perimeters, so that unburned cells surrounding each fire
 constitute the negative class rather than being excluded by construction.
@@ -22,20 +22,33 @@ window, no predictor observation can post-date the fire it is used to predict. A
 are computed; these use the same calendar window as the predictor window, transported to earlier
 years, with the fire year itself excluded.
 
-**Table 1. Study regions.** Region registry, AOI geometry and windows read from
-`repo/core/regions.py` (AOI constants at lines 59, 67, 142, 173; experiment registry at lines
-232–344).
+**Table 1. Study regions.** Manavgat, Bejís and Muğla AOI constants are read from
+`repo/core/regions.py` (lines 59, 142, 173; experiment registry at lines 232–344); the extended
+Evia AOI from its frozen step0 AOI export
+(`drive_new/experiments/evia_2021_extended/step0/aoi_preview.geojson`); windows, baseline years
+and roles from each region's frozen `step8c_bootstrap_metrics.json` metadata. Muğla and
+Montiferru have no step0 AOI export in the working copy, so their boxes are derived from the
+30 m reference-grid transform (width, height, affine) recorded in each region's
+`step8a_dataset_stats.json`; the grid-derived corners are Muğla 27.0998, 36.5998, 28.9001,
+37.4500 and Montiferru 8.4497, 40.0499, 8.7502, 40.2700, rounded below. `[TO VERIFY: registry
+entries and line numbers for evia_2021_extended and montiferru_2021 in the updated
+repo/core/regions.py — the drafting working copy of the repository predates these regions.]`
 
 | Region | Country | AOI bounding box (W, S, E, N) | Predictor (pre-fire) window | Label window | Baseline years | Role |
 |---|---|---|---|---|---|---|
 | Manavgat / Antalya 2021 | Türkiye | 31.05, 36.72, 31.85, 37.35 | 2021-06-01 → 2021-07-27 | 2021-07-28 → 2021-08-31 | 2017–2020 | anchor wildfire |
 | Bejís / Castellón 2022 | Spain | −1.05, 39.68, −0.35, 40.15 | 2022-06-15 → 2022-08-14 | 2022-08-15 → 2022-09-30 | 2018–2021 | Mediterranean transfer wildfire |
 | Muğla 2021 | Türkiye | 27.10, 36.60, 28.90, 37.45 | 2021-06-01 → 2021-07-28 | 2021-07-29 → 2021-09-15 | 2017–2020 | same-country, same-year transfer wildfire |
-| North Evia (Euboea) 2021 | Greece | 23.12, 38.68, 23.52, 39.08 | 2021-06-05 → 2021-08-02 | 2021-08-03 → 2021-09-30 | 2017–2020 | Mediterranean transfer wildfire `[TO VERIFY: inclusion — processing incomplete at drafting time]` |
+| North Evia (Euboea) 2021, extended AOI | Greece | 23.05, 38.55, 23.85, 39.15 | 2021-06-05 → 2021-08-02 | 2021-08-03 → 2021-09-30 | 2017–2020 | Mediterranean transfer wildfire |
+| Montiferru (Sardinia) 2021 | Italy | 8.45, 40.05, 8.75, 40.27 | 2021-05-25 → 2021-07-23 | 2021-07-24 → 2021-08-31 | 2017–2020 | Mediterranean transfer wildfire |
 
-Sample sizes, burned-cell counts and prevalences per region are reported in Table 1b `[TO VERIFY:
-Manavgat and Bejís counts are available from the frozen Step8A outputs; Muğla and North Evia counts
-must be taken from the completed runs and re-verified before submission]`.
+North Evia is analysed on an **extended** 0.80° × 0.60° AOI; the legacy 0.40° × 0.40° box
+(23.12, 38.68, 23.52, 39.08; `repo/core/regions.py:67`) shares identical predictor and label
+windows and is retained **only** as a sensitivity variant (Section 3.16.1).
+
+Sample sizes, burned-cell counts and prevalences per region are reported in Table 1b, read from
+each region's frozen Step 8A dataset statistics (`step8a_dataset_stats.json`) for all five
+regions.
 
 The region set is constructed to separate two candidate explanations of transfer failure. Manavgat
 and Muğla are in the same country, in the same fire year, roughly 200 km apart, and share a
@@ -342,7 +355,14 @@ being evaluated, otherwise the pair is skipped.
 **Target metrics** are threshold-free: ROC-AUC and PR-AUC, with spatial-block bootstrap intervals as
 in Section 3.9, computed on the target region's blocks. A ROC-AUC below 0.5 is reported as such and
 is interpreted as an anti-predictive transfer — the source-learned ordering is systematically
-inverted in the target — rather than being folded to `max(AUC, 1 − AUC)`.
+inverted in the target — rather than being folded to `max(AUC, 1 − AUC)`. Both the baseline and
+the thermal feature set are fitted and evaluated under this protocol for every ordered direction,
+so the per-direction paired baseline-versus-thermal transfer contrast reported in the Results is a
+read-only extraction from these frozen outputs — point estimates from the transfer stage's
+`baseline_metrics`/`thermal_metrics`, and paired ΔAUC intervals from the transfer bootstrap's
+`delta_roc_auc` field, which evaluates both probability series on identical resampled target
+blocks as in Section 3.9 (extraction script `paper/baseline_vs_thermal.mjs`; no new models
+fitted).
 
 ## 3.11 Label-blind domain adaptation
 
@@ -386,8 +406,11 @@ standardisation, so each feature already has unit variance and adding the full i
 diagonal, imposing shrinkage strong enough to erase the covariance structure the alignment is meant
 to exploit. With only nine numeric features and thousands of cells per region, the covariances are
 well estimated and minimal regularisation is appropriate. Because this is a defensible but not
-inevitable choice, λ is swept over {10⁻⁵, 10⁻³, 10⁻¹, 1} and the sensitivity of every
-CORAL-dependent conclusion is reported explicitly rather than left implicit.
+inevitable choice, λ sensitivity is assessed on the four Bejís↔Muğla and Manavgat↔Muğla
+directions over a nine-value grid from 0 to 10⁻¹ (0, 10⁻⁸ … 10⁻¹); the resulting spread in
+transfer AUC is at most 0.008 within any direction (Section 4.7d). The sweep does not extend to
+λ = 1 or to the Montiferru and Evia directions, so conclusions for those directions rest on the
+default λ = 10⁻⁵ alone.
 
 The order of operations for variant (c) is thus: region-wise z-score of both regions → CORAL
 alignment of the source numerics only → the standard median-imputation + one-hot pipeline →
@@ -466,7 +489,13 @@ adaptation analysis is executed in a dedicated Python environment separate from 
 pipeline environment; because random-forest fits are not bit-identical across scikit-learn versions,
 the analysis includes an explicit reproduction check in which the within-region models are refitted
 in the new environment and compared against the frozen upstream outputs, and the independently
-implemented adaptation is compared against the pipeline's own implementation. `[TO VERIFY: quote the
+implemented adaptation is compared against the pipeline's own implementation. All numbers reported
+in this paper were produced under, or verified against, scikit-learn 1.9.0: two frozen transfer
+probes reproduce to four decimal places under 1.9.0 but move by +0.021 and +0.026 AUC under 1.7.2
+with byte-identical data, pipeline and seed, so cross-region point estimates carry an
+implementation tolerance of roughly ±0.02–0.03 unless the exact library version is fixed —
+within-region AUCs reproduce to ~4 decimals across versions (`paper/sklearn_version_sensitivity.md`;
+probe script `paper/pairwise_check.py`). `[TO VERIFY: quote the
 achieved reproduction tolerances for the final region set from `reproduction_check.json`; the
 two-region check agreed to ≤1×10⁻⁴ for within-region AUCs and to ±0.002 for CORAL transfer scores,
 but this must be re-established once all regions are included.]` No file belonging to the upstream
@@ -474,3 +503,234 @@ pipeline or to previously frozen outputs was modified by this analysis.
 
 Code, configuration and frozen numeric outputs are released with the paper `[TO VERIFY: repository
 URL and archival DOI]`.
+
+## 3.14 Transferability diagnostics versus transfer
+
+To test whether any pre-transfer measure of region similarity predicts transfer outcome, twenty
+candidate diagnostics from four families — marginal predictor-distribution measures P(x),
+burned-niche overlap P(x|y=1), fire-regime spatial structure P(y), and conditional
+feature–response direction P(y|x) — are each evaluated against the same target quantity under one
+common correlation framework.
+
+### 3.14.1 Rank-correlation framework
+
+The target quantity is the raw thermal transfer ROC-AUC of Section 3.10 on the natural-vegetation
+population, over the 20 ordered directions (12 for measures available only on the four-region
+subset excluding Montiferru). For each diagnostic, Spearman's ρ and Kendall's τ-b (tie-corrected)
+are computed against the transfer AUCs. Uncertainty uses a **pair-based bootstrap**: the unordered
+region pairs (10, or 6 for the subset) are resampled with replacement, and every sampled pair
+contributes **both** of its ordered directions, so the two directions of a pair — which share
+geography and data — are never treated as independent draws. 2,000 replicates are used with
+equal-tailed percentile 95% intervals; replicates yielding degenerate (undefined) rank
+correlations are excluded and counted. All resampling is seeded from 42 with fixed per-measure
+offsets and implemented with the mulberry32 PRNG in Node.js — fully deterministic, though not
+bit-identical to NumPy's generator (`paper/regime_correlation.mjs`, `paper/niche_corr.mjs`,
+`paper/conditional_similarity.mjs`). Because the effective sample is 10 (or 6) unordered pairs
+that share member regions, power is low; a null result is reported as "not shown to order
+transfer", never as "shown not to".
+
+### 3.14.2 Marginal measures and the domain classifier
+
+Six marginal diagnostics are consumed unchanged from the upstream marginal/area-of-applicability
+audit (12 directed pairs, four-region subset;
+`drive_new/diagnostics/marginal_aoa_completion/4b2a1c86…/comparison/marginal_diagnostics_with_transfer.csv`):
+target mean and 95th-percentile predictor-space dissimilarity, fraction of target cells inside the
+weighted area of applicability, and fraction inside the unweighted support (all directed), plus
+climatic distance and geographic centroid geodesic distance (symmetric). Marginal separability is
+additionally measured for all ten pairs by a **domain classifier** trained to distinguish source
+from target cells: the same 10-predictor feature contract (`step9_shared_baseline_thermal_v1`),
+the step8b preprocessing pipeline reused unmodified, and the random-forest configuration of
+Section 3.7, evaluated as spatially blocked out-of-fold ROC-AUC using `StratifiedGroupKFold` over
+deterministic 10-cell (≈5 km) blocks namespaced per region (5 splits, seed 42, strict
+zero-overlap folds), with a paired two-domain spatial-block bootstrap (1,000 replicates, seed 42,
+blocks resampled with replacement independently within each domain). Burned labels are never used.
+Design read from `drive_new/diagnostics/domain_classifier_audit/comparison/manifest.json` and the
+per-pair manifests.
+
+### 3.14.3 Burned-niche overlap
+
+Niche overlap compares the two regions' burned-cell feature distributions, P(x|y=1), using burned
+cells of the primary population only (`valid_for_modeling` ∧ `burnable_tree_shrub_grass` ∧
+`burned = 1`; no unburned variant by design). Schoener's D = 1 − ½Σ|p − q| and Warren's
+I = 1 − ½Σ(√p − √q)² are computed (a) per numeric feature on 1-D histograms with 50 shared bins
+spanning the **global** range of all five regions' burned cells, averaged over the nine features,
+and (b) on a 20 × 20 histogram over the first two components of a global PCA fitted to the
+pooled, globally standardised (ddof = 0) burned cells of all five regions, with missing values
+imputed by the pooled median. The Mahalanobis distance between standardised burned centroids uses
+the pooled covariance ((n_a − 1)S_a + (n_b − 1)S_b)/(n_a + n_b − 2) over the nine features. All
+measures are symmetric per unordered pair (`paper/niche_overlap.py`; correlation with transfer via
+`paper/niche_corr.mjs`).
+
+### 3.14.4 Conditional sign-agreement index
+
+For each region a nine-dimensional vector of **signed** univariate AUCs (Section 3.12: the
+probability that a burned cell carries the higher feature value; never folded about 0.5) is taken,
+with its ≈5 km-block bootstrap intervals, from the upstream five-region feature-stability table
+(`drive_new/diagnostics/multi_aoi_transfer_synthesis/<five-region set>/multi_aoi_feature_stability.csv`,
+step9g family). Pair-level measures: sign-agreement count and fraction (features whose AUC − 0.5
+signs match), the Spearman correlation between the two vectors, and the cosine similarity of the
+(AUC − 0.5) vectors; each is also computed restricted to **supported** features — those whose
+bootstrap interval excludes 0.5 in *both* regions. Consistency is enforced: per-region vectors
+must be identical across every pair row, and the supported-reversal set must reproduce the
+upstream `reversal_status` flags exactly (`paper/conditional_similarity.mjs`). Unlike every
+marginal, niche and regime measure, this index requires burned labels (or a labelled probe) in
+**both** regions: it diagnoses concept alignment and is not a label-free deployment screen.
+
+### 3.14.5 Fire-regime structure
+
+Burned-area spatial structure, P(y), is summarised by connected components of burned
+natural-vegetation cells, computed with 8-connectivity on the integer grid indices
+`row_500m`/`col_500m`. Per region: component count, largest-component share, and the effective
+component count — the inverse Simpson index of component size shares, 1/Σ s_k². The pair-level
+regime distance is |Δ log(effective count)| (primary) and |Δ largest share| (secondary), both
+symmetric. The implementation was verified to reproduce the upstream burned-pattern audit
+("Rejim" table) exactly in all five regions — component counts and largest/second component sizes
+identically, shares and effective counts to 1 × 10⁻⁴ (`paper/burned_components.mjs`).
+
+## 3.15 Interventions
+
+### 3.15.1 Pooled multi-region training (leave-one-region-out)
+
+For each held-out target region, the other four regions' primary (natural-vegetation) populations
+are pooled and a single model is trained on the pool and evaluated on the untouched target, for
+both feature sets. The classifier is exactly that of Section 3.7, and preprocessing mirrors the
+transfer stage: numeric medians fitted on the pooled training set, mode-filled land cover expanded
+to indicator columns from the training vocabulary so that unseen target classes encode to zero.
+Two variants are run: raw features, and region-wise z-score in which every region — the target
+included — is standardised with its own mean and σ (ddof = 0, numeric features only), i.e. the
+label-free definition of Section 3.11(b). Target metrics are ROC-AUC, PR-AUC (reported against its
+no-skill base, the prevalence) and Brier, with a ≈5 km spatial-block bootstrap on the target
+(blocks `row_500m//10` × `col_500m//10`, 1,000 replicates, NumPy `default_rng(42)`, single-class
+replicates excluded) (`paper/loro_pooled.py`). The analysis was run under scikit-learn 1.9.0 only
+after two frozen pairwise transfers were reproduced to four decimal places in the same environment
+(`paper/pairwise_check.py`; Section 3.13).
+
+### 3.15.2 Removal of direction-reversing features
+
+Four thermal-model configurations are compared: full (all 10 predictors, order preserved from the
+shared feature contract), minus `elevation_mean`, minus `lst_anomaly_mean`, and minus both — the
+two features being exactly the bootstrap-supported reversal set under the supported-reversal
+criterion of Section 3.14.4. The pipeline replicates step8b/step9b verbatim (same imputers,
+one-hot encoding, classifier and seed), and **hard parity assertions** abort the run on any
+deviation of the full configuration from the frozen outputs — tolerance 5 × 10⁻⁴ against the 20
+step9b transfer AUCs and 1 × 10⁻³ against the step8c within-region out-of-fold AUCs; the observed
+deviations were 0.0000 everywhere. Within-region evaluation reuses the spatially blocked
+out-of-fold protocol of Section 3.8 (2-cell blocks, `StratifiedGroupKFold`, seed 42). All deltas
+(configuration minus full) are formed inside each replicate of a paired ≈5 km-block bootstrap
+(10-cell blocks, 1,000 replicates, `default_rng(42)`), so every interval is on the paired
+difference (`paper/feature_drop.py`; report `paper/feature_drop_transfer.md`).
+
+## 3.16 Additional sensitivity designs
+
+### 3.16.1 Evia AOI (legacy versus extended)
+
+North Evia exists in two AOI definitions with identical predictor and label windows: the legacy
+0.40° × 0.40° box and the canonical extended 0.80° × 0.60° box (Table 1), whose ≈3× larger area
+leaves the burned scar essentially unchanged while reducing prevalence substantially (Section 4.1).
+Both AOIs were processed through the full pipeline, and both transfer arms (baseline and thermal,
+Section 3.10) were run for every Evia-involved direction under each AOI
+(`drive_new/cross_region/<pair>/step9b/cross_region_transfer_metrics.json` for the legacy and
+extended pair folders). The extended AOI is canonical everywhere in this paper; the legacy AOI is
+retained **only** to test whether AOI extent and the induced prevalence change alter any transfer
+conclusion.
+
+### 3.16.2 Montiferru tree+shrub population
+
+Montiferru is the weakest admissibility-gate pass (burned cropland fraction 0.274), so a stricter
+population variant excluding grassland is examined: `burnable_tree_shrub`, present alongside
+`burnable_tree_shrub_grass` in the frozen within-region bootstrap populations
+(`drive_new/experiments/montiferru_2021/step8c/step8c_bootstrap_metrics.json`,
+`bootstrap_ci_by_population`) and in the transfer bootstrap groups of every Montiferru pair
+(`drive_new/cross_region/montiferru_2021__*/step9c/cross_region_bootstrap_metrics.json`). The
+within-region thermal ΔAUC and the eight Montiferru-involved cross-region thermal-versus-baseline
+deltas are compared between the two populations, reading the frozen outputs only; no new models
+are fitted for this check.
+
+### 3.16.3 Predictor-window closure
+
+A predictor-timing sensitivity, described here as documented in each region's frozen comparison
+report (`drive_new/diagnostics/window_closure_region/<region>/<hash>/_production/<region>/compare/report/window_closure_comparison.md`
+for Bejís, Muğla, Evia-extended and Montiferru;
+`drive_new/diagnostics/window_closure_sensitivity/manavgat_2021/compare/report/window_closure_comparison.md`
+for Manavgat). Three variants — canonical, closure 7 days earlier, closure 14 days earlier —
+move **both** ends of the predictor window together so the window length is preserved; the label
+window is frozen and identical in every variant. One exact common cohort (the intersection of
+analysis-eligible, primary-population, valid rows of every variant, after removing shared
+pre-label-censored cells) and one shared spatial-fold assignment are used by all six evaluations
+(two model families × three variants), with model family, feature registry, preprocessing,
+hyper-parameters and seeds held fixed. Uncertainty is a paired spatial-block bootstrap on the
+model stage's own replicate draws with identical block draws across variants (1,000 replicates,
+seed 42, resampling unit `spatial_block_id`). The report states the analysis measures the closure
+date jointly with its interaction with the fixed MODIS seasonal production policy, not the closure
+date in isolation. Bejís, for scale: 12,814 cohort rows, 967 positives, 5 folds, 3,641 blocks.
+`[TO VERIFY: block edge length in cells for the shared window-closure folds — not stated in the
+comparison report.]`
+
+<!-- METHODS ROUND NOTES:
+
+(a) Gap -> subsection mapping (gaps as numbered in 04_results.md DRAFT NOTES (b)):
+    1  (Table 1: five regions, extended Evia, Montiferru)      -> §3.1 (Table 1 + caption + Evia
+       note + Table 1b sentence updated; rest of §3.1 untouched)
+    2  (diagnostic-vs-transfer rank-correlation framework)     -> §3.14.1
+    3  (conditional sign-agreement / cosine indices)           -> §3.14.4
+    4  (domain-classifier audit)                               -> §3.14.2
+    5  (niche-overlap measures)                                -> §3.14.3
+    6  (fire-regime structure metrics)                         -> §3.14.5
+    7  (LORO pooled-training protocol)                         -> §3.15.1
+    8  (feature-drop configurations and parity checks)         -> §3.15.2
+    9  (legacy-vs-extended Evia AOI sensitivity)               -> §3.16.1
+    10 (tree+shrub population variant, Montiferru)             -> §3.16.2
+    11 (window-closure sensitivity design)                     -> §3.16.3
+    Additionally: Table R6 paired baseline-vs-thermal transfer contrast -> single sentence at end
+    of §3.10 (uses frozen step9b points + step9c delta_roc_auc; protocol already covered by
+    §3.9-3.10); scikit-learn version tolerance -> single sentence in §3.13 Reproducibility.
+
+(b) [TO VERIFY] markers in this file after this round:
+    NEW  §3.1  registry entries/line numbers for evia_2021_extended and montiferru_2021 in the
+               updated repo/core/regions.py (working-copy repo predates them; all Table 1 values
+               were instead verified against drive_new step0/step8a/step8c outputs).
+    NEW  §3.16.3 block edge length in cells for the shared window-closure folds (report gives
+               fold/block counts but not the block size in cells).
+    KEPT §3.1  Kozan: final decision on whether it appears in the manuscript.
+    KEPT §3.3  gate verdicts per region (now numerically verified in Results Table R1 from each
+               region's burned_landcover_gate.json; the §3.3 marker can be resolved at assembly).
+    KEPT §3.13 reproduction tolerances for the final region set (reproduction_check.json).
+    KEPT §3.13 repository URL and archival DOI.
+
+(c) Candidate discrepancy points vs Emrehan's independent Methods narrative (places where our
+    scripts made choices his implementation may not share):
+    - PRNG: correlation-framework bootstrap uses mulberry32 in Node.js (deterministic, NOT
+      NumPy-identical); LORO/feature-drop bootstraps use NumPy default_rng(42). CI bounds may
+      differ in the 3rd decimal from a NumPy reimplementation of the pair bootstrap.
+    - Pair-bootstrap design: unordered pairs resampled, both directions carried, 2000 replicates,
+      per-measure seed offsets (regime 42+0.., conditional 42+100.., niche 42+200..); an
+      independent implementation may resample ordered directions or use different offsets.
+    - Niche overlap: 50 shared 1-D bins / 20x20 PC bins over GLOBAL (five-region pooled burned)
+      ranges; PCA on pooled standardised burned cells (ddof=0), NaN -> pooled median; Mahalanobis
+      pooled covariance uses np.cov default (ddof=1 per-region, then pooled). Different bin
+      counts, per-pair ranges, or covariance conventions change all values.
+    - Burned-cell counts for niche/regime/signed-AUC analyses are TSG AND valid_for_modeling
+      (784/1100/2911/2664/539), not step8a's raw burned-in-TSG counts (784/1100/2952/2675/582);
+      Table R1 uses the latter (04_results DRAFT NOTES conflict 4).
+    - Regime metrics: 8-connectivity (not 4); effective count = inverse Simpson. Verified equal
+      to Emrehan's Rejim table, so only the description, not the numbers, can diverge.
+    - Supported-reversal criterion: both regions' CIs exclude 0.5 with opposite point signs
+      (Emrehan's step9g reversal_status criterion; STRICTER than the "disjoint CIs" wording used
+      for the two-region diagnostic in §3.12 — the two criteria coincide for the reported
+      features but are not logically identical).
+    - LORO preprocessing: manual indicator expansion of sorted training categories (equivalent
+      to OneHotEncoder(handle_unknown='ignore') but independently implemented); region-wise z
+      includes the target region scaled by its own stats; block ids built as string
+      "row//10_col//10" at a fixed origin.
+    - Feature-drop within-region folds: StratifiedGroupKFold with n_splits fallback 5->4->3->2
+      if any test fold lacks positives (step8b itself forbids falling back to random rows; the
+      fallback ladder is ours). In practice 5 splits were used (n_splits_used recorded).
+    - Window-closure: §3.16.3 describes ONLY the bejis_2022 comparison report; other regions'
+      reports assumed structurally identical (same schema window_closure_compare.v1). The
+      report's §8 contains a boilerplate sentence referring to a "Manavgat-2021-style common
+      cohort" inside the Bejís report; not quoted.
+    - scikit-learn: all our reruns pinned to 1.9.0; 1.7.2 shifts transfer AUCs by +0.02..0.03
+      (sklearn_version_sensitivity.md). If Emrehan reports numbers from another version, point
+      estimates may differ by that order.
+-->
+
