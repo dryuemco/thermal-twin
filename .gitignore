@@ -54,3 +54,5 @@ experiments/*/step8e/*
 .DS_Store
 __pycache__/
 *.pyc
+
+drive_archive
