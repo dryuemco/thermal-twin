@@ -1,8 +1,12 @@
 # Manuscript status — one-page overview
 
-**Snapshot 2026-08-08** (after the figure round and the literature sweep). Word counts are
-whole-file (incl. tables/notes). Marker counts distinguish the document **body** from
-housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
+**Snapshot 2026-08-08** (after the figure/typography round, the figure renumbering, the caption
+round and the literature sweep). Word counts are whole-file (incl. tables/notes). Marker counts
+distinguish the document **body** from housekeeping mentions inside DRAFT-NOTES comment blocks
+and file headers.
+
+**One-line state:** all eight figures, all captions and every citation decision are closed; the
+manuscript is complete in draft and waits on four external inputs and one assembly pass.
 
 ## 1. Manuscript sections
 
@@ -10,12 +14,13 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
 |---|---|---|---|
 | `00_abstract.md` | **draft complete** (trim to journal limit at submission) | 331 | none |
 | `01_introduction.md` | **draft complete**; contributions filled with final numbers | 2 511 | none (1 UNVERIFIED mention is the header convention note) |
-| `02_related_work.md` | **draft complete**; Dimarco §2.5 passage now confirmed against the full text (read by YEC 2026-08-08; 80/20 hold-out and NTL-log1p details added) | 5 262 | none — the Huang §2.4 marker was **closed 2026-08-08 by decision** (no coefficient quoted; §2.4 now says so explicitly, abstract suffices). *Correction: an earlier STATUS mislabelled this marker as Dimarco.* |
-| `03_methods.md` | **draft complete** incl. §3.14–3.16; awaiting independent-description comparison | 7 460 | 3 TO VERIFY: regions.py registry lines; reproduction-check quote; window-closure block edge length. **Closed 2026-08-08:** Kozan inclusion (now in — §3.1 pointer, §3.3 negative-control paragraph, §4.1 result); §3.3 gate-verdict marker (§3.3 now points to §4.1, where Table R1 carries the numbers); repository URL/DOI (data-and-code availability statement written, GitHub URL, no DOI) |
-| `04_results.md` | **draft complete, audited**; Tables 3–6 + R1–R6 | 5 179 | none (notes only) |
-| `05_discussion.md` | **draft complete, audited** | 3 898 | 2 TO VERIFY: few-shot supplementary inclusion; §5.10 Muğla-2022 placeholder (a third, AoA per-pair number, is conditional on a reviewer request; notes only) |
+| `02_related_work.md` | **draft complete**; Dimarco §2.5 passage now confirmed against the full text (read by YEC 2026-08-08; 80/20 hold-out and NTL-log1p details added) | 5 267 | none — the Huang §2.4 marker was **closed 2026-08-08 by decision** (no coefficient quoted; §2.4 now says so explicitly, abstract suffices). *Correction: an earlier STATUS mislabelled this marker as Dimarco.* |
+| `03_methods.md` | **draft complete** incl. §3.14–3.16; awaiting independent-description comparison | 7 716 | 3 TO VERIFY: regions.py registry lines; reproduction-check quote; window-closure block edge length. **Closed 2026-08-08:** Kozan inclusion (now in — §3.1 pointer, §3.3 negative-control paragraph, §4.1 result); §3.3 gate-verdict marker (§3.3 now points to §4.1, where Table R1 carries the numbers); repository URL/DOI (data-and-code availability statement written, GitHub URL, no DOI) |
+| `04_results.md` | **draft complete, audited**; Tables 3–6 + R1–R6 | 5 266 | none (notes only) |
+| `05_discussion.md` | **draft complete, audited** | 3 898 | 1 TO VERIFY in body (§5.5 few-shot supplementary inclusion); §5.10 carries a Muğla-2022 placeholder pending that analysis; an AoA per-pair number is conditional on a reviewer request (notes only) |
 | `06_conclusions.md` | **draft complete** | 334 | none |
 | `highlights.md` | **complete** (5 bullets, all ≤85 chars, verified) | 90 | none |
+| `figure_captions.tex` | **complete** — Elsevier format, 8 captions in figure order, each self-contained (what is plotted, population, interval, meaning; panel letters explained inline). Every numeric value verified against the frozen outputs | 1 786 | none |
 | `REFERENCES.bib` | complete for all cited keys; 2026-08-08 sweep added Crossref-verified Sun2016 DOI, Soydan2022 (Manavgat event), Varela2022 (Evia event); **second round 2026-08-08 removed Cosandal2022** (Muğla weak-fit, never cited) | — | **none.** GLO-30 closed (cited inline by product-page URL + access date, no DOI, no bib entry; GLO-30 confirmed as the DEM that ran). Bejís and Muğla event descriptions closed as deliberately uncited — no citable event-specific source exists, numbers come from MCD64A1 |
 
 ## 2. Analysis reports (frozen evidence base — all complete, no open markers)
@@ -46,6 +51,25 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
 | 7 | Feature removal is a zero-sum trade-off | `fig7_feature_drop` | done |
 | 8 | **Main figure** — contrast pairs with per-region CI-support arrowheads | `fig8_contrast_pairs` | done |
 
+**Figure standard (applies to all eight).** Double column 190 mm, body 9 pt, minimum 8 pt,
+vector PDF + SVG, Okabe-Ito, no red–green pair. Numbering is consecutive integers; lettered
+sub-numbers are reserved for panels of one figure and are not used.
+
+*Build-time verification.* `figures/_layout_check.py` runs inside every figure script and fails
+the build on: text–text overlap or sub-threshold gap, text over a data artist, text leaving its
+axes or the canvas, a legend leaving its own axes, a label overflowing its container box, or any
+text below the minimum point size. All eight currently report **no problems**, minimum text gap
+3.02–9.78 pt. Each script additionally asserts its own numbers against the frozen outputs; Fig. 2
+asserts its 14 section references against the live `03_methods.md` heading list, and Fig. 7
+asserts the monotone trade-off it depicts.
+
+*Print safety.* Greyscale is measured, not assumed. Fig. 4 picks each cell label's colour by WCAG
+contrast against that cell's rendered colour (worst case 4.7:1) and hatches below-chance cells,
+because a diverging palette is symmetric in luminance and would otherwise lose the sign in
+greyscale. Okabe-Ito blue vs orange measures only 2.30:1, so Figs 5 and 8 carry their two-class
+distinction on line style as well as hue. Rendered greyscale proofs sit beside Figs 4, 5, 6, 7
+and 8 (`*_greyscale.png`).
+
 ## 4. Process / historical documents
 
 | File | Role |
@@ -53,7 +77,7 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
 | `POSITIONING.md` | authoritative direction document (thesis, C1–C5) — stable |
 | `OUTLINE.md` | **stale in parts**: written pre-Evia/pre-Montiferru; §5 "missing before Results" is fully discharged; use only for figure/table budget and honesty constraints |
 | `RESULTS_INVENTORY.md` | historical catalogue of the July partial export — superseded by drive_new numbers |
-| `LITERATURE.md` | working literature notes; **swept 2026-08-08** — A4/D2/Deep-CORAL/arXiv-2103.05898/Manavgat/Evia/Dimarco closed; the 5 genuinely open items consolidated in one list ("Consolidated open verification items"): GLO-30, Bejís event, Muğla weak candidate, Huang full text, WildfireGenome preprint recheck |
+| `LITERATURE.md` | working literature notes; **swept twice on 2026-08-08**. First sweep closed A4/D2/Deep-CORAL/arXiv-2103.05898/Manavgat/Evia/Dimarco. Second sweep closed four of the five consolidated items by decision — GLO-30, Bejís event, Muğla candidate, Huang full text — each with its reasoning recorded. **One item remains open: WildfireGenome (arXiv preprint only; re-check for a peer-reviewed version before submission).** |
 | `emrehan_mail.md`, `INTERN_REQUESTS.md` | historical correspondence — delivered |
 | `STATUS.md` | this file |
 
@@ -74,14 +98,30 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
 
 ## 6. Remaining internal work (no external dependency)
 
-- Assembly round: merge section files, final table/figure numbering (R-tables), resolve the
-  §3.3 gate marker from Table R1, journal formatting.
-- ~~Read Huang et al. [@Huang2026] full text~~ — **closed 2026-08-08 by decision**: no coefficient
-  is quoted, §2.4 says so explicitly, abstract suffices. ~~Dimarco full text~~ — done 2026-08-08
-  (read by YEC; §2.5 confirmed).
-- ~~Decide GLO-30 DEM citation route, Bejís event source, Muğla candidate~~ — **all closed
-  2026-08-08**: GLO-30 confirmed as the DEM that actually ran (`used_fallback: false` in frozen
-  step2b metadata) and cited by product-page URL + access date, no DOI, no SRTM citation; Bejís
-  and Muğla event descriptions left uncited, numbers from MCD64A1; `Cosandal2022` removed from the
-  bib.
-- Optional: graphical abstract (Elsevier), from Fig. 8 + Fig. 4 composites.
+Mechanical only — no analysis, no new numbers, no open judgement calls.
+
+1. **Assembly round.** Merge the section files into one document; renumber the lettered
+   R-tables (R1–R6) into the final sequence alongside Tables 3–6; drop the DRAFT-NOTES comment
+   blocks; apply the journal template. Figure numbering is already final and consistent across
+   `figure_captions.tex`, §4 and §5 — no figure work is left.
+2. **Abstract trim** to the journal's word limit (currently 331 words).
+3. **WildfireGenome re-check** — the single remaining literature item; confirm whether a
+   peer-reviewed version has replaced the arXiv preprint, then cite whichever is current.
+4. **Optional: graphical abstract** (Elsevier), from a Fig. 8 + Fig. 4 composite.
+
+### Closed this round (kept for the audit trail)
+
+- ~~Kozan inclusion decision~~ — **in**: §3.3 negative-control paragraph, §4.1 result, and shown
+  on Fig. 1 in a deliberately distinct style.
+- ~~Repository URL / archival DOI~~ — data-and-code availability statement written; public GitHub
+  repository named, **no DOI, no Zenodo deposit**, stated explicitly.
+- ~~GLO-30 DEM citation route~~ — verified rather than assumed (frozen `used_fallback: false`);
+  cited by ESA product-page URL + access date; SRTM deliberately not cited.
+- ~~Bejís / Muğla event sources~~ — left uncited after no citable event-specific source was
+  found; extents and dates come from MCD64A1. `Cosandal2022` removed from the bibliography.
+- ~~Huang et al. full text~~ — closed by decision; no coefficient of theirs is quoted and §2.4
+  now says so. ~~Dimarco full text~~ — read by YEC, §2.5 confirmed.
+- ~~§3.3 gate-verdict marker~~ — resolved by pointing §3.3 at §4.1, where Table R1 carries the
+  per-region verdicts and fractions.
+- ~~Figure typography, greyscale safety, captions, numbering~~ — all eight figures rebuilt to the
+  standard in §3; `figure_captions.tex` written and number-checked against the frozen outputs.
