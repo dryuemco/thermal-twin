@@ -9,9 +9,25 @@
   "fig7_contrast_pairs.pdf",
   "fig7_contrast_pairs.svg"
  ],
- "asserts": "D-bar means 0.826/0.479; jointly supported features exactly [NDVI, Elevation] in (a) and [] in (b); four transfer AUCs and CI-off-chance checks; enforced at build time",
- "encoding": "titles: overlap + transfer verdict primary; arrowhead fill = per-region CI excludes 0.5; supported-index coverage limit stated in caption",
- "palette": "Okabe-Ito blue #0072B2 / orange #E69F00; greyscale-distinct; no red-green",
- "min_font_pt": 7.0,
+ "asserts": "D-bar means 0.826/0.479; jointly supported features exactly [NDVI, Elevation] in (a) and [] in (b); four transfer AUCs and CI-off-chance checks; region cue asserted non-colour; enforced at build time",
+ "encoding": "panel headers: overlap + transfer verdict primary; arrowhead fill = per-region CI excludes 0.5 (untouched); region = colour AND line style AND vertical offset; supported-index coverage limit stated in the header line and the caption",
+ "greyscale": {
+  "region_hue_contrast": 2.3,
+  "note": "blue vs orange separate by only this ratio in greyscale, so the region is also carried by line style (solid = first region, dashed = second). The arrowhead-fill channel was left alone because it encodes CI support.",
+  "shade_contrast_vs_white": 1.45,
+  "shade_note": "the sign-disagreement row shading is achromatic, so a luminance greyscale conversion leaves it unchanged by construction",
+  "proof": "fig7_contrast_pairs_greyscale.png"
+ },
+ "palette": "Okabe-Ito blue #0072B2 / orange #E69F00; greyscale-distinct via line style; no red-green",
+ "canvas_mm": [
+  190,
+  102
+ ],
+ "column": "double (190 mm)",
+ "font_pt": {
+  "body": 9.0,
+  "minimum": 8.0
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 56 data artists registered",
  "environment": "matplotlib 3.11.1"
 }

@@ -614,20 +614,27 @@
 
 
 % =============================================================================
-% STILL MISSING -- do not fabricate; resolve before submission
-% (swept 2026-08-08; resolved items moved to Block H below)
+% RESOLVED 2026-08-08 -- all former "STILL MISSING" items are now closed by an
+% explicit decision. Nothing in this block requires action before submission.
 %
-%   [UNVERIFIED: Copernicus GLO-30 DEM]  No peer-reviewed citation confirmed.
-%       The candidate DataCite DOI 10.5270/ESA-c5d3d65 returned HTTP 404 on
-%       2026-08-08, so it must NOT be used. Decide whether to cite the ESA
-%       product page (no DOI) or the SRTM fallback (Farr et al. 2007) instead.
-%   [UNVERIFIED: 2022 Bejis / Castellon fire event description]  A Crossref
-%       bibliographic search on 2026-08-08 returned NO record specific to the
-%       August 2022 Bejis fire. Needed for the study-area section; consider a
-%       non-Crossref source (EFFIS report, Generalitat Valenciana) or omit.
-%   NOTE on Mugla 2021: only a weak candidate found (Cosandal2022 below, a
-%       tourism-impact study that documents the Marmaris fires). Flagged; keep
-%       only if no better source appears.
+%   [CLOSED: Copernicus GLO-30 DEM]  No peer-reviewed citation and no working
+%       DOI exist. The candidate DataCite DOI 10.5270/ESA-c5d3d65 returned HTTP
+%       404 on 2026-08-08 and must NOT be used. DECISION: cite the official ESA
+%       Copernicus Data Space product page inline in Methods 3.4 (URL + access
+%       date, no DOI, no bib entry). Which DEM actually ran was verified from
+%       the frozen step2b_dem_metadata.json: dataset = COPERNICUS/DEM/GLO30,
+%       used_fallback = false. The SRTM fallback was never exercised, so
+%       Farr et al. 2007 is NOT cited.
+%   [CLOSED: 2022 Bejis / Castellon fire event description]  Crossref returned
+%       no record specific to the August 2022 Bejis fire (2026-08-08), and a
+%       follow-up search found no citable EFFIS or Generalitat Valenciana
+%       report for the individual event -- only press coverage and EU-wide
+%       season summaries. DECISION: no citation. The manuscript carries no
+%       narrative description of the Bejis event; its extent, dates and
+%       prevalence are reported from MCD64A1 in Table 1 / Table 2.
+%   [CLOSED: Mugla 2021]  The only candidate (Cosandal2022) was a tourism-
+%       impact study, never cited in the body text. DECISION: removed from this
+%       file; the event is described from MCD64A1 without a citation.
 %   (Manavgat 2021: resolved as Soydan2022. North Evia 2021: resolved as
 %    Varela2022. Google Earth Engine: verified and added as Gorelick2017.)
 % =============================================================================
@@ -693,16 +700,8 @@
   doi       = {10.14195/978-989-26-2298-9_101},
 }
 
-% Weak-fit candidate for the Mugla 2021 event (tourism-impact study that
-% documents the Marmaris fires); keep only if no better source appears.
-@article{Cosandal2022,
-  author  = {Co{\c{s}}andal, Merve and Partig{\"o}{\c{c}}, Nur Sinem},
-  title   = {The impact of disasters on tourism sector: the case of forest
-             fires in {Mugla}-{Marmaris} district},
-  journal = {Resilience},
-  year    = {2022},
-  volume  = {6},
-  number  = {2},
-  pages   = {257--267},
-  doi     = {10.32569/resilience.1211459},
-}
+% REMOVED 2026-08-08: Cosandal2022 (tourism-impact study of the Mugla-Marmaris
+% fires) was carried here as a weak-fit candidate for the Mugla 2021 event
+% description. Decision: do NOT cite. Its subject is tourism-sector impact, not
+% the fire event, and it was never cited in the body text. The Mugla event is
+% described from MCD64A1 (Table 1 / Table 2) without a literature citation.

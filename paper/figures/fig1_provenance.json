@@ -8,8 +8,22 @@
   "note": "Natural Earth is public domain; version as shipped by NACIS CDN at build date 2026-08-08"
  },
  "asserts": "all five AOI bboxes match 03_methods Table 1 to 5e-3 deg",
- "design": "single AOI colour (no regime grouping implied); no topography/satellite; Kozan control omitted by design",
- "palette": "Okabe-Ito blue on neutral grey land; greyscale-safe",
- "min_font_pt": 7.0,
+ "design": "single AOI colour across the five study regions (no regime grouping implied); no topography/satellite; Kozan 2023 drawn as gate control in a distinct style (grey + dashed edge + square marker + role in label + separate legend entry) so its location is findable from Methods 3.3 / Results 4.1 without implying it entered any model",
+ "kozan_bbox_source": "drive_new/kozan-legacy/step8a/step8a_dataset_stats.json (30 m reference-grid transform); cross-checked in-script against the independent step2b_dem_metadata.json AOI polygon to 5e-3 deg",
+ "palette": "Okabe-Ito blue (study) / neutral grey (control) on very light neutral land; greyscale-safe",
+ "legend": [
+  "Study region (n = 5)",
+  "Gate control (not modelled)"
+ ],
+ "canvas_mm": [
+  190.0,
+  62.3
+ ],
+ "column": "double (190 mm)",
+ "font_pt": {
+  "body": 9.0,
+  "minimum": 8.0
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
  "environment": "matplotlib 3.11.1, cartopy 0.25.0"
 }

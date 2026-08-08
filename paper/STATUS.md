@@ -10,13 +10,13 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
 |---|---|---|---|
 | `00_abstract.md` | **draft complete** (trim to journal limit at submission) | 331 | none |
 | `01_introduction.md` | **draft complete**; contributions filled with final numbers | 2 511 | none (1 UNVERIFIED mention is the header convention note) |
-| `02_related_work.md` | **draft complete**; Dimarco §2.5 passage now confirmed against the full text (read by YEC 2026-08-08; 80/20 hold-out and NTL-log1p details added) | 5 260 | 1 TO VERIFY — **Huang et al. §2.4** (read full text before quoting any effect coefficient). *Correction: an earlier STATUS mislabelled this marker as Dimarco.* |
-| `03_methods.md` | **draft complete** incl. §3.14–3.16; awaiting independent-description comparison | 7 192 | 6 TO VERIFY: regions.py registry lines; Kozan inclusion decision; §3.3 gate-verdict marker (numbers now in Table R1 — resolvable at assembly); reproduction-check quote; repository URL/DOI; window-closure block edge length |
+| `02_related_work.md` | **draft complete**; Dimarco §2.5 passage now confirmed against the full text (read by YEC 2026-08-08; 80/20 hold-out and NTL-log1p details added) | 5 262 | none — the Huang §2.4 marker was **closed 2026-08-08 by decision** (no coefficient quoted; §2.4 now says so explicitly, abstract suffices). *Correction: an earlier STATUS mislabelled this marker as Dimarco.* |
+| `03_methods.md` | **draft complete** incl. §3.14–3.16; awaiting independent-description comparison | 7 460 | 3 TO VERIFY: regions.py registry lines; reproduction-check quote; window-closure block edge length. **Closed 2026-08-08:** Kozan inclusion (now in — §3.1 pointer, §3.3 negative-control paragraph, §4.1 result); §3.3 gate-verdict marker (§3.3 now points to §4.1, where Table R1 carries the numbers); repository URL/DOI (data-and-code availability statement written, GitHub URL, no DOI) |
 | `04_results.md` | **draft complete, audited**; Tables 3–6 + R1–R6 | 5 179 | none (notes only) |
 | `05_discussion.md` | **draft complete, audited** | 3 898 | 2 TO VERIFY: few-shot supplementary inclusion; §5.10 Muğla-2022 placeholder (a third, AoA per-pair number, is conditional on a reviewer request; notes only) |
 | `06_conclusions.md` | **draft complete** | 334 | none |
 | `highlights.md` | **complete** (5 bullets, all ≤85 chars, verified) | 90 | none |
-| `REFERENCES.bib` | complete for all cited keys; 2026-08-08 sweep added Crossref-verified Sun2016 DOI, Soydan2022 (Manavgat event), Varela2022 (Evia event), Cosandal2022 (Muğla, weak-fit, flagged) | — | 2 UNVERIFIED remain: GLO-30 DEM (candidate DataCite DOI returned 404 — cite product page or SRTM fallback, decision open) and Bejís 2022 event description (no Crossref record exists — use EFFIS/regional report or omit) |
+| `REFERENCES.bib` | complete for all cited keys; 2026-08-08 sweep added Crossref-verified Sun2016 DOI, Soydan2022 (Manavgat event), Varela2022 (Evia event); **second round 2026-08-08 removed Cosandal2022** (Muğla weak-fit, never cited) | — | **none.** GLO-30 closed (cited inline by product-page URL + access date, no DOI, no bib entry; GLO-30 confirmed as the DEM that ran). Bejís and Muğla event descriptions closed as deliberately uncited — no citable event-specific source exists, numbers come from MCD64A1 |
 
 ## 2. Analysis reports (frozen evidence base — all complete, no open markers)
 
@@ -63,15 +63,23 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
    the §5.5 pointer stays [TO VERIFY]. Emrehan's existing curve: 3 regions, 6 directions.
 3. **Muğla 2022 temporal transfer** — in progress; on arrival a temporal-transfer subsection
    enters §4 and §5.10(ii) is rewritten.
-4. **Repository URL / archival DOI + updated `repo/core/regions.py`** — resolves two §3 markers
-   (data-and-code availability section also depends on this).
+4. **Updated `repo/core/regions.py`** — resolves the §3.1 registry-line marker (the working copy
+   predates the `evia_2021_extended` and `montiferru_2021` entries).
+   *Repository URL / DOI is no longer waiting:* **closed 2026-08-08** — the data-and-code
+   availability statement now names Emrehan's public repository
+   `https://github.com/emrehann17/satellite-thermal-digital-twin` (verified reachable
+   unauthenticated, MIT licence) and states that **no DOI is minted**. No Zenodo deposit.
 
 ## 6. Remaining internal work (no external dependency)
 
 - Assembly round: merge section files, final table/figure numbering (R-tables), resolve the
   §3.3 gate marker from Table R1, journal formatting.
-- Read Huang et al. [@Huang2026] full text before quoting any effect coefficient (02 §2.4 /
-  LITERATURE marker). ~~Dimarco full text~~ — done 2026-08-08 (read by YEC; §2.5 confirmed).
-- Decide GLO-30 DEM citation route (product page vs SRTM fallback) and the Bejís event source
-  (EFFIS/regional report vs omit); confirm Muğla weak candidate or replace.
+- ~~Read Huang et al. [@Huang2026] full text~~ — **closed 2026-08-08 by decision**: no coefficient
+  is quoted, §2.4 says so explicitly, abstract suffices. ~~Dimarco full text~~ — done 2026-08-08
+  (read by YEC; §2.5 confirmed).
+- ~~Decide GLO-30 DEM citation route, Bejís event source, Muğla candidate~~ — **all closed
+  2026-08-08**: GLO-30 confirmed as the DEM that actually ran (`used_fallback: false` in frozen
+  step2b metadata) and cited by product-page URL + access date, no DOI, no SRTM citation; Bejís
+  and Muğla event descriptions left uncited, numbers from MCD64A1; `Cosandal2022` removed from the
+  bib.
 - Optional: graphical abstract (Elsevier), from Fig. 7 + Fig. 5 composites.

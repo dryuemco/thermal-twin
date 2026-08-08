@@ -36,6 +36,13 @@ for (const reg of ['mugla_2021', 'montiferru_2021']) {
   aoi[reg] = { bbox: bboxFromGrid(read(`drive_new/experiments/${reg}/step8a/step8a_dataset_stats.json`)),
                method: '30m reference-grid transform (no step0 export)' };
 }
+// Kozan is the gate negative control, NOT a study region: it is drawn on Fig. 1
+// in a distinct style so its location is findable from Methods 3.3 / Results 4.1
+// without implying it entered any model. Same grid derivation as mugla/montiferru.
+aoi.kozan_2023 = { bbox: bboxFromGrid(read('drive_new/kozan-legacy/step8a/step8a_dataset_stats.json')),
+                   method: '30m reference-grid transform (no step0 export)',
+                   role: 'gate_control' };
+for (const reg of Object.keys(aoi)) if (reg !== 'kozan_2023') aoi[reg].role = 'study_region';
 // sanity: manavgat grid-derived must match its geojson bbox to ~2e-3 deg
 const manGrid = bboxFromGrid(read('drive_new/experiments/manavgat_2021/step8a/step8a_dataset_stats.json'));
 for (let i = 0; i < 4; i++) {

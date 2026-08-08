@@ -57,7 +57,8 @@ transferability were governed by geographic and climatic proximity, the Manavgat
 transfer best. A **negative control** region (Kozan 2023, Türkiye), in which the burned area is
 dominated by agricultural stubble burning rather than wildfire, exists in the pipeline registry and
 is used only as a validity check on the admissibility gate described in Section 3.3; it is never
-used as a transfer partner. `[TO VERIFY: final decision on whether Kozan appears in the manuscript.]`
+used as a transfer partner. Its role is described in Section 3.3 and its gate outcome is reported
+in Section 4.1.
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
@@ -132,8 +133,19 @@ order (`step6b:172–211`):
 Thresholds are at `core/config.py:369–373`. The gate is diagnostic: a failing verdict does not halt
 the pipeline, and the gate output always carries `downstream_authorized: False`, requiring explicit
 review. Its role in this study is to establish that the regions entering the transfer experiment are
-genuine forest-fire regions and that the negative control is not. `[TO VERIFY: gate verdicts and
-natural-vegetation fractions for all four regions, from each region's `burned_landcover_gate.json`.]`
+genuine forest-fire regions. Per-region verdicts and natural-vegetation fractions are read from each
+region's frozen `burned_landcover_gate.json` and reported in Section 4.1.
+
+**Negative control.** A gate that every candidate region passes carries no information, so the
+threshold is calibrated against a region that should fail it. MCD64A1 does not distinguish the
+combustion of natural fuel from the deliberate burning of harvest residue: both are detected as
+burned area, and a model trained on the latter would be learning agricultural calendar rather than
+fire-relevant dryness. Kozan 2023 (Adana province, Türkiye) was therefore processed through the
+identical Step 1–6 pipeline as a negative control. It is not a wildfire region: its burned area lies
+in the Çukurova agricultural plain and is dominated by post-harvest stubble burning. The gate
+receives it blind — it sees only the burn-date raster and the land-cover raster, with no regional
+label — and the verdict follows from rule 3 above. The control is reported in Section 4.1 and enters
+no modelling, transfer or diagnostic analysis; no Kozan number appears anywhere else in this paper.
 
 ## 3.4 Predictor variables
 
@@ -181,8 +193,15 @@ whether the fused value is observed, gap-filled or invalid; the corresponding pe
 retained as sensitivity diagnostics and are **never** used as predictors.
 
 **Terrain.** Elevation (m a.s.l.) and slope (degrees, from `ee.Terrain.slope`) are derived from the
-Copernicus GLO-30 DEM, with SRTMGL1 as a configured fallback (`core/config.py:61–80`), exported at
-30 m.
+Copernicus DEM GLO-30 (ESA, 30 m global digital surface model;
+`https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM`,
+accessed 2026-08-08), accessed as the `COPERNICUS/DEM/GLO30` Earth Engine collection. USGS SRTMGL1
+v003 is configured as a fallback should the preferred collection be unavailable
+(`core/config.py:61–80`); the frozen Step 2B metadata records `used_fallback: false` for every
+region, so all reported elevation and slope values come from GLO-30 and the fallback was never
+exercised. Because GLO-30 is a mosaicked collection without a fixed projection, slope is computed
+on the DEM's native projection before reprojection, not after (`step2b_dem.py:148–159`). Both bands
+are exported at 30 m.
 
 **Land cover.** ESA WorldCover v200 (10 m native, 2021 epoch), nearest-neighbour aligned to the 30 m
 reference grid. Class codes: 10 tree cover, 20 shrubland, 30 grassland, 40 cropland, 50 built-up,
@@ -501,8 +520,20 @@ two-region check agreed to ≤1×10⁻⁴ for within-region AUCs and to ±0.002 
 but this must be re-established once all regions are included.]` No file belonging to the upstream
 pipeline or to previously frozen outputs was modified by this analysis.
 
-Code, configuration and frozen numeric outputs are released with the paper `[TO VERIFY: repository
-URL and archival DOI]`.
+**Data and code availability.** The satellite inputs are all public and are obtained through Google
+Earth Engine: MODIS MCD64A1 Collection 6 burned area, MODIS land surface temperature, Landsat
+Collection 2 Level-2 surface reflectance and surface temperature, Copernicus DEM GLO-30, and ESA
+WorldCover v200. No data were collected by the authors and no restricted or licensed data were
+used; the region definitions, date windows and thresholds given in this section are sufficient to
+regenerate every input from these sources.
+
+The full processing pipeline (Steps 1–10), its configuration constants, and the frozen numeric
+outputs on which every reported number rests are publicly available at
+`https://github.com/emrehann17/satellite-thermal-digital-twin`. The repository is the authoritative
+source for the file and line references cited throughout this section. Analysis code is released
+under the repository's stated licence (MIT); no digital object identifier is minted for this release,
+and readers should cite the repository URL together with the commit identifier corresponding to the
+version of record.
 
 ## 3.14 Transferability diagnostics versus transfer
 
@@ -691,11 +722,26 @@ comparison report.]`
                were instead verified against drive_new step0/step8a/step8c outputs).
     NEW  §3.16.3 block edge length in cells for the shared window-closure folds (report gives
                fold/block counts but not the block size in cells).
-    KEPT §3.1  Kozan: final decision on whether it appears in the manuscript.
-    KEPT §3.3  gate verdicts per region (now numerically verified in Results Table R1 from each
-               region's burned_landcover_gate.json; the §3.3 marker can be resolved at assembly).
     KEPT §3.13 reproduction tolerances for the final region set (reproduction_check.json).
-    KEPT §3.13 repository URL and archival DOI.
+
+    CLOSED 2026-08-08 (second round):
+    §3.1  Kozan -- DECIDED IN. It now appears as a negative control in three places: a pointer in
+          §3.1, a dedicated "Negative control" paragraph in §3.3 (why the gate needs a region that
+          fails it; MCD64A1 does not separate stubble burning from wildfire; the gate sees Kozan
+          blind), and the result in §4.1. It enters no modelling, transfer or diagnostic analysis.
+    §3.3  gate verdicts -- resolved by pointing §3.3 to §4.1, where Table R1 carries the
+          per-region verdicts and fractions read from each burned_landcover_gate.json. Kozan:
+          542 burned cells, 0.017 natural vegetation, 0.983 cropland, verdict
+          cropland_dominated_control (drive_new/kozan-legacy/step6/labels/burned_landcover_gate.json).
+    §3.13 repository URL / DOI -- resolved as a "Data and code availability" statement naming
+          https://github.com/emrehann17/satellite-thermal-digital-twin (public, MIT). NO DOI and
+          no Zenodo deposit, by decision; the statement says so explicitly and asks readers to
+          cite the URL plus commit id.
+    §3.4  DEM source -- verified, not assumed. step2b_dem.py prefers GLO-30 and falls back to
+          SRTMGL1 on exception, so the code alone does not settle it; the frozen
+          step2b_dem_metadata.json records used_fallback=false, so GLO-30 ran and SRTM did not.
+          Cited by ESA product-page URL + access date (the DataCite DOI 404s). Farr et al. 2007
+          deliberately NOT cited.
 
 (c) Candidate discrepancy points vs Emrehan's independent Methods narrative (places where our
     scripts made choices his implementation may not share):

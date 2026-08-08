@@ -33,8 +33,14 @@ All five regions pass the admissibility gate as wildfire candidates (burned natu
 fraction 0.723–0.991). Montiferru is the weakest pass, with a burned cropland fraction of 0.274;
 its sensitivity to this composition is examined in Section 4.7b. The negative control behaves as
 designed: in Kozan 2023 the gate classifies 542 burned cells as 0.017 natural vegetation and
-0.983 cropland, returning the verdict *cropland-dominated control*, and the region is excluded
-from all modelling.
+0.983 cropland (533 of 542 burned cells cropland-dominant, 8 grassland, 1 tree cover), returning
+the verdict *cropland-dominated control*, and the region is excluded from all modelling. The
+separation is not marginal — the five admitted regions carry natural-vegetation fractions of
+0.723–0.991 against the control's 0.017, so the 0.50 threshold falls in an empty interval rather
+than between neighbouring cases. This establishes that the gate discriminates burned area produced
+by natural-fuel combustion from burned area produced by post-harvest stubble burning, which
+MCD64A1 itself does not distinguish, and that admission of the five study regions is a decision the
+data supports rather than a selection made by hand.
 
 North Evia is analysed on an extended AOI. Relative to the legacy 0.40°×0.40° box, the extended
 0.80°×0.60° box (~3× the area, identical predictor and label windows) leaves the burned scar

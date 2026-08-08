@@ -147,21 +147,32 @@ Everything still open after the 2026-08-08 sweep. Resolved-this-sweep items are 
 end for the audit trail.
 
 STILL OPEN:
-1. **Copernicus DEM GLO-30** — no citable record confirmed. The candidate DataCite DOI
-   `10.5270/ESA-c5d3d65` returned **HTTP 404** on 2026-08-08 and must not be used. Decision
-   needed: cite the ESA product page (no DOI) or the SRTM fallback (Farr et al. 2007).
-   `[UNVERIFIED: Copernicus GLO-30 DEM product citation]`
-2. **Bejís 2022 event description** — Crossref bibliographic search (2026-08-08) returned no
-   record specific to the August 2022 Bejís/Castellón fire. Consider a non-Crossref source
-   (EFFIS country report, Generalitat Valenciana) or omit. `[UNVERIFIED]`
-3. **Muğla 2021 event description** — only a weak-fit candidate found (Coşandal & Partigöç 2022,
-   tourism-impact study, *Resilience* 6(2):257–267, doi:10.32569/resilience.1211459 — metadata
-   verified, full text unread; added to bib as `Cosandal2022`, flagged). Keep only if no better
-   source appears.
-4. **Huang et al. [@Huang2026] effect coefficients** — full text still unread; do not quote any
-   coefficient from it (marker retained at the D-block note below and in 02 §2.4).
-5. **E2 (WildfireGenome)** — arXiv preprint only; re-check for a peer-reviewed version before
-   submission.
+1. **E2 (WildfireGenome)** — arXiv preprint only; re-check for a peer-reviewed version before
+   submission. *Deferred by decision to the pre-submission pass; stays on the list.*
+
+CLOSED 2026-08-08 (second round — decisions, not new evidence):
+2. **Copernicus DEM GLO-30** — **CLOSED, no bib entry.** The candidate DataCite DOI
+   `10.5270/ESA-c5d3d65` returns HTTP 404 and is not used. First, which DEM actually ran was
+   verified rather than assumed: `repo/src/step2b_dem.py` *prefers* GLO-30 and falls back to
+   SRTMGL1 only on exception, so the source could not be read off the code alone. The frozen
+   `drive_new/kozan-legacy/step2b/step2b_dem_metadata.json` records
+   `"dataset": "COPERNICUS/DEM/GLO30"`, `"used_fallback": false`, `"preferred_error": null` —
+   GLO-30 ran, the fallback was never exercised. Decision: cite the official ESA Copernicus Data
+   Space product page inline in Methods §3.4 with an access date and no DOI; do **not** cite
+   Farr et al. 2007, since SRTM contributed nothing to the reported numbers.
+3. **Bejís 2022 event description** — **CLOSED, uncited.** Crossref returned no record for the
+   event; a follow-up search for an EFFIS or Generalitat Valenciana report on the individual fire
+   found only press coverage and EU-wide season summaries (the JRC 2022 season report covers
+   Spain in aggregate, not Bejís). Decision: force nothing. The manuscript carries no narrative
+   description of the event; extent, dates and prevalence are reported from MCD64A1.
+4. **Muğla 2021 event description** — **CLOSED, reference removed.** `Cosandal2022` deleted from
+   `REFERENCES.bib`; it was a tourism-impact study, was never cited in the body text, and is a
+   poor fit for an event description. The event is described from MCD64A1 without a citation.
+5. **Huang et al. [@Huang2026]** — **CLOSED, abstract sufficient.** The manuscript quotes no
+   effect coefficient and no numerical result from this paper. §2.4 cites it only for the
+   existence and direction of the decomposition ("concept shift dominant"), which the abstract
+   supports; an explicit sentence to that effect now stands in §2.4 in place of the marker. Full
+   text is not required. If any Huang number is ever added, this item reopens.
 
 RESOLVED IN THIS SWEEP (2026-08-08, all via Crossref/arXiv API):
 - **A4 article number** — Crossref reports article-number 00921; DOI 10.1007/s44163-026-00921-0
@@ -386,8 +397,11 @@ ones need not — which is a hypothesis our data support and cannot prove.
 1. ~~Manually read the Dimarco et al. (2026) predictor table.~~ **`[CLOSED 2026-07-23]`** — full
    text read; findings recorded under N2 above. No LST, no TVDI; temperature is ERA5-Land static
    seasonal climatology. N2 reframed as an empirical contrast.
-2. `[ACTION REQUIRED]` Read Huang et al. (2026, *RSE* 337:115336) before citing any of its numbers.
-   The manuscript currently cites it only for the existence of its decomposition, which is safe.
+2. ~~Read Huang et al. (2026, *RSE* 337:115336) before citing any of its numbers.~~
+   **`[CLOSED 2026-08-08]`** — closed by decision, not by reading. The manuscript quotes no number
+   from it; §2.4 now states explicitly that no effect coefficient is quoted and that the citation
+   supports only the existence and direction of the decomposition, both of which the abstract
+   carries. Reopens only if a Huang number is added.
 3. ~~Decide whether N4 remains a contribution claim.~~ **`[CLOSED 2026-07-23]`** — resolved by
    logical narrowing rather than by a new test: the claim is now about **sufficiency**, refuted by
    the single Manavgat→Muğla counterexample, so no cross-pair correlation test is required. A

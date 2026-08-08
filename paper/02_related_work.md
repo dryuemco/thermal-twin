@@ -249,8 +249,9 @@ response once the conditional component is recognised as the binding constraint.
 Very recently, shift decomposition has begun to appear in applied remote sensing. Huang et al.
 [@Huang2026] compare transfer-learning strategies for hyperspectral foliar-trait retrieval and
 quantitatively decompose domain shift into components across four transfer scenarios, reporting
-concept shift as the dominant limitation on transferability. `[TO VERIFY: read the full text before
-quoting any of its effect coefficients.]`
+concept shift as the dominant limitation on transferability. No effect coefficient or numerical
+result of theirs is quoted here; the citation supports only the existence and direction of that
+decomposition.
 
 **Where this literature stops.** Huang et al. establish that decomposing transfer failure into shift
 components is both possible and informative in an applied remote-sensing setting, and we do not
