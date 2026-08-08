@@ -1,0 +1,816 @@
+{
+  "meta": {
+    "created": "2026-08-08",
+    "description": "Rank correlation between candidate transferability diagnostics and raw thermal cross-region transfer ROC-AUC, with pair-based spatial bootstrap CIs.",
+    "population": "burnable_tree_shrub_grass",
+    "transfer_metric": "raw thermal ROC-AUC on target region, source-only RF (step9b), TSG population",
+    "n_canonical_directions": 20,
+    "bootstrap": {
+      "scheme": "resample unordered region pairs with replacement; each sampled pair contributes all its ordered directions",
+      "n_replicates": 2000,
+      "seed": 42,
+      "prng": "mulberry32 (not numpy-identical; procedure deterministic)",
+      "ci": "equal-tailed percentile 95%"
+    },
+    "regime_metric_definition": "8-connectivity connected components of burned TSG cells on row_500m/col_500m; effective component count = inverse Simpson of component size shares; distances are absolute differences (log effN; largest share), symmetric per pair",
+    "component_verification": "all five regions match Emrehan Rejim tablosu exactly (count/largest/share/second/effN to 1e-4)",
+    "transfer_auc_crosscheck_vs_emrehan_aoa_table": {
+      "n_directions_compared": 12,
+      "max_abs_difference": 3.232904666194969e-8
+    },
+    "provenance": {
+      "parquet_sha256_prefixes": {
+        "manavgat_2021": "054a1961",
+        "bejis_2022": "3dec785a",
+        "mugla_2021": "c4ab107d",
+        "evia_2021_extended": "bdce859c",
+        "montiferru_2021": "ffb008f9"
+      },
+      "transfer_source": "drive_new/cross_region/<pair>/step9b + step9c (bidirectional, git a07ea337/0a3c5fe8/ab8fc5f5/5d55f6f4)",
+      "domain_classifier_source": "drive_new/diagnostics/domain_classifier_audit/comparison/multi_aoi_domain_classifier_comparison.csv",
+      "marginal_measures_source": "drive_new/diagnostics/marginal_aoa_completion/4b2a1c86.../comparison/marginal_diagnostics_with_transfer.csv (4 AOI, no Montiferru)"
+    },
+    "honesty_notes": [
+      "Effective sample is 10 unordered pairs (6 for four-AOI measures), not 20 (12) independent observations: the two directions of a pair share geography, and every pair shares its two member regions with three others. Power is very low; absence of significance is expected under both H0 and modest true effects.",
+      "Emrehan four-AOI measures exclude Montiferru; five-AOI measures are also reported on the common four-AOI subset for direct comparison.",
+      "Pre-registered expectation (stated before computation): regime distance will NOT significantly predict transfer, matching the failure of all four marginal measures; Bejís and Evia-extended are near-identical in regime (effN 1.000 vs 1.008) yet their transfers fail in both directions."
+    ],
+    "per_region_regime_metrics": {
+      "manavgat_2021": {
+        "burned_cells": 784,
+        "component_count": 15,
+        "largest_component": 690,
+        "largest_share": 0.8801020408163265,
+        "second_largest": 32,
+        "effective_component_count": 1.2871999564410679
+      },
+      "bejis_2022": {
+        "burned_cells": 1100,
+        "component_count": 1,
+        "largest_component": 1100,
+        "largest_share": 1,
+        "second_largest": 0,
+        "effective_component_count": 1
+      },
+      "mugla_2021": {
+        "burned_cells": 2911,
+        "component_count": 10,
+        "largest_component": 914,
+        "largest_share": 0.31398144967365166,
+        "second_largest": 738,
+        "effective_component_count": 4.054470796676968
+      },
+      "evia_2021_extended": {
+        "burned_cells": 2664,
+        "component_count": 2,
+        "largest_component": 2653,
+        "largest_share": 0.9958708708708709,
+        "second_largest": 11,
+        "effective_component_count": 1.008292356500576
+      },
+      "montiferru_2021": {
+        "burned_cells": 539,
+        "component_count": 8,
+        "largest_component": 416,
+        "largest_share": 0.7717996289424861,
+        "second_largest": 55,
+        "effective_component_count": 1.6274501016732674
+      }
+    }
+  },
+  "per_direction": [
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "source": "manavgat_2021",
+      "target": "bejis_2022",
+      "raw_thermal_roc_auc": 0.3258336344280276,
+      "thermal_roc_ci95": [
+        0.30428042631795843,
+        0.3477095901264187
+      ],
+      "regime_dist_log_effn": 0.2524692828559705,
+      "regime_dist_largest_share": 0.11989795918367352,
+      "domain_classifier_auc": 0.9997945684029216,
+      "target_mean_dissimilarity": 0.2731008511785548,
+      "target_p95_dissimilarity": 0.4580095402456554,
+      "fraction_inside_weighted_aoa": 0.2646477946017117,
+      "climate_distance": 0.5921806818373304,
+      "geographic_distance_km": 2808.391355321003,
+      "unweighted_fraction_inside_support": 0.91560236998025
+    },
+    {
+      "direction": "manavgat_2021_to_mugla_2021",
+      "source": "manavgat_2021",
+      "target": "mugla_2021",
+      "raw_thermal_roc_auc": 0.47015987108700774,
+      "thermal_roc_ci95": [
+        0.4542465618239862,
+        0.4860635558611139
+      ],
+      "regime_dist_log_effn": 1.1473508898265135,
+      "regime_dist_largest_share": 0.5661205911426748,
+      "domain_classifier_auc": 0.9822490364830485,
+      "target_mean_dissimilarity": 0.1401223032521492,
+      "target_p95_dissimilarity": 0.2436492072762509,
+      "fraction_inside_weighted_aoa": 0.8751767271333062,
+      "climate_distance": 0.373876487279662,
+      "geographic_distance_km": 306.95476059842844,
+      "unweighted_fraction_inside_support": 0.9639596463061034
+    },
+    {
+      "direction": "manavgat_2021_to_evia_2021_extended",
+      "source": "manavgat_2021",
+      "target": "evia_2021_extended",
+      "raw_thermal_roc_auc": 0.6125620551965896,
+      "thermal_roc_ci95": [
+        0.5930456686156583,
+        0.6328165006162235
+      ],
+      "regime_dist_log_effn": 0.24421111904827567,
+      "regime_dist_largest_share": 0.11576883005454441,
+      "domain_classifier_auc": 0.967882464032226,
+      "target_mean_dissimilarity": 0.1675964082359548,
+      "target_p95_dissimilarity": 0.2967656310940206,
+      "fraction_inside_weighted_aoa": 0.7443536244353625,
+      "climate_distance": 0.3946797296194553,
+      "geographic_distance_km": 731.20810593851,
+      "unweighted_fraction_inside_support": 0.9424607442460744
+    },
+    {
+      "direction": "manavgat_2021_to_montiferru_2021",
+      "source": "manavgat_2021",
+      "target": "montiferru_2021",
+      "raw_thermal_roc_auc": 0.5332600780053577,
+      "thermal_roc_ci95": [
+        0.4874208787171995,
+        0.578247426223025
+      ],
+      "regime_dist_log_effn": 0.23454515228045275,
+      "regime_dist_largest_share": 0.10830241187384038,
+      "domain_classifier_auc": 0.9970457959853071,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "source": "bejis_2022",
+      "target": "manavgat_2021",
+      "raw_thermal_roc_auc": 0.44352846197535134,
+      "thermal_roc_ci95": [
+        0.4094593716577264,
+        0.47721173740580086
+      ],
+      "regime_dist_log_effn": 0.2524692828559705,
+      "regime_dist_largest_share": 0.11989795918367352,
+      "domain_classifier_auc": 0.9997945684029216,
+      "target_mean_dissimilarity": 0.365092481069614,
+      "target_p95_dissimilarity": 0.687146340764711,
+      "fraction_inside_weighted_aoa": 0.2207248844563366,
+      "climate_distance": 0.5921806818373304,
+      "geographic_distance_km": 2808.391355321003,
+      "unweighted_fraction_inside_support": 0.7485769885672586
+    },
+    {
+      "direction": "bejis_2022_to_mugla_2021",
+      "source": "bejis_2022",
+      "target": "mugla_2021",
+      "raw_thermal_roc_auc": 0.6184747489978263,
+      "thermal_roc_ci95": [
+        0.6018820206575639,
+        0.6339296032012157
+      ],
+      "regime_dist_log_effn": 1.399820172682484,
+      "regime_dist_largest_share": 0.6860185503263483,
+      "domain_classifier_auc": 0.9998737880246804,
+      "target_mean_dissimilarity": 0.3199361972811828,
+      "target_p95_dissimilarity": 0.4932931773800146,
+      "fraction_inside_weighted_aoa": 0.1997795403896384,
+      "climate_distance": 0.8726406223000779,
+      "geographic_distance_km": 2514.117001727368,
+      "unweighted_fraction_inside_support": 0.7637966978984448
+    },
+    {
+      "direction": "bejis_2022_to_evia_2021_extended",
+      "source": "bejis_2022",
+      "target": "evia_2021_extended",
+      "raw_thermal_roc_auc": 0.38282143313044736,
+      "thermal_roc_ci95": [
+        0.3640085190659917,
+        0.4028624271179902
+      ],
+      "regime_dist_log_effn": 0.008258163807694808,
+      "regime_dist_largest_share": 0.0041291291291291055,
+      "domain_classifier_auc": 0.9997408604085823,
+      "target_mean_dissimilarity": 0.3377786514882156,
+      "target_p95_dissimilarity": 0.5257321618973324,
+      "fraction_inside_weighted_aoa": 0.1704667670466767,
+      "climate_distance": 0.4193235536499814,
+      "geographic_distance_km": 2077.731658540305,
+      "unweighted_fraction_inside_support": 0.6533663153366316
+    },
+    {
+      "direction": "bejis_2022_to_montiferru_2021",
+      "source": "bejis_2022",
+      "target": "montiferru_2021",
+      "raw_thermal_roc_auc": 0.5937253341599618,
+      "thermal_roc_ci95": [
+        0.5582346202014172,
+        0.6301024410063059
+      ],
+      "regime_dist_log_effn": 0.48701443513642323,
+      "regime_dist_largest_share": 0.2282003710575139,
+      "domain_classifier_auc": 0.9999057017816256,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    },
+    {
+      "direction": "mugla_2021_to_manavgat_2021",
+      "source": "mugla_2021",
+      "target": "manavgat_2021",
+      "raw_thermal_roc_auc": 0.40099966584697444,
+      "thermal_roc_ci95": [
+        0.3760612733167423,
+        0.4254658182180906
+      ],
+      "regime_dist_log_effn": 1.1473508898265135,
+      "regime_dist_largest_share": 0.5661205911426748,
+      "domain_classifier_auc": 0.9822490364830485,
+      "target_mean_dissimilarity": 0.2321812455590105,
+      "target_p95_dissimilarity": 0.5501617268303004,
+      "fraction_inside_weighted_aoa": 0.5305278521041109,
+      "climate_distance": 0.373876487279662,
+      "geographic_distance_km": 306.95476059842844,
+      "unweighted_fraction_inside_support": 0.9702262223303332
+    },
+    {
+      "direction": "mugla_2021_to_bejis_2022",
+      "source": "mugla_2021",
+      "target": "bejis_2022",
+      "raw_thermal_roc_auc": 0.5831912381443964,
+      "thermal_roc_ci95": [
+        0.55872824290063,
+        0.6052683918305165
+      ],
+      "regime_dist_log_effn": 1.399820172682484,
+      "regime_dist_largest_share": 0.6860185503263483,
+      "domain_classifier_auc": 0.9998737880246804,
+      "target_mean_dissimilarity": 0.4663418199185415,
+      "target_p95_dissimilarity": 0.8549570643567039,
+      "fraction_inside_weighted_aoa": 0.0050032916392363,
+      "climate_distance": 0.8726406223000779,
+      "geographic_distance_km": 2514.117001727368,
+      "unweighted_fraction_inside_support": 0.9075707702435812
+    },
+    {
+      "direction": "mugla_2021_to_evia_2021_extended",
+      "source": "mugla_2021",
+      "target": "evia_2021_extended",
+      "raw_thermal_roc_auc": 0.6534051763551312,
+      "thermal_roc_ci95": [
+        0.6336116945654386,
+        0.6721536120365013
+      ],
+      "regime_dist_log_effn": 1.391562008874789,
+      "regime_dist_largest_share": 0.6818894211972193,
+      "domain_classifier_auc": 0.9624243622353432,
+      "target_mean_dissimilarity": 0.2012591791587566,
+      "target_p95_dissimilarity": 0.4325624797191889,
+      "fraction_inside_weighted_aoa": 0.5809851580985158,
+      "climate_distance": 0.5147819063726174,
+      "geographic_distance_km": 448.26828177186536,
+      "unweighted_fraction_inside_support": 0.9509571950957196
+    },
+    {
+      "direction": "mugla_2021_to_montiferru_2021",
+      "source": "mugla_2021",
+      "target": "montiferru_2021",
+      "raw_thermal_roc_auc": 0.5312433202707516,
+      "thermal_roc_ci95": [
+        0.49789653632795755,
+        0.5669237816929328
+      ],
+      "regime_dist_log_effn": 0.9128057375460608,
+      "regime_dist_largest_share": 0.45781817926883445,
+      "domain_classifier_auc": 0.9945627206310438,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    },
+    {
+      "direction": "evia_2021_extended_to_manavgat_2021",
+      "source": "evia_2021_extended",
+      "target": "manavgat_2021",
+      "raw_thermal_roc_auc": 0.6857777670301659,
+      "thermal_roc_ci95": [
+        0.651483434912973,
+        0.71707037508345
+      ],
+      "regime_dist_log_effn": 0.24421111904827567,
+      "regime_dist_largest_share": 0.11576883005454441,
+      "domain_classifier_auc": 0.967882464032226,
+      "target_mean_dissimilarity": 0.3494944693248878,
+      "target_p95_dissimilarity": 0.7555216197703724,
+      "fraction_inside_weighted_aoa": 0.4067136949647287,
+      "climate_distance": 0.3946797296194553,
+      "geographic_distance_km": 731.20810593851,
+      "unweighted_fraction_inside_support": 0.8994891753831185
+    },
+    {
+      "direction": "evia_2021_extended_to_bejis_2022",
+      "source": "evia_2021_extended",
+      "target": "bejis_2022",
+      "raw_thermal_roc_auc": 0.4480079359958707,
+      "thermal_roc_ci95": [
+        0.4265929383108709,
+        0.4684725774992342
+      ],
+      "regime_dist_log_effn": 0.008258163807694808,
+      "regime_dist_largest_share": 0.0041291291291291055,
+      "domain_classifier_auc": 0.9997408604085823,
+      "target_mean_dissimilarity": 0.4862588199588097,
+      "target_p95_dissimilarity": 0.8844110397496701,
+      "fraction_inside_weighted_aoa": 0.0728768926925609,
+      "climate_distance": 0.4193235536499814,
+      "geographic_distance_km": 2077.731658540305,
+      "unweighted_fraction_inside_support": 0.8562211981566821
+    },
+    {
+      "direction": "evia_2021_extended_to_mugla_2021",
+      "source": "evia_2021_extended",
+      "target": "mugla_2021",
+      "raw_thermal_roc_auc": 0.576836486299561,
+      "thermal_roc_ci95": [
+        0.5597937684326241,
+        0.5940689575690627
+      ],
+      "regime_dist_log_effn": 1.391562008874789,
+      "regime_dist_largest_share": 0.6818894211972193,
+      "domain_classifier_auc": 0.9624243622353432,
+      "target_mean_dissimilarity": 0.2468574381461607,
+      "target_p95_dissimilarity": 0.5115908787629446,
+      "fraction_inside_weighted_aoa": 0.6309697826555798,
+      "climate_distance": 0.5147819063726174,
+      "geographic_distance_km": 448.26828177186536,
+      "unweighted_fraction_inside_support": 0.9590232680740935
+    },
+    {
+      "direction": "evia_2021_extended_to_montiferru_2021",
+      "source": "evia_2021_extended",
+      "target": "montiferru_2021",
+      "raw_thermal_roc_auc": 0.6467042042389389,
+      "thermal_roc_ci95": [
+        0.6090080065790465,
+        0.6827904013964046
+      ],
+      "regime_dist_log_effn": 0.47875627132872844,
+      "regime_dist_largest_share": 0.2240712419283848,
+      "domain_classifier_auc": 0.989924119747129,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    },
+    {
+      "direction": "montiferru_2021_to_manavgat_2021",
+      "source": "montiferru_2021",
+      "target": "manavgat_2021",
+      "raw_thermal_roc_auc": 0.5670426836522615,
+      "thermal_roc_ci95": [
+        0.5398059157030237,
+        0.5955056159221729
+      ],
+      "regime_dist_log_effn": 0.23454515228045275,
+      "regime_dist_largest_share": 0.10830241187384038,
+      "domain_classifier_auc": 0.9970457959853071,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    },
+    {
+      "direction": "montiferru_2021_to_bejis_2022",
+      "source": "montiferru_2021",
+      "target": "bejis_2022",
+      "raw_thermal_roc_auc": 0.5483011162010453,
+      "thermal_roc_ci95": [
+        0.5210023743179294,
+        0.5780665350030779
+      ],
+      "regime_dist_log_effn": 0.48701443513642323,
+      "regime_dist_largest_share": 0.2282003710575139,
+      "domain_classifier_auc": 0.9999057017816256,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    },
+    {
+      "direction": "montiferru_2021_to_mugla_2021",
+      "source": "montiferru_2021",
+      "target": "mugla_2021",
+      "raw_thermal_roc_auc": 0.6193519007685069,
+      "thermal_roc_ci95": [
+        0.6031072876020175,
+        0.6345504281264537
+      ],
+      "regime_dist_log_effn": 0.9128057375460608,
+      "regime_dist_largest_share": 0.45781817926883445,
+      "domain_classifier_auc": 0.9945627206310438,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    },
+    {
+      "direction": "montiferru_2021_to_evia_2021_extended",
+      "source": "montiferru_2021",
+      "target": "evia_2021_extended",
+      "raw_thermal_roc_auc": 0.5861929535806533,
+      "thermal_roc_ci95": [
+        0.5646001388689521,
+        0.6065158361306496
+      ],
+      "regime_dist_log_effn": 0.47875627132872844,
+      "regime_dist_largest_share": 0.2240712419283848,
+      "domain_classifier_auc": 0.989924119747129,
+      "target_mean_dissimilarity": null,
+      "target_p95_dissimilarity": null,
+      "fraction_inside_weighted_aoa": null,
+      "climate_distance": null,
+      "geographic_distance_km": null,
+      "unweighted_fraction_inside_support": null
+    }
+  ],
+  "correlations": [
+    {
+      "key": "regime_dist_log_effn",
+      "label": "Regime distance |Δ log effective component count| (primary)",
+      "expected": "negative",
+      "directed": false,
+      "coverage": "five_aoi",
+      "full_set": {
+        "n_directions": 20,
+        "n_pairs": 10,
+        "spearman_rho": 0.2898133842251048,
+        "spearman_ci95": [
+          -0.37872097905342,
+          0.7387623412815425
+        ],
+        "kendall_tau_b": 0.19466570535691505,
+        "kendall_ci95": [
+          -0.2946561358789259,
+          0.5834428571175229
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.3533767463701098,
+        "spearman_ci95": [
+          -0.5331873011182834,
+          0.8392543274162825
+        ],
+        "kendall_tau_b": 0.28603877677367767,
+        "kendall_ci95": [
+          -0.37267799624996495,
+          0.752217203341651
+        ],
+        "n_valid_replicates": 1999,
+        "n_degenerate_replicates": 1
+      }
+    },
+    {
+      "key": "regime_dist_largest_share",
+      "label": "Regime distance |Δ largest-component share| (secondary)",
+      "expected": "negative",
+      "directed": false,
+      "coverage": "five_aoi",
+      "full_set": {
+        "n_directions": 20,
+        "n_pairs": 10,
+        "spearman_rho": 0.2898133842251048,
+        "spearman_ci95": [
+          -0.38945905472302333,
+          0.7223695793312834
+        ],
+        "kendall_tau_b": 0.19466570535691505,
+        "kendall_ci95": [
+          -0.30586910457855027,
+          0.5657243418748464
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.3533767463701098,
+        "spearman_ci95": [
+          -0.5331873011182834,
+          0.8392543274162825
+        ],
+        "kendall_tau_b": 0.28603877677367767,
+        "kendall_ci95": [
+          -0.37267799624996495,
+          0.752217203341651
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "domain_classifier_auc",
+      "label": "Domain-classifier AUC (marginal separability)",
+      "expected": "negative",
+      "directed": false,
+      "coverage": "five_aoi",
+      "full_set": {
+        "n_directions": 20,
+        "n_pairs": 10,
+        "spearman_rho": -0.3169833889962083,
+        "spearman_ci95": [
+          -0.7754152040076422,
+          0.3275547240350834
+        ],
+        "kendall_tau_b": -0.23792475099178506,
+        "kendall_ci95": [
+          -0.6246238140247575,
+          0.22805783151945053
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": -0.3533767463701098,
+        "spearman_ci95": [
+          -0.8392543274162825,
+          0.6527533657682196
+        ],
+        "kendall_tau_b": -0.28603877677367767,
+        "kendall_ci95": [
+          -0.752217203341651,
+          0.5146749286021822
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "target_mean_dissimilarity",
+      "label": "Predictor-space mean dissimilarity (Emrehan, weighted AoA)",
+      "expected": "negative",
+      "directed": true,
+      "coverage": "four_aoi",
+      "full_set": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": -0.1048951048951049,
+        "spearman_ci95": [
+          -0.5864661654135338,
+          0.45652173913043476
+        ],
+        "kendall_tau_b": -0.030303030303030304,
+        "kendall_ci95": [
+          -0.4482758620689655,
+          0.4074074074074074
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": -0.1048951048951049,
+        "spearman_ci95": [
+          -0.5434782608695652,
+          0.425531914893617
+        ],
+        "kendall_tau_b": -0.030303030303030304,
+        "kendall_ci95": [
+          -0.4444444444444444,
+          0.4
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "target_p95_dissimilarity",
+      "label": "Predictor-space p95 dissimilarity (Emrehan)",
+      "expected": "negative",
+      "directed": true,
+      "coverage": "four_aoi",
+      "full_set": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": -0.08391608391608392,
+        "spearman_ci95": [
+          -0.5797101449275363,
+          0.46616541353383456
+        ],
+        "kendall_tau_b": 0,
+        "kendall_ci95": [
+          -0.4444444444444444,
+          0.4008333333333288
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": -0.08391608391608392,
+        "spearman_ci95": [
+          -0.5870308101345011,
+          0.4855072463768116
+        ],
+        "kendall_tau_b": 0,
+        "kendall_ci95": [
+          -0.4444444444444444,
+          0.4444444444444444
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "fraction_inside_weighted_aoa",
+      "label": "Fraction of target inside weighted AoA (Emrehan)",
+      "expected": "positive",
+      "directed": true,
+      "coverage": "four_aoi",
+      "full_set": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.21678321678321677,
+        "spearman_ci95": [
+          -0.5,
+          0.6
+        ],
+        "kendall_tau_b": 0.09090909090909091,
+        "kendall_ci95": [
+          -0.3548387096774194,
+          0.3225806451612903
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.21678321678321677,
+        "spearman_ci95": [
+          -0.48226950354609927,
+          0.5869565217391305
+        ],
+        "kendall_tau_b": 0.09090909090909091,
+        "kendall_ci95": [
+          -0.3448275862068966,
+          0.3103448275862069
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "climate_distance",
+      "label": "Climatic distance (Emrehan, TerraClimate)",
+      "expected": "negative",
+      "directed": false,
+      "coverage": "four_aoi",
+      "full_set": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.05654027941921756,
+        "spearman_ci95": [
+          -0.6993786061802354,
+          0.7926290870042667
+        ],
+        "kendall_tau_b": 0.03178208630818641,
+        "kendall_ci95": [
+          -0.6334460659719167,
+          0.6334460659719167
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.05654027941921756,
+        "spearman_ci95": [
+          -0.762319128364807,
+          0.7926290870042667
+        ],
+        "kendall_tau_b": 0.03178208630818641,
+        "kendall_ci95": [
+          -0.6356610857050868,
+          0.6334460659719167
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "geographic_distance_km",
+      "label": "Geographic centroid distance km (Emrehan)",
+      "expected": "negative",
+      "directed": false,
+      "coverage": "four_aoi",
+      "full_set": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": -0.24029618753167464,
+        "spearman_ci95": [
+          -0.8392543274162825,
+          0.717533715507849
+        ],
+        "kendall_tau_b": -0.15891043154093204,
+        "kendall_ci95": [
+          -0.7455275227709729,
+          0.6334460659719167
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": -0.24029618753167464,
+        "spearman_ci95": [
+          -0.8366600265340756,
+          0.7329991618892375
+        ],
+        "kendall_tau_b": -0.15891043154093204,
+        "kendall_ci95": [
+          -0.7142632826324823,
+          0.6334460659719167
+        ],
+        "n_valid_replicates": 1999,
+        "n_degenerate_replicates": 1
+      }
+    },
+    {
+      "key": "unweighted_fraction_inside_support",
+      "label": "Fraction of target inside unweighted support (Emrehan)",
+      "expected": "positive",
+      "directed": true,
+      "coverage": "four_aoi",
+      "full_set": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.07692307692307693,
+        "spearman_ci95": [
+          -0.924812030075188,
+          0.6086956521739131
+        ],
+        "kendall_tau_b": 0.030303030303030304,
+        "kendall_ci95": [
+          -0.8333333333333334,
+          0.48362068965516775
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      },
+      "four_aoi_subset": {
+        "n_directions": 12,
+        "n_pairs": 6,
+        "spearman_rho": 0.07692307692307693,
+        "spearman_ci95": [
+          -0.8858540372670807,
+          0.6304347826086957
+        ],
+        "kendall_tau_b": 0.030303030303030304,
+        "kendall_ci95": [
+          -0.7432146829810901,
+          0.538793103448274
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    }
+  ]
+}

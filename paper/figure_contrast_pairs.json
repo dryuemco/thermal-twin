@@ -1,0 +1,344 @@
+{
+ "meta": {
+  "created": "2026-08-08",
+  "purpose": "Main-figure data: high-overlap/reversed-direction pair (Manavgat-Mugla) vs low-overlap/aligned-direction pair (Bejis-Montiferru)",
+  "signed_auc_source": {
+   "path": "drive_new/diagnostics/multi_aoi_transfer_synthesis/bejis_2022__evia_2021_extended__manavgat_2021__montiferru_2021__mugla_2021/multi_aoi_feature_stability.csv",
+   "sha256": "52a0b28efef63ad104cf3e35607d3eef761cccf4a03c230825be2365d2d17765"
+  },
+  "niche_source": "paper/niche_overlap_transfer.json",
+  "transfer_ci_source": "drive_new/cross_region/<pair>/step9c",
+  "parquet_sha256_prefixes": {
+   "manavgat_2021": "054a1961",
+   "bejis_2022": "3dec785a",
+   "mugla_2021": "c4ab107d",
+   "evia_2021_extended": "bdce859c",
+   "montiferru_2021": "ffb008f9"
+  }
+ },
+ "pairs": [
+  {
+   "pair": "manavgat_2021 ~ mugla_2021",
+   "niche_overlap": {
+    "schoener_d_mean1d": 0.8258756788390794,
+    "warren_i_mean1d": 0.9606775188087412,
+    "schoener_d_pca2d": 0.6467800706679099,
+    "mahalanobis": 2.7076635711751758
+   },
+   "conditional": {
+    "agree_count_9": 4,
+    "cosine_9": -0.2093633346685748,
+    "n_supported": 2,
+    "agree_fraction_supported": 0.5,
+    "supported_features": [
+     "ndvi_mean",
+     "elevation_mean"
+    ]
+   },
+   "transfer": {
+    "manavgat_2021_to_mugla_2021": {
+     "auc": 0.47015987108700774,
+     "ci95": [
+      0.4542465618239862,
+      0.4860635558611139
+     ]
+    },
+    "mugla_2021_to_manavgat_2021": {
+     "auc": 0.40099966584697444,
+     "ci95": [
+      0.3760612733167423,
+      0.4254658182180906
+     ]
+    }
+   },
+   "per_feature_signed_auc": {
+    "ndvi_mean": {
+     "manavgat_2021": {
+      "auc": 0.6359169371099176,
+      "lo": 0.5872285206570871,
+      "hi": 0.6762849193685545
+     },
+     "mugla_2021": {
+      "auc": 0.6616527794184797,
+      "lo": 0.6156274522323434,
+      "hi": 0.7035074327376446
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.8275
+    },
+    "elevation_mean": {
+     "manavgat_2021": {
+      "auc": 0.37410755666893913,
+      "lo": 0.2890796631009303,
+      "hi": 0.4711534398242251
+     },
+     "mugla_2021": {
+      "auc": 0.6114025048859928,
+      "lo": 0.5319021930545539,
+      "hi": 0.6904319830630276
+     },
+     "sign_agrees": false,
+     "schoener_d_this_feature": 0.7754
+    },
+    "slope_mean": {
+     "manavgat_2021": {
+      "auc": 0.5309574867864721,
+      "lo": 0.4228454993639831,
+      "hi": 0.641707826568334
+     },
+     "mugla_2021": {
+      "auc": 0.6368180084143384,
+      "lo": 0.5819257681498503,
+      "hi": 0.68641744780742
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.8902
+    },
+    "lst_anomaly_mean": {
+     "manavgat_2021": {
+      "auc": 0.4823529005017941,
+      "lo": 0.4279530417105843,
+      "hi": 0.5299474237983043
+     },
+     "mugla_2021": {
+      "auc": 0.4845735569026068,
+      "lo": 0.3945167019229775,
+      "hi": 0.5660732073894761
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.8394
+    },
+    "current_lst_mean": {
+     "manavgat_2021": {
+      "auc": 0.5382779853437281,
+      "lo": 0.45176227230170396,
+      "hi": 0.620503038933485
+     },
+     "mugla_2021": {
+      "auc": 0.324818209196232,
+      "lo": 0.2713831954453114,
+      "hi": 0.3821312123411832
+     },
+     "sign_agrees": false,
+     "schoener_d_this_feature": 0.8353
+    },
+    "current_tvdi_mean": {
+     "manavgat_2021": {
+      "auc": 0.5520208992479892,
+      "lo": 0.4602480293883392,
+      "hi": 0.6410618349429631
+     },
+     "mugla_2021": {
+      "auc": 0.3357699119089857,
+      "lo": 0.27535685410747573,
+      "hi": 0.39757500369355586
+     },
+     "sign_agrees": false,
+     "schoener_d_this_feature": 0.8382
+    },
+    "tvdi_difference_mean": {
+     "manavgat_2021": {
+      "auc": 0.44939202798988004,
+      "lo": 0.3905414223569665,
+      "hi": 0.5051782545937413
+     },
+     "mugla_2021": {
+      "auc": 0.49002459954410754,
+      "lo": 0.3964138391440796,
+      "hi": 0.5747477756769651
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.7701
+    },
+    "downscaled_lst_mean": {
+     "manavgat_2021": {
+      "auc": 0.5520694210669516,
+      "lo": 0.4659633972389294,
+      "hi": 0.637150621852662
+     },
+     "mugla_2021": {
+      "auc": 0.30697725296436723,
+      "lo": 0.25320481926586585,
+      "hi": 0.36583706101459185
+     },
+     "sign_agrees": false,
+     "schoener_d_this_feature": 0.8215
+    },
+    "fused_lst_mean": {
+     "manavgat_2021": {
+      "auc": 0.5400826188182982,
+      "lo": 0.4542805043929701,
+      "hi": 0.6218679874478806
+     },
+     "mugla_2021": {
+      "auc": 0.32521434622074175,
+      "lo": 0.2720012810467721,
+      "hi": 0.3827633213333897
+     },
+     "sign_agrees": false,
+     "schoener_d_this_feature": 0.8353
+    }
+   }
+  },
+  {
+   "pair": "bejis_2022 ~ montiferru_2021",
+   "niche_overlap": {
+    "schoener_d_mean1d": 0.4785862730200658,
+    "warren_i_mean1d": 0.7166023131429902,
+    "schoener_d_pca2d": 0.06495361781076059,
+    "mahalanobis": 8.11207620847974
+   },
+   "conditional": {
+    "agree_count_9": 7,
+    "cosine_9": 0.4868821436161877,
+    "n_supported": 0,
+    "agree_fraction_supported": null,
+    "supported_features": []
+   },
+   "transfer": {
+    "bejis_2022_to_montiferru_2021": {
+     "auc": 0.5937253341599618,
+     "ci95": [
+      0.5582346202014172,
+      0.6301024410063059
+     ]
+    },
+    "montiferru_2021_to_bejis_2022": {
+     "auc": 0.5483011162010453,
+     "ci95": [
+      0.5210023743179294,
+      0.5780665350030779
+     ]
+    }
+   },
+   "per_feature_signed_auc": {
+    "ndvi_mean": {
+     "bejis_2022": {
+      "auc": 0.5587527905026131,
+      "lo": 0.4971818582643429,
+      "hi": 0.619346637555737
+     },
+     "montiferru_2021": {
+      "auc": 0.5862731853113042,
+      "lo": 0.45014383161602317,
+      "hi": 0.7043832813462082
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.5474
+    },
+    "elevation_mean": {
+     "bejis_2022": {
+      "auc": 0.6432824053164721,
+      "lo": 0.5583150457861116,
+      "hi": 0.7290055219147464
+     },
+     "montiferru_2021": {
+      "auc": 0.5837706290859124,
+      "lo": 0.3953155499799928,
+      "hi": 0.7623088314675833
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.2646
+    },
+    "slope_mean": {
+     "bejis_2022": {
+      "auc": 0.5207878895412608,
+      "lo": 0.4393212094762653,
+      "hi": 0.605295958421595
+     },
+     "montiferru_2021": {
+      "auc": 0.6519721105399766,
+      "lo": 0.5059965620455151,
+      "hi": 0.7705472817222545
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.7064
+    },
+    "lst_anomaly_mean": {
+     "bejis_2022": {
+      "auc": 0.4179915266529903,
+      "lo": 0.3637850507544111,
+      "hi": 0.4795630994864565
+     },
+     "montiferru_2021": {
+      "auc": 0.39519013227598904,
+      "lo": 0.285145350453144,
+      "hi": 0.5345227829044743
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.4037
+    },
+    "current_lst_mean": {
+     "bejis_2022": {
+      "auc": 0.4767477506934928,
+      "lo": 0.4011532923534438,
+      "hi": 0.5474889652503846
+     },
+     "montiferru_2021": {
+      "auc": 0.3704643770906685,
+      "lo": 0.24782684782865552,
+      "hi": 0.5129602234841384
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.4765
+    },
+    "current_tvdi_mean": {
+     "bejis_2022": {
+      "auc": 0.5172782323463783,
+      "lo": 0.4290091381060553,
+      "hi": 0.595208856020078
+     },
+     "montiferru_2021": {
+      "auc": 0.3555286181577596,
+      "lo": 0.2331671304845549,
+      "hi": 0.4990539748344443
+     },
+     "sign_agrees": false,
+     "schoener_d_this_feature": 0.7728
+    },
+    "tvdi_difference_mean": {
+     "bejis_2022": {
+      "auc": 0.5124941631737097,
+      "lo": 0.4431549328523628,
+      "hi": 0.5829402577021532
+     },
+     "montiferru_2021": {
+      "auc": 0.37762180818824925,
+      "lo": 0.2821229847499818,
+      "hi": 0.49651149112782955
+     },
+     "sign_agrees": false,
+     "schoener_d_this_feature": 0.2262
+    },
+    "downscaled_lst_mean": {
+     "bejis_2022": {
+      "auc": 0.4836430737466933,
+      "lo": 0.4003605903074035,
+      "hi": 0.5598325680030973
+     },
+     "montiferru_2021": {
+      "auc": 0.364736376795746,
+      "lo": 0.24025899649425494,
+      "hi": 0.5110558445055425
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.4415
+    },
+    "fused_lst_mean": {
+     "bejis_2022": {
+      "auc": 0.4806129105103555,
+      "lo": 0.4039472512732557,
+      "hi": 0.5514025133468518
+     },
+     "montiferru_2021": {
+      "auc": 0.37047270506479624,
+      "lo": 0.247836825343333,
+      "hi": 0.5130079558295708
+     },
+     "sign_agrees": true,
+     "schoener_d_this_feature": 0.468
+    }
+   }
+  }
+ ]
+}

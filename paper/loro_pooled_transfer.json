@@ -1,0 +1,1320 @@
+{
+  "meta": {
+    "created": "2026-08-08",
+    "analysis": "Analysis 2 - leave-one-region-out pooled multi-region training vs pairwise transfer, within-region ceiling, and Analysis-1 conditional similarity",
+    "environment": "WSL Ubuntu-22.04, micromamba env: python 3.12, scikit-learn 1.9.0 (exact match to Emrehan step10 records), pandas 3.0.5, numpy 2.5.1, pyarrow 25.0.0",
+    "implementation_check": "two pairwise step9b transfers reproduced to 4 decimal places with this environment (montiferru->bejis 0.5483, manavgat->bejis 0.3258, diff 0.0000). With sklearn 1.7.2 the same code deviated by 0.021-0.026 -> exact version matching is required and was used.",
+    "model": "RandomForestClassifier(n_estimators=300, min_samples_leaf=3, class_weight=balanced, random_state=42)",
+    "preprocessing": "numeric median imputation fit on pooled training set; landcover one-hot fit on training (unknown target categories -> all-zero); regionwise z-score = per-region mean/sd (ddof=0) over primary rows, numeric features only, target scaled with its own stats (label-free, Step10 definition)",
+    "population": "valid_for_modeling AND burnable_tree_shrub_grass",
+    "bootstrap": "target spatial-block bootstrap, blocks (row_500m//10, col_500m//10) ~5 km, 1000 replicates, numpy default_rng(42), percentile 95% CI",
+    "provenance": {
+      "parquet_sha256_prefixes": {
+        "manavgat_2021": "054a1961",
+        "bejis_2022": "3dec785a",
+        "mugla_2021": "c4ab107d",
+        "evia_2021_extended": "bdce859c",
+        "montiferru_2021": "ffb008f9"
+      },
+      "pairwise_and_within_sources": "drive_new/cross_region/<pair>/step9b (thermal raw, TSG), drive_new/experiments/<region>/step8c point estimates (TSG)",
+      "conditional_similarity_source": "paper/conditional_similarity_transfer.json (Analysis 1)"
+    },
+    "linkage_note": "n=5 targets -> rank correlations are descriptive only; no bootstrap CI is meaningful at n=5"
+  },
+  "per_target": [
+    {
+      "target": "manavgat_2021",
+      "pool": [
+        "bejis_2022",
+        "mugla_2021",
+        "evia_2021_extended",
+        "montiferru_2021"
+      ],
+      "pairwise_thermal": {
+        "bejis_2022": 0.44352846197535134,
+        "mugla_2021": 0.40099966584697444,
+        "evia_2021_extended": 0.6857777670301659,
+        "montiferru_2021": 0.5670426836522615
+      },
+      "best_pairwise_thermal": 0.6857777670301659,
+      "best_pairwise_source": "evia_2021_extended",
+      "mean_pairwise_thermal": 0.5243371446261883,
+      "loro_raw_thermal": {
+        "target": "manavgat_2021",
+        "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "thermal",
+        "n_train": 68762,
+        "n_test": 20511,
+        "train_prevalence": 0.10491259707396527,
+        "roc_auc": 0.4690418989616428,
+        "pr_auc": 0.03363668753545046,
+        "brier": 0.14699605718061307,
+        "prevalence": 0.03822339232606894,
+        "roc_auc_ci": [
+          0.4116381185325754,
+          0.5290498763367325
+        ],
+        "pr_auc_ci": [
+          0.015216575443541887,
+          0.055862936916231676
+        ],
+        "brier_ci": [
+          0.13254339124488299,
+          0.16274550618997516
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 7.3
+      },
+      "loro_z_thermal": {
+        "target": "manavgat_2021",
+        "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "thermal",
+        "n_train": 68762,
+        "n_test": 20511,
+        "train_prevalence": 0.10491259707396527,
+        "roc_auc": 0.6571308695323823,
+        "pr_auc": 0.07639656563715917,
+        "brier": 0.13960183806558904,
+        "prevalence": 0.03822339232606894,
+        "roc_auc_ci": [
+          0.5426311007005841,
+          0.7540172753109521
+        ],
+        "pr_auc_ci": [
+          0.02882820218366182,
+          0.13642082791737456
+        ],
+        "brier_ci": [
+          0.1190900852472492,
+          0.1601489576610587
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 7.4
+      },
+      "loro_raw_baseline": {
+        "target": "manavgat_2021",
+        "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "baseline",
+        "n_train": 68762,
+        "n_test": 20511,
+        "train_prevalence": 0.10491259707396527,
+        "roc_auc": 0.5625905213304463,
+        "pr_auc": 0.04565764311783985,
+        "brier": 0.17134791446305636,
+        "prevalence": 0.03822339232606894,
+        "roc_auc_ci": [
+          0.5083246663476106,
+          0.61746139324886
+        ],
+        "pr_auc_ci": [
+          0.01984819870457546,
+          0.0782106316884999
+        ],
+        "brier_ci": [
+          0.15994205170890283,
+          0.18381610453914637
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 9.9
+      },
+      "loro_z_baseline": {
+        "target": "manavgat_2021",
+        "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "baseline",
+        "n_train": 68762,
+        "n_test": 20511,
+        "train_prevalence": 0.10491259707396527,
+        "roc_auc": 0.6464523268120043,
+        "pr_auc": 0.07060728454477491,
+        "brier": 0.15245450168064065,
+        "prevalence": 0.03822339232606894,
+        "roc_auc_ci": [
+          0.5617630890669584,
+          0.7141294811518016
+        ],
+        "pr_auc_ci": [
+          0.027775662426808345,
+          0.12519718528503476
+        ],
+        "brier_ci": [
+          0.13619149099860264,
+          0.168654460847928
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 7.4
+      },
+      "within_thermal": 0.8696419777927898,
+      "within_baseline": 0.8027358197042693,
+      "pool_conditional": {
+        "mean_cosine_9": -0.19895861309488158,
+        "max_cosine_9": -0.1352459076975506,
+        "mean_agree_count_9": 3.25,
+        "max_agree_count_9": 4
+      }
+    },
+    {
+      "target": "bejis_2022",
+      "pool": [
+        "manavgat_2021",
+        "mugla_2021",
+        "evia_2021_extended",
+        "montiferru_2021"
+      ],
+      "pairwise_thermal": {
+        "manavgat_2021": 0.3258336344280276,
+        "mugla_2021": 0.5831912381443964,
+        "evia_2021_extended": 0.4480079359958707,
+        "montiferru_2021": 0.5483011162010453
+      },
+      "best_pairwise_thermal": 0.5831912381443964,
+      "best_pairwise_source": "mugla_2021",
+      "mean_pairwise_thermal": 0.476333481192335,
+      "loro_raw_thermal": {
+        "target": "bejis_2022",
+        "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "thermal",
+        "n_train": 74083,
+        "n_test": 15190,
+        "train_prevalence": 0.09311178003050632,
+        "roc_auc": 0.4166302987289503,
+        "pr_auc": 0.056106650954150926,
+        "brier": 0.09501316545075159,
+        "prevalence": 0.07241606319947334,
+        "roc_auc_ci": [
+          0.3685591414926309,
+          0.4670170391845796
+        ],
+        "pr_auc_ci": [
+          0.029928527194293807,
+          0.08897244719053757
+        ],
+        "brier_ci": [
+          0.07086155101054377,
+          0.12435797044063264
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 6
+      },
+      "loro_z_thermal": {
+        "target": "bejis_2022",
+        "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "thermal",
+        "n_train": 74083,
+        "n_test": 15190,
+        "train_prevalence": 0.09311178003050632,
+        "roc_auc": 0.4715396477192077,
+        "pr_auc": 0.06609346360182966,
+        "brier": 0.16512909985143098,
+        "prevalence": 0.07241606319947334,
+        "roc_auc_ci": [
+          0.42830794502427927,
+          0.5164100750168287
+        ],
+        "pr_auc_ci": [
+          0.037468618105331496,
+          0.1031260901376662
+        ],
+        "brier_ci": [
+          0.14465691948151438,
+          0.18659269439109213
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 6.2
+      },
+      "loro_raw_baseline": {
+        "target": "bejis_2022",
+        "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "baseline",
+        "n_train": 74083,
+        "n_test": 15190,
+        "train_prevalence": 0.09311178003050632,
+        "roc_auc": 0.38935228079230916,
+        "pr_auc": 0.054278677293164976,
+        "brier": 0.11265067088771721,
+        "prevalence": 0.07241606319947334,
+        "roc_auc_ci": [
+          0.3257376939700585,
+          0.461246679016882
+        ],
+        "pr_auc_ci": [
+          0.030243330347978766,
+          0.08575731150648548
+        ],
+        "brier_ci": [
+          0.08896814720945921,
+          0.1408666152645046
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 9
+      },
+      "loro_z_baseline": {
+        "target": "bejis_2022",
+        "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "baseline",
+        "n_train": 74083,
+        "n_test": 15190,
+        "train_prevalence": 0.09311178003050632,
+        "roc_auc": 0.4163235692625331,
+        "pr_auc": 0.059825007465300464,
+        "brier": 0.17056684743656556,
+        "prevalence": 0.07241606319947334,
+        "roc_auc_ci": [
+          0.35835275060732225,
+          0.4772736298470081
+        ],
+        "pr_auc_ci": [
+          0.033447674530219,
+          0.09383003728042943
+        ],
+        "brier_ci": [
+          0.15090542177817803,
+          0.19258085120443078
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 5.8
+      },
+      "within_thermal": 0.9178110845861024,
+      "within_baseline": 0.8616776566230079,
+      "pool_conditional": {
+        "mean_cosine_9": 0.20780368486861117,
+        "max_cosine_9": 0.4868821436161877,
+        "mean_agree_count_9": 6,
+        "max_agree_count_9": 7
+      }
+    },
+    {
+      "target": "mugla_2021",
+      "pool": [
+        "manavgat_2021",
+        "bejis_2022",
+        "evia_2021_extended",
+        "montiferru_2021"
+      ],
+      "pairwise_thermal": {
+        "manavgat_2021": 0.47015987108700774,
+        "bejis_2022": 0.6184747489978263,
+        "evia_2021_extended": 0.576836486299561,
+        "montiferru_2021": 0.6193519007685069
+      },
+      "best_pairwise_thermal": 0.6193519007685069,
+      "best_pairwise_source": "montiferru_2021",
+      "mean_pairwise_thermal": 0.5712057517882254,
+      "loro_raw_thermal": {
+        "target": "mugla_2021",
+        "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "thermal",
+        "n_train": 47543,
+        "n_test": 41730,
+        "train_prevalence": 0.10699787560734493,
+        "roc_auc": 0.5519233141038102,
+        "pr_auc": 0.08846209537771373,
+        "brier": 0.11051230368618305,
+        "prevalence": 0.06975796788880902,
+        "roc_auc_ci": [
+          0.47479536485898954,
+          0.6251021472088818
+        ],
+        "pr_auc_ci": [
+          0.05325426006201911,
+          0.1379784961726299
+        ],
+        "brier_ci": [
+          0.09812959533692726,
+          0.12293148056043647
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 15.4
+      },
+      "loro_z_thermal": {
+        "target": "mugla_2021",
+        "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "thermal",
+        "n_train": 47543,
+        "n_test": 41730,
+        "train_prevalence": 0.10699787560734493,
+        "roc_auc": 0.5216303440849941,
+        "pr_auc": 0.07935500186496017,
+        "brier": 0.14517738011146358,
+        "prevalence": 0.06975796788880902,
+        "roc_auc_ci": [
+          0.4763242828810926,
+          0.5691717167818119
+        ],
+        "pr_auc_ci": [
+          0.054793259041013474,
+          0.10793071059762471
+        ],
+        "brier_ci": [
+          0.13573051629771962,
+          0.15492754140949985
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 15.2
+      },
+      "loro_raw_baseline": {
+        "target": "mugla_2021",
+        "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "baseline",
+        "n_train": 47543,
+        "n_test": 41730,
+        "train_prevalence": 0.10699787560734493,
+        "roc_auc": 0.5615930008881516,
+        "pr_auc": 0.08739418143022751,
+        "brier": 0.1366484775451613,
+        "prevalence": 0.06975796788880902,
+        "roc_auc_ci": [
+          0.5037922343997344,
+          0.6172769235537006
+        ],
+        "pr_auc_ci": [
+          0.05732749059839477,
+          0.12464892918272213
+        ],
+        "brier_ci": [
+          0.12548650330881528,
+          0.14777614297292602
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 12.2
+      },
+      "loro_z_baseline": {
+        "target": "mugla_2021",
+        "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "baseline",
+        "n_train": 47543,
+        "n_test": 41730,
+        "train_prevalence": 0.10699787560734493,
+        "roc_auc": 0.5641083211995628,
+        "pr_auc": 0.08404153303085346,
+        "brier": 0.16416700618803626,
+        "prevalence": 0.06975796788880902,
+        "roc_auc_ci": [
+          0.5351410061644039,
+          0.5932425180598621
+        ],
+        "pr_auc_ci": [
+          0.05857910187457269,
+          0.11144351760426087
+        ],
+        "brier_ci": [
+          0.15694548205737965,
+          0.17183093183718162
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 12.2
+      },
+      "within_thermal": 0.8589830389802724,
+      "within_baseline": 0.7433200295403336,
+      "pool_conditional": {
+        "mean_cosine_9": 0.49477155042009174,
+        "max_cosine_9": 0.8996205722937118,
+        "mean_agree_count_9": 6.5,
+        "max_agree_count_9": 9
+      }
+    },
+    {
+      "target": "evia_2021_extended",
+      "pool": [
+        "manavgat_2021",
+        "bejis_2022",
+        "mugla_2021",
+        "montiferru_2021"
+      ],
+      "pairwise_thermal": {
+        "manavgat_2021": 0.6125620551965896,
+        "bejis_2022": 0.38282143313044736,
+        "mugla_2021": 0.6534051763551312,
+        "montiferru_2021": 0.5861929535806533
+      },
+      "best_pairwise_thermal": 0.6534051763551312,
+      "best_pairwise_source": "mugla_2021",
+      "mean_pairwise_thermal": 0.5587454045657053,
+      "loro_raw_thermal": {
+        "target": "evia_2021_extended",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "thermal",
+        "n_train": 79975,
+        "n_test": 9298,
+        "train_prevalence": 0.06669584245076586,
+        "roc_auc": 0.6368112252288466,
+        "pr_auc": 0.3549758388218802,
+        "brier": 0.2053620898875466,
+        "prevalence": 0.28651322865132284,
+        "roc_auc_ci": [
+          0.592284663279726,
+          0.6783907485254744
+        ],
+        "pr_auc_ci": [
+          0.2514870814542197,
+          0.4540849058872125
+        ],
+        "brier_ci": [
+          0.1631723234195373,
+          0.24642360257811094
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 4.8
+      },
+      "loro_z_thermal": {
+        "target": "evia_2021_extended",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "thermal",
+        "n_train": 79975,
+        "n_test": 9298,
+        "train_prevalence": 0.06669584245076586,
+        "roc_auc": 0.5691903842340984,
+        "pr_auc": 0.40919508875296695,
+        "brier": 0.2199723608554639,
+        "prevalence": 0.28651322865132284,
+        "roc_auc_ci": [
+          0.5200501526950284,
+          0.6291800066467782
+        ],
+        "pr_auc_ci": [
+          0.29963884888651937,
+          0.5097753564206933
+        ],
+        "brier_ci": [
+          0.17362523917613612,
+          0.2712748386346032
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 4.8
+      },
+      "loro_raw_baseline": {
+        "target": "evia_2021_extended",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+        "scaling": "raw",
+        "feature_set": "baseline",
+        "n_train": 79975,
+        "n_test": 9298,
+        "train_prevalence": 0.06669584245076586,
+        "roc_auc": 0.5969921534437663,
+        "pr_auc": 0.3469103398011243,
+        "brier": 0.2162207481834019,
+        "prevalence": 0.28651322865132284,
+        "roc_auc_ci": [
+          0.5389823173338194,
+          0.6462143726831509
+        ],
+        "pr_auc_ci": [
+          0.23836035384190182,
+          0.45457147224292044
+        ],
+        "brier_ci": [
+          0.18741119169230042,
+          0.2445733681107003
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 4.5
+      },
+      "loro_z_baseline": {
+        "target": "evia_2021_extended",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+        "scaling": "regionwise_z",
+        "feature_set": "baseline",
+        "n_train": 79975,
+        "n_test": 9298,
+        "train_prevalence": 0.06669584245076586,
+        "roc_auc": 0.5798294808978408,
+        "pr_auc": 0.4039141322971227,
+        "brier": 0.21364156666059753,
+        "prevalence": 0.28651322865132284,
+        "roc_auc_ci": [
+          0.5404166290898856,
+          0.6242465912878139
+        ],
+        "pr_auc_ci": [
+          0.298282877164883,
+          0.5026161034745301
+        ],
+        "brier_ci": [
+          0.1770201619616238,
+          0.25424288192068906
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 4.5
+      },
+      "within_thermal": 0.9122372202621674,
+      "within_baseline": 0.7589523122760988,
+      "pool_conditional": {
+        "mean_cosine_9": 0.32111014845705516,
+        "max_cosine_9": 0.8082683241259495,
+        "mean_agree_count_9": 4.75,
+        "max_agree_count_9": 6
+      }
+    },
+    {
+      "target": "montiferru_2021",
+      "pool": [
+        "manavgat_2021",
+        "bejis_2022",
+        "mugla_2021",
+        "evia_2021_extended"
+      ],
+      "pairwise_thermal": {
+        "manavgat_2021": 0.5332600780053577,
+        "bejis_2022": 0.5937253341599618,
+        "mugla_2021": 0.5312433202707516,
+        "evia_2021_extended": 0.6467042042389389
+      },
+      "best_pairwise_thermal": 0.6467042042389389,
+      "best_pairwise_source": "evia_2021_extended",
+      "mean_pairwise_thermal": 0.5762332341687525,
+      "loro_raw_thermal": {
+        "target": "montiferru_2021",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+        "scaling": "raw",
+        "feature_set": "thermal",
+        "n_train": 86729,
+        "n_test": 2544,
+        "train_prevalence": 0.08600352823161803,
+        "roc_auc": 0.6010516380662443,
+        "pr_auc": 0.26459174656873147,
+        "brier": 0.17763295128448559,
+        "prevalence": 0.21187106918238993,
+        "roc_auc_ci": [
+          0.5159175787008214,
+          0.6833579585607593
+        ],
+        "pr_auc_ci": [
+          0.12841856973266708,
+          0.42489913370134286
+        ],
+        "brier_ci": [
+          0.1285610153233883,
+          0.23307089996486235
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 3.2
+      },
+      "loro_z_thermal": {
+        "target": "montiferru_2021",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+        "scaling": "regionwise_z",
+        "feature_set": "thermal",
+        "n_train": 86729,
+        "n_test": 2544,
+        "train_prevalence": 0.08600352823161803,
+        "roc_auc": 0.5230930095910502,
+        "pr_auc": 0.23071109507881965,
+        "brier": 0.18135991989214187,
+        "prevalence": 0.21187106918238993,
+        "roc_auc_ci": [
+          0.4658500322848274,
+          0.5702873407610335
+        ],
+        "pr_auc_ci": [
+          0.1148337989062585,
+          0.3580213018850492
+        ],
+        "brier_ci": [
+          0.1066975352902281,
+          0.2665154671063966
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 6.3
+      },
+      "loro_raw_baseline": {
+        "target": "montiferru_2021",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+        "scaling": "raw",
+        "feature_set": "baseline",
+        "n_train": 86729,
+        "n_test": 2544,
+        "train_prevalence": 0.08600352823161803,
+        "roc_auc": 0.5955824723904525,
+        "pr_auc": 0.28442614685899503,
+        "brier": 0.21769224850348554,
+        "prevalence": 0.21187106918238993,
+        "roc_auc_ci": [
+          0.5041777925156133,
+          0.6834129320018626
+        ],
+        "pr_auc_ci": [
+          0.14614543897082988,
+          0.4416763420922526
+        ],
+        "brier_ci": [
+          0.17385301177013857,
+          0.2612750409395047
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 2.9
+      },
+      "loro_z_baseline": {
+        "target": "montiferru_2021",
+        "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+        "scaling": "regionwise_z",
+        "feature_set": "baseline",
+        "n_train": 86729,
+        "n_test": 2544,
+        "train_prevalence": 0.08600352823161803,
+        "roc_auc": 0.5232405997992032,
+        "pr_auc": 0.22970234499089145,
+        "brier": 0.18073590374876738,
+        "prevalence": 0.21187106918238993,
+        "roc_auc_ci": [
+          0.4692275390235249,
+          0.5694481957170363
+        ],
+        "pr_auc_ci": [
+          0.11268576602253558,
+          0.3572055874044939
+        ],
+        "brier_ci": [
+          0.11833581450753615,
+          0.25158853752181276
+        ],
+        "n_valid": 1000,
+        "n_skipped": 0,
+        "seconds": 3
+      },
+      "within_thermal": 0.8826347859479317,
+      "within_baseline": 0.7811972850804343,
+      "pool_conditional": {
+        "mean_cosine_9": 0.448105457298385,
+        "max_cosine_9": 0.8996205722937118,
+        "mean_agree_count_9": 6.5,
+        "max_agree_count_9": 9
+      }
+    }
+  ],
+  "all_loro_runs": [
+    {
+      "target": "manavgat_2021",
+      "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "baseline",
+      "n_train": 68762,
+      "n_test": 20511,
+      "train_prevalence": 0.10491259707396527,
+      "roc_auc": 0.5625905213304463,
+      "pr_auc": 0.04565764311783985,
+      "brier": 0.17134791446305636,
+      "prevalence": 0.03822339232606894,
+      "roc_auc_ci": [
+        0.5083246663476106,
+        0.61746139324886
+      ],
+      "pr_auc_ci": [
+        0.01984819870457546,
+        0.0782106316884999
+      ],
+      "brier_ci": [
+        0.15994205170890283,
+        0.18381610453914637
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 9.9
+    },
+    {
+      "target": "manavgat_2021",
+      "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "thermal",
+      "n_train": 68762,
+      "n_test": 20511,
+      "train_prevalence": 0.10491259707396527,
+      "roc_auc": 0.4690418989616428,
+      "pr_auc": 0.03363668753545046,
+      "brier": 0.14699605718061307,
+      "prevalence": 0.03822339232606894,
+      "roc_auc_ci": [
+        0.4116381185325754,
+        0.5290498763367325
+      ],
+      "pr_auc_ci": [
+        0.015216575443541887,
+        0.055862936916231676
+      ],
+      "brier_ci": [
+        0.13254339124488299,
+        0.16274550618997516
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 7.3
+    },
+    {
+      "target": "manavgat_2021",
+      "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "baseline",
+      "n_train": 68762,
+      "n_test": 20511,
+      "train_prevalence": 0.10491259707396527,
+      "roc_auc": 0.6464523268120043,
+      "pr_auc": 0.07060728454477491,
+      "brier": 0.15245450168064065,
+      "prevalence": 0.03822339232606894,
+      "roc_auc_ci": [
+        0.5617630890669584,
+        0.7141294811518016
+      ],
+      "pr_auc_ci": [
+        0.027775662426808345,
+        0.12519718528503476
+      ],
+      "brier_ci": [
+        0.13619149099860264,
+        0.168654460847928
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 7.4
+    },
+    {
+      "target": "manavgat_2021",
+      "pool": "bejis_2022+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "thermal",
+      "n_train": 68762,
+      "n_test": 20511,
+      "train_prevalence": 0.10491259707396527,
+      "roc_auc": 0.6571308695323823,
+      "pr_auc": 0.07639656563715917,
+      "brier": 0.13960183806558904,
+      "prevalence": 0.03822339232606894,
+      "roc_auc_ci": [
+        0.5426311007005841,
+        0.7540172753109521
+      ],
+      "pr_auc_ci": [
+        0.02882820218366182,
+        0.13642082791737456
+      ],
+      "brier_ci": [
+        0.1190900852472492,
+        0.1601489576610587
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 7.4
+    },
+    {
+      "target": "bejis_2022",
+      "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "baseline",
+      "n_train": 74083,
+      "n_test": 15190,
+      "train_prevalence": 0.09311178003050632,
+      "roc_auc": 0.38935228079230916,
+      "pr_auc": 0.054278677293164976,
+      "brier": 0.11265067088771721,
+      "prevalence": 0.07241606319947334,
+      "roc_auc_ci": [
+        0.3257376939700585,
+        0.461246679016882
+      ],
+      "pr_auc_ci": [
+        0.030243330347978766,
+        0.08575731150648548
+      ],
+      "brier_ci": [
+        0.08896814720945921,
+        0.1408666152645046
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 9
+    },
+    {
+      "target": "bejis_2022",
+      "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "thermal",
+      "n_train": 74083,
+      "n_test": 15190,
+      "train_prevalence": 0.09311178003050632,
+      "roc_auc": 0.4166302987289503,
+      "pr_auc": 0.056106650954150926,
+      "brier": 0.09501316545075159,
+      "prevalence": 0.07241606319947334,
+      "roc_auc_ci": [
+        0.3685591414926309,
+        0.4670170391845796
+      ],
+      "pr_auc_ci": [
+        0.029928527194293807,
+        0.08897244719053757
+      ],
+      "brier_ci": [
+        0.07086155101054377,
+        0.12435797044063264
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 6
+    },
+    {
+      "target": "bejis_2022",
+      "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "baseline",
+      "n_train": 74083,
+      "n_test": 15190,
+      "train_prevalence": 0.09311178003050632,
+      "roc_auc": 0.4163235692625331,
+      "pr_auc": 0.059825007465300464,
+      "brier": 0.17056684743656556,
+      "prevalence": 0.07241606319947334,
+      "roc_auc_ci": [
+        0.35835275060732225,
+        0.4772736298470081
+      ],
+      "pr_auc_ci": [
+        0.033447674530219,
+        0.09383003728042943
+      ],
+      "brier_ci": [
+        0.15090542177817803,
+        0.19258085120443078
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 5.8
+    },
+    {
+      "target": "bejis_2022",
+      "pool": "manavgat_2021+mugla_2021+evia_2021_extended+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "thermal",
+      "n_train": 74083,
+      "n_test": 15190,
+      "train_prevalence": 0.09311178003050632,
+      "roc_auc": 0.4715396477192077,
+      "pr_auc": 0.06609346360182966,
+      "brier": 0.16512909985143098,
+      "prevalence": 0.07241606319947334,
+      "roc_auc_ci": [
+        0.42830794502427927,
+        0.5164100750168287
+      ],
+      "pr_auc_ci": [
+        0.037468618105331496,
+        0.1031260901376662
+      ],
+      "brier_ci": [
+        0.14465691948151438,
+        0.18659269439109213
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 6.2
+    },
+    {
+      "target": "mugla_2021",
+      "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "baseline",
+      "n_train": 47543,
+      "n_test": 41730,
+      "train_prevalence": 0.10699787560734493,
+      "roc_auc": 0.5615930008881516,
+      "pr_auc": 0.08739418143022751,
+      "brier": 0.1366484775451613,
+      "prevalence": 0.06975796788880902,
+      "roc_auc_ci": [
+        0.5037922343997344,
+        0.6172769235537006
+      ],
+      "pr_auc_ci": [
+        0.05732749059839477,
+        0.12464892918272213
+      ],
+      "brier_ci": [
+        0.12548650330881528,
+        0.14777614297292602
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 12.2
+    },
+    {
+      "target": "mugla_2021",
+      "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "thermal",
+      "n_train": 47543,
+      "n_test": 41730,
+      "train_prevalence": 0.10699787560734493,
+      "roc_auc": 0.5519233141038102,
+      "pr_auc": 0.08846209537771373,
+      "brier": 0.11051230368618305,
+      "prevalence": 0.06975796788880902,
+      "roc_auc_ci": [
+        0.47479536485898954,
+        0.6251021472088818
+      ],
+      "pr_auc_ci": [
+        0.05325426006201911,
+        0.1379784961726299
+      ],
+      "brier_ci": [
+        0.09812959533692726,
+        0.12293148056043647
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 15.4
+    },
+    {
+      "target": "mugla_2021",
+      "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "baseline",
+      "n_train": 47543,
+      "n_test": 41730,
+      "train_prevalence": 0.10699787560734493,
+      "roc_auc": 0.5641083211995628,
+      "pr_auc": 0.08404153303085346,
+      "brier": 0.16416700618803626,
+      "prevalence": 0.06975796788880902,
+      "roc_auc_ci": [
+        0.5351410061644039,
+        0.5932425180598621
+      ],
+      "pr_auc_ci": [
+        0.05857910187457269,
+        0.11144351760426087
+      ],
+      "brier_ci": [
+        0.15694548205737965,
+        0.17183093183718162
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 12.2
+    },
+    {
+      "target": "mugla_2021",
+      "pool": "manavgat_2021+bejis_2022+evia_2021_extended+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "thermal",
+      "n_train": 47543,
+      "n_test": 41730,
+      "train_prevalence": 0.10699787560734493,
+      "roc_auc": 0.5216303440849941,
+      "pr_auc": 0.07935500186496017,
+      "brier": 0.14517738011146358,
+      "prevalence": 0.06975796788880902,
+      "roc_auc_ci": [
+        0.4763242828810926,
+        0.5691717167818119
+      ],
+      "pr_auc_ci": [
+        0.054793259041013474,
+        0.10793071059762471
+      ],
+      "brier_ci": [
+        0.13573051629771962,
+        0.15492754140949985
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 15.2
+    },
+    {
+      "target": "evia_2021_extended",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "baseline",
+      "n_train": 79975,
+      "n_test": 9298,
+      "train_prevalence": 0.06669584245076586,
+      "roc_auc": 0.5969921534437663,
+      "pr_auc": 0.3469103398011243,
+      "brier": 0.2162207481834019,
+      "prevalence": 0.28651322865132284,
+      "roc_auc_ci": [
+        0.5389823173338194,
+        0.6462143726831509
+      ],
+      "pr_auc_ci": [
+        0.23836035384190182,
+        0.45457147224292044
+      ],
+      "brier_ci": [
+        0.18741119169230042,
+        0.2445733681107003
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 4.5
+    },
+    {
+      "target": "evia_2021_extended",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+      "scaling": "raw",
+      "feature_set": "thermal",
+      "n_train": 79975,
+      "n_test": 9298,
+      "train_prevalence": 0.06669584245076586,
+      "roc_auc": 0.6368112252288466,
+      "pr_auc": 0.3549758388218802,
+      "brier": 0.2053620898875466,
+      "prevalence": 0.28651322865132284,
+      "roc_auc_ci": [
+        0.592284663279726,
+        0.6783907485254744
+      ],
+      "pr_auc_ci": [
+        0.2514870814542197,
+        0.4540849058872125
+      ],
+      "brier_ci": [
+        0.1631723234195373,
+        0.24642360257811094
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 4.8
+    },
+    {
+      "target": "evia_2021_extended",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "baseline",
+      "n_train": 79975,
+      "n_test": 9298,
+      "train_prevalence": 0.06669584245076586,
+      "roc_auc": 0.5798294808978408,
+      "pr_auc": 0.4039141322971227,
+      "brier": 0.21364156666059753,
+      "prevalence": 0.28651322865132284,
+      "roc_auc_ci": [
+        0.5404166290898856,
+        0.6242465912878139
+      ],
+      "pr_auc_ci": [
+        0.298282877164883,
+        0.5026161034745301
+      ],
+      "brier_ci": [
+        0.1770201619616238,
+        0.25424288192068906
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 4.5
+    },
+    {
+      "target": "evia_2021_extended",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+montiferru_2021",
+      "scaling": "regionwise_z",
+      "feature_set": "thermal",
+      "n_train": 79975,
+      "n_test": 9298,
+      "train_prevalence": 0.06669584245076586,
+      "roc_auc": 0.5691903842340984,
+      "pr_auc": 0.40919508875296695,
+      "brier": 0.2199723608554639,
+      "prevalence": 0.28651322865132284,
+      "roc_auc_ci": [
+        0.5200501526950284,
+        0.6291800066467782
+      ],
+      "pr_auc_ci": [
+        0.29963884888651937,
+        0.5097753564206933
+      ],
+      "brier_ci": [
+        0.17362523917613612,
+        0.2712748386346032
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 4.8
+    },
+    {
+      "target": "montiferru_2021",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+      "scaling": "raw",
+      "feature_set": "baseline",
+      "n_train": 86729,
+      "n_test": 2544,
+      "train_prevalence": 0.08600352823161803,
+      "roc_auc": 0.5955824723904525,
+      "pr_auc": 0.28442614685899503,
+      "brier": 0.21769224850348554,
+      "prevalence": 0.21187106918238993,
+      "roc_auc_ci": [
+        0.5041777925156133,
+        0.6834129320018626
+      ],
+      "pr_auc_ci": [
+        0.14614543897082988,
+        0.4416763420922526
+      ],
+      "brier_ci": [
+        0.17385301177013857,
+        0.2612750409395047
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 2.9
+    },
+    {
+      "target": "montiferru_2021",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+      "scaling": "raw",
+      "feature_set": "thermal",
+      "n_train": 86729,
+      "n_test": 2544,
+      "train_prevalence": 0.08600352823161803,
+      "roc_auc": 0.6010516380662443,
+      "pr_auc": 0.26459174656873147,
+      "brier": 0.17763295128448559,
+      "prevalence": 0.21187106918238993,
+      "roc_auc_ci": [
+        0.5159175787008214,
+        0.6833579585607593
+      ],
+      "pr_auc_ci": [
+        0.12841856973266708,
+        0.42489913370134286
+      ],
+      "brier_ci": [
+        0.1285610153233883,
+        0.23307089996486235
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 3.2
+    },
+    {
+      "target": "montiferru_2021",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+      "scaling": "regionwise_z",
+      "feature_set": "baseline",
+      "n_train": 86729,
+      "n_test": 2544,
+      "train_prevalence": 0.08600352823161803,
+      "roc_auc": 0.5232405997992032,
+      "pr_auc": 0.22970234499089145,
+      "brier": 0.18073590374876738,
+      "prevalence": 0.21187106918238993,
+      "roc_auc_ci": [
+        0.4692275390235249,
+        0.5694481957170363
+      ],
+      "pr_auc_ci": [
+        0.11268576602253558,
+        0.3572055874044939
+      ],
+      "brier_ci": [
+        0.11833581450753615,
+        0.25158853752181276
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 3
+    },
+    {
+      "target": "montiferru_2021",
+      "pool": "manavgat_2021+bejis_2022+mugla_2021+evia_2021_extended",
+      "scaling": "regionwise_z",
+      "feature_set": "thermal",
+      "n_train": 86729,
+      "n_test": 2544,
+      "train_prevalence": 0.08600352823161803,
+      "roc_auc": 0.5230930095910502,
+      "pr_auc": 0.23071109507881965,
+      "brier": 0.18135991989214187,
+      "prevalence": 0.21187106918238993,
+      "roc_auc_ci": [
+        0.4658500322848274,
+        0.5702873407610335
+      ],
+      "pr_auc_ci": [
+        0.1148337989062585,
+        0.3580213018850492
+      ],
+      "brier_ci": [
+        0.1066975352902281,
+        0.2665154671063966
+      ],
+      "n_valid": 1000,
+      "n_skipped": 0,
+      "seconds": 6.3
+    }
+  ],
+  "conditional_linkage": [
+    {
+      "x": "mean_cosine_9",
+      "y": "loro_raw_thermal",
+      "spearman_rho_n5": 0.5
+    },
+    {
+      "x": "mean_cosine_9",
+      "y": "loro_z_thermal",
+      "spearman_rho_n5": -0.4
+    },
+    {
+      "x": "max_cosine_9",
+      "y": "loro_raw_thermal",
+      "spearman_rho_n5": 0.564
+    },
+    {
+      "x": "max_cosine_9",
+      "y": "loro_z_thermal",
+      "spearman_rho_n5": -0.359
+    },
+    {
+      "x": "mean_agree_count_9",
+      "y": "loro_raw_thermal",
+      "spearman_rho_n5": 0.154
+    },
+    {
+      "x": "mean_agree_count_9",
+      "y": "loro_z_thermal",
+      "spearman_rho_n5": -0.667
+    },
+    {
+      "x": "max_agree_count_9",
+      "y": "loro_raw_thermal",
+      "spearman_rho_n5": 0.154
+    },
+    {
+      "x": "max_agree_count_9",
+      "y": "loro_z_thermal",
+      "spearman_rho_n5": -0.667
+    }
+  ]
+}
