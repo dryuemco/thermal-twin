@@ -1,0 +1,15 @@
+{
+ "figure": "Fig. 1 - study-area location map",
+ "script": "paper/figures/fig1_study_map.py",
+ "aoi_data": "paper/figures/data/fig1_aoi.json (step0 geojson / 30m-grid-derived; sha256 per source inside)",
+ "basemap": {
+  "dataset": "Natural Earth 1:50m physical: coastline + land",
+  "fetched_via": "cartopy 0.25.0 downloader at build time",
+  "note": "Natural Earth is public domain; version as shipped by NACIS CDN at build date 2026-08-08"
+ },
+ "asserts": "all five AOI bboxes match 03_methods Table 1 to 5e-3 deg",
+ "design": "single AOI colour (no regime grouping implied); no topography/satellite; Kozan control omitted by design",
+ "palette": "Okabe-Ito blue on neutral grey land; greyscale-safe",
+ "min_font_pt": 7.0,
+ "environment": "matplotlib 3.11.1, cartopy 0.25.0"
+}
