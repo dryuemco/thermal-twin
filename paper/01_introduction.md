@@ -160,48 +160,64 @@ numbers, which is the point.
 The claims below are ordered by weight and stated at the strength the evidence supports, with the
 nearest prior work named inside each claim rather than omitted.
 
-`[CONTRIBUTION CLAIM 1 — pending results.]` **The local-skill / portability trade-off.** We quantify,
-per ordered region pair, the change in transfer skill attributable to adding the dynamic pre-fire
-thermal block to a matched static baseline, and set it against the within-region increment the same
-block delivers. This is the paper's thesis: the block that gains the most locally is the block that
-loses the most between regions. Dimarco et al. [@Dimarco2026] transfer a predominantly spatially
-stationary predictor set successfully across a comparable Mediterranean design; our result is the
-complementary half of that picture rather than a contradiction of it. *Magnitudes and the sign of
-each contrast to be filled from Results.*
+**Contribution 1. The local-skill / portability trade-off, quantified per direction.** We
+quantify, for every ordered region pair, the change in transfer skill attributable to adding the
+dynamic pre-fire thermal block to a matched static baseline, and set it against the
+within-region increment the same block delivers. The block worth +0.056 to +0.153 ROC-AUC inside
+every region contributes +0.004 on average across the twenty ordered transfer directions —
+improving ten with bootstrap support and degrading seven — and is the swing factor at the chance
+line, dragging three directions below chance and lifting one above it. This is the paper's
+thesis: the block that gains the most locally is the block whose between-region contribution is
+sign-unstable. Dimarco et al. [@Dimarco2026] transfer a predominantly spatially stationary
+predictor set successfully across a comparable Mediterranean design; our result is the
+complementary half of that picture rather than a contradiction of it.
 
-`[CONTRIBUTION CLAIM 2 — pending results.]` **Label-free alignment does not recover transfer.** We
-test region-wise standardisation and covariance alignment [@Sun2016] as label-blind remedies and
-characterise what each does to each direction, including whether it degrades directions that already
-transfer. We found no prior application of covariance alignment to fire susceptibility, fire
-occurrence or burned-area prediction. This is a negative result reported with a mechanism, not an
-absence.
+**Contribution 2. Label-free alignment does not recover transfer — it compresses it.** We test
+region-wise standardisation and covariance alignment [@Sun2016] as label-blind remedies on all
+twenty directions. Adaptation compresses the transfer matrix towards chance: it recovers at most
+34 % of the deficit where transfer fails, and produces *negative* recovery in seven of twelve
+decomposed directions — degrading every direction that already transferred, in the worst case by
+−0.86 of the gap. We found no prior application of covariance alignment to fire susceptibility,
+fire occurrence or burned-area prediction. This is a negative result reported with a mechanism,
+not an absence.
 
-`[CONTRIBUTION CLAIM 3 — pending results.]` **Similarity is not sufficient for transfer.** Our region
-set pairs regions in the same country and fire year with regions in different countries and years.
-The claim is one of *sufficiency*, established by a single strong counterexample and independent of
-the number of pairs available. We present it as a contribution to a live disagreement — the fire
-literature expects similarity to predict transfer [@Dimarco2026; @Liu2025], the species distribution
-modelling literature has found it does not [@Vesk2021; @Rousseau2022] — not as a settled general
-law. Dimarco et al. reach a compatible conclusion from the opposite direction, attributing their
-weakest transfer to non-climatic factors rather than bioclimatic distance.
+**Contribution 3. Similarity — geographic, climatic or environmental — is not sufficient for
+transfer.** Manavgat and Muğla, in the same country and fire year, roughly 200 km apart and with
+the highest burned-niche overlap of any pair in the matrix, fail in both directions with
+bootstrap intervals entirely below chance; Bejís and Muğla, in different countries and years and
+~2500 km apart, transfer above chance in both directions, as do Bejís and Montiferru, the pair
+with the *lowest* niche overlap. The claim is one of *sufficiency*, established by coexisting
+counterexamples and independent of the number of pairs available. We present it as a
+contribution to a live disagreement — the fire literature expects similarity to predict transfer
+[@Dimarco2026; @Liu2025], the species distribution modelling literature has found it does not
+[@Vesk2021; @Rousseau2022] — not as a settled general law. Dimarco et al. reach a compatible
+conclusion from the opposite direction, attributing their weakest transfer to non-climatic
+factors rather than bioclimatic distance.
 
-`[CONTRIBUTION CLAIM 4 — pending results.]` **A conditional transferability diagnostic.** We compute
-area-of-applicability-style dissimilarity in predictor space [@Meyer2021; @Meyer2022; @Ludwig2023]
-alongside climatic and geographic distance, report whether these marginal indices order the observed
-transfer outcomes, and offer a conditional alternative: signed univariate association reversal
-between source and target, paired with label-free adaptation performance as an operational
-instrument for splitting recoverable from irreducible shift. Shift decomposition in applied remote
-sensing is not itself new [@Huang2026]; what we add is the fire application, the
-adaptation-as-instrument formulation, and the explicit contrast of a marginal against a conditional
-diagnostic on the same pairs. This is the constructive contribution that makes the paper more than a
-negative result.
+**Contribution 4. The failure is conditional, and only a conditional diagnostic sees it.** We
+evaluate twenty candidate transferability diagnostics from four families against the observed
+transfer outcomes under one bootstrap framework: area-of-applicability-style predictor-space
+dissimilarity [@Meyer2021; @Meyer2022; @Ludwig2023], climatic and geographic distance, learned
+domain separability, canonical niche-overlap statistics and burn-pattern regime distances all
+fail to order the matrix — the domain classifier is at ceiling (AUC ≥ 0.96) for every pair. The
+only two diagnostics whose intervals exclude zero measure conditional direction agreement:
+whether each predictor's signed association with burning points the same way in both regions
+(Spearman ρ = +0.84 and +0.81). Because signed associations require burned labels in both
+regions, this is a mechanism diagnosis — the failure invisible to marginal diagnostics is
+visible in the conditional structure — not a label-free screening tool; paired with label-blind
+adaptation performance as an instrument for splitting recoverable from irreducible shift, it is
+the constructive contribution that makes the paper more than a negative result. Shift
+decomposition in applied remote sensing is not itself new [@Huang2026]; what we add is the fire
+application, the adaptation-as-instrument formulation, and the explicit head-to-head of marginal,
+niche-overlap and conditional diagnostics on the same pairs.
 
-`[CONTRIBUTION CLAIM 5 — pending results.]` **Within-region replication of the thermal increment.**
-We replicate the increment across independent Mediterranean regions under spatially blocked
-cross-validation with spatial-block bootstrap intervals, and establish its behaviour as blocks are
-made coarser. The finding is not itself novel — comparable within-region results exist for these
-landscapes [@AlkanAkinci2023; @Iban2022] — and it is included as the evidence for the first half of
-Claim 1.
+**Contribution 5. Within-region replication of the thermal increment.** We replicate the
+increment across five independent Mediterranean regions under spatially blocked
+cross-validation: ΔAUC +0.056 to +0.153, every bootstrap interval above zero, in both analysis
+populations, surviving spatial blocks up to ~10 km and a predictor window closed up to 14 days
+earlier. The finding is not itself novel — comparable within-region results exist for these
+landscapes [@AlkanAkinci2023; @Iban2022] — and it is included as the evidence for the first half
+of Contribution 1.
 
 Alongside these we release a leakage-audited, spatially blocked evaluation and transfer protocol
 with code, configuration and frozen outputs, so that a negative transfer result can be checked
@@ -209,5 +225,5 @@ rather than taken on trust — which matters given evidence that wildfire transf
 sensitive to evaluation design and task formulation [@Xu2026].
 
 Section 2 reviews the relevant literature. Section 3 describes the study regions, the data and the
-full modelling, cross-validation, transfer and adaptation protocol. Section 4 reports results and
-Section 5 discusses them; Section 6 states limitations and Section 7 concludes.
+full modelling, cross-validation, transfer and adaptation protocol. Section 4 reports results;
+Section 5 discusses them, including limitations; Section 6 concludes.
