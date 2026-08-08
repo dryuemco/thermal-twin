@@ -1,0 +1,232 @@
+% =============================================================================
+% figure_captions.tex
+%
+% Elsevier-style captions for the manuscript figures, in figure-number order.
+% Each caption is written to stand alone: what is plotted, on which population,
+% which interval, and what it means, without the reader returning to the text.
+% Panel letters are explained inside the caption.
+%
+% Figure numbering note: the former three-panel Fig. 6 was split into three
+% separate figures (6a, 6b, 6c) because panel (a) needs the full column width
+% for its 12 direction labels. Fig. 7 keeps its number. If the journal prefers
+% consecutive integers, 6a/6b/6c become Fig. 6/7/8 and the contrast-pairs
+% figure becomes Fig. 9; the \label keys below are stable either way.
+%
+% All figures: double column (190 mm), body 9 pt, minimum 8 pt, vector
+% (PDF + SVG). Every numeric value in these captions is asserted against the
+% frozen analysis outputs at figure build time.
+% =============================================================================
+
+
+% ---------------------------------------------------------------- Figure 1 --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig1_study_map.pdf}
+  \caption{\textbf{Study regions and the gate negative control.} Locations of
+  the five wildfire regions analysed in this study (blue, circular markers):
+  Manavgat 2021 and Mu\u{g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North
+  Evia 2021 (Greece, extended AOI) and Montiferru 2021 (Sardinia, Italy).
+  Rectangles are the true analysis areas of interest; the ring marks each
+  centroid, because at basin scale the rectangles alone are hard to locate.
+  Kozan 2023 (grey, dashed outline, square marker) is \emph{not} a study
+  region: it is the negative control used to calibrate the burned-landcover
+  admissibility gate, and it enters no model, transfer or diagnostic anywhere
+  in this paper. Its rectangle is the true extent of its processed AOI and is
+  larger than the study AOIs for that reason alone; the difference in size
+  carries no methodological meaning and is not a design choice. Coastlines are
+  Natural Earth 1:50\,m; country borders are omitted deliberately. The scale
+  bar is exact only at 38\textdegree N. Region bounding boxes match Table~1 to
+  $5\times10^{-3}$ degrees.}
+  \label{fig:study-map}
+\end{figure}
+
+
+% ---------------------------------------------------------------- Figure 2 --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig2_schematic.pdf}
+  \caption{\textbf{Processing pipeline and evaluation programme.} Flow from
+  source products (left) to the transfer and diagnostic programme (right);
+  every box carries the Methods subsection that specifies it. The three source
+  products merge onto the reconstructed $\sim$510\,m analysis grid
+  ($17\times17$ pixels of the 30\,m reference grid). The burned-landcover
+  admissibility gate has two outcomes: regions that \emph{pass} proceed to the
+  natural-vegetation primary population, while the rejecting branch (grey,
+  dashed) terminates in the Kozan 2023 negative control, whose burned area is
+  98\% cropland and which is never modelled. The dashed connector deliberately
+  carries no arrowhead onward, so the control cannot be read as entering the
+  pipeline. Feature sets feed two evaluations in parallel --- within-region
+  (random forest under spatial-block cross-validation) and cross-region
+  transfer (source-only, 20 ordered directions, with label-blind z-score and
+  CORAL adaptation) --- whose levels are combined in the transfer-gap
+  decomposition (\S3.12). The footer states what applies throughout: leakage
+  hard-exclusion, seed 42, 1000-replicate spatial-block bootstrap (\S3.13), and
+  the sensitivity designs (\S3.16). Section references are verified against the
+  Methods heading list when the figure is built.}
+  \label{fig:pipeline}
+\end{figure}
+
+
+% -------------------------------------------------------------- Figure 3+4 --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig3_4_within_robustness.pdf}
+  \caption{\textbf{The thermal increment replicates in all five regions and
+  survives coarser spatial blocking.} Natural-vegetation primary population;
+  random forest with the primary weighted configuration; all intervals are
+  95\% spatial-block bootstrap intervals (1000 replicates, seed 42).
+  \textbf{(a)} Baseline versus thermal out-of-fold ROC-AUC per region at the
+  default 2-cell ($\sim$1\,km) blocking: the open marker is the static baseline
+  feature set, the filled marker is the baseline plus the six thermal
+  predictors, and the connecting bar is the increment. The right-hand column
+  reports the paired $\Delta$AUC and its 95\% interval; it is a fixed column
+  placed beyond the plotted AUC range, so no label position depends on a data
+  value. Every interval excludes zero. \textbf{(b)} Absolute thermal ROC-AUC
+  against spatial block size (2, 10 and 20 cells, $\approx$1, 5 and 10\,km):
+  absolute skill falls as blocking coarsens, in every region.
+  \textbf{(c)} The thermal increment $\Delta$AUC against the same block sizes,
+  with 95\% intervals: the increment does \emph{not} melt away, and its
+  interval excludes zero in all fifteen region--block-size combinations. In (c)
+  the five regions are offset horizontally by 0.15 cell so their whiskers
+  separate; \textbf{this offset is cosmetic --- all five regions are evaluated
+  at exactly the same three block sizes} (2, 10, 20 cells), and the offset is
+  smaller than half the spacing between block sizes, so the groups cannot
+  merge. Colour and marker shape both encode region, so the panels remain
+  readable in greyscale.}
+  \label{fig:within-robustness}
+\end{figure}
+
+
+% ---------------------------------------------------------------- Figure 5 --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig5_transfer_matrix.pdf}
+  \caption{\textbf{Cross-region transfer, and what label-blind adaptation does
+  to it.} Thermal transfer ROC-AUC for all 20 ordered source--target
+  directions among the five regions, natural-vegetation primary population.
+  \textbf{(a)} Raw transfer, no adaptation. \textbf{(b)} After region-wise
+  z-score standardisation. \textbf{(c)} After CORAL. Rows are the source
+  region, columns the target; the grey diagonal is within-region performance
+  and is \emph{not} a transfer result. The diverging colour scale is centred
+  exactly on chance (0.5, marked by the black rule on the colour bar), so
+  orange is below chance and purple above. Each panel header states that
+  panel's range: adaptation compresses the spread from 0.326--0.686 (raw) to
+  0.431--0.630 (z-score) and 0.443--0.624 (CORAL) --- it pulls the extremes
+  toward chance rather than lifting transfer. Cells below chance are hatched.
+  The hatch is a redundant cue for print: a diverging palette is symmetric in
+  luminance about its centre, so in greyscale a below-chance cell would
+  otherwise be indistinguishable from an equally distant above-chance one.
+  Hatching follows the \emph{exact} value while the printed label is rounded to
+  two decimals, so two cells print ``0.50'' with different hatching: CORAL
+  Bej\'is$\rightarrow$Montiferru is 0.4991 (hatched, below chance) and
+  z-score Evia$\rightarrow$Mu\u{g}la is 0.5013 (un-hatched, above chance).
+  Every cell carries its value, and every label's colour is chosen by measured
+  WCAG contrast against that cell's rendered colour (worst case 4.7:1).
+  Confidence intervals for these directions are given in Table~4.}
+  \label{fig:transfer-matrix}
+\end{figure}
+
+
+% --------------------------------------------------------------- Figure 6a --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig6a_adaptation.pdf}
+  \caption{\textbf{Label-blind adaptation compresses every direction toward
+  chance rather than recovering transfer.} All 12 ordered directions among the
+  four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u{g}la,
+  Evia), natural-vegetation primary population. Each row is one direction. The
+  open circle is raw transfer ROC-AUC and the arrow runs to the best
+  label-blind adapted result for that direction (region-wise z-score or CORAL,
+  whichever is better); the grey vertical tick is the within-region reference
+  for that target, and the dashed vertical rule is chance. \textbf{Solid blue
+  arrows are the five directions where adaptation moves transfer toward the
+  within-region reference (recovery); dashed orange arrows are the seven where
+  it moves \emph{away} from it (negative recovery).} Line style and colour both
+  encode this class, because the two hues differ by only 2.30:1 in relative
+  luminance and would nearly merge in greyscale. The pattern is the point:
+  directions starting below chance are pushed up and directions starting above
+  chance are pushed down, so adaptation acts on the spread rather than on
+  skill. The worst case is Evia$\rightarrow$Manavgat, where raw transfer of
+  0.686 is dragged down to 0.527 against a within-region reference of 0.870, a
+  recovered fraction of $-0.862$. No arrow reaches its within-region tick.}
+  \label{fig:adaptation}
+\end{figure}
+
+
+% --------------------------------------------------------------- Figure 6b --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig6b_loro.pdf}
+  \caption{\textbf{Pooling every other region never beats the best single
+  source.} Leave-one-region-out evaluation: for each held-out target region
+  (rows), a model trained on the pooled remaining four regions (filled orange
+  circle) is compared against the best individual source region for that same
+  target (open blue diamond), with the within-region ceiling as a grey vertical
+  tick and chance as the dashed rule. Natural-vegetation primary population,
+  thermal feature set, no adaptation. The pooled model lies to the left of the
+  best pairwise source in all five targets without exception --- adding source
+  regions does not accumulate transferable signal. In two targets the pooled
+  model falls \emph{below chance} (Manavgat 0.469, Bej\'is 0.417) while a
+  single well-chosen source reaches 0.686 and 0.583 respectively. Every point
+  remains far below the within-region ceiling.}
+  \label{fig:loro}
+\end{figure}
+
+
+% --------------------------------------------------------------- Figure 6c --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig6c_feature_drop.pdf}
+  \caption{\textbf{Removing the direction-reversing features is a zero-sum
+  trade-off.} Mean within-region ROC-AUC across the five regions (horizontal)
+  against mean transfer ROC-AUC across the 20 ordered directions (vertical),
+  for four feature configurations: the full thermal set, the set without the
+  LST anomaly, without elevation, and without both. Each configuration has its
+  own marker and is named in the key; the grey path connects them in that
+  order. Moving left along the path, transfer rises monotonically
+  (0.541 $\rightarrow$ 0.556) while within-region skill falls monotonically
+  (0.888 $\rightarrow$ 0.807) --- both monotonicities are verified when the
+  figure is built, so the figure cannot silently contradict the claim. The
+  transfer gain is 0.014 AUC and the within-region cost 0.081 AUC, about six
+  times larger: what is removed is locally informative and non-portable, and
+  removing it buys portability by giving up skill rather than by finding
+  transferable signal.}
+  \label{fig:feature-drop}
+\end{figure}
+
+
+% ---------------------------------------------------------------- Figure 7 --
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=190mm]{figures/fig7_contrast_pairs.pdf}
+  \caption{\textbf{Burned-niche overlap does not determine transfer: the
+  contrast pair.} Per-feature signed univariate AUC --- the probability that a
+  predictor takes a higher value on a burned cell than on an unburned one ---
+  for the two most informative region pairs, natural-vegetation primary
+  population. Arrows run from chance (0.5) to the observed value, so their
+  direction is the sign of the association and their length its strength;
+  whiskers are 95\% spatial-block ($\approx$5\,km) bootstrap intervals.
+  Within each pair the two regions are distinguished by colour, by line style
+  (solid for the first region named, dashed for the second) and by vertical
+  offset; line style is included because the two hues differ by only 2.30:1 in
+  relative luminance and would nearly merge in greyscale.
+  \textbf{A filled arrowhead means that region's 95\% interval excludes 0.5, so
+  the direction is statistically supported; an open arrowhead means the
+  interval contains 0.5 and the direction is not supported.} Rows shaded grey
+  are features whose sign disagrees between the two regions. Grey side bars are
+  the per-feature Schoener's $D$ overlap.
+  \textbf{(a)} Manavgat--Mu\u{g}la, the pair with the \emph{highest} burned-niche
+  overlap ($\bar{D}=0.83$), transfers below chance in both directions
+  (0.470 and 0.401). \textbf{(b)} Bej\'is--Montiferru, the pair with the
+  \emph{lowest} overlap ($\bar{D}=0.48$), transfers above chance in both
+  directions (0.594 and 0.548). High niche overlap is therefore not sufficient
+  for transfer. The arrowhead fill also exposes the coverage limit of the
+  supported-agreement index, which is defined only on features whose direction
+  is supported in \emph{both} regions: there are two such features in (a)
+  (NDVI and elevation) and \textbf{none in (b)}, where the two regions'
+  supported sets are disjoint and Montiferru's intervals are wide. Pair (b)
+  therefore drops out of the supported-index sample entirely --- the index is
+  undefined exactly on the pair that most challenges the overlap explanation,
+  which is a limitation of the index and not evidence for it.}
+  \label{fig:contrast-pairs}
+\end{figure}

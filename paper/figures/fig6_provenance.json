@@ -1,9 +1,0 @@
-{
- "figure": "Fig. 6 - interventions obey the same conservation (adaptation, LORO, feature drop)",
- "script": "paper/figures/fig6_conservation.py",
- "data": "paper/figures/data/fig_data.json (four_aoi_decomposition.csv, loro_pooled_transfer.json, feature_drop_transfer.json; sha256 inside)",
- "asserts": "7/12 negative recovery, worst Evia->Manavgat -0.862; LORO never beats best pairwise (5 targets), Manavgat 0.469; feature-drop means 0.888/0.541 -> 0.807/0.556",
- "palette": "Okabe-Ito blue/orange + grey; markers distinct; no red-green",
- "min_font_pt": 7.0,
- "environment": "matplotlib 3.11.1"
-}
