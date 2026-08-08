@@ -104,8 +104,11 @@ possess a deployable label-free predictor of transfer.
 
 It is also coarse. The supported-feature restriction that gives the index its discrimination
 leaves six of eight pairs with denominators of one or two features, and the two Montiferru pairs
-have no supported features at all and drop out; the index is close to a binary flag for "any
-supported sign disagreement". And the power caveat of Section 4.4 applies to *every* correlation
+drop out entirely — not because Montiferru lacks supported features (it has three) but because
+its supported set does not intersect its partner's; the exclusion arises from set-disjointness
+between the two regions' supported features, which is the more precise and more defensible
+statement of the coverage limit. The index is close to a binary flag for "any supported sign
+disagreement". And the power caveat of Section 4.4 applies to *every* correlation
 in the diagnostic table, including the two successes: the effective sample is ten unordered pairs,
 the two directions of a pair are not independent, and intervals of width ±0.5–0.8 on the null
 rows cannot rule out moderate true correlations. The null diagnostics are "not shown to order
