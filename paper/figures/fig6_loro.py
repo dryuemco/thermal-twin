@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Figure 6b - pooled multi-region training never beats the best single source.
+"""Figure 6 - pooled multi-region training never beats the best single source.
 
 Leave-one-region-out: for each held-out target, the pooled model (orange circle)
 against the best pairwise source (open blue diamond), with the within-region
 ceiling as a grey tick. The pooled point is left of the pairwise point in every
 one of the five targets - asserted, not merely drawn.
 
-Split out of the former three-panel Fig. 6 so the panel gets the full column
+Split out of the former three-panel conservation figure so the panel gets the full column
 width; at ~34 mm it needed a two-line title and its legend overflowed the axes.
 
-Data: paper/figures/data/fig_data.json. Asserts in _fig6_common.py.
+Data: paper/figures/data/fig_data.json. Asserts in _conservation_common.py.
 """
 import json
 import sys
@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _layout_check import check as layout_check
-from _fig6_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK,
+from _conservation_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK,
                           LABEL, loro, style_axes, chance_segment, save)
 
 plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
@@ -65,16 +65,16 @@ ax.legend([hL, hP, hW, hC],
           bbox_to_anchor=(0.0, 0.0), ncol=4, handlelength=1.6,
           columnspacing=1.8, handletextpad=0.6, borderpad=0.0)
 
-problems = layout_check(fig, "Fig. 6b - LORO pooling", min_gap_pt=2.0,
+problems = layout_check(fig, "Fig. 6 - LORO pooling", min_gap_pt=2.0,
                         min_font_pt=8.0, data_artists=data_artists)
-save(fig, "fig6b_loro", "--preview" in sys.argv)
+save(fig, "fig6_loro", "--preview" in sys.argv)
 
-(HERE / "fig6b_provenance.json").write_text(json.dumps({
-    "figure": "Fig. 6b - pooled (LORO) training never beats the best single source",
-    "script": "paper/figures/fig6b_loro.py",
+(HERE / "fig6_provenance.json").write_text(json.dumps({
+    "figure": "Fig. 6 - pooled (LORO) training never beats the best single source",
+    "script": "paper/figures/fig6_loro.py",
     "data": "paper/figures/data/fig_data.json (loro_pooled_transfer.json; sha256 inside)",
     "asserts": "loro_raw < best_pairwise for all five targets; Manavgat pooled 0.469 "
-               "(_fig6_common.py)",
+               "(_conservation_common.py)",
     "legend": "in a reserved band below the plotted rows; chance drawn as a segment over the "
               "data rows only",
     "canvas_mm": [190, 78],
@@ -84,4 +84,4 @@ save(fig, "fig6b_loro", "--preview" in sys.argv)
                     f"{len(data_artists)} data artists registered",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False))
-print("fig6b written; LORO below best pairwise in all", len(loro), "targets")
+print("fig6 written; LORO below best pairwise in all", len(loro), "targets")

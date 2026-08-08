@@ -1,8 +1,8 @@
 {
- "figure": "Fig. 6b - pooled (LORO) training never beats the best single source",
- "script": "paper/figures/fig6b_loro.py",
+ "figure": "Fig. 6 - pooled (LORO) training never beats the best single source",
+ "script": "paper/figures/fig6_loro.py",
  "data": "paper/figures/data/fig_data.json (loro_pooled_transfer.json; sha256 inside)",
- "asserts": "loro_raw < best_pairwise for all five targets; Manavgat pooled 0.469 (_fig6_common.py)",
+ "asserts": "loro_raw < best_pairwise for all five targets; Manavgat pooled 0.469 (_conservation_common.py)",
  "legend": "in a reserved band below the plotted rows; chance drawn as a segment over the data rows only",
  "canvas_mm": [
   190,

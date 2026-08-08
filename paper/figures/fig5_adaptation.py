@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 6a - label-blind adaptation compresses every direction toward chance.
+"""Figure 5 - label-blind adaptation compresses every direction toward chance.
 
 Four-AOI decomposition, 12 ordered directions: raw (open circle) -> best-adapted
 (arrow head), with the within-region reference as a grey tick. Directions where
@@ -7,11 +7,11 @@ adaptation moves AWAY from the within reference (negative recovery, 7/12) are
 orange AND dashed; recoveries are blue AND solid, so the class survives
 greyscale print where the two hues differ by only ~2.3:1 in luminance.
 
-Split out of the former three-panel Fig. 6: 12 direction labels plus a wide AUC
+Split out of the former three-panel conservation figure: 12 direction labels plus a wide AUC
 axis need the full column width, and sharing a row with two other panels forced
 cramped legends and two-line titles.
 
-Data: paper/figures/data/fig_data.json. Asserts in _fig6_common.py.
+Data: paper/figures/data/fig_data.json. Asserts in _conservation_common.py.
 """
 import json
 import sys
@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _layout_check import check as layout_check, contrast_ratio
-from _fig6_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK,
+from _conservation_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK,
                           RECOVERY_STYLE, NEGATIVE_STYLE, decomp, neg,
                           dirlabel, style_axes, chance_segment, save)
 
@@ -75,21 +75,21 @@ ax.legend([hRec, hNeg, hWit, hCha],
 
 print(f"[greyscale] blue-vs-orange hue contrast {HUE_ONLY_CONTRAST:.2f}:1 - "
       f"line style carries the class redundantly")
-problems = layout_check(fig, "Fig. 6a - adaptation", min_gap_pt=2.0,
+problems = layout_check(fig, "Fig. 5 - adaptation", min_gap_pt=2.0,
                         min_font_pt=8.0, data_artists=data_artists)
-save(fig, "fig6a_adaptation", "--preview" in sys.argv)
+save(fig, "fig5_adaptation", "--preview" in sys.argv)
 
-(HERE / "fig6a_provenance.json").write_text(json.dumps({
-    "figure": "Fig. 6a - label-blind adaptation compresses toward chance",
-    "script": "paper/figures/fig6a_adaptation.py",
+(HERE / "fig5_provenance.json").write_text(json.dumps({
+    "figure": "Fig. 5 - label-blind adaptation compresses toward chance",
+    "script": "paper/figures/fig5_adaptation.py",
     "data": "paper/figures/data/fig_data.json (four_aoi_decomposition.csv; sha256 inside)",
     "asserts": "7/12 negative recovery; worst Evia->Manavgat recovered fraction -0.862 "
-               "(_fig6_common.py)",
+               "(_conservation_common.py)",
     "greyscale": {
         "hue_only_contrast": round(HUE_ONLY_CONTRAST, 2),
         "note": "Okabe-Ito blue (relative luminance 0.151) vs orange (0.413) separate by only "
                 "this ratio, below the 3:1 WCAG non-text minimum, so the two classes also "
-                "differ by line style (solid vs dashed); proof in fig6a_adaptation_greyscale.png",
+                "differ by line style (solid vs dashed); proof in fig5_adaptation_greyscale.png",
     },
     "legend": "in a reserved band below the plotted rows; the chance reference is a segment "
               "over the data rows only, never an axvline, so it cannot cross legend text",
@@ -100,4 +100,4 @@ save(fig, "fig6a_adaptation", "--preview" in sys.argv)
                     f"{len(data_artists)} data artists registered",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False))
-print(f"fig6a written; negative recovery {len(neg)} of {len(decomp)}")
+print(f"fig5 written; negative recovery {len(neg)} of {len(decomp)}")

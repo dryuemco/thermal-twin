@@ -6,11 +6,10 @@
 % which interval, and what it means, without the reader returning to the text.
 % Panel letters are explained inside the caption.
 %
-% Figure numbering note: the former three-panel Fig. 6 was split into three
-% separate figures (6a, 6b, 6c) because panel (a) needs the full column width
-% for its 12 direction labels. Fig. 7 keeps its number. If the journal prefers
-% consecutive integers, 6a/6b/6c become Fig. 6/7/8 and the contrast-pairs
-% figure becomes Fig. 9; the \label keys below are stable either way.
+% Figure numbering note: what was drafted as a single three-panel conservation
+% figure is issued as three separate figures (5, 6, 7), because its first panel
+% needs the full column width for its 12 direction labels. Lettered sub-numbers
+% are reserved for panels of one figure, so they are not used here.
 %
 % All figures: double column (190 mm), body 9 pt, minimum 8 pt, vector
 % (PDF + SVG). Every numeric value in these captions is asserted against the
@@ -67,10 +66,10 @@
 \end{figure}
 
 
-% -------------------------------------------------------------- Figure 3+4 --
+% ---------------------------------------------------------------- Figure 3 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig3_4_within_robustness.pdf}
+  \includegraphics[width=190mm]{figures/fig3_within_robustness.pdf}
   \caption{\textbf{The thermal increment replicates in all five regions and
   survives coarser spatial blocking.} Natural-vegetation primary population;
   random forest with the primary weighted configuration; all intervals are
@@ -97,10 +96,10 @@
 \end{figure}
 
 
-% ---------------------------------------------------------------- Figure 5 --
+% ---------------------------------------------------------------- Figure 4 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig5_transfer_matrix.pdf}
+  \includegraphics[width=190mm]{figures/fig4_transfer_matrix.pdf}
   \caption{\textbf{Cross-region transfer, and what label-blind adaptation does
   to it.} Thermal transfer ROC-AUC for all 20 ordered source--target
   directions among the five regions, natural-vegetation primary population.
@@ -127,10 +126,10 @@
 \end{figure}
 
 
-% --------------------------------------------------------------- Figure 6a --
+% ---------------------------------------------------------------- Figure 5 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig6a_adaptation.pdf}
+  \includegraphics[width=190mm]{figures/fig5_adaptation.pdf}
   \caption{\textbf{Label-blind adaptation compresses every direction toward
   chance rather than recovering transfer.} All 12 ordered directions among the
   four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u{g}la,
@@ -153,10 +152,10 @@
 \end{figure}
 
 
-% --------------------------------------------------------------- Figure 6b --
+% ---------------------------------------------------------------- Figure 6 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig6b_loro.pdf}
+  \includegraphics[width=190mm]{figures/fig6_loro.pdf}
   \caption{\textbf{Pooling every other region never beats the best single
   source.} Leave-one-region-out evaluation: for each held-out target region
   (rows), a model trained on the pooled remaining four regions (filled orange
@@ -173,10 +172,10 @@
 \end{figure}
 
 
-% --------------------------------------------------------------- Figure 6c --
+% ---------------------------------------------------------------- Figure 7 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig6c_feature_drop.pdf}
+  \includegraphics[width=190mm]{figures/fig7_feature_drop.pdf}
   \caption{\textbf{Removing the direction-reversing features is a zero-sum
   trade-off.} Mean within-region ROC-AUC across the five regions (horizontal)
   against mean transfer ROC-AUC across the 20 ordered directions (vertical),
@@ -195,10 +194,10 @@
 \end{figure}
 
 
-% ---------------------------------------------------------------- Figure 7 --
+% ---------------------------------------------------------------- Figure 8 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig7_contrast_pairs.pdf}
+  \includegraphics[width=190mm]{figures/fig8_contrast_pairs.pdf}
   \caption{\textbf{Burned-niche overlap does not determine transfer: the
   contrast pair.} Per-feature signed univariate AUC --- the probability that a
   predictor takes a higher value on a burned cell than on an unburned one ---

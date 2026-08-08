@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 6c - removing direction-reversing features is a zero-sum trade-off.
+"""Figure 7 - removing direction-reversing features is a zero-sum trade-off.
 
 Mean within-region AUC (5 regions) against mean transfer AUC (20 directions) for
 four feature configurations. Moving left along the connecting path buys transfer
@@ -8,9 +8,9 @@ directions throughout.
 
 Each configuration has its own marker and is named in a fixed legend, so no
 label position depends on a data value (the labels previously sat next to their
-points and crowded them). Split out of the former three-panel Fig. 6.
+points and crowded them). Split out of the former three-panel conservation figure.
 
-Data: paper/figures/data/fig_data.json. Asserts in _fig6_common.py.
+Data: paper/figures/data/fig_data.json. Asserts in _conservation_common.py.
 """
 import json
 import sys
@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _layout_check import check as layout_check
-from _fig6_common import (HERE, MM, BLUE, FS_BODY, FS_TICK, fdrop,
+from _conservation_common import (HERE, MM, BLUE, FS_BODY, FS_TICK, fdrop,
                           style_axes, save)
 
 CFG = [("full", "full (all features)", "o", True),
@@ -74,15 +74,15 @@ fig.text(0.675, 0.30,
          "left along the path =\ntransfer gained,\nwithin-region skill paid",
          fontsize=FS_TICK, va="top", ha="left", color="#444444", linespacing=1.6)
 
-problems = layout_check(fig, "Fig. 6c - feature-removal trade-off", min_gap_pt=2.0,
+problems = layout_check(fig, "Fig. 7 - feature-removal trade-off", min_gap_pt=2.0,
                         min_font_pt=8.0, data_artists=data_artists)
-save(fig, "fig6c_feature_drop", "--preview" in sys.argv)
+save(fig, "fig7_feature_drop", "--preview" in sys.argv)
 
-(HERE / "fig6c_provenance.json").write_text(json.dumps({
-    "figure": "Fig. 6c - feature removal is a zero-sum trade-off",
-    "script": "paper/figures/fig6c_feature_drop.py",
+(HERE / "fig7_provenance.json").write_text(json.dumps({
+    "figure": "Fig. 7 - feature removal is a zero-sum trade-off",
+    "script": "paper/figures/fig7_feature_drop.py",
     "data": "paper/figures/data/fig_data.json (feature_drop_transfer.json; sha256 inside)",
-    "asserts": "means 0.888/0.541 (full) -> 0.807/0.556 (drop both) (_fig6_common.py); "
+    "asserts": "means 0.888/0.541 (full) -> 0.807/0.556 (drop both) (_conservation_common.py); "
                "within strictly decreasing AND transfer strictly increasing along the "
                "full -> -anomaly -> -elevation -> -both path, i.e. the trade-off the "
                "caption claims is checked, not just drawn",
@@ -94,5 +94,5 @@ save(fig, "fig6c_feature_drop", "--preview" in sys.argv)
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False))
-print("fig6c written; within", [round(v, 4) for v in _w],
+print("fig7 written; within", [round(v, 4) for v in _w],
       "transfer", [round(v, 4) for v in _t])

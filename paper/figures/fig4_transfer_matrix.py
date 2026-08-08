@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 5 - cross-region transfer matrices: raw / region-wise z-score / CORAL.
+"""Figure 4 - cross-region transfer matrices: raw / region-wise z-score / CORAL.
 
 Three 5x5 source-x-target heatmaps of thermal transfer ROC-AUC, diverging palette
 centred exactly on chance (0.5) so below-chance directions are immediately
@@ -144,24 +144,24 @@ cbar.ax.axhline(0.5, color="black", lw=1.2)
 
 fig.subplots_adjust(left=0.075, right=0.875, top=0.845, bottom=0.145, wspace=0.12)
 
-problems = layout_check(fig, "Fig. 5 - transfer matrices",
+problems = layout_check(fig, "Fig. 4 - transfer matrices",
                         min_gap_pt=2.0, min_font_pt=8.0)
 
-fig.savefig(HERE / "fig5_transfer_matrix.pdf")
-fig.savefig(HERE / "fig5_transfer_matrix.svg")
+fig.savefig(HERE / "fig4_transfer_matrix.pdf")
+fig.savefig(HERE / "fig4_transfer_matrix.svg")
 if "--preview" in sys.argv:
-    png = HERE / "fig5_transfer_matrix_preview.png"
+    png = HERE / "fig4_transfer_matrix_preview.png"
     fig.savefig(png, dpi=300)
     # greyscale proof: luminance-convert the rendered preview, so what is
     # checked is the actual rasterised figure rather than a re-plot
     rgb = plt.imread(png)[:, :, :3]
     grey = (0.2126 * rgb[:, :, 0] + 0.7152 * rgb[:, :, 1] + 0.0722 * rgb[:, :, 2])
-    plt.imsave(HERE / "fig5_transfer_matrix_greyscale.png", grey, cmap="gray",
+    plt.imsave(HERE / "fig4_transfer_matrix_greyscale.png", grey, cmap="gray",
                vmin=0.0, vmax=1.0)
 
-(HERE / "fig5_provenance.json").write_text(json.dumps({
-    "figure": "Fig. 5 - transfer matrices raw/z/CORAL",
-    "script": "paper/figures/fig5_transfer_matrix.py",
+(HERE / "fig4_provenance.json").write_text(json.dumps({
+    "figure": "Fig. 4 - transfer matrices raw/z/CORAL",
+    "script": "paper/figures/fig4_transfer_matrix.py",
     "data": "paper/figures/data/fig_data.json (per-source sha256 inside; step10_metrics.json of all 10 pairs)",
     "asserts": "spot values vs 04 Table 4; panel ranges vs 4.3 claims "
                "(0.326-0.686 / 0.431-0.630 / 0.443-0.624); worst cell-label "
@@ -178,7 +178,7 @@ if "--preview" in sys.argv:
         "greyscale": "ratio depends only on relative luminance, which a luminance "
                      "greyscale conversion preserves, so the colour verdict is the "
                      "greyscale verdict; a rendered proof is written to "
-                     "fig5_transfer_matrix_greyscale.png",
+                     "fig4_transfer_matrix_greyscale.png",
     },
     "below_chance_hatch": {
         "why": "a diverging palette is symmetric in luminance about its centre, so in "
