@@ -257,7 +257,7 @@ transfer numbers below.]
 |---|---|---|
 | Schoener's D̄ (1-D, 9 features) | **0.826** — highest of all 10 pairs | **0.479** — lowest of all 10 pairs |
 | Mahalanobis (burned centroids) | 2.71 (closest) | 8.11 (farthest) |
-| Sign agreement (9 features) | 4/9; supported features 1/2, with a CI-supported elevation flip | 7/9; no supported disagreement |
+| Sign agreement (9 features) | 4/9; jointly supported features 2 (agreement 1/2), with a CI-supported elevation flip | 7/9; no jointly supported features — the two regions' supported sets do not intersect (Montiferru CIs wide) |
 | Raw transfer, both directions | 0.470 [0.452, 0.488] and 0.401 [0.378, 0.426] — **both below chance** | 0.594 [0.560, 0.631] and 0.548 [0.521, 0.578] — **both above chance** |
 
 Manavgat and Muğla are in the same country and fire year, roughly 200 km apart, and their burned
@@ -268,8 +268,9 @@ and all four absolute thermal channels (e.g. `current_lst_mean` 0.538 [0.452, 0.
 [0.271, 0.382]) — and transfer is below chance in both directions with CI support. Bejís and
 Montiferru sit at the opposite extreme: burned envelopes that barely overlap (per-feature D
 0.23–0.77; the pair is the most dissimilar on every overlap measure), yet seven of nine
-directions agree, no disagreement is CI-supported, and transfer is above chance in both
-directions with CI support. Where the envelope agrees but the direction reverses, transfer
+directions agree — the pair has no jointly supported features, because the two regions'
+supported sets do not intersect, so the supported-agreement index is undefined for it — and
+transfer is above chance in both directions with CI support. Where the envelope agrees but the direction reverses, transfer
 fails; where the envelope disagrees but the direction agrees, transfer works.
 
 ## 4.6 Interventions: pooling and feature removal obey the same conservation

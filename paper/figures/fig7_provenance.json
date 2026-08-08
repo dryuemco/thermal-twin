@@ -1,0 +1,17 @@
+{
+ "figure": "Fig. 7 - contrast pairs (main figure; sufficiency counterexample)",
+ "script": "paper/figures/fig7_contrast_pairs.py",
+ "source": {
+  "path": "paper/figure_contrast_pairs.json",
+  "sha256": "a6b1969cefe00d1094b503a3d6bcbe7b5b015cb37030b5a71ce5043951aab9eb"
+ },
+ "outputs": [
+  "fig7_contrast_pairs.pdf",
+  "fig7_contrast_pairs.svg"
+ ],
+ "asserts": "D-bar means 0.826/0.479; jointly supported features exactly [NDVI, Elevation] in (a) and [] in (b); four transfer AUCs and CI-off-chance checks; enforced at build time",
+ "encoding": "titles: overlap + transfer verdict primary; arrowhead fill = per-region CI excludes 0.5; supported-index coverage limit stated in caption",
+ "palette": "Okabe-Ito blue #0072B2 / orange #E69F00; greyscale-distinct; no red-green",
+ "min_font_pt": 7.0,
+ "environment": "matplotlib 3.11.1"
+}

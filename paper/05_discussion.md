@@ -108,8 +108,11 @@ possess a deployable label-free predictor of transfer.
 
 It is also coarse. The supported-feature restriction that gives the index its discrimination
 leaves six of eight pairs with denominators of one or two features, and the two Montiferru pairs
-have no supported features at all and drop out; the index is close to a binary flag for "any
-supported sign disagreement". And the power caveat of Section 4.4 applies to *every* correlation
+drop out entirely — not because Montiferru lacks supported features (it has three) but because
+its supported set does not intersect its partner's; the exclusion arises from set-disjointness
+between the two regions' supported features, which is the more precise and more defensible
+statement of the coverage limit. The index is close to a binary flag for "any supported sign
+disagreement". And the power caveat of Section 4.4 applies to *every* correlation
 in the diagnostic table, including the two successes: the effective sample is ten unordered pairs,
 the two directions of a pair are not independent, and intervals of width ±0.5–0.8 on the null
 rows cannot rule out moderate true correlations. The null diagnostics are "not shown to order
@@ -348,4 +351,9 @@ COORDINATOR REVIEW (2026-08-08), changes applied after drafting:
        adapted maximum and the six-of-seven negative-recovery wording): consistent.
     6. Related: 03_methods §3.11 CORAL-λ sweep paragraph was amended this round to actual
        drive_new coverage (see 04's DRAFT NOTES conflict 3) — re-check in the Methods round.
+    7. Correction (figure round, 2026-08-08): the Montiferru-pair exclusion from the
+       supported index is SET-DISJOINTNESS of the two regions' supported features, not an
+       empty Montiferru set (it has three: slope, current TVDI, TVDI difference). §5.4 here,
+       04 §4.5/Table R2 and conditional_similarity_transfer.md all corrected; Fig. 7 shows it
+       via filled-vs-open arrowheads.
 -->

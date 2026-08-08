@@ -81,8 +81,12 @@ Marginal rows quoted from `regime_transfer_correlation.csv` (same framework, sam
    in 3 of 5 regions) dilute the index — exactly the motivation for the pre-specified restricted
    variant, but the honest statement is "restriction was necessary, the raw index is not enough".
 3. **Caveats that must ship with the headline.** (a) Effective sample: 8 pairs / 16 directions —
-   the two Montiferru pairs with no supported features drop out (Montiferru's CIs are wide;
-   539 burned cells). (b) The restricted index is nearly binary: 6 of 8 pairs have denominator 1
+   the two Montiferru pairs drop out for lack of *jointly* supported features: Montiferru does
+   have three supported features (slope, current TVDI, TVDI difference; its wide CIs from 539
+   burned cells allow no more), but they do not intersect Manavgat's ({NDVI, elevation}) or
+   Bejís's ({elevation, LST anomaly}) supported sets — the exclusion is set-disjointness, not
+   an empty per-region set. *(Correction 2026-08-08: an earlier phrasing here said the pairs
+   drop because "no feature's CI excludes 0.5 in Montiferru"; that was wrong.)* (b) The restricted index is nearly binary: 6 of 8 pairs have denominator 1
    or 2, so the result is close to "pairs with any supported-sign disagreement (0.385–0.436 AUC)
    versus pairs without (0.55–0.65)". Clean, but coarse; a different region set could easily
    move it. (c) The narrow CI on the agreement fraction reflects heavy ties under pair
