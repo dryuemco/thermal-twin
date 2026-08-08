@@ -61,8 +61,8 @@
   doi     = {10.3390/rs16152842},
 }
 
-% VERIFY: Crossref returned volume and issue but no article number for this
-% review. Add the article number before submission.
+% Resolved 2026-08-08: Crossref reports article-number 00921 for this record;
+% the DOI is unambiguous and sufficient for Elsevier styles -- cite by DOI.
 @article{Vibhandik2026,
   author  = {Vibhandik, Priyanka and Sawant, Suraj and Joshi, Amit and
              Bidwe, Ranjeet},
@@ -311,6 +311,8 @@
 % proceedings pagination is inconsistently indexed -- confirm against the
 % official AAAI proceedings before submission. The AAAI article DOI was NOT
 % retrieved and is deliberately omitted rather than guessed.
+% DOI confirmed via Crossref REST API 2026-08-08 (Proceedings of the AAAI
+% Conference on Artificial Intelligence 30(1)); pages per dblp conf/aaai/SunFS16.
 @inproceedings{Sun2016,
   author    = {Sun, Baochen and Feng, Jiashi and Saenko, Kate},
   title     = {Return of frustratingly easy domain adaptation},
@@ -320,6 +322,7 @@
   publisher = {AAAI Press},
   address   = {Phoenix, Arizona, USA},
   year      = {2016},
+  doi       = {10.1609/aaai.v30i1.10306},
 }
 
 @article{Tuia2016,
@@ -612,15 +615,21 @@
 
 % =============================================================================
 % STILL MISSING -- do not fabricate; resolve before submission
+% (swept 2026-08-08; resolved items moved to Block H below)
 %
 %   [UNVERIFIED: Copernicus GLO-30 DEM]  No peer-reviewed citation confirmed.
-%       Normally cited as an ESA/Airbus product record. Decide whether to cite
-%       the product page or the SRTM fallback (Farr et al. 2007) instead.
-%   [UNVERIFIED: 2021 Manavgat / Mugla fire event descriptions]  Needed for the
-%       study-area section.
-%   [UNVERIFIED: 2021 North Evia fire event description]  Same.
-%   [UNVERIFIED: 2022 Bejis / Castellon fire event description]  Same.
-%   (Google Earth Engine: verified and added as Gorelick2017.)
+%       The candidate DataCite DOI 10.5270/ESA-c5d3d65 returned HTTP 404 on
+%       2026-08-08, so it must NOT be used. Decide whether to cite the ESA
+%       product page (no DOI) or the SRTM fallback (Farr et al. 2007) instead.
+%   [UNVERIFIED: 2022 Bejis / Castellon fire event description]  A Crossref
+%       bibliographic search on 2026-08-08 returned NO record specific to the
+%       August 2022 Bejis fire. Needed for the study-area section; consider a
+%       non-Crossref source (EFFIS report, Generalitat Valenciana) or omit.
+%   NOTE on Mugla 2021: only a weak candidate found (Cosandal2022 below, a
+%       tourism-impact study that documents the Marmaris fires). Flagged; keep
+%       only if no better source appears.
+%   (Manavgat 2021: resolved as Soydan2022. North Evia 2021: resolved as
+%    Varela2022. Google Earth Engine: verified and added as Gorelick2017.)
 % =============================================================================
 
 
@@ -651,4 +660,49 @@
   number  = {11},
   pages   = {2868--2883},
   doi     = {10.1111/j.1558-5646.2008.00482.x},
+}
+
+
+% -----------------------------------------------------------------------------
+% Block H -- Fire event descriptions (added 2026-08-08; metadata verified via
+% Crossref REST API on 2026-08-08; FULL TEXTS UNREAD -- confirm suitability
+% before final citation placement in the study-area section)
+% -----------------------------------------------------------------------------
+
+@article{Soydan2022,
+  author  = {Soydan, Orhun},
+  title   = {Detection of burnt areas by remote sensing techniques: {Antalya}
+             {Manavgat} forest fire},
+  journal = {Turkish Journal of Agriculture - Food Science and Technology},
+  year    = {2022},
+  volume  = {10},
+  number  = {sp2},
+  pages   = {3029--3035},
+  doi     = {10.24925/turjaf.v10isp2.3029-3035.5764},
+}
+
+@inproceedings{Varela2022,
+  author    = {Varela, Vassiliki and Eftychidis, George and Papageorgiou, Sofia
+               and Legaki, Georgia},
+  title     = {Local response to extreme wildfire events in populated areas:
+               practices and lessons learned from the {Mati}/{Attica} (2018)
+               and {North Evia} (2021) fires, {Greece}},
+  booktitle = {Advances in Forest Fire Research 2022},
+  pages     = {666--672},
+  year      = {2022},
+  doi       = {10.14195/978-989-26-2298-9_101},
+}
+
+% Weak-fit candidate for the Mugla 2021 event (tourism-impact study that
+% documents the Marmaris fires); keep only if no better source appears.
+@article{Cosandal2022,
+  author  = {Co{\c{s}}andal, Merve and Partig{\"o}{\c{c}}, Nur Sinem},
+  title   = {The impact of disasters on tourism sector: the case of forest
+             fires in {Mugla}-{Marmaris} district},
+  journal = {Resilience},
+  year    = {2022},
+  volume  = {6},
+  number  = {2},
+  pages   = {257--267},
+  doi     = {10.32569/resilience.1211459},
 }
