@@ -1,0 +1,35 @@
+{
+ "figure": "Fig. 4 - transfer matrices raw/z/CORAL",
+ "script": "paper/figures/fig4_transfer_matrix.py",
+ "data": "paper/figures/data/fig_data.json (per-source sha256 inside; step10_metrics.json of all 10 pairs)",
+ "asserts": "spot values vs 04 Table 4; panel ranges vs 4.3 claims (0.326-0.686 / 0.431-0.630 / 0.443-0.624); worst cell-label contrast >= 4.5:1",
+ "contrast": {
+  "method": "WCAG 2.x relative luminance; label colour chosen per cell by contrast ratio against the actual colormap RGB for that cell, not by thresholding the AUC value",
+  "threshold": 4.5,
+  "worst_ratio": 4.7,
+  "worst_cell": "coral montiferru_2021->evia_2021_extended = 0.6239",
+  "black_labels": 54,
+  "white_labels": 6,
+  "greyscale": "ratio depends only on relative luminance, which a luminance greyscale conversion preserves, so the colour verdict is the greyscale verdict; a rendered proof is written to fig4_transfer_matrix_greyscale.png"
+ },
+ "below_chance_hatch": {
+  "why": "a diverging palette is symmetric in luminance about its centre, so in greyscale a below-chance cell prints the same darkness as an equally distant above-chance cell and the sign of the deviation is lost; the hatch carries the sign through greyscale",
+  "rule": "hatched iff the EXACT value < 0.5 (labels are rounded to 2 dp)",
+  "chance_edge_cells": [
+   "zscore evia_2021_extended->mugla_2021 = 0.5013",
+   "coral bejis_2022->evia_2021_extended = 0.4991"
+  ]
+ },
+ "palette": "PuOr diverging, TwoSlopeNorm centred 0.5; values printed per cell for greyscale",
+ "canvas_mm": [
+  190,
+  71
+ ],
+ "column": "double (190 mm)",
+ "font_pt": {
+  "body": 9.0,
+  "minimum": 8.0
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.1"
+}

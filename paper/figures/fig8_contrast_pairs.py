@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figure 7 (main figure) - the contrast pairs (sufficiency counterexample).
+"""Figure 8 (main figure) - the contrast pairs (sufficiency counterexample).
 
 Primary claim (panel headers): burned-niche overlap vs transfer verdict -
 (a) Manavgat-Mugla, highest overlap (D-bar 0.83), both directions below chance;
@@ -241,27 +241,27 @@ print(f"[greyscale] region hue contrast {HUE_CONTRAST:.2f}:1 (weak) -> line styl
       f"carries the region; sign-disagreement shading is achromatic, "
       f"{SHADE_CONTRAST:.2f}:1 against white")
 
-problems = layout_check(fig, "Fig. 7 - contrast pairs", min_gap_pt=2.0,
+problems = layout_check(fig, "Fig. 8 - contrast pairs", min_gap_pt=2.0,
                         min_font_pt=8.0, data_artists=data_artists)
 
 if "--preview" in sys.argv:
-    png = HERE / "fig7_contrast_pairs_preview.png"
+    png = HERE / "fig8_contrast_pairs_preview.png"
     fig.savefig(png, dpi=300)
     rgb = plt.imread(png)[:, :, :3]
     grey = (0.2126 * rgb[:, :, 0] + 0.7152 * rgb[:, :, 1] + 0.0722 * rgb[:, :, 2])
-    plt.imsave(HERE / "fig7_contrast_pairs_greyscale.png", grey, cmap="gray",
+    plt.imsave(HERE / "fig8_contrast_pairs_greyscale.png", grey, cmap="gray",
                vmin=0.0, vmax=1.0)
-fig.savefig(HERE / "fig7_contrast_pairs.svg")
+fig.savefig(HERE / "fig8_contrast_pairs.svg")
 try:
-    fig.savefig(HERE / "fig7_contrast_pairs.pdf")
+    fig.savefig(HERE / "fig8_contrast_pairs.pdf")
 except PermissionError:
-    raise SystemExit("fig7_contrast_pairs.pdf is locked - close it and re-run.")
+    raise SystemExit("fig8_contrast_pairs.pdf is locked - close it and re-run.")
 
-(HERE / "fig7_provenance.json").write_text(json.dumps({
-    "figure": "Fig. 7 - contrast pairs (main figure; sufficiency counterexample)",
-    "script": "paper/figures/fig7_contrast_pairs.py",
+(HERE / "fig8_provenance.json").write_text(json.dumps({
+    "figure": "Fig. 8 - contrast pairs (main figure; sufficiency counterexample)",
+    "script": "paper/figures/fig8_contrast_pairs.py",
     "source": {"path": "paper/figure_contrast_pairs.json", "sha256": sha},
-    "outputs": ["fig7_contrast_pairs.pdf", "fig7_contrast_pairs.svg"],
+    "outputs": ["fig8_contrast_pairs.pdf", "fig8_contrast_pairs.svg"],
     "asserts": ("D-bar means 0.826/0.479; jointly supported features exactly "
                 "[NDVI, Elevation] in (a) and [] in (b); four transfer AUCs and "
                 "CI-off-chance checks; region cue asserted non-colour; "
@@ -278,7 +278,7 @@ except PermissionError:
         "shade_contrast_vs_white": round(SHADE_CONTRAST, 2),
         "shade_note": "the sign-disagreement row shading is achromatic, so a luminance "
                       "greyscale conversion leaves it unchanged by construction",
-        "proof": "fig7_contrast_pairs_greyscale.png",
+        "proof": "fig8_contrast_pairs_greyscale.png",
     },
     "palette": "Okabe-Ito blue #0072B2 / orange #E69F00; greyscale-distinct via line style; no red-green",
     "canvas_mm": [190, 102],

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Shared data, asserts and styling for Figures 6a / 6b / 6c.
+"""Shared data, asserts and styling for Figures 5, 6 and 7.
 
-Figure 6 was originally one three-panel figure. Panel (a) needs the full column
+These three figures were originally one three-panel figure. Panel (a) needs the full column
 width for its 12 direction labels, which squeezed the other two; split into
 three separate figures each gets the full width and nothing is crowded.
 

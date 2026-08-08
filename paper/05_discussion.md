@@ -354,6 +354,6 @@ COORDINATOR REVIEW (2026-08-08), changes applied after drafting:
     7. Correction (figure round, 2026-08-08): the Montiferru-pair exclusion from the
        supported index is SET-DISJOINTNESS of the two regions' supported features, not an
        empty Montiferru set (it has three: slope, current TVDI, TVDI difference). §5.4 here,
-       04 §4.5/Table R2 and conditional_similarity_transfer.md all corrected; Fig. 7 shows it
+       04 §4.5/Table R2 and conditional_similarity_transfer.md all corrected; Fig. 8 shows it
        via filled-vs-open arrowheads.
 -->

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Figures 3+4 combined - within-region thermal increment and block-size robustness.
+"""Figure 3 - within-region thermal increment and block-size robustness.
 
 (a) Baseline vs thermal ROC-AUC per region at the default 2-cell (~1 km) blocking
     (dumbbells), with the paired-delta and its 95% CI in an aligned numeric
@@ -158,18 +158,18 @@ fig.legend(handles=handles, loc="lower center", ncol=len(REGIONS),
 
 fig.subplots_adjust(left=0.118, right=0.99, top=0.935, bottom=0.255, wspace=0.32)
 
-problems = layout_check(fig, "Figs 3+4 - within-region robustness",
+problems = layout_check(fig, "Fig. 3 - within-region robustness",
                         min_gap_pt=2.0, min_font_pt=8.0,
                         data_artists=data_artists)
 
-fig.savefig(HERE / "fig3_4_within_robustness.pdf")
-fig.savefig(HERE / "fig3_4_within_robustness.svg")
+fig.savefig(HERE / "fig3_within_robustness.pdf")
+fig.savefig(HERE / "fig3_within_robustness.svg")
 if "--preview" in sys.argv:
-    fig.savefig(HERE / "fig3_4_within_robustness_preview.png", dpi=300)
+    fig.savefig(HERE / "fig3_within_robustness_preview.png", dpi=300)
 
-(HERE / "fig3_4_provenance.json").write_text(json.dumps({
-    "figure": "Figs 3+4 combined - within-region increment and block robustness",
-    "script": "paper/figures/fig3_4_within_robustness.py",
+(HERE / "fig3_provenance.json").write_text(json.dumps({
+    "figure": "Figure 3 - within-region increment and block robustness",
+    "script": "paper/figures/fig3_within_robustness.py",
     "data": "paper/figures/data/fig_data.json (step8c + robustness outputs; per-source sha256 inside)",
     "asserts": "spot values vs 04 Table 3; every delta CI lower bound > 0 (15 region-block "
                "cells); dodge half-spread < half block spacing so groups cannot merge",
@@ -186,4 +186,4 @@ if "--preview" in sys.argv:
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False))
-print("fig3_4 written; all 15 delta CIs exclude zero")
+print("fig3 written; all 15 delta CIs exclude zero")

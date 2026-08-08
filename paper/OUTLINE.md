@@ -72,7 +72,7 @@ regional similarity.**
 |---|---------|--------|---------------------|
 | — | Abstract | **wait** | needs the final numbers for findings 1–4 |
 | — | Highlights (Elsevier, 3–5 bullets, ≤85 chars each) | **wait** | same |
-| — | Graphical abstract | **wait** | Fig. 1 + Fig. 4 composite |
+| — | Graphical abstract | **wait** | Fig. 8 + Fig. 4 composite (numbering per figure_captions.tex) |
 | 1 | Introduction | **writable now** (`01_introduction.md`) | contribution claims left as placeholders |
 | 2 | Related work / background | **writable now** (`02_related_work.md`) | citation gaps flagged inline |
 | 3 | Materials and methods | **writable now** (`03_methods.md`) | region-specific windows verified from code; sample counts for Muğla/Evia pending |

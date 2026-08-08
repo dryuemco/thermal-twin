@@ -52,7 +52,7 @@ in Section 4.7a.
 
 In every region, adding the six thermal predictors to the static baseline increases spatially
 blocked out-of-fold ROC-AUC, and the increment's bootstrap interval excludes zero at every block
-size tested (Table 3; [Fig. 3], [Fig. 4]).
+size tested (Table 3; [Fig. 3]).
 
 **Table 3. Within-region baseline versus thermal performance and block-size robustness.**
 Primary (TSG) population; spatially blocked 5-fold CV (Section 3.8); paired spatial-block
@@ -86,7 +86,7 @@ above zero. The same holds in the secondary all-valid population (Section 4.7f).
 ## 4.3 Cross-region transfer
 
 Transfer is evaluated for all 20 ordered directions among the five regions, as raw source-only
-application and under the two label-blind adaptations of Section 3.11 (Table 4; [Fig. 5]).
+application and under the two label-blind adaptations of Section 3.11 (Table 4; [Fig. 4]).
 
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with
 2-cell spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise
@@ -177,7 +177,7 @@ without fraction CIs).
 | Muğla→Evia | 0.912 | 0.653 | 0.563 (CORAL) | −0.35 [−0.43, −0.27] | **negative recovery** |
 | Bejís→Muğla | 0.859 | 0.619 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
 
-The decomposition ([Fig. 6]) shows both faces of the same behaviour. In the five directions
+The decomposition ([Fig. 5]) shows both faces of the same behaviour. In the five directions
 where raw transfer was below chance, the best label-blind method recovers at most 34% of the gap
 to the within-region reference; the remaining (concept) fraction is at least 0.66 everywhere.
 Seven directions show *negative* recovery — adaptation moves the score away from the
@@ -251,9 +251,9 @@ with the conditional index held fixed (−0.07 [−0.39, +0.37]).
 
 ## 4.5 The contrast pair: highest niche overlap fails, lowest niche overlap works
 
-The clearest single view of the preceding table is a two-pair contrast ([Fig. 7]; per-feature
-data in `figure_contrast_pairs.csv`). [Production note: OUTLINE Fig. 7 is reserved for signed
-univariate AUC per feature with CIs; the contrast-pair figure is its realisation — two panels of
+The clearest single view of the preceding table is a two-pair contrast ([Fig. 8]; per-feature
+data in `figure_contrast_pairs.csv`). [Production note: the OUTLINE slot reserved for signed
+univariate AUC per feature with CIs is realised by Fig. 8 — two panels of
 per-feature signed AUC with ~5 km-block CIs, one per pair, annotated with the overlap and
 transfer numbers below.]
 

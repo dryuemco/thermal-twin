@@ -35,14 +35,16 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
 
 ## 3. Figures (`paper/figures/` — all built: vector PDF+SVG, provenance JSON, build-time asserts)
 
-| Fig. | Content | Status |
-|---|---|---|
-| 1 | Study-region map (Natural Earth 1:50m, plain) | done |
-| 2 | Methods schematic | done |
-| 3+4 | Within-region increment + block robustness (combined, 3 panels) | done |
-| 5 | Transfer matrices raw/z/CORAL (diverging, chance-centred) | done |
-| 6 | Conservation: adaptation compression, LORO, feature drop | done |
-| 7 | **Main figure** — contrast pairs with per-region CI-support arrowheads | done |
+| Fig. | Content | File | Status |
+|---|---|---|---|
+| 1 | Study-region map + Kozan gate control (Natural Earth 1:50m, plain) | `fig1_study_map` | done |
+| 2 | Methods schematic (gate branch, §3.12 decomposition, footer) | `fig2_schematic` | done |
+| 3 | Within-region increment + block robustness (3 panels) | `fig3_within_robustness` | done |
+| 4 | Transfer matrices raw/z/CORAL (diverging, chance-centred, below-chance hatched) | `fig4_transfer_matrix` | done |
+| 5 | Label-blind adaptation compresses toward chance (12 directions) | `fig5_adaptation` | done |
+| 6 | LORO pooling never beats the best single source | `fig6_loro` | done |
+| 7 | Feature removal is a zero-sum trade-off | `fig7_feature_drop` | done |
+| 8 | **Main figure** — contrast pairs with per-region CI-support arrowheads | `fig8_contrast_pairs` | done |
 
 ## 4. Process / historical documents
 
@@ -82,4 +84,4 @@ housekeeping mentions inside DRAFT-NOTES comment blocks and file headers.
   step2b metadata) and cited by product-page URL + access date, no DOI, no SRTM citation; Bejís
   and Muğla event descriptions left uncited, numbers from MCD64A1; `Cosandal2022` removed from the
   bib.
-- Optional: graphical abstract (Elsevier), from Fig. 7 + Fig. 5 composites.
+- Optional: graphical abstract (Elsevier), from Fig. 8 + Fig. 4 composites.

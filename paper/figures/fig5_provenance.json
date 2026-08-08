@@ -1,35 +1,22 @@
 {
- "figure": "Fig. 5 - transfer matrices raw/z/CORAL",
- "script": "paper/figures/fig5_transfer_matrix.py",
- "data": "paper/figures/data/fig_data.json (per-source sha256 inside; step10_metrics.json of all 10 pairs)",
- "asserts": "spot values vs 04 Table 4; panel ranges vs 4.3 claims (0.326-0.686 / 0.431-0.630 / 0.443-0.624); worst cell-label contrast >= 4.5:1",
- "contrast": {
-  "method": "WCAG 2.x relative luminance; label colour chosen per cell by contrast ratio against the actual colormap RGB for that cell, not by thresholding the AUC value",
-  "threshold": 4.5,
-  "worst_ratio": 4.7,
-  "worst_cell": "coral montiferru_2021->evia_2021_extended = 0.6239",
-  "black_labels": 54,
-  "white_labels": 6,
-  "greyscale": "ratio depends only on relative luminance, which a luminance greyscale conversion preserves, so the colour verdict is the greyscale verdict; a rendered proof is written to fig5_transfer_matrix_greyscale.png"
+ "figure": "Fig. 5 - label-blind adaptation compresses toward chance",
+ "script": "paper/figures/fig5_adaptation.py",
+ "data": "paper/figures/data/fig_data.json (four_aoi_decomposition.csv; sha256 inside)",
+ "asserts": "7/12 negative recovery; worst Evia->Manavgat recovered fraction -0.862 (_conservation_common.py)",
+ "greyscale": {
+  "hue_only_contrast": 2.3,
+  "note": "Okabe-Ito blue (relative luminance 0.151) vs orange (0.413) separate by only this ratio, below the 3:1 WCAG non-text minimum, so the two classes also differ by line style (solid vs dashed); proof in fig5_adaptation_greyscale.png"
  },
- "below_chance_hatch": {
-  "why": "a diverging palette is symmetric in luminance about its centre, so in greyscale a below-chance cell prints the same darkness as an equally distant above-chance cell and the sign of the deviation is lost; the hatch carries the sign through greyscale",
-  "rule": "hatched iff the EXACT value < 0.5 (labels are rounded to 2 dp)",
-  "chance_edge_cells": [
-   "zscore evia_2021_extended->mugla_2021 = 0.5013",
-   "coral bejis_2022->evia_2021_extended = 0.4991"
-  ]
- },
- "palette": "PuOr diverging, TwoSlopeNorm centred 0.5; values printed per cell for greyscale",
+ "legend": "in a reserved band below the plotted rows; the chance reference is a segment over the data rows only, never an axvline, so it cannot cross legend text",
  "canvas_mm": [
   190,
-  71
+  108
  ],
  "column": "double (190 mm)",
  "font_pt": {
   "body": 9.0,
   "minimum": 8.0
  },
- "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 25 data artists registered",
  "environment": "matplotlib 3.11.1"
 }
