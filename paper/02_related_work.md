@@ -288,10 +288,11 @@ meteorologically derived danger indices do not port cleanly between fire environ
 Dimarco et al. [@Dimarco2026] is the closest Mediterranean analogue and the most important
 comparison for this paper. They harmonise 500 m predictors across four Mediterranean countries, fit
 random forest and gradient boosting models, select hyperparameters under five-fold spatial
-cross-validation, and evaluate transfer both leave-one-country-out and as a full 4 × 4 transfer
-matrix. Their predictor set comprises NDVI; slope from ASTER GDEM; 2 m air temperature, 10 m wind
-speed and relative humidity, all taken from ERA5-Land as **long-term seasonal means**; the global
-human modification index; VIIRS night-time lights; and population density.[^dimarco-lst] Their
+cross-validation, evaluate on an 80/20 hold-out, and test transfer both leave-one-country-out and
+as a full 4 × 4 transfer matrix. Their predictor set comprises NDVI; slope from ASTER GDEM; 2 m air
+temperature, 10 m wind speed and relative humidity, all taken from ERA5-Land as **long-term
+seasonal means**; the global human modification index; VIIRS night-time lights (and a log1p
+transform of the same); and population density.[^dimarco-lst] Their
 target is burned-pixel centroids from MCD64A1 treated as an ignition proxy and matched against a
 1:1 balanced background sample. They report that every transfer exceeds AUC 0.80, that transfers
 between bioclimatically similar countries score higher, and that transfers to Morocco are
@@ -303,6 +304,8 @@ adaptation.
 Methods, where no land surface temperature or TVDI variable appears and the only temperature
 predictor is a static ERA5-Land seasonal climatology. We follow their Methods, which we take to be
 authoritative, and note the discrepancy here so that the comparison drawn below is transparent.
+Every statement in this paragraph was checked against the full text (read 2026-08-08), not the
+abstract alone.
 
 Outside the Mediterranean, WildfireGenome [@Liu2025] performs the most systematic transfer
 experiment we are aware of: a leave-one-county-out transfer matrix across seven ecologically diverse

@@ -103,7 +103,7 @@ correction or completion; one has a year ambiguity.**
 | A1 | **VERIFIED** | Iban MC, Sekertekin A. *Ecological Informatics* **69**, 101647 (2022). All fields exact as supplied. Title confirms Adana and Mersin provinces — Kozan district lies in Adana, so this is indeed the same landscape as our negative control. |
 | A2 | **VERIFIED + COMPLETED** | Authors were missing; they are **Hazan Alkan Akıncı and Halil Akıncı**. Full title: *"Machine learning based forest fire susceptibility assessment of Manavgat district (Antalya), Turkey"*. *Earth Science Informatics* **16**(1):397–414 (2023). This is the same district as our anchor AOI and is therefore the closest direct comparison in the literature. |
 | A3 | **VERIFIED + COMPLETED** | Authors: **Muzaffer Can Iban and Oktay Aksu**. Full title: *"SHAP-Driven Explainable Artificial Intelligence Framework for Wildfire Susceptibility Mapping Using MODIS Active Fire Pixels: An In-Depth Interpretation of Contributing Factors in Izmir, Türkiye"*. *Remote Sensing* **16**(15):2842 (2024). Note: the target is **MODIS active-fire pixels**, not burned area — a relevant methodological difference from our MCD64A1 label. |
-| A4 | **VERIFIED + COMPLETED** | Vibhandik P, Sawant S, Joshi A, Bidwe R. *"A systematic literature review on forest fire susceptibility mapping using geo-spatial technology and future research directions"*. *Discover Artificial Intelligence* **6**(1) (2026). Article number not returned by Crossref — marked `[TO VERIFY: article number]`. |
+| A4 | **VERIFIED + COMPLETED (article number resolved 2026-08-08)** | Vibhandik P, Sawant S, Joshi A, Bidwe R. *"A systematic literature review on forest fire susceptibility mapping using geo-spatial technology and future research directions"*. *Discover Artificial Intelligence* **6**(1) (2026). Crossref reports article-number 00921; DOI 10.1007/s44163-026-00921-0 is unambiguous — cite by DOI. |
 | A5 | **VERIFIED + COMPLETED** | Jodhani K, Bhatiya L, Sirvi L, Chanda A, Thakkar S, Rathnayake U. *"Artificial intelligence and remote sensing frameworks for wildfire monitoring and risk analysis across multiple ecosystems: a review"*. *AIMS Environmental Science* **13**(1):56–98 (2026). Volume and pages were not supplied; now complete. |
 | B1 | **VERIFIED** | Sandholt I, Rasmussen K, Andersen J. *RSE* **79**(2–3):213–224 (2002). Exact as supplied. |
 | B2 | **VERIFIED + CORRECTED** | Author list is **Maffei C, Alfieri SM, Menenti M** (the "et al." resolves to Silvia Maria Alfieri and Massimo Menenti — note *not* Lindenbergh, who is on the 2021 paper). *Remote Sensing* **10**(11):1777 (2018). |
@@ -118,8 +118,8 @@ correction or completion; one has a year ambiguity.**
 | C7 | **VERIFIED** | Yates KL et al. *TREE* **33**(10):790–802 (2018). Exact as supplied. Author list is 40+ names; use "et al." after the first six per Elsevier style. |
 | C8 | **VERIFIED, YEAR AMBIGUOUS** | Valavi R, Elith J, Lahoz-Monfort JJ, Guillera-Arroita G. *MEE* **10**(2):225–232, doi:10.1111/2041-210X.13107. Crossref's `published` date is **2018** (online-first); the print issue is **2019**. The community cites it as 2019. **Recommendation: cite as 2019** and keep the DOI, which is unambiguous. A 2018 bioRxiv preprint (doi:10.1101/357798) also exists — do not cite that one. |
 | D1 | **VERIFIED + CORRECTED** | Moreno-Torres JG, Raeder T, Alaiz-Rodríguez R, Chawla NV, Herrera F. *Pattern Recognition* **45**(1):521–530 (2012). **The supplied issue number (2) is wrong; it is issue 1.** Pages and volume as supplied. |
-| D2 | **VERIFIED (venue/authors/year); pages PARTIAL** | Sun B, Feng J, Saenko K. *"Return of Frustratingly Easy Domain Adaptation"*. Proceedings of the Thirtieth AAAI Conference on Artificial Intelligence (AAAI-16), Phoenix, AZ, 12–17 Feb 2016. Confirmed via dblp (`conf/aaai/SunFS16`) and researchr. Pages reported as **2058–2065**; AAAI proceedings pagination is inconsistently reported across indexes, so pages are marked `[TO VERIFY]`. AAAI assigns DOIs of the form `10.1609/aaai.v30i1.10306` to this volume — **the specific article DOI was not confirmed and must not be guessed.** |
-| E1 | **VERIFIED + COMPLETED** | Full title: *"Generalizing Human-Driven Wildfire Ignition Models Across Mediterranean Regions Using Harmonized Remote-Sensing and Machine-Learning Data"*. Authors: Dimarco NA, Faraji I, Wahbi M, Maatouk M, Boulaassal H, Yazidi Aalaoui O, El Kharki O. *Geomatics* **6**(1):13 (2026). **The abstract confirms the author's characterisation**: predictors are dominated by night-time lights and human modification indices, AUC > 0.90 within region, mean transfer AUC ≈ 0.85, 500 m resolution, spatial cross-validation, Google Earth Engine. This is our nearest neighbour in the literature and must be engaged with directly. |
+| D2 | **VERIFIED + COMPLETED (2026-08-08)** | Sun B, Feng J, Saenko K. *"Return of Frustratingly Easy Domain Adaptation"*. Proceedings of the AAAI Conference on Artificial Intelligence **30**(1) (2016). **DOI 10.1609/aaai.v30i1.10306 now confirmed via the Crossref REST API** (the earlier note said it must not be guessed; it has now been verified, not guessed). Pages 2058–2065 per dblp (`conf/aaai/SunFS16`); Crossref carries the article number rather than pages — cite with the DOI, which is unambiguous. Added to `REFERENCES.bib`. |
+| E1 | **VERIFIED + COMPLETED; FULL TEXT READ (YEC, 2026-08-08)** | Full title: *"Generalizing Human-Driven Wildfire Ignition Models Across Mediterranean Regions Using Harmonized Remote-Sensing and Machine-Learning Data"*. Authors: Dimarco NA, Faraji I, Wahbi M, Maatouk M, Boulaassal H, Yazidi Aalaoui O, El Kharki O. *Geomatics* **6**(1):13 (2026). Full-text details (per YEC's reading, now reflected in 02 §2.5): predictors = NDVI; slope (ASTER GDEM); ERA5-Land long-term seasonal means of T2M, WS10M, RH; global human modification; VIIRS night-time lights (+ log1p transform); population density — **no LST, no TVDI**. Target = MCD64A1 burn-pixel centroids as ignition proxy vs 1:1 balanced background. Validation = 80/20 hold-out; 5-fold spatial CV for hyperparameters. Transfer = LOCO + full 4×4 matrix; no domain adaptation. All transfers AUC > 0.80; bioclimatically similar country pairs higher; Morocco systematically lower, attributed to anthropogenic drivers, fire management and data reporting. **Caution: their Results text says "LST anomalies", contradicting their own Methods — Methods taken as authoritative (footnote in 02 §2.5).** |
 | E2 | **VERIFIED + COMPLETED** | Liu C, Mostafavi A. *"WildfireGenome: Interpretable Machine Learning Reveals Local Drivers of Wildfire Risk and Their Cross-County Variation"*. arXiv:2511.11589 (2025), Texas A&M University. Preprint; no journal version confirmed. **Important**: the label is a PCA composite of seven federal wildfire *hazard indicators* at H3 level-8, **not observed burned area**, and the paper reports that transfer works between ecologically similar counties and collapses across dissimilar ones. See the novelty audit for why this matters to claim N4. |
 
 ### Additional references identified during verification (not in the supplied list)
@@ -141,17 +141,42 @@ All verified via Crossref unless noted.
 | Persello C, Bruzzone L (2012). Active learning for domain adaptation in the supervised classification of remote sensing images. *IEEE TGRS* **50**(11):4468–4483. doi:10.1109/TGRS.2012.2192740 | Supports the few-shot / active-learning future-work argument with an actual remote-sensing precedent. |
 | Maffei C, Menenti M (2019). Predicting forest fires burned area and rate of spread from pre-fire multispectral satellite measurements. *ISPRS J. Photogramm. Remote Sens.* **158**:263–278. doi:10.1016/j.isprsjprs.2019.10.013 | Found during verification; completes the Maffei pre-fire-prediction series and is directly on our topic. |
 
-### Fields that could NOT be verified
+### Consolidated open verification items (swept 2026-08-08 — the single list)
 
-- **A4 article number** — Crossref returned volume and issue but no article number for the *Discover
-  Artificial Intelligence* review. Marked `[TO VERIFY]`.
-- **D2 (Sun et al. 2016) page range and article DOI** — dblp reports 2058–2065; AAAI's own DOI for
-  the article was not retrieved. Pages marked `[TO VERIFY]`, DOI omitted rather than guessed.
-- **Copernicus DEM GLO-30** — no peer-reviewed citation was confirmed. The DEM is normally cited as
-  an ESA/Airbus product record rather than a paper. Left as `[UNVERIFIED: Copernicus GLO-30 DEM
-  product citation]` pending a decision to cite the ESA product page.
-- **E2 (WildfireGenome)** — arXiv preprint only; no peer-reviewed version found. Cite as a preprint
-  and re-check before submission.
+Everything still open after the 2026-08-08 sweep. Resolved-this-sweep items are recorded at the
+end for the audit trail.
+
+STILL OPEN:
+1. **Copernicus DEM GLO-30** — no citable record confirmed. The candidate DataCite DOI
+   `10.5270/ESA-c5d3d65` returned **HTTP 404** on 2026-08-08 and must not be used. Decision
+   needed: cite the ESA product page (no DOI) or the SRTM fallback (Farr et al. 2007).
+   `[UNVERIFIED: Copernicus GLO-30 DEM product citation]`
+2. **Bejís 2022 event description** — Crossref bibliographic search (2026-08-08) returned no
+   record specific to the August 2022 Bejís/Castellón fire. Consider a non-Crossref source
+   (EFFIS country report, Generalitat Valenciana) or omit. `[UNVERIFIED]`
+3. **Muğla 2021 event description** — only a weak-fit candidate found (Coşandal & Partigöç 2022,
+   tourism-impact study, *Resilience* 6(2):257–267, doi:10.32569/resilience.1211459 — metadata
+   verified, full text unread; added to bib as `Cosandal2022`, flagged). Keep only if no better
+   source appears.
+4. **Huang et al. [@Huang2026] effect coefficients** — full text still unread; do not quote any
+   coefficient from it (marker retained at the D-block note below and in 02 §2.4).
+5. **E2 (WildfireGenome)** — arXiv preprint only; re-check for a peer-reviewed version before
+   submission.
+
+RESOLVED IN THIS SWEEP (2026-08-08, all via Crossref/arXiv API):
+- **A4 article number** — Crossref reports article-number 00921; DOI 10.1007/s44163-026-00921-0
+  is unambiguous; cite by DOI. Bib comment updated.
+- **D2 (Sun et al. 2016)** — DOI 10.1609/aaai.v30i1.10306 confirmed; added to bib.
+- **Deep CORAL (Sun & Saenko 2016)** — *Computer Vision – ECCV 2016 Workshops*, LNCS,
+  pp 443–450, doi:10.1007/978-3-319-49409-8_35 — volume/pages now verified.
+- **arXiv:2103.05898** — Burns C, Steinhardt J, *"Limitations of Post-Hoc Feature Alignment for
+  Robustness"*; arXiv listing states accepted to CVPR 2021. Authors/venue verified.
+- **Manavgat 2021 event description** — Soydan O (2022), *TURJAF* 10(sp2):3029–3035,
+  doi:10.24925/turjaf.v10isp2.3029-3035.5764; metadata verified, full text unread; `Soydan2022`.
+- **North Evia 2021 event description** — Varela V et al. (2022), *Advances in Forest Fire
+  Research 2022*, pp 666–672, doi:10.14195/978-989-26-2298-9_101; metadata verified, full text
+  unread; `Varela2022`.
+- **Dimarco et al. (E1)** — full text read by YEC; details in the E1 row above and in 02 §2.5.
 
 ---
 
@@ -349,10 +374,12 @@ ones need not — which is a hypothesis our data support and cannot prove.
   work, or just score well? arXiv:2605.18911 (v1 14 May 2026; v2 21 May 2026) — argues wildfire
   transfer conclusions depend strongly on evaluation design and task formulation. Could be used
   against our decomposition; pre-empt it.
-- **arXiv:2103.05898**, "Limitations of post-hoc feature alignment for robustness" —
-  `[UNVERIFIED: authors and venue]`. Supports our negative result that post-hoc alignment cannot
-  close a conditional-distribution gap. Verify before citing.
-- **Sun B, Saenko K (2016).** Deep CORAL. ECCV Workshops — `[UNVERIFIED: volume and pages]`.
+- **arXiv:2103.05898** — VERIFIED 2026-08-08: Burns C, Steinhardt J, *"Limitations of Post-Hoc
+  Feature Alignment for Robustness"*; arXiv listing states accepted to CVPR 2021. Supports our
+  negative result that post-hoc alignment cannot close a conditional-distribution gap. If cited,
+  fetch the IEEE CVPR DOI at that point (not yet retrieved).
+- **Sun B, Saenko K (2016).** Deep CORAL — VERIFIED 2026-08-08: *Computer Vision – ECCV 2016
+  Workshops*, LNCS, pp 443–450, doi:10.1007/978-3-319-49409-8_35.
 
 ### Blocking action items
 
