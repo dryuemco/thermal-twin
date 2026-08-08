@@ -1,0 +1,9 @@
+{
+ "figure": "Fig. 5 - transfer matrices raw/z/CORAL",
+ "script": "paper/figures/fig5_transfer_matrix.py",
+ "data": "paper/figures/data/fig_data.json (per-source sha256 inside; step10_metrics.json of all 10 pairs)",
+ "asserts": "spot values vs 04 Table 4; panel ranges vs 4.3 claims (0.326-0.686 / 0.431-0.630 / 0.443-0.624)",
+ "palette": "PuOr diverging, TwoSlopeNorm centred 0.5; values printed per cell for greyscale",
+ "min_font_pt": 7.0,
+ "environment": "matplotlib 3.11.1"
+}
