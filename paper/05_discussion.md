@@ -88,6 +88,17 @@ shift is itself interval-supported, but with 331 burned cells in 2022 every one 
 straddles 0.5, so the 2022 direction is not established and we do not claim the thermal reversals
 as supported (Section 4.8).
 
+Transfer between the two events completes the picture and sharpens the trade-off rather than
+softening it. With geography fixed, transfer no longer collapses: both directions stay above
+chance, where six of twenty between-region directions fell below it. But the thermal block's
+contribution *changes sign* — −0.082 [−0.127, −0.040] carrying 2021 forward to 2022, +0.089
+[+0.072, +0.104] carrying 2022 back to 2021 — with both signs interval-supported, even though the
+same block is locally informative within each event separately (+0.116 in 2021, +0.078 in 2022).
+This is the trade-off at its most explicit. The six predictors that buy local skill in both events
+are not merely unhelpful across them; in one direction they subtract from a static baseline that
+would otherwise have transferred at 0.642. Whether a dynamic-state block helps or harms on transfer
+is a property of the source–target pair, not of the block.
+
 That elevation is the one supported reversal is itself worth noting, because it is the second time
 the same predictor has played this role: elevation also carries the sharpest bootstrap-supported
 reversal in the Manavgat–Muğla pair (signed AUC 0.374 against 0.611). Across a between-region
@@ -337,12 +348,13 @@ far it generalises. (i) No meteorological covariates (wind, humidity, precipitat
 models, so we cannot say how the trade-off behaves for a mixed thermal-plus-weather predictor
 set; the ERA5-Land diagnostic of Sections 3.17 and 4.9 characterises the regions but is not a
 predictor and does not close this gap, and its own four-year climatology limits how firmly its
-anomalies can be read. (ii) Temporal transfer — the same region in a different fire year — is
-still untested as a transfer measurement: no Muğla 2021 ↔ 2022 model transfer has been run, and
-Section 4.8 reports the diagnostic mechanism only. What that section does establish is
-same-geography event-to-event direction instability, and even there year and seasonal phase are
-confounded by the 2022 event's roughly five-week-earlier ignition (Section 3.16.4), while its 331
-burned cells leave every thermal interval too wide to resolve direction. (iii) All labels derive
+anomalies can be read. (ii) Temporal transfer is measured for one region only, Muğla,
+and even there year and seasonal phase are confounded by the 2022 event's roughly five-week-earlier
+ignition, so the design is same-geography event-to-event rather than clean temporal transfer
+(Section 3.16.4). Its 331 burned cells also leave the thermal direction reversals unresolved at
+interval level. Those two arms are additionally the only transfer directions in this paper computed
+by us rather than read from the pipeline author's frozen export, albeit with his unmodified code
+and the same pinned environment (Section 3.16.4). No other region has a second event. (iii) All labels derive
 from a single
 burned-area product, MCD64A1 [@Giglio2018], whose omission and commission characteristics
 [@Boschetti2019] bound every model evaluated here. (iv) The ~510 m analysis cells approximate,

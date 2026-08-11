@@ -1,0 +1,17 @@
+﻿# SHA-256 of the Muğla 2021 <-> 2022 transfer outputs, computed locally 2026-08-11.
+# Produced by running Emrehan's frozen step9b/step9c UNMODIFIED against a shadow
+# PROJECT_ROOT, so neither repo/ nor drive_new/ was written to. See 03_methods 3.16.4.
+# Environment: Python 3.12.3, scikit-learn 1.9.0, pandas 3.0.5, numpy 2.5.2, seed 42.
+# Inputs (frozen step8a datasets, hashed as read):
+#   c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e  mugla_2021 step8a_500m_modeling_dataset.parquet
+#   7c545f4da8fa7f8973575400862595d6ef85a8d55b9b25bc16fc54aba23a1d52  mugla_2022_event_relative step8a_500m_modeling_dataset.parquet
+
+9179104615a7409477a193eaae6a8ead221aa075043be725663a11bb7fd2de75      49663  mugla_2021__mugla_2022_event_relative/step9b/cross_region_pr_curves.png
+fcfee3b5009299adb2ea921a6ac0c678b3a8ca366a41971af6b9b6891c96af72      80256  mugla_2021__mugla_2022_event_relative/step9b/cross_region_roc_curves.png
+93e5525915ea13a539dd2608dcd6fd8cf5e921c623c7573729705ed8ec7b210f      23388  mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_metrics.json
+f4ae68d9bc64e5b85027c160d2d953af5ef8748b7c31f073e012da7dc8d858db   37792738  mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_predictions.csv
+ca5f2d9d73d711a296312bbb3195fec1fddd973fe9fec7acd5ea5475803fc830    5252684  mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_predictions.parquet
+83cddbd71610ce412c358be2d471e047372e53a077c35e8c61b986e1f4f205fa       2042  mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_summary.md
+8d2cc38740938af34556ca0b1978b95745d1bfe63e8b2c25d5af8b46b0477c5d      13504  mugla_2021__mugla_2022_event_relative/step9c/cross_region_bootstrap_metrics.json
+9a6650bf637fe05337124184987e774c4729484762b0502f7e4671514d3458b2    1595694  mugla_2021__mugla_2022_event_relative/step9c/cross_region_bootstrap_samples.csv
+c12f271e169d6d5ef89d714a133499773d82137191bddd75898cb625a8980dc3       2160  mugla_2021__mugla_2022_event_relative/step9c/cross_region_bootstrap_summary.md

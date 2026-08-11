@@ -1,0 +1,393 @@
+{
+  "source_experiment_id": "mugla_2021",
+  "target_experiment_id": "mugla_2022_event_relative",
+  "n_bootstrap_replicates_requested": 1000,
+  "random_seed": 42,
+  "git_commit": null,
+  "predictions_path": "/home/corsair/tt_shadow/outputs/cross_region/mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_predictions.parquet",
+  "predictions_sha256": "ca5f2d9d73d711a296312bbb3195fec1fddd973fe9fec7acd5ea5475803fc830",
+  "spatial_block_column": "target_spatial_block_id",
+  "resampling_unit": "unique target-region spatial blocks",
+  "resampling_scheme": "sample target blocks with replacement; retain every row in each sampled block",
+  "percentile_interval": [
+    2.5,
+    97.5
+  ],
+  "max_attempts_multiplier": 5,
+  "method_note": "Percentile 95% confidence intervals from TARGET-REGION spatial-block bootstrap (blocks resampled with replacement; all rows in a sampled block are kept together). These are NOT classical p-values and the result is NOT described as statistically significant.",
+  "groups": [
+    {
+      "transfer_direction": "mugla_2021_to_mugla_2022_event_relative",
+      "population": "all_valid",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 17637,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.11287689411856554,
+          "ci_97_5": -0.057681615821921564,
+          "mean": -0.08589790764382949,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.004321699158927869,
+          "ci_97_5": -0.0006167273629315952,
+          "mean": -0.0025044766058689113,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.020652815872888298,
+          "ci_97_5": -0.018492862041928286,
+          "mean": -0.019555803459368387,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": 0.018492862041928283,
+          "ci_97_5": 0.020652815872888298,
+          "mean": 0.019555803459368387,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.7774999178258046,
+          "ci_97_5": 0.8152100289030203,
+          "mean": 0.7963509677149161
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.6801273363566107,
+          "ci_97_5": 0.7429049872883705,
+          "mean": 0.7104530600710867
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.008905201551007604,
+          "ci_97_5": 0.014141464536457985,
+          "mean": 0.011492007395633698
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.006479699434862383,
+          "ci_97_5": 0.012054748043965446,
+          "mean": 0.008987530789764787
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.05871493598035971,
+          "ci_97_5": 0.06133176243247872,
+          "mean": 0.060026092111603875
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.039448826607298475,
+          "ci_97_5": 0.04148326381705041,
+          "mean": 0.040470288652235495
+        }
+      }
+    },
+    {
+      "transfer_direction": "mugla_2021_to_mugla_2022_event_relative",
+      "population": "burnable_tree_shrub",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 9973,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.10056745797011957,
+          "ci_97_5": -0.007942869882385819,
+          "mean": -0.054972425854384895,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.0029397877217749186,
+          "ci_97_5": 0.0009998411618036007,
+          "mean": -0.0010828668151365108,
+          "interpretation": "uncertain"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.0073675321541665385,
+          "ci_97_5": -0.004227615129801399,
+          "mean": -0.005802459724412363,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": 0.0042276151298013985,
+          "ci_97_5": 0.007367532154166538,
+          "mean": 0.005802459724412363,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.5654598324292582,
+          "ci_97_5": 0.6401059741650336,
+          "mean": 0.6038595090282213
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5029265438580219,
+          "ci_97_5": 0.5947413584006402,
+          "mean": 0.5488870831738364
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.009290192298254424,
+          "ci_97_5": 0.01471971924589745,
+          "mean": 0.012094532173867203
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.00816665971317216,
+          "ci_97_5": 0.014287979845889896,
+          "mean": 0.011011665358730691
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.08505751666402885,
+          "ci_97_5": 0.08860983227062126,
+          "mean": 0.08681081069580202
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.07940120759253239,
+          "ci_97_5": 0.08280232932020258,
+          "mean": 0.08100835097138964
+        }
+      }
+    },
+    {
+      "transfer_direction": "mugla_2021_to_mugla_2022_event_relative",
+      "population": "burnable_tree_shrub_grass",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 10641,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.1269272122930142,
+          "ci_97_5": -0.03956344082539369,
+          "mean": -0.08213854365867847,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.003469805030064734,
+          "ci_97_5": 0.00014080792154169575,
+          "mean": -0.0016983587837286472,
+          "interpretation": "uncertain"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.011745737421282269,
+          "ci_97_5": -0.008623867865241521,
+          "mean": -0.010177015197272656,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": 0.008623867865241521,
+          "ci_97_5": 0.011745737421282269,
+          "mean": 0.010177015197272656,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.6064131443771825,
+          "ci_97_5": 0.6735462984489907,
+          "mean": 0.6414866992097557
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5131713965953669,
+          "ci_97_5": 0.6042339784193348,
+          "mean": 0.5593481555510773
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.009183527339071977,
+          "ci_97_5": 0.014546517011430555,
+          "mean": 0.011785987884125654
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.007593980920280484,
+          "ci_97_5": 0.012913977871122178,
+          "mean": 0.010087629100397006
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.0818465747849,
+          "ci_97_5": 0.08511703803546355,
+          "mean": 0.08347109894937509
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.07161982229388011,
+          "ci_97_5": 0.07502132134436908,
+          "mean": 0.07329408375210243
+        }
+      }
+    },
+    {
+      "transfer_direction": "mugla_2022_event_relative_to_mugla_2021",
+      "population": "all_valid",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 18319,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.011600879718679019,
+          "ci_97_5": 0.007210776168834417,
+          "mean": -0.0020001250648871384,
+          "interpretation": "uncertain"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": 0.020515276453501662,
+          "ci_97_5": 0.03763381404885146,
+          "mean": 0.028940656407869532,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.004565314579505685,
+          "ci_97_5": -0.003401471079130599,
+          "mean": -0.004001954006150232,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": 0.003401471079130599,
+          "ci_97_5": 0.004565314579505685,
+          "mean": 0.004001954006150232,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.7407785060174286,
+          "ci_97_5": 0.7618815983605782,
+          "mean": 0.7512559895763288
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.7370383231312988,
+          "ci_97_5": 0.7619692536650531,
+          "mean": 0.7492558645114417
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.07625680277594599,
+          "ci_97_5": 0.09022053466570285,
+          "mean": 0.08305899315718351
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.10099505735641988,
+          "ci_97_5": 0.12290999081866881,
+          "mean": 0.11199964956505304
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.0419139912828596,
+          "ci_97_5": 0.04709699107030176,
+          "mean": 0.04444149157114255
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.03769203631425997,
+          "ci_97_5": 0.04324574639728245,
+          "mean": 0.04043953756499232
+        }
+      }
+    },
+    {
+      "transfer_direction": "mugla_2022_event_relative_to_mugla_2021",
+      "population": "burnable_tree_shrub",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 10648,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": 0.081773488351106,
+          "ci_97_5": 0.11912070238396723,
+          "mean": 0.10091548420383359,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": 0.047017186209662415,
+          "ci_97_5": 0.07692919407052583,
+          "mean": 0.06133424709955536,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.01043222682553851,
+          "ci_97_5": -0.0077520289598672085,
+          "mean": -0.009136909143542147,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": 0.007752028959867208,
+          "ci_97_5": 0.01043222682553851,
+          "mean": 0.009136909143542147,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.5308016073076576,
+          "ci_97_5": 0.5655030640111887,
+          "mean": 0.5481296511400411
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.6304503178793085,
+          "ci_97_5": 0.6659683172692717,
+          "mean": 0.6490451353438746
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.07575533424726091,
+          "ci_97_5": 0.09032698406275996,
+          "mean": 0.08274825889271616
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.12843533843919522,
+          "ci_97_5": 0.1613731439602258,
+          "mean": 0.1440825059922715
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.07541022015498183,
+          "ci_97_5": 0.08330532540396253,
+          "mean": 0.07931613323006786
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.06548537336163743,
+          "ci_97_5": 0.07460327782458592,
+          "mean": 0.07017922408652569
+        }
+      }
+    },
+    {
+      "transfer_direction": "mugla_2022_event_relative_to_mugla_2021",
+      "population": "burnable_tree_shrub_grass",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 11316,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": 0.07213981861219786,
+          "ci_97_5": 0.10401145552853208,
+          "mean": 0.08875590772673345,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": 0.04575572888416099,
+          "ci_97_5": 0.0707818681911831,
+          "mean": 0.05818045041529937,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.007908092353546468,
+          "ci_97_5": -0.005811173062765628,
+          "mean": -0.006886017268269724,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": 0.005811173062765628,
+          "ci_97_5": 0.007908092353546468,
+          "mean": 0.006886017268269724,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.5656288795935037,
+          "ci_97_5": 0.5979769037964684,
+          "mean": 0.5807876567157757
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.6538326687795754,
+          "ci_97_5": 0.6851086933486459,
+          "mean": 0.6695435644425091
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.07671819762339022,
+          "ci_97_5": 0.09075424558971117,
+          "mean": 0.08345509281322046
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.1277372610185012,
+          "ci_97_5": 0.1566062338483937,
+          "mean": 0.14163554322851982
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.07028924797930265,
+          "ci_97_5": 0.07836482868018943,
+          "mean": 0.07431040034950055
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.06296246640945177,
+          "ci_97_5": 0.07180770376469313,
+          "mean": 0.06742438308123085
+        }
+      }
+    }
+  ],
+  "created_at": "2026-08-11T10:52:51.074482+00:00"
+}
