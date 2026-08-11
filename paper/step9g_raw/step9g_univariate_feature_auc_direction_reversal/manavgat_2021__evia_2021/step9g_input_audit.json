@@ -1,0 +1,83 @@
+{
+  "analysis_id": "6fdbfe2103bcd532af89059ccebee5fa1434683c60897a8cbc37a40bafc168f4",
+  "regions": {
+    "manavgat_2021": {
+      "experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 20511,
+      "n_burned": 784,
+      "n_unburned": 19727,
+      "n_large_blocks": 237
+    },
+    "evia_2021": {
+      "experiment_id": "evia_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 3946,
+      "n_burned": 2663,
+      "n_unburned": 1283,
+      "n_large_blocks": 55
+    }
+  },
+  "feature_contract": {
+    "ndvi_mean": {
+      "column_name": "ndvi_mean",
+      "semantic_identity": "mean_current_period_ndvi",
+      "source_manifest_key": "ndvi",
+      "source_product": "current_ndvi_median"
+    },
+    "elevation_mean": {
+      "column_name": "elevation_mean",
+      "semantic_identity": "mean_elevation",
+      "source_manifest_key": "elevation",
+      "source_product": "elevation"
+    },
+    "slope_mean": {
+      "column_name": "slope_mean",
+      "semantic_identity": "mean_slope",
+      "source_manifest_key": "slope",
+      "source_product": "slope"
+    },
+    "landcover_dominant": {
+      "column_name": "landcover_dominant",
+      "semantic_identity": "dominant_esa_worldcover_class",
+      "source_manifest_key": "landcover",
+      "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+    },
+    "lst_anomaly_mean": {
+      "column_name": "lst_anomaly_mean",
+      "semantic_identity": "mean_standardized_lst_anomaly",
+      "source_manifest_key": "lst_anomaly",
+      "source_product": "anomaly_zscore"
+    },
+    "current_lst_mean": {
+      "column_name": "current_lst_mean",
+      "semantic_identity": "mean_current_period_lst_celsius",
+      "source_manifest_key": "current_lst",
+      "source_product": "current_period_median_celsius"
+    },
+    "current_tvdi_mean": {
+      "column_name": "current_tvdi_mean",
+      "semantic_identity": "mean_current_period_tvdi",
+      "source_manifest_key": "current_tvdi",
+      "source_product": "current_tvdi"
+    },
+    "tvdi_difference_mean": {
+      "column_name": "tvdi_difference_mean",
+      "semantic_identity": "mean_tvdi_difference",
+      "source_manifest_key": "tvdi_difference",
+      "source_product": "tvdi_difference"
+    },
+    "downscaled_lst_mean": {
+      "column_name": "downscaled_lst_mean",
+      "semantic_identity": "mean_downscaled_lst_celsius",
+      "source_manifest_key": "downscaled_lst",
+      "source_product": "downscaled_lst_celsius"
+    },
+    "fused_lst_mean": {
+      "column_name": "fused_lst_mean",
+      "semantic_identity": "mean_fused_lst_celsius",
+      "source_manifest_key": "fused_lst",
+      "source_product": "fused_lst_celsius"
+    }
+  }
+}

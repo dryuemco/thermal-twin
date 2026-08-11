@@ -1,0 +1,569 @@
+{
+  "analysis_id": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+  "canonical_json_sha256": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+  "scientific_config": {
+    "climatology": {
+      "anomaly": "observed - climatology_mean",
+      "mean": "arithmetic mean of the four yearly window statistics",
+      "per_year_statistics_computed_independently": true,
+      "reference_years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "sd_convention": "sample standard deviation, ddof=1",
+      "sd_ddof": 1,
+      "standardized_anomaly": "anomaly / climatology_sd",
+      "window_mapping": "the observed window's exact month/day start and end are mapped into each reference year; a month/day that cannot be represented fails closed",
+      "zero_sd_policy": "standardized_anomaly is null and zero_climatology_sd is true; never inf and never substituted with 0"
+    },
+    "derived_variables": {
+      "precipitation_mm": {
+        "cumulative_band_used": false,
+        "m_to_mm": 1000.0,
+        "recipe": "precipitation_mm = total_precipitation_hourly * 1000 (m -> mm of depth accumulated in that hour); the cumulative total_precipitation band is NEVER used",
+        "source_bands": [
+          "total_precipitation_hourly"
+        ],
+        "units": "mm"
+      },
+      "relative_humidity_percent": {
+        "clipped": false,
+        "constants": {
+          "T0_K": 273.16,
+          "a1_Pa": 611.21,
+          "a3": 17.502,
+          "a4_K": 32.19
+        },
+        "derivation_level": "per_pixel_per_hour",
+        "recipe": "RH = 100 * es(Td) / es(T) with es(T) = a1 * exp(a3 * (T - T0) / (T - a4)); ECMWF/Tetens saturation over water; derived per pixel per hour from temperature_2m and dewpoint_temperature_2m; NOT clipped to [0, 100]",
+        "saturation_phase": "water",
+        "source_bands": [
+          "temperature_2m",
+          "dewpoint_temperature_2m"
+        ],
+        "units": "percent"
+      },
+      "temperature_c": {
+        "kelvin_offset": 273.15,
+        "recipe": "temperature_c = temperature_2m - 273.15",
+        "source_bands": [
+          "temperature_2m"
+        ],
+        "units": "degC"
+      },
+      "wind_speed_m_s": {
+        "derivation_level": "per_pixel_per_hour",
+        "recipe": "wind_speed_m_s = sqrt(u_component_of_wind_10m^2 + v_component_of_wind_10m^2); derived per pixel per hour",
+        "source_bands": [
+          "u_component_of_wind_10m",
+          "v_component_of_wind_10m"
+        ],
+        "units": "m s-1"
+      }
+    },
+    "diagnostic_class": "explanatory_aoi_level_regional_meteorology",
+    "diagnostic_namespace": "era5_land_regional",
+    "excluded_by_default": {
+      "mugla_2022": "provisional temporal contract awaiting supervisor decision; excluded from the default five-AOI regional meteorology cohort"
+    },
+    "experiment_ids": [
+      "manavgat_2021",
+      "bejis_2022",
+      "mugla_2021",
+      "evia_2021_extended",
+      "montiferru_2021"
+    ],
+    "experiment_order_is_significant": true,
+    "is_model_predictor": false,
+    "observed_window_source": "core.regions.EXPERIMENTS (registry)",
+    "output": {
+      "csv_layout": "wide: predictor_* and label_* statistics in each AOI row",
+      "files": [
+        "era5_land_regional_summary.csv",
+        "era5_land_regional_summary.json",
+        "scientific_contract.json",
+        "manifest.json"
+      ],
+      "namespace": "outputs/diagnostics/era5_land_regional/<analysis_id>/",
+      "rows": "exactly one per experiment"
+    },
+    "output_schema_version": "era5_land_regional_summary.v1",
+    "pipeline_membership": "standalone_diagnostic_outside_step5_step7_step8_step9_step10",
+    "registry_end_date_convention": "registry end dates are INCLUSIVE calendar days; the Earth Engine filter window is [start 00:00 UTC, end_inclusive + 1 day 00:00 UTC)",
+    "schema_version": "era5_land_regional_diagnostic.v1",
+    "source": {
+      "bands": [
+        "temperature_2m",
+        "dewpoint_temperature_2m",
+        "u_component_of_wind_10m",
+        "v_component_of_wind_10m",
+        "total_precipitation_hourly"
+      ],
+      "collection": "ECMWF/ERA5_LAND/HOURLY",
+      "raster_export_performed": false
+    },
+    "spatial_aggregation": {
+      "masks_respected": true,
+      "method": "explicit_pixel_area_weighted_regional_mean_v1",
+      "projection": "ERA5-Land native crs + crsTransform, probed per run",
+      "semantics": "sum(value * ee.Image.pixelArea()) / sum(ee.Image.pixelArea() masked by that variable's own mask), reduced with ee.Reducer.sum() on the ERA5-Land native projection (crs + crsTransform, probed once per run). A bare ee.Reducer.mean() is NOT area weighting and is not used"
+    },
+    "temporal_aggregation": {
+      "expected_hours_formula": "n_days_inclusive * 24",
+      "hourly_completeness_rule": "every window must contain the EXACT contiguous UTC hourly sequence [start 00:00, end_exclusive 00:00), in order, with expected_hours = n_days_inclusive * 24; missing, duplicate, out-of-order, shifted and extra hours fail closed and are never sorted, deduplicated, interpolated, padded or dropped",
+      "incomplete_window_policy": "fail_closed",
+      "max_meaning": "maximum regional-hour condition, not a per-pixel extreme",
+      "method": "statistics_over_hourly_area_weighted_regional_means_v1",
+      "semantics": "window statistics are computed over the SERIES OF HOURLY AREA-WEIGHTED AOI MEANS: mean = arithmetic mean of those hourly regional means, max = maximum regional-hour condition (never the most extreme individual pixel), total (precipitation only) = sum of the hourly regional means",
+      "statistics": {
+        "precipitation_mm": [
+          "mean",
+          "max",
+          "total"
+        ],
+        "relative_humidity_percent": [
+          "mean",
+          "max"
+        ],
+        "temperature_c": [
+          "mean",
+          "max"
+        ],
+        "wind_speed_m_s": [
+          "mean",
+          "max"
+        ]
+      },
+      "timestamp_convention": "Unix epoch milliseconds, UTC, matching Earth Engine system:time_start"
+    },
+    "windows": {
+      "bejis_2022": {
+        "aoi_bbox_west_south_east_north": [
+          -1.05,
+          39.68,
+          -0.35,
+          40.15
+        ],
+        "climatology": {
+          "label": [
+            {
+              "end_date_exclusive": "2017-10-01",
+              "end_date_inclusive": "2017-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2017,
+              "start_date": "2017-08-15"
+            },
+            {
+              "end_date_exclusive": "2018-10-01",
+              "end_date_inclusive": "2018-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2018,
+              "start_date": "2018-08-15"
+            },
+            {
+              "end_date_exclusive": "2019-10-01",
+              "end_date_inclusive": "2019-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2019,
+              "start_date": "2019-08-15"
+            },
+            {
+              "end_date_exclusive": "2020-10-01",
+              "end_date_inclusive": "2020-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2020,
+              "start_date": "2020-08-15"
+            }
+          ],
+          "predictor": [
+            {
+              "end_date_exclusive": "2017-08-15",
+              "end_date_inclusive": "2017-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2017,
+              "start_date": "2017-06-15"
+            },
+            {
+              "end_date_exclusive": "2018-08-15",
+              "end_date_inclusive": "2018-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2018,
+              "start_date": "2018-06-15"
+            },
+            {
+              "end_date_exclusive": "2019-08-15",
+              "end_date_inclusive": "2019-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2019,
+              "start_date": "2019-06-15"
+            },
+            {
+              "end_date_exclusive": "2020-08-15",
+              "end_date_inclusive": "2020-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2020,
+              "start_date": "2020-06-15"
+            }
+          ]
+        },
+        "observed": {
+          "label": {
+            "end_date_exclusive": "2022-10-01",
+            "end_date_inclusive": "2022-09-30",
+            "n_days_inclusive": 47,
+            "start_date": "2022-08-15"
+          },
+          "predictor": {
+            "end_date_exclusive": "2022-08-15",
+            "end_date_inclusive": "2022-08-14",
+            "n_days_inclusive": 61,
+            "start_date": "2022-06-15"
+          }
+        },
+        "region_key": "bejis_aoi"
+      },
+      "evia_2021_extended": {
+        "aoi_bbox_west_south_east_north": [
+          23.05,
+          38.55,
+          23.85,
+          39.15
+        ],
+        "climatology": {
+          "label": [
+            {
+              "end_date_exclusive": "2017-10-01",
+              "end_date_inclusive": "2017-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2017,
+              "start_date": "2017-08-03"
+            },
+            {
+              "end_date_exclusive": "2018-10-01",
+              "end_date_inclusive": "2018-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2018,
+              "start_date": "2018-08-03"
+            },
+            {
+              "end_date_exclusive": "2019-10-01",
+              "end_date_inclusive": "2019-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2019,
+              "start_date": "2019-08-03"
+            },
+            {
+              "end_date_exclusive": "2020-10-01",
+              "end_date_inclusive": "2020-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2020,
+              "start_date": "2020-08-03"
+            }
+          ],
+          "predictor": [
+            {
+              "end_date_exclusive": "2017-08-03",
+              "end_date_inclusive": "2017-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2017,
+              "start_date": "2017-06-05"
+            },
+            {
+              "end_date_exclusive": "2018-08-03",
+              "end_date_inclusive": "2018-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2018,
+              "start_date": "2018-06-05"
+            },
+            {
+              "end_date_exclusive": "2019-08-03",
+              "end_date_inclusive": "2019-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2019,
+              "start_date": "2019-06-05"
+            },
+            {
+              "end_date_exclusive": "2020-08-03",
+              "end_date_inclusive": "2020-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2020,
+              "start_date": "2020-06-05"
+            }
+          ]
+        },
+        "observed": {
+          "label": {
+            "end_date_exclusive": "2021-10-01",
+            "end_date_inclusive": "2021-09-30",
+            "n_days_inclusive": 59,
+            "start_date": "2021-08-03"
+          },
+          "predictor": {
+            "end_date_exclusive": "2021-08-03",
+            "end_date_inclusive": "2021-08-02",
+            "n_days_inclusive": 59,
+            "start_date": "2021-06-05"
+          }
+        },
+        "region_key": "north_evia_extended"
+      },
+      "manavgat_2021": {
+        "aoi_bbox_west_south_east_north": [
+          31.05,
+          36.72,
+          31.85,
+          37.35
+        ],
+        "climatology": {
+          "label": [
+            {
+              "end_date_exclusive": "2017-09-01",
+              "end_date_inclusive": "2017-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2017,
+              "start_date": "2017-07-28"
+            },
+            {
+              "end_date_exclusive": "2018-09-01",
+              "end_date_inclusive": "2018-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2018,
+              "start_date": "2018-07-28"
+            },
+            {
+              "end_date_exclusive": "2019-09-01",
+              "end_date_inclusive": "2019-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2019,
+              "start_date": "2019-07-28"
+            },
+            {
+              "end_date_exclusive": "2020-09-01",
+              "end_date_inclusive": "2020-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2020,
+              "start_date": "2020-07-28"
+            }
+          ],
+          "predictor": [
+            {
+              "end_date_exclusive": "2017-07-28",
+              "end_date_inclusive": "2017-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2017,
+              "start_date": "2017-06-01"
+            },
+            {
+              "end_date_exclusive": "2018-07-28",
+              "end_date_inclusive": "2018-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2018,
+              "start_date": "2018-06-01"
+            },
+            {
+              "end_date_exclusive": "2019-07-28",
+              "end_date_inclusive": "2019-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2019,
+              "start_date": "2019-06-01"
+            },
+            {
+              "end_date_exclusive": "2020-07-28",
+              "end_date_inclusive": "2020-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2020,
+              "start_date": "2020-06-01"
+            }
+          ]
+        },
+        "observed": {
+          "label": {
+            "end_date_exclusive": "2021-09-01",
+            "end_date_inclusive": "2021-08-31",
+            "n_days_inclusive": 35,
+            "start_date": "2021-07-28"
+          },
+          "predictor": {
+            "end_date_exclusive": "2021-07-28",
+            "end_date_inclusive": "2021-07-27",
+            "n_days_inclusive": 57,
+            "start_date": "2021-06-01"
+          }
+        },
+        "region_key": "manavgat_aoi"
+      },
+      "montiferru_2021": {
+        "aoi_bbox_west_south_east_north": [
+          8.45,
+          40.05,
+          8.75,
+          40.27
+        ],
+        "climatology": {
+          "label": [
+            {
+              "end_date_exclusive": "2017-09-01",
+              "end_date_inclusive": "2017-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2017,
+              "start_date": "2017-07-24"
+            },
+            {
+              "end_date_exclusive": "2018-09-01",
+              "end_date_inclusive": "2018-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2018,
+              "start_date": "2018-07-24"
+            },
+            {
+              "end_date_exclusive": "2019-09-01",
+              "end_date_inclusive": "2019-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2019,
+              "start_date": "2019-07-24"
+            },
+            {
+              "end_date_exclusive": "2020-09-01",
+              "end_date_inclusive": "2020-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2020,
+              "start_date": "2020-07-24"
+            }
+          ],
+          "predictor": [
+            {
+              "end_date_exclusive": "2017-07-24",
+              "end_date_inclusive": "2017-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2017,
+              "start_date": "2017-05-25"
+            },
+            {
+              "end_date_exclusive": "2018-07-24",
+              "end_date_inclusive": "2018-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2018,
+              "start_date": "2018-05-25"
+            },
+            {
+              "end_date_exclusive": "2019-07-24",
+              "end_date_inclusive": "2019-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2019,
+              "start_date": "2019-05-25"
+            },
+            {
+              "end_date_exclusive": "2020-07-24",
+              "end_date_inclusive": "2020-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2020,
+              "start_date": "2020-05-25"
+            }
+          ]
+        },
+        "observed": {
+          "label": {
+            "end_date_exclusive": "2021-09-01",
+            "end_date_inclusive": "2021-08-31",
+            "n_days_inclusive": 39,
+            "start_date": "2021-07-24"
+          },
+          "predictor": {
+            "end_date_exclusive": "2021-07-24",
+            "end_date_inclusive": "2021-07-23",
+            "n_days_inclusive": 60,
+            "start_date": "2021-05-25"
+          }
+        },
+        "region_key": "montiferru_aoi"
+      },
+      "mugla_2021": {
+        "aoi_bbox_west_south_east_north": [
+          27.1,
+          36.6,
+          28.9,
+          37.45
+        ],
+        "climatology": {
+          "label": [
+            {
+              "end_date_exclusive": "2017-09-16",
+              "end_date_inclusive": "2017-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2017,
+              "start_date": "2017-07-29"
+            },
+            {
+              "end_date_exclusive": "2018-09-16",
+              "end_date_inclusive": "2018-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2018,
+              "start_date": "2018-07-29"
+            },
+            {
+              "end_date_exclusive": "2019-09-16",
+              "end_date_inclusive": "2019-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2019,
+              "start_date": "2019-07-29"
+            },
+            {
+              "end_date_exclusive": "2020-09-16",
+              "end_date_inclusive": "2020-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2020,
+              "start_date": "2020-07-29"
+            }
+          ],
+          "predictor": [
+            {
+              "end_date_exclusive": "2017-07-29",
+              "end_date_inclusive": "2017-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2017,
+              "start_date": "2017-06-01"
+            },
+            {
+              "end_date_exclusive": "2018-07-29",
+              "end_date_inclusive": "2018-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2018,
+              "start_date": "2018-06-01"
+            },
+            {
+              "end_date_exclusive": "2019-07-29",
+              "end_date_inclusive": "2019-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2019,
+              "start_date": "2019-06-01"
+            },
+            {
+              "end_date_exclusive": "2020-07-29",
+              "end_date_inclusive": "2020-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2020,
+              "start_date": "2020-06-01"
+            }
+          ]
+        },
+        "observed": {
+          "label": {
+            "end_date_exclusive": "2021-09-16",
+            "end_date_inclusive": "2021-09-15",
+            "n_days_inclusive": 49,
+            "start_date": "2021-07-29"
+          },
+          "predictor": {
+            "end_date_exclusive": "2021-07-29",
+            "end_date_inclusive": "2021-07-28",
+            "n_days_inclusive": 58,
+            "start_date": "2021-06-01"
+          }
+        },
+        "region_key": "mugla_aoi"
+      }
+    }
+  }
+}

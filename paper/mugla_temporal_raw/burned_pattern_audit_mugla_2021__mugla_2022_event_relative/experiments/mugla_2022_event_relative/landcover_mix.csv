@@ -1,0 +1,7 @@
+population,class_code,label,count,fraction
+all_valid_burned,10,tree_cover,325,0.9789156626506024
+all_valid_burned,20,shrubland,7,0.02108433734939759
+burnable_tree_shrub_grass_burned,10,tree_cover,325,0.9789156626506024
+burnable_tree_shrub_grass_burned,20,shrubland,7,0.02108433734939759
+burnable_tree_shrub_grass_valid_for_modeling_burned,10,tree_cover,324,0.9788519637462235
+burnable_tree_shrub_grass_valid_for_modeling_burned,20,shrubland,7,0.021148036253776436
