@@ -1,0 +1,11 @@
+# Frozen raw evidence: NEVER touch line endings.
+#
+# These directories hold pipeline outputs whose SHA-256 hashes are recorded in
+# their own SHA256SUMS.txt, in the pipeline's manifest.json, and in the paper's
+# Methods section. With core.autocrlf=true a Windows checkout would rewrite LF
+# to CRLF and every one of those hashes would stop matching, silently breaking
+# the provenance chain. `-text` disables all EOL conversion in both directions,
+# so a clone reproduces the bytes exactly as verified.
+paper/era5_raw/**            -text
+paper/mugla_temporal_raw/**  -text
+paper/step9g_raw/**          -text

@@ -1,5 +1,8 @@
-# === Emrehan'in ayri deposu (nested repo karmasasi olmasin) ===
-repo/
+# === Emrehan'in ayri deposu ===
+# 2026-08-11: artik ignore DEGIL. `repo/` bir git submodule olarak bagli
+# (github.com/emrehann17/satellite-thermal-digital-twin), 48b56e7'e sabitli.
+# Makale Methods'u bu commit'teki satir numaralarina atif veriyor, bu yuzden
+# pinlenmis olmasi provenance'in parcasi. Icerigi hala SALT OKUNUR.
 
 # === Sanal ortam ===
 .venv-step10/
