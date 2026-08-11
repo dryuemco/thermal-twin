@@ -22,17 +22,18 @@ window, no predictor observation can post-date the fire it is used to predict. A
 are computed; these use the same calendar window as the predictor window, transported to earlier
 years, with the fire year itself excluded.
 
-**Table 1. Study regions.** Manavgat, Bejís and Muğla AOI constants are read from
-`repo/core/regions.py` (lines 59, 142, 173; experiment registry at lines 232–344); the extended
-Evia AOI from its frozen step0 AOI export
-(`drive_new/experiments/evia_2021_extended/step0/aoi_preview.geojson`); windows, baseline years
-and roles from each region's frozen `step8c_bootstrap_metrics.json` metadata. Muğla and
-Montiferru have no step0 AOI export in the working copy, so their boxes are derived from the
-30 m reference-grid transform (width, height, affine) recorded in each region's
-`step8a_dataset_stats.json`; the grid-derived corners are Muğla 27.0998, 36.5998, 28.9001,
-37.4500 and Montiferru 8.4497, 40.0499, 8.7502, 40.2700, rounded below. `[TO VERIFY: registry
-entries and line numbers for evia_2021_extended and montiferru_2021 in the updated
-repo/core/regions.py — the drafting working copy of the repository predates these regions.]`
+**Table 1. Study regions.** Every value below is read directly from the experiment registry in
+`repo/core/regions.py` at commit `48b56e7`, which now contains all five regions. AOI constants:
+Manavgat `regions.py:222`, Bejís `:252`, Muğla `MUGLA_AOI_BBOX :59`, extended Evia
+`NORTH_EVIA_EXTENDED_AOI_BBOX :106`, Montiferru `MONTIFERRU_AOI_BBOX :142`. Windows, baseline years
+and roles from the `EXPERIMENTS` dictionary (`:332–790`; individual entries at `:352` Manavgat,
+`:368` Bejís, `:391` Muğla, `:683` extended Evia, `:721` Montiferru). The registry was read by
+importing `core.regions` and calling `get_experiment()` for each identifier rather than by parsing
+the file, so the values are the ones the pipeline itself resolves. Muğla and Montiferru no longer
+require the earlier reconstruction from the 30 m reference-grid transform: both are now declared
+constants, and their declared corners agree with the previously grid-derived values
+(Muğla 27.0998, 36.5998, 28.9001, 37.4500 → 27.10, 36.60, 28.90, 37.45; Montiferru 8.4497, 40.0499,
+8.7502, 40.2700 → 8.45, 40.05, 8.75, 40.27) to the rounding shown.
 
 | Region | Country | AOI bounding box (W, S, E, N) | Predictor (pre-fire) window | Label window | Baseline years | Role |
 |---|---|---|---|---|---|---|
@@ -693,9 +694,141 @@ hyper-parameters and seeds held fixed. Uncertainty is a paired spatial-block boo
 model stage's own replicate draws with identical block draws across variants (1,000 replicates,
 seed 42, resampling unit `spatial_block_id`). The report states the analysis measures the closure
 date jointly with its interaction with the fixed MODIS seasonal production policy, not the closure
-date in isolation. Bejís, for scale: 12,814 cohort rows, 967 positives, 5 folds, 3,641 blocks.
-`[TO VERIFY: block edge length in cells for the shared window-closure folds — not stated in the
-comparison report.]`
+date in isolation. Bejís, for scale: 12,814 cohort rows, 967 positives, 5 folds, 3,641 blocks. The
+shared folds are blocked at the pipeline's default 2-cell edge (≈ 1 km): the analysis assigns block
+identifiers with `add_spatial_block_id(cohort, spatial_block_size_cells)` and takes that value from
+`STEP8B_SPATIAL_BLOCK_SIZE_CELLS = 2` (`repo/src/window_closure_sensitivity.py:8562`,
+`repo/core/config.py:556`). The comparison report records fold and block counts but not the block
+size, so this was read from the source rather than the report.
+
+### 3.16.4 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
+
+Muğla is the one region for which a second fire event is analysed on the **identical** AOI and
+analysis grid (`region_key = mugla_aoi`, the same bounding box and the same ~510 m cell
+definition), which allows the direction of feature–label associations to be compared with geography
+held fixed. The 2022 experiment is registered as `mugla_2022_event_relative` with windows anchored
+to its own event: a 58-day predictor window (2022-04-24 → 2022-06-20) closing the day before
+ignition and a 49-day label window (2022-06-21 → 2022-08-08) opening on it, durations chosen to
+match the 2021 windows exactly (58 and 49 days).
+
+**This is not a clean temporal-transfer design and is not presented as one.** The registry records
+the reason explicitly: the 2022 event ignites roughly five weeks earlier in the season than the
+2021 event, so calendar year and seasonal phase are confounded and no difference can be attributed
+to the year alone. The registered claim is `same_geography_event_to_event`, and that is the claim
+made here. The entry is deliberately kept out of the canonical five-AOI cohort by its
+`temporal_transfer_wildfire` role so that a second year of an already-represented AOI cannot be
+silently enrolled into the spatial comparisons. That exclusion is not merely a convention we
+observe: it is enforced in code and tested. The ERA5-Land diagnostic's validator carries a
+dedicated check, `A07_mugla_2022_absent_from_default_analysis`, which fails if the second Muğla
+event appears in the default five-region cohort, and that check passes on the executed output
+(Section 3.17). The decision to keep this pair out of the 20-direction transfer matrix is therefore
+verifiable in the released code rather than resting on the text of this paper. The same
+leakage-safe pre-label exclusion applies as in every other region: cells that burned inside this
+experiment's own predictor window are removed from the analysis universe rather than counted as
+unburned.
+
+Two frozen diagnostics are read for this pair, both produced by the machinery already described and
+neither refitting any model. Burned-pattern structure (component counts, effective component count,
+component-size and elevation distributions, land-cover mix) follows Section 3.14.5, computed on the
+primary population; outputs in `paper/mugla_temporal_raw/` with hashes in that directory's
+`SHA256SUMS.txt`. Signed univariate direction reversal follows Section 3.12: for each of the nine
+numeric features, the raw ROC-AUC of the feature against `burned` in each experiment, never folded
+to max(AUC, 1 − AUC), so that a value below 0.5 is read as a direction rather than as weakness.
+Land cover is excluded from the AUC analysis because its integer class codes carry no meaningful
+scalar order, and is reported descriptively instead. Uncertainty is a spatial-block bootstrap on
+10-cell (≈ 5 km) blocks assigned before filtering, 1,000 replicates, seed 42, 2.5/97.5 percentile
+intervals; a reversal counts as bootstrap-supported only when both experiments' intervals exclude
+0.5 on opposite sides. Outputs in `paper/step9g_raw/` with hashes alongside. Four pair directories
+in that export carry a `_superseded_pre_manavgat_repair` suffix and are superseded; they are
+retained for the record and are not read here.
+
+## 3.17 Regional meteorological context (explanatory)
+
+To characterise the meteorological conditions each region actually experienced — and specifically
+to test the post hoc explanation that Manavgat's outlying transfer behaviour reflects
+meteorological extremity (Section 5.7) — an AOI-level ERA5-Land diagnostic was run outside the
+modelling pipeline (`src/era5_land_regional_diagnostic.py`, with runner and validator in
+`scripts/`; outputs in `drive_new/diagnostics/era5_land_regional/<analysis_id>/`). It is
+explanatory only: it produces a table and exports no raster, and its outputs enter no feature set,
+no model and no transfer arm. The module records this status in its own output
+(`is_model_predictor: false`). The candidate diagnostic set of Section 3.14 was fixed before any
+diagnostic-versus-transfer correlation was computed, and no meteorological measure is added to it;
+the reasoning is given in Section 5.7.
+
+Hourly `temperature_2m`, `dewpoint_temperature_2m`, `u_component_of_wind_10m`,
+`v_component_of_wind_10m` and `total_precipitation_hourly` are read from the ERA5-Land hourly
+reanalysis [@MunozSabater2021] as the Earth Engine collection `ECMWF/ERA5_LAND/HOURLY`. Four
+variables are derived per pixel and per hour, never from window means: temperature (K → °C);
+relative humidity as 100·e_s(T_d)/e_s(T) using the ECMWF/Tetens
+saturation formula over water for both terms (T₀ = 273.16 K, a₁ = 611.21 Pa, a₃ = 17.502,
+a₄ = 32.19 K), left unclipped and only checked for finiteness; wind speed as √(u10² + v10²); and
+precipitation depth from the hourly accumulation band (m → mm), the cumulative
+`total_precipitation` band never being used, so no differencing of a running total is involved.
+
+Each hourly field is reduced to one AOI value by an explicit pixel-area weighting,
+Σ(value × pixelArea) / Σ(pixelArea), with the denominator masked by that variable's own mask so
+that a variable undefined over part of the AOI is not credited with that area. Both sums are
+evaluated on ERA5-Land's native projection and transform with `bestEffort=False`; an unweighted
+mean is not used. Window statistics are then computed over the resulting series of hourly regional
+means — window mean and maximum for temperature, humidity and wind, and additionally the window
+total for precipitation — so that a reported maximum is the most extreme regional hour, never the
+most extreme individual pixel.
+
+The observed windows are each region's own predictor and label windows taken from the experiment
+registry (Section 3.1); no date is hard-coded in the diagnostic, and the registry's inclusive end
+date is converted exactly once to Earth Engine's exclusive bound. Each statistic is referenced to
+a climatology built by mapping the same calendar month-day window into the four reference years
+2017–2020, computing each year's statistic independently, and taking their arithmetic mean and
+sample standard deviation (ddof = 1); the standardised anomaly is (observed − climatological
+mean) / climatological SD, written as null — never as zero or infinity — when the climatological
+SD is exactly zero. Every window, observed and climatological alike, must contain the exact
+contiguous hourly UTC sequence (n_days_inclusive × 24 hours); a missing, duplicated, out-of-order,
+shifted or extra hour fails the run rather than being sorted, interpolated, padded or dropped. The
+cohort is the five canonical regions in a fixed order, Muğla 2022 being deliberately excluded, and
+the scientific configuration is hashed into the output namespace identifier so that a changed
+cohort or contract resolves to a different namespace rather than silently overwriting an existing
+result.
+
+**Standardised anomalies are computed by the diagnostic but are not reported in this paper.** Two
+properties of the climatology make them unsuitable for the comparative use a reader would put them
+to. First, it spans only four years, so each standard deviation carries three degrees of freedom
+and is correspondingly unstable. Second, and decisively, the resulting standard deviations are
+strongly heterogeneous *between* regions: over the five predictor windows the climatological SD
+spans 0.41–1.13 °C for temperature, 1.09–6.58 % for relative humidity, 0.039–0.146 m s⁻¹ for wind
+speed and 12.6–48.0 mm for precipitation total — ratios of 2.7× to 6.0×, rising to 7.8× and 11.5×
+for temperature and precipitation in the label windows. A standardised anomaly therefore denotes a
+different physical departure in each region, and the cross-region comparison it invites is not
+meaningful. Anomalies are reported in physical units throughout (Section 4.9). The instability is
+not hypothetical: Bejís's label-window temperature and Muğla's predictor-window wind speed exceed
+five standardised units on climatological SDs of 0.147 °C and 0.065 m s⁻¹, from physical anomalies
+of only +0.83 °C and +0.34 m s⁻¹.
+
+Correctness of the output was verified rather than assumed. The four files were obtained from the
+pipeline author, and their SHA-256 hashes match those recorded in the accompanying manifest
+(`paper/era5_raw/SHA256SUMS.txt`); the analysis identifier agrees across the manifest, the contract
+and the containing namespace. The companion validator
+(`scripts/validate_era5_land_regional_diagnostic.py`) was then **executed against this output in
+`--mode actual`, and all 27 contract checks passed with none failed and none skipped**. Among them:
+the climatological mean and sample SD reproduce from the four retained yearly realisations (A20);
+observed windows and every climatological realisation are hourly complete (A25, A26); the
+standardised anomaly is null exactly when the climatological SD is zero (A16); the CSV and JSON
+summaries agree value by value (A17); the summary contains no infinite or missing quantity and no
+`Infinity`/`NaN` literal (A18, A19); the manifest hashes and byte sizes match (A21); the cohort is
+the frozen five with Muğla 2022 absent (A07, A08); the reference years and `sd_ddof = 1` are as
+declared (A09, A10); the registry region keys and window dates agree with `core/regions.py` (A14);
+and the namespace contains only the four expected files, no exported raster having leaked into it
+(A24). The run was performed by the authors on 2026-08-11 under Python 3.12.3 with
+`earthengine-api` 1.7.39 installed solely to satisfy the module import chain — the validator opens
+no Earth Engine session and requires no credentials — with the repository at commit `48b56e7` and
+the outputs staged in a scratch namespace outside the repository via `--output-root`.
+
+One provenance discrepancy is recorded rather than resolved: the manifest names commit `a07ea33`,
+at which the diagnostic source does not yet exist in the repository (it was first committed in
+`48b56e7`), so the production run was made from a working tree with the files uncommitted. Every
+free-text semantics string hashed into the scientific contract was compared against the source at
+`48b56e7` and matches verbatim, and the validator's own contract checks pass against that source,
+which together make the output consistent with the code described here without establishing
+bit-identity.
 
 <!-- METHODS ROUND NOTES:
 
@@ -717,11 +850,18 @@ comparison report.]`
     §3.9-3.10); scikit-learn version tolerance -> single sentence in §3.13 Reproducibility.
 
 (b) [TO VERIFY] markers in this file after this round:
-    NEW  §3.1  registry entries/line numbers for evia_2021_extended and montiferru_2021 in the
-               updated repo/core/regions.py (working-copy repo predates them; all Table 1 values
-               were instead verified against drive_new step0/step8a/step8c outputs).
-    NEW  §3.16.3 block edge length in cells for the shared window-closure folds (report gives
-               fold/block counts but not the block size in cells).
+    CLOSED 2026-08-11  §3.1  registry entries/line numbers — repo/ pulled (at 48b56e7, which
+               contains all five regions) and core.regions IMPORTED and queried via
+               get_experiment() rather than parsed. Every Table 1 bbox, window, baseline-year set
+               and role matches. Caption line numbers corrected; the previous "lines 59, 142, 173"
+               were wrong, not merely stale (they point at Muğla, Montiferru and a Kozan comment).
+    CLOSED 2026-08-11  §3.16.3 block edge length — resolved from source, not from the report:
+               the shared folds use add_spatial_block_id(..., spatial_block_size_cells) with
+               STEP8B_SPATIAL_BLOCK_SIZE_CELLS = 2 (~1 km), at
+               src/window_closure_sensitivity.py:8562 and core/config.py:556.
+    OPEN §3.13 reproduction tolerances for the FINAL five-region set. No reproduction_check.json
+               exists anywhere in drive_new; only the historical two-region figures (<=1e-4
+               within-region, +-0.002 CORAL) are quoted. Needs the pipeline author.
     KEPT §3.13 reproduction tolerances for the final region set (reproduction_check.json).
 
     CLOSED 2026-08-08 (second round):

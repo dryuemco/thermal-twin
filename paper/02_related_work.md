@@ -291,9 +291,9 @@ comparison for this paper. They harmonise 500 m predictors across four Mediterra
 random forest and gradient boosting models, select hyperparameters under five-fold spatial
 cross-validation, evaluate on an 80/20 hold-out, and test transfer both leave-one-country-out and
 as a full 4 × 4 transfer matrix. Their predictor set comprises NDVI; slope from ASTER GDEM; 2 m air
-temperature, 10 m wind speed and relative humidity, all taken from ERA5-Land as **long-term
-seasonal means**; the global human modification index; VIIRS night-time lights (and a log1p
-transform of the same); and population density.[^dimarco-lst] Their
+temperature, 10 m wind speed and relative humidity, all taken from ERA5-Land
+[@MunozSabater2021] as **long-term seasonal means**; the global human modification index; VIIRS
+night-time lights (and a log1p transform of the same); and population density.[^dimarco-lst] Their
 target is burned-pixel centroids from MCD64A1 treated as an ignition proxy and matched against a
 1:1 balanced background sample. They report that every transfer exceeds AUC 0.80, that transfers
 between bioclimatically similar countries score higher, and that transfers to Morocco are

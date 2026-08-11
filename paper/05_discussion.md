@@ -60,6 +60,50 @@ reversal belongs to elevation, a static predictor. The trade-off claim is about 
 within-region gain and the between-region loss co-locate — the thermal block — not a claim that
 static predictors are immune to local reparameterisation.
 
+There is an obvious objection to all of this, and it has to be met rather than deflected. Every
+reversal cited so far is measured between *different places*, so a sceptic can reasonably reply
+that the relationship was never one relationship: Manavgat and Muğla are distinct landscapes with
+distinct fuels, terrain and fire histories, and a predictor that means one thing in one and another
+thing in the other is not evidence of instability so much as evidence that two different systems
+were compared. The two Muğla events answer this directly (Section 4.8). Region, AOI, analysis grid,
+feature registry and processing chain are identical; only the fire differs. Elevation's association
+with burning nevertheless reverses with bootstrap support — 0.611 [0.532, 0.690] in 2021, higher
+ground burning preferentially, against 0.296 [0.230, 0.355] in 2022, lower ground burning
+preferentially, with disjoint intervals and a difference of −0.317 [−0.414, −0.220]. Holding
+geography fixed does not stabilise the direction of the relationship.
+
+The mechanism is unusually visible here, and it is physical rather than statistical. The 2021
+season burned as a dispersed complex of ten components across the region's full relief, from near
+sea level to 1,975 m; the 2022 event was a single compact scar confined below 777 m, with a median
+burned elevation of 187 m against 563 m the year before. The effective component count falls from
+4.05 to 1.34 and the observed land-cover classes from seven to two. The two fires simply occupied
+different parts of the same elevation gradient, and a model that learned "high ground burns" from
+the first would be actively wrong about the second. This is what concept shift looks like when it
+can be seen: not a subtle distributional drift, but two events sampling opposite ends of a
+topographic range that the region contains in full.
+
+Two constraints on how far this carries. First, the design is same-geography event-to-event and not
+clean temporal transfer: the 2022 fire ignites about five weeks earlier in the season, so year and
+seasonal phase are confounded and the difference cannot be attributed to elapsed time
+(Section 3.16.4). What it does isolate is geography, which is precisely the variable the objection
+rests on. Second, only elevation reverses with interval support. The four absolute thermal channels
+move from bootstrap-supported *lower*-values-burn to *higher*-values-burn point estimates, and each
+shift is itself interval-supported, but with 331 burned cells in 2022 every one of those intervals
+straddles 0.5, so the 2022 direction is not established and we do not claim the thermal reversals
+as supported (Section 4.8).
+
+That elevation is the one supported reversal is itself worth noting, because it is the second time
+the same predictor has played this role: elevation also carries the sharpest bootstrap-supported
+reversal in the Manavgat–Muğla pair (signed AUC 0.374 against 0.611). Across a between-region
+contrast and a within-region between-event contrast, the predictor that most reliably fails to keep
+its direction is a static, perfectly measured, physically unambiguous one. Elevation does not drift
+between regions and carries no sensor or compositing artefact; what changes is which part of the
+gradient a given fire occupies. This sharpens the diagnosis in a way that runs against the paper's
+own emphasis: the portability problem is not a property of thermal predictors specifically, nor of
+noisy remote-sensing channels, but of the mapping from any landscape variable to burning. The
+thermal block is where the trade-off is *costly*, because that is where the within-region gain sits;
+it is not where instability is *worst*.
+
 ## 5.3 Why every similarity-based diagnostic fails
 
 Every diagnostic family that failed measures either where things burn or what the landscape looks
@@ -167,7 +211,65 @@ in the data. With ten pairs this cannot refute regime typology as an explanation
 shift in general, but our data offer it no support in its distance-based form, and the candidate
 explanation floated in Section 2.5 should be read accordingly.
 
-## 5.7 The pre-fire signal is not an early-fire artefact
+## 5.7 The meteorological-extremity explanation, tested and not supported
+
+Manavgat is the region whose behaviour most resists the account given above. It supplies the
+reversal partner in the sharpest contrast pair (Section 5.2), it is where feature removal buys
+almost all of its transfer gain (+0.025 mean delta over Manavgat-involved directions against
+−0.009 elsewhere, Section 5.5), and it is the target of the worst negative recovery under
+adaptation (Evia→Manavgat, −0.86 of the gap). The most natural post hoc explanation is
+meteorological: that Manavgat 2021 was an exceptionally extreme fire season, so that its
+thermal predictors were driven by a regional weather anomaly the other regions did not share,
+and the resulting mapping from dryness to burning was correspondingly idiosyncratic.
+
+We tested that explanation and it was not supported. The ERA5-Land regional diagnostic
+(Sections 3.17, 4.9) characterises each region's predictor window against its own 2017–2020
+climatology, and Manavgat is not the meteorologically extreme member of the set. Its
+predictor-window temperature sits 0.06 °C *below* its climatological mean — the only region at or
+below its own baseline, and a departure small enough that the honest reading is simply that
+Manavgat burned under climatologically ordinary temperatures — while the other four regions run
+0.31 to 1.11 °C warm. Its humidity deficit of 3.24 % is mid-range among the five, its wind
+departure of +0.07 m s⁻¹ is the second smallest, and its precipitation total is within 1.4 mm of
+climatology, the smallest precipitation departure in the set. On none of the four variables is
+Manavgat the extreme member; on two it is the least anomalous. Whatever makes its transfer
+behaviour atypical, regional meteorological extremity in the predictor window is not it.
+
+We report this as a failed prediction rather than as a result, and it carries the same status as
+the pre-registered regime null of Section 5.6: a stated expectation, tested, and not borne out.
+The two failures are informative in the same limited way. They remove candidate explanations
+without supplying one.
+
+The reader may reasonably ask why meteorology, once measured, is not simply added to the
+diagnostic set of Section 4.4 as a ninth measure of region similarity. It is not added because the
+candidate set was fixed before any diagnostic-versus-transfer correlation was computed. Eight
+measures were specified and eight failed to order the transfer matrix; appending a ninth after
+seeing those eight fail would be a search over the diagnostic space, and any correlation it
+returned on ten pairs would be uninterpretable. The measurement is reported for what it is — a
+descriptive characterisation of the regions and a test of one specific explanation — and is kept
+out of the ordering analysis by construction.
+
+Two cautions attach to the reading of Section 4.9, and they are the reason it reports physical
+units rather than standardised ones. The first concerns the climatology. It spans four years, and
+the standard deviations it yields differ between regions by factors of 2.7 to 6.0 in the predictor
+windows, so a standardised anomaly measures a different physical departure in each region and
+invites a cross-region comparison that the quantity cannot support (Section 3.17). The failure
+mode is concrete rather than theoretical. Bejís's label-window temperature reaches 5.7 standardised
+units on a physical anomaly of +0.83 °C, because its four reference years — 19.64, 19.95, 19.94 and
+19.91 °C — agree to within a third of a degree and yield a climatological SD of 0.147 °C; Muğla's
+predictor-window wind speed reaches 5.3 units on +0.34 m s⁻¹ over an SD of 0.065 m s⁻¹. That these
+are artefacts of a near-degenerate denominator rather than genuine extremes is settled by
+comparison: Evia's label window closes on the same calendar day as Bejís's and is twelve days
+longer, so any seasonal-composition explanation would apply to it at least as strongly, yet its
+comparable +0.67 °C anomaly yields 1.9 standardised units against an SD of 0.351 °C. The physical
+anomalies of the two regions are similar; only their denominators differ.
+
+The second caution is that the label window is not fire weather: it opens on the ignition date and
+runs 35–59 days into the autumn rains, so it describes conditions during and after the fire rather
+than those that preceded it. Only predictor-window values are used anywhere in this paper, and the
+label-window figures quoted immediately above serve solely to demonstrate the instability of the
+standardised scale.
+
+## 5.8 The pre-fire signal is not an early-fire artefact
 
 The most direct threat to everything above is the possibility that the "pre-fire" thermal
 composite is contaminated by early fire signal, since each region's predictor window closes one
@@ -184,7 +286,7 @@ and 0.079). This is unexpected in direction: contamination by early fire signal 
 opposite. We do not know why the increment increases and we do not speculate; we note only that
 the direction of the effect is the safe one for the validity of the pre-fire claim.
 
-## 5.8 The empirical contrast with Dimarco et al. (2026)
+## 5.9 The empirical contrast with Dimarco et al. (2026)
 
 Dimarco et al. [@Dimarco2026] and this study form a near-controlled contrast conducted by two
 independent groups: Mediterranean regions, ~500 m cells, MCD64A1-derived targets, tree ensembles,
@@ -209,7 +311,7 @@ coherent experimental programmes, not an ablation. What it supports is precisely
 reading: portability tracks predictor class, and the class that carries the within-region gain is
 the class that fails to port.
 
-## 5.9 Implications
+## 5.10 Implications
 
 For practice, the immediate implication concerns regional and "global" fire-susceptibility
 products. A within-region AUC — even a spatially blocked, honestly computed one — prices only
@@ -232,13 +334,20 @@ self-calibrating satellite thermal digital twin that motivated this project rema
 and on this evidence its calibration loop will need labelled feedback, not unsupervised
 alignment.
 
-## 5.10 Limitations
+## 5.11 Limitations
 
 The transfer failure is a finding, not a limitation; the limitations are the boundaries on how
 far it generalises. (i) No meteorological covariates (wind, humidity, precipitation) enter the
 models, so we cannot say how the trade-off behaves for a mixed thermal-plus-weather predictor
-set. (ii) Temporal transfer — the same region in a different fire year — is untested; a Muğla
-2022 analysis is in progress and no results are available. (iii) All labels derive from a single
+set; the ERA5-Land diagnostic of Sections 3.17 and 4.9 characterises the regions but is not a
+predictor and does not close this gap, and its own four-year climatology limits how firmly its
+anomalies can be read. (ii) Temporal transfer — the same region in a different fire year — is
+still untested as a transfer measurement: no Muğla 2021 ↔ 2022 model transfer has been run, and
+Section 4.8 reports the diagnostic mechanism only. What that section does establish is
+same-geography event-to-event direction instability, and even there year and seasonal phase are
+confounded by the 2022 event's roughly five-week-earlier ignition (Section 3.16.4), while its 331
+burned cells leave every thermal interval too wide to resolve direction. (iii) All labels derive
+from a single
 burned-area product, MCD64A1 [@Giglio2018], whose omission and commission characteristics
 [@Boschetti2019] bound every model evaluated here. (iv) The ~510 m analysis cells approximate,
 but are not co-registered with, the native MODIS sinusoidal grid (Section 3.2). (v) Even after
@@ -251,7 +360,13 @@ shift is confounded with event meteorology; distinguishing them requires multi-y
 scikit-learn versions (Section 4.7e); all reported numbers are fixed to one verified version, but
 exact reproduction elsewhere requires the archived environment. (viii) The diagnostic
 correlations rest on an effective sample of ten region pairs; both the successes and the failures
-of Section 4.4 should be read at that power.
+of Section 4.4 should be read at that power. (ix) Manavgat's atypical transfer behaviour remains
+unexplained. It is the region where the conditional diagnosis bites hardest and where feature
+removal recovers most, and the one explanation we were able to test — that its predictor window
+was meteorologically extreme — is not supported (Section 5.7). We can say what does not account
+for it; we cannot say what does, and with one fire season per region the candidates that remain
+(fuel structure, ignition and suppression history, terrain-driven fire behaviour) are not
+separable in this design.
 
 <!-- DRAFT NOTES:
 
@@ -265,13 +380,100 @@ of Section 4.4 should be read at that power.
        Coordinator must either (a) confirm the few-shot analysis (drive_new/diagnostics/
        few_shot_recovery, unread in detail per memory) will actually appear in supplementary, or
        (b) delete the sentence. No few-shot numbers were introduced.
-    3. §5.10(ii) — "Muğla 2022 analysis is in progress" is a placeholder carried from the task
+    3. §5.11(ii) — "Muğla 2022 analysis is in progress" is a placeholder carried from the task
        brief; verify status before submission.
-    4. §5.10(iv) — "~510 m cells approximate but are not co-registered with the MODIS sinusoidal
+    4. §5.11(iv) — "~510 m cells approximate but are not co-registered with the MODIS sinusoidal
        grid" traces to 03_methods.md lines 55-64, not to 04; wording should be checked against
        the final §3.2.
+    4b. 03 §3.1 Table 1 caption — [TO VERIFY] CLOSED 2026-08-11. repo/ was pulled (already at
+       48b56e7, no new commits) and core.regions was IMPORTED and queried via get_experiment()
+       rather than parsed. All five regions' bboxes, predictor/label windows, baseline years and
+       roles match Table 1 exactly; the legacy Evia box and its cited line 67 also match. Only
+       the caption's line numbers were stale and are now corrected (AOIs at :222 Manavgat, :252
+       Bejís, :59 Muğla, :106 Evia-ext, :142 Montiferru; EXPERIMENTS at :332-790). The old
+       caption's "lines 59, 142, 173" mapped to Muğla, Montiferru and a Kozan comment block
+       respectively — i.e. it was wrong, not merely outdated. Muğla and Montiferru no longer
+       need grid-transform reconstruction; both are declared constants agreeing with the
+       previously derived corners.
+    5. §5.7 / 04 §4.9 / 03 §3.17 — ERA5-Land block added 2026-08-11, RESOLVED FROM SOURCE
+       2026-08-11. Raw files received as a zip, extracted to paper/era5_raw/<analysis_id>/ with
+       hashes in paper/era5_raw/SHA256SUMS.txt. All numbers now read directly from
+       era5_land_regional_summary.json; the derived-spreadsheet transcription is superseded (it
+       was checked against source afterwards and was in fact accurate in all 80 values, but it
+       is no longer the basis for anything). Status of the three former open items:
+       (a) CLOSED — 04 §4.9 carries Table R9, predictor window only, physical units only.
+       (b) CLOSED — Manavgat's predictor temperature anomaly is -0.06 °C, i.e. genuinely at or
+           below its climatological mean, and the sign is confirmed from source. The sign-robust
+           fallback wording is no longer needed and the claim is asserted directly.
+       (c) CLOSED 2026-08-11 — the validator was RUN, not merely described.
+           `scripts/validate_era5_land_regional_diagnostic.py --mode actual` against this
+           namespace: 27/27 checks passed, 0 failed, 0 skipped, OVERALL PASS, exit code 0.
+           Independently reproduced the pipeline author's own reported result. Environment:
+           Python 3.12.3, earthengine-api 1.7.39 (import-chain only; no GEE session, no
+           credentials), repo at 48b56e7, outputs staged OUTSIDE the repository via
+           --output-root so that repo/ stayed untouched (read-only rule). §3.17 now asserts
+           the result and names the environment. The 27 checks are identifiers A01-A27 with
+           none missing; A24 is simply reported last, after A27, rather than in numeric order.
+       (d) NEW, OPEN — provenance discrepancy, recorded in §3.17 and SHA256SUMS.txt rather than
+           resolved: manifest.git_commit is a07ea33, but the diagnostic source does not exist at
+           a07ea33 (first committed in 48b56e7). The run used an uncommitted working tree. All
+           contract semantics strings match 48b56e7 verbatim, so the output is consistent with
+           the described code but bit-identity is not established. Worth one question to the
+           pipeline author before submission.
+       (e) DECISION 2026-08-11 — standardised anomalies are excluded from the paper entirely.
+           Climatological SDs are heterogeneous between regions (2.7x-6.0x in the predictor
+           windows, up to 11.5x in the label windows), so z-scores are not comparable across
+           regions. Rationale is stated in §3.17; §4.9 and §5.7 report physical units only.
+           Do not reintroduce z-scores at assembly.
+    6. §3.17 — [CITATION NEEDED] CLOSED 2026-08-11. @MunozSabater2021 verified via the Crossref
+       REST API (DOI 10.5194/essd-13-4349-2021: Earth System Science Data 13(9):4349-4383, 2021,
+       Copernicus, 17 authors, all fields taken from the API response) and added to
+       REFERENCES.bib Block F, between Zanaga2022 and Malakar2018, in the file's ASCII-only
+       convention with braced LaTeX accents. Cited inline at §3.17's first substantive use.
+       First-mention citation also added at 02_related_work.md:294 (Dimarco's predictor list),
+       so @MunozSabater2021 now appears twice: at first mention in Related Work, describing
+       another study's use of the product, and at §3.17 where we use it ourselves. Both are
+       intended; the §3.17 occurrence is the substantive data citation and should survive any
+       de-duplication pass. The [^dimarco-lst] footnote's later "static ERA5-Land seasonal
+       climatology" is a back-reference and deliberately carries no citation.
+    7. §5.2 / 04 §4.8 / 03 §3.16.4 — Muğla two-event block added 2026-08-11 from raw files
+       (paper/mugla_temporal_raw/, paper/step9g_raw/, hashes in each SHA256SUMS.txt). Every
+       number was read from source and independently matched the values supplied in the task
+       brief. Open items:
+       (a) OPEN, BLOCKING FOR §4.8 — transfer AUCs for this pair DO NOT EXIST. There is no
+           mugla_2021__mugla_2022* directory in drive_new/cross_region/, and the step9g export
+           records step9f model-level integration as "step9f_available": false for BOTH
+           directions. §4.8 carries an inline [PENDING] marker and reports mechanism only. The
+           task brief assumed transfer numbers were available; they are not. Either the arms get
+           run, or §4.8 stays mechanism-only and §5.11(ii) keeps its current wording.
+       (b) FRAMING — the registry itself (core/regions.py, mugla_2022_event_relative) records
+           transfer_framing = "same_geography_event_to_event" and warns explicitly that year and
+           seasonal phase are CONFOUNDED (2022 ignites ~5 weeks earlier). The section is
+           therefore NOT titled or described as temporal transfer. Do not relabel it at assembly.
+       (c) HONESTY — only elevation is a bootstrap-supported reversal. The four thermal channels
+           are point-level: their AUC *differences* are interval-supported, but the 2022 AUCs
+           themselves all straddle 0.5 at n = 331 burned. §4.8 and §5.2 both state this
+           explicitly. Do not upgrade the thermal reversals.
+       (d) INTERPRETIVE, for coordinator review — the closing paragraph of the §5.2 addition
+           argues that elevation being the repeat offender means instability is a property of
+           the predictor→burning mapping generally, not of thermal predictors specifically. This
+           partly cuts against the paper's framing and is stated deliberately; it rests on two
+           contrasts (Manavgat-Muğla, Muğla 2021-2022), so it is an observation at n = 2, not a
+           general claim. Check the wording still reads as calibrated.
+       (e) Four pair directories in the step9g export carry "_superseded_pre_manavgat_repair";
+           they are recorded as superseded in §3.16.4 and were not read.
 
 (b) Interpretation beyond the literal statements of 04 (flag for coordinator review):
+    0. §5.7 — 04 §4.9 is now filled from source, so the section no longer runs ahead of its
+       numbers (see (a)5). Two interpretive moves still to review: (i) characterising Manavgat
+       as "the region whose behaviour most resists the account given above" aggregates three
+       separate 04/§5 facts
+       (contrast-pair reversal partner, largest feature-removal gain, worst negative recovery)
+       into a single "atypicality" that 04 nowhere asserts as such; (ii) the referee-pre-emption
+       paragraph ("candidate set fixed before computation, a ninth measure would be search
+       behaviour") is a methodological argument, not a result — it states the project's actual
+       sequence and should be checked against the lab record the same way §5.6's
+       pre-registration narrative is (item b5).
     1. §5.2 — "Below-chance transfer is the signature that distinguishes concept shift from
        ordinary covariate-shift degradation, which can only dilute skill towards 0.5." 04 shows
        below-chance transfers and reversals; the "signature/dilution" logic is an interpretive
@@ -294,13 +496,13 @@ of Section 4.4 should be read at that power.
        brief's framing; the pre-registration record (regime_transfer_correlation.md) registered
        the null expectation citing the Bejís-Evia observation. Coordinator should confirm the
        narrative sequence (what was expected when) is stated accurately from the lab record.
-    6. §5.7 — "the direction of the effect is the safe one for the validity of the pre-fire
+    6. §5.8 — "the direction of the effect is the safe one for the validity of the pre-fire
        claim" is a mild interpretive addition to the observation-only rule; delete if it reads
        as speculation.
-    7. §5.8 — "near-controlled contrast conducted by two independent groups" and the
+    7. §5.9 — "near-controlled contrast conducted by two independent groups" and the
        "bracket the predictor-class explanation" reading extend 02 §2.5's vetted framing; no new
        numbers.
-    8. §5.9 — "its calibration loop will need labelled feedback, not unsupervised alignment" is
+    8. §5.10 — "its calibration loop will need labelled feedback, not unsupervised alignment" is
        an inference from C2/C4; kept to one sentence per POSITIONING (digital twin as future
        work only).
 
@@ -326,23 +528,23 @@ of Section 4.4 should be read at that power.
       in §5.5 (compression, 7/12 negative recovery).
     - 02 §2.5: regime typology "offered as candidate explanation, not tested" → closed honestly
       in §5.6 (pre-registered null confirmed; grouping intuition wrong).
-    - 02 §2.5 / OUTLINE §1.5: the Dimarco contrast → §5.8 with all three bounding differences.
+    - 02 §2.5 / OUTLINE §1.5: the Dimarco contrast → §5.9 with all three bounding differences.
     STILL OPEN (not closable in Discussion):
     - 01 §1.5 contribution-claim placeholders still read "pending results" — must be filled at
       assembly from 04.
     - RESOLVED 2026-08-08: the 11 METHODS GAPS are closed (03_methods §3.14–§3.16 + §3.1
-      Table 1 update); §5.7 now rests on §3.16.3 and §5.10(iv) on §3.2's existing text.
+      Table 1 update); §5.8 now rests on §3.16.3 and §5.11(iv) on §3.2's existing text.
     - Few-shot supplementary (item a2) — decision pending.
 
   Style: British English (-ise/-our), matching 01-04. Prose word count excluding this comment
   and the drafting note: ~2,450.
 
 COORDINATOR REVIEW (2026-08-08), changes applied after drafting:
-    1. §5.7 — recency-of-information clause removed (borderline mechanism speculation); the
+    1. §5.8 — recency-of-information clause removed (borderline mechanism speculation); the
        contamination-direction logic and the "safe direction" validity remark retained.
     2. §5.5 — few-shot supplementary pointer now carries an inline [TO VERIFY] (inclusion
        decision pending); no numbers introduced.
-    3. §5.10(v) — "two to four times (0.038–0.225)" was numerically wrong (0.287/0.038 ≈ 7.6);
+    3. §5.11(v) — "two to four times (0.038–0.225)" was numerically wrong (0.287/0.038 ≈ 7.6);
        corrected to 4–7× vs Manavgat/Bejís/Muğla, marginally above Montiferru.
     4. All 19 citation keys used here verified present in 01/02/03/LITERATURE/REFERENCES.bib;
        the single [CITATION NEEDED] (Schoener 1968; Warren et al. 2008) stands and must be

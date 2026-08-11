@@ -6,7 +6,7 @@
 > `conditional_similarity_transfer`, `loro_pooled_transfer`, `feature_drop_transfer`,
 > `niche_overlap_transfer`, `niche_vs_conditional`, `sklearn_version_sensitivity`,
 > `signed_auc_bootstrap`, `figure_contrast_pairs.csv`). Tables 3–6 follow the outline's reserved
-> numbering; lettered tables (R1–R5) are additional and will be renumbered at assembly. All
+> numbering; lettered tables (R1–R9) are additional and will be renumbered at assembly. All
 > intervals are 95% spatial-block bootstrap percentile intervals (Section 3.9) unless stated
 > otherwise; "CI-supported" means the interval excludes the reference value (zero for
 > differences, 0.5 for transfer AUCs).
@@ -405,10 +405,137 @@ natural-vegetation population for the three high-increment regions: ΔAUC 0.059 
 consistent with land-cover composition contributing separable but non-thermal discrimination;
 the within-region conclusion does not depend on the population choice.
 
+## 4.8 The same geography, a second fire: direction reversal with place held constant
+
+Every result above compares different places. Muğla admits a stricter test, because a second fire
+event occurred inside the identical AOI on the identical analysis grid (Section 3.16.4): the 2021
+event, with its 58-day predictor window closing on 28 July, and the 2022 event, whose matched
+58-day window closes on 20 June. Region, bounding box, cell definition, feature registry and
+processing chain are the same; only the event differs. The comparison is therefore
+same-geography event-to-event, not clean temporal transfer — the 2022 fire ignites about five weeks
+earlier in the season, so year and seasonal phase are confounded (Section 3.16.4) — but geography,
+the explanation most often offered for between-region instability, is held fixed by construction.
+The second Muğla event is deliberately kept out of the 20-direction matrix of Section 4.3, and that
+exclusion is enforced and tested in the released code rather than merely asserted here: the
+validator check `A07_mugla_2022_absent_from_default_analysis` passes on the executed diagnostic
+output (Sections 3.16.4, 3.17).
+
+The two events are structurally very different fires. Table R7 reports the burned-pattern
+comparison on the primary population.
+
+**Table R7. Burned-pattern structure of the two Muğla events.** Primary population
+(`burnable_tree_shrub_grass` ∧ `valid_for_modeling`), 8-connectivity components (Section 3.14.5).
+Read from `paper/mugla_temporal_raw/.../multi_aoi_burned_pattern_comparison.csv`.
+
+| Quantity | Muğla 2021 | Muğla 2022 |
+|---|---|---|
+| Burned cells | 2,911 | 331 |
+| Connected components | 10 | 2 |
+| Largest component (cells, share) | 914 (31.4 %) | 282 (85.2 %) |
+| Second component (cells, share) | 738 (25.4 %) | 49 (14.8 %) |
+| Effective component count | 4.054 | 1.337 |
+| Component size, median | 22.5 | 165.5 |
+| Elevation, median | 563 m | 187 m |
+| Elevation, q95 | 1,526 m | 437 m |
+| Elevation, maximum | 1,975 m | 777 m |
+| Land-cover classes observed | 7 | 2 |
+| Dominant class (share) | tree cover (0.925) | tree cover (0.979) |
+
+The 2021 season burned as a dispersed multi-fire complex — ten components, an effective count of
+4.05, no single component holding a third of the area — spanning the region's full relief from near
+sea level to 1,975 m. The 2022 event is one compact scar: two components, an effective count of
+1.34, 85.2 % of burned cells in the largest, and confined to the low belt. Its highest burned cell
+lies at 777 m, below the 2021 event's 95th percentile of 1,526 m, and its median elevation of 187 m
+is a third of 2021's 563 m. The two fires occupy different parts of the same elevation gradient.
+
+That difference propagates directly into the feature–label relationship. Table R8 gives the signed
+univariate AUCs.
+
+**Table R8. Signed univariate feature–burned AUC, Muğla 2021 versus 2022.** Raw AUC against
+`burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
+replicates, seed 42 (Section 3.16.4). Analysis population 41,730 rows / 2,911 burned (2021) and
+38,790 rows / 331 burned (2022). Read from
+`paper/step9g_raw/.../mugla_2021__mugla_2022_event_relative/step9g_direction_reversal_table.csv`.
+
+| Feature | 2021 AUC [95 % CI] | 2022 AUC [95 % CI] | Reversal |
+|---|---|---|---|
+| **elevation_mean** | **0.611 [0.532, 0.690]** | **0.296 [0.230, 0.355]** | **bootstrap-supported** |
+| current_lst_mean | 0.325 [0.271, 0.382] | 0.515 [0.434, 0.580] | point only |
+| current_tvdi_mean | 0.336 [0.275, 0.398] | 0.594 [0.475, 0.674] | point only |
+| downscaled_lst_mean | 0.307 [0.253, 0.366] | 0.508 [0.435, 0.571] | point only |
+| fused_lst_mean | 0.325 [0.272, 0.383] | 0.519 [0.436, 0.583] | point only |
+| ndvi_mean | 0.662 [0.616, 0.704] | 0.707 [0.624, 0.777] | none |
+| slope_mean | 0.637 [0.582, 0.686] | 0.558 [0.468, 0.634] | none |
+| lst_anomaly_mean | 0.485 [0.395, 0.566] | 0.380 [0.249, 0.502] | none |
+| tvdi_difference_mean | 0.490 [0.396, 0.575] | 0.397 [0.265, 0.514] | none |
+
+Elevation reverses with bootstrap support. In 2021 higher cells burn preferentially (AUC 0.611,
+interval entirely above 0.5); in 2022 lower cells do (0.296, interval entirely below), and the two
+intervals are disjoint — 0.532 against 0.355 — with the difference at −0.317 [−0.414, −0.220]. The
+same predictor, the same region, the same grid, and an association that points the opposite way in
+two fires eleven months apart.
+
+The four absolute thermal channels also change side, from bootstrap-supported *lower*-values-burn in
+2021 to *higher*-values-burn point estimates in 2022, and each AUC difference is itself
+interval-supported (for example current_lst +0.188 [+0.084, +0.272]). **These reversals are
+nonetheless not bootstrap-supported and are not claimed as such.** With 331 burned cells the 2022
+intervals are wide, and all four straddle 0.5 (current_lst [0.434, 0.580]), so the 2022 direction is
+not established even though the shift from 2021 is. We follow the diagnostic's own conservative
+classification: one bootstrap-supported reversal, elevation; four point-level reversals in the
+thermal block. The two anomaly-referenced channels and the two remaining static predictors do not
+reverse at all — NDVI keeps a bootstrap-supported positive direction in both events.
+
+`[PENDING — transfer AUCs for this pair do not yet exist. No Muğla 2021 ↔ Muğla 2022 direction is
+present in drive_new/cross_region/, and the step9g export records step9f model-level integration as
+unavailable for both directions of this pair. This subsection therefore reports the mechanism only.
+When the transfer arms are run, their AUCs belong here, after Table R8.]`
+
+## 4.9 Regional meteorological context
+
+Table R9 characterises the meteorological conditions of each region's predictor window against
+its own 2017–2020 climatology (Section 3.17). Anomalies are reported in physical units only;
+standardised anomalies are computed by the diagnostic but are not reported, for the reason given
+in Section 3.17. The label window is not characterised here and is used nowhere in this paper: it
+opens on the ignition date and runs 35–59 days into the autumn rains, so it describes conditions
+during and after the fire rather than the conditions that preceded it.
+
+**Table R9. Predictor-window meteorology against the 2017–2020 climatology.** ERA5-Land, AOI
+pixel-area-weighted regional means; temperature, humidity and wind are window means, precipitation
+is the window total (Section 3.17). Anomaly = observed − climatological mean, in the variable's own
+units. Values read from `paper/era5_raw/<analysis_id>/era5_land_regional_summary.json`.
+
+| Region | Window (days) | Temp. (°C) | ΔT (°C) | RH (%) | ΔRH (%) | Wind (m s⁻¹) | ΔWind (m s⁻¹) | Precip. total (mm) | ΔPrecip. (mm) |
+|---|---|---|---|---|---|---|---|---|---|
+| Manavgat 2021 | 57 | 22.72 | **−0.06** | 54.05 | −3.24 | 1.80 | +0.07 | 48.08 | −1.38 |
+| Bejís 2022 | 61 | 24.05 | +0.92 | 55.40 | −0.65 | 2.02 | +0.02 | 81.53 | +36.32 |
+| Muğla 2021 | 58 | 25.28 | +0.31 | 51.61 | −5.18 | 2.97 | +0.34 | 27.70 | −8.99 |
+| North Evia 2021 (extended) | 59 | 25.73 | +1.11 | 59.64 | −3.25 | 2.06 | −0.21 | 19.72 | −61.58 |
+| Montiferru 2021 | 60 | 22.58 | +0.48 | 64.17 | −2.84 | 2.22 | +0.11 | 14.95 | −35.54 |
+
+The five predictor windows share a common signature of moderate dryness rather than extremity.
+Every region is drier than its own climatology in relative humidity (−0.65 to −5.18 %), and four
+of five are drier in precipitation, two of them substantially so (Evia −61.6 mm, Montiferru
+−35.5 mm); Bejís is the exception, wetter than climatology by +36.3 mm. Temperature departures are
+small in absolute terms, spanning −0.06 to +1.11 °C, and wind departures smaller still
+(−0.21 to +0.34 m s⁻¹).
+
+The one region-level contrast the analysis was run to test concerns Manavgat. Its predictor-window
+temperature is −0.06 °C from its climatological mean — the only region at or below its own
+baseline, and an anomaly small enough to be read as *at* the baseline — while the other four sit
+0.31 to 1.11 °C above theirs. Its humidity deficit (−3.24 %) is mid-range among the five and its
+precipitation is within 1.4 mm of climatology, the smallest precipitation departure in the set.
+On none of the four variables is Manavgat the extreme member. The consequence for the
+interpretation of its transfer behaviour is taken up in Section 5.7.
+
 <!-- DRAFT NOTES:
 
-(a) TO VERIFY — none. Every number in this draft traces to facts_results.md or a paper/ analysis
-    report; no [TO VERIFY] markers were needed.
+(a) TO VERIFY — one [PENDING], added 2026-08-11 in §4.8: the Muğla 2021 ↔ 2022 transfer AUCs do
+    not exist yet (no such pair in drive_new/cross_region/; step9f integration unavailable in
+    both directions), so §4.8 reports mechanism only. Every number that IS in this draft traces
+    to facts_results.md, a paper/ analysis report, or — for §4.8 and §4.9, added 2026-08-11 —
+    directly to hashed raw files under paper/mugla_temporal_raw/, paper/step9g_raw/ and
+    paper/era5_raw/. Those three sources are outside the facts_results.md extraction and were
+    each read from source and hash-verified; see 05_discussion DRAFT NOTES (a)5 and (a)7.
 
 (b) METHODS GAPS — ALL 11 RESOLVED 2026-08-08: described in 03_methods §3.14.1–.5, §3.15.1–.2,
     §3.16.1–.3 and the §3.1 Table 1 update; inline [METHODS GAP] markers in this file replaced
