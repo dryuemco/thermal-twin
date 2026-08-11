@@ -8,10 +8,13 @@ and file headers.
 **Updated 2026-08-11** — ERA5-Land block (§3.17, §4.9, §5.7) and the Muğla two-event block
 (§3.16.4, §4.8, §5.2 addition) added from hash-verified raw files; ERA5 validator executed
 (27/27 PASS); §3.1 and §3.16.3 TO VERIFY markers closed from source; discussion renumbered
-(§5.7 inserted, former §5.7–§5.10 → §5.8–§5.11); results gained §4.8 and §4.9 with Tables R7–R9.
+(§5.7 inserted, former §5.7–§5.10 → §5.8–§5.11); results gained §4.8 and §4.9 with
+Tables R7–R10.
+The Muğla 2021↔2022 transfer arms, which had never been run, were computed here with the pipeline
+author's unmodified step9b/step9c — the only transfer directions in the paper not from his export.
 
 **One-line state:** all eight figures, all captions and every citation decision are closed; the
-manuscript is complete in draft and waits on five external inputs and one assembly pass.
+manuscript is complete in draft and waits on four external inputs and one assembly pass.
 
 ## 1. Manuscript sections
 
@@ -21,7 +24,7 @@ manuscript is complete in draft and waits on five external inputs and one assemb
 | `01_introduction.md` | **draft complete**; contributions filled with final numbers | 2 511 | none (1 UNVERIFIED mention is the header convention note) |
 | `02_related_work.md` | **draft complete**; Dimarco §2.5 passage now confirmed against the full text (read by YEC 2026-08-08; 80/20 hold-out and NTL-log1p details added) | 5 267 | none — the Huang §2.4 marker was **closed 2026-08-08 by decision** (no coefficient quoted; §2.4 now says so explicitly, abstract suffices). *Correction: an earlier STATUS mislabelled this marker as Dimarco.* |
 | `03_methods.md` | **draft complete** incl. §3.14–3.16; awaiting independent-description comparison | 9 388 | **1 TO VERIFY** (was 3): reproduction-check quote for the five-region set. **Closed 2026-08-11:** regions.py registry lines (repo pulled to 48b56e7; core.regions imported and queried, all Table 1 values match, caption line numbers corrected) and window-closure block edge length (2 cells ~1 km, read from source). Gained §3.16.4 (Muğla two-event design) and §3.17 (ERA5-Land diagnostic, validator 27/27 PASS). **Closed 2026-08-08:** Kozan inclusion (now in — §3.1 pointer, §3.3 negative-control paragraph, §4.1 result); §3.3 gate-verdict marker (§3.3 now points to §4.1, where Table R1 carries the numbers); repository URL/DOI (data-and-code availability statement written, GitHub URL, no DOI) |
-| `04_results.md` | **draft complete, audited**; Tables 3–6 + R1–R9 | 6 697 | **1 PENDING** in body: §4.8 Muğla 2021↔2022 transfer AUCs do not exist yet (arms never run). §4.8 and §4.9 added 2026-08-11. |
+| `04_results.md` | **draft complete, audited**; Tables 3–6 + R1–R10 | 6 697 | none. §4.8 (two Muğla events, Tables R7–R9) and §4.9 (ERA5, Table R10) added 2026-08-11; the §4.8 [PENDING] was closed by running the transfer arms. |
 | `05_discussion.md` | **draft complete, audited**; renumbered 2026-08-11 (§5.7 inserted; former §5.7–§5.10 → §5.8–§5.11) | 6 383 | 1 TO VERIFY in body (§5.5 few-shot supplementary inclusion). §5.11(ii) now states the Muğla-2022 position from data rather than as a placeholder; an AoA per-pair number is conditional on a reviewer request (notes only) |
 | `06_conclusions.md` | **draft complete** | 334 | none |
 | `highlights.md` | **complete** (5 bullets, all ≤85 chars, verified) | 90 | none |
@@ -92,13 +95,14 @@ and 8 (`*_greyscale.png`).
    candidate discrepancy points are pre-listed in 03_methods' METHODS ROUND NOTES.
 2. **Few-shot × conditional-index joint analysis** — planned as supplementary; until decided,
    the §5.5 pointer stays [TO VERIFY]. Emrehan's existing curve: 3 regions, 6 directions.
-3. **Muğla 2022** — *partly closed 2026-08-11.* The two frozen diagnostics arrived and are in
-   `paper/mugla_temporal_raw/` and `paper/step9g_raw/` (hashed); §4.8 and the §5.2 addition are
-   written from them and §5.11(ii) is rewritten. **Still open: the transfer arms themselves have
-   never been run** — no `mugla_2021__mugla_2022*` pair exists in `drive_new/cross_region/` and
-   step9f integration is unavailable for both directions, so §4.8 reports mechanism only and
-   carries an inline `[PENDING]`. Note the design is same-geography event-to-event, not clean
-   temporal transfer (year × seasonal phase confounded; see §3.16.4).
+3. ~~**Muğla 2022**~~ — **closed 2026-08-11.** Both frozen diagnostics arrived
+   (`paper/mugla_temporal_raw/`, `paper/step9g_raw/`) and the transfer arms, which had never
+   been run, were computed here with the pipeline author's unmodified step9b/step9c at 48b56e7
+   in a shadow project root (`paper/mugla_transfer_raw/`). §3.16.4, §4.8 (Tables R7–R9) and the
+   §5.2 addition are written from them; §5.11(ii) rewritten. **Note the provenance:** these are
+   the only two transfer directions in the paper not produced by the pipeline author. The design
+   is same-geography event-to-event, not clean temporal transfer (year × seasonal phase
+   confounded; see §3.16.4).
 4. ~~**Updated `repo/core/regions.py`**~~ — **closed 2026-08-11.** `repo/` is at `48b56e7`, which
    contains all five regions plus `mugla_2022_event_relative`; `core.regions` was imported and
    queried with `get_experiment()` and every Table 1 value matches. `repo/` is now wired into this
@@ -123,7 +127,7 @@ and 8 (`*_greyscale.png`).
 Mechanical only — no analysis, no new numbers, no open judgement calls.
 
 1. **Assembly round.** Merge the section files into one document; renumber the lettered
-   R-tables (R1–R9) into the final sequence alongside Tables 3–6; drop the DRAFT-NOTES comment
+   R-tables (R1–R10) into the final sequence alongside Tables 3–6; drop the DRAFT-NOTES comment
    blocks; apply the journal template. Figure numbering is already final and consistent across
    `figure_captions.tex`, §4 and §5 — no figure work is left.
 2. **Abstract trim** to the journal's word limit (currently 331 words).

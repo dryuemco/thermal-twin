@@ -6,7 +6,7 @@
 > `conditional_similarity_transfer`, `loro_pooled_transfer`, `feature_drop_transfer`,
 > `niche_overlap_transfer`, `niche_vs_conditional`, `sklearn_version_sensitivity`,
 > `signed_auc_bootstrap`, `figure_contrast_pairs.csv`). Tables 3–6 follow the outline's reserved
-> numbering; lettered tables (R1–R9) are additional and will be renumbered at assembly. All
+> numbering; lettered tables (R1–R10) are additional and will be renumbered at assembly. All
 > intervals are 95% spatial-block bootstrap percentile intervals (Section 3.9) unless stated
 > otherwise; "CI-supported" means the interval excludes the reference value (zero for
 > differences, 0.5 for transfer AUCs).
@@ -485,21 +485,50 @@ classification: one bootstrap-supported reversal, elevation; four point-level re
 thermal block. The two anomaly-referenced channels and the two remaining static predictors do not
 reverse at all — NDVI keeps a bootstrap-supported positive direction in both events.
 
-`[PENDING — transfer AUCs for this pair do not yet exist. No Muğla 2021 ↔ Muğla 2022 direction is
-present in drive_new/cross_region/, and the step9g export records step9f model-level integration as
-unavailable for both directions of this pair. This subsection therefore reports the mechanism only.
-When the transfer arms are run, their AUCs belong here, after Table R8.]`
+Transfer between the two events behaves unlike any between-region direction in the matrix, and it
+does so asymmetrically (Table R9). Both directions stay *above* chance — the thermal intervals are
+[0.513, 0.604] and [0.654, 0.685], neither touching 0.5 — where six of the twenty between-region
+directions fell below it with interval support (Section 4.3). Holding geography fixed removes the
+collapse.
+
+**Table R9. Transfer between the two Muğla events.** Primary population, thermal and baseline
+models, target ROC-AUC with 5 km spatial-block bootstrap 95 % CIs (Section 3.16.4). Within-region
+references are each target's own frozen value at 2-cell blocking (Table 3 for 2021; the 2022
+figure is its Step 8C point estimate, ΔAUC +0.078 [+0.061, +0.097]).
+
+| Direction | Baseline | Thermal | ΔAUC (thermal − baseline) | Target's within-region thermal | Gap |
+|---|---|---|---|---|---|
+| Muğla 2021 → 2022 | 0.642 [0.606, 0.674] | 0.559 [0.513, 0.604] | **−0.082 [−0.127, −0.040]** | 0.942 | 0.383 |
+| Muğla 2022 → 2021 | 0.581 [0.566, 0.598] | 0.670 [0.654, 0.685] | **+0.089 [+0.072, +0.104]** | 0.859 | 0.189 |
+
+What does not survive is the thermal block's contribution, and its failure here is sharper than
+anywhere else in the paper: **the same six predictors change the sign of their contribution
+depending on which event is the source, and both signs are interval-supported.** Carried forward
+from 2021 to 2022 they cost 0.082 AUC; carried back from 2022 to 2021 they buy 0.089. This is not
+a case of a weak signal failing to travel. Within each event separately the thermal block helps and
+its interval excludes zero — +0.116 in 2021 (Table 3) and +0.078 in 2022 — so the block is locally
+informative in both, and still actively harmful in one direction between them.
+
+The asymmetry follows the elevation reversal. A model fitted on 2021 learned a relationship whose
+strongest static term points the wrong way for a fire confined below 777 m, and the thermal
+channels it learned alongside that term were fitted under the same regime; applied to 2022 they
+subtract skill from a baseline that already transfers at 0.642. In the reverse direction the 2022
+model carries a relationship fitted on a narrow low-elevation slice, which the broader 2021 event
+contains, and there the thermal block adds. The residual gap to the target's own within-region
+performance remains large in both directions — 0.383 and 0.189 — so nothing here rescues transfer;
+what it shows is that the direction of the thermal block's contribution is not a property of the
+predictors but of the pair.
 
 ## 4.9 Regional meteorological context
 
-Table R9 characterises the meteorological conditions of each region's predictor window against
+Table R10 characterises the meteorological conditions of each region's predictor window against
 its own 2017–2020 climatology (Section 3.17). Anomalies are reported in physical units only;
 standardised anomalies are computed by the diagnostic but are not reported, for the reason given
 in Section 3.17. The label window is not characterised here and is used nowhere in this paper: it
 opens on the ignition date and runs 35–59 days into the autumn rains, so it describes conditions
 during and after the fire rather than the conditions that preceded it.
 
-**Table R9. Predictor-window meteorology against the 2017–2020 climatology.** ERA5-Land, AOI
+**Table R10. Predictor-window meteorology against the 2017–2020 climatology.** ERA5-Land, AOI
 pixel-area-weighted regional means; temperature, humidity and wind are window means, precipitation
 is the window total (Section 3.17). Anomaly = observed − climatological mean, in the variable's own
 units. Values read from `paper/era5_raw/<analysis_id>/era5_land_regional_summary.json`.

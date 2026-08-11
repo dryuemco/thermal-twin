@@ -742,6 +742,25 @@ intervals; a reversal counts as bootstrap-supported only when both experiments' 
 in that export carry a `_superseded_pre_manavgat_repair` suffix and are superseded; they are
 retained for the record and are not read here.
 
+Unlike every other transfer direction in this paper, the two arms of this pair are **not** read
+from a frozen export: no `mugla_2021__mugla_2022_event_relative` directory existed, so they were
+computed for this analysis. They were produced by running the project's own unmodified
+`src/step9b_run_cross_region_transfer.py` and `src/step9c_cross_region_block_bootstrap.py` at
+commit `48b56e7` — the same code and the same protocol as Section 3.10 and Section 3.9, with
+`random_state = 42`, the primary RF configuration, and the 1,000-replicate spatial-block bootstrap
+on `spatial_block_id`. The frozen Step 8A modelling datasets of both experiments were the only
+inputs, hashed as read (`paper/mugla_transfer_raw/SHA256SUMS.txt`). Because `repo/` is treated as
+read-only and the pipeline resolves its paths from its own location, the run used a shadow project
+root containing a copy of `core/`, `src/` and `scripts/` plus those two inputs, so nothing was
+written into the pipeline repository or into the frozen output archive. The environment was Python
+3.12.3 with scikit-learn 1.9.0, pandas 3.0.5 and NumPy 2.5.2, matching the version to which every
+other transfer number in this paper is fixed (Section 4.7e). Two consequences are stated rather
+than hidden: the metrics file records `git_commit: null`, because the shadow root is not itself a
+git repository, and these two directions were executed by the authors of this manuscript rather
+than by the pipeline author who produced the other twenty. The interval-supported effects reported
+in Section 4.8 are an order of magnitude larger than the ±0.02–0.03 cross-version tolerance of
+Section 4.7e, so the conclusions do not rest on the exact point estimates.
+
 ## 3.17 Regional meteorological context (explanatory)
 
 To characterise the meteorological conditions each region actually experienced — and specifically
@@ -822,13 +841,19 @@ and the namespace contains only the four expected files, no exported raster havi
 no Earth Engine session and requires no credentials — with the repository at commit `48b56e7` and
 the outputs staged in a scratch namespace outside the repository via `--output-root`.
 
-One provenance discrepancy is recorded rather than resolved: the manifest names commit `a07ea33`,
-at which the diagnostic source does not yet exist in the repository (it was first committed in
-`48b56e7`), so the production run was made from a working tree with the files uncommitted. Every
-free-text semantics string hashed into the scientific contract was compared against the source at
-`48b56e7` and matches verbatim, and the validator's own contract checks pass against that source,
-which together make the output consistent with the code described here without establishing
-bit-identity.
+The manifest names commit `a07ea33`, at which neither the diagnostic source nor the Montiferru
+registry entry yet exists; both were first committed in `48b56e7`. The production run was therefore
+made from a working tree carrying uncommitted changes, and the recorded commit identifies only the
+last commit at run time. The code that actually ran can nevertheless be identified. The output
+contains Montiferru with its registry windows, which `a07ea33` cannot supply — `core/regions.py`
+gains that entry only in `48b56e7`, and it does so by pure addition (529 lines inserted, none
+deleted), leaving the four regions common to both commits byte-identical. `core/paths.py` and
+`core/config.py`, the diagnostic's only other internal dependencies, are unchanged between the two
+commits. Every free-text semantics string hashed into the scientific contract matches `48b56e7`
+verbatim, and the validator's registry check (A14) confirms that all five regions' keys and window
+dates in the output agree with `48b56e7`'s registry. The working tree that produced this output
+therefore carried the registry and diagnostic content of `48b56e7`, which is the version described
+here and the version pinned as a submodule of the manuscript repository.
 
 <!-- METHODS ROUND NOTES:
 

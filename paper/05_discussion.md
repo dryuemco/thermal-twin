@@ -92,6 +92,17 @@ shift is itself interval-supported, but with 331 burned cells in 2022 every one 
 straddles 0.5, so the 2022 direction is not established and we do not claim the thermal reversals
 as supported (Section 4.8).
 
+Transfer between the two events completes the picture and sharpens the trade-off rather than
+softening it. With geography fixed, transfer no longer collapses: both directions stay above
+chance, where six of twenty between-region directions fell below it. But the thermal block's
+contribution *changes sign* — −0.082 [−0.127, −0.040] carrying 2021 forward to 2022, +0.089
+[+0.072, +0.104] carrying 2022 back to 2021 — with both signs interval-supported, even though the
+same block is locally informative within each event separately (+0.116 in 2021, +0.078 in 2022).
+This is the trade-off at its most explicit. The six predictors that buy local skill in both events
+are not merely unhelpful across them; in one direction they subtract from a static baseline that
+would otherwise have transferred at 0.642. Whether a dynamic-state block helps or harms on transfer
+is a property of the source–target pair, not of the block.
+
 That elevation is the one supported reversal is itself worth noting, because it is the second time
 the same predictor has played this role: elevation also carries the sharpest bootstrap-supported
 reversal in the Manavgat–Muğla pair (signed AUC 0.374 against 0.611). Across a between-region
@@ -341,12 +352,13 @@ far it generalises. (i) No meteorological covariates (wind, humidity, precipitat
 models, so we cannot say how the trade-off behaves for a mixed thermal-plus-weather predictor
 set; the ERA5-Land diagnostic of Sections 3.17 and 4.9 characterises the regions but is not a
 predictor and does not close this gap, and its own four-year climatology limits how firmly its
-anomalies can be read. (ii) Temporal transfer — the same region in a different fire year — is
-still untested as a transfer measurement: no Muğla 2021 ↔ 2022 model transfer has been run, and
-Section 4.8 reports the diagnostic mechanism only. What that section does establish is
-same-geography event-to-event direction instability, and even there year and seasonal phase are
-confounded by the 2022 event's roughly five-week-earlier ignition (Section 3.16.4), while its 331
-burned cells leave every thermal interval too wide to resolve direction. (iii) All labels derive
+anomalies can be read. (ii) Temporal transfer is measured for one region only, Muğla,
+and even there year and seasonal phase are confounded by the 2022 event's roughly five-week-earlier
+ignition, so the design is same-geography event-to-event rather than clean temporal transfer
+(Section 3.16.4). Its 331 burned cells also leave the thermal direction reversals unresolved at
+interval level. Those two arms are additionally the only transfer directions in this paper computed
+by us rather than read from the pipeline author's frozen export, albeit with his unmodified code
+and the same pinned environment (Section 3.16.4). No other region has a second event. (iii) All labels derive
 from a single
 burned-area product, MCD64A1 [@Giglio2018], whose omission and commission characteristics
 [@Boschetti2019] bound every model evaluated here. (iv) The ~510 m analysis cells approximate,
@@ -440,12 +452,16 @@ separable in this design.
        (paper/mugla_temporal_raw/, paper/step9g_raw/, hashes in each SHA256SUMS.txt). Every
        number was read from source and independently matched the values supplied in the task
        brief. Open items:
-       (a) OPEN, BLOCKING FOR §4.8 — transfer AUCs for this pair DO NOT EXIST. There is no
-           mugla_2021__mugla_2022* directory in drive_new/cross_region/, and the step9g export
-           records step9f model-level integration as "step9f_available": false for BOTH
-           directions. §4.8 carries an inline [PENDING] marker and reports mechanism only. The
-           task brief assumed transfer numbers were available; they are not. Either the arms get
-           run, or §4.8 stays mechanism-only and §5.11(ii) keeps its current wording.
+       (a) CLOSED 2026-08-11 — the transfer arms did not exist, so WE RAN THEM. Emrehan's
+           unmodified step9b/step9c at 48b56e7, shadow PROJECT_ROOT so neither repo/ nor
+           drive_new/ was written, env Python 3.12.3 / sklearn 1.9.0 / pandas 3.0.5 / numpy
+           2.5.2 (matches the pinned version), seed 42. Outputs + hashes in
+           paper/mugla_transfer_raw/. Result: both directions ABOVE chance (0.559 [0.513,0.604]
+           and 0.670 [0.654,0.685]) but the thermal delta FLIPS SIGN with interval support
+           (-0.082 [-0.127,-0.040] vs +0.089 [+0.072,+0.104]). Written into §4.8 Table R9 and
+           the §5.2 addition. PROVENANCE: these are the only transfer directions in the paper
+           not produced by the pipeline author; §3.16.4 says so explicitly and records
+           git_commit: null. Do not let this drop out at assembly.
        (b) FRAMING — the registry itself (core/regions.py, mugla_2022_event_relative) records
            transfer_framing = "same_geography_event_to_event" and warns explicitly that year and
            seasonal phase are CONFOUNDED (2022 ignites ~5 weeks earlier). The section is

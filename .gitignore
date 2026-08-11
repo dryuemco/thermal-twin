@@ -61,3 +61,8 @@ __pycache__/
 drive_archive
 
 drive_new
+
+# Per-cell prediction dumps from step9b: same policy as *.parquet above --
+# heavy row-level output, not cited anywhere. The file is still hashed in the
+# raw directory's SHA256SUMS.txt so its provenance is recorded.
+cross_region_transfer_predictions.csv
