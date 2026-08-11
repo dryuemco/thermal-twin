@@ -1,0 +1,289 @@
+{
+  "analysis_id": "1862489bb81cfe4e097e88eaae64aad5f959c0d444da1aff61755a7e14653ae7",
+  "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+  "source_experiment_id": "montiferru_2021",
+  "target_experiment_id": "evia_2021_extended",
+  "primary_population": "burnable_tree_shrub_grass",
+  "input_audit": {
+    "montiferru_2021": {
+      "experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 2544,
+      "n_burned": 539,
+      "n_unburned": 2005,
+      "n_large_blocks": 35
+    },
+    "evia_2021_extended": {
+      "experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 9298,
+      "n_burned": 2664,
+      "n_unburned": 6634,
+      "n_large_blocks": 155
+    }
+  },
+  "direction_reversal_table": [
+    {
+      "feature": "ndvi_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.5862731853113042,
+      "montiferru_2021_ci_low": 0.45014383161602317,
+      "montiferru_2021_ci_high": 0.7043832813462082,
+      "montiferru_2021_direction": "higher_values_rank_burned",
+      "montiferru_2021_support_status": "interval_includes_chance",
+      "evia_2021_extended_auc": 0.6391494562092995,
+      "evia_2021_extended_ci_low": 0.5749285449525442,
+      "evia_2021_extended_ci_high": 0.7006046421340476,
+      "evia_2021_extended_direction": "higher_values_rank_burned",
+      "evia_2021_extended_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "auc_difference_target_minus_source": 0.054640340279979945,
+      "auc_difference_ci_low": -0.09098935464316855,
+      "auc_difference_ci_high": 0.20034464517694686,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "elevation_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.5837706290859124,
+      "montiferru_2021_ci_low": 0.3953155499799928,
+      "montiferru_2021_ci_high": 0.7623088314675833,
+      "montiferru_2021_direction": "higher_values_rank_burned",
+      "montiferru_2021_support_status": "interval_includes_chance",
+      "evia_2021_extended_auc": 0.540559580910425,
+      "evia_2021_extended_ci_low": 0.4483537317612215,
+      "evia_2021_extended_ci_high": 0.626146085073554,
+      "evia_2021_extended_direction": "higher_values_rank_burned",
+      "evia_2021_extended_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": -0.0462660691460954,
+      "auc_difference_ci_low": -0.247035225445548,
+      "auc_difference_ci_high": 0.15742113420660656,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "slope_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.6519721105399766,
+      "montiferru_2021_ci_low": 0.5059965620455151,
+      "montiferru_2021_ci_high": 0.7705472817222545,
+      "montiferru_2021_direction": "higher_values_rank_burned",
+      "montiferru_2021_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "evia_2021_extended_auc": 0.486543098344048,
+      "evia_2021_extended_ci_low": 0.41769297357779134,
+      "evia_2021_extended_ci_high": 0.554042450008236,
+      "evia_2021_extended_direction": "lower_values_rank_burned",
+      "evia_2021_extended_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": -0.16447443677044576,
+      "auc_difference_ci_low": -0.3114172019628274,
+      "auc_difference_ci_high": -0.012408704160671684,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "lst_anomaly_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.39519013227598904,
+      "montiferru_2021_ci_low": 0.285145350453144,
+      "montiferru_2021_ci_high": 0.5345227829044743,
+      "montiferru_2021_direction": "lower_values_rank_burned",
+      "montiferru_2021_support_status": "interval_includes_chance",
+      "evia_2021_extended_auc": 0.6400549435604515,
+      "evia_2021_extended_ci_low": 0.5671047052827075,
+      "evia_2021_extended_ci_high": 0.710175869871198,
+      "evia_2021_extended_direction": "higher_values_rank_burned",
+      "evia_2021_extended_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "auc_difference_target_minus_source": 0.24311865892749945,
+      "auc_difference_ci_low": 0.08874947068782334,
+      "auc_difference_ci_high": 0.37914031007669485,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "current_lst_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.3704643770906685,
+      "montiferru_2021_ci_low": 0.24782684782865552,
+      "montiferru_2021_ci_high": 0.5129602234841384,
+      "montiferru_2021_direction": "lower_values_rank_burned",
+      "montiferru_2021_support_status": "interval_includes_chance",
+      "evia_2021_extended_auc": 0.37651907667348405,
+      "evia_2021_extended_ci_low": 0.3012790089007279,
+      "evia_2021_extended_ci_high": 0.45585820887246337,
+      "evia_2021_extended_direction": "lower_values_rank_burned",
+      "evia_2021_extended_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "auc_difference_target_minus_source": 0.004600722890265746,
+      "auc_difference_ci_low": -0.15682288838933384,
+      "auc_difference_ci_high": 0.15606769590183311,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "current_tvdi_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.3555286181577596,
+      "montiferru_2021_ci_low": 0.2331671304845549,
+      "montiferru_2021_ci_high": 0.4990539748344443,
+      "montiferru_2021_direction": "lower_values_rank_burned",
+      "montiferru_2021_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "evia_2021_extended_auc": 0.36188826587369816,
+      "evia_2021_extended_ci_low": 0.2852365355103699,
+      "evia_2021_extended_ci_high": 0.44217142834635265,
+      "evia_2021_extended_direction": "lower_values_rank_burned",
+      "evia_2021_extended_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "auc_difference_target_minus_source": 0.0050820897351258046,
+      "auc_difference_ci_low": -0.15245217991984691,
+      "auc_difference_ci_high": 0.15427826763049768,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "tvdi_difference_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.37762180818824925,
+      "montiferru_2021_ci_low": 0.2821229847499818,
+      "montiferru_2021_ci_high": 0.49651149112782955,
+      "montiferru_2021_direction": "lower_values_rank_burned",
+      "montiferru_2021_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "evia_2021_extended_auc": 0.5191031776643451,
+      "evia_2021_extended_ci_low": 0.4444187250619392,
+      "evia_2021_extended_ci_high": 0.5889301019447588,
+      "evia_2021_extended_direction": "higher_values_rank_burned",
+      "evia_2021_extended_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": 0.13903866046857616,
+      "auc_difference_ci_low": 0.000691179602141858,
+      "auc_difference_ci_high": 0.26401313228637724,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "downscaled_lst_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.364736376795746,
+      "montiferru_2021_ci_low": 0.24025899649425494,
+      "montiferru_2021_ci_high": 0.5110558445055425,
+      "montiferru_2021_direction": "lower_values_rank_burned",
+      "montiferru_2021_support_status": "interval_includes_chance",
+      "evia_2021_extended_auc": 0.3765491129362415,
+      "evia_2021_extended_ci_low": 0.29685914048213763,
+      "evia_2021_extended_ci_high": 0.4593307010841324,
+      "evia_2021_extended_direction": "lower_values_rank_burned",
+      "evia_2021_extended_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "auc_difference_target_minus_source": 0.01035627040068566,
+      "auc_difference_ci_low": -0.15174904257098387,
+      "auc_difference_ci_high": 0.16725458597775303,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    },
+    {
+      "feature": "fused_lst_mean",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "montiferru_2021_auc": 0.37047270506479624,
+      "montiferru_2021_ci_low": 0.247836825343333,
+      "montiferru_2021_ci_high": 0.5130079558295708,
+      "montiferru_2021_direction": "lower_values_rank_burned",
+      "montiferru_2021_support_status": "interval_includes_chance",
+      "evia_2021_extended_auc": 0.37566126384147186,
+      "evia_2021_extended_ci_low": 0.30015191434549077,
+      "evia_2021_extended_ci_high": 0.4556221037116367,
+      "evia_2021_extended_direction": "lower_values_rank_burned",
+      "evia_2021_extended_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "auc_difference_target_minus_source": 0.003760654220313249,
+      "auc_difference_ci_low": -0.15796055941102044,
+      "auc_difference_ci_high": 0.1560937458660937,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+    }
+  ],
+  "bootstrap_supported_direction_reversals": [],
+  "point_reversals_interval_uncertain": [
+    "slope_mean",
+    "lst_anomaly_mean",
+    "tvdi_difference_mean"
+  ],
+  "same_direction_features": [
+    "ndvi_mean",
+    "elevation_mean",
+    "current_lst_mean",
+    "current_tvdi_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "landcover_exclusion_reason": "landcover_dominant is categorical; its integer class codes have no scientifically meaningful scalar ordering, so a raw-code ROC-AUC would be invalid. Reported as a separate descriptive table instead.",
+  "step9f_model_level_integration": {
+    "note": "Step9F reports model/representation-level ranking reversal across feature variants, NOT per-feature univariate direction. It is presented at the model level only and is never joined per-feature.",
+    "directions": {
+      "montiferru_2021__evia_2021_extended": {
+        "step9f_available": false,
+        "manifest_analysis_id": null,
+        "screening_variant_count": null
+      },
+      "evia_2021_extended__montiferru_2021": {
+        "step9f_available": false,
+        "manifest_analysis_id": null,
+        "screening_variant_count": null
+      }
+    }
+  },
+  "step10_transfer_summary": {
+    "directions": {
+      "montiferru_2021__evia_2021_extended": {
+        "step10_available": false,
+        "analysis_id": null
+      },
+      "evia_2021_extended__montiferru_2021": {
+        "step10_available": false,
+        "analysis_id": null
+      }
+    }
+  },
+  "answers": {
+    "which_features_reverse": [
+      "slope_mean",
+      "lst_anomaly_mean",
+      "tvdi_difference_mean"
+    ],
+    "which_reversals_bootstrap_supported": [],
+    "which_features_same_direction": [
+      "ndvi_mean",
+      "elevation_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "thermal_features_consistent_with_step9e": [
+      "slope_mean",
+      "lst_anomaly_mean",
+      "tvdi_difference_mean"
+    ]
+  },
+  "claim_boundary": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted."
+}

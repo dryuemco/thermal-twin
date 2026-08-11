@@ -1,0 +1,49 @@
+{
+  "analysis_id": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+  "created_utc": "2026-08-08T18:02:44.902315+00:00",
+  "diagnostic_class": "explanatory_aoi_level_regional_meteorology",
+  "diagnostic_namespace": "era5_land_regional",
+  "engine": "era5_land_regional_production_v1",
+  "files": [
+    {
+      "bytes": 15371,
+      "name": "era5_land_regional_summary.csv",
+      "path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/diagnostics/era5_land_regional/4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2/era5_land_regional_summary.csv",
+      "relative_path": "era5_land_regional_summary.csv",
+      "sha256": "19b5b89bbeea0bb4dee4ea47c915947c85bcc07ae60602362a08f1eeb5ffab2b"
+    },
+    {
+      "bytes": 118758,
+      "name": "era5_land_regional_summary.json",
+      "path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/diagnostics/era5_land_regional/4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2/era5_land_regional_summary.json",
+      "relative_path": "era5_land_regional_summary.json",
+      "sha256": "f1d78185ab62b09c0259ee85fc7d098f280e363d1d33f9c00677e43aabcb3933"
+    },
+    {
+      "bytes": 19702,
+      "name": "scientific_contract.json",
+      "path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/diagnostics/era5_land_regional/4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2/scientific_contract.json",
+      "relative_path": "scientific_contract.json",
+      "sha256": "123a37b16c5bd3b4a955184f4a488bdf29ca89ba46040c3d6fbd0f416ddf5bb3"
+    }
+  ],
+  "git_commit": "a07ea33743f4e45963e52c50e706683f1eee164d",
+  "schema_version": "era5_land_regional_diagnostic.v1",
+  "scientific_config_sha256": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+  "source_collection": "ECMWF/ERA5_LAND/HOURLY",
+  "source_grid": {
+    "canonical_projection_band": "temperature_2m",
+    "collection_id": "ECMWF/ERA5_LAND/HOURLY",
+    "crs": "EPSG:4326",
+    "crs_transform": [
+      0.1,
+      0.0,
+      -180.05,
+      0.0,
+      -0.1,
+      90.05
+    ],
+    "nominal_scale_m": 11131.949079327358,
+    "projection_read_method": "ee_single_band_projection_getinfo_v1"
+  }
+}

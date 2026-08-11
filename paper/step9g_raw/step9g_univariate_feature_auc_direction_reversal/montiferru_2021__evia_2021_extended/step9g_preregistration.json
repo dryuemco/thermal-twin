@@ -1,0 +1,103 @@
+{
+  "analysis_id": "1862489bb81cfe4e097e88eaae64aad5f959c0d444da1aff61755a7e14653ae7",
+  "created_at": "2026-08-05T18:32:18.767045+00:00",
+  "scientific_configuration": {
+    "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+    "experiment_ids": [
+      "montiferru_2021",
+      "evia_2021_extended"
+    ],
+    "primary_population": "burnable_tree_shrub_grass",
+    "target": "burned",
+    "numeric_features_in_order": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "landcover_handling": {
+      "column": "landcover_dominant",
+      "excluded_from_numeric_auc": true,
+      "reason": "landcover_dominant is categorical; its integer class codes have no scientifically meaningful scalar ordering, so a raw-code ROC-AUC would be invalid. Reported as a separate descriptive table instead."
+    },
+    "complete_case_policy": "feature-specific complete cases; no imputation; no standardization; no inversion; no winsorization",
+    "raw_auc_definition": "roc_auc_score(burned, raw_feature_value); burned is positive class; never max(AUC,1-AUC)",
+    "signed_rank_effect_definition": "2*raw_univariate_auc - 1",
+    "direction_labels": [
+      "higher_values_rank_burned",
+      "lower_values_rank_burned",
+      "exactly_at_chance",
+      "unavailable"
+    ],
+    "block_construction": "block_row=floor(row_500m/10); block_col=floor(col_500m/10)",
+    "block_size_cells": 10,
+    "block_origin": [
+      0,
+      0
+    ],
+    "block_assigned_before_filtering": true,
+    "nominal_block_scale": "approximately_5_km",
+    "bootstrap": {
+      "replicates": 1000,
+      "seed": 42,
+      "method": "spatial blocks sampled with replacement; all rows per sampled block; multiplicity preserved",
+      "ci": "2.5/97.5 percentile",
+      "invalid_replicate": "sampled complete-case rows contain only one target class",
+      "min_valid_replicates": 900,
+      "second_block_scale": "prohibited"
+    },
+    "region_support_statuses": [
+      "bootstrap_supported_higher_values_rank_burned",
+      "bootstrap_supported_lower_values_rank_burned",
+      "interval_includes_chance",
+      "unstable_bootstrap"
+    ],
+    "reversal_statuses": [
+      "bootstrap_supported_direction_reversal",
+      "point_direction_reversal_interval_uncertain",
+      "no_direction_reversal",
+      "unavailable"
+    ],
+    "secondary_contrast": "auc_difference_evia_2021_extended_minus_montiferru_2021 with independent regional draws paired by replicate index post hoc; non-zero contrast alone is NOT a reversal",
+    "step9e_step9f_integration_policy": "read-only; surface only existing fields; Step9F is model-level only; never fabricate per-feature joins",
+    "output_namespace": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/diagnostics/step9g_univariate_feature_auc_direction_reversal/montiferru_2021__evia_2021_extended",
+    "frozen_input_hashes": {
+      "montiferru_2021": "ffb008f977445076835ae35a70776b0b813d0a36655d2c656fd21e6fedd4ac50",
+      "evia_2021_extended": "bdce859cf482f575d0f273174b157f47efd61779953fdd23d9486c5face5e553"
+    },
+    "frozen_reference_file_counts": {
+      "step9e": {
+        "montiferru_2021__evia_2021_extended": 14,
+        "evia_2021_extended__montiferru_2021": 0
+      },
+      "step9f": {
+        "montiferru_2021__evia_2021_extended": 0,
+        "evia_2021_extended__montiferru_2021": 0
+      },
+      "step10": {
+        "montiferru_2021__evia_2021_extended": 0,
+        "evia_2021_extended__montiferru_2021": 0
+      }
+    },
+    "package_versions": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "scikit_learn": "1.9.0"
+    },
+    "git_commit": "a07ea33743f4e45963e52c50e706683f1eee164d",
+    "prohibited_actions": [
+      "feature_tuning_or_transformation_after_results",
+      "auc_inversion",
+      "prediction_inversion",
+      "target_label_adaptation",
+      "second_block_scale",
+      "population_mixing_in_primary_table",
+      "hardcoding_or_testing_against_prototype_values"
+    ]
+  }
+}

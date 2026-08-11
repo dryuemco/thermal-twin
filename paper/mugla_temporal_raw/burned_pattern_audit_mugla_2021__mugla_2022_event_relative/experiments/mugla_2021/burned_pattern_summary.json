@@ -1,0 +1,335 @@
+{
+  "experiment_id": "mugla_2021",
+  "analysis_id": "fe79ac08df791d10a5ab9a169d36cc4ad795397dae683aab29cffd41e71098bc",
+  "created_at": "2026-08-09T11:48:58.354923+00:00",
+  "input_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/mugla_2021/step8a/step8a_500m_modeling_dataset.parquet",
+  "pre_label_gate": {
+    "gate_available": true,
+    "gate_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/mugla_2021/validation/labels/burned_landcover_gate.json",
+    "gate_sha256": "acadc06206952d9ca4a9effd9b1262bff00e057bbc4442f0cc1f1078855322bc",
+    "pre_label_burn_exclusion_rule": "valid nonzero BurnDate calendar date < label_start (2021-07-29)",
+    "pre_label_burn_excluded_count": 49,
+    "validated": true,
+    "analysis_universe_cells_gate": 73049,
+    "burned_count_gate": 3026
+  },
+  "populations": {
+    "all_valid_burned": {
+      "population": "all_valid_burned",
+      "definition": "Canonical event-footprint population: Step8A rows that are canonical-analysis-eligible (Step8A 'analysis_eligible' column, i.e. NOT pre-label-burn-excluded -- see resolve_analysis_eligible_mask) with burned == 1 and valid (non-null) row_500m/col_500m grid coordinates. No land-cover restriction. Primary population for component count, patch-size distribution, elevation distribution, and land-cover composition.",
+      "total_input_rows": 73098,
+      "analysis_eligible_rows": 73049,
+      "metrics": {
+        "total_burned_cells": 3026,
+        "component_count": 9,
+        "singleton_component_count": 0,
+        "singleton_component_fraction": 0.0,
+        "largest_component_cells": 969,
+        "largest_component_fraction": 0.3202247191011236,
+        "second_largest_component_cells": 741,
+        "second_largest_component_fraction": 0.24487772637144745,
+        "top3_component_fraction": 0.786186384666226,
+        "component_share_hhi": 0.24442472355688896,
+        "effective_component_count": 4.091239157184742,
+        "component_size_min": 11,
+        "component_size_q25": 18.0,
+        "component_size_median": 29.0,
+        "component_size_mean": 336.22222222222223,
+        "component_size_q75": 669.0,
+        "component_size_q90": 786.6,
+        "component_size_q95": 877.8,
+        "component_size_max": 969,
+        "largest_component_approximate_area_km2": 242.25,
+        "total_burned_approximate_area_km2": 756.5
+      },
+      "edge_diagnostics": {
+        "edge_touching_component_count": 2,
+        "edge_touching_component_fraction": 0.2222222222222222,
+        "largest_component_touches_edge": false
+      },
+      "elevation": {
+        "valid_count": 3026,
+        "missing_count": 0,
+        "min": 0.0,
+        "q05": 34.974090576171875,
+        "q25": 245.4825325012207,
+        "median": 539.2785949707031,
+        "mean": 652.5278950425184,
+        "q75": 1054.6731872558594,
+        "q95": 1521.1829528808594,
+        "max": 1974.5574951171875,
+        "iqr": 809.1906547546387,
+        "range": 1974.5574951171875
+      },
+      "landcover": {
+        "summary": {
+          "missing_count": 0,
+          "valid_count": 3026,
+          "observed_landcover_class_count": 7,
+          "dominant_landcover_code": 10,
+          "dominant_landcover_label": "tree_cover",
+          "dominant_landcover_fraction": 0.8896232650363516
+        },
+        "classes": [
+          {
+            "class_code": 10,
+            "label": "tree_cover",
+            "count": 2692,
+            "fraction": 0.8896232650363516
+          },
+          {
+            "class_code": 30,
+            "label": "grassland",
+            "count": 135,
+            "fraction": 0.04461335095836087
+          },
+          {
+            "class_code": 80,
+            "label": "permanent_water",
+            "count": 75,
+            "fraction": 0.02478519497686715
+          },
+          {
+            "class_code": 20,
+            "label": "shrubland",
+            "count": 73,
+            "fraction": 0.024124256444150696
+          },
+          {
+            "class_code": 40,
+            "label": "cropland",
+            "count": 39,
+            "fraction": 0.012888301387970919
+          },
+          {
+            "class_code": 50,
+            "label": "built_up",
+            "count": 10,
+            "fraction": 0.003304692663582287
+          },
+          {
+            "class_code": 60,
+            "label": "bare_sparse_vegetation",
+            "count": 2,
+            "fraction": 0.0006609385327164573
+          }
+        ]
+      },
+      "burn_date_available": true
+    },
+    "burnable_tree_shrub_grass_burned": {
+      "population": "burnable_tree_shrub_grass_burned",
+      "definition": "Natural-vegetation sensitivity population: the corrected primary population further restricted to rows where the existing Step8A 'burnable_tree_shrub_grass' boolean column is True. That frozen Step8A column is a COMBINED per-cell fraction rule -- (landcover_tree_cover_fraction + landcover_shrubland_fraction + landcover_grassland_fraction) >= burnable_threshold (STEP8A_BURNABLE_FRACTION_THRESHOLD) -- already computed in Step8A and reused verbatim here, never recomputed. It is NOT a dominant-land-cover selection: the 'landcover_dominant' column is no part of the selection rule (it is used only for descriptive land-cover composition reporting). A cell therefore qualifies whenever the three fractions SUM to at least the threshold even if its single dominant class is cropland/bare/other, and a cell whose dominant class is tree, shrubland or grassland is excluded if that sum falls below the threshold. Reported as a sensitivity analysis, never substituted for the primary population.",
+      "total_input_rows": 73098,
+      "analysis_eligible_rows": 73049,
+      "metrics": {
+        "total_burned_cells": 2911,
+        "component_count": 10,
+        "singleton_component_count": 1,
+        "singleton_component_fraction": 0.1,
+        "largest_component_cells": 914,
+        "largest_component_fraction": 0.31398144967365166,
+        "second_largest_component_cells": 738,
+        "second_largest_component_fraction": 0.2535211267605634,
+        "top3_component_fraction": 0.7870147715561663,
+        "component_share_hhi": 0.24664131279958829,
+        "effective_component_count": 4.054470796676968,
+        "component_size_min": 1,
+        "component_size_q25": 11.0,
+        "component_size_median": 22.5,
+        "component_size_mean": 291.1,
+        "component_size_q75": 616.25,
+        "component_size_q90": 755.5999999999999,
+        "component_size_q95": 834.7999999999998,
+        "component_size_max": 914,
+        "largest_component_approximate_area_km2": 228.5,
+        "total_burned_approximate_area_km2": 727.75
+      },
+      "edge_diagnostics": {
+        "edge_touching_component_count": 2,
+        "edge_touching_component_fraction": 0.2,
+        "largest_component_touches_edge": false
+      },
+      "elevation": {
+        "valid_count": 2911,
+        "missing_count": 0,
+        "min": 1.621870517730713,
+        "q05": 84.3343620300293,
+        "q25": 267.44482421875,
+        "median": 563.0870361328125,
+        "mean": 676.69252126506,
+        "q75": 1075.4190063476562,
+        "q95": 1525.7365112304688,
+        "max": 1974.5574951171875,
+        "iqr": 807.9741821289062,
+        "range": 1972.9356245994568
+      },
+      "landcover": {
+        "summary": {
+          "missing_count": 0,
+          "valid_count": 2911,
+          "observed_landcover_class_count": 7,
+          "dominant_landcover_code": 10,
+          "dominant_landcover_label": "tree_cover",
+          "dominant_landcover_fraction": 0.9247681209206459
+        },
+        "classes": [
+          {
+            "class_code": 10,
+            "label": "tree_cover",
+            "count": 2692,
+            "fraction": 0.9247681209206459
+          },
+          {
+            "class_code": 30,
+            "label": "grassland",
+            "count": 135,
+            "fraction": 0.046375815870834766
+          },
+          {
+            "class_code": 20,
+            "label": "shrubland",
+            "count": 73,
+            "fraction": 0.02507729302645139
+          },
+          {
+            "class_code": 40,
+            "label": "cropland",
+            "count": 4,
+            "fraction": 0.0013740982480247338
+          },
+          {
+            "class_code": 80,
+            "label": "permanent_water",
+            "count": 4,
+            "fraction": 0.0013740982480247338
+          },
+          {
+            "class_code": 50,
+            "label": "built_up",
+            "count": 2,
+            "fraction": 0.0006870491240123669
+          },
+          {
+            "class_code": 60,
+            "label": "bare_sparse_vegetation",
+            "count": 1,
+            "fraction": 0.00034352456200618345
+          }
+        ]
+      },
+      "burn_date_available": true
+    },
+    "burnable_tree_shrub_grass_valid_for_modeling_burned": {
+      "population": "burnable_tree_shrub_grass_valid_for_modeling_burned",
+      "definition": "Advisor-specific final-model-population morphology comparison. Selection contract, all conditions required simultaneously: analysis_eligible == True AND valid_for_modeling == True AND burnable_tree_shrub_grass == True AND burned == 1 AND non-null row_500m/col_500m. Both Step8A boolean columns are reused verbatim and never recomputed here (see the burnable_tree_shrub_grass_burned definition for the combined fraction rule behind 'burnable_tree_shrub_grass'). This population describes the morphology of the rows that actually reach the final model; it is an ADDITIONAL comparison only and does NOT replace, redefine, or otherwise alter the 'all_valid_burned' primary population or the 'burnable_tree_shrub_grass_burned' sensitivity population.",
+      "total_input_rows": 73098,
+      "analysis_eligible_rows": 73049,
+      "metrics": {
+        "total_burned_cells": 2911,
+        "component_count": 10,
+        "singleton_component_count": 1,
+        "singleton_component_fraction": 0.1,
+        "largest_component_cells": 914,
+        "largest_component_fraction": 0.31398144967365166,
+        "second_largest_component_cells": 738,
+        "second_largest_component_fraction": 0.2535211267605634,
+        "top3_component_fraction": 0.7870147715561663,
+        "component_share_hhi": 0.24664131279958829,
+        "effective_component_count": 4.054470796676968,
+        "component_size_min": 1,
+        "component_size_q25": 11.0,
+        "component_size_median": 22.5,
+        "component_size_mean": 291.1,
+        "component_size_q75": 616.25,
+        "component_size_q90": 755.5999999999999,
+        "component_size_q95": 834.7999999999998,
+        "component_size_max": 914,
+        "largest_component_approximate_area_km2": 228.5,
+        "total_burned_approximate_area_km2": 727.75
+      },
+      "edge_diagnostics": {
+        "edge_touching_component_count": 2,
+        "edge_touching_component_fraction": 0.2,
+        "largest_component_touches_edge": false
+      },
+      "elevation": {
+        "valid_count": 2911,
+        "missing_count": 0,
+        "min": 1.621870517730713,
+        "q05": 84.3343620300293,
+        "q25": 267.44482421875,
+        "median": 563.0870361328125,
+        "mean": 676.69252126506,
+        "q75": 1075.4190063476562,
+        "q95": 1525.7365112304688,
+        "max": 1974.5574951171875,
+        "iqr": 807.9741821289062,
+        "range": 1972.9356245994568
+      },
+      "landcover": {
+        "summary": {
+          "missing_count": 0,
+          "valid_count": 2911,
+          "observed_landcover_class_count": 7,
+          "dominant_landcover_code": 10,
+          "dominant_landcover_label": "tree_cover",
+          "dominant_landcover_fraction": 0.9247681209206459
+        },
+        "classes": [
+          {
+            "class_code": 10,
+            "label": "tree_cover",
+            "count": 2692,
+            "fraction": 0.9247681209206459
+          },
+          {
+            "class_code": 30,
+            "label": "grassland",
+            "count": 135,
+            "fraction": 0.046375815870834766
+          },
+          {
+            "class_code": 20,
+            "label": "shrubland",
+            "count": 73,
+            "fraction": 0.02507729302645139
+          },
+          {
+            "class_code": 40,
+            "label": "cropland",
+            "count": 4,
+            "fraction": 0.0013740982480247338
+          },
+          {
+            "class_code": 80,
+            "label": "permanent_water",
+            "count": 4,
+            "fraction": 0.0013740982480247338
+          },
+          {
+            "class_code": 50,
+            "label": "built_up",
+            "count": 2,
+            "fraction": 0.0006870491240123669
+          },
+          {
+            "class_code": 60,
+            "label": "bare_sparse_vegetation",
+            "count": 1,
+            "fraction": 0.00034352456200618345
+          }
+        ]
+      },
+      "burn_date_available": true
+    }
+  },
+  "limitations": [
+    "Connected components are a spatial fragmentation proxy. They must not be interpreted as a definitive count of independent wildfire events, because one event may appear as multiple disconnected components and multiple events may be spatially connected at the analysis resolution.",
+    "Connected-component count is resolution-dependent (8-neighbour adjacency on the fixed 500 m Step8A grid); a coarser or finer grid would yield a different count for the same physical burned area.",
+    "Results are sensitive to AOI clipping: a component that would be contiguous in a wider AOI can appear split, or vice versa, purely because of where the analysis extent was drawn.",
+    "MCD64A1-scale cells are approximate spatial units, not exact ground-truth footprints (see CELL_AREA_KM2_SOURCE provenance).",
+    "Component count is not a definitive fire-event count.",
+    "Results are descriptive and do not explain cross-region transfer performance causally."
+  ]
+}

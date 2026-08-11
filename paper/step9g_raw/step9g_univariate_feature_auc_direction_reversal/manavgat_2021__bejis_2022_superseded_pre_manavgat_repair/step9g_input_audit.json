@@ -1,0 +1,21 @@
+{
+  "analysis_id": "87d4ec94021fed17446ce5e7870d4222154a131ce830535339a4f0d01c0c6ba7",
+  "regions": {
+    "manavgat_2021": {
+      "experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 20511,
+      "n_burned": 784,
+      "n_unburned": 19727,
+      "n_large_blocks": 237
+    },
+    "bejis_2022": {
+      "experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 15190,
+      "n_burned": 1100,
+      "n_unburned": 14090,
+      "n_large_blocks": 176
+    }
+  }
+}

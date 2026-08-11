@@ -1,0 +1,284 @@
+{
+  "analysis_id": "87d4ec94021fed17446ce5e7870d4222154a131ce830535339a4f0d01c0c6ba7",
+  "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+  "primary_population": "burnable_tree_shrub_grass",
+  "input_audit": {
+    "manavgat_2021": {
+      "experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 20511,
+      "n_burned": 784,
+      "n_unburned": 19727,
+      "n_large_blocks": 237
+    },
+    "bejis_2022": {
+      "experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 15190,
+      "n_burned": 1100,
+      "n_unburned": 14090,
+      "n_large_blocks": 176
+    }
+  },
+  "direction_reversal_table": [
+    {
+      "feature": "ndvi_mean",
+      "manavgat_auc": 0.6359169371099176,
+      "manavgat_ci_low": 0.5872285206570871,
+      "manavgat_ci_high": 0.6762849193685545,
+      "manavgat_direction": "higher_values_rank_burned",
+      "manavgat_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "bejis_auc": 0.5587527905026131,
+      "bejis_ci_low": 0.4971818582643429,
+      "bejis_ci_high": 0.619346637555737,
+      "bejis_direction": "higher_values_rank_burned",
+      "bejis_support_status": "interval_includes_chance",
+      "auc_difference_bejis_minus_manavgat": -0.07627061496922588,
+      "auc_difference_ci_low": -0.15477752312550216,
+      "auc_difference_ci_high": -0.00012531661544428849,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "elevation_mean",
+      "manavgat_auc": 0.37410755666893913,
+      "manavgat_ci_low": 0.2890796631009303,
+      "manavgat_ci_high": 0.4711534398242251,
+      "manavgat_direction": "lower_values_rank_burned",
+      "manavgat_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "bejis_auc": 0.6432824053164721,
+      "bejis_ci_low": 0.5583150457861116,
+      "bejis_ci_high": 0.7290055219147464,
+      "bejis_direction": "higher_values_rank_burned",
+      "bejis_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "auc_difference_bejis_minus_manavgat": 0.2686210191573008,
+      "auc_difference_ci_low": 0.13797717444545035,
+      "auc_difference_ci_high": 0.3969671255670697,
+      "point_direction_reversal": true,
+      "reversal_status": "bootstrap_supported_direction_reversal",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point directions are opposite across the two regions, and each region's 95% spatial-block bootstrap interval lies on a different side of 0.5. This is a bootstrap-supported univariate direction reversal. It is consistent with feature-label relationship instability but does not establish causality or prove that this is the sole transfer-failure mechanism."
+    },
+    {
+      "feature": "slope_mean",
+      "manavgat_auc": 0.5309574867864721,
+      "manavgat_ci_low": 0.4228454993639831,
+      "manavgat_ci_high": 0.641707826568334,
+      "manavgat_direction": "higher_values_rank_burned",
+      "manavgat_support_status": "interval_includes_chance",
+      "bejis_auc": 0.5207878895412608,
+      "bejis_ci_low": 0.4393212094762653,
+      "bejis_ci_high": 0.605295958421595,
+      "bejis_direction": "higher_values_rank_burned",
+      "bejis_support_status": "interval_includes_chance",
+      "auc_difference_bejis_minus_manavgat": -0.008663585269221539,
+      "auc_difference_ci_low": -0.14539287859205083,
+      "auc_difference_ci_high": 0.1257433164930201,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "lst_anomaly_mean",
+      "manavgat_auc": 0.4823529005017941,
+      "manavgat_ci_low": 0.4279530417105843,
+      "manavgat_ci_high": 0.5299474237983043,
+      "manavgat_direction": "lower_values_rank_burned",
+      "manavgat_support_status": "interval_includes_chance",
+      "bejis_auc": 0.4179915266529903,
+      "bejis_ci_low": 0.36378505075441114,
+      "bejis_ci_high": 0.4795630994864565,
+      "bejis_direction": "lower_values_rank_burned",
+      "bejis_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "auc_difference_bejis_minus_manavgat": -0.06182439011806986,
+      "auc_difference_ci_low": -0.13903694209908374,
+      "auc_difference_ci_high": 0.016399375747452136,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "current_lst_mean",
+      "manavgat_auc": 0.5382779853437281,
+      "manavgat_ci_low": 0.45176227230170396,
+      "manavgat_ci_high": 0.620503038933485,
+      "manavgat_direction": "higher_values_rank_burned",
+      "manavgat_support_status": "interval_includes_chance",
+      "bejis_auc": 0.47674775069349284,
+      "bejis_ci_low": 0.4011532923534438,
+      "bejis_ci_high": 0.5474889652503846,
+      "bejis_direction": "lower_values_rank_burned",
+      "bejis_support_status": "interval_includes_chance",
+      "auc_difference_bejis_minus_manavgat": -0.06155262825129987,
+      "auc_difference_ci_low": -0.169314381581861,
+      "auc_difference_ci_high": 0.05107642527687199,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    },
+    {
+      "feature": "current_tvdi_mean",
+      "manavgat_auc": 0.5520208992479892,
+      "manavgat_ci_low": 0.4602480293883392,
+      "manavgat_ci_high": 0.6410618349429631,
+      "manavgat_direction": "higher_values_rank_burned",
+      "manavgat_support_status": "interval_includes_chance",
+      "bejis_auc": 0.5172782323463783,
+      "bejis_ci_low": 0.42900913810605534,
+      "bejis_ci_high": 0.595208856020078,
+      "bejis_direction": "higher_values_rank_burned",
+      "bejis_support_status": "interval_includes_chance",
+      "auc_difference_bejis_minus_manavgat": -0.034709265246178345,
+      "auc_difference_ci_low": -0.1593800886357545,
+      "auc_difference_ci_high": 0.09131574600660754,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "tvdi_difference_mean",
+      "manavgat_auc": 0.44939202798988004,
+      "manavgat_ci_low": 0.3905414223569665,
+      "manavgat_ci_high": 0.5051782545937413,
+      "manavgat_direction": "lower_values_rank_burned",
+      "manavgat_support_status": "interval_includes_chance",
+      "bejis_auc": 0.5124941631737097,
+      "bejis_ci_low": 0.44315493285236285,
+      "bejis_ci_high": 0.5829402577021532,
+      "bejis_direction": "higher_values_rank_burned",
+      "bejis_support_status": "interval_includes_chance",
+      "auc_difference_bejis_minus_manavgat": 0.06438894401780693,
+      "auc_difference_ci_low": -0.031943853130857854,
+      "auc_difference_ci_high": 0.15814393309935346,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    },
+    {
+      "feature": "downscaled_lst_mean",
+      "manavgat_auc": 0.5520694210669516,
+      "manavgat_ci_low": 0.4659633972389294,
+      "manavgat_ci_high": 0.637150621852662,
+      "manavgat_direction": "higher_values_rank_burned",
+      "manavgat_support_status": "interval_includes_chance",
+      "bejis_auc": 0.4836430737466933,
+      "bejis_ci_low": 0.4003605903074035,
+      "bejis_ci_high": 0.5598325680030973,
+      "bejis_direction": "lower_values_rank_burned",
+      "bejis_support_status": "interval_includes_chance",
+      "auc_difference_bejis_minus_manavgat": -0.06838090745714837,
+      "auc_difference_ci_low": -0.18257387605860367,
+      "auc_difference_ci_high": 0.04869212969828818,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    },
+    {
+      "feature": "fused_lst_mean",
+      "manavgat_auc": 0.5400826188182982,
+      "manavgat_ci_low": 0.4542805043929701,
+      "manavgat_ci_high": 0.6218679874478806,
+      "manavgat_direction": "higher_values_rank_burned",
+      "manavgat_support_status": "interval_includes_chance",
+      "bejis_auc": 0.4806129105103555,
+      "bejis_ci_low": 0.40394725127325576,
+      "bejis_ci_high": 0.5514025133468518,
+      "bejis_direction": "lower_values_rank_burned",
+      "bejis_support_status": "interval_includes_chance",
+      "auc_difference_bejis_minus_manavgat": -0.059703099048274325,
+      "auc_difference_ci_low": -0.16880991575704352,
+      "auc_difference_ci_high": 0.05190783436273211,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    }
+  ],
+  "bootstrap_supported_direction_reversals": [
+    "elevation_mean"
+  ],
+  "point_reversals_interval_uncertain": [
+    "current_lst_mean",
+    "tvdi_difference_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "same_direction_features": [
+    "ndvi_mean",
+    "slope_mean",
+    "lst_anomaly_mean",
+    "current_tvdi_mean"
+  ],
+  "landcover_exclusion_reason": "landcover_dominant is categorical; its integer class codes have no scientifically meaningful scalar ordering, so a raw-code ROC-AUC would be invalid. Reported as a separate descriptive table instead.",
+  "step9f_model_level_integration": {
+    "note": "Step9F reports model/representation-level ranking reversal across feature variants, NOT per-feature univariate direction. It is presented at the model level only and is never joined per-feature.",
+    "directions": {
+      "manavgat_2021__bejis_2022": {
+        "step9f_available": true,
+        "manifest_analysis_id": null,
+        "screening_variant_count": 10
+      },
+      "bejis_2022__manavgat_2021": {
+        "step9f_available": false,
+        "manifest_analysis_id": null,
+        "screening_variant_count": null
+      }
+    }
+  },
+  "step10_transfer_summary": {
+    "directions": {
+      "manavgat_2021__bejis_2022": {
+        "step10_available": true,
+        "analysis_id": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6"
+      },
+      "bejis_2022__manavgat_2021": {
+        "step10_available": false,
+        "analysis_id": null
+      }
+    }
+  },
+  "answers": {
+    "which_features_reverse": [
+      "elevation_mean",
+      "current_lst_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "which_reversals_bootstrap_supported": [
+      "elevation_mean"
+    ],
+    "which_features_same_direction": [
+      "ndvi_mean",
+      "slope_mean",
+      "lst_anomaly_mean",
+      "current_tvdi_mean"
+    ],
+    "thermal_features_consistent_with_step9e": [
+      "current_lst_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "features_consistent_with_step9e": [
+      "elevation_mean",
+      "current_lst_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ]
+  },
+  "claim_boundary": "Raw cross-region transfer was below chance; unsupervised adaptation recovered part of the discrimination loss; a large gap to within-region performance remained. Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across regions, a pattern consistent with residual concept/relationship shift. This does NOT prove causality and does NOT establish that concept shift is the only source of transfer failure; AUC below 0.5 is a direction, not poor performance, and is never inverted.",
+  "report_schema_version": "step9g.univariate_feature_auc_direction_reversal.report.v2",
+  "report_revision_reason": "Corrects two report-layer semantic defects without recomputing any numerical result. (1) integrated_interpretation previously repeated one identical generic sentence for every feature row regardless of reversal_status; it is now generated per row from reversal_status. (2) thermal_features_consistent_with_step9e previously could include elevation_mean (a baseline, not thermal, feature); it is now restricted to the frozen thermal-feature set (lst_anomaly_mean, current_lst_mean, current_tvdi_mean, tvdi_difference_mean, downscaled_lst_mean, fused_lst_mean). A new general features_consistent_with_step9e field lists any feature (thermal or baseline) whose Step9G point-direction-reversal flag agrees with the Step9E relationship-direction diagnostic. AUC, CI, bootstrap draws, direction labels, support_status, and reversal_status are unchanged (numerical_results_unchanged=true); analysis_id is preserved verbatim.",
+  "numerical_results_unchanged": true,
+  "regenerated_at": "2026-07-23T08:27:40.563056+00:00"
+}
