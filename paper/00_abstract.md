@@ -12,8 +12,9 @@ survived coarser blocks and an earlier predictor window.
 
 The predictors were then transferred between regions. Their mean contribution over twenty ordered
 directions was +0.004, with an interval spanning zero. Paired deltas ran from −0.148 to +0.132,
-twelve positive and eight negative. Removing the two reversing predictors bought +0.014 of transfer
-for −0.081 of within-region skill. Local skill and portability are therefore traded.
+twelve positive and eight negative. Removing the two reversing predictors cost −0.081 of
+within-region skill, with support in every region, and changed mean transfer by +0.014, an estimate
+whose pair-clustered interval spans zero. The debit is measured and the credit is not.
 
 The failure is conditional. Inside one study area, two fires eleven months apart reversed the
 elevation-burning link, with disjoint bootstrap intervals. Season and year are confounded there, so
@@ -26,7 +27,8 @@ measure ordered the matrix. At the point estimate, the highest-overlap pair fail
 directions and the lowest-overlap pair transferred in both. Label-blind adaptation by standardisation
 and CORAL only pushed transfer towards chance. Niche and regime measures need labels in both regions
 too, so only the marginal family can be run before deployment, and it fails. Thirty-two labelled
-target blocks recovered 85 to 89 % of the ceiling in four of six directions tested.
+target blocks recovered 85 to 89 % of the ceiling in three of six directions tested, 51 to 57 % in
+two more and 30 % in the sixth.
 
 Transfer skill therefore has to be measured, not inferred from similarity. What carries the
 information is conditional, so the price of this failure is target labels rather than better
