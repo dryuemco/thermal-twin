@@ -82,14 +82,14 @@ S1.4 on why the upper-budget intervals are narrow.
 Three observations follow, and only the first is comfortable.
 
 **A modest labelled budget recovers most of the gap in four of six directions.** Thirty-two blocks
-carry on average 2,700–3,000 labelled cells, roughly 7–20 % of the target's natural-vegetation
-population depending on the region. At that budget four directions stand at 85–89 % of their
+carry on average 2,700 to 3,000 labelled cells, roughly 7 to 20 % of the target's natural-vegetation
+population depending on the region. At that budget four directions stand at 85 to 89 % of their
 target-only ceiling, having started at or below chance. The failure the main text documents is
 therefore expensive but not structural: it is a shortage of target-conditional information, and
 target labels supply exactly that.
 
 **The recovery is slow where the transfer is worst.** The two directions into Muğla and Manavgat
-from Muğla — the directions whose raw transfer sits furthest below the ceiling — reach only 51–57 %
+from Muğla — the directions whose raw transfer sits furthest below the ceiling — reach only 51 to 57 %
 at the top budget, and Muğla → Manavgat is still below 0.5 AUC after 8 labelled blocks. A larger
 concept gap costs more labels, not the same labels.
 
@@ -124,7 +124,7 @@ These are stated so the analysis is not read as more than it is.
    quantity, and the top budget is not a small budget for these AOIs: 880 of Bejís's 1,100 burned
    cells are inside it.
 5. **The ceiling is the 10-cell-block target-only value**, not the ≈ 1 km within-region headline of
-   Table 3, and is correspondingly lower (0.777–0.824 against 0.87–0.94). Recovery fractions are
+   Table 3, and is correspondingly lower (0.777 to 0.824 against 0.87 to 0.94). Recovery fractions are
    only interpretable against this matched-blocking ceiling.
 6. **Ceiling reproduction verified for two of three targets.** The Manavgat and Bejís ceilings
    reproduce the frozen large-block artefacts exactly (absolute difference 0.0 against a 10⁻⁹

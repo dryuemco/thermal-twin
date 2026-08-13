@@ -30,13 +30,13 @@ output. TSG = the primary natural-vegetation population (`burnable_tree_shrub_gr
 | Montiferru 2021 | 3,234 | 3,173 | 748 | 0.236 | 2,591 | 582 | 0.225 | 0.723 | pass |
 
 All five regions pass the admissibility gate as wildfire candidates (burned natural-vegetation
-fraction 0.723–0.991). Montiferru is the weakest pass, with a burned cropland fraction of 0.274;
+fraction 0.723 to 0.991). Montiferru is the weakest pass, with a burned cropland fraction of 0.274;
 its sensitivity to this composition is examined in Section 4.7b. The negative control behaves as
 designed: in Kozan 2023 the gate classifies 542 burned cells as 0.017 natural vegetation and
 0.983 cropland (533 of 542 burned cells cropland-dominant, 8 grassland, 1 tree cover), returning
 the verdict *cropland-dominated control*, and the region is excluded from all modelling. The
 separation is not marginal — the five admitted regions carry natural-vegetation fractions of
-0.723–0.991 against the control's 0.017, so the 0.50 threshold falls in an empty interval rather
+0.723 to 0.991 against the control's 0.017, so the 0.50 threshold falls in an empty interval rather
 than between neighbouring cases. This establishes that the gate discriminates burned area produced
 by natural-fuel combustion from burned area produced by post-harvest stubble burning, which
 MCD64A1 itself does not distinguish, and that admission of the five study regions is a decision the
@@ -129,9 +129,9 @@ across regions: its paired contribution is CI-supported positive in 10 direction
 negative in 7, and uncertain in 3. It is the swing factor at the chance line — adding the
 thermal block drags three directions from a baseline at or above chance to below it
 (Manavgat→Muğla 0.508 → 0.470; Bejís→Evia 0.531 → 0.383; Muğla→Manavgat 0.522 → 0.401) and
-lifts one from below to above (Muğla→Bejís 0.451 → 0.583). In the Manavgat–Muğla pair the
+lifts one from below to above (Muğla→Bejís 0.451 → 0.583). In the Manavgat-Muğla pair the
 baseline transfers at roughly chance and the thermal block pushes both directions below it; in
-the Bejís–Muğla pair the thermal block is what carries transfer above chance in both directions.
+the Bejís-Muğla pair the thermal block is what carries transfer above chance in both directions.
 
 **Table R6. Paired baseline-versus-thermal raw transfer contrast (final numbering at
 assembly).** Target ROC-AUC per model; Δ = thermal − baseline computed on identical resampled
@@ -148,8 +148,8 @@ CI-supported positive directions are listed there. Selected rows:
 | Bejís→Evia | 0.531 | 0.383 | −0.148 [−0.168, −0.126] | negative |
 
 **Label-blind adaptation compresses the matrix toward chance.** Under region-wise z-scoring the
-20 directions span 0.431–0.630; under CORAL, 0.443–0.624 — roughly half the raw spread, with no
-adapted direction exceeding 0.63 against within-region references of 0.859–0.918. Adaptation
+20 directions span 0.431 to 0.630; under CORAL, 0.443 to 0.624 — roughly half the raw spread, with no
+adapted direction exceeding 0.63 against within-region references of 0.859 to 0.918. Adaptation
 raises the failing directions (e.g. Manavgat→Bejís 0.326 → 0.511 CORAL; Muğla→Manavgat 0.401 →
 0.560) and simultaneously degrades every direction that already transferred (e.g. Evia→Manavgat
 0.686 → 0.527 CORAL; Bejís→Muğla 0.619 → 0.518 z-score; Muğla→Evia 0.653 → 0.563). After the
@@ -192,7 +192,7 @@ deficit where transfer fails and destroying performance where transfer works.
 
 Twenty candidate diagnostics from four families — marginal predictor-distribution measures
 P(x), burned-niche overlap measures P(x|y=1), fire-regime (label-pattern) structure P(y), and
-conditional feature–response direction P(y|x) — were each rank-correlated with the same target
+conditional feature-response direction P(y|x) — were each rank-correlated with the same target
 quantity (raw thermal transfer AUC over the 20 ordered directions) under a common pair-based
 bootstrap (Section 3.14.1). Table 6 gives the complete set.
 
@@ -226,24 +226,24 @@ directions (8 pairs) with at least one CI-supported feature.
 
 *Table note (power): the effective sample is 10 unordered pairs (6 for the 12-direction rows;
 8 for the supported-conditional rows); the two directions of a pair are not independent and every
-pair shares regions with three others. Intervals of width ±0.5–0.8 cannot rule out moderate true
+pair shares regions with three others. Intervals of width ±0.5 to 0.8 cannot rule out moderate true
 correlations; null rows are "not shown to order transfer", not "shown not to".*
 
 Of the 20 variants, exactly two have bootstrap intervals excluding zero, and both belong to the
 conditional family: the sign-agreement fraction over CI-supported features (ρ = +0.84
 [+0.58, +0.88]) and the cosine similarity of supported signed-AUC vectors (ρ = +0.81
-[+0.33, +0.88]) (Section 3.14.4). These indices are computed from signed feature–response directions in *both* regions and
+[+0.33, +0.88]) (Section 3.14.4). These indices are computed from signed feature-response directions in *both* regions and
 therefore require burned labels (or a labelled probe) in the target; unlike every P(x), P(x|y=1)
 and P(y) row, they are not label-free.
 
 The remaining families all fail to order the matrix. The domain classifier (Section 3.14.2) is
-at ceiling for every pair (AUC 0.962–0.9999) — marginal shift is essentially total everywhere —
+at ceiling for every pair (AUC 0.962 to 0.9999) — marginal shift is essentially total everywhere —
 so it cannot discriminate outcomes ranging from 0.33 to 0.69. The canonical SDM niche-overlap
 instruments (Schoener's D, Warren's I, Mahalanobis distance between burned-cell distributions;
 Section 3.14.3) span ρ −0.23 to +0.24 with all intervals crossing zero. Fire-regime structure
 (Section 3.14.5) has the *wrong-signed* point estimate (ρ +0.29): the most regime-similar pair
-(Bejís–Evia, effective component count 1.0000 vs 1.0083) fails in both directions while the most
-regime-different pair (Bejís–Muğla) transfers above chance. At pair level, niche overlap and
+(Bejís-Evia, effective component count 1.0000 vs 1.0083) fails in both directions while the most
+regime-different pair (Bejís-Muğla) transfers above chance. At pair level, niche overlap and
 sign agreement are empirically distinct (ρ between them −0.36 to +0.45, all CIs spanning zero),
 and in partial rank correlations the conditional index retains its association with transfer
 with niche overlap held fixed (partial ρ +0.82 [+0.40, +0.88]) while niche overlap retains none
@@ -268,12 +268,12 @@ transfer numbers below.]
 
 Manavgat and Muğla are in the same country and fire year, roughly 200 km apart, and their burned
 cells occupy the most similar environmental envelope of any pair in the matrix (per-feature D
-0.77–0.89). Yet five of nine feature–response directions point opposite ways — elevation
+0.77 to 0.89). Yet five of nine feature-response directions point opposite ways — elevation
 (signed AUC 0.374 [0.289, 0.471] in Manavgat vs 0.611 [0.532, 0.690] in Muğla, disjoint CIs)
 and all four absolute thermal channels (e.g. `current_lst_mean` 0.538 [0.452, 0.621] vs 0.325
 [0.271, 0.382]) — and transfer is below chance in both directions with CI support. Bejís and
 Montiferru sit at the opposite extreme: burned envelopes that barely overlap (per-feature D
-0.23–0.77; the pair is the most dissimilar on every overlap measure), yet seven of nine
+0.23 to 0.77; the pair is the most dissimilar on every overlap measure), yet seven of nine
 directions agree — the pair has no jointly supported features, because the two regions'
 supported sets do not intersect, so the supported-agreement index is undefined for it — and
 transfer is above chance in both directions with CI support. Where the envelope agrees but the direction reverses, transfer
@@ -281,7 +281,7 @@ fails; where the envelope disagrees but the direction agrees, transfer works.
 
 ## 4.6 Interventions: pooling and feature removal obey the same conservation
 
-Two interventions test whether the diagnosis of Sections 4.3–4.5 yields a remedy. Both show the
+Two interventions test whether the diagnosis of Sections 4.3 to 4.5 yields a remedy. Both show the
 same pattern: what transfer gains, the within-region model or the direction-aligned pairs pay
 for.
 
@@ -301,7 +301,7 @@ assembly).**
 | Montiferru | 0.647 (Evia) | 0.576 | 0.601 [0.516, 0.683] | 0.523 [0.466, 0.570] | 0.883 |
 
 The pooled thermal model never beats the best single-source pairwise transfer for any target
-(shortfalls 0.02–0.22) and remains 0.22–0.50 AUC below the within-region ceiling. For two
+(shortfalls 0.02 to 0.22) and remains 0.22 to 0.50 AUC below the within-region ceiling. For two
 targets (Manavgat, Bejís) the pooled model is below the pairwise mean and below chance.
 Region-wise z-scoring of the pool raises only the into-Manavgat fold substantially
 (0.469 → 0.657) and leaves Bejís below chance (0.417 → 0.472), while degrading the three folds
@@ -337,7 +337,7 @@ removing elevation is bootstrap-supported in every region (largest Bejís −0.1
 the three CI-supported gains are Manavgat→Bejís +0.118 [+0.048, +0.203], Evia→Bejís +0.075
 [+0.023, +0.131] and Montiferru→Manavgat +0.057 [+0.017, +0.092]; the mean delta over the eight
 Manavgat-involved directions is +0.025 against −0.009 over the other twelve — and Manavgat is
-the elevation dissenter (signed AUC 0.374 vs 0.61–0.65 elsewhere). Conversely, the five
+the elevation dissenter (signed AUC 0.374 vs 0.61 to 0.65 elsewhere). Conversely, the five
 CI-supported losses (Evia→Manavgat −0.078; Manavgat→Evia −0.071; Muğla→Evia −0.038;
 Montiferru→Bejís −0.036; Muğla→Bejís −0.026) occur precisely where elevation's direction is
 shared and informative. `lst_anomaly` removal contributes only in the pair where it reverses
@@ -382,7 +382,7 @@ assembly).**
 
 **(d) CORAL regularisation.** Over the available sweep — four directions (Bejís↔Muğla,
 Manavgat↔Muğla), nine λ values from 0 to 10⁻¹ — the CORAL transfer AUC moves by at most 0.008
-within any direction (e.g. Muğla→Manavgat 0.559–0.564; Manavgat→Muğla 0.443–0.451). No
+within any direction (e.g. Muğla→Manavgat 0.559 to 0.564; Manavgat→Muğla 0.443 to 0.451). No
 CORAL-dependent conclusion for these directions is sensitive to λ in this range. The sweep does
 not cover λ = 1 or the Montiferru/Evia directions.
 
@@ -392,7 +392,7 @@ library version from 1.9.0 to 1.7.2 moves raw transfer AUC by +0.021 (Montiferru
 while within-region AUCs reproduce to ~4 decimals across environments. All numbers in this
 paper were produced under, or verified against, scikit-learn 1.9.0; the two probes reproduce to
 four decimal places in the verification environment (difference 0.0000). Cross-region point
-estimates therefore carry an implementation tolerance of roughly ±0.02–0.03 unless the exact
+estimates therefore carry an implementation tolerance of roughly ±0.02 to 0.03 unless the exact
 library version is fixed; the bootstrap intervals reported throughout are wider than this
 jitter.
 
@@ -401,7 +401,7 @@ increment is CI-supported in all five regions, with smaller deltas than in the p
 natural-vegetation population for the three high-increment regions: ΔAUC 0.059 [0.049, 0.068]
 (Manavgat), 0.048 [0.040, 0.057] (Bejís), 0.072 [0.067, 0.078] (Muğla), 0.053 [0.049, 0.058]
 (Evia), 0.075 [0.057, 0.094] (Montiferru), against TSG values of 0.067, 0.056, 0.116, 0.153 and
-0.101 respectively. Absolute AUCs are higher in the mixed population (baseline 0.827–0.910),
+0.101 respectively. Absolute AUCs are higher in the mixed population (baseline 0.827 to 0.910),
 consistent with land-cover composition contributing separable but non-thermal discrimination;
 the within-region conclusion does not depend on the population choice.
 
@@ -448,10 +448,10 @@ sea level to 1,975 m. The 2022 event is one compact scar: two components, an eff
 lies at 777 m, below the 2021 event's 95th percentile of 1,526 m, and its median elevation of 187 m
 is a third of 2021's 563 m. The two fires occupy different parts of the same elevation gradient.
 
-That difference propagates directly into the feature–label relationship. Table R8 gives the signed
+That difference propagates directly into the feature-label relationship. Table R8 gives the signed
 univariate AUCs.
 
-**Table R8. Signed univariate feature–burned AUC, Muğla 2021 versus 2022.** Raw AUC against
+**Table R8. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
 replicates, seed 42 (Section 3.16.4). Analysis population 41,730 rows / 2,911 burned (2021) and
 38,790 rows / 331 burned (2022). Read from
@@ -526,13 +526,13 @@ predictors but of the pair.
 ## 4.9 Regional meteorological context
 
 Table R10 characterises the meteorological conditions of each region's predictor window against
-its own 2017–2020 climatology (Section 3.17). Anomalies are reported in physical units only;
+its own 2017 to 2020 climatology (Section 3.17). Anomalies are reported in physical units only;
 standardised anomalies are computed by the diagnostic but are not reported, for the reason given
 in Section 3.17. The label window is not characterised here and is used nowhere in this paper: it
-opens on the ignition date and runs 35–59 days into the autumn rains, so it describes conditions
+opens on the ignition date and runs 35 to 59 days into the autumn rains, so it describes conditions
 during and after the fire rather than the conditions that preceded it.
 
-**Table R10. Predictor-window meteorology against the 2017–2020 climatology.** ERA5-Land, AOI
+**Table R10. Predictor-window meteorology against the 2017 to 2020 climatology.** ERA5-Land, AOI
 pixel-area-weighted regional means; temperature, humidity and wind are window means, precipitation
 is the window total (Section 3.17). Anomaly = observed − climatological mean, in the variable's own
 units. Values read from `paper/era5_raw/<analysis_id>/era5_land_regional_summary.json`.

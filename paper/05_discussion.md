@@ -10,10 +10,10 @@
 Across five Mediterranean fire regions, adding six pre-fire thermal predictors to a static
 terrain-and-fuel baseline raised spatially blocked within-region ROC-AUC by +0.056 to +0.153, with
 bootstrap support at every block size up to ~10 km (Section 4.2). The same models, applied across
-regions without target labels, produced transfer AUCs of 0.326–0.686: six of twenty ordered
+regions without target labels, produced transfer AUCs of 0.326 to 0.686: six of twenty ordered
 directions were *below* chance with interval support, and even the best direction fell 0.184 short
 of its target's within-region reference (Section 4.3). Label-blind adaptation did not repair this;
-it compressed the whole matrix towards chance (0.431–0.630), degrading every direction that had
+it compressed the whole matrix towards chance (0.431 to 0.630), degrading every direction that had
 transferred while recovering at most a third of the deficit where transfer had failed. Of twenty
 candidate transferability diagnostics, the only two whose bootstrap intervals excluded zero were
 conditional — computed from the *direction* of each predictor's association with burning in both
@@ -46,7 +46,7 @@ inverts it, which is why raw transfer lands *below* chance with interval support
 directions. Below-chance transfer is the signature that distinguishes concept shift from ordinary
 covariate-shift degradation, which can only dilute skill towards 0.5.
 
-Two refinements follow, both honest. First, in the Manavgat–Muğla pair the reversals concentrate
+Two refinements follow, both honest. First, in the Manavgat-Muğla pair the reversals concentrate
 in the absolute channels, while the two channels referenced to a local baseline
 (`lst_anomaly_mean`, `tvdi_difference_mean`) keep a common direction — consistent with
 anomaly-referencing absorbing part of the between-region offset. But this protection is not
@@ -101,11 +101,11 @@ same block is locally informative within each event separately (+0.116 in 2021, 
 This is the trade-off at its most explicit. The six predictors that buy local skill in both events
 are not merely unhelpful across them; in one direction they subtract from a static baseline that
 would otherwise have transferred at 0.642. Whether a dynamic-state block helps or harms on transfer
-is a property of the source–target pair, not of the block.
+is a property of the source-target pair, not of the block.
 
 That elevation is the one supported reversal is itself worth noting, because it is the second time
 the same predictor has played this role: elevation also carries the sharpest bootstrap-supported
-reversal in the Manavgat–Muğla pair (signed AUC 0.374 against 0.611). Across a between-region
+reversal in the Manavgat-Muğla pair (signed AUC 0.374 against 0.611). Across a between-region
 contrast and a within-region between-event contrast, the predictor that most reliably fails to keep
 its direction is a static, perfectly measured, physically unambiguous one. Elevation does not drift
 between regions and carries no sensor or compositing artefact; what changes is which part of the
@@ -126,7 +126,7 @@ All are computable without target labels, and all are blind to the quantity that
 sign of the conditional association.
 
 The domain classifier makes the blind spot concrete. Source and target cells are separable at AUC
-0.962–0.9999 for every pair — marginal shift is essentially total everywhere — so a marginal
+0.962 to 0.9999 for every pair — marginal shift is essentially total everywhere — so a marginal
 instrument is at ceiling and cannot discriminate transfer outcomes that range from 0.33 to 0.69.
 The contrast pair makes it vivid: Manavgat and Muğla have the most similar burned envelopes of any
 pair in the matrix (mean Schoener's D 0.826, closest burned centroids) and fail in both directions
@@ -169,7 +169,7 @@ between the two regions' supported features, which is the more precise and more 
 statement of the coverage limit. The index is close to a binary flag for "any supported sign
 disagreement". And the power caveat of Section 4.4 applies to *every* correlation
 in the diagnostic table, including the two successes: the effective sample is ten unordered pairs,
-the two directions of a pair are not independent, and intervals of width ±0.5–0.8 on the null
+the two directions of a pair are not independent, and intervals of width ±0.5 to 0.8 on the null
 rows cannot rule out moderate true correlations. The null diagnostics are "not shown to order
 transfer", not "shown not to"; the conditional result is a strong ordering on a small pair set,
 not an established general law.
@@ -188,7 +188,7 @@ decision rule fitted under the opposite one.
 
 Pooled multi-region training does not escape the problem by averaging over it. The
 leave-one-region-out pooled thermal model never beats the best single-source pairwise transfer
-(shortfalls 0.02–0.22), sits 0.22–0.50 below the within-region ceiling, and for three of five
+(shortfalls 0.02 to 0.22), sits 0.22 to 0.50 below the within-region ceiling, and for three of five
 targets is matched or beaten raw by the pooled *static* baseline — the pooled model resolves
 conflicting thermal directions by, in effect, discounting the block that carries them.
 
@@ -215,7 +215,7 @@ exposes the intuition behind the hypothesis as wrong, which we report plainly ra
 vindication. The regime-distance point estimate has the wrong sign (ρ = +0.29): the most
 regime-similar pair in the set — Bejís and Evia-extended, with effective burned-component counts
 of 1.0000 and 1.0083, as close to identical regime structure as the data allow — fails in both
-directions with interval support, while the most regime-different pair (Bejís–Muğla) transfers
+directions with interval support, while the most regime-different pair (Bejís-Muğla) transfers
 above chance. The error was in the hypothesised grouping — the assumption that Bejís's
 single-compact-burn structure placed it in a regime class whose members would behave alike — not
 in the data. With ten pairs this cannot refute regime typology as an explanation of concept
@@ -234,7 +234,7 @@ thermal predictors were driven by a regional weather anomaly the other regions d
 and the resulting mapping from dryness to burning was correspondingly idiosyncratic.
 
 We tested that explanation and it was not supported. The ERA5-Land regional diagnostic
-(Sections 3.17, 4.9) characterises each region's predictor window against its own 2017–2020
+(Sections 3.17, 4.9) characterises each region's predictor window against its own 2017 to 2020
 climatology, and Manavgat is not the meteorologically extreme member of the set. Its
 predictor-window temperature sits 0.06 °C *below* its climatological mean — the only region at or
 below its own baseline, and a departure small enough that the honest reading is simply that
@@ -275,7 +275,7 @@ comparable +0.67 °C anomaly yields 1.9 standardised units against an SD of 0.35
 anomalies of the two regions are similar; only their denominators differ.
 
 The second caution is that the label window is not fire weather: it opens on the ignition date and
-runs 35–59 days into the autumn rains, so it describes conditions during and after the fire rather
+runs 35 to 59 days into the autumn rains, so it describes conditions during and after the fire rather
 than those that preceded it. Only predictor-window values are used anywhere in this paper, and the
 label-window figures quoted immediately above serve solely to demonstrate the instability of the
 standardised scale.
@@ -364,11 +364,11 @@ burned-area product, MCD64A1 [@Giglio2018], whose omission and commission charac
 [@Boschetti2019] bound every model evaluated here. (iv) The ~510 m analysis cells approximate,
 but are not co-registered with, the native MODIS sinusoidal grid (Section 3.2). (v) Even after
 the AOI extension, Evia's TSG prevalence (0.287) remains the highest of the five regions — four
-to seven times that of Manavgat, Bejís and Muğla (0.038–0.072), though only marginally above
+to seven times that of Manavgat, Bejís and Muğla (0.038 to 0.072), though only marginally above
 Montiferru (0.225); prevalence sensitivity was checked for transfer (Section 4.7a) but Evia
 remains the most imbalance-atypical population. (vi) Each region contributes one fire season, so regional concept
 shift is confounded with event meteorology; distinguishing them requires multi-year labels.
-(vii) Cross-region point estimates carry an implementation tolerance of roughly ±0.02–0.03 across
+(vii) Cross-region point estimates carry an implementation tolerance of roughly ±0.02 to 0.03 across
 scikit-learn versions (Section 4.7e); all reported numbers are fixed to one verified version, but
 exact reproduction elsewhere requires the archived environment. (viii) The diagnostic
 correlations rest on an effective sample of ten region pairs; both the successes and the failures

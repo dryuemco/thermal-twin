@@ -28,7 +28,7 @@ synthesised from both a methodological and an application perspective [@Vibhandi
 @Jodhani2026]. The dominant pattern is well established: assemble geospatial predictors over a study
 region, pair them with a historical record of burned area, fit a supervised classifier — most often
 a random forest [@Breiman2001] — and publish the resulting susceptibility surface with a
-cross-validated AUC in the 0.85–0.95 range.
+cross-validated AUC in the 0.85 to 0.95 range.
 
 This paper is about a cost that pattern does not price. Predictors describing the *state* of a
 surface in a particular season are more informative about that season than predictors describing a
@@ -75,7 +75,7 @@ surface: fuel dryness, vegetation moisture stress, and how anomalously hot the l
 become relative to its own climatological baseline. Satellite thermal observation gives direct,
 repeated access to part of that state through fuel moisture content [@Yebra2013]; the pairing used
 here — surface temperature with a vegetation index — was established as a live-fuel-moisture
-estimator for fire-danger rating by Chuvieco et al. [@Chuvieco2004], and the Temperature–Vegetation
+estimator for fire-danger rating by Chuvieco et al. [@Chuvieco2004], and the Temperature-Vegetation
 Dryness Index [@Sandholt2002] formalises that feature space into an internally normalised measure,
 in principle less exposed to absolute-temperature offsets between regions than raw land surface
 temperature — a theoretical portability advantage this study tests empirically.
@@ -97,7 +97,7 @@ motivation for this work rather than anything it demonstrates.
 
 If a model trained in one region underperforms in another, the deficit can arise from two very
 different mechanisms. Under **covariate shift** the marginal distribution of the predictors differs
-while the predictor–response relationship is preserved; this is in principle correctable without
+while the predictor-response relationship is preserved; this is in principle correctable without
 target labels, by per-region standardisation or covariance alignment such as CORAL [@Sun2016], and
 such adaptation has an established remote-sensing literature [@Tuia2016]. Under **concept shift** the
 conditional relationship itself changes: a predictor positively associated with burning in one
@@ -115,7 +115,7 @@ location and the training distribution. That is a **marginal** quantity — a st
 the predictors live, computed without reference to the response. It is a well-founded instrument for
 the failure mode it was designed for, and we use it as such. But by construction it cannot register
 a failure in which the predictor distributions overlap acceptably while the conditional
-predictor–response relationship has changed sign: two regions can be mutually inside each other's
+predictor-response relationship has changed sign: two regions can be mutually inside each other's
 area of applicability and still be mutually unpredictable. We therefore extend this line of work
 rather than contradict it — computing the marginal diagnostics, reporting what they do and do not
 order, then supplying a **conditional** diagnostic for what they miss.

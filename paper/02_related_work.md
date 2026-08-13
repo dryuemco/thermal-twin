@@ -28,7 +28,7 @@ distinct from short-horizon fire-danger forecasting — has converged on supervi
 applied to gridded geospatial predictors, most commonly tree ensembles such as random forests
 [@Breiman2001]. Two recent syntheses document the state of the field and its methodological
 conventions [@Vibhandik2026; @Jodhani2026]. Reported discrimination is consistently high, typically
-in the 0.85–0.95 AUC range, and the predictor sets that produce those numbers are remarkably
+in the 0.85 to 0.95 AUC range, and the predictor sets that produce those numbers are remarkably
 uniform across studies: terrain from a digital elevation model, a land-cover or fuel-type
 classification, a vegetation-greenness composite, climatological summaries, and anthropogenic
 proximity variables.
@@ -49,7 +49,7 @@ global fire regimes — the notion that fire behaves as a small number of distin
 rather than a continuum — by Archibald et al. [@Archibald2013].
 
 **Where this literature stops.** These studies establish that fire susceptibility is learnable
-within a region, and the Manavgat and Adana–Mersin precedents establish it for the specific
+within a region, and the Manavgat and Adana-Mersin precedents establish it for the specific
 landscapes we analyse. What none of them establishes is whether a model fitted in one of these
 landscapes retains any skill in another. Each is validated within its own study area, so the
 reported AUC is an estimate of interpolation performance inside a fixed footprint, not of
@@ -81,8 +81,8 @@ Chuvieco et al. [@Chuvieco2004] established the specific combination used here �
 temperature together with a vegetation index — as an estimator of live fuel moisture content for
 fire-danger rating.
 
-The index most directly relevant to our feature block is the Temperature–Vegetation Dryness Index,
-introduced by Sandholt et al. [@Sandholt2002] as a simple interpretation of the LST–NDVI feature
+The index most directly relevant to our feature block is the Temperature-Vegetation Dryness Index,
+introduced by Sandholt et al. [@Sandholt2002] as a simple interpretation of the LST-NDVI feature
 space: a pixel's relative position between the moisture-unlimited "wet edge" and the
 moisture-limited "dry edge" at its own vegetation-index level. TVDI is attractive for cross-region
 work precisely because it is internally normalised — defined relative to edges fitted within the
@@ -337,7 +337,7 @@ slope, night-time lights, human modification, population density, and temperatur
 as long-term seasonal climatologies. Every one of these is spatially stationary — it describes a
 region rather than a season — and their model transfers, everywhere above AUC 0.80. Our model is
 built on the *state of a particular pre-fire window*: land surface temperature anomalies against a
-multi-year baseline, thermal–optical dryness indices, and downscaled and fused thermal channels,
+multi-year baseline, thermal-optical dryness indices, and downscaled and fused thermal channels,
 all composited over the weeks preceding a specific fire. Because the physics linking moisture stress
 to combustion is universal, this predictor class is the one for which transfer should be *most*
 expected. It is instead the one that fails.
@@ -367,7 +367,7 @@ observations referenced to their own baseline. **Adaptation:** they apply none, 
 blind adaptation step is central to our diagnosis. The contrast is therefore between two coherent
 experimental programmes, not a controlled ablation, and we present it as such.
 
-Why the predictor–response relationship should be reparameterised locally is a question this
+Why the predictor-response relationship should be reparameterised locally is a question this
 literature can frame even if our design cannot settle it. Fire is conventionally described not as a
 continuum but as a small number of distinguishable syndromes — pyromes, in the terminology of
 Archibald et al. [@Archibald2013] — differing in the fuel, weather and ignition constraints that

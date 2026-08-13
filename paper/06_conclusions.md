@@ -9,7 +9,7 @@ blocking and a predictor window closed up to two weeks before the first labelled
 skill is local. Paired per direction, the same predictor block contributes nothing on average to
 cross-region transfer (+0.004 over twenty directions), harms seven directions with bootstrap
 support, and is the swing factor at the chance line. The failure is conditional — the direction
-of the dryness–burning relationship changes between regions — which is why it is invisible to
+of the dryness-burning relationship changes between regions — which is why it is invisible to
 every label-free similarity diagnostic we tested (predictor-space distance, domain separability,
 niche overlap, regime structure), why label-blind adaptation compresses transfer towards chance
 instead of repairing it, and why pooled multi-region training does not escape it.
@@ -17,7 +17,7 @@ instead of repairing it, and why pooled multi-region training does not escape it
 The practical implication is a change in what one checks before transferring a dynamic-state
 fire model. The question is not whether the target region lies inside the source's environmental
 envelope — the pair with the highest envelope overlap in our matrix failed in both directions,
-and the pair with the lowest transferred in both — but whether the signed feature–response
+and the pair with the lowest transferred in both — but whether the signed feature-response
 directions agree. That check requires a labelled probe in the target: a modest burned-area
 record is sufficient to compute signed associations, and the same labels then support the
 supervised recalibration that label-free alignment cannot deliver. Where no target labels exist,
