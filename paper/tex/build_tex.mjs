@@ -485,13 +485,15 @@ const preamble = `% ============================================================
 cross-region transfer of pre-fire thermal dryness in Mediterranean wildfire
 regions}
 
-%% Author block. NEEDS AUTHOR INPUT before submission: the organization field,
-%% the corresponding author's e-mail, and ORCIDs if the authors have them.
+%% Author block. Affiliation and corresponding address supplied by the authors
+%% 2026-08-14. Still optional and not supplied: department or faculty within the
+%% university, and ORCIDs.
 \\author[inst1]{Yunus Emre Cogurcu\\corref{cor1}}
-\\ead{[CORRESPONDING AUTHOR E-MAIL]}
+\\ead{ycogurcu@cu.edu.tr}
 \\author[inst1]{Emrehan Metin}
 \\cortext[cor1]{Corresponding author.}
-\\affiliation[inst1]{organization={[AFFILIATION: department, institution]},
+\\affiliation[inst1]{organization={\\c{C}ukurova University},
+                    city={Adana},
                     country={T\\"urkiye}}
 
 \\begin{abstract}
@@ -535,9 +537,11 @@ in this paper.
 
 \\section*{Funding}
 
-[NEEDS AUTHOR INPUT: name the funder and grant number, or state that this
-research received no specific grant from funding agencies in the public,
-commercial, or not-for-profit sectors.]
+This work is an output of project 17506, supported by the Scientific Research
+Projects (BAP) unit of \\c{C}ukurova University.
+%% Provisional wording, 2026-08-14. Confirm before submission: the project's
+%% full title, the correct rendering of the unit's name in English, and whether
+%% the funder requires a specific acknowledgement sentence.
 
 \\section*{Data availability}
 

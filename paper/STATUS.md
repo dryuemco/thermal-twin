@@ -67,8 +67,9 @@ the editorial reader added *not submittable today*. The consolidated dossier is
   title asserted more than §5.4 concedes.
 - **Abstract 250 to 322 words**, deliberately, with a documented cut order if the limit is 250.
 - **Front matter:** CRediT, competing interest, funding and data-availability blocks added;
-  keywords finalised; corresponding-author fields added. Affiliation, e-mail and funding still need
-  the authors. The availability statement now names all three provenance gaps in plain terms and the
+  keywords finalised. Affiliation (Çukurova University, Adana), corresponding author
+  (`ycogurcu@cu.edu.tr`) and funding (BAP project 17506) supplied by YEC 2026-08-14. Still open and
+  optional: department or faculty, ORCIDs, and the project's full title in the funding sentence. The availability statement now names all three provenance gaps in plain terms and the
   "checked rather than taken on trust" claim has been narrowed to match.
 - `build_tex.mjs` now strips horizontal rules (they were becoming em dashes, against the house
   style); `verify_tex.mjs` no longer counts whole-line LaTeX comments as unescaped percent signs.
@@ -78,7 +79,7 @@ the editorial reader added *not submittable today*. The consolidated dossier is
 
 **One-line state:** the claims are now aligned with the evidence and the observational layer is
 documented; what remains is the length reduction, the first LaTeX compile, and the author-supplied
-front-matter facts.
+front-matter facts. Front matter is now complete apart from the optional items above.
 
 ## 1. Manuscript sections
 
