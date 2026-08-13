@@ -57,6 +57,19 @@ for (const stem of argv) {
   } else {
     console.log(`${f.padEnd(26)} numbers identical (${[...A.values()].reduce((a, b) => a + b, 0)} tokens)`);
   }
+
+  // Numbers surviving is not enough. A rewrite can drop a whole clause without
+  // touching a digit, which is how "the only region at or below its own
+  // baseline" was nearly lost from Section 4.9. Content words that vanish
+  // entirely are reported so the loss has to be looked at rather than assumed
+  // to be a rephrasing.
+  const words = t => new Set((prose(t).toLowerCase().match(/[a-zà-ÿğüşıöç]{6,}/g) || []));
+  const wBefore = words(before), wAfter = words(after);
+  const gone = [...wBefore].filter(w => !wAfter.has(w));
+  if (gone.length) {
+    console.log(`${''.padEnd(26)} words no longer present: ${gone.slice(0, 20).join(', ')}` +
+                (gone.length > 20 ? ` (+${gone.length - 20} more)` : ''));
+  }
 }
 
 console.log(failed ? `\n${failed} file(s) changed numbers — review before committing`
