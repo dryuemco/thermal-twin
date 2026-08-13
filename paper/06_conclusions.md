@@ -39,9 +39,10 @@ zero under every resampling unit the design permits. Its contribution changes si
 direction to another. The paired deltas run from −0.148 to +0.132, twelve positive and eight
 negative, at either blocking scale. At the conservative 5 km blocking, five to six directions are
 helped and three to four are harmed with interval support, with the rest carrying no verdict. The
-block is also the swing factor at the chance line. Removing the two reversing predictors buys +0.014
-of mean transfer for −0.081 of mean within-region skill, which is the exchange rate of the
-trade-off.
+block is also the swing factor at the chance line. Removing the two reversing predictors costs
+−0.081 of mean within-region skill, with interval support in every region, and changes mean transfer
+by +0.014, an estimate whose interval spans zero. The cost of the trade-off is measured; the return
+is not.
 
 The failure is conditional. The direction of the link between dryness and burning changes from one
 region to another. None of the similarity diagnostics tested here ordered the transfer
@@ -63,8 +64,8 @@ is claimed. A signed association with a usable interval may
 need fewer labels than a refitted model, but that was not tested. What is clear is that the
 supervised recalibration that label-free alignment cannot deliver is not cheap. Section 4.10 prices
 it for three regions: thirty-two labelled 5 km blocks recovered 85 to 89 % of the target ceiling in
-four of six directions, and at its top budget the labelled set already holds most of one target
-region's burned cells. Where no target labels exist, the transfer performance of such
+three of six directions, 51 to 57 % in two more and 30 % in the sixth, and at its top budget the
+labelled set already holds most of one target region's burned cells. Where no target labels exist, the transfer performance of such
 models should be treated as unknown rather than inferred from similarity.
 
 For model builders, the trade-off should be priced openly. A predictor block that buys large

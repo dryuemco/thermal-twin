@@ -29,9 +29,9 @@ population every model in this paper was fitted and scored on.
 |---|---|---|---|---|---|---|---|---|---|
 | Manavgat 2021 | 24,150 | 24,087 | 796 | 0.033 | 20,511 | 784 | 0.038 | 0.984 | pass |
 | Bejís 2022 | 15,759 | 15,759 | 1,103 | 0.070 | 15,190 | 1,100 | 0.072 | 0.991 | pass |
-| Muğla 2021 | 73,098 | 73,045 | 3,073 | 0.042 | 41,730 | 2,911 | 0.070 | 0.958 | pass |
-| North Evia 2021 (extended) | 22,925 | 22,906 | 2,803 | 0.122 | 9,298 | 2,664 | 0.287 | 0.945 | pass |
-| Montiferru 2021 | 3,234 | 3,173 | 748 | 0.236 | 2,544 | 539 | 0.212 | 0.723 | pass |
+| Muğla 2021 | 73,098 | 73,045 | 3,026 | 0.041 | 41,730 | 2,911 | 0.070 | 0.958 | pass |
+| North Evia 2021 (extended) | 22,925 | 22,906 | 2,788 | 0.122 | 9,298 | 2,664 | 0.287 | 0.945 | pass |
+| Montiferru 2021 | 3,234 | 3,173 | 697 | 0.220 | 2,544 | 539 | 0.212 | 0.723 | pass |
 
 An earlier version of this table read its TSG columns from the Step 8A fields
 `burnable_tree_shrub_grass_count` and `burned_count_within_each_burnable_mask`. Those are legacy
@@ -41,7 +41,15 @@ population". The counts above are the post-filter ones
 (`burnable_tree_shrub_grass_count_valid_for_modeling` and
 `burned_count_within_primary_burnable_mask`), cross-checked against the `target_row_count` and
 `target_burned_count` fields of the multi-AOI transfer matrix. The correction changes Manavgat,
-Muğla, Evia and Montiferru, and moves Montiferru's TSG prevalence from 0.225 to 0.212. **No modelled
+Muğla, Evia and Montiferru, and moves Montiferru's TSG prevalence from 0.225 to 0.212. The same
+correction has since been applied to the `Burned` and `Prevalence (all valid)` columns, which were
+still reading the top-level `burned_cell_count` and `burned_rate`. Those are also counted before
+eligibility and validity filtering, so in Muğla, Evia and Montiferru they were being divided by a
+`Valid cells` denominator that had already been filtered. The post-filter numerators are
+`pre_label_exclusion.final_modeling_counts_after_predictor_validity.burned`: Muğla 3,026 (was
+3,073), Evia 2,788 (was 2,803), Montiferru 697 (was 748), each summing with its unburned counterpart
+to the printed `Valid cells` value. Montiferru's all-valid prevalence moves from 0.236 to 0.220.
+Manavgat and Bejís have no pre-label exclusion and are unaffected. **No modelled
 result changes.** Every model in this paper was already fitted and scored on the post-filter
 population, so the correction is to the description of that population and not to any number derived
 from it. Source: `paper/referee_round_numbers.md`, Tables A4 and A5.
@@ -231,8 +239,9 @@ chance line. Adding the thermal block drags
 three directions from a baseline at or above chance to below it (Manavgat→Muğla 0.508 → 0.470;
 Bejís→Evia 0.531 → 0.383; Muğla→Manavgat 0.522 → 0.401) and lifts one from below to above
 (Muğla→Bejís 0.451 → 0.583). In the Manavgat-Muğla pair the baseline transfers at roughly chance and
-the thermal block pushes both directions below it; in the Bejís-Muğla pair the thermal block is what
-carries transfer above chance in both directions.
+the thermal block pushes both directions below it; in the Bejís-Muğla pair the thermal block carries
+Muğla→Bejís above chance, while the reverse direction already transferred above chance without it
+(baseline 0.592 [0.575, 0.609]).
 
 **Table R6. Paired baseline-versus-thermal raw transfer contrast (final numbering at assembly).**
 Target ROC-AUC per model; Δ = thermal − baseline computed on identical resampled target blocks
@@ -564,9 +573,14 @@ result at two blocking scales and not a disagreement.*
 | Drop lst_anomaly | 0.875 | 0.544 | 14 | 9 |
 | Drop both | 0.807 | **0.556** | 17 | **10** |
 
-Dropping both reversal features buys +0.014 mean transfer AUC and one additional CI-supported
-above-chance direction at the price of −0.081 mean within-region AUC. The within-region cost of
-removing elevation is bootstrap-supported in every region (largest Bejís −0.114 [−0.147, −0.079]).
+Dropping both reversal features costs −0.081 mean within-region AUC and changes mean transfer AUC by
++0.014, gaining one additional CI-supported above-chance direction. The two sides of that statement
+are not equally well estimated. The within-region cost is bootstrap-supported in every region
+(largest Bejís −0.114 [−0.147, −0.079]) and all five per-region deltas have intervals entirely below
+zero. The transfer gain is a mean over twenty non-independent directions with SD 0.046 and a range
+of −0.058 to +0.102; clustered to the ten unordered pairs its interval is [−0.017, +0.045] and spans
+zero, and per direction the outcome is five CI-supported positive, three CI-supported negative and
+twelve uncertain. No exchange rate between the two is claimed here.
 The transfer deltas land exactly where the reversal diagnosis points: the three CI-supported gains
 are Manavgat→Bejís +0.118 [+0.048, +0.203], Evia→Bejís +0.075 [+0.023, +0.131] and
 Montiferru→Manavgat +0.057 [+0.017, +0.092]. The mean delta over the eight Manavgat-involved
@@ -588,6 +602,16 @@ most 0.070 (Evia→Bejís 0.378 → 0.448) and no direction changes side of chan
 0.613; Evia→Manavgat 0.670 → 0.686; Bejís→Evia 0.397 → 0.383; Muğla→Evia 0.630 → 0.653; Evia→Muğla
 0.572 → 0.577). The 2.4-fold change in target prevalence does not create or destroy any CI-supported
 transfer.
+
+The *within-region* increment is a different matter, and the AOI choice moves it. On the same fire,
+the same predictor and label windows and the same primary population, the legacy AOI gives a thermal
+ΔAUC of +0.085 [+0.072, +0.100] against the extended AOI's +0.153 [+0.142, +0.166]
+(`drive_new/experiments/evia_2021/step8c/step8c_bootstrap_metrics.json` and its
+`evia_2021_extended` counterpart, `bootstrap_unit: spatial_block_id`). Both intervals exclude zero,
+so the qualitative within-region conclusion is unaffected in either variant, but Evia carries the top
+of this paper's within-region range and that top is specific to the extended AOI. Read the range as
++0.056 to +0.153 on the canonical cohort, with the upper end falling to +0.085 for the one region
+whose AOI was revised.
 
 **(b) Montiferru cropland fringe.** Within-region, excluding grassland (tree+shrub population)
 leaves the thermal increment essentially unchanged: ΔAUC 0.104 [0.075, 0.131] versus 0.101 [0.080,
@@ -624,11 +648,14 @@ assembly).**
 
 **(d) CORAL regularisation.** The available sweep covers four directions (Bejís↔Muğla,
 Manavgat↔Muğla) and nine λ values from 0 to 10⁻¹. Over that sweep the CORAL transfer AUC moves by at
-most 0.008 within any direction (e.g. Muğla→Manavgat 0.559 to 0.564; Manavgat→Muğla 0.443 to 0.451).
+most 0.014 within any direction, and by at most 0.008 within the thermal family (e.g. Muğla→Manavgat
+0.559 to 0.564; Manavgat→Muğla 0.443 to 0.451). The three widest spreads are baseline-family rows,
+the largest being Muğla→Bejís at 0.014, which the export's own summary flags as
+`modest_lambda_sensitivity`.
 No CORAL-dependent conclusion for these directions is sensitive to λ in this range. The sweep does
 not cover λ = 1 or the Montiferru/Evia directions. It should be read for what it is. With nine
 predictors and thousands of cells, a λ of 10⁻¹ is still far too small to bite on the covariance
-estimate, so a movement of at most 0.008 across the range establishes numerical stability of the
+estimate, so a movement of at most 0.014 across the range establishes numerical stability of the
 alignment map rather than robustness to regularisation. The superseded two-region run, which did
 include λ = 1, is the only evidence in this project about what heavy regularisation does, and there
 it removed the effect (Section 3.11).
@@ -734,8 +761,10 @@ baseline, differing only in that raster: the production scene-weighted reference
 [+0.052, +0.075], a date-balanced variant gives +0.084 [+0.072, +0.098], and an overlap-harmonised
 date-balanced variant gives +0.045 [+0.033, +0.057]. The baseline AUC is identical to six decimal
 places across all three (0.804362), so the entire spread sits in the thermal block, and both paired
-comparisons against the production chain have intervals excluding zero (+0.021 [+0.012, +0.031] and
-−0.040 [−0.050, −0.029]). The mechanism is documented in the same export: at boundaries where the
+comparisons have intervals excluding zero. The two are referenced differently, as their source
+reports define them: date-balanced against the production chain is +0.021 [+0.012, +0.031], and
+overlap-harmonised against the *date-balanced* chain is −0.040 [−0.050, −0.029]. Referenced to
+production instead, the overlap-harmonised difference is −0.019. The mechanism is documented in the same export: at boundaries where the
 number of contributing clear acquisitions changes, the residual seam analysis finds excess jumps of
 0.850 °C [0.812, 0.890] in the current-minus-baseline field and 0.526 °C [0.503, 0.551] in the
 anomaly z-score, with the final attribution `current_support_dominant`. Manavgat's window is backed
@@ -927,10 +956,11 @@ within-region values of Table 3. The interval quoted in the supplement is a sele
 across repeats, not a bootstrap. The full design, the per-budget table and seven stated limits are
 Supplementary S1.
 
-**Thirty-two labelled blocks recover 85 to 89 % of the target ceiling in four of the six
-directions**, from starting points at or below chance: Manavgat→Bejís 0.326 → 0.772 against a
-ceiling of 0.824, Muğla→Bejís 0.583 → 0.789, Bejís→Manavgat 0.444 → 0.743 against 0.797, and
-Manavgat→Muğla and Muğla→Manavgat reaching 51 and 57 %. The failure this paper documents is
+**Thirty-two labelled blocks recover 85 to 89 % of the target ceiling in three of the six
+directions**: Manavgat→Bejís 0.326 → 0.772 against a ceiling of 0.824 (89 %), Muğla→Bejís 0.583 →
+0.789 (85 %), and Bejís→Manavgat 0.444 → 0.743 against 0.797 (85 %). Two of those three started
+below chance; Muğla→Bejís started at 0.583, above it. Manavgat→Muğla and Muğla→Manavgat reach 51 and
+57 %, and Bejís→Muğla 30 %. The failure this paper documents is
 therefore expensive rather than structural. It is a shortage of target-conditional information, and
 target labels are exactly that.
 
@@ -1010,7 +1040,8 @@ concept gap is widest, and at small budgets it is not free.
        Draft uses drive_new values throughout.
     3. CORAL λ sweep — RESOLVED 2026-08-08 during coordinator review: §3.11's sweep paragraph
        was amended to the actual drive_new coverage (4 directions Bejís↔Muğla + Manavgat↔Muğla,
-       nine-value grid 0…1e-1, spread ≤0.008, no λ=1, Montiferru/Evia directions rest on the
+       nine-value grid 0…1e-1, spread ≤0.014 overall and ≤0.008 within the thermal family
+       (corrected 2026-08-14, referee round 3, item 0.13), no λ=1, Montiferru/Evia directions rest on the
        default λ=1e-5 alone). RE-CHECK this paragraph in the Methods-update round alongside the
        11 METHODS GAPS.
     4. Burned-in-TSG counts: step8a stats (facts §1: Muğla 2952, Evia 2675, Montiferru 582) vs

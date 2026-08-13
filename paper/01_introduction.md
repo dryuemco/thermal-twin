@@ -67,9 +67,9 @@ different places. The claim advanced here is a trade-off and not a dismissal: **
 predictors buy local skill at the cost of portability**. Two measurements carry that claim. The
 dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region and contributes nothing
 distinguishable from zero between them, with an unstable sign. Removing the reversing predictors
-improves transfer by +0.014 on average while within-region skill falls by −0.081, an exchange of
-about six to one. Whether the block helps or harms on transfer is a property of the
-source-target pair, not of the block.
+costs −0.081 of within-region skill with interval support in every region, while changing mean
+transfer by +0.014, an estimate whose own interval spans zero. Whether the block helps or harms on
+transfer is a property of the source-target pair, not of the block.
 
 ## 1.1 The trade-off goes unpriced because portability goes unmeasured
 
@@ -219,8 +219,9 @@ conservative 5 km blocking the contribution is CI-supported positive in five to 
 negative in three to four, with ten or eleven carrying no verdict. The finer 1 km blocking gives
 ten, seven and three, and even that split turns on a single bound within a thousandth of zero. The
 block is also the swing factor at the chance line, dragging three directions below chance and
-lifting one above it. The exchange is measured directly as well: removing the two reversing
-predictors buys +0.014 mean transfer AUC for −0.081 mean within-region AUC (Section 4.6b). This is
+lifting one above it. Feature removal measures the cost side directly: removing the two reversing
+predictors costs −0.081 mean within-region AUC, supported in every region, and changes mean transfer
+AUC by +0.014, an estimate whose interval spans zero (Section 4.6b). This is
 the paper's thesis: the dynamic block is where local skill is bought and where portability is spent. Dimarco et al. [@Dimarco2026] transfer a predominantly spatially stationary
 predictor set successfully across a comparable Mediterranean design. Our result is the complementary
 half of that picture rather than a contradiction of it.
@@ -283,9 +284,9 @@ about ±0.02 AUC on an identical cohort.
 **Contribution 6. The price of the failure, measured.** Because the residual gap is conditional, the
 resource that closes it is target labels, and their cost is measurable. For three regions in all six
 ordered directions, thirty-two labelled 5 km blocks recover 85 to 89 % of the target's own ceiling
-in four directions, from starting points at or below chance, and only 51 to 57 % in the two where
-the concept gap is widest. At small budgets the same intervention damages the one direction that
-already transferred. This converts the negative result into a priced one. It does not license a
+in three directions, two of which started below chance, only 51 to 57 % in the two where the concept
+gap is widest, and 30 % in the sixth. At small budgets the same intervention damages the direction
+that transfers best without any labels. This converts the negative result into a priced one. It does not license a
 label budget, since six directions in three regions cannot support one, and Section 4.10 says so.
 
 Alongside these, a leakage-audited, spatially blocked evaluation and transfer protocol is released

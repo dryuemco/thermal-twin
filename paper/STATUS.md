@@ -42,8 +42,14 @@ the editorial reader added *not submittable today*. The consolidated dossier is
 `paper/REFEREE_ROUND_2.md` and the numbers it needed are in `paper/referee2_numbers.md` and
 `.json`, produced by `paper/referee2_numbers.mjs` from frozen artefacts only.
 
-**Everything in that dossier has now been applied except the length and table-load reduction**
-(dossier §3.1 to §3.3), which the author deferred. What changed:
+**Correction, 2026-08-14 (referee round 3):** the claim below that the round-2 dossier was applied in
+full apart from length and tables is **not accurate**. Round-3 auditing found that round-2 items
+**1.5** (BCa / ratio denominators) and **1.8** (Evia legacy-AOI within-region increment) were never
+applied, items 0.1, 0.9 and 1.4 were applied only at the lines they cited, and five round-2 repairs
+introduced new defects. See `paper/REFEREE_ROUND_3.md`, "The round-2 regression audit".
+
+**Everything in that dossier was applied except the length and table-load reduction**
+(dossier §3.1 to §3.3), which the author deferred, and except the two items named above. What changed:
 - **Four statements the paper's own evidence contradicted** were corrected. The largest was
   "adaptation degrades every direction that already transferred" (§4.3, §1.5, §5.1): of the twelve
   CI-supported above-chance directions, nine are degraded and three raised, all three with
@@ -77,9 +83,46 @@ the editorial reader added *not submittable today*. The consolidated dossier is
 - `emrehan_mail_5.md` gained items 5 to 9 (Manavgat Step 7 MODIS contract, Bejís compositing A/B,
   per-region acquisition inventory, calendar-matched Muğla 2022, two QA one-liners).
 
-**One-line state:** the claims are now aligned with the evidence and the observational layer is
-documented; what remains is the length reduction, the first LaTeX compile, and the author-supplied
-front-matter facts. Front matter is now complete apart from the optional items above.
+**Updated 2026-08-14 (referee round 3).** A three-reader panel (statistics; remote sensing, fire
+ecology and data provenance; claim versus evidence) re-read the manuscript independently. The
+editorial lens was deliberately excluded, so round 2's Tier 3 (length, table load, figure count)
+stands undischarged. All three returned *major revision*. The dossier is `paper/REFEREE_ROUND_3.md`:
+15 Tier 0 items, 7 Tier 1, 13 Tier 2, 3 Tier 3, plus a regression audit of round 2.
+
+Nothing in round 3 overturns the negative result, and several findings strengthen it. One round-2
+finding is **retracted**: item 2.3 (Manavgat's "four-year summer-mean MODIS layer") rests on a stale
+hardcoded literal that the exporting run's own `modis_metadata.json` contradicts, so §3.4 and
+§5.11(xiii) currently explain the paper's one acknowledged anomaly with a difference that does not
+exist. That is the first thing to fix and it is **not yet done**.
+
+**Applied 2026-08-14, after independent re-derivation from the frozen artefacts** (eight spot-checks,
+eight held exactly; see the ✅ marks in the dossier):
+- **Few-shot recovery: "four of six" → three** (0.845, 0.852, 0.894 at 32 blocks), with the 51/57 and
+  30 % directions now stated and the false "from starting points at or below chance" corrected —
+  Muğla→Bejís starts at 0.583. Fixed in the abstract, §1 C6, §4.10, §5.10, §6 and S1.
+- **Table R1's `Burned` and `Prevalence` columns** moved to the post-filter counts: Muğla 3,026,
+  Evia 2,788, Montiferru 697 / 0.220 (was 0.236). The table had been dividing a pre-filter numerator
+  by its own post-filter `Valid cells` denominator. No modelled number changes.
+- **CORAL λ spread 0.008 → 0.014** overall, with 0.008 kept as the thermal-family bound (§3.11, §4.7d).
+- **Evia coordinate importance 0.101 → 0.097** (§3.4).
+- **Evia legacy-AOI within-region increment added** to §4.7a: +0.085 [+0.072, +0.100] against the
+  extended AOI's +0.153, both excluding zero. This closes round-2 item 1.8 and states that the top of
+  the paper's within-region range is specific to the extended AOI.
+- **The 6:1 exchange rate deleted** from the abstract, §1.1, §1 C1, §4.6b, §5.5 and §6. The debit
+  (−0.081 within-region, supported in every region) is measured; the +0.014 transfer side is a mean
+  over twenty non-independent directions whose pair-clustered interval [−0.017, +0.045] spans zero.
+- **§4.3's Bejís–Muğla sentence** corrected: the thermal block carries Muğla→Bejís above chance, but
+  Bejís→Muğla already transferred above chance on the baseline alone (0.592 [0.575, 0.609]).
+- **§4.7i's compositing attribution** corrected — the −0.040 comparison is referenced to the
+  date-balanced chain, not production; production-referenced it is −0.019. §5.8 and §5.11(xi)'s
+  +0.085 corrected to the frozen +0.084.
+
+`build_tex.mjs` re-run; `verify_tex.mjs` 12/12 PASS, `check_style.mjs` 0 dashes.
+
+**One-line state:** the seven verified round-3 corrections are in; what remains is the rest of round
+3 (Tier 0.5 the Muğla two-event population, 0.6 the Manavgat MODIS retraction, 0.2 the ~10 km
+blocking claim, 0.10 the non-square cell, and the sea-in-TVDI-edges re-run), then round 2's deferred
+length reduction, the first LaTeX compile, and the optional front-matter facts.
 
 ## 1. Manuscript sections
 

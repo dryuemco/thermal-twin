@@ -32,9 +32,10 @@
 > revisited once the guide is read.** Six changes, each closing a point raised by the internal panel.
 > (i) "+0.004" now carries "with an interval spanning zero", because the paper's headline quantity
 > had no interval anywhere. (ii) The blocking-invariant result is stated: paired deltas −0.148 to
-> +0.132, twelve positive and eight negative. (iii) The feature-removal exchange (+0.014 transfer for
-> −0.081 within-region) is given, because it is the only measured *debit* in the paper and the
-> trade-off claim needs one. (iv) The Muğla two-event sentence no longer says the failure is "not
+> +0.132, twelve positive and eight negative. (iii) The feature-removal debit (−0.081 within-region,
+> supported in every region) is given, because it is the only measured debit in the paper and the
+> trade-off claim needs one; the +0.014 transfer side is stated with its interval, which spans zero,
+> so no exchange rate is asserted (referee round 3, item 1.1). (iv) The Muğla two-event sentence no longer says the failure is "not
 > caused by comparing different places"; it says place is what the design holds fixed, and names the
 > season/year confound. (v) The niche-overlap contrast is marked as a point-estimate statement, which
 > §4.5, §5.3 and §6 already do. (vi) The label taxonomy is corrected: niche and regime measures need
@@ -62,8 +63,9 @@ survived coarser blocks and an earlier predictor window.
 
 The predictors were then transferred between regions. Their mean contribution over twenty ordered
 directions was +0.004, with an interval spanning zero. Paired deltas ran from −0.148 to +0.132,
-twelve positive and eight negative. Removing the two reversing predictors bought +0.014 of transfer
-for −0.081 of within-region skill. Local skill and portability are therefore traded.
+twelve positive and eight negative. Removing the two reversing predictors cost −0.081 of
+within-region skill, with support in every region, and changed mean transfer by +0.014, an estimate
+whose pair-clustered interval spans zero. The debit is measured and the credit is not.
 
 The failure is conditional. Inside one study area, two fires eleven months apart reversed the
 elevation-burning link, with disjoint bootstrap intervals. Season and year are confounded there, so
@@ -76,7 +78,8 @@ measure ordered the matrix. At the point estimate, the highest-overlap pair fail
 directions and the lowest-overlap pair transferred in both. Label-blind adaptation by standardisation
 and CORAL only pushed transfer towards chance. Niche and regime measures need labels in both regions
 too, so only the marginal family can be run before deployment, and it fails. Thirty-two labelled
-target blocks recovered 85 to 89 % of the ceiling in four of six directions tested.
+target blocks recovered 85 to 89 % of the ceiling in three of six directions tested, 51 to 57 % in
+two more and 30 % in the sixth.
 
 Transfer skill therefore has to be measured, not inferred from similarity. What carries the
 information is conditional, so the price of this failure is target labels rather than better

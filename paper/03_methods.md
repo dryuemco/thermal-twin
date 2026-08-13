@@ -239,7 +239,7 @@ derived channels are. First, the downscaling model is validated, on spatially bl
 train/validation/test splits, each against a MODIS-baseline control. Test RMSE is 2.04 °C (R² 0.866)
 for Manavgat, 1.75 °C (0.795) for Bejís, 1.65 °C (0.956) for Muğla, 1.80 °C (0.866) for Evia and
 1.83 °C (0.909) for Montiferru. Second, the downscaler's own inputs include `lon`, `lat`, `row`,
-`col` and their normalised forms. Their summed importance is 0.123 (Manavgat), 0.122 (Bejís), 0.101
+`col` and their normalised forms. Their summed importance is 0.123 (Manavgat), 0.122 (Bejís), 0.097
 (Evia), 0.066 (Montiferru) and 0.035 (Muğla), so `downscaled_lst`, and `fused_lst` on its gap-filled
 share, carry a smooth coordinate-derived component. The downscaler never sees a fire label, so this
 is not label leakage, but Section 3.13 excludes coordinates from the fire model and this is the one
@@ -525,8 +525,9 @@ thermal family. The frozen configuration records this grid and records λ = 10�
 implementation's canonical value
 (`drive_new/diagnostics/coral_lambda_sensitivity/b74d643e…/lambda_grid.csv` and `config.json`). The
 Manavgat↔Bejís directions were not re-run over the grid, and the configuration marks them
-`contextual_only_not_rerun`. The resulting spread in transfer AUC is at most 0.008 within any
-direction (Section 4.7d).
+`contextual_only_not_rerun`. The resulting spread in transfer AUC is at most 0.014 within any
+direction, and at most 0.008 within the thermal family; the three widest spreads are all
+baseline-family rows (Section 4.7d).
 
 **Why λ = 1 was not run.** The canonical value is the one value the sweep does not contain, and the
 omission is deliberate rather than accidental. In the canonical formulation the identity is added to

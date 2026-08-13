@@ -95,10 +95,11 @@ the upper-budget intervals are narrow.
 
 Three observations follow, and only the first is comfortable.
 
-**The largest budget tested recovers most of the gap in four of six directions.** Thirty-two blocks
+**The largest budget tested recovers most of the gap in three of six directions.** Thirty-two blocks
 carry on average 2,700 to 3,000 labelled cells, roughly 7 to 20 % of the target's natural-vegetation
-population depending on the region. At that budget four directions stand at 85 to 89 % of their
-target-only ceiling, having started at or below chance. The failure the main text documents is
+population depending on the region. At that budget three directions stand at 85 to 89 % of their
+target-only ceiling: Manavgat → Bejís and Bejís → Manavgat started below chance, Muğla → Bejís at
+0.583, above it. The failure the main text documents is
 therefore expensive but not structural: it is a shortage of target-conditional information, and
 target labels supply exactly that. That budget should not be described as modest. Limit 4 below
 gives the reason: for these AOIs the top budget already contains most of the target's burned cells.

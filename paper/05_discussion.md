@@ -340,8 +340,9 @@ point estimate, with shortfalls of 0.02 to 0.22. It sits 0.28 to 0.50 below the 
 ceiling. For two of five targets it is beaten raw by the pooled baseline, and for a third the two are within 0.006. In effect, the pooled model
 resolves conflicting thermal directions by discounting the block that carries them.
 
-Feature removal is zero-sum, but its geometry confirms the diagnosis. Dropping the two supported
-reversal features buys +0.014 mean transfer AUC for −0.081 mean within-region AUC. The gains land
+Feature removal is not a favourable trade, but its geometry confirms the diagnosis. Dropping the two
+supported reversal features costs −0.081 mean within-region AUC, supported in every region, and
+changes mean transfer AUC by +0.014, an estimate whose pair-clustered interval spans zero. The gains land
 exactly where the reversal analysis points. All three interval-supported gains involve the reversal
 partners. The mean delta over Manavgat-involved directions is +0.025 against −0.009 elsewhere.
 Removal of `lst_anomaly` contributes only in the one pair where it reverses with support. Knowing
@@ -455,7 +456,7 @@ and how many clear observations back each pixel. With about seven usable dates i
 baseline moves by +0.002 to +0.003 while the thermal family moves by +0.022 ROC-AUC, so the shift
 acts almost entirely on the thermal channels. That is the same dependence the compositing A/B of
 Section 4.7i finds by a different route, where three defensible weighting choices move Manavgat's
-increment between +0.045 and +0.085 on an identical cohort. The pre-fire claim is unaffected, and
+increment between +0.045 and +0.084 on an identical cohort. The pre-fire claim is unaffected, and
 the direction of the effect remains the safe one for it. What this does say is that part of the
 increment's magnitude is a function of how the composite was built rather than of dryness alone, and
 Section 5.11 records the resulting tolerance.
@@ -518,11 +519,11 @@ Section 5.4 attached. Second, do not spend effort on label-free alignment. Two s
 applied carefully, moved every direction towards chance rather than towards skill, and the one
 family of directions they improved is the smallest region in the set. Third, price the labels
 instead. Section 4.10 gives the shape of that price for three regions: thirty-two labelled 5 km
-blocks recovered 85 to 89 % of the target's own ceiling in four of six directions, from starting
-points at or below chance. That is a real answer to "what do we do", and it is not a cheap one. The
-same budget is 7 to 20 % of the target's natural-vegetation population, it recovers only 51 to 57 %
-where the concept gap is widest, and at small budgets it damages the one direction that already
-worked. No general label budget follows from six directions in three regions, and none is claimed
+blocks recovered 85 to 89 % of the target's own ceiling in three of six directions, two of them from
+starting points below chance. That is a real answer to "what do we do", and it is not a cheap one.
+The same budget is 7 to 20 % of the target's natural-vegetation population, it recovers only 51 to
+57 % where the concept gap is widest and 30 % in the sixth direction, and at small budgets it
+damages the direction that transfers best without any labels. No general label budget follows from six directions in three regions, and none is claimed
 here. What follows is the form of the answer: transfer failure of this kind is bought back with
 target labels, at a price that scales with the size of the conditional gap, and a campaign that
 cannot afford the labels should not deploy the model.
@@ -581,7 +582,7 @@ count of supported directions should be read at that precision.
 Five further limitations concern the observational layer, and they were added after an internal
 review found the paper strong on modelling and thin on provenance. (xi) **The within-region
 increment carries a compositing tolerance.** Three defensible Landsat compositing chains, run on an
-identical Manavgat cohort with an identical baseline, give increments of +0.045, +0.064 and +0.085
+identical Manavgat cohort with an identical baseline, give increments of +0.045, +0.064 and +0.084
 (Section 4.7i). The tolerance is about ±0.02 AUC, comparable to the cross-version tolerance of (vii)
 and wider than the 1 km interval of Table 3. It never approaches the increment itself, which stays
 supported under all three chains, and it was audited for one region only; the other four are
