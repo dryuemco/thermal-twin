@@ -153,8 +153,8 @@ individual cells are assigned to folds, is the accepted correction, with an esta
 implementation [@Valavi2019] and a target-oriented variant for spatio-temporal data [@Meyer2018].
 
 A parallel line asks not how well a model performs but *where* it can be trusted at all. Meyer and
-Pebesma [@Meyer2021] formalised this as the area of applicability of a spatial prediction model. It
-is defined in terms of dissimilarity in *predictor space* rather than geographic distance, and
+Pebesma [@Meyer2021] formalised this as the area of applicability of a spatial prediction model,
+defined in terms of dissimilarity in *predictor space* rather than geographic distance. They
 subsequently argued that many published global maps of ecological variables are assessed in ways
 that do not support their claimed coverage [@Meyer2022]. Ludwig et al. [@Ludwig2023] applied this
 apparatus to existing global spatial prediction models and found their effective transferability
@@ -265,7 +265,7 @@ The disadvantage of being method-dependent, which we report rather than conceal.
 found no application of CORAL or of region-wise feature alignment to fire susceptibility, fire
 occurrence or burned-area prediction at all. Work labelled "domain adaptation" in the fire
 literature addresses image-level post-fire tasks: burned-area segmentation, burn-severity mapping
-and smoke detection. which share the vocabulary but not the problem.
+and smoke detection. These share the vocabulary but not the problem.
 
 What this block supplies to the present argument is the vocabulary in which the thesis can be stated
 exactly. The portability cost of dynamic state predictors is not a covariate-shift problem that
@@ -314,8 +314,8 @@ transferring well and dissimilar pairs collapsing below chance. Its label, howev
 principal-component composite of federal hazard *indicators* rather than observed burned area, and
 it applies no domain adaptation and performs no shift decomposition. Finally, Xu et al. [@Xu2026]
 argue that wildfire transfer conclusions depend strongly on evaluation design and task formulation.
-a caution that applies to our results as much as to anyone's, and one we address by pre-specifying
-the protocol and reporting every sensitivity axis.
+That caution applies to our results as much as to anyone's, and we address it by pre-specifying the
+protocol and reporting every sensitivity axis.
 
 For scaling this kind of work, Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a multi-purpose
 1 km Mediterranean datacube built for data-driven wildfire modelling.
@@ -341,20 +341,21 @@ is universal, this predictor class is the one for which transfer should be *most
 instead the one that fails.
 
 The contrast, then, is not the one we initially expected to draw. It would be easy but wrong to
-reduce it to target definition. Their ignition proxy is human-driven and ours is burned area, and
-easier still to reduce it to their finding that anthropogenic pressure dominates, which is a result
-of their analysis rather than a feature of their design; their predictor set explicitly includes
-vegetation condition, topography and climatic context. The sharper reading is about predictor class.
-Every predictor in their model is an attribute of a *place*, stable across seasons and years, so a
-model fitted on them is in effect learning a spatial ordering of susceptibility that a neighbouring
-country can inherit. Every thermal predictor in ours describes the *state of a particular window*
-preceding a particular fire, so the fitted model encodes not only which places are prone to burn but
-how a given degree of anomalous dryness translates into burning in that region, in that season. The
-first kind of knowledge travels. The second is exactly the kind that need not. The deeper point this
-suggests is that predictor class, rather than domain similarity, is what governs portability. It is
-not that similar regions transfer and dissimilar ones do not. It is that stationary-attribute models
-track similarity, while dynamic-state models are reparameterised locally and therefore need not. Our
-data support this reading and cannot prove it, and we return to it below.
+reduce it to target definition, since their ignition proxy is human-driven and ours is burned area.
+It would be easier still, and equally wrong, to reduce it to their finding that anthropogenic
+pressure dominates. That finding is a result of their analysis rather than a feature of their
+design, and their predictor set explicitly includes vegetation condition, topography and climatic
+context. The sharper reading is about predictor class. Every predictor in their model is an
+attribute of a *place*, stable across seasons and years, so a model fitted on them is in effect
+learning a spatial ordering of susceptibility that a neighbouring country can inherit. Every thermal
+predictor in ours describes the *state of a particular window* preceding a particular fire, so the
+fitted model encodes not only which places are prone to burn but how a given degree of anomalous
+dryness translates into burning in that region, in that season. The first kind of knowledge travels.
+The second is exactly the kind that need not. The deeper point this suggests is that predictor
+class, rather than domain similarity, is what governs portability. It is not that similar regions
+transfer and dissimilar ones do not. It is that stationary-attribute models track similarity, while
+dynamic-state models are reparameterised locally and therefore need not. Our data support this
+reading and cannot prove it, and we return to it below.
 
 Three further differences must be stated precisely, because they bound how far the contrast can be
 pushed. **Target:** they treat burned-pixel centroids as an ignition proxy against a 1:1 balanced

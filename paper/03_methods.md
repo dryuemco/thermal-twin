@@ -730,21 +730,22 @@ report
 for Bejís, Muğla, Evia-extended and Montiferru;
 `drive_new/diagnostics/window_closure_sensitivity/manavgat_2021/compare/report/window_closure_comparison.md`
 for Manavgat). Three variants are compared: canonical, closure 7 days earlier, and closure 14 days
-earlier. move **both** ends of the predictor window together so the window length is preserved. The
-label window is frozen and identical in every variant. One exact common cohort (the intersection of
-analysis-eligible, primary-population, valid rows of every variant, after removing shared
-pre-label-censored cells) and one shared spatial-fold assignment are used by all six evaluations
-(two model families × three variants), with model family, feature registry, preprocessing,
-hyper-parameters and seeds held fixed. Uncertainty is a paired spatial-block bootstrap on the model
-stage's own replicate draws with identical block draws across variants (1,000 replicates, seed 42,
-resampling unit `spatial_block_id`). The report states the analysis measures the closure date
-jointly with its interaction with the fixed MODIS seasonal production policy, not the closure date
-in isolation. Bejís, for scale: 12,814 cohort rows, 967 positives, 5 folds, 3,641 blocks. The shared
-folds are blocked at the pipeline's default 2-cell edge (≈ 1 km): the analysis assigns block
-identifiers with `add_spatial_block_id(cohort, spatial_block_size_cells)` and takes that value from
-`STEP8B_SPATIAL_BLOCK_SIZE_CELLS = 2` (`repo/src/window_closure_sensitivity.py:8562`,
-`repo/core/config.py:556`). The comparison report records fold and block counts but not the block
-size, so this was read from the source rather than the report.
+earlier. The shifted variants move **both** ends of the predictor window together, so the window
+length is preserved. The label window is frozen and identical in every variant. One exact common
+cohort (the intersection of analysis-eligible, primary-population, valid rows of every variant,
+after removing shared pre-label-censored cells) and one shared spatial-fold assignment are used by
+all six evaluations (two model families × three variants), with model family, feature registry,
+preprocessing, hyper-parameters and seeds held fixed. Uncertainty is a paired spatial-block
+bootstrap on the model stage's own replicate draws with identical block draws across variants (1,000
+replicates, seed 42, resampling unit `spatial_block_id`). The report states the analysis measures
+the closure date jointly with its interaction with the fixed MODIS seasonal production policy, not
+the closure date in isolation. Bejís, for scale: 12,814 cohort rows, 967 positives, 5 folds, 3,641
+blocks. The shared folds are blocked at the pipeline's default 2-cell edge (≈ 1 km): the analysis
+assigns block identifiers with `add_spatial_block_id(cohort, spatial_block_size_cells)` and takes
+that value from `STEP8B_SPATIAL_BLOCK_SIZE_CELLS = 2`
+(`repo/src/window_closure_sensitivity.py:8562`, `repo/core/config.py:556`). The comparison report
+records fold and block counts but not the block size, so this was read from the source rather than
+the report.
 
 ### 3.16.4 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 

@@ -237,15 +237,15 @@ regions and therefore require burned labels (or a labelled probe) in the target;
 P(x|y=1) and P(y) row, they are not label-free.
 
 The remaining families all fail to order the matrix. The domain classifier (Section 3.14.2) is at
-ceiling for every pair (AUC 0.962 to 0.9999), so marginal shift is essentially total everywhere. so
-it cannot discriminate outcomes ranging from 0.33 to 0.69. The canonical SDM niche-overlap
-instruments (Schoener's D, Warren's I, Mahalanobis distance between burned-cell distributions;
-Section 3.14.3) span ρ −0.23 to +0.24 with all intervals crossing zero. Fire-regime structure
-(Section 3.14.5) has the *wrong-signed* point estimate (ρ +0.29): the most regime-similar pair
-(Bejís-Evia, effective component count 1.0000 vs 1.0083) fails in both directions while the most
-regime-different pair (Bejís-Muğla) transfers above chance. At pair level, niche overlap and sign
-agreement are empirically distinct (ρ between them −0.36 to +0.45, all CIs spanning zero), and in
-partial rank correlations the conditional index retains its association with transfer with niche
+ceiling for every pair (AUC 0.962 to 0.9999), so marginal shift is essentially total everywhere. A
+marginal instrument at ceiling cannot discriminate outcomes ranging from 0.33 to 0.69. The canonical
+SDM niche-overlap instruments (Schoener's D, Warren's I, Mahalanobis distance between burned-cell
+distributions; Section 3.14.3) span ρ −0.23 to +0.24 with all intervals crossing zero. Fire-regime
+structure (Section 3.14.5) has the *wrong-signed* point estimate (ρ +0.29): the most regime-similar
+pair (Bejís-Evia, effective component count 1.0000 vs 1.0083) fails in both directions while the
+most regime-different pair (Bejís-Muğla) transfers above chance. At pair level, niche overlap and
+sign agreement are empirically distinct (ρ between them −0.36 to +0.45, all CIs spanning zero), and
+in partial rank correlations the conditional index retains its association with transfer with niche
 overlap held fixed (partial ρ +0.82 [+0.40, +0.88]) while niche overlap retains none with the
 conditional index held fixed (−0.07 [−0.39, +0.37]).
 
@@ -267,12 +267,12 @@ km-block CIs, one per pair, annotated with the overlap and transfer numbers belo
 
 Manavgat and Muğla are in the same country and fire year, roughly 200 km apart, and their burned
 cells occupy the most similar environmental envelope of any pair in the matrix (per-feature D 0.77
-to 0.89). Yet five of nine feature-response directions point opposite ways. Elevation (signed AUC
-0.374 [0.289, 0.471] in Manavgat vs 0.611 [0.532, 0.690] in Muğla, disjoint CIs) and all four
-absolute thermal channels (e.g. `current_lst_mean` 0.538 [0.452, 0.621] vs 0.325 [0.271, 0.382]).
-Transfer is below chance in both directions with CI support. Bejís and Montiferru sit at the
-opposite extreme: burned envelopes that barely overlap (per-feature D 0.23 to 0.77; the pair is the
-most dissimilar on every overlap measure), yet seven of nine directions agree. The pair has no
+to 0.89). Yet five of nine feature-response directions point opposite ways. They are elevation
+(signed AUC 0.374 [0.289, 0.471] in Manavgat vs 0.611 [0.532, 0.690] in Muğla, disjoint CIs) and all
+four absolute thermal channels (e.g. `current_lst_mean` 0.538 [0.452, 0.621] vs 0.325 [0.271,
+0.382]). Transfer is below chance in both directions with CI support. Bejís and Montiferru sit at
+the opposite extreme: burned envelopes that barely overlap (per-feature D 0.23 to 0.77; the pair is
+the most dissimilar on every overlap measure), yet seven of nine directions agree. The pair has no
 jointly supported features, because the two regions' supported sets do not intersect, so the
 supported-agreement index is undefined for it. Transfer is nevertheless above chance in both
 directions with CI support. Where the envelope agrees but the direction reverses, transfer fails;
@@ -383,12 +383,12 @@ not cover λ = 1 or the Montiferru/Evia directions.
 
 **(e) scikit-learn version.** With byte-identical data, pipeline and seed, changing only the library
 version from 1.9.0 to 1.7.2 moves raw transfer AUC by +0.021 (Montiferru→Bejís) and +0.026
-(Manavgat→Bejís) on the two probes tested, which is the same order as some reported effects. while
-within-region AUCs reproduce to ~4 decimals across environments. All numbers in this paper were
-produced under, or verified against, scikit-learn 1.9.0. The two probes reproduce to four decimal
-places in the verification environment (difference 0.0000). Cross-region point estimates therefore
-carry an implementation tolerance of roughly ±0.02 to 0.03 unless the exact library version is
-fixed. The bootstrap intervals reported throughout are wider than this jitter.
+(Manavgat→Bejís) on the two probes tested, which is the same order as some reported effects.
+Within-region AUCs, by contrast, reproduce to ~4 decimals across environments. All numbers in this
+paper were produced under, or verified against, scikit-learn 1.9.0. The two probes reproduce to four
+decimal places in the verification environment (difference 0.0000). Cross-region point estimates
+therefore carry an implementation tolerance of roughly ±0.02 to 0.03 unless the exact library
+version is fixed. The bootstrap intervals reported throughout are wider than this jitter.
 
 **(f) Analysis population.** In the secondary all-valid population the within-region thermal
 increment is CI-supported in all five regions, with smaller deltas than in the primary
