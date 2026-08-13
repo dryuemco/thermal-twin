@@ -165,7 +165,13 @@ Mechanical only — no analysis, no new numbers, no open judgement calls.
    across `figure_captions.tex`, §4 and §5. **Added 2026-08-13:** `S1_few_shot_recovery.md` must
    be carried through as supplementary material, with its Table S1 kept out of the main-text
    table sequence.
-2. **Abstract trim** to the journal's word limit (currently 331 words).
+2. ~~**Abstract trim**~~ — **done 2026-08-13: 271 -> 250 words**, and the same-geography
+   two-event control (§4.8) was added, which the previous version omitted. **The journal limit
+   was NOT verified**: both the Elsevier and ScienceDirect guide-for-authors pages return HTTP
+   403 to automated fetching, and a search result reporting 400 words was not corroborated. 250
+   is a deliberately safe target under either limit. Confirm the guide before submission; if 400
+   holds there is room to restore the per-region robustness detail and the domain-classifier
+   ceiling. (The 331 figure in the old entry counted the drafting note; prose was 271.)
 3. ~~**WildfireGenome re-check**~~ — **done 2026-08-13.** Still a preprint: Crossref has zero
    works titled "WildfireGenome" and no matching Liu/Mostafavi journal article; the arXiv record
    carries no `journal-ref`. Kept as `@misc`, now with the arXiv DOI. Its substantive claims were
