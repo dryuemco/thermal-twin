@@ -35,7 +35,7 @@ its sensitivity to this composition is examined in Section 4.7b. The negative co
 designed: in Kozan 2023 the gate classifies 542 burned cells as 0.017 natural vegetation and
 0.983 cropland (533 of 542 burned cells cropland-dominant, 8 grassland, 1 tree cover), returning
 the verdict *cropland-dominated control*, and the region is excluded from all modelling. The
-separation is not marginal — the five admitted regions carry natural-vegetation fractions of
+separation is not marginal. The five admitted regions carry natural-vegetation fractions of
 0.723 to 0.991 against the control's 0.017, so the 0.50 threshold falls in an empty interval rather
 than between neighbouring cases. This establishes that the gate discriminates burned area produced
 by natural-fuel combustion from burned area produced by post-harvest stubble burning, which
@@ -126,7 +126,7 @@ directions the raw deficit against the within-region reference is 0.184 to 0.592
 direction's thermal model against the static baseline model under the same protocol (Table R6)
 shows that the block worth +0.056 to +0.153 AUC inside every region is worth +0.004 on average
 across regions: its paired contribution is CI-supported positive in 10 directions, CI-supported
-negative in 7, and uncertain in 3. It is the swing factor at the chance line — adding the
+negative in 7, and uncertain in 3. It is the swing factor at the chance line. Adding the
 thermal block drags three directions from a baseline at or above chance to below it
 (Manavgat→Muğla 0.508 → 0.470; Bejís→Evia 0.531 → 0.383; Muğla→Manavgat 0.522 → 0.401) and
 lifts one from below to above (Muğla→Bejís 0.451 → 0.583). In the Manavgat-Muğla pair the
@@ -148,7 +148,7 @@ CI-supported positive directions are listed there. Selected rows:
 | Bejís→Evia | 0.531 | 0.383 | −0.148 [−0.168, −0.126] | negative |
 
 **Label-blind adaptation compresses the matrix toward chance.** Under region-wise z-scoring the
-20 directions span 0.431 to 0.630; under CORAL, 0.443 to 0.624 — roughly half the raw spread, with no
+20 directions span 0.431 to 0.630, and under CORAL 0.443 to 0.624. That is roughly half the raw spread, with no
 adapted direction exceeding 0.63 against within-region references of 0.859 to 0.918. Adaptation
 raises the failing directions (e.g. Manavgat→Bejís 0.326 → 0.511 CORAL; Muğla→Manavgat 0.401 →
 0.560) and simultaneously degrades every direction that already transferred (e.g. Evia→Manavgat
@@ -180,7 +180,7 @@ without fraction CIs).
 The decomposition ([Fig. 5]) shows both faces of the same behaviour. In the five directions
 where raw transfer was below chance, the best label-blind method recovers at most 34% of the gap
 to the within-region reference; the remaining (concept) fraction is at least 0.66 everywhere.
-Seven directions show *negative* recovery — adaptation moves the score away from the
+Seven directions show *negative* recovery, meaning that adaptation moves the score away from the
 within-region reference, in the worst case (Evia→Manavgat) recovering −0.86 of the gap. In six
 of the seven, raw transfer was already above chance and adaptation destroyed that advantage; in
 the seventh (Manavgat→Muğla), raw transfer was below chance (0.470) and adaptation lowered it
@@ -190,9 +190,10 @@ deficit where transfer fails and destroying performance where transfer works.
 
 ## 4.4 Transferability diagnostics: only conditional similarity orders transfer
 
-Twenty candidate diagnostics from four families — marginal predictor-distribution measures
+Twenty candidate diagnostics from four families were each rank-correlated with the same target
+quantity. The families are marginal predictor-distribution measures
 P(x), burned-niche overlap measures P(x|y=1), fire-regime (label-pattern) structure P(y), and
-conditional feature-response direction P(y|x) — were each rank-correlated with the same target
+conditional feature-response direction P(y|x). The target
 quantity (raw thermal transfer AUC over the 20 ordered directions) under a common pair-based
 bootstrap (Section 3.14.1). Table 6 gives the complete set.
 
@@ -237,7 +238,7 @@ therefore require burned labels (or a labelled probe) in the target; unlike ever
 and P(y) row, they are not label-free.
 
 The remaining families all fail to order the matrix. The domain classifier (Section 3.14.2) is
-at ceiling for every pair (AUC 0.962 to 0.9999) — marginal shift is essentially total everywhere —
+at ceiling for every pair (AUC 0.962 to 0.9999), so marginal shift is essentially total everywhere.
 so it cannot discriminate outcomes ranging from 0.33 to 0.69. The canonical SDM niche-overlap
 instruments (Schoener's D, Warren's I, Mahalanobis distance between burned-cell distributions;
 Section 3.14.3) span ρ −0.23 to +0.24 with all intervals crossing zero. Fire-regime structure
@@ -253,7 +254,7 @@ with the conditional index held fixed (−0.07 [−0.39, +0.37]).
 
 The clearest single view of the preceding table is a two-pair contrast ([Fig. 8]; per-feature
 data in `figure_contrast_pairs.csv`). [Production note: the OUTLINE slot reserved for signed
-univariate AUC per feature with CIs is realised by Fig. 8 — two panels of
+univariate AUC per feature with CIs is realised by Fig. 8, in two panels of
 per-feature signed AUC with ~5 km-block CIs, one per pair, annotated with the overlap and
 transfer numbers below.]
 
@@ -268,14 +269,14 @@ transfer numbers below.]
 
 Manavgat and Muğla are in the same country and fire year, roughly 200 km apart, and their burned
 cells occupy the most similar environmental envelope of any pair in the matrix (per-feature D
-0.77 to 0.89). Yet five of nine feature-response directions point opposite ways — elevation
+0.77 to 0.89). Yet five of nine feature-response directions point opposite ways. Elevation
 (signed AUC 0.374 [0.289, 0.471] in Manavgat vs 0.611 [0.532, 0.690] in Muğla, disjoint CIs)
 and all four absolute thermal channels (e.g. `current_lst_mean` 0.538 [0.452, 0.621] vs 0.325
-[0.271, 0.382]) — and transfer is below chance in both directions with CI support. Bejís and
+[0.271, 0.382]). Transfer is below chance in both directions with CI support. Bejís and
 Montiferru sit at the opposite extreme: burned envelopes that barely overlap (per-feature D
 0.23 to 0.77; the pair is the most dissimilar on every overlap measure), yet seven of nine
-directions agree — the pair has no jointly supported features, because the two regions'
-supported sets do not intersect, so the supported-agreement index is undefined for it — and
+directions agree. The pair has no jointly supported features, because the two regions' supported
+sets do not intersect, so the supported-agreement index is undefined for it. And
 transfer is above chance in both directions with CI support. Where the envelope agrees but the direction reverses, transfer
 fails; where the envelope disagrees but the direction agrees, transfer works.
 
@@ -336,7 +337,7 @@ removing elevation is bootstrap-supported in every region (largest Bejís −0.1
 [−0.147, −0.079]). The transfer deltas land exactly where the reversal diagnosis points:
 the three CI-supported gains are Manavgat→Bejís +0.118 [+0.048, +0.203], Evia→Bejís +0.075
 [+0.023, +0.131] and Montiferru→Manavgat +0.057 [+0.017, +0.092]; the mean delta over the eight
-Manavgat-involved directions is +0.025 against −0.009 over the other twelve — and Manavgat is
+Manavgat-involved directions is +0.025 against −0.009 over the other twelve. Manavgat is
 the elevation dissenter (signed AUC 0.374 vs 0.61 to 0.65 elsewhere). Conversely, the five
 CI-supported losses (Evia→Manavgat −0.078; Manavgat→Evia −0.071; Muğla→Evia −0.038;
 Montiferru→Bejís −0.036; Muğla→Bejís −0.026) occur precisely where elevation's direction is
@@ -380,15 +381,15 @@ assembly).**
 | Evia (ext.) | 0.156 [0.144, 0.170] | 0.149 [0.136, 0.162] | 0.135 [0.124, 0.147] |
 | Montiferru | 0.096 [0.074, 0.118] | 0.091 [0.068, 0.113] | 0.100 [0.077, 0.122] |
 
-**(d) CORAL regularisation.** Over the available sweep — four directions (Bejís↔Muğla,
-Manavgat↔Muğla), nine λ values from 0 to 10⁻¹ — the CORAL transfer AUC moves by at most 0.008
+**(d) CORAL regularisation.** The available sweep covers four directions (Bejís↔Muğla,
+Manavgat↔Muğla) and nine λ values from 0 to 10⁻¹. Over that sweep the CORAL transfer AUC moves by at most 0.008
 within any direction (e.g. Muğla→Manavgat 0.559 to 0.564; Manavgat→Muğla 0.443 to 0.451). No
 CORAL-dependent conclusion for these directions is sensitive to λ in this range. The sweep does
 not cover λ = 1 or the Montiferru/Evia directions.
 
 **(e) scikit-learn version.** With byte-identical data, pipeline and seed, changing only the
 library version from 1.9.0 to 1.7.2 moves raw transfer AUC by +0.021 (Montiferru→Bejís) and
-+0.026 (Manavgat→Bejís) on the two probes tested — the same order as some reported effects —
++0.026 (Manavgat→Bejís) on the two probes tested, which is the same order as some reported effects.
 while within-region AUCs reproduce to ~4 decimals across environments. All numbers in this
 paper were produced under, or verified against, scikit-learn 1.9.0; the two probes reproduce to
 four decimal places in the verification environment (difference 0.0000). Cross-region point
@@ -412,8 +413,8 @@ event occurred inside the identical AOI on the identical analysis grid (Section 
 event, with its 58-day predictor window closing on 28 July, and the 2022 event, whose matched
 58-day window closes on 20 June. Region, bounding box, cell definition, feature registry and
 processing chain are the same; only the event differs. The comparison is therefore
-same-geography event-to-event, not clean temporal transfer — the 2022 fire ignites about five weeks
-earlier in the season, so year and seasonal phase are confounded (Section 3.16.4) — but geography,
+same-geography event-to-event, not clean temporal transfer. The 2022 fire ignites about five weeks
+earlier in the season, so year and seasonal phase are confounded (Section 3.16.4). Geography,
 the explanation most often offered for between-region instability, is held fixed by construction.
 The second Muğla event is deliberately kept out of the 20-direction matrix of Section 4.3, and that
 exclusion is enforced and tested in the released code rather than merely asserted here: the
@@ -441,8 +442,8 @@ Read from `paper/mugla_temporal_raw/.../multi_aoi_burned_pattern_comparison.csv`
 | Land-cover classes observed | 7 | 2 |
 | Dominant class (share) | tree cover (0.925) | tree cover (0.979) |
 
-The 2021 season burned as a dispersed multi-fire complex — ten components, an effective count of
-4.05, no single component holding a third of the area — spanning the region's full relief from near
+The 2021 season burned as a dispersed multi-fire complex, with ten components, an effective count of
+4.05 and no single component holding a third of the area. It spanned the region's full relief from near
 sea level to 1,975 m. The 2022 event is one compact scar: two components, an effective count of
 1.34, 85.2 % of burned cells in the largest, and confined to the low belt. Its highest burned cell
 lies at 777 m, below the 2021 event's 95th percentile of 1,526 m, and its median elevation of 187 m
@@ -471,7 +472,7 @@ replicates, seed 42 (Section 3.16.4). Analysis population 41,730 rows / 2,911 bu
 
 Elevation reverses with bootstrap support. In 2021 higher cells burn preferentially (AUC 0.611,
 interval entirely above 0.5); in 2022 lower cells do (0.296, interval entirely below), and the two
-intervals are disjoint — 0.532 against 0.355 — with the difference at −0.317 [−0.414, −0.220]. The
+intervals are disjoint, 0.532 against 0.355, with the difference at −0.317 [−0.414, −0.220]. The
 same predictor, the same region, the same grid, and an association that points the opposite way in
 two fires eleven months apart.
 
@@ -483,11 +484,11 @@ intervals are wide, and all four straddle 0.5 (current_lst [0.434, 0.580]), so t
 not established even though the shift from 2021 is. We follow the diagnostic's own conservative
 classification: one bootstrap-supported reversal, elevation; four point-level reversals in the
 thermal block. The two anomaly-referenced channels and the two remaining static predictors do not
-reverse at all — NDVI keeps a bootstrap-supported positive direction in both events.
+reverse at all, and NDVI keeps a bootstrap-supported positive direction in both events.
 
 Transfer between the two events behaves unlike any between-region direction in the matrix, and it
-does so asymmetrically (Table R9). Both directions stay *above* chance — the thermal intervals are
-[0.513, 0.604] and [0.654, 0.685], neither touching 0.5 — where six of the twenty between-region
+does so asymmetrically (Table R9). Both directions stay *above* chance, with thermal intervals of
+[0.513, 0.604] and [0.654, 0.685], neither touching 0.5. Six of the twenty between-region
 directions fell below it with interval support (Section 4.3). Holding geography fixed removes the
 collapse.
 
@@ -510,7 +511,7 @@ anywhere else in the paper: **the same six predictors change the sign of their c
 depending on which event is the source, and both signs are interval-supported.** Carried forward
 from 2021 to 2022 they cost 0.082 AUC; carried back from 2022 to 2021 they buy 0.089. This is not
 a case of a weak signal failing to travel. Within each event separately the thermal block helps and
-its interval excludes zero — +0.116 in 2021 (Table 3) and +0.078 in 2022 — so the block is locally
+its interval excludes zero, at +0.116 in 2021 (Table 3) and +0.078 in 2022. The block is therefore locally
 informative in both, and still actively harmful in one direction between them.
 
 The asymmetry follows the elevation reversal. A model fitted on 2021 learned a relationship whose
@@ -519,7 +520,7 @@ channels it learned alongside that term were fitted under the same regime; appli
 subtract skill from a baseline that already transfers at 0.642. In the reverse direction the 2022
 model carries a relationship fitted on a narrow low-elevation slice, which the broader 2021 event
 contains, and there the thermal block adds. The residual gap to the target's own within-region
-performance remains large in both directions — 0.383 and 0.189 — so nothing here rescues transfer;
+performance remains large in both directions, at 0.383 and 0.189, so nothing here rescues transfer;
 what it shows is that the direction of the thermal block's contribution is not a property of the
 predictors but of the pair.
 
@@ -553,9 +554,9 @@ small in absolute terms, spanning −0.06 to +1.11 °C, and wind departures smal
 (−0.21 to +0.34 m s⁻¹).
 
 The one region-level contrast the analysis was run to test concerns Manavgat. Its predictor-window
-temperature is −0.06 °C from its climatological mean — the only region at or below its own
-baseline, and an anomaly small enough to be read as *at* the baseline — while the other four sit
-0.31 to 1.11 °C above theirs. Its humidity deficit (−3.24 %) is mid-range among the five and its
+temperature is −0.06 °C from its climatological mean, while the other four sit
+0.31 to 1.11 °C above theirs. It is the only region at or below its own baseline, and the anomaly is
+small enough to be read as *at* the baseline. Its humidity deficit (−3.24 %) is mid-range among the five and its
 precipitation is within 1.4 mm of climatology, the smallest precipitation departure in the set.
 On none of the four variables is Manavgat the extreme member. The consequence for the
 interpretation of its transfer behaviour is taken up in Section 5.7.

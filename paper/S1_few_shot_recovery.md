@@ -9,7 +9,7 @@
 ## S1.1 Purpose and status
 
 The main text establishes that the residual transfer gap is dominated by a conditional
-(concept) component, and that label-free alignment cannot close it — CORAL and per-region
+(concept) component, and that label-free alignment cannot close it. CORAL and per-region
 standardisation recover a minority of the gap at best, and actively degrade the one pair that
 transfers above chance without them (§4.4, §4.6, §5.5). The natural constructive question is
 therefore what a *small number of target labels* buys, since that is the resource label-free
@@ -23,8 +23,8 @@ sensitivity result, not a proposed method.
 
 ## S1.2 Design
 
-**Regions and directions.** Three experiments — Manavgat 2021, Bejís 2022 and Muğla 2021 — in all
-six ordered directions. Evia is excluded by the frozen configuration on two recorded grounds
+**Regions and directions.** Three experiments are used in all six ordered directions: Manavgat 2021,
+Bejís 2022 and Muğla 2021. Evia is excluded by the frozen configuration on two recorded grounds
 (`evia_2021`: out of scope for this analysis; `evia_2021_extended`: a high-prevalence,
 different-regime sensitivity control rather than an equal-prevalence primary transfer AOI), and
 Montiferru does not appear in it. Population, feature sets, forbidden-column set and classifier are
@@ -38,13 +38,13 @@ before population filtering, identical to the large-block machinery of §3.8. Th
 records why the canonical 2-cell block is not used here: at ≈ 1 km a block holds a median of about
 four cells, which is neither a plausible unit of survey effort nor separable from the evaluation
 blocks adjacent to it. Budgets are 0, 1, 2, 4, 8, 16 and 32 blocks. Budget 0 is the raw transfer
-endpoint — the source-only model, no target labels — and the ceiling is the target-only model
+endpoint, which is the source-only model with no target labels. The ceiling is the target-only model
 evaluated under the same folds.
 
 **Selection and evaluation.** Blocks are drawn under a fixed tier order (blocks containing both
 classes, then burned-only, then unburned-only), shuffled within tier by a seed derived as
-`blake2b(schema|source|target|outer_fold|repeat)` — independent of the budget, of the model family
-and of any result, so no branch of the selection can react to an outcome. Budgets are nested: the
+`blake2b(schema|source|target|outer_fold|repeat)`. The seed is independent of the budget, of the
+model family and of any result, so no branch of the selection can react to an outcome. Budgets are nested: the
 32-block set contains the 16-block set. Evaluation is 5-fold `StratifiedGroupKFold` grouped on the
 target's large blocks, in strict mode. Each budget is repeated 10 times with different block draws
 (the raw and ceiling endpoints once each, being deterministic), for 3,642 unique fits, matching the
@@ -75,9 +75,9 @@ Values are the mean over 10 block-selection repeats. Read from `recovery_curve.c
 | Manavgat → Muğla | 0.470 | 0.483 | 0.495 | 0.510 | 0.539 | 0.589 | 0.627 | 0.777 | 51 % |
 | Bejís → Muğla | 0.618 | 0.576 | 0.577 | 0.578 | 0.598 | 0.637 | 0.666 | 0.777 | 30 % |
 
-Selection intervals at the smallest budgets are wide and at the largest budgets narrow — for
-Bejís → Manavgat, [0.392, 0.484] at one block against [0.733, 0.748] at 32 — but see the caution in
-S1.4 on why the upper-budget intervals are narrow.
+Selection intervals are wide at the smallest budgets and narrow at the largest. For Bejís → Manavgat
+they run [0.392, 0.484] at one block against [0.733, 0.748] at 32. See the caution in S1.4 on why
+the upper-budget intervals are narrow.
 
 Three observations follow, and only the first is comfortable.
 
@@ -89,18 +89,18 @@ therefore expensive but not structural: it is a shortage of target-conditional i
 target labels supply exactly that.
 
 **The recovery is slow where the transfer is worst.** The two directions into Muğla and Manavgat
-from Muğla — the directions whose raw transfer sits furthest below the ceiling — reach only 51 to 57 %
-at the top budget, and Muğla → Manavgat is still below 0.5 AUC after 8 labelled blocks. A larger
+from Muğla reach only 51 to 57 % at the top budget. These are the directions whose raw transfer sits
+furthest below the ceiling, and Muğla → Manavgat is still below 0.5 AUC after 8 labelled blocks. A larger
 concept gap costs more labels, not the same labels.
 
 **Small budgets actively hurt the one direction that already transfers.** Bejís → Muğla is the pair
 that transfers above chance raw (0.618), and it is the pair few-shot recalibration helps least: the
 curve is *negative* at 1, 2, 4 and 8 blocks (−0.043 to −0.021 AUC), only overtakes raw at 16, and
-reaches 30 % at 32 — the worst of the six. This is the same asymmetry the main text reports for
+reaches 30 % at 32, the worst of the six. This is the same asymmetry the main text reports for
 label-free adaptation (§4.4): where the source model already carries a usable conditional
-relationship, a small target sample perturbs it before it can replace it. The mechanism differs —
-here the target labels are real information, not a covariate rescaling — but the direction of the
-effect is the same, and it is the one direction where the intervention is a liability at every
+relationship, a small target sample perturbs it before it can replace it. The mechanism differs,
+since here the target labels are real information rather than a covariate rescaling. The direction
+of the effect is nevertheless the same, and it is the one direction where the intervention is a liability at every
 budget a field campaign would plausibly afford.
 
 ## S1.4 Methodological limits
@@ -118,7 +118,7 @@ These are stated so the analysis is not read as more than it is.
 4. **The interval is a selection interval, and it narrows for a reason that is not precision.**
    Bejís holds only 15 blocks containing both classes and 19 containing any burned cell; Manavgat
    26 and 28; Muğla 60 and 70. At 16 and 32 blocks the tiered draw has nearly exhausted the
-   both-class blocks, so repeats select almost the same set — the mean labelled-positive count into
+   both-class blocks, so repeats select almost the same set. The mean labelled-positive count into
    Bejís is identically 860.0 at 16 blocks and 880.0 at 32 across both source regions. The narrow
    upper-budget intervals therefore reflect a saturated selection pool, not a well-estimated
    quantity, and the top budget is not a small budget for these AOIs: 880 of Bejís's 1,100 burned
@@ -132,13 +132,13 @@ These are stated so the analysis is not read as more than it is.
    against an independent output and the corresponding validator check `FSR-35[mugla_2021]` is
    recorded as SKIPPED rather than PASS.
 7. **Provenance differs from the manuscript commit.** The export was produced on 2026-08-02 at
-   commit `19d825b` under scikit-learn 1.9.0, pandas 3.0.2 and NumPy 2.4.4 — the same scikit-learn
-   version to which every other number in this paper is fixed (§4.7e), but an earlier code state
-   than the `48b56e7` of record. Its validator reports 64 PASS and the one SKIPPED check above.
+   commit `19d825b` under scikit-learn 1.9.0, pandas 3.0.2 and NumPy 2.4.4. That is the same
+   scikit-learn version to which every other number in this paper is fixed (§4.7e), but it is an
+   earlier code state than the `48b56e7` of record. Its validator reports 64 PASS and the one SKIPPED check above.
 
 ## S1.5 Figure
 
-A recovery curve — budget on a log-2 axis, target ROC-AUC on the ordinate, one line per direction,
-selection interval as a band, each direction's ceiling as a horizontal reference — is the natural
-presentation and is prepared from `recovery_curve.csv` (thermal family, `metric = roc_auc`).
-Numbers as in Table S1.
+A recovery curve is the natural presentation, and it is prepared from `recovery_curve.csv` (thermal
+family, `metric = roc_auc`). Budget goes on a log-2 axis and target ROC-AUC on the ordinate. Each
+direction is one line, the selection interval is drawn as a band, and each direction's ceiling is a
+horizontal reference. Numbers are as in Table S1.

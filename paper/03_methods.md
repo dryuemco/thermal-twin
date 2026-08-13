@@ -94,7 +94,7 @@ itself (`step8a:768 to 814`).
 **Label assignment.** Within each 17×17 block, only strictly positive burn-date day-of-year values
 are considered; zeros and no-data are ignored. A cell is unburned by default. If positive values
 exist, their modal day-of-year is taken as the cell's representative burn date, ties being broken
-in favour of the smaller value — which, for the burned/unburned decision, means the conservative
+in favour of the smaller value. For the burned/unburned decision that means the conservative
 direction (`step8a:939 to 951`). The representative day-of-year is then converted to a calendar date
 and tested against the region's label window: if it falls inside the window the cell is labelled
 burned, otherwise the cell is retained as **unburned** and flagged `out_of_window_burndate`
@@ -127,7 +127,7 @@ order (`step6b:172 to 211`):
 
 1. fewer than `STEP6_BURNED_LANDCOVER_GATE_MIN_POSITIVES = 30` burned cells → *insufficient burned
    positives*;
-2. natural-vegetation fraction ≥ 0.50 → **wildfire candidate — pass**;
+2. natural-vegetation fraction ≥ 0.50 → **wildfire candidate, pass**;
 3. cropland fraction ≥ 0.50 → *cropland-dominated control*;
 4. otherwise → *mixed or uncertain*.
 
@@ -144,8 +144,8 @@ burned area, and a model trained on the latter would be learning agricultural ca
 fire-relevant dryness. Kozan 2023 (Adana province, Türkiye) was therefore processed through the
 identical Step 1 to 6 pipeline as a negative control. It is not a wildfire region: its burned area lies
 in the Çukurova agricultural plain and is dominated by post-harvest stubble burning. The gate
-receives it blind — it sees only the burn-date raster and the land-cover raster, with no regional
-label — and the verdict follows from rule 3 above. The control is reported in Section 4.1 and enters
+receives it blind. It sees only the burn-date raster and the land-cover raster, with no regional
+label, and the verdict follows from rule 3 above. The control is reported in Section 4.1 and enters
 no modelling, transfer or diagnostic analysis; no Kozan number appears anywhere else in this paper.
 
 ## 3.4 Predictor variables
@@ -188,7 +188,7 @@ downscaling model is trained on the predictor window and applied to the full 30 
 downscaling stage is explicitly leakage-guarded: it never sees MCD64A1 or FIRMS labels, and is
 prevented from ingesting the anomaly, TVDI or TVDI-difference layers as inputs
 (`step7d_predict_downscaled_lst.py:1 to 30`). A fused product (`fused_lst`, °C) then combines observed
-Landsat LST with downscaled LST as **gap-fill only** — valid observed pixels are never replaced or
+Landsat LST with downscaled LST as **gap-fill only**. Valid observed pixels are never replaced or
 blended (`step7e_fuse_landsat_downscaled_lst.py:1 to 26`). A companion source mask records, per pixel,
 whether the fused value is observed, gap-filled or invalid; the corresponding per-cell fractions are
 retained as sensitivity diagnostics and are **never** used as predictors.
@@ -223,7 +223,7 @@ within the block.
 and slope; its aggregated NDVI, elevation and slope means are each finite; and it contains at least
 one valid land-cover pixel. Thermal predictors deliberately do **not** enter the validity test, so
 that thermal data availability cannot silently reshape the population differently for the two
-feature sets. The label likewise plays no part in the validity test — a design point made explicit
+feature sets. The label likewise plays no part in the validity test. That is a design point made explicit
 in the source, since requiring a valid burn date would collapse the dataset to burned-like cells.
 
 **Analysis population.** The **primary** population is natural vegetation: cells that are
@@ -232,8 +232,8 @@ shrubland + grassland **area fraction ≥ `STEP8A_BURNABLE_FRACTION_THRESHOLD` =
 cell (`step8a:1326 to 1329`). Cropland is explicitly excluded from every burnable mask and only ever
 reported as its own fraction. Restricting to natural vegetation removes the confound in which
 agricultural stubble burning and bare-surface thermal contrast could be mistaken for wildfire skill;
-it is the scientifically defensible population for the transfer question, and — as the analysis
-shows — the choice materially changes the conclusion. The mixed population of all valid cells
+it is the scientifically defensible population for the transfer question, and, as the analysis
+shows, the choice materially changes the conclusion. The mixed population of all valid cells
 (`all_valid`) is retained throughout as a **secondary sensitivity** analysis, and both populations
 are reported for every headline quantity.
 
@@ -241,9 +241,9 @@ Two definitional asymmetries are noted for transparency: the burnable mask is an
 test, whereas the admissibility gate of Section 3.3 uses the **modal** class; and the upstream
 within-region pipeline's own configured primary population is `all_valid`
 (`STEP8B_PRIMARY_POPULATION`, `core/config.py:559`), whereas the transfer analysis reported here
-takes natural vegetation as primary. All comparisons in this paper — within-region reference,
-naive transfer and adapted transfer alike — are computed on the *same* population and the *same*
-classifier configuration, which is what makes the decomposition of Section 3.12 valid.
+takes natural vegetation as primary. All comparisons in this paper are computed on the *same*
+population and the *same* classifier configuration. This holds for the within-region reference,
+naive transfer and adapted transfer alike, which is what makes the decomposition of Section 3.12 valid.
 
 `burnable_tree_shrub_grass` is used exclusively as a population mask and is never a feature.
 
@@ -325,7 +325,7 @@ refitting (`step8c_spatial_block_bootstrap_uncertainty.py`). The resampling unit
 block, not the cell: in each replicate, `n_blocks` blocks are drawn with replacement from the
 `n_blocks` unique blocks, and a block drawn *k* times contributes all of its cells *k* times
 (`step8c:278 to 351`). Resampling cells individually would treat spatially autocorrelated neighbours as
-independent and produce intervals that are far too narrow — an error we made and corrected during
+independent and produce intervals that are far too narrow. This was an error we made and corrected during
 this study (Section 3.12).
 
 The number of replicates is 1000 and the seed is 42 (`core/config.py:574 to 575`). Intervals are
@@ -353,7 +353,7 @@ and B = 10 (≈ 5 km) for the univariate concept-shift diagnostic of Section 3.1
 ## 3.10 Cross-region transfer protocol
 
 For each ordered pair of regions (source → target), a model is fitted on the **entire** source
-region — all cells in the analysis population, no held-out fold — and applied to the entire target
+region, using all cells in the analysis population with no held-out fold, and applied to the entire target
 region. All ordered pairs among the completed regions are evaluated in both directions.
 
 Every fitted component is derived from the source region only: the numeric imputation medians, the
@@ -374,11 +374,11 @@ being evaluated, otherwise the pair is skipped.
 
 **Target metrics** are threshold-free: ROC-AUC and PR-AUC, with spatial-block bootstrap intervals as
 in Section 3.9, computed on the target region's blocks. A ROC-AUC below 0.5 is reported as such and
-is interpreted as an anti-predictive transfer — the source-learned ordering is systematically
-inverted in the target — rather than being folded to `max(AUC, 1 − AUC)`. Both the baseline and
+is interpreted as an anti-predictive transfer, in which the source-learned ordering is
+systematically inverted in the target. It is not folded to `max(AUC, 1 − AUC)`. Both the baseline and
 the thermal feature set are fitted and evaluated under this protocol for every ordered direction,
 so the per-direction paired baseline-versus-thermal transfer contrast reported in the Results is a
-read-only extraction from these frozen outputs — point estimates from the transfer stage's
+read-only extraction from these frozen outputs, taking point estimates from the transfer stage's
 `baseline_metrics`/`thermal_metrics`, and paired ΔAUC intervals from the transfer bootstrap's
 `delta_roc_auc` field, which evaluates both probability series on identical resampled target
 blocks as in Section 3.9 (extraction script `paper/baseline_vs_thermal.mjs`; no new models
@@ -402,7 +402,7 @@ with the region's own mean, hence map to exactly zero after transformation. The 
 land-cover predictor is left untouched. Source statistics come from source data and target
 statistics from target data; the two regions are never pooled. The classifier is then refitted on
 the z-scored source and applied to the z-scored target. This variant removes first- and second-order
-marginal offsets between regions — the simplest possible self-calibration.
+marginal offsets between regions. It is the simplest possible self-calibration.
 
 **(c) CORAL after region-wise z-score.** Starting from the z-scored features of (b), the source
 covariance is aligned to the target covariance by the standard CORAL whitening-recolouring map
@@ -482,9 +482,9 @@ decomposition to a mechanism.
 
 **Leakage control.** An explicit forbidden-column set is enforced at every model fit, and its
 violation raises rather than warns (`step8b:140 to 159, 265 to 271, 450`). It contains the response
-itself and every column carrying label information — `burn_date`, `burn_month`,
+itself and every column carrying label information: `burn_date`, `burn_month`,
 `burn_day_of_year`, `label_source`, `burn_date_pixel_agreement_fraction`, `out_of_window_burndate`
-— together with `lon`, `lat`, `cell_id`, `row_500m`, `col_500m`, the validity columns, and the
+It also contains `lon`, `lat`, `cell_id`, `row_500m`, `col_500m`, the validity columns, and the
 fused-LST provenance columns (`source_mask_majority`, `observed_fraction`, `gapfilled_fraction`,
 `invalid_source_fraction`). The transfer stage additionally forbids `experiment_id`, `region_key`,
 `spatial_block_id` and `fold_id`.
@@ -493,8 +493,8 @@ Coordinates are excluded because a fire scar is a spatially compact object: with
 latitude available, a sufficiently flexible model can memorise the scar's location instead of
 learning any relationship with the surface state. Grid indices are used only to construct
 cross-validation blocks and bootstrap groups. The natural-vegetation mask is used only to define the
-population. The fused-LST provenance fractions are retained for a sensitivity analysis — performance
-restricted to cells with a low gap-filled fraction — but never as predictors.
+population. The fused-LST provenance fractions are retained for a sensitivity analysis, which
+restricts performance to cells with a low gap-filled fraction, but never as predictors.
 
 **Sensitivity analyses.** Every headline result is repeated across: two analysis populations
 (natural vegetation, primary; all valid cells, secondary); two random-forest profiles (the primary
@@ -503,8 +503,8 @@ three spatial-block sizes for the within-region analysis (≈ 1, 5, 10 km); four
 values; and both feature sets. Where a conclusion depends on one of these choices, the dependence is
 reported rather than resolved by selecting the favourable setting.
 
-**Reproducibility.** All randomness uses seed 42 — model `random_state`, cross-validation shuffling
-and bootstrap generators alike — and the bootstrap uses 1000 replicates throughout. The transfer and
+**Reproducibility.** All randomness uses seed 42, covering model `random_state`, cross-validation
+shuffling and bootstrap generators alike. The bootstrap uses 1000 replicates throughout. The transfer and
 adaptation analysis is executed in a dedicated Python environment separate from the upstream
 pipeline environment; because random-forest fits are not bit-identical across scikit-learn versions,
 the analysis includes an explicit reproduction check in which the within-region models are refitted
@@ -513,8 +513,8 @@ implemented adaptation is compared against the pipeline's own implementation. Al
 in this paper were produced under, or verified against, scikit-learn 1.9.0: two frozen transfer
 probes reproduce to four decimal places under 1.9.0 but move by +0.021 and +0.026 AUC under 1.7.2
 with byte-identical data, pipeline and seed, so cross-region point estimates carry an
-implementation tolerance of roughly ±0.02 to 0.03 unless the exact library version is fixed —
-within-region AUCs reproduce to ~4 decimals across versions (`paper/sklearn_version_sensitivity.md`;
+implementation tolerance of roughly ±0.02 to 0.03 unless the exact library version is fixed.
+Within-region AUCs reproduce to ~4 decimals across versions (`paper/sklearn_version_sensitivity.md`;
 probe script `paper/pairwise_check.py`).
 
 The reproduction check was executed on the final five-region set by the pipeline author, and its
@@ -523,26 +523,27 @@ record is archived with this manuscript
 `48b56e7`, Python 3.12.3, scikit-learn 1.9.0, pandas 3.0.2, NumPy 2.4.4, primary population
 `burnable_tree_shrub_grass`). Two families of comparison were re-executed
 against the frozen outputs. The within-region arm refitted `step8b`'s baseline and thermal models
-on the frozen Step 8A parquet of each of the five experiments and compared ROC-AUC and PR-AUC —
-twenty comparisons, all twenty produced, **maximum absolute difference exactly 0**. The transfer
+on the frozen Step 8A parquet of each of the five experiments and compared ROC-AUC and PR-AUC. All
+twenty comparisons were produced, with a **maximum absolute difference of exactly 0**. The transfer
 arm regenerated the label-blind CORAL predictions and re-evaluated them for all twenty directed
-region pairs, again in both model families and both metrics — eighty comparisons over twenty
-directions, none missing, **maximum absolute ROC-AUC difference 1.6×10⁻⁷** (largest case
+region pairs, again in both model families and both metrics. That is eighty comparisons over twenty
+directions, none missing, with a **maximum absolute ROC-AUC difference of 1.6×10⁻⁷** (largest case
 Montiferru→Manavgat, thermal: 0.6060780 against 0.6060778); sixty-nine of the eighty comparisons
 were bit-identical and the remaining eleven differed by 1.6×10⁻⁷ or less.
 
 The tolerance against which these differences are judged is not a criterion chosen for this
-report. It is the repository's own pre-existing Step 10C fail-fast reproduction criterion —
-absolute difference ≤ 1×10⁻⁶, defined in `src/step10c_paired_evaluation_bootstrap.py` — applied
-unchanged, and the check record states this explicitly. Both arms fall inside it, the within-region
+report. It is the repository's own pre-existing Step 10C fail-fast reproduction criterion, an
+absolute difference of ≤ 1×10⁻⁶ defined in `src/step10c_paired_evaluation_bootstrap.py`. It is
+applied unchanged, and the check record states this explicitly. Both arms fall inside it, the within-region
 arm by exact equality. The reported `PASS` is a technical-completion status covering cohort
 resolution, comparison coverage and input-hash agreement; the achieved numerical differences are
 reported separately, as above, rather than folded into that status.
 
 What this check does and does not establish should be stated plainly. Because it re-executes the
 pipeline in the same library environment that produced the frozen outputs, the exact-zero
-within-region agreement demonstrates determinism and the absence of undeclared state — that the
-recorded numbers are regenerable from the recorded inputs, hashes included — rather than robustness
+within-region agreement demonstrates determinism and the absence of undeclared state, meaning that
+the recorded numbers are regenerable from the recorded inputs, hashes included. It does not
+demonstrate robustness
 to a change of environment. The residual 10⁻⁷-scale differences in the transfer arm arise from
 re-derived rather than re-read intermediate quantities, not from a different library stack.
 Cross-version behaviour is established separately and is far coarser: the ±0.02 to 0.03 implementation
@@ -550,11 +551,11 @@ tolerance quoted above, from the 1.9.0-against-1.7.2 probes. The two statements 
 and neither substitutes for the other.
 
 Two further properties of the record are stated for completeness. First, the five-region cohort was
-resolved by three independent routes — the experiment registry restricted to canonical records
+resolved by three independent routes. These are the experiment registry restricted to canonical records
 (those carrying no `superseded_by` key, which drops the legacy Evia AOI of Section 3.16.1 and the
 superseded Muğla calendar-shift record) and with non-cohort roles removed, the ERA5-Land
-diagnostic's `DEFAULT_EXPERIMENTS` constant, and the frozen multi-AOI synthesis manifest — and all
-three return the same ordered set (`routes_agree: true`); the two deliberate exclusions by role are
+diagnostic's `DEFAULT_EXPERIMENTS` constant, and the frozen multi-AOI synthesis manifest. All three
+return the same ordered set (`routes_agree: true`); the two deliberate exclusions by role are
 Kozan 2023 as `negative_control` and the second Muğla event as `temporal_transfer_wildfire`
 (Sections 3.1, 3.3, 3.16.4). The roles and the supersession links are as recorded in
 `core/regions.py`. Second, two unordered region pairs
@@ -582,10 +583,10 @@ version of record.
 ## 3.14 Transferability diagnostics versus transfer
 
 To test whether any pre-transfer measure of region similarity predicts transfer outcome, twenty
-candidate diagnostics from four families — marginal predictor-distribution measures P(x),
+candidate diagnostics from four families are each evaluated against the same target quantity under
+one common correlation framework. The families are marginal predictor-distribution measures P(x),
 burned-niche overlap P(x|y=1), fire-regime spatial structure P(y), and conditional
-feature-response direction P(y|x) — are each evaluated against the same target quantity under one
-common correlation framework.
+feature-response direction P(y|x).
 
 ### 3.14.1 Rank-correlation framework
 
@@ -594,11 +595,11 @@ population, over the 20 ordered directions (12 for measures available only on th
 subset excluding Montiferru). For each diagnostic, Spearman's ρ and Kendall's τ-b (tie-corrected)
 are computed against the transfer AUCs. Uncertainty uses a **pair-based bootstrap**: the unordered
 region pairs (10, or 6 for the subset) are resampled with replacement, and every sampled pair
-contributes **both** of its ordered directions, so the two directions of a pair — which share
-geography and data — are never treated as independent draws. 2,000 replicates are used with
+contributes **both** of its ordered directions. The two directions of a pair share geography and
+data, so they are never treated as independent draws. 2,000 replicates are used with
 equal-tailed percentile 95% intervals; replicates yielding degenerate (undefined) rank
 correlations are excluded and counted. All resampling is seeded from 42 with fixed per-measure
-offsets and implemented with the mulberry32 PRNG in Node.js — fully deterministic, though not
+offsets and implemented with the mulberry32 PRNG in Node.js. It is fully deterministic, though not
 bit-identical to NumPy's generator (`paper/regime_correlation.mjs`, `paper/niche_corr.mjs`,
 `paper/conditional_similarity.mjs`). Because the effective sample is 10 (or 6) unordered pairs
 that share member regions, power is low; a null result is reported as "not shown to order
@@ -644,7 +645,7 @@ with its ≈5 km-block bootstrap intervals, from the upstream five-region featur
 (`drive_new/diagnostics/multi_aoi_transfer_synthesis/<five-region set>/multi_aoi_feature_stability.csv`,
 step9g family). Pair-level measures: sign-agreement count and fraction (features whose AUC − 0.5
 signs match), the Spearman correlation between the two vectors, and the cosine similarity of the
-(AUC − 0.5) vectors; each is also computed restricted to **supported** features — those whose
+(AUC − 0.5) vectors. Each is also computed restricted to **supported** features, which are those whose
 bootstrap interval excludes 0.5 in *both* regions. Consistency is enforced: per-region vectors
 must be identical across every pair row, and the supported-reversal set must reproduce the
 upstream `reversal_status` flags exactly (`paper/conditional_similarity.mjs`). Unlike every
@@ -656,10 +657,10 @@ marginal, niche and regime measure, this index requires burned labels (or a labe
 Burned-area spatial structure, P(y), is summarised by connected components of burned
 natural-vegetation cells, computed with 8-connectivity on the integer grid indices
 `row_500m`/`col_500m`. Per region: component count, largest-component share, and the effective
-component count — the inverse Simpson index of component size shares, 1/Σ s_k². The pair-level
+component count, the inverse Simpson index of component size shares, 1/Σ s_k². The pair-level
 regime distance is |Δ log(effective count)| (primary) and |Δ largest share| (secondary), both
 symmetric. The implementation was verified to reproduce the upstream burned-pattern audit
-("Rejim" table) exactly in all five regions — component counts and largest/second component sizes
+("Rejim" table) exactly in all five regions, for component counts and largest/second component sizes
 identically, shares and effective counts to 1 × 10⁻⁴ (`paper/burned_components.mjs`).
 
 ## 3.15 Interventions
@@ -671,8 +672,8 @@ are pooled and a single model is trained on the pool and evaluated on the untouc
 both feature sets. The classifier is exactly that of Section 3.7, and preprocessing mirrors the
 transfer stage: numeric medians fitted on the pooled training set, mode-filled land cover expanded
 to indicator columns from the training vocabulary so that unseen target classes encode to zero.
-Two variants are run: raw features, and region-wise z-score in which every region — the target
-included — is standardised with its own mean and σ (ddof = 0, numeric features only), i.e. the
+Two variants are run: raw features, and region-wise z-score in which every region, the target
+included, is standardised with its own mean and σ (ddof = 0, numeric features only), i.e. the
 label-free definition of Section 3.11(b). Target metrics are ROC-AUC, PR-AUC (reported against its
 no-skill base, the prevalence) and Brier, with a ≈5 km spatial-block bootstrap on the target
 (blocks `row_500m//10` × `col_500m//10`, 1,000 replicates, NumPy `default_rng(42)`, single-class
@@ -683,11 +684,11 @@ after two frozen pairwise transfers were reproduced to four decimal places in th
 ### 3.15.2 Removal of direction-reversing features
 
 Four thermal-model configurations are compared: full (all 10 predictors, order preserved from the
-shared feature contract), minus `elevation_mean`, minus `lst_anomaly_mean`, and minus both — the
+shared feature contract), minus `elevation_mean`, minus `lst_anomaly_mean`, and minus both. The
 two features being exactly the bootstrap-supported reversal set under the supported-reversal
 criterion of Section 3.14.4. The pipeline replicates step8b/step9b verbatim (same imputers,
 one-hot encoding, classifier and seed), and **hard parity assertions** abort the run on any
-deviation of the full configuration from the frozen outputs — tolerance 5 × 10⁻⁴ against the 20
+deviation of the full configuration from the frozen outputs, with a tolerance of 5 × 10⁻⁴ against the 20
 step9b transfer AUCs and 1 × 10⁻³ against the step8c within-region out-of-fold AUCs; the observed
 deviations were 0.0000 everywhere. Within-region evaluation reuses the spatially blocked
 out-of-fold protocol of Section 3.8 (2-cell blocks, `StratifiedGroupKFold`, seed 42). All deltas
@@ -727,7 +728,7 @@ A predictor-timing sensitivity, described here as documented in each region's fr
 report (`drive_new/diagnostics/window_closure_region/<region>/<hash>/_production/<region>/compare/report/window_closure_comparison.md`
 for Bejís, Muğla, Evia-extended and Montiferru;
 `drive_new/diagnostics/window_closure_sensitivity/manavgat_2021/compare/report/window_closure_comparison.md`
-for Manavgat). Three variants — canonical, closure 7 days earlier, closure 14 days earlier —
+for Manavgat). Three variants are compared: canonical, closure 7 days earlier, and closure 14 days earlier.
 move **both** ends of the predictor window together so the window length is preserved; the label
 window is frozen and identical in every variant. One exact common cohort (the intersection of
 analysis-eligible, primary-population, valid rows of every variant, after removing shared
@@ -764,8 +765,8 @@ silently enrolled into the spatial comparisons. That exclusion is not merely a c
 observe: it is enforced in code and tested. The ERA5-Land diagnostic's validator
 (`scripts/validate_era5_land_regional_diagnostic.py`) carries two relevant checks, and they have
 different reach. `A08_cohort_is_the_frozen_five` requires the executed cohort to equal the frozen
-`DEFAULT_EXPERIMENTS` tuple exactly, as an ordered comparison, so *any* addition — including this
-experiment — fails it. `A07_mugla_2022_absent_from_default_analysis` is narrower than its name
+`DEFAULT_EXPERIMENTS` tuple exactly, as an ordered comparison, so *any* addition fails it, including
+this experiment. `A07_mugla_2022_absent_from_default_analysis` is narrower than its name
 suggests: it tests literal membership of the string `mugla_2022`, which is the registry's
 superseded calendar-shift record, and would not by itself catch the `mugla_2022_event_relative`
 entry analysed here. Both checks pass on the executed output (Section 3.17), but the guarantee for
@@ -792,10 +793,11 @@ in that export carry a `_superseded_pre_manavgat_repair` suffix and are supersed
 retained for the record and are not read here.
 
 Unlike every other transfer direction in this paper, the two arms of this pair were not present in
-the frozen export delivered to us — it contained no `mugla_2021__mugla_2022_event_relative`
-directory — so they were computed for this analysis. They were produced by running the project's own unmodified
+the frozen export delivered to us, which contained no `mugla_2021__mugla_2022_event_relative`
+directory, so they were computed for this analysis. They were produced by running the project's own
+unmodified
 `src/step9b_run_cross_region_transfer.py` and `src/step9c_cross_region_block_bootstrap.py` at
-commit `48b56e7` — the same code and the same protocol as Section 3.10 and Section 3.9, with
+commit `48b56e7`. That is the same code and the same protocol as Section 3.10 and Section 3.9, with
 `random_state = 42`, the primary RF configuration, and the 1,000-replicate spatial-block bootstrap
 on `spatial_block_id`. The frozen Step 8A modelling datasets of both experiments were the only
 inputs, hashed as read (`paper/mugla_transfer_raw/SHA256SUMS.txt`). Because `repo/` is treated as
@@ -818,14 +820,14 @@ the same two frozen Step 8A parquets, identical by SHA-256 (`c4ab107d…` for 20
 for the 2022 event-relative experiment), and both used `random_state = 42`.
 
 Agreement is to floating-point noise rather than to a stated tolerance. Across both directions and
-both model families the transfer ROC-AUC and PR-AUC point estimates agree to **≤1×10⁻⁷** — the
+both model families the transfer ROC-AUC and PR-AUC point estimates agree to **≤1×10⁻⁷**. The
 2021→2022 direction is bit-identical in every reported metric, and the largest discrepancy anywhere
-in the pair is 9.9×10⁻⁸ — and the 1,000-replicate spatial-block bootstrap reproduces to the same
+in the pair is 9.9×10⁻⁸. The 1,000-replicate spatial-block bootstrap reproduces to the same
 order, with the ΔAUC interval bounds agreeing to ≤3.4×10⁻⁸. The agreement also holds below the
 metric level: the two runs' per-cell prediction tables have identical row counts and columns, and
 across all 295,402 predicted probabilities the largest absolute difference is 4.4×10⁻¹⁶, which is
-double-precision round-off. The prediction files themselves therefore differ in SHA-256 — last-place
-decimal digits change the serialised string length — while the human-readable step9b and step9c
+double-precision round-off. The prediction files themselves therefore differ in SHA-256, because
+last-place decimal digits change the serialised string length. The human-readable step9b and step9c
 summary files of the two runs are byte-identical. The pipeline author's copy of these outputs is
 archived alongside ours in `paper/mugla_transfer_raw/emrehan_run_20260809/` with hashes and
 provenance in that directory's `SHA256SUMS.txt`. The interval-supported effects reported in
@@ -834,9 +836,9 @@ tolerance of Section 4.7e, so the conclusions do not rest on the exact point est
 
 ## 3.17 Regional meteorological context (explanatory)
 
-To characterise the meteorological conditions each region actually experienced — and specifically
+To characterise the meteorological conditions each region actually experienced, and specifically
 to test the post hoc explanation that Manavgat's outlying transfer behaviour reflects
-meteorological extremity (Section 5.7) — an AOI-level ERA5-Land diagnostic was run outside the
+meteorological extremity (Section 5.7), an AOI-level ERA5-Land diagnostic was run outside the
 modelling pipeline (`src/era5_land_regional_diagnostic.py`, with runner and validator in
 `scripts/`; outputs in `drive_new/diagnostics/era5_land_regional/<analysis_id>/`). It is
 explanatory only: it produces a table and exports no raster, and its outputs enter no feature set,
@@ -860,8 +862,8 @@ Each hourly field is reduced to one AOI value by an explicit pixel-area weightin
 that a variable undefined over part of the AOI is not credited with that area. Both sums are
 evaluated on ERA5-Land's native projection and transform with `bestEffort=False`; an unweighted
 mean is not used. Window statistics are then computed over the resulting series of hourly regional
-means — window mean and maximum for temperature, humidity and wind, and additionally the window
-total for precipitation — so that a reported maximum is the most extreme regional hour, never the
+means. These are the window mean and maximum for temperature, humidity and wind, and additionally
+the window total for precipitation. A reported maximum is therefore the most extreme regional hour, never the
 most extreme individual pixel.
 
 The observed windows are each region's own predictor and label windows taken from the experiment
@@ -870,7 +872,7 @@ date is converted exactly once to Earth Engine's exclusive bound. Each statistic
 a climatology built by mapping the same calendar month-day window into the four reference years
 2017 to 2020, computing each year's statistic independently, and taking their arithmetic mean and
 sample standard deviation (ddof = 1); the standardised anomaly is (observed − climatological
-mean) / climatological SD, written as null — never as zero or infinity — when the climatological
+mean) / climatological SD, written as null, and never as zero or infinity, when the climatological
 SD is exactly zero. Every window, observed and climatological alike, must contain the exact
 contiguous hourly UTC sequence (n_days_inclusive × 24 hours); a missing, duplicated, out-of-order,
 shifted or extra hour fails the run rather than being sorted, interpolated, padded or dropped. The
@@ -885,7 +887,7 @@ to. First, it spans only four years, so each standard deviation carries three de
 and is correspondingly unstable. Second, and decisively, the resulting standard deviations are
 strongly heterogeneous *between* regions: over the five predictor windows the climatological SD
 spans 0.41 to 1.13 °C for temperature, 1.09 to 6.58 % for relative humidity, 0.039 to 0.146 m s⁻¹ for wind
-speed and 12.6 to 48.0 mm for precipitation total — ratios of 2.7× to 6.0×, rising to 7.8× and 11.5×
+speed and 12.6 to 48.0 mm for precipitation total. The ratios are 2.7× to 6.0×, rising to 7.8× and 11.5×
 for temperature and precipitation in the label windows. A standardised anomaly therefore denotes a
 different physical departure in each region, and the cross-region comparison it invites is not
 meaningful. Anomalies are reported in physical units throughout (Section 4.9). The instability is
@@ -908,15 +910,15 @@ the frozen five with Muğla 2022 absent (A07, A08); the reference years and `sd_
 declared (A09, A10); the registry region keys and window dates agree with `core/regions.py` (A14);
 and the namespace contains only the four expected files, no exported raster having leaked into it
 (A24). The run was performed by the authors on 2026-08-11 under Python 3.12.3 with
-`earthengine-api` 1.7.39 installed solely to satisfy the module import chain — the validator opens
-no Earth Engine session and requires no credentials — with the repository at commit `48b56e7` and
+`earthengine-api` 1.7.39 installed solely to satisfy the module import chain. The validator opens
+no Earth Engine session and requires no credentials. The repository was at commit `48b56e7` and
 the outputs staged in a scratch namespace outside the repository via `--output-root`.
 
 The manifest names commit `a07ea33`, at which neither the diagnostic source nor the Montiferru
 registry entry yet exists; both were first committed in `48b56e7`. The production run was therefore
 made from a working tree carrying uncommitted changes, and the recorded commit identifies only the
 last commit at run time. The code that actually ran can nevertheless be identified. The output
-contains Montiferru with its registry windows, which `a07ea33` cannot supply — `core/regions.py`
+contains Montiferru with its registry windows, which `a07ea33` cannot supply. In that commit `core/regions.py`
 gains that entry only in `48b56e7`, and it does so by pure addition (529 lines inserted, none
 deleted), leaving the four regions common to both commits byte-identical. `core/paths.py` and
 `core/config.py`, the diagnostic's only other internal dependencies, are unchanged between the two
