@@ -10,8 +10,39 @@
 >
 > **Style, from 2026-08-13.** Rewritten under the house rule in `paper/STYLE.md`: no em or en
 > dashes, short simple sentences, passive voice where it reads naturally, plain words except for
-> technical terms that cannot be simplified without losing meaning. Current measurements: 251
-> words, 0 dashes, mean sentence 12 words, longest 24.
+> technical terms that cannot be simplified without losing meaning. Current measurements: 250
+> words, 0 dashes, mean sentence 12 words, longest 20.
+>
+> **Consistency pass 2026-08-13.** Two corrections. (i) The diagnostics paragraph contradicted
+> itself: it said none of the twenty candidates ordered transfer and then named the conditional
+> index that does. It now states what §4.4 states, that only two of the twenty had bootstrap
+> intervals excluding zero and both are conditional, and that the marginal, niche-overlap and regime
+> families failed to order the matrix. (ii) "Static terrain and fuel baseline" was inaccurate,
+> because the vegetation-index predictor is a predictor-window median composite (§3.4). It is now a
+> "static and near-static terrain, fuel and greenness baseline". No number changed.
+>
+> **Blocking-scale pass 2026-08-13.** "Ten directions improved with bootstrap support and seven
+> degraded" was the 2-cell (~1 km) split. `paper/transfer_ci_blocksize.md` shows it becomes 6 / 4 /
+> 10 at 10-cell (~5 km) blocking, and that even at 2-cell the boundary between 10 and 11 positive
+> turns on a bound of −0.00045. No count is now quoted in the abstract at all. The sentence rests on
+> the sign instability instead, which §4.7g shows to be invariant to the blocking. "only +0.004" lost
+> its "only" to stay inside the word limit. Recount: 250 words.
+>
+> **Referee round 2, 2026-08-14. Now 322 words, and that is a deliberate decision that must be
+> revisited once the guide is read.** Six changes, each closing a point raised by the internal panel.
+> (i) "+0.004" now carries "with an interval spanning zero", because the paper's headline quantity
+> had no interval anywhere. (ii) The blocking-invariant result is stated: paired deltas −0.148 to
+> +0.132, twelve positive and eight negative. (iii) The feature-removal exchange (+0.014 transfer for
+> −0.081 within-region) is given, because it is the only measured *debit* in the paper and the
+> trade-off claim needs one. (iv) The Muğla two-event sentence no longer says the failure is "not
+> caused by comparing different places"; it says place is what the design holds fixed, and names the
+> season/year confound. (v) The niche-overlap contrast is marked as a point-estimate statement, which
+> §4.5, §5.3 and §6 already do. (vi) The label taxonomy is corrected: niche and regime measures need
+> target labels too, so the marginal family is the only pre-deployment family, and it is the one that
+> fails. The few-shot recovery result was added because it is now §4.10 rather than supplementary
+> only. **If the limit turns out to be 250, cut in this order:** the paired-delta span, the
+> recovery-curve sentence, then the season/year clause. Do not cut the interval on +0.004 or the
+> point-estimate qualifier.
 >
 > **Word limit not verified.** Both the Elsevier and ScienceDirect guide-for-authors pages return
 > HTTP 403 to automated fetching. A web search reports 400 words for *Ecological Informatics*, but
@@ -21,26 +52,32 @@
 > per-region robustness detail and the domain-classifier ceiling.
 
 Pre-fire thermal dryness separates a fire year from a normal year. It is measured by land surface
-temperature, its anomalies against a climatology, and thermal and optical dryness indices. Models
-built on these predictors are rarely tested outside their training region.
+temperature, its anomalies and dryness indices. Models built on it are rarely tested outside their
+training region.
 
 Five Mediterranean wildfire regions were analysed on about 500 m cells, with MCD64A1 labels and
-spatially blocked validation. Six pre-fire thermal predictors were added to a static
-terrain and fuel baseline. Within every region, ROC-AUC was raised by +0.06 to +0.15. The gain
+spatially blocked validation. Six pre-fire thermal predictors were added to a static and near-static
+terrain, fuel and greenness baseline. Within every region, ROC-AUC rose by +0.06 to +0.15. The gain
 survived coarser blocks and an earlier predictor window.
 
 The predictors were then transferred between regions. Their mean contribution over twenty ordered
-directions was only +0.004. Ten directions were improved with bootstrap support and seven
-were degraded. Local skill and portability are therefore traded.
+directions was +0.004, with an interval spanning zero. Paired deltas ran from −0.148 to +0.132,
+twelve positive and eight negative. Removing the two reversing predictors bought +0.014 of transfer
+for −0.081 of within-region skill. Local skill and portability are therefore traded.
 
-The failure is conditional, not distributional, and not caused by comparing different places.
-Inside one identical study area, two fires eleven months apart reversed the link between elevation
-and burning, with no overlap in their bootstrap intervals.
+The failure is conditional. Inside one study area, two fires eleven months apart reversed the
+elevation-burning link, with disjoint bootstrap intervals. Season and year are confounded there, so
+place is what the design holds fixed.
 
-Twenty candidate diagnostics were tested before transfer. None ordered transfer
-performance. The pair with the highest burned-niche overlap failed in both directions. The pair
-with the lowest overlap transferred in both. Only the agreement in the sign of each predictor's
-association tracked transfer (Spearman ρ = 0.84). Label-blind adaptation, by region-wise
-standardisation and CORAL, only pushed the directions towards chance. Signed associations need
-burned labels in both regions, so the test is a labelled probe, not a label-free screen.
-Transferability must therefore be measured, and measured conditionally.
+Twenty candidate diagnostics were rank-correlated against observed transfer. Only two had bootstrap
+intervals excluding zero. Both were conditional, the stronger being agreement in the sign of each
+predictor's association (Spearman ρ = 0.84 over eight pairs). No marginal, niche-overlap or regime
+measure ordered the matrix. At the point estimate, the highest-overlap pair failed in both
+directions and the lowest-overlap pair transferred in both. Label-blind adaptation by standardisation
+and CORAL only pushed transfer towards chance. Niche and regime measures need labels in both regions
+too, so only the marginal family can be run before deployment, and it fails. Thirty-two labelled
+target blocks recovered 85 to 89 % of the ceiling in four of six directions tested.
+
+Transfer skill therefore has to be measured, not inferred from similarity. What carries the
+information is conditional, so the price of this failure is target labels rather than better
+unsupervised alignment.

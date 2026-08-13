@@ -303,6 +303,15 @@ function convertBody(md, opts = {}) {
       continue;
     }
 
+    // Horizontal rule. In the Markdown it separates the drafting-note block
+    // from the body; the note is dropped above, so the rule has nothing left to
+    // separate. Left in place LaTeX would set it as a literal em dash, which
+    // also breaks the no-dash house rule of paper/STYLE.md.
+    if (/^\s*(-{3,}|\*{3,}|_{3,})\s*$/.test(line)) {
+      note('stripped', 'horizontal rule dropped');
+      i++; continue;
+    }
+
     // Headings.
     let h = line.match(/^(#{1,4})\s+(.*)$/);
     if (h) {
@@ -462,18 +471,27 @@ const preamble = `% ============================================================
 
 \\begin{frontmatter}
 
-%% Title taken from POSITIONING.md: it lists three candidates and directs that
-%% under Branch A (Evia enlarged and re-run cleanly, which is what happened --
-%% the cohort uses evia_2021_extended) the third candidate is used. Section 5,
-%% the precondition it attaches, is complete. Change here if that decision is
-%% revisited; this is not a placeholder.
-\\title{Marginal diagnostics miss conditional failures: cross-region transfer of
-pre-fire thermal dryness in Mediterranean wildfire regions}
+%% Title. POSITIONING.md lists three candidates and directs that under Branch A
+%% (Evia enlarged and re-run cleanly, which is what happened) the third is used.
+%% Referee round 2, 2026-08-14: that third candidate began "Marginal diagnostics
+%% miss conditional failures", which asserts more than Section 5.4 concedes. On
+%% ten effective pairs the null diagnostics are "not shown to order transfer",
+%% not "shown not to". The title now says what Section 4.4 found and what
+%% Section 5.4 defends. Candidate 1 was not used because "do not transfer
+%% between them" is contradicted by the paper's own matrix, and candidate 2 was
+%% not used because "transferability cost" asserts a debit measured only by the
+%% feature-removal ablation. Change here if that decision is revisited.
+\\title{Local skill, unstable portability: marginal diagnostics do not order the
+cross-region transfer of pre-fire thermal dryness in Mediterranean wildfire
+regions}
 
-%% Author block: complete before submission.
-\\author[inst1]{Yunus Emre Cogurcu}
+%% Author block. NEEDS AUTHOR INPUT before submission: the organization field,
+%% the corresponding author's e-mail, and ORCIDs if the authors have them.
+\\author[inst1]{Yunus Emre Cogurcu\\corref{cor1}}
+\\ead{[CORRESPONDING AUTHOR E-MAIL]}
 \\author[inst1]{Emrehan Metin}
-\\affiliation[inst1]{organization={[AFFILIATION]},
+\\cortext[cor1]{Corresponding author.}
+\\affiliation[inst1]{organization={[AFFILIATION: department, institution]},
                     country={T\\"urkiye}}
 
 \\begin{abstract}
@@ -485,7 +503,7 @@ ${highlights.join('\n')}
 \\end{highlights}
 
 \\begin{keyword}
-[KEYWORDS — 4--6, journal requires them] \\sep wildfire \\sep transferability \\sep
+wildfire \\sep model transferability \\sep area of applicability \\sep
 land surface temperature \\sep domain adaptation \\sep concept shift
 \\end{keyword}
 
@@ -495,6 +513,40 @@ land surface temperature \\sep domain adaptation \\sep concept shift
 `;
 
 const postamble = `
+
+% ------------------------------------------------------------ declarations --
+% Elsevier requires all four of these at submission. The two marked NEEDS
+% AUTHOR INPUT cannot be written from the repository and must be completed
+% before the manuscript is uploaded.
+
+\\section*{CRediT authorship contribution statement}
+
+\\textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis,
+Investigation, Writing -- original draft, Writing -- review and editing,
+Supervision. \\textbf{Emrehan Metin:} Software, Data curation, Investigation,
+Validation, Writing -- review and editing.
+% NEEDS AUTHOR INPUT: confirm this split with the co-author before submission.
+
+\\section*{Declaration of competing interest}
+
+The authors declare that they have no known competing financial interests or
+personal relationships that could have appeared to influence the work reported
+in this paper.
+
+\\section*{Funding}
+
+[NEEDS AUTHOR INPUT: name the funder and grant number, or state that this
+research received no specific grant from funding agencies in the public,
+commercial, or not-for-profit sectors.]
+
+\\section*{Data availability}
+
+All satellite inputs are public and are obtained through Google Earth Engine.
+The processing pipeline, its configuration and the frozen numeric outputs are
+publicly available; the repository, the commit of record and the licence are
+given in the data and code availability statement of the Methods, together with
+the three components that fall outside that release. No digital object
+identifier is minted and no archival deposit exists.
 
 % ---------------------------------------------------------------- figures --
 % Captions are maintained in ../figure_captions.tex and included verbatim.

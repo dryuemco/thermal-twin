@@ -62,9 +62,10 @@ Section 4.1.
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
-The target variable is burned/unburned status derived from the MODIS MCD64A1 Collection 6
-burned-area product, retrieved through Google Earth Engine. Active-fire detections (FIRMS) are never
-used as a target.
+The target variable is burned/unburned status derived from the MODIS MCD64A1 Collection 6.1
+burned-area product (`MODIS/061/MCD64A1`), retrieved through Google Earth Engine. Collection 6.1 is
+a reprocessing of the Collection 6 product described by Giglio et al. [@Giglio2018] and validated by
+Boschetti et al. [@Boschetti2019]. Active-fire detections (FIRMS) are never used as a target.
 
 **Grid reconstruction.** MCD64A1 is a ~500 m product on the MODIS sinusoidal grid, but it is
 exported from Earth Engine onto the 30 m EPSG:4326 reference grid used by the rest of the pipeline
@@ -110,6 +111,19 @@ within the same season (`step8a:2592 to 2605`, using the exclusion manifest prod
 step). Excluded cells are marked `analysis_eligible = False`; their raw labels are preserved for
 audit but they never enter modelling.
 
+This safeguard is optional in the pipeline and it did not run everywhere, which the reader needs in
+order to weigh it. From the frozen dataset statistics, it ran for Muğla (49 cells excluded), Evia
+(16) and Montiferru (61). For Manavgat the flag is recorded as false and no cell was excluded. For
+Bejís the field is absent from the export altogether, so no status is recorded either way. The
+exposure this leaves is bounded by how many cells carry an MCD64A1 detection inside the predictor
+window in those two regions, and that count has not been produced; it is listed as an open item in
+Section 5.11. Two further limits belong here. The exported label raster is clipped to the label
+window in every region, so a pre-label detection is not recoverable from the label raster itself and
+the reported count of zero out-of-window burn dates is a property of the export rather than an
+empirical finding. Burning in earlier years is not screened at all except for the Muğla pair, where
+the historical-exclusion module was configured, so a cell that burned in a previous year enters the
+analysis with a baseline climatology computed partly over its own post-fire state.
+
 ## 3.3 Burned-landcover admissibility gate
 
 Before any predictor modelling, each region passes through a gate
@@ -152,6 +166,25 @@ All dynamic predictors are composited over the region's predictor window; static
 time-invariant. Each is produced by a named upstream pipeline stage and delivered on the 30 m
 reference grid.
 
+**Observations behind the composites.** The optical and thermal predictors come from one sensor and
+one collection: Landsat 8 Collection 2 Level-2 (`LANDSAT/LC08/C02/T1_L2`). Landsat 9 is not used in
+any region, including Bejís 2022, where it was operational. Quality screening is applied per pixel
+from the `QA_PIXEL` band, masking fill, dilated cloud, cirrus, cloud, cloud shadow and snow, with
+medium and high confidence bits treated as masked; the water bit is deliberately preserved
+(`step3_landsat_lst.py:67 to 98`). The `ST_QA` per-pixel surface-temperature uncertainty band is
+available in this collection and is not used, so no per-pixel LST uncertainty enters the analysis.
+The coarse-resolution thermal input is `MODIS/061/MOD11A1`, the Terra daytime 1 km LST product;
+Aqua is not used.
+
+A predictor-window composite therefore rests on however many clear acquisitions that window
+contained, and the pipeline's floor is low: `STEP5_MIN_CURRENT_VALID_COUNT = 2`, so a cell's median
+may rest on two clear observations. The number is region-specific and, within a region, position-
+specific. For Manavgat, the only region with a frozen acquisition inventory, the 57-day window holds
+seven distinct dates from 14 scenes on two alternating WRS-2 paths, so a cell inside the path
+overlap is backed by seven dates and a cell outside it by three or four. Section 4.7i shows what
+this variation does to the within-region increment, and Section 5.11 lists the per-region inventory
+as an open item, since it exists for Manavgat alone.
+
 **Optical greenness (NDVI).** Landsat Collection 2 Level-2 surface reflectance, scaled by 0.0000275
 with an offset of −0.2, is used to compute NDVI = (NIR − Red)/(NIR + Red); pixels with a near-zero
 denominator or values outside [−1, 1] are masked (`core/config.py:89 to 103`). The predictor-window
@@ -180,6 +213,16 @@ mean TVDI. A documented caveat applies to the latter: the baseline TVDI is forme
 baseline LST mean raster combined with per-year NDVI, so its inter-annual variation derives from
 NDVI alone (`step5c_tvdi.py:480 to 486`).
 
+A second property of TVDI matters for the transfer analysis and is stated here so that Section 5.2
+can be read against it. The wet and dry edges are percentiles of the LST values that a given scene
+contains, so they are fitted per AOI and per window. A TVDI of 0.5 therefore denotes a different
+physical moisture state in each region, set by whatever dryness range that AOI happened to span on
+those dates, and the AOIs differ widely in size and relief (Montiferru 0.30° × 0.22° against Muğla
+1.80° × 0.85°). TVDI is normalised in a statistical sense, not in a physical one. A common-edge
+version of the index, fitted once across the pooled regions, was not computed, and Section 5.2 treats
+scene-fitted edges as a competing explanation for the TVDI reversals rather than as a controlled-for
+factor.
+
 **Downscaled and fused LST.** To mitigate Landsat's sparse thermal revisit, a MODIS→Landsat
 downscaling model is trained on the predictor window and applied to the full 30 m grid (`step7c`,
 `step7d`), yielding `downscaled_lst` in °C, clipped to configured physical bounds. The downscaling
@@ -190,6 +233,27 @@ to 30`). A fused product (`fused_lst`, °C) then combines observed Landsat LST w
 (`step7e_fuse_landsat_downscaled_lst.py:1 to 26`). A companion source mask records, per pixel,
 whether the fused value is observed, gap-filled or invalid. The corresponding per-cell fractions are
 retained as sensitivity diagnostics and are **never** used as predictors.
+
+Three properties of this step are reported here because a reader cannot otherwise judge what the two
+derived channels are. First, the downscaling model is validated, on spatially blocked 64 × 64
+train/validation/test splits, each against a MODIS-baseline control. Test RMSE is 2.04 °C (R² 0.866)
+for Manavgat, 1.75 °C (0.795) for Bejís, 1.65 °C (0.956) for Muğla, 1.80 °C (0.866) for Evia and
+1.83 °C (0.909) for Montiferru. Second, the downscaler's own inputs include `lon`, `lat`, `row`,
+`col` and their normalised forms. Their summed importance is 0.123 (Manavgat), 0.122 (Bejís), 0.101
+(Evia), 0.066 (Montiferru) and 0.035 (Muğla), so `downscaled_lst`, and `fused_lst` on its gap-filled
+share, carry a smooth coordinate-derived component. The downscaler never sees a fire label, so this
+is not label leakage, but Section 3.13 excludes coordinates from the fire model and this is the one
+route by which a coordinate-derived surface re-enters it. The dominant input also differs by region:
+the MODIS context layer in Manavgat (0.525) and Evia (0.593), NDVI in Bejís (0.482) and Montiferru
+(0.666), and slope in Muğla (0.777), where the channel is largely a re-expression of a baseline
+predictor. Third, **the MODIS input is not the same quantity in every region.** Four regions use
+single-season predictor-window MODIS summary layers, matched to their own window. Manavgat uses a
+four-year summer-mean MODIS context layer, which its own metadata describes as a spatial
+downscaling and context-calibration prototype rather than a current observation. Manavgat is the
+anchor region and the region whose transfer behaviour Section 5.11 reports as unexplained, so this
+difference is recorded there as a candidate explanation that has not been tested. The same Manavgat
+run also records an unresolved MODIS nodata condition, in which sea and no-observation cells are
+encoded as exact 0.0 °C rather than as nodata, in a coastal AOI.
 
 **Terrain.** Elevation (m a.s.l.) and slope (degrees, from `ee.Terrain.slope`) are derived from the
 Copernicus DEM GLO-30 (ESA, 30 m global digital surface model;
@@ -203,7 +267,8 @@ projection before reprojection, not after (`step2b_dem.py:148 to 159`). Both ban
 30 m.
 
 **Land cover.** ESA WorldCover v200 (10 m native, 2021 epoch), nearest-neighbour aligned to the 30 m
-reference grid. Class codes: 10 tree cover, 20 shrubland, 30 grassland, 40 cropland, 50 built-up, 60
+reference grid. The 2021 epoch is applied unchanged to every region, including Bejís 2022, so for
+that region the land-cover layer precedes the fire year by one growing season. Class codes: 10 tree cover, 20 shrubland, 30 grassland, 40 cropland, 50 built-up, 60
 bare/sparse vegetation, 70 snow/ice, 80 permanent water, 90 herbaceous wetland, 95 mangroves, 100
 moss/lichen.
 
@@ -222,11 +287,12 @@ pixels within the block.
 2. at least `STEP8A_MIN_30M_VALID_FRACTION = 0.3` of its 30 m pixels have simultaneously finite
    NDVI, elevation and slope;
 3. its aggregated NDVI, elevation and slope means are each finite;
-4. it contains at least one valid land-cover pixel. Thermal predictors deliberately do **not** enter the validity test, so
-that thermal data availability cannot silently reshape the population differently for the two
-feature sets. The label likewise plays no part in the validity test. That is a design point made
-explicit in the source, since requiring a valid burn date would collapse the dataset to burned-like
-cells.
+4. it contains at least one valid land-cover pixel.
+
+Thermal predictors deliberately do **not** enter the validity test, so that thermal data
+availability cannot silently reshape the population differently for the two feature sets. The label
+likewise plays no part in the validity test. That is a design point made explicit in the source,
+since requiring a valid burn date would collapse the dataset to burned-like cells.
 
 **Analysis population.** The **primary** population is natural vegetation: cells that are
 `valid_for_modeling` and satisfy `burnable_tree_shrub_grass`, defined as a combined tree + shrubland
@@ -262,8 +328,32 @@ The thermal set is a strict superset of the baseline set, so the difference in p
 them is attributable to the six thermal channels alone. `landcover_dominant` is the only categorical
 predictor.
 
-**Table 2** (feature dictionary: variable, source product, producing pipeline stage, unit, temporal
-window, feature-set membership) is assembled from Section 3.4.
+**Table 2. Feature dictionary.** Every modelled predictor, its source product, the pipeline stage
+that produces it, its unit, whether it is composited over the predictor window or time-invariant,
+and its feature-set membership. Cell-level values are means over the ~510 m cell, except
+`landcover_dominant`, which is the modal class. Specifications are in Section 3.4.
+
+| Predictor | Source product | Stage | Unit | Temporal | Baseline | Thermal |
+|---|---|---|---|---|---|---|
+| `ndvi_mean` | Landsat C2 L2 surface reflectance | step4 | dimensionless | window median | yes | yes |
+| `elevation_mean` | Copernicus DEM GLO-30 | step2b | m a.s.l. | static | yes | yes |
+| `slope_mean` | Copernicus DEM GLO-30 | step2b | degrees | static | yes | yes |
+| `landcover_dominant` | ESA WorldCover v200 (2021 epoch) | step2c | class code | static | yes | yes |
+| `current_lst_mean` | Landsat C2 L2 surface temperature | step3 | °C | window median | no | yes |
+| `lst_anomaly_mean` | Landsat C2 L2, against baseline years | step5 | z-score | window vs climatology | no | yes |
+| `current_tvdi_mean` | Landsat C2 L2 LST and NDVI | step5c | dimensionless, [0, 1] | window | no | yes |
+| `tvdi_difference_mean` | Landsat C2 L2, against baseline years | step5c | dimensionless | window vs climatology | no | yes |
+| `downscaled_lst_mean` | MOD11A1 downscaled on Landsat predictors | step7c, step7d | °C | window | no | yes |
+| `fused_lst_mean` | Landsat LST, gap-filled from downscaled | step7e | °C | window | no | yes |
+
+Three properties of this table matter for the interpretation and are established elsewhere in this
+paper. The four baseline predictors are static apart from `ndvi_mean`, which is a predictor-window
+median composite. The six thermal predictors are not six independent measurements: `fused_lst_mean`
+equals `current_lst_mean` outside a gap-filled share of 0.11 % to 9.70 %, and `downscaled_lst_mean`
+is a fitted surface whose dominant input differs by region (Section 4.7h). Those same two channels
+carry a smooth coordinate-derived component inherited from the downscaler's inputs, which is the one
+route by which coordinates re-enter a feature set that otherwise excludes them (Section 3.4, Section
+3.13).
 
 ## 3.7 Classifier and preprocessing
 
@@ -428,11 +518,34 @@ standardisation, so each feature already has unit variance and adding the full i
 diagonal, imposing shrinkage strong enough to erase the covariance structure the alignment is meant
 to exploit. With only nine numeric features and thousands of cells per region, the covariances are
 well estimated and minimal regularisation is appropriate. Because this is a defensible but not
-inevitable choice, λ sensitivity is assessed on the four Bejís↔Muğla and Manavgat↔Muğla directions
-over a nine-value grid from 0 to 10⁻¹ (0, 10⁻⁸ … 10⁻¹). The resulting spread in transfer AUC is at
-most 0.008 within any direction (Section 4.7d). The sweep does not extend to λ = 1 or to the
-Montiferru and Evia directions, so conclusions for those directions rest on the default λ = 10⁻⁵
-alone.
+inevitable choice, λ sensitivity was assessed, and the exact scope of that assessment is stated
+here. Nine λ values were run: 0, 10⁻⁸, 10⁻⁷, 10⁻⁶, 10⁻⁵, 10⁻⁴, 10⁻³, 10⁻² and 10⁻¹. They were run
+on four transfer directions, Bejís↔Muğla 2021 and Manavgat↔Muğla 2021, in both the baseline and the
+thermal family. The frozen configuration records this grid and records λ = 10⁻⁵ as the
+implementation's canonical value
+(`drive_new/diagnostics/coral_lambda_sensitivity/b74d643e…/lambda_grid.csv` and `config.json`). The
+Manavgat↔Bejís directions were not re-run over the grid, and the configuration marks them
+`contextual_only_not_rerun`. The resulting spread in transfer AUC is at most 0.008 within any
+direction (Section 4.7d).
+
+**Why λ = 1 was not run.** The canonical value is the one value the sweep does not contain, and the
+omission is deliberate rather than accidental. In the canonical formulation the identity is added to
+the covariance of unstandardised features, where it acts as a mild ridge relative to feature scale.
+Here every feature has already been given unit variance by the region-wise z-score of variant (b).
+Adding the full identity therefore doubles each diagonal entry and halves the relative weight of
+every off-diagonal term. The alignment map is pushed towards the identity and the covariance
+structure that CORAL exists to transport is largely erased. A λ = 1 arm would mostly measure how the
+pipeline behaves when CORAL is effectively switched off. It would not measure how sensitive the
+reported result is to reasonable regularisation, which is what the sweep is for.
+
+Evidence on λ = 1 does exist, but only from a superseded analysis. An earlier two-region version of
+this study, using Manavgat and Bejís alone, ran λ at 10⁻⁵, 10⁻³, 10⁻¹ and 1. In that analysis the
+one direction whose interval sat above chance kept that status at λ up to 10⁻¹ and lost it at λ = 1,
+where the interval again spanned chance. This is what the argument above predicts. It is reported
+for completeness and nothing more is drawn from it: that analysis used a different region set and is
+superseded throughout by the five-region analysis reported here. No λ = 1 evidence exists for the 20
+directions of this paper. The sweep also does not cover the Montiferru and Evia directions, so
+conclusions for those directions rest on the default λ = 10⁻⁵ alone.
 
 The order of operations for variant (c) is thus: region-wise z-score of both regions → CORAL
 alignment of the source numerics only → the standard median-imputation + one-hot pipeline →
@@ -485,7 +598,7 @@ decomposition to a mechanism.
 **Leakage control.** An explicit forbidden-column set is enforced at every model fit, and its
 violation raises rather than warns (`step8b:140 to 159, 265 to 271, 450`). It contains the response
 itself and every column carrying label information: `burn_date`, `burn_month`, `burn_day_of_year`,
-`label_source`, `burn_date_pixel_agreement_fraction`, `out_of_window_burndate` It also contains
+`label_source`, `burn_date_pixel_agreement_fraction` and `out_of_window_burndate`. It also contains
 `lon`, `lat`, `cell_id`, `row_500m`, `col_500m`, the validity columns, and the fused-LST provenance
 columns (`source_mask_majority`, `observed_fraction`, `gapfilled_fraction`,
 `invalid_source_fraction`). The transfer stage additionally forbids `experiment_id`, `region_key`,
@@ -495,15 +608,21 @@ Coordinates are excluded because a fire scar is a spatially compact object: with
 latitude available, a sufficiently flexible model can memorise the scar's location instead of
 learning any relationship with the surface state. Grid indices are used only to construct
 cross-validation blocks and bootstrap groups. The natural-vegetation mask is used only to define the
-population. The fused-LST provenance fractions are retained for a sensitivity analysis, which
-restricts performance to cells with a low gap-filled fraction, but never as predictors.
+population. The fused-LST provenance fractions are retained as diagnostics, never as predictors.
+They are reported per region in Section 4.7h, where the gap-filled share is 0.11 % to 9.70 % of the
+fused product. A performance sensitivity restricted to cells with a low gap-filled fraction was
+considered and **was not run**; it matters most for Bejís, whose 9.70 % is an order of magnitude
+above the other four regions, and it is listed as an open item in Section 5.11.
 
 **Sensitivity analyses.** Every headline result is repeated across: two analysis populations
-(natural vegetation, primary; all valid cells, secondary); two random-forest profiles (the primary
-weighted `min_samples_leaf = 3` configuration and an unweighted `min_samples_leaf = 2` profile);
-three spatial-block sizes for the within-region analysis (≈ 1, 5, 10 km); four CORAL regularisation
-values; and both feature sets. Where a conclusion depends on one of these choices, the dependence is
-reported rather than resolved by selecting the favourable setting.
+(natural vegetation, primary; all valid cells, secondary); three spatial-block sizes for the
+within-region analysis (≈ 1, 5, 10 km); nine CORAL regularisation values from 0 to 10⁻¹ on the four
+directions covered by the sweep (Section 3.11); both feature sets. Where a conclusion depends on
+one of these choices, the dependence is reported rather than resolved by selecting the favourable
+setting. Two axes named in earlier drafts are not part of this set and should not be read as
+covered. The unweighted `min_samples_leaf = 2` random-forest profile was defined as a secondary
+configuration but no result from it is reported in Section 4 or Section 5, and the CORAL sweep does
+not include λ = 1 in the five-region export.
 
 **Reproducibility.** All randomness uses seed 42, covering model `random_state`, cross-validation
 shuffling and bootstrap generators alike. The bootstrap uses 1000 replicates throughout. The
@@ -565,7 +684,7 @@ names both the paths present and the one used for each pair. No file belonging t
 pipeline or to previously frozen outputs was modified by this analysis.
 
 **Data and code availability.** The satellite inputs are all public and are obtained through Google
-Earth Engine. They are MODIS MCD64A1 Collection 6 burned area, MODIS land surface temperature,
+Earth Engine. They are MODIS MCD64A1 Collection 6.1 burned area, MODIS land surface temperature,
 Landsat Collection 2 Level-2 surface reflectance and surface temperature, Copernicus DEM GLO-30, and
 ESA WorldCover v200. No data were collected by the authors and no restricted or licensed data were
 used. The region definitions, date windows and thresholds given in this section are sufficient to
@@ -575,9 +694,27 @@ The full processing pipeline (Steps 1 to 10), its configuration constants, and t
 outputs on which every reported number rests are publicly available at
 `https://github.com/emrehann17/satellite-thermal-digital-twin`. The repository is the authoritative
 source for the file and line references cited throughout this section. Analysis code is released
-under the repository's stated licence (MIT). No digital object identifier is minted for this
-release, and readers should cite the repository URL together with the commit identifier
-corresponding to the version of record.
+under the repository's stated licence (MIT).
+
+Three limits on that release are stated here rather than left for a reader to discover. First, **no
+digital object identifier is minted and no archival deposit exists**, and the repository carries no
+tags, so "the version of record" is a commit identifier on a moving branch head rather than a
+citable snapshot. Readers should cite the repository URL together with commit `48b56e7`, which is
+the state against which every file and line reference in this section was checked. Second, **the
+code that produced the reproduction check of this section is not in the released tree at that
+commit.** The check's own record marks `scripts/run_reproduction_check.py` and
+`src/reproduction_validation/` as untracked, and neither is present at `48b56e7`. The check's output
+artefact is archived with this paper and its 100 recorded values were independently verified against
+the 20 frozen artefacts they reference, but a reader cannot regenerate it from the repository.
+Third, **the commit recorded for the few-shot export (`19d825b`) is not reachable** in the published
+history, although the module it names, `src/few_shot_recovery.py`, is present at `48b56e7` and
+predates the run. A fourth, smaller discrepancy is recorded in Section 3.17: the ERA5-Land
+diagnostic's manifest names a commit at which the diagnostic source does not yet exist, so that
+production run was made from an uncommitted working tree.
+
+None of these affects a number in this paper, each was verified rather than assumed, and every
+affected artefact is archived in frozen form. They do bound the sense in which this negative result
+is independently re-checkable, and the paper claims no more than that bound allows.
 
 ## 3.14 Transferability diagnostics versus transfer
 
@@ -604,6 +741,38 @@ generator (`paper/regime_correlation.mjs`, `paper/niche_corr.mjs`,
 share member regions, power is low. A null result is reported as "not shown to order transfer",
 never as "shown not to".
 
+**Provenance of the candidate set and of the stated expectations.** Three things were fixed before
+the correlations were computed, and each is on record in the project's analysis documents. First,
+the candidate variants of each family were listed in advance, together with the expected sign of
+each, and the analysis records state this for the conditional family
+(`paper/conditional_similarity_transfer.md`), the niche family (`paper/niche_overlap_transfer.md`)
+and the marginal and regime families (`paper/regime_transfer_correlation.md`). Second, the null
+expectation for fire-regime distance, that it would not order transfer, was written down before the
+regime correlation was run and is recorded in `paper/regime_transfer_correlation.md`. Third, the
+directional hypothesis behind the whole comparison, that conditional measures would order transfer
+where marginal measures would not, comes from the project's direction document
+(`paper/POSITIONING.md`, Section 5), which sets it out as the analysis still to perform. These are
+entries in a project analysis log. They are **not** a formal pre-registration. No independent
+timestamped public registration exists, and the records entered version control on the same day the
+diagnostics were computed, 2026-08-08. The claim made here is therefore the narrow one: the
+candidates and their expected signs were fixed in advance under the project's own honesty rule, and
+they are on record in named files. A reader who wants a stronger guarantee than an internal log
+should read the regime and conditional results at that reduced strength.
+
+**Multiplicity.** Twenty candidate variants are correlated against the same target quantity. One of
+them, the signed-AUC vector Spearman restricted to CI-supported features, is not computable, because
+only two directions retain three or more jointly supported features. Nineteen variants are therefore
+computed. They share the same transfer AUCs and an effective sample of ten unordered pairs, or six
+for the measures available only on the four-region subset. Two intervals exclude zero, both in the
+conditional family. **No multiplicity correction is applied, and no family-wise error control is
+claimed.** The two surviving intervals must not be read as significance at a controlled error rate.
+What can be said in mitigation is limited but real. The families and their variants were specified
+in advance rather than searched over, so the twenty are a fixed list and not the survivors of a
+wider hunt. The conditional-versus-marginal contrast is a directional hypothesis stated before
+computation, so the two surviving variants are the ones that hypothesis pointed at rather than an
+arbitrary pair picked after the fact. Neither point substitutes for an error-rate correction, and
+none is offered.
+
 ### 3.14.2 Marginal measures and the domain classifier
 
 Six marginal diagnostics are consumed unchanged from the upstream marginal/area-of-applicability
@@ -618,9 +787,17 @@ from target cells. It uses the same 10-predictor feature contract
 random-forest configuration of Section 3.7, evaluated as spatially blocked out-of-fold ROC-AUC using
 `StratifiedGroupKFold` over deterministic 10-cell (≈5 km) blocks namespaced per region (5 splits,
 seed 42, strict zero-overlap folds), with a paired two-domain spatial-block bootstrap (1,000
-replicates, seed 42, blocks resampled with replacement independently within each domain). Burned
-labels are never used. Design read from
+replicates, seed 42, blocks resampled with replacement independently within each domain). The domain
+classifier itself never uses burned labels. Design read from
 `drive_new/diagnostics/domain_classifier_audit/comparison/manifest.json` and the per-pair manifests.
+
+One qualification applies to the weighted area-of-applicability rows, and the upstream module states
+it in its own source: the predictor weights are importances from a random forest fitted on the
+**source** region's `burned` label, so the weighted index is not label-blind in the absolute sense.
+It is blind to the *target's* labels, which is the property that matters for pre-deployment
+screening, and that is the sense in which the marginal family is called label-free in this paper.
+The unweighted support fraction, the dissimilarity quantiles, the climatic and geographic distances
+and the domain classifier use no label at all.
 
 ### 3.14.3 Burned-niche overlap
 
@@ -648,9 +825,20 @@ and the cosine similarity of the (AUC − 0.5) vectors. Each is also computed re
 **supported** features, which are those whose bootstrap interval excludes 0.5 in *both* regions.
 Consistency is enforced: per-region vectors must be identical across every pair row, and the
 supported-reversal set must reproduce the upstream `reversal_status` flags exactly
-(`paper/conditional_similarity.mjs`). Unlike every marginal, niche and regime measure, this index
-requires burned labels (or a labelled probe) in **both** regions: it diagnoses concept alignment and
-is not a label-free deployment screen.
+(`paper/conditional_similarity.mjs`). This index requires burned labels (or a labelled probe) in
+**both** regions: it diagnoses concept alignment and is not a label-free deployment screen.
+
+The same is true of two of the three families it is compared against, and the paper's taxonomy is
+stated here once so that no section overstates the contrast. Burned-niche overlap (Section 3.14.3)
+is defined on the burned cells of both regions, and fire-regime structure (Section 3.14.5) on the
+target's burned map, so both require the target's labels exactly as this index does. Only the
+marginal P(x) family, comprising the area-of-applicability rows, the domain classifier and the
+climatic and geographic distances, is computable before any target label exists. The correct split
+is therefore **target-label-free** (marginal) against **target-label-requiring** (P(x|y=1), P(y) and
+P(y|x)), not conditional against everything else. This sharpens rather than softens the comparison
+in Section 4.4: niche overlap and the conditional index are built from the same labelled
+information, and only the conditional one orders the transfer matrix. It also means the single
+family that a practitioner could run before deployment is the family that fails.
 
 ### 3.14.5 Fire-regime structure
 
@@ -660,8 +848,8 @@ natural-vegetation cells, computed with 8-connectivity on the integer grid indic
 component count, the inverse Simpson index of component size shares, 1/Σ s_k². The pair-level regime
 distance is |Δ log(effective count)| (primary) and |Δ largest share| (secondary), both symmetric.
 The implementation was verified to reproduce the upstream burned-pattern audit ("Rejim" table)
-exactly in all five regions, for component counts and largest/second component sizes identically,
-shares and effective counts to 1 × 10⁻⁴ (`paper/burned_components.mjs`).
+exactly in all five regions: component counts and largest and second component sizes match
+identically, and shares and effective counts match to 1 × 10⁻⁴ (`paper/burned_components.mjs`).
 
 ## 3.15 Interventions
 
@@ -684,9 +872,9 @@ frozen pairwise transfers were reproduced to four decimal places in the same env
 ### 3.15.2 Removal of direction-reversing features
 
 Four thermal-model configurations are compared: full (all 10 predictors, order preserved from the
-shared feature contract), minus `elevation_mean`, minus `lst_anomaly_mean`, and minus both. The two
-features being exactly the bootstrap-supported reversal set under the supported-reversal criterion
-of Section 3.14.4. The pipeline replicates step8b/step9b verbatim (same imputers, one-hot encoding,
+shared feature contract), minus `elevation_mean`, minus `lst_anomaly_mean`, and minus both. Those
+two features are exactly the bootstrap-supported reversal set under the supported-reversal criterion
+of Section 3.14.4, which is why they and no others are removed. The pipeline replicates step8b/step9b verbatim (same imputers, one-hot encoding,
 classifier and seed), and **hard parity assertions** abort the run on any deviation of the full
 configuration from the frozen outputs, with a tolerance of 5 × 10⁻⁴ against the 20 step9b transfer
 AUCs and 1 × 10⁻³ against the step8c within-region out-of-fold AUCs. The observed deviations were
@@ -773,9 +961,11 @@ it tests literal membership of the string `mugla_2022`, which is the registry's 
 calendar-shift record, and would not by itself catch the `mugla_2022_event_relative` entry analysed
 here. Both checks pass on the executed output (Section 3.17), but the guarantee for this experiment
 rests on A08. The decision to keep this pair out of the 20-direction transfer matrix is therefore
-verifiable in the released code rather than resting on the text of this paper. The same leakage-safe
-pre-label exclusion applies as in every other region: cells that burned inside this experiment's own
-predictor window are removed from the analysis universe rather than counted as unburned.
+verifiable in the released code rather than resting on the text of this paper. The pre-label burn
+exclusion of Section 3.2 ran for both arms of this pair: cells that burned inside an experiment's
+own predictor window are removed from its analysis universe rather than counted as unburned. That is
+the same safeguard used for Evia and Montiferru, and it is a stricter treatment than the two regions
+where it did not run (Manavgat, and Bejís where no status is recorded).
 
 Two frozen diagnostics are read for this pair, both produced by the machinery already described and
 neither refitting any model. Burned-pattern structure (component counts, effective component count,
@@ -842,8 +1032,9 @@ extremity (Section 5.7), an AOI-level ERA5-Land diagnostic was run outside the m
 `drive_new/diagnostics/era5_land_regional/<analysis_id>/`). It is explanatory only: it produces a
 table and exports no raster, and its outputs enter no feature set, no model and no transfer arm. The
 module records this status in its own output (`is_model_predictor: false`). The candidate diagnostic
-set of Section 3.14 was fixed before any diagnostic-versus-transfer correlation was computed, and no
-meteorological measure is added to it; the reasoning is given in Section 5.7.
+set of Section 3.14 was fixed before any diagnostic-versus-transfer correlation was computed, on the
+provenance set out in Section 3.14.1, and no meteorological measure is added to it. The reasoning is
+given in Section 5.7.
 
 Hourly `temperature_2m`, `dewpoint_temperature_2m`, `u_component_of_wind_10m`,
 `v_component_of_wind_10m` and `total_precipitation_hourly` are read from the ERA5-Land hourly
@@ -904,9 +1095,8 @@ standardised anomaly is null exactly when the climatological SD is zero (A16). T
 summaries agree value by value (A17). The summary contains no infinite or missing quantity and no
 `Infinity`/`NaN` literal (A18, A19). The manifest hashes and byte sizes match (A21). The cohort is
 the frozen five with Muğla 2022 absent (A07, A08). The reference years and `sd_ddof = 1` are as
-declared (A09, A10). The registry region keys and window dates agree with `core/regions.py` (A14);
-and the namespace contains only the four expected files, no exported raster having leaked into it
-(A24). The run was performed by the authors on 2026-08-11 under Python 3.12.3 with `earthengine-api`
+declared (A09, A10). The registry region keys and window dates agree with `core/regions.py` (A14).
+The namespace contains only the four expected files, with no exported raster leaking into it (A24). The run was performed by the authors on 2026-08-11 under Python 3.12.3 with `earthengine-api`
 1.7.39 installed solely to satisfy the module import chain. The validator opens no Earth Engine
 session and requires no credentials. The repository was at commit `48b56e7` and the outputs staged
 in a scratch namespace outside the repository via `--output-root`.
@@ -915,9 +1105,9 @@ The manifest names commit `a07ea33`, at which neither the diagnostic source nor 
 registry entry yet exists. Both were first committed in `48b56e7`. The production run was therefore
 made from a working tree carrying uncommitted changes, and the recorded commit identifies only the
 last commit at run time. The code that actually ran can nevertheless be identified. The output
-contains Montiferru with its registry windows, which `a07ea33` cannot supply. In that commit
-`core/regions.py` gains that entry only in `48b56e7`, and it does so by pure addition (529 lines
-inserted, none deleted), leaving the four regions common to both commits byte-identical.
+contains Montiferru with its registry windows, which `a07ea33` cannot supply. `core/regions.py`
+gains that entry only in `48b56e7`, and it does so by pure addition (529 lines inserted, none
+deleted), leaving the four regions common to both commits byte-identical.
 `core/paths.py` and `core/config.py`, the diagnostic's only other internal dependencies, are
 unchanged between the two commits. Every free-text semantics string hashed into the scientific
 contract matches `48b56e7` verbatim, and the validator's registry check (A14) confirms that all five

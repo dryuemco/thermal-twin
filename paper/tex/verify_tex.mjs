@@ -112,8 +112,14 @@ for (const m of tex.matchAll(/\\begin\{tabular\}\{([^}]*)\}([\s\S]*?)\\end\{tabu
 check('table rows match their column specification', rowProblems.length === 0,
       rowProblems.slice(0, 5).join(' | '));
 
-// Raw percent signs would silently comment out the rest of a line.
-const rawPct = [...body.matchAll(/(?<!\\)%/g)].length;
+// Raw percent signs would silently comment out the rest of a line. Whole-line
+// LaTeX comments are exempt: a line whose first non-space character is % is a
+// comment by construction and cannot swallow content. Everything else is
+// prose, where an unescaped % means the converter missed one.
+const rawPct = body
+  .split('\n')
+  .filter((line) => !/^\s*%/.test(line))
+  .reduce((n, line) => n + [...line.matchAll(/(?<!\\)%/g)].length, 0);
 check('no unescaped % in the body', rawPct === 0, `${rawPct} found`);
 
 // Escaped math: a sign that vaulting failed and an exponent got mangled.

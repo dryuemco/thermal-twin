@@ -5,20 +5,35 @@
 > (`recovery_curve.csv`, `summary.json`, `config.json`, `target_block_inventory.csv`,
 > `validation_report.json`). No model was refitted for this supplement; every number below is read
 > from that export. Referenced from Discussion §5.5.
+>
+> Consistency pass 2026-08-13. One change, no numbers added or altered. The lead sentence of S1.3
+> called the top budget "a modest labelled budget", which contradicts limit 4 in S1.4. It now names
+> the budget for what it is and points at that limit. The Conclusions were corrected in the same
+> pass and no longer claim that a modest burned-area record suffices.
+>
+> Blocking-scale pass 2026-08-13. Swept for claims of interval support on a named transfer
+> direction, after `paper/transfer_ci_blocksize.md`. None was found and nothing was changed. The
+> two places that mention raw transfer above chance, S1.1 and the third observation of S1.3, name
+> Bejís to Muğla at its point estimate of 0.618. That direction is CI-supported above chance at both
+> the 1 km and the 5 km blocking, so no qualifier is owed. The selection intervals of this supplement
+> are a separate quantity and are unaffected: they are drawn over block selections, not over a
+> spatial-block bootstrap, as S1.2 states.
 
 ## S1.1 Purpose and status
 
 The main text establishes that the residual transfer gap is dominated by a conditional (concept)
 component, and that label-free alignment cannot close it. CORAL and per-region standardisation
-recover a minority of the gap at best, and actively degrade the one pair that transfers above chance
-without them (§4.4, §4.6, §5.5). The natural constructive question is therefore what a *small number
-of target labels* buys, since that is the resource label-free machinery cannot substitute for.
+recover a minority of the gap at best, and degrade most of the directions that transfer above chance
+without them (§4.3, §4.6, §5.5). Within the six directions covered here, the direction that
+transfers above chance raw is Bejís to Muğla, and it is the direction that both interventions help
+least. The natural constructive question is therefore what a *small number of target labels* buys,
+since that is the resource label-free machinery cannot substitute for.
 
-This analysis answers that question and is reported here rather than in the main text, for two
-reasons. It covers three of the five regions, so it cannot carry a claim at the paper's stated
-scope; and it requires labelled target cells, so it is not an alternative transfer protocol but a
-quantification of the price of the failure the main text documents. It is a supplementary
-sensitivity result, not a proposed method.
+The headline of this analysis is in the main text at §4.10. The full design, the per-budget table
+and the limits are here, for two reasons. It covers three of the five regions, so it cannot carry a
+claim at the paper's stated scope; and it requires labelled target cells, so it is not an
+alternative transfer protocol but a quantification of the price of the failure the main text
+documents. It is a supplementary sensitivity result, not a proposed method.
 
 ## S1.2 Design
 
@@ -80,12 +95,13 @@ the upper-budget intervals are narrow.
 
 Three observations follow, and only the first is comfortable.
 
-**A modest labelled budget recovers most of the gap in four of six directions.** Thirty-two blocks
+**The largest budget tested recovers most of the gap in four of six directions.** Thirty-two blocks
 carry on average 2,700 to 3,000 labelled cells, roughly 7 to 20 % of the target's natural-vegetation
 population depending on the region. At that budget four directions stand at 85 to 89 % of their
 target-only ceiling, having started at or below chance. The failure the main text documents is
 therefore expensive but not structural: it is a shortage of target-conditional information, and
-target labels supply exactly that.
+target labels supply exactly that. That budget should not be described as modest. Limit 4 below
+gives the reason: for these AOIs the top budget already contains most of the target's burned cells.
 
 **The recovery is slow where the transfer is worst.** The two directions into Muğla and Manavgat
 from Muğla reach only 51 to 57 % at the top budget. These are the directions whose raw transfer sits
@@ -96,7 +112,7 @@ larger concept gap costs more labels, not the same labels.
 that transfers above chance raw (0.618), and it is the pair few-shot recalibration helps least: the
 curve is *negative* at 1, 2, 4 and 8 blocks (−0.043 to −0.021 AUC), only overtakes raw at 16, and
 reaches 30 % at 32, the worst of the six. This is the same asymmetry the main text reports for
-label-free adaptation (§4.4): where the source model already carries a usable conditional
+label-free adaptation (§4.3): where the source model already carries a usable conditional
 relationship, a small target sample perturbs it before it can replace it. The mechanism differs,
 since here the target labels are real information rather than a covariate rescaling. The direction
 of the effect is nevertheless the same, and it is the one direction where the intervention is a

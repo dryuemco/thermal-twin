@@ -60,6 +60,17 @@ the abstract:
 > **The feature block that gains the most within region is the block that loses the most between
 > regions.**
 
+**Amended 2026-08-13 (referee round).** This sentence was retired from the manuscript. It is a
+comparative claim, and no other block's portability was measured on the same footing, so it was
+never tested. What the five-region data support is that the block buys +0.056 to +0.153 within every
+region, contributes +0.004 on average across the twenty ordered directions, and has a sign-unstable
+contribution that is a property of the source-target pair rather than of the block. The abstract,
+Introduction §1 and §1.5, Related work §2.5 and Conclusions were rewritten accordingly. The
+trade-off framing in Section 2 above is unchanged and remains the thesis. Note also that the single
+sharpest bootstrap-supported reversal belongs to elevation, a static predictor, so the manuscript now
+states in §1.3 that the thermal block is where the trade-off is costly rather than where instability
+is worst.
+
 We can show this directly, per direction, from numbers already in hand: in the Manavgat–Muğla pair
 the static baseline transfers at roughly chance and adding the thermal block pushes it *below*
 chance, while in the Bejís–Muğla pair the thermal block is what lifts transfer above chance. The

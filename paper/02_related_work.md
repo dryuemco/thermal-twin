@@ -18,6 +18,27 @@
 > predictor-space-distance diagnostics the field currently relies on, because the failure is
 > conditional rather than marginal.* Each closing paragraph is written to show what the literature
 > in question contributes to that argument and where it stops short of it.
+>
+> **Consistency pass 2026-08-13.** Three changes, no numbers added or altered. (i) The "static
+> baseline" of Section 2.1 is now "a comparable baseline of terrain, fuel and greenness predictors",
+> described as static and near-static with the vegetation-index composite named as its only
+> time-varying member, since that predictor is a predictor-window median composite (Methods 3.4).
+> The "by construction they cannot explain" wording about the field's predictor sets was softened to
+> "explain poorly" for the same reason. (ii) The first-contribution echo of the sharpest thesis
+> sentence no longer claims the block that gains the most locally loses the most between regions.
+> That comparative is untested. It now states the average between-region contribution of nothing and
+> the sign instability, and attributes the sign to the source-target pair. (iii) Section 2.3's
+> closing paragraph already excepts the conditional diagnostic and was left as it stands.
+>
+> **Blocking-scale pass 2026-08-13.** Swept for counts of interval-supported transfer directions
+> after `paper/transfer_ci_blocksize.md`. This file contains none, so nothing needed restating. Two
+> statements were checked and kept. Section 2.3's "a model may be well inside its nominal area of
+> applicability and still perform at or below chance" survives at 5 km blocking, since Muğla to
+> Manavgat is CI-supported below chance there and sits deep inside the applicability region (§4.5,
+> Table R12). The third contribution's "transfer between them collapses" is a point-estimate
+> statement and claims no interval support. One unrelated factual slip was corrected in the same
+> pass: the Dimarco comparison said the two studies had "four regions and twelve ordered pairs each",
+> which is theirs, not ours. This study has five regions and twenty ordered directions.
 
 ---
 
@@ -54,9 +75,9 @@ landscapes we analyse. What none of them establishes is whether a model fitted i
 landscapes retains any skill in another. Each is validated within its own study area, so the
 reported AUC is an estimate of interpolation performance inside a fixed footprint, not of
 generalisation beyond it. Two further gaps follow from the shared predictor design. First, the
-predictor sets are dominated by static or near-static variables, which by construction cannot
-explain why a particular summer burned and the preceding one did not. The dynamic pre-fire state of
-the surface is largely absent. Second, evaluation rarely reports uncertainty at all, and where
+predictor sets are dominated by static and near-static variables, so they explain poorly why a
+particular summer burned and the preceding one did not. The dynamic pre-fire state of the surface is
+largely absent. Second, evaluation rarely reports uncertainty at all, and where
 cross-validation is used it is frequently random over cells. For spatially autocorrelated data, that
 is known to be optimistically biased (Section 2.3).
 
@@ -67,9 +88,11 @@ evaluation regime that cannot reveal its cost. That remedy is to add dynamic pre
 the model can distinguish one season from another. A predictor block can raise within-region skill
 while simultaneously binding the fitted model more tightly to the place and season in which it was
 fitted, and a within-region AUC records only the first half of that exchange. The present study is
-designed to record both halves. It adds a dynamic pre-fire block to a comparable static baseline and
-evaluates both under spatially blocked cross-validation with bootstrap intervals. It then carries
-the same paired contrast into cross-region transfer. The local gain and the portability cost
+designed to record both halves. It adds a dynamic pre-fire block to a comparable baseline of
+terrain, fuel and greenness predictors. That baseline is static and near-static, its only
+time-varying member being the vegetation-index composite. Both feature sets are evaluated under
+spatially blocked cross-validation with bootstrap intervals. The same paired contrast is then
+carried into cross-region transfer. The local gain and the portability cost
 attributable to the same block are therefore measured on the same footing.
 
 ## 2.2 Pre-fire thermal dryness from satellite observation
@@ -100,7 +123,7 @@ subsequent fire.
 
 Underpinning all of it are the source products. The Landsat Level-2 surface temperature used here
 derives from the operational retrieval of Malakar et al. [@Malakar2018], built on the calibration
-methodology of Cook et al. [@Cook2014]. Burned-area labels come from the Collection 6 MODIS
+methodology of Cook et al. [@Cook2014]. Burned-area labels come from the Collection 6.1 MODIS
 burned-area algorithm [@Giglio2018], whose global validation [@Boschetti2019] documents the omission
 and commission characteristics that bound any model trained against it. Land cover is ESA WorldCover
 v200 [@Zanaga2022], and all satellite retrieval and compositing runs on Google Earth Engine
@@ -149,8 +172,15 @@ cross-validation strategies appropriate to temporally, spatially, hierarchically
 phylogenetically structured data; Ploton et al. [@Ploton2020] showed that spatial validation reveals
 substantially poorer predictive performance in large-scale ecological mapping models than random
 validation suggests. Blocked cross-validation, in which contiguous spatial units rather than
-individual cells are assigned to folds, is the accepted correction, with an established
+individual cells are assigned to folds, is the standard correction, with an established
 implementation [@Valavi2019] and a target-oriented variant for spatio-temporal data [@Meyer2018].
+It is not uncontested. Wadoux et al. [@Wadoux2021] argue that spatial cross-validation can bias
+map-accuracy estimates, Milà et al. [@Mila2022] propose nearest-neighbour distance matching as an
+alternative to fixed blocking, and de Bruin et al. [@deBruin2022] compare the available strategies
+and find that the right choice depends on the sampling design and on the inference intended. That
+dispute bears directly on this paper, whose transfer verdicts change in number, though not in
+pattern, between 1 km and 5 km blocking (Section 4.7g). It is one reason both blockings are
+reported rather than one.
 
 A parallel line asks not how well a model performs but *where* it can be trusted at all. Meyer and
 Pebesma [@Meyer2021] formalised this as the area of applicability of a spatial prediction model,
@@ -261,7 +291,7 @@ instrument: we use the performance of label-free adaptation itself as the measur
 the recoverable fraction of the gap is defined as what the best available label-free method actually
 recovers, and the residual is what it demonstrably cannot. That definition has the advantage of
 being decision-relevant, because it answers "would unsupervised alignment fix this?" by trying it.
-The disadvantage of being method-dependent, which we report rather than conceal. Beyond that, we
+It also has the disadvantage of being method-dependent, which we report rather than conceal. Beyond that, we
 found no application of CORAL or of region-wise feature alignment to fire susceptibility, fire
 occurrence or burned-area prediction at all. Work labelled "domain adaptation" in the fire
 literature addresses image-level post-fire tasks: burned-area segmentation, burn-severity mapping
@@ -289,10 +319,10 @@ Dimarco et al. [@Dimarco2026] is the closest Mediterranean analogue and the most
 comparison for this paper. They harmonise 500 m predictors across four Mediterranean countries, fit
 random forest and gradient boosting models, select hyperparameters under five-fold spatial
 cross-validation, evaluate on an 80/20 hold-out, and test transfer both leave-one-country-out and as
-a full 4 × 4 transfer matrix. Their predictor set comprises NDVI and slope from ASTER GDEM. It adds
+a full 4 × 4 transfer matrix. Their predictor set comprises NDVI, and slope derived from the ASTER GDEM. It adds
 2 m air temperature, 10 m wind speed and relative humidity, all taken from ERA5-Land
 [@MunozSabater2021] as **long-term seasonal means**. It also adds the global human modification
-index, VIIRS night-time lights with a log1p transform of the same, and population
+index, VIIRS night-time lights, a log1p transform of those lights, and population
 density.[^dimarco-lst] Their target is burned-pixel centroids from MCD64A1, treated as an ignition
 proxy and matched against a 1:1 balanced background sample. They report that every transfer exceeds
 AUC 0.80. Transfers between bioclimatically similar countries score higher, and transfers to Morocco
@@ -314,8 +344,10 @@ transferring well and dissimilar pairs collapsing below chance. Its label, howev
 principal-component composite of federal hazard *indicators* rather than observed burned area, and
 it applies no domain adaptation and performs no shift decomposition. Finally, Xu et al. [@Xu2026]
 argue that wildfire transfer conclusions depend strongly on evaluation design and task formulation.
-That caution applies to our results as much as to anyone's, and we address it by pre-specifying the
-protocol and reporting every sensitivity axis.
+That caution applies to our results as much as to anyone's. We address it by fixing the analysis
+protocol in a project log before the diagnostics were computed, and by reporting every sensitivity
+axis. That log is not a formal pre-registration, and no independent timestamped registration exists.
+Section 3.14.1 states exactly what was fixed and when.
 
 For scaling this kind of work, Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a multi-purpose
 1 km Mediterranean datacube built for data-driven wildfire modelling.
@@ -328,8 +360,9 @@ contrast that points to a different explanation, and that contrast is the most i
 the present work.
 
 Dimarco et al. and this study share the essential experimental design: Mediterranean regions, 500 m
-cells, MCD64A1-derived targets, tree ensembles, spatially aware validation, an explicit transfer
-matrix, and, as it happens, four regions and twelve ordered pairs each. What differs is the
+cells, MCD64A1-derived targets, tree ensembles, spatially aware validation, and an explicit transfer
+matrix. Theirs covers four countries and twelve ordered pairs, ours five regions and twenty ordered
+directions. What differs is the
 **predictor class**. Their model is built on quantities that are attributes of a *place*: terrain
 slope, night-time lights, human modification, population density, and temperature, wind and humidity
 as long-term seasonal climatologies. Every one of these is spatially stationary, describing a region
@@ -341,7 +374,7 @@ is universal, this predictor class is the one for which transfer should be *most
 instead the one that fails.
 
 The contrast, then, is not the one we initially expected to draw. It would be easy but wrong to
-reduce it to target definition, since their ignition proxy is human-driven and ours is burned area.
+reduce it to target definition, their ignition proxy being human-driven and ours burned area.
 It would be easier still, and equally wrong, to reduce it to their finding that anthropogenic
 pressure dominates. That finding is a result of their analysis rather than a feature of their
 design, and their predictor set explicitly includes vegetation condition, topography and climatic
@@ -359,11 +392,11 @@ reading and cannot prove it, and we return to it below.
 
 Three further differences must be stated precisely, because they bound how far the contrast can be
 pushed. **Target:** they treat burned-pixel centroids as an ignition proxy against a 1:1 balanced
-background, whereas we perform burned-area classification at the true, heavily imbalanced base rate
+background, whereas we perform burned-area classification at the true, heavily imbalanced base rate.
 This is a different problem with different achievable ceilings. **Thermal variable:** their
 temperature predictor is a static reanalysis climatology, whereas ours are event-specific satellite
 thermal observations referenced to their own baseline. **Adaptation:** they apply none, whereas the
-label- blind adaptation step is central to our diagnosis. The contrast is therefore between two
+label-blind adaptation step is central to our diagnosis. The contrast is therefore between two
 coherent experimental programmes, not a controlled ablation, and we present it as such.
 
 Why the predictor-response relationship should be reparameterised locally is a question this
@@ -377,21 +410,24 @@ closer to a sufficient condition. If two regions sit in different limiting regim
 an observed thermal anomaly to burning probability differs between them by construction, even where
 the predictor distributions overlap and the underlying combustion physics is identical. That is
 precisely the conditional, marginally invisible difference described in Sections 2.3 and 2.4. We
-offer regime typology as a candidate explanation. It is consistent with what we observe, not as a
-hypothesis this study tests: with the small number of regions available, a regime difference cannot
-be distinguished from any other region-specific effect.
+offer regime typology as a candidate explanation, consistent with what we observe. We do not offer it
+as a hypothesis this study tests: with the small number of regions available, a regime difference
+cannot be distinguished from any other region-specific effect.
 
 Five contributions follow, ordered by weight and stated at the strength the evidence supports.
 
 **First, the trade-off itself, which is the paper's thesis.** We quantify, for every ordered region
-pair, the change in transfer skill attributable to adding the dynamic pre-fire thermal block to a
-matched static baseline, and set that against the within-region increment the same block delivers.
-The claim is that the block gaining the most locally is the block losing the most between regions.
+pair, the change in transfer skill attributable to adding the dynamic pre-fire thermal block to the
+matched baseline, and set that against the within-region increment the same block delivers. The
+claim is that the block gaining the most locally contributes nothing on average between regions, and
+that its between-region contribution is sign-unstable. Whether it helps or harms there is a property
+of the source-target pair, not of the block.
 Dimarco et al. [@Dimarco2026] demonstrate the stationary-predictor half of this picture within the
 same kind of Mediterranean design. Our result is its complement, not its contradiction. Establishing
-the portability half requires testing whether the predictive skill of pre-fire thermal state, and
-not a moisture-retrieval model [@Marino2024], and not a pooled multi-region model evaluated locally
-[@Gelabert2025], survives strict, label-free train-in-A, apply-to-B transfer. To our knowledge that
+the portability half requires testing whether the predictive skill of pre-fire thermal state itself
+survives strict, label-free train-in-A, apply-to-B transfer. The quantity under test is that skill,
+not the skill of a moisture-retrieval model [@Marino2024] and not that of a pooled multi-region
+model evaluated locally [@Gelabert2025]. To our knowledge that
 test has not been performed, but we state this as a gap in the transfer test specifically, not as an
 absence of attention to the transferability of dryness predictors: Gelabert et al. come closer than
 any other study, and the stronger wording would be indefensible.
@@ -428,10 +464,11 @@ distinguishes the paper from a purely negative result.
 Mediterranean regions under spatially blocked cross-validation with spatial-block bootstrap
 intervals, and characterise its behaviour as blocks coarsen. This finding is not itself novel, since
 comparable within-region results exist for these very landscapes [@AlkanAkinci2023; @Iban2022]. It
-it is included because it supplies the first half of the trade-off in the first contribution.
+is included because it supplies the first half of the trade-off in the first contribution.
 
-Alongside these we release the protocol, code and frozen outputs, so that a negative transfer result
-can be checked rather than taken on trust [@Xu2026].
+Alongside these we release the protocol, code and frozen outputs, so that most of this negative
+transfer result can be re-run rather than taken on trust [@Xu2026]. Two components fall outside that
+release and are named in the availability statement of Section 3.13.
 
 We present the third of these as a **live disagreement**, not a settled result. Vesk et al.
 [@Vesk2021] and Rousseau and Betts [@Rousseau2022] align with our direction, having already found

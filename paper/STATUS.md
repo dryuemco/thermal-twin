@@ -13,8 +13,72 @@ Tables R7–R10.
 The Muğla 2021↔2022 transfer arms, which had never been run, were computed here with the pipeline
 author's unmodified step9b/step9c — the only transfer directions in the paper not from his export.
 
-**One-line state:** all eight figures, all captions and every citation decision are closed; the
-manuscript is complete in draft and waits on four external inputs and one assembly pass.
+**Updated 2026-08-13 (internal referee round, Methods).** Three referee-anticipation edits were made
+to `03_methods.md`, no number changed:
+- **§3.11** now states the CORAL λ sweep exactly as it was run (nine values 0 to 10⁻¹, four
+  directions, both model families, `contextual_only_not_rerun` for Manavgat↔Bejís) and gives the
+  omission of λ = 1 as a reasoned choice rather than a gap. Verified against
+  `drive_new/diagnostics/coral_lambda_sensitivity/b74d643e…/lambda_grid.csv` and `config.json`:
+  **λ = 1 exists nowhere in the five-region export.** The only λ = 1 evidence is the superseded
+  two-region run (`experiments/cross_region/step10/coral_lambda_sensitivity.csv`, λ ∈ {1e-5, 1e-3,
+  1e-1, 1}), and §3.11 says so and labels it superseded.
+- **§3.14.1** gained two paragraphs: provenance of the candidate set (what was fixed, where it is
+  recorded, and the explicit statement that this is a project analysis log and **not** a formal
+  pre-registration, with no independent timestamped public registration), and a multiplicity
+  paragraph (20 variants, 1 not computable so 19 computed, effective n = 10 unordered pairs, no
+  family-wise error control claimed).
+- **§3.17** now points at §3.14.1 for that provenance instead of asserting it standalone.
+- *For the Discussion agent:* §5.6's word "pre-registered" is not supported as a formal
+  registration. §3.14.1 supplies the exact wording to align to.
+- *For the Results agent:* §4.8 line 414 still cites `A07_...` as the guarantee. It is not.
+  Confirmed in `repo/scripts/validate_era5_land_regional_diagnostic.py` at `48b56e7`: A07 (lines
+  319 to 324) tests list membership of the literal string `mugla_2022` and cannot catch
+  `mugla_2022_event_relative`; `A08_cohort_is_the_frozen_five` (lines 318, 325 to 326) is the real
+  guarantee. §3.16.4 already carries the correct account.
+
+**Updated 2026-08-14 (referee round 2).** A four-reader panel (statistics, remote sensing, claim
+versus evidence, editorial) read the manuscript independently. All four returned *major revision*;
+the editorial reader added *not submittable today*. The consolidated dossier is
+`paper/REFEREE_ROUND_2.md` and the numbers it needed are in `paper/referee2_numbers.md` and
+`.json`, produced by `paper/referee2_numbers.mjs` from frozen artefacts only.
+
+**Everything in that dossier has now been applied except the length and table-load reduction**
+(dossier §3.1 to §3.3), which the author deferred. What changed:
+- **Four statements the paper's own evidence contradicted** were corrected. The largest was
+  "adaptation degrades every direction that already transferred" (§4.3, §1.5, §5.1): of the twelve
+  CI-supported above-chance directions, nine are degraded and three raised, all three with
+  Montiferru as source. The label-free taxonomy was corrected throughout (niche overlap and regime
+  structure need the target's labels too; only the marginal family is pre-deployment). The
+  pre-label-exclusion parity claim in §3.16.4 was false and is now per region. The LORO ceiling gap
+  is 0.28 to 0.50, not 0.22.
+- **New numbers, all from frozen artefacts.** A cluster-aware interval on the +0.004 headline
+  (pair-clustered [−0.028, +0.036], spans zero under every unit); the conditional index at its own
+  design size (tie ceiling +0.861, exact permutation p = 0.0060 against a Bonferroni 0.0026);
+  per-region spatial-block counts at 2/10/20 cells, which show the 20-cell row resting on six to
+  twelve positive-carrying blocks; the Step 8D ablation, previously frozen and never cited; Step 7C
+  downscaling validation; fused-LST gap-fill shares.
+- **New content:** §4.7h (which thermal channel carries the increment), §4.7i (Landsat compositing
+  sensitivity, ±0.02), §4.10 (the recovery curve promoted from S1), Table 2 (the feature dictionary,
+  which was referenced but did not exist), five new limitations §5.11(xi) to (xv), an expanded
+  §5.10 with the practitioner answer, and the blocked-CV dispute in §2.3 with three verified
+  references (Wadoux 2021, Milà 2022, de Bruin 2022).
+- **Title changed** to *Local skill, unstable portability: marginal diagnostics do not order the
+  cross-region transfer of pre-fire thermal dryness in Mediterranean wildfire regions*. The previous
+  title asserted more than §5.4 concedes.
+- **Abstract 250 to 322 words**, deliberately, with a documented cut order if the limit is 250.
+- **Front matter:** CRediT, competing interest, funding and data-availability blocks added;
+  keywords finalised; corresponding-author fields added. Affiliation, e-mail and funding still need
+  the authors. The availability statement now names all three provenance gaps in plain terms and the
+  "checked rather than taken on trust" claim has been narrowed to match.
+- `build_tex.mjs` now strips horizontal rules (they were becoming em dashes, against the house
+  style); `verify_tex.mjs` no longer counts whole-line LaTeX comments as unescaped percent signs.
+  12/12 source checks pass. **Still never compiled.**
+- `emrehan_mail_5.md` gained items 5 to 9 (Manavgat Step 7 MODIS contract, Bejís compositing A/B,
+  per-region acquisition inventory, calendar-matched Muğla 2022, two QA one-liners).
+
+**One-line state:** the claims are now aligned with the evidence and the observational layer is
+documented; what remains is the length reduction, the first LaTeX compile, and the author-supplied
+front-matter facts.
 
 ## 1. Manuscript sections
 
@@ -88,6 +152,8 @@ and 8 (`*_greyscale.png`).
 | `RESULTS_INVENTORY.md` | historical catalogue of the July partial export — superseded by drive_new numbers |
 | `LITERATURE.md` | working literature notes; **swept twice on 2026-08-08**. First sweep closed A4/D2/Deep-CORAL/arXiv-2103.05898/Manavgat/Evia/Dimarco. Second sweep closed four of the five consolidated items by decision — GLO-30, Bejís event, Muğla candidate, Huang full text — each with its reasoning recorded. **One item remains open: WildfireGenome (arXiv preprint only; re-check for a peer-reviewed version before submission).** |
 | `emrehan_mail.md`, `INTERN_REQUESTS.md` | historical correspondence — delivered |
+| `emrehan_mail_4.md` | sent 2026-08-13 (4 items; the manifest-commit item was omitted from it) |
+| `emrehan_mail_5.md` | **drafted 2026-08-13, not sent** — 4 items: reproduction-check push, `19d825b`, CORAL λ = 1 arm, manifest commit |
 | `STATUS.md` | this file |
 
 ## 5. Waiting on external input (coordinated by YEC)
@@ -145,6 +211,24 @@ and 8 (`*_greyscale.png`).
    4. *Two one-liners:* the Python version of his 2026-08-09 Muğla run (artefacts record
       numpy/pandas/sklearn but not Python), and which validator his self-reference fix touched —
       our frozen few-shot report (2026-08-02) already reads 64 PASS / 1 SKIPPED.
+
+   **Re-verified 2026-08-13 (referee round). Both blockers are STILL OPEN and both undercut the
+   manuscript's claim that the repository is authoritative and the negative result re-checkable.**
+   `repo/` is wired in as a submodule pinned at `48b56e7` and its worktree is clean.
+   - **(1) Reproduction-check code absent.** `git ls-tree -r --name-only HEAD | grep -i reproduction`
+     at `48b56e7` returns **nothing**. `scripts/run_reproduction_check.py` and
+     `src/reproduction_validation/` are not in the released tree. §3.13 rests entirely on
+     `reproduction_check.json`, which no reader can regenerate. This is the single weakest point in
+     the reproducibility claim.
+   - **(2) Few-shot commit `19d825b` unreachable.** `git cat-file -t 19d825b` in the full clone
+     returns `fatal: Not a valid object name`; the clone holds 92 commits and none is that one.
+     `src/few_shot_recovery.py` **is** present at `48b56e7`, so the one-line equivalence
+     confirmation would close this without a push.
+   - Also still open and now bundled with these: the **ERA5-Land manifest commit discrepancy**
+     (item 5(b) above), `manifest.git_commit = a07ea33` while the diagnostic source first appears in
+     `48b56e7`.
+   - A fifth mail drafted for these, plus a request for a λ = 1 arm: **`paper/emrehan_mail_5.md`
+     (drafted 2026-08-13, NOT sent).**
 
    *Repository URL / DOI is no longer waiting:* **closed 2026-08-08** — the data-and-code
    availability statement now names Emrehan's public repository

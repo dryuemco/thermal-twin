@@ -21,6 +21,32 @@
 > 6. **Style pass 2026-08-13** (`paper/STYLE.md`): no dashes, short sentences, passive where it
 >    reads naturally, plain words. Every number, citation and hedge is unchanged. Note 4 above still
 >    describes the old one-sentence construction; the framing is now two short sentences.
+> 7. **Consistency pass 2026-08-13.** Four changes, no numbers added or altered. (i) The
+>    sharpest-form thesis sentence claimed the block that gains the most within a region loses the
+>    most between regions. That comparative is untested, since no other block's portability is
+>    measured on the same footing. It now says the block contributes nothing on average between
+>    regions and that its contribution is sign-unstable, being a property of the source-target pair.
+>    The same echo in §1.4 Q1 was rewritten. (ii) "Static baseline" became "static and near-static
+>    terrain, fuel and greenness baseline" at first mention in §1.4, with the vegetation-index
+>    composite named as its one time-varying member (§3.4); later mentions read "the baseline".
+>    §1.2 was softened for the same reason, from "by construction they cannot explain" to "explains
+>    poorly". (iii) A short paragraph was added at the end of §1.3 stating in advance what §5.2
+>    concedes at its close: the sharpest supported reversal belongs to elevation, so instability is
+>    a property of the predictor-to-burning mapping generally, and the thermal block is where the
+>    trade-off is costly rather than where instability is worst. (iv) Contribution 4 already
+>    excepted the conditional family and was left alone.
+> 8. **Blocking-scale pass 2026-08-13** (`paper/transfer_ci_blocksize.md`, Results §4.7g and Table
+>    R13). Two support claims here were 2-cell (~1 km) counts quoted as exact. (i) Contribution 1's
+>    "improving ten with bootstrap support and degrading seven" now leads with what is invariant, the
+>    sign instability and the −0.148 to +0.132 span at twelve positive and eight negative, then gives
+>    both blockings and names the fragility of the 1 km split. (ii) Contribution 3's "bootstrap
+>    intervals entirely below chance" for Manavgat and Muğla held only at 1 km; at 5 km only
+>    Muğla→Manavgat is supported. Bejís and Montiferru, the low-overlap pair, carries no verdict at
+>    5 km at all, so that half of the contrast is now stated at the point estimate. Bejís and Muğla
+>    is supported at both scales and is now said to be. The sufficiency argument is unaffected, since
+>    it rests on Bejís-Muğla against Manavgat-Muğla. The swing-factor sentence is unchanged, because
+>    it rests on point estimates. No number was introduced that is not in `transfer_ci_blocksize.md`,
+>    §4.7g or §5.1.
 
 ---
 
@@ -38,8 +64,12 @@ a surface in a particular season are more informative about that season than pre
 describe a place. They are also less portable, as we argue and then show. The relationship they
 carry is reparameterised locally. It exists everywhere, but it points in different directions in
 different places. The claim advanced here is a trade-off and not a dismissal: **dynamic state
-predictors buy local skill at the cost of portability**. In its sharpest form, **the feature block
-that gains the most within a region is the block that loses the most between regions.**
+predictors buy local skill at the cost of portability**. Two measurements carry that claim. The
+dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region and contributes nothing
+distinguishable from zero between them, with an unstable sign. Removing the reversing predictors
+improves transfer by +0.014 on average while within-region skill falls by −0.081, an exchange of
+about six to one. Whether the block helps or harms on transfer is a property of the
+source-target pair, not of the block.
 
 ## 1.1 The trade-off goes unpriced because portability goes unmeasured
 
@@ -72,9 +102,10 @@ environmental similarity do *not* reliably predict transfer success [@Vesk2021; 
 The dynamic predictor class used here is pre-fire thermal dryness. It is under-exploited relative to
 static terrain and fuel, and it is the class most plausibly *expected* to transfer. The standard
 susceptibility predictors are terrain, land cover or fuel type, vegetation greenness, long-term
-climatology, and proximity to roads and settlements. All of them are static or near-static over the
-timescale at which fire danger varies. By construction they cannot explain why a particular summer
-burned and the preceding one did not.
+climatology, and proximity to roads and settlements. Most of them are static or near-static over the
+timescale at which fire danger varies. The vegetation-index composite is the one time-varying
+member, and it responds slowly. Such a set explains poorly why a particular summer burned and the
+preceding one did not.
 
 What changes between those summers is the state of the surface: fuel dryness, vegetation moisture
 stress, and how anomalously hot the land surface has become relative to its own climatological
@@ -126,19 +157,28 @@ area of applicability and still be mutually unpredictable. This line of work is 
 rather than contradicted. The marginal diagnostics are computed, what they do and do not order is
 reported, and a **conditional** diagnostic is supplied for what they miss.
 
+One qualification belongs here rather than deep in the discussion. The single sharpest
+bootstrap-supported reversal found in this study belongs to elevation, a static and perfectly
+measured variable. The thermal block is where the trade-off is costly, because that is where the
+within-region gain sits. It is not where the instability is worst. The portability problem is
+therefore a property of the mapping from any landscape variable to burning, not of thermal
+predictors specifically.
+
 ## 1.4 Objectives
 
 This study evaluates the local-skill and portability trade-off for dynamic pre-fire thermal
 predictors in Mediterranean wildfire regions, under a strict train-in-A, apply-to-B protocol. Four
 questions follow.
 
-**Q1. The trade-off.** Is the feature block that contributes the most within-region skill also the
-block that costs the most between-region skill? The answer comes from a paired static-versus-dynamic
-transfer contrast across all ordered region pairs. Two subordinate questions supply the first half
-of the trade-off, and they are supporting evidence rather than findings in their own right. The
-first is whether the thermal block improves burned-area discrimination beyond a matched static
-baseline within a region. The second is whether that improvement survives progressively coarser
-spatial blocking.
+**Q1. The trade-off.** How much within-region skill does the dynamic pre-fire thermal block buy, and
+what does it contribute between regions? The answer comes from a paired transfer contrast across all
+ordered region pairs. The contrast sets a matched baseline against the same baseline plus the
+thermal block. That baseline is a static and near-static set of terrain, fuel and greenness
+predictors, whose only time-varying member is the vegetation-index composite. It is called the
+baseline from here on. Two subordinate questions supply the first half of the trade-off, and they
+are supporting evidence rather than findings in their own right. The first is whether the thermal
+block improves burned-area discrimination beyond that baseline within a region. The second is
+whether that improvement survives progressively coarser spatial blocking.
 
 **Q2. Sufficiency of similarity.** Are geographic and bioclimatic similarity *sufficient* for
 transfer? This is posed as a sufficiency question, which a single strong counterexample settles. It
@@ -169,30 +209,42 @@ prior work is named inside each claim rather than omitted.
 
 **Contribution 1. The local-skill and portability trade-off, quantified per direction.** For every
 ordered region pair, the change in transfer skill from adding the dynamic pre-fire thermal block to
-a matched static baseline is quantified and set against the within-region increment the same block
+the matched baseline is quantified and set against the within-region increment the same block
 delivers. The block is worth +0.056 to +0.153 ROC-AUC inside every region. Across the twenty ordered
-transfer directions it contributes +0.004 on average, improving ten with bootstrap support and
-degrading seven. It is also the swing factor at the chance line, dragging three directions below
-chance and lifting one above it. This is the paper's thesis: the block that gains the most locally
-is the block whose between-region contribution is sign-unstable. Dimarco et al. [@Dimarco2026]
-transfer a predominantly spatially stationary predictor set successfully across a comparable
-Mediterranean design. Our result is the complementary half of that picture rather than a
-contradiction of it.
+transfer directions it contributes +0.004 on average, an estimate whose interval spans zero under
+every resampling unit the design permits, and its sign is unstable. The paired deltas
+run from −0.148 to +0.132, twelve of them positive and eight negative. Neither the point estimates
+nor those signs depend on the blocking scale of the bootstrap. The interval verdicts do. At the
+conservative 5 km blocking the contribution is CI-supported positive in five to six directions and
+negative in three to four, with ten or eleven carrying no verdict. The finer 1 km blocking gives
+ten, seven and three, and even that split turns on a single bound within a thousandth of zero. The
+block is also the swing factor at the chance line, dragging three directions below chance and
+lifting one above it. The exchange is measured directly as well: removing the two reversing
+predictors buys +0.014 mean transfer AUC for −0.081 mean within-region AUC (Section 4.6b). This is
+the paper's thesis: the dynamic block is where local skill is bought and where portability is spent. Dimarco et al. [@Dimarco2026] transfer a predominantly spatially stationary
+predictor set successfully across a comparable Mediterranean design. Our result is the complementary
+half of that picture rather than a contradiction of it.
 
 **Contribution 2. Label-free alignment does not recover transfer. It compresses it.** Region-wise
 standardisation and covariance alignment [@Sun2016] are tested as label-blind remedies on all twenty
 directions. Adaptation compresses the transfer matrix towards chance. It recovers at most 34 % of
 the deficit where transfer fails, and it produces *negative* recovery in seven of twelve decomposed
-directions. Every direction that already transferred is degraded, in the worst case by −0.86 of the
+directions. Of the twelve directions that already transferred above chance, nine are degraded and
+three are raised, all three with Montiferru as their source; inside the twelve decomposed directions
+there is no exception. The worst case is a degradation of −0.86 of the
 gap. We found no prior application of covariance alignment to fire susceptibility, fire occurrence
 or burned-area prediction. This is a negative result reported with a mechanism, not an absence.
 
 **Contribution 3. Similarity is not sufficient for transfer, whether geographic, climatic or
 environmental.** Manavgat and Muğla lie in the same country and fire year, roughly 200 km apart, and
-have the highest burned-niche overlap of any pair in the matrix. They fail in both directions, with
-bootstrap intervals entirely below chance. Bejís and Muğla lie in different countries and years,
-about 2500 km apart, and transfer above chance in both directions. So do Bejís and Montiferru, the
-pair with the *lowest* niche overlap. The claim is one of *sufficiency*. It is established by
+have the highest burned-niche overlap of any pair in the matrix. Both directions fall below chance
+at the point estimate, and Muğla to Manavgat stays below chance with interval support at 5 km
+blocking. Bejís and Muğla lie in different countries and years, about 2500 km apart, and transfer
+above chance in both directions, and that holds with interval support at both blocking scales. Bejís
+and Montiferru, the pair with the *lowest* niche overlap of all, also transfer above chance in both
+directions, but there the claim rests on the point estimates, since neither direction carries a
+verdict at 5 km blocking. The claim is one of
+*sufficiency*. It is established by
 coexisting counterexamples and is independent of the number of pairs available. It is presented as a
 contribution to a live disagreement rather than as a settled general law. The fire literature
 expects similarity to predict transfer [@Dimarco2026; @Liu2025], while the species distribution
@@ -223,12 +275,25 @@ from +0.056 to +0.153, every bootstrap interval lies above zero, and the result 
 analysis populations. It survives spatial blocks up to ~10 km and a predictor window closed up to 14
 days earlier. The finding is not itself novel, since comparable within-region results exist for
 these landscapes [@AlkanAkinci2023; @Iban2022]. It is included as the evidence for the first half of
-Contribution 1.
+Contribution 1. Two properties of the increment that are not usually reported are given with it: a
+single subgroup of the block recovers 71 % to 99 % of it in every region, so the six thermal
+predictors are not six independent measurements, and three defensible compositing choices move it by
+about ±0.02 AUC on an identical cohort.
+
+**Contribution 6. The price of the failure, measured.** Because the residual gap is conditional, the
+resource that closes it is target labels, and their cost is measurable. For three regions in all six
+ordered directions, thirty-two labelled 5 km blocks recover 85 to 89 % of the target's own ceiling
+in four directions, from starting points at or below chance, and only 51 to 57 % in the two where
+the concept gap is widest. At small budgets the same intervention damages the one direction that
+already transferred. This converts the negative result into a priced one. It does not license a
+label budget, since six directions in three regions cannot support one, and Section 4.10 says so.
 
 Alongside these, a leakage-audited, spatially blocked evaluation and transfer protocol is released
-with code, configuration and frozen outputs. A negative transfer result can then be checked rather
-than taken on trust. This matters given evidence that wildfire transfer conclusions are sensitive to
-evaluation design and task formulation [@Xu2026].
+with code, configuration and frozen outputs, so that most of this negative transfer result can be
+re-run rather than taken on trust. Two components are exceptions and are named as such in the
+data-and-code availability statement: the reproduction-check code and the few-shot export's exact
+commit are not in the released repository at the commit of record. This matters given evidence that
+wildfire transfer conclusions are sensitive to evaluation design and task formulation [@Xu2026].
 
 Section 2 reviews the relevant literature. Section 3 describes the study regions, the data, and the
 full modelling, cross-validation, transfer and adaptation protocol. Section 4 reports results.
