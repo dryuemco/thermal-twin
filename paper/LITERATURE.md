@@ -147,8 +147,18 @@ Everything still open after the 2026-08-08 sweep. Resolved-this-sweep items are 
 end for the audit trail.
 
 STILL OPEN:
-1. **E2 (WildfireGenome)** — arXiv preprint only; re-check for a peer-reviewed version before
-   submission. *Deferred by decision to the pre-submission pass; stays on the list.*
+1. ~~**E2 (WildfireGenome)**~~ — **RE-CHECKED 2026-08-13: still a preprint, item closed for now.**
+   Crossref returns **zero** works with "WildfireGenome" in the title, and a bibliographic query
+   on the full title returns no Liu/Mostafavi journal article (the near-matches are a different
+   California wildfire-damage paper, IJDRR 2025). The arXiv record shows v2, last revised
+   Nov 2025, with no `journal-ref`. Bib entry keeps `@misc` and gained the arXiv DOI
+   `10.48550/arXiv.2511.11589` and `primaryClass`. **Re-check once more at proof stage** — a
+   2025 preprint may well be in press.
+   *Substantive claims re-confirmed in the same pass* (they matter to §2.4, §2.5 and §5.4): the
+   label is a PCA composite of seven federal wildfire **hazard indicators** at H3 level 8, not
+   observed burned area; Random Forest with SHAP/ICE/PDP; seven US counties; within-county
+   accuracy 0.755–0.878; and transfer "reliable between ecologically similar regions but
+   collapses across dissimilar contexts". Our characterisation of them stands unchanged.
 
 CLOSED 2026-08-08 (second round — decisions, not new evidence):
 2. **Copernicus DEM GLO-30** — **CLOSED, no bib entry.** The candidate DataCite DOI

@@ -162,8 +162,12 @@ Mechanical only — no analysis, no new numbers, no open judgement calls.
    be carried through as supplementary material, with its Table S1 kept out of the main-text
    table sequence.
 2. **Abstract trim** to the journal's word limit (currently 331 words).
-3. **WildfireGenome re-check** — the single remaining literature item; confirm whether a
-   peer-reviewed version has replaced the arXiv preprint, then cite whichever is current.
+3. ~~**WildfireGenome re-check**~~ — **done 2026-08-13.** Still a preprint: Crossref has zero
+   works titled "WildfireGenome" and no matching Liu/Mostafavi journal article; the arXiv record
+   carries no `journal-ref`. Kept as `@misc`, now with the arXiv DOI. Its substantive claims were
+   re-confirmed against the abstract and are as described in §2.4/§2.5/§5.4. One residual action
+   at proof stage: check again, since a late-2025 preprint may appear in press by then
+   (`LITERATURE.md` item E2).
 4. **Optional: graphical abstract** (Elsevier), from a Fig. 8 + Fig. 4 composite.
 5. **Supplementary figure S1** (new 2026-08-13, not built). The recovery curve described in
    S1.5: budget on a log-2 axis, target ROC-AUC on the ordinate, one line per direction,
