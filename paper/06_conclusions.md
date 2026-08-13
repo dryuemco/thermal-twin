@@ -7,8 +7,8 @@
 
 Pre-fire thermal dryness adds a real and repeatable increment to burned-area discrimination. Across
 five Mediterranean regions, ROC-AUC was raised by +0.06 to +0.15 over a static baseline. The gain
-survived spatial blocking at about 10 km. It also survived a predictor window closed up to two
-weeks before the first labelled burning.
+survived spatial blocking at about 10 km. It also survived a predictor window closed up to two weeks
+before the first labelled burning.
 
 That skill is local. Paired per direction, the same predictor block adds nothing on average to
 cross-region transfer, at +0.004 over twenty directions. Seven directions are harmed with bootstrap
@@ -22,8 +22,8 @@ repairing it, and why pooled multi-region training does not escape it.
 
 The practical implication is a change in what is checked before a dynamic-state fire model is
 transferred. The question is not whether the target region lies inside the source's environmental
-envelope. In our matrix, the pair with the highest envelope overlap failed in both directions,
-while the pair with the lowest overlap transferred in both. The question is whether the signed
+envelope. In our matrix, the pair with the highest envelope overlap failed in both directions, while
+the pair with the lowest overlap transferred in both. The question is whether the signed
 feature-response directions agree.
 
 That check requires a labelled probe in the target region. A modest burned-area record is enough to

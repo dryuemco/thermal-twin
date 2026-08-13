@@ -133,12 +133,12 @@ predictors in Mediterranean wildfire regions, under a strict train-in-A, apply-t
 questions follow.
 
 **Q1. The trade-off.** Is the feature block that contributes the most within-region skill also the
-block that costs the most between-region skill? The answer comes from a paired
-static-versus-dynamic transfer contrast across all ordered region pairs. Two subordinate questions
-supply the first half of the trade-off, and they are supporting evidence rather than findings in
-their own right. The first is whether the thermal block improves burned-area discrimination beyond a
-matched static baseline within a region. The second is whether that improvement survives
-progressively coarser spatial blocking.
+block that costs the most between-region skill? The answer comes from a paired static-versus-dynamic
+transfer contrast across all ordered region pairs. Two subordinate questions supply the first half
+of the trade-off, and they are supporting evidence rather than findings in their own right. The
+first is whether the thermal block improves burned-area discrimination beyond a matched static
+baseline within a region. The second is whether that improvement survives progressively coarser
+spatial blocking.
 
 **Q2. Sufficiency of similarity.** Are geographic and bioclimatic similarity *sufficient* for
 transfer? This is posed as a sufficiency question, which a single strong counterexample settles. It
@@ -198,8 +198,7 @@ contribution to a live disagreement rather than as a settled general law. The fi
 expects similarity to predict transfer [@Dimarco2026; @Liu2025], while the species distribution
 modelling literature has found that it does not [@Vesk2021; @Rousseau2022]. Dimarco et al. reach a
 compatible conclusion from the opposite direction, attributing their weakest transfer to
-non-climatic
-factors rather than to bioclimatic distance.
+non-climatic factors rather than to bioclimatic distance.
 
 **Contribution 4. The failure is conditional, and only a conditional diagnostic sees it.** Twenty
 candidate transferability diagnostics from four families are evaluated against the observed transfer

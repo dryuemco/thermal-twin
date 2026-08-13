@@ -37,18 +37,16 @@ The Mediterranean basin, and Türkiye within it, is one of the most intensively 
 environments, which is fortunate for the present study because two of its regions have direct
 precedents. Iban and Sekertekin [@Iban2022] mapped wildfire susceptibility across Adana and Mersin
 provinces using remotely sensed fire data and machine learning. That is the same landscape as the
-Kozan
-district that serves as our cropland-dominated negative control. Alkan Akıncı and Akıncı
-[@AlkanAkinci2023] produced a machine-learning susceptibility assessment for the **Manavgat
-district of Antalya**, which is our anchor study region, making it the closest published comparison
-to our within-region analysis. Iban and Aksu [@Iban2024] extended this line to İzmir with an
+Kozan district that serves as our cropland-dominated negative control. Alkan Akıncı and Akıncı
+[@AlkanAkinci2023] produced a machine-learning susceptibility assessment for the **Manavgat district
+of Antalya**, which is our anchor study region, making it the closest published comparison to our
+within-region analysis. Iban and Aksu [@Iban2024] extended this line to İzmir with an
 explainability-driven framework, using SHAP to interpret the contribution of individual predictors.
 That study used MODIS active-fire pixels rather than a burned-area product as the target, which is a
 distinction that matters when comparing reported skill. The broader ecological framing of why
-Mediterranean fire
-regimes are changing is set out by Pausas and Keeley [@Pausas2021], and the comparative structure of
-global fire regimes by Archibald et al. [@Archibald2013]. That is the notion that fire behaves as a
-small number of distinguishable syndromes rather than a continuum.
+Mediterranean fire regimes are changing is set out by Pausas and Keeley [@Pausas2021], and the
+comparative structure of global fire regimes by Archibald et al. [@Archibald2013]. That is the
+notion that fire behaves as a small number of distinguishable syndromes rather than a continuum.
 
 **Where this literature stops.** These studies establish that fire susceptibility is learnable
 within a region, and the Manavgat and Adana-Mersin precedents establish it for the specific
@@ -59,8 +57,8 @@ generalisation beyond it. Two further gaps follow from the shared predictor desi
 predictor sets are dominated by static or near-static variables, which by construction cannot
 explain why a particular summer burned and the preceding one did not. The dynamic pre-fire state of
 the surface is largely absent. Second, evaluation rarely reports uncertainty at all, and where
-cross-validation is used it is frequently random over cells. For spatially autocorrelated data,
-that is known to be optimistically biased (Section 2.3).
+cross-validation is used it is frequently random over cells. For spatially autocorrelated data, that
+is known to be optimistically biased (Section 2.3).
 
 Read together, these two gaps are not independent, and their conjunction is what motivates the
 present study. Because the field's predictor sets are near-static and its evaluations are
@@ -77,16 +75,14 @@ attributable to the same block are therefore measured on the same footing.
 ## 2.2 Pre-fire thermal dryness from satellite observation
 
 The physical rationale for thermal predictors runs through fuel moisture. Live fuel moisture content
-governs ignition and spread, and its retrieval from satellite observation for fire-danger
-assessment is a mature research area with a substantial operational literature [@Yebra2013].
-Chuvieco et al. [@Chuvieco2004] established the specific combination used here, surface
-temperature together with a vegetation index, as an estimator of live fuel moisture content for
-fire-danger rating.
+governs ignition and spread, and its retrieval from satellite observation for fire-danger assessment
+is a mature research area with a substantial operational literature [@Yebra2013]. Chuvieco et al.
+[@Chuvieco2004] established the specific combination used here, surface temperature together with a
+vegetation index, as an estimator of live fuel moisture content for fire-danger rating.
 
 The index most directly relevant to our feature block is the Temperature-Vegetation Dryness Index.
 It was introduced by Sandholt et al. [@Sandholt2002] as a simple interpretation of the LST-NDVI
-feature
-space: a pixel's relative position between the moisture-unlimited "wet edge" and the
+feature space: a pixel's relative position between the moisture-unlimited "wet edge" and the
 moisture-limited "dry edge" at its own vegetation-index level. TVDI is attractive for cross-region
 work precisely because it is internally normalised. It is defined relative to edges fitted within
 the scene, and therefore, in principle, less exposed to absolute-temperature offsets between regions
@@ -96,8 +92,7 @@ between-region differences is one of the questions this study answers empiricall
 The most directly comparable body of work is the series by Maffei and colleagues. Maffei et al.
 [@Maffei2018] related spatiotemporal patterns of burned area and fire duration to diurnal LST
 anomalies computed against a climatological baseline, which is the same anomaly construction we use.
-Maffei
-and Menenti [@MaffeiMenenti2019] predicted burned area and rate of spread from pre-fire
+Maffei and Menenti [@MaffeiMenenti2019] predicted burned area and rate of spread from pre-fire
 multispectral measurements, and Maffei et al. [@Maffei2021] extended this to a combined
 multispectral-and-thermal prediction of fire characteristics, benchmarked against the Fire Weather
 Index. Together these establish that pre-fire thermal state carries genuine information about
@@ -106,46 +101,45 @@ subsequent fire.
 Underpinning all of it are the source products. The Landsat Level-2 surface temperature used here
 derives from the operational retrieval of Malakar et al. [@Malakar2018], built on the calibration
 methodology of Cook et al. [@Cook2014]. Burned-area labels come from the Collection 6 MODIS
-burned-area algorithm [@Giglio2018], whose global validation [@Boschetti2019] documents the
-omission and commission characteristics that bound any model trained against it. Land cover is ESA
-WorldCover v200 [@Zanaga2022], and all satellite retrieval and compositing runs on Google Earth
-Engine [@Gorelick2017].
+burned-area algorithm [@Giglio2018], whose global validation [@Boschetti2019] documents the omission
+and commission characteristics that bound any model trained against it. Land cover is ESA WorldCover
+v200 [@Zanaga2022], and all satellite retrieval and compositing runs on Google Earth Engine
+[@Gorelick2017].
 
 **Where this literature stops.** The Maffei series demonstrates a relationship between pre-fire
 thermal state and fire outcome, but always within a single region and within a probabilistic or
 correlational frame, using exceedance probabilities and decile-binned relationships rather than a
 spatially validated classifier, and never with a transfer test. The question of whether the
-relationship they identify is a *regionally stable* one is not posed. Two recent studies come
-closer and must be acknowledged directly. Marino et al. [@Marino2024] explicitly test the
-transferability of empirical satellite-derived live fuel moisture models to an uncalibrated region,
-but what transfers there is a *moisture-retrieval* model, not a burned-versus-unburned classifier.
-Gelabert et al. [@Gelabert2025] find dead fine fuel moisture content and its yearly anomalies to be
-the most influential predictor of human-caused ignition likelihood across Europe. That variable is a
-dynamic dryness anomaly, structurally analogous to our LST anomaly. They do test spatial
-generalisation by fitting a pooled model across five pilot sites and evaluating it per site, with
-an AUC drop of roughly 0.10 at the weakest sites. That is a genuine cross-site generalisation test
-of a dryness-dominated model, and it is why we do not claim that the transferability of pre-fire
-dryness has "never been examined". What remains untested is narrower and, we argue, more decisive:
-whether the *predictive skill* of a pre-fire thermal model trained in one fire region survives
-strict train-in-A, apply-to-B transfer with no target labels, and whether label-free adaptation can
-recover it if it does not. Gelabert et al.'s design pools regions during fitting and evaluates
-locally, which measures something different. It measures how well one shared model serves several
-places, not
+relationship they identify is a *regionally stable* one is not posed. Two recent studies come closer
+and must be acknowledged directly. Marino et al. [@Marino2024] explicitly test the transferability
+of empirical satellite-derived live fuel moisture models to an uncalibrated region, but what
+transfers there is a *moisture-retrieval* model, not a burned-versus-unburned classifier. Gelabert
+et al. [@Gelabert2025] find dead fine fuel moisture content and its yearly anomalies to be the most
+influential predictor of human-caused ignition likelihood across Europe. That variable is a dynamic
+dryness anomaly, structurally analogous to our LST anomaly. They do test spatial generalisation by
+fitting a pooled model across five pilot sites and evaluating it per site, with an AUC drop of
+roughly 0.10 at the weakest sites. That is a genuine cross-site generalisation test of a
+dryness-dominated model, and it is why we do not claim that the transferability of pre-fire dryness
+has "never been examined". What remains untested is narrower and, we argue, more decisive: whether
+the *predictive skill* of a pre-fire thermal model trained in one fire region survives strict
+train-in-A, apply-to-B transfer with no target labels, and whether label-free adaptation can recover
+it if it does not. Gelabert et al.'s design pools regions during fitting and evaluates locally,
+which measures something different. It measures how well one shared model serves several places, not
 whether the relationship learned in one place holds in another.
 
-There is a further point this literature leaves implicit, and it is the one our thesis turns on.
-The case for thermal dryness rests on a mechanism that is universal: moisture stress raises
-flammability wherever vegetation burns, so a predictor built on that mechanism ought to be the
-*most* portable kind of predictor available, not the least. But the quantity a satellite measures is
-not fuel moisture. It is a surface state whose mapping onto flammability runs through fuel type,
-canopy structure, terrain, seasonal phenology and the local relation between a thermal anomaly and
-the dryness it stands for. Each of those mediating factors is regionally specific, so the
-*relationship* between an observed thermal anomaly and burning may be locally reparameterised even
-where the underlying physics is not. The work reviewed above cannot distinguish these two
-possibilities. A single-region study never places the relationship learned in one region in contact
-with the data of another, and neither does a pooled model evaluated locally. Distinguishing them
-requires strict train-in-A, apply-to-B transfer, and it is that test, rather than a further
-demonstration of within-region skill, that the present study takes as its object.
+There is a further point this literature leaves implicit, and it is the one our thesis turns on. The
+case for thermal dryness rests on a mechanism that is universal: moisture stress raises flammability
+wherever vegetation burns, so a predictor built on that mechanism ought to be the *most* portable
+kind of predictor available, not the least. But the quantity a satellite measures is not fuel
+moisture. It is a surface state whose mapping onto flammability runs through fuel type, canopy
+structure, terrain, seasonal phenology and the local relation between a thermal anomaly and the
+dryness it stands for. Each of those mediating factors is regionally specific, so the *relationship*
+between an observed thermal anomaly and burning may be locally reparameterised even where the
+underlying physics is not. The work reviewed above cannot distinguish these two possibilities. A
+single-region study never places the relationship learned in one region in contact with the data of
+another, and neither does a pooled model evaluated locally. Distinguishing them requires strict
+train-in-A, apply-to-B transfer, and it is that test, rather than a further demonstration of
+within-region skill, that the present study takes as its object.
 
 ## 2.3 Spatial validation and the transferability of ecological models
 
@@ -165,10 +159,10 @@ subsequently argued that many published global maps of ecological variables are 
 that do not support their claimed coverage [@Meyer2022]. Ludwig et al. [@Ludwig2023] applied this
 apparatus to existing global spatial prediction models and found their effective transferability
 considerably narrower than advertised. This line of work is the field's principal answer to the
-question "will this model travel?", and it
-is the standard we adopt. Predictor-space dissimilarity is a substantial advance on geographic
-distance. It is computable without target labels. It also correctly flags the common case in which a
-model is asked to predict on inputs unlike anything it was fitted to.
+question "will this model travel?", and it is the standard we adopt. Predictor-space dissimilarity
+is a substantial advance on geographic distance. It is computable without target labels. It also
+correctly flags the common case in which a model is asked to predict on inputs unlike anything it
+was fitted to.
 
 It is worth being precise, however, about what kind of quantity such an index is. The
 area-of-applicability construction compares the *marginal* distribution of predictors in the target
@@ -177,12 +171,11 @@ scaled, importance-weighted predictor space, and the label plays no part in it b
 axes. Predictor-space dissimilarity is therefore a statement about where the target data lie, not
 about what the response does there.
 
-In species distribution modelling, transferability has been examined far more systematically than
-in fire science, and the conclusions are sobering. Yates et al. [@Yates2018] catalogue the
-outstanding challenges. More pointedly for our purposes, two studies have already tested whether
-proximity or similarity
-predicts transfer success. Both found that it does not. Vesk et al. [@Vesk2021] report that
-predictive performance in target regions did not deteriorate with increasing geographic,
+In species distribution modelling, transferability has been examined far more systematically than in
+fire science, and the conclusions are sobering. Yates et al. [@Yates2018] catalogue the outstanding
+challenges. More pointedly for our purposes, two studies have already tested whether proximity or
+similarity predicts transfer success. Both found that it does not. Vesk et al. [@Vesk2021] report
+that predictive performance in target regions did not deteriorate with increasing geographic,
 environmental or community-compositional distance from the reference region. Rousseau and Betts
 [@Rousseau2022] find environmental similarity to be a non-significant predictor of transferability,
 with species and range traits mattering more.
@@ -190,26 +183,24 @@ with species and range traits mattering more.
 **Where this literature stops.** This block supplies our evaluation standard. In Vesk et al. and
 Rousseau and Betts it also supplies an important precedent. The intuition that nearby or similar
 domains transfer better has already been questioned outside fire science, so our corresponding claim
-is a
-confirmation in a new domain rather than a discovery. That point is stated explicitly rather than
-letting a reviewer make it for us. It is also why we frame our version as a claim about
+is a confirmation in a new domain rather than a discovery. That point is stated explicitly rather
+than letting a reviewer make it for us. It is also why we frame our version as a claim about
 *sufficiency* (Section 2.5) rather than restating theirs. Two gaps remain. First, none of this work
 has been applied to fire susceptibility, where the assumption of transferability is embedded in
 every regional or pan-Mediterranean product but almost never tested.
 
-Second, and more substantively, there is a structural blind spot in the diagnostic apparatus
-itself, and it is the constructive opening this paper works from. Predictor-space dissimilarity is a
+Second, and more substantively, there is a structural blind spot in the diagnostic apparatus itself,
+and it is the constructive opening this paper works from. Predictor-space dissimilarity is a
 *marginal* quantity: it is computed from the distribution of the inputs alone. The failure mode we
-document is *conditional*: the predictor distributions of two regions can overlap to an
-unremarkable degree, with target cells sitting comfortably inside the source's predictor envelope,
-so that an applicability index raises no objection. Meanwhile the association between a predictor
-and the
+document is *conditional*: the predictor distributions of two regions can overlap to an unremarkable
+degree, with target cells sitting comfortably inside the source's predictor envelope, so that an
+applicability index raises no objection. Meanwhile the association between a predictor and the
 response differs, and in the sharpest case reverses sign, between them. In the taxonomy of Section
 2.4 this is concept shift rather than covariate shift, and no index built from the marginal
-predictor distribution can register it, because the two situations are indistinguishable in the
-data the index consumes. This is a statement about what the construction can see, not a criticism of
-how it has been applied: the area-of-applicability framework does exactly what it claims, and the
-regime it was designed for, extrapolation beyond the training envelope, is real and widespread. We
+predictor distribution can register it, because the two situations are indistinguishable in the data
+the index consumes. This is a statement about what the construction can see, not a criticism of how
+it has been applied: the area-of-applicability framework does exactly what it claims, and the regime
+it was designed for, extrapolation beyond the training envelope, is real and widespread. We
 therefore read our contribution as an extension rather than a correction. The blind spot has a
 practical consequence worth stating plainly: for models built on dynamic state predictors, a
 reassuring marginal diagnostic is not evidence of portability, and a model may be well inside its
@@ -226,8 +217,8 @@ Moreno-Torres et al. [@MorenoTorres2012] give the canonical taxonomy: covariate 
 input distribution changes while the conditional label distribution is preserved; prior or label
 shift, in which class prevalence changes; and concept shift, in which the conditional relationship
 between inputs and label changes. The distinction is the same marginal-versus-conditional
-distinction that organises Section 2.3, and it has direct operational consequences, because only
-the first is correctable without target labels: aligning input distributions cannot repair a
+distinction that organises Section 2.3, and it has direct operational consequences, because only the
+first is correctable without target labels: aligning input distributions cannot repair a
 relationship that has itself changed.
 
 That limitation is worth stating as a property of the methods rather than as an empirical finding
@@ -237,17 +228,16 @@ divides by a per-region standard deviation, so it equalises first and second mar
 coordinate by coordinate. Correlation alignment (CORAL) is the canonical simple, deterministic
 extension of the same idea. It is a whitening-and-recolouring linear map that aligns the source
 feature covariance to the target covariance [@Sun2016], so it additionally equalises the
-second-order
-cross-coordinate structure. Neither transformation consults a target label, and neither could: the
-label is by construction unavailable. It follows that whatever either method achieves, it achieves
-by making the source and target *input* distributions resemble one another more closely. If the
-conditional relationship between inputs and label differs between the domains, then any
+second-order cross-coordinate structure. Neither transformation consults a target label, and neither
+could: the label is by construction unavailable. It follows that whatever either method achieves, it
+achieves by making the source and target *input* distributions resemble one another more closely. If
+the conditional relationship between inputs and label differs between the domains, then any
 input-space map leaves that difference untouched. That includes these two, and any other method
-whose objective is defined on the marginals alone. Where a predictor's association with the
-response has opposite signs in the two regions, aligning the marginals can only bring the source
-model's error into sharper focus, since it delivers target inputs to a decision rule fitted under
-the opposite relationship. This is a logical consequence of what the methods optimise, not a result
-we report; what remains genuinely empirical is how large the irreparable part is in a given
+whose objective is defined on the marginals alone. Where a predictor's association with the response
+has opposite signs in the two regions, aligning the marginals can only bring the source model's
+error into sharper focus, since it delivers target inputs to a decision rule fitted under the
+opposite relationship. This is a logical consequence of what the methods optimise, not a result we
+report; what remains genuinely empirical is how large the irreparable part is in a given
 application, and that is what our experiments measure.
 
 In remote sensing specifically, domain adaptation has an established literature surveyed by Tuia et
@@ -271,22 +261,20 @@ instrument: we use the performance of label-free adaptation itself as the measur
 the recoverable fraction of the gap is defined as what the best available label-free method actually
 recovers, and the residual is what it demonstrably cannot. That definition has the advantage of
 being decision-relevant, because it answers "would unsupervised alignment fix this?" by trying it.
-The
-disadvantage of being method-dependent, which we report rather than conceal. Beyond that, we found
-no application of CORAL or of region-wise feature alignment to fire susceptibility, fire occurrence
-or burned-area prediction at all. Work labelled "domain adaptation" in the fire literature addresses
-image-level post-fire tasks: burned-area segmentation, burn-severity mapping and smoke detection.
-which share the vocabulary but not the problem.
+The disadvantage of being method-dependent, which we report rather than conceal. Beyond that, we
+found no application of CORAL or of region-wise feature alignment to fire susceptibility, fire
+occurrence or burned-area prediction at all. Work labelled "domain adaptation" in the fire
+literature addresses image-level post-fire tasks: burned-area segmentation, burn-severity mapping
+and smoke detection. which share the vocabulary but not the problem.
 
 What this block supplies to the present argument is the vocabulary in which the thesis can be stated
 exactly. The portability cost of dynamic state predictors is not a covariate-shift problem that
-better
-alignment would solve. It is a conditional change. The marginal instruments the field uses to
+better alignment would solve. It is a conditional change. The marginal instruments the field uses to
 anticipate transfer failure (Section 2.3), and the marginal operations it uses to repair it, are
-blind to it for the same reason. What the shift literature does not yet supply is a diagnostic
-that operates on the conditional side and can be computed before deployment. Attempting the repair
-and observing what it fails to recover is one such instrument, and pairing it with a feature-level
-test for association reversal is the constructive part of our contribution.
+blind to it for the same reason. What the shift literature does not yet supply is a diagnostic that
+operates on the conditional side and can be computed before deployment. Attempting the repair and
+observing what it fails to recover is one such instrument, and pairing it with a feature-level test
+for association reversal is the constructive part of our contribution.
 
 ## 2.5 Cross-region generalisation of fire models
 
@@ -300,18 +288,16 @@ meteorologically derived danger indices do not port cleanly between fire environ
 Dimarco et al. [@Dimarco2026] is the closest Mediterranean analogue and the most important
 comparison for this paper. They harmonise 500 m predictors across four Mediterranean countries, fit
 random forest and gradient boosting models, select hyperparameters under five-fold spatial
-cross-validation, evaluate on an 80/20 hold-out, and test transfer both leave-one-country-out and
-as a full 4 × 4 transfer matrix. Their predictor set comprises NDVI and slope from ASTER GDEM. It
-adds 2 m air temperature, 10 m wind
-speed and relative humidity, all taken from ERA5-Land [@MunozSabater2021] as **long-term seasonal
-means**. It also adds the global human modification index, VIIRS night-time lights with a log1p
-transform of the same, and population density.[^dimarco-lst] Their target is burned-pixel centroids
-from MCD64A1, treated as an ignition proxy and matched against a 1:1 balanced background sample.
-They report that every transfer exceeds AUC 0.80. Transfers between bioclimatically similar
-countries score higher, and transfers to Morocco are systematically lower. They attribute the drop
-not to climate alone but to differences in
-anthropogenic drivers, fire management practice and data reporting. They apply no domain
-adaptation.
+cross-validation, evaluate on an 80/20 hold-out, and test transfer both leave-one-country-out and as
+a full 4 × 4 transfer matrix. Their predictor set comprises NDVI and slope from ASTER GDEM. It adds
+2 m air temperature, 10 m wind speed and relative humidity, all taken from ERA5-Land
+[@MunozSabater2021] as **long-term seasonal means**. It also adds the global human modification
+index, VIIRS night-time lights with a log1p transform of the same, and population
+density.[^dimarco-lst] Their target is burned-pixel centroids from MCD64A1, treated as an ignition
+proxy and matched against a 1:1 balanced background sample. They report that every transfer exceeds
+AUC 0.80. Transfers between bioclimatically similar countries score higher, and transfers to Morocco
+are systematically lower. They attribute the drop not to climate alone but to differences in
+anthropogenic drivers, fire management practice and data reporting. They apply no domain adaptation.
 
 [^dimarco-lst]: Their Results text refers to "LST anomalies", which is inconsistent with their own
 Methods, where no land surface temperature or TVDI variable appears and the only temperature
@@ -331,29 +317,28 @@ argue that wildfire transfer conclusions depend strongly on evaluation design an
 a caution that applies to our results as much as to anyone's, and one we address by pre-specifying
 the protocol and reporting every sensitivity axis.
 
-For scaling this kind of work, Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a
-multi-purpose 1 km Mediterranean datacube built for data-driven wildfire modelling.
+For scaling this kind of work, Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a multi-purpose
+1 km Mediterranean datacube built for data-driven wildfire modelling.
 
 **Where this literature stops, and what this study adds.** These studies establish that fire-model
 transfer is testable and that its outcome varies. What none of them asks is *what property of a
 model* determines the outcome. Transfer performance is reported per pair and explained, where it is
 explained at all, by how similar the domains are. Read against ours, they set up an empirical
-contrast that points to a different explanation, and that contrast is the most informative result
-of the present work.
+contrast that points to a different explanation, and that contrast is the most informative result of
+the present work.
 
-Dimarco et al. and this study share the essential experimental design: Mediterranean regions,
-500 m cells, MCD64A1-derived targets, tree ensembles, spatially aware validation, an explicit
-transfer matrix, and, as it happens, four regions and twelve ordered pairs each. What differs is the
+Dimarco et al. and this study share the essential experimental design: Mediterranean regions, 500 m
+cells, MCD64A1-derived targets, tree ensembles, spatially aware validation, an explicit transfer
+matrix, and, as it happens, four regions and twelve ordered pairs each. What differs is the
 **predictor class**. Their model is built on quantities that are attributes of a *place*: terrain
 slope, night-time lights, human modification, population density, and temperature, wind and humidity
 as long-term seasonal climatologies. Every one of these is spatially stationary, describing a region
-rather than a season. Their model
-transfers everywhere above AUC 0.80. Our model is
-built on the *state of a particular pre-fire window*: land surface temperature anomalies against a
-multi-year baseline, thermal-optical dryness indices, and downscaled and fused thermal channels,
-all composited over the weeks preceding a specific fire. Because the physics linking moisture stress
-to combustion is universal, this predictor class is the one for which transfer should be *most*
-expected. It is instead the one that fails.
+rather than a season. Their model transfers everywhere above AUC 0.80. Our model is built on the
+*state of a particular pre-fire window*: land surface temperature anomalies against a multi-year
+baseline, thermal-optical dryness indices, and downscaled and fused thermal channels, all composited
+over the weeks preceding a specific fire. Because the physics linking moisture stress to combustion
+is universal, this predictor class is the one for which transfer should be *most* expected. It is
+instead the one that fails.
 
 The contrast, then, is not the one we initially expected to draw. It would be easy but wrong to
 reduce it to target definition. Their ignition proxy is human-driven and ours is burned area, and
@@ -363,23 +348,22 @@ vegetation condition, topography and climatic context. The sharper reading is ab
 Every predictor in their model is an attribute of a *place*, stable across seasons and years, so a
 model fitted on them is in effect learning a spatial ordering of susceptibility that a neighbouring
 country can inherit. Every thermal predictor in ours describes the *state of a particular window*
-preceding a particular fire, so the fitted model encodes not only which places are prone to burn
-but how a given degree of anomalous dryness translates into burning in that region, in that season.
-The first kind of knowledge travels. The second is exactly the kind that need not. The deeper point
-this suggests is that predictor class, rather than domain similarity, is what governs portability.
-It is not that similar regions transfer and dissimilar ones do not. It is that stationary-attribute
-models track similarity, while dynamic-state models are reparameterised locally and therefore need
-not. Our data support this reading and cannot prove it, and we return to it below.
+preceding a particular fire, so the fitted model encodes not only which places are prone to burn but
+how a given degree of anomalous dryness translates into burning in that region, in that season. The
+first kind of knowledge travels. The second is exactly the kind that need not. The deeper point this
+suggests is that predictor class, rather than domain similarity, is what governs portability. It is
+not that similar regions transfer and dissimilar ones do not. It is that stationary-attribute models
+track similarity, while dynamic-state models are reparameterised locally and therefore need not. Our
+data support this reading and cannot prove it, and we return to it below.
 
 Three further differences must be stated precisely, because they bound how far the contrast can be
 pushed. **Target:** they treat burned-pixel centroids as an ignition proxy against a 1:1 balanced
 background, whereas we perform burned-area classification at the true, heavily imbalanced base rate
 This is a different problem with different achievable ceilings. **Thermal variable:** their
-temperature
-predictor is a static reanalysis climatology, whereas ours are event-specific satellite thermal
-observations referenced to their own baseline. **Adaptation:** they apply none, whereas the label-
-blind adaptation step is central to our diagnosis. The contrast is therefore between two coherent
-experimental programmes, not a controlled ablation, and we present it as such.
+temperature predictor is a static reanalysis climatology, whereas ours are event-specific satellite
+thermal observations referenced to their own baseline. **Adaptation:** they apply none, whereas the
+label- blind adaptation step is central to our diagnosis. The contrast is therefore between two
+coherent experimental programmes, not a controlled ablation, and we present it as such.
 
 Why the predictor-response relationship should be reparameterised locally is a question this
 literature can frame even if our design cannot settle it. Fire is conventionally described not as a
@@ -405,8 +389,7 @@ The claim is that the block gaining the most locally is the block losing the mos
 Dimarco et al. [@Dimarco2026] demonstrate the stationary-predictor half of this picture within the
 same kind of Mediterranean design. Our result is its complement, not its contradiction. Establishing
 the portability half requires testing whether the predictive skill of pre-fire thermal state, and
-not a
-moisture-retrieval model [@Marino2024], and not a pooled multi-region model evaluated locally
+not a moisture-retrieval model [@Marino2024], and not a pooled multi-region model evaluated locally
 [@Gelabert2025], survives strict, label-free train-in-A, apply-to-B transfer. To our knowledge that
 test has not been performed, but we state this as a gap in the transfer test specifically, not as an
 absence of attention to the transferability of dryness predictors: Gelabert et al. come closer than
@@ -421,25 +404,24 @@ tasks. This is a negative result reported with a mechanism rather than an absenc
 
 **Third, geographic and bioclimatic similarity are not sufficient for transfer.** This is
 deliberately a sufficiency claim rather than a claim about correlation across pairs. It is therefore
-established by a single strong counterexample rather than by a sample of pairs: Manavgat
-and Muğla lie in the same country, burned in the same fire year, sit roughly 200 km apart and share
-a bioclimatic setting, about as similar as two independent fire regions can be, and transfer
-between them collapses. Notably, Dimarco et al.'s own results point the same way from the other
-side. They attribute the systematically weaker transfer to Morocco to anthropogenic drivers, fire
-management and data reporting rather than to climate alone, which is itself an admission that
-bioclimatic similarity does not account for transfer performance on its own.
+established by a single strong counterexample rather than by a sample of pairs: Manavgat and Muğla
+lie in the same country, burned in the same fire year, sit roughly 200 km apart and share a
+bioclimatic setting, about as similar as two independent fire regions can be, and transfer between
+them collapses. Notably, Dimarco et al.'s own results point the same way from the other side. They
+attribute the systematically weaker transfer to Morocco to anthropogenic drivers, fire management
+and data reporting rather than to climate alone, which is itself an admission that bioclimatic
+similarity does not account for transfer performance on its own.
 
 **Fourth, a conditional transferability diagnostic.** We compute area-of-applicability-style
 dissimilarity in predictor space [@Meyer2021; @Meyer2022; @Ludwig2023] alongside climatic and
 geographic distance. We then report whether these marginal indices order the observed transfer
-outcomes, and
-supply a conditional alternative: signed reversal in the univariate association between a predictor
-and burning, paired with label-free adaptation performance as an operational instrument for
-separating recoverable from irreducible shift. Shift decomposition in applied remote sensing is not
-itself new [@Huang2026]; what is new here is the fire application, the adaptation-as-instrument
-formulation, and the direct contrast between a marginal and a conditional diagnostic evaluated on
-the same region pairs. This is the constructive contribution, and it is what distinguishes the paper
-from a purely negative result.
+outcomes, and supply a conditional alternative: signed reversal in the univariate association
+between a predictor and burning, paired with label-free adaptation performance as an operational
+instrument for separating recoverable from irreducible shift. Shift decomposition in applied remote
+sensing is not itself new [@Huang2026]; what is new here is the fire application, the
+adaptation-as-instrument formulation, and the direct contrast between a marginal and a conditional
+diagnostic evaluated on the same region pairs. This is the constructive contribution, and it is what
+distinguishes the paper from a purely negative result.
 
 **Fifth, within-region replication.** We replicate the thermal increment across independent
 Mediterranean regions under spatially blocked cross-validation with spatial-block bootstrap
@@ -455,6 +437,6 @@ We present the third of these as a **live disagreement**, not a settled result. 
 that geographic and environmental similarity fail to predict transfer success in species
 distribution models; Dimarco et al. [@Dimarco2026] and WildfireGenome [@Liu2025] run against it,
 both reporting that similar domains transfer better. Our data support the following reading without
-proving it. The relationship between domain similarity and transfer success is
-**predictor-class dependent**: models built on spatially stationary attributes track similarity,
-while models built on dynamic state need not.
+proving it. The relationship between domain similarity and transfer success is **predictor-class
+dependent**: models built on spatially stationary attributes track similarity, while models built on
+dynamic state need not.

@@ -8,12 +8,11 @@
 
 ## S1.1 Purpose and status
 
-The main text establishes that the residual transfer gap is dominated by a conditional
-(concept) component, and that label-free alignment cannot close it. CORAL and per-region
-standardisation recover a minority of the gap at best, and actively degrade the one pair that
-transfers above chance without them (§4.4, §4.6, §5.5). The natural constructive question is
-therefore what a *small number of target labels* buys, since that is the resource label-free
-machinery cannot substitute for.
+The main text establishes that the residual transfer gap is dominated by a conditional (concept)
+component, and that label-free alignment cannot close it. CORAL and per-region standardisation
+recover a minority of the gap at best, and actively degrade the one pair that transfers above chance
+without them (§4.4, §4.6, §5.5). The natural constructive question is therefore what a *small number
+of target labels* buys, since that is the resource label-free machinery cannot substitute for.
 
 This analysis answers that question and is reported here rather than in the main text, for two
 reasons. It covers three of the five regions, so it cannot carry a claim at the paper's stated
@@ -28,10 +27,10 @@ Bejís 2022 and Muğla 2021. Evia is excluded by the frozen configuration on two
 (`evia_2021`: out of scope for this analysis; `evia_2021_extended`: a high-prevalence,
 different-regime sensitivity control rather than an equal-prevalence primary transfer AOI), and
 Montiferru does not appear in it. Population, feature sets, forbidden-column set and classifier are
-the manuscript's primary choices throughout: natural vegetation
-(`burnable_tree_shrub_grass` ∧ `valid_for_modeling`), the ten-feature thermal set as the primary
-family with the four-feature baseline set as secondary, and the canonical random forest (300 trees,
-`min_samples_leaf = 3`, `class_weight = "balanced"`, `random_state = 42`).
+the manuscript's primary choices throughout: natural vegetation (`burnable_tree_shrub_grass` ∧
+`valid_for_modeling`), the ten-feature thermal set as the primary family with the four-feature
+baseline set as secondary, and the canonical random forest (300 trees, `min_samples_leaf = 3`,
+`class_weight = "balanced"`, `random_state = 42`).
 
 **Labelled budget.** The unit of labelling effort is a 10-cell (≈ 5 km) spatial block, assigned
 before population filtering, identical to the large-block machinery of §3.8. The configuration
@@ -45,18 +44,16 @@ evaluated under the same folds.
 classes, then burned-only, then unburned-only), shuffled within tier by a seed derived as
 `blake2b(schema|source|target|outer_fold|repeat)`. The seed is independent of the budget, of the
 model family and of any result, so no branch of the selection can react to an outcome. Budgets are
-nested: the
-32-block set contains the 16-block set. Evaluation is 5-fold `StratifiedGroupKFold` grouped on the
-target's large blocks, in strict mode. Each budget is repeated 10 times with different block draws
-(the raw and ceiling endpoints once each, being deterministic), for 3,642 unique fits, matching the
-configuration's own expected count.
+nested: the 32-block set contains the 16-block set. Evaluation is 5-fold `StratifiedGroupKFold`
+grouped on the target's large blocks, in strict mode. Each budget is repeated 10 times with
+different block draws (the raw and ceiling endpoints once each, being deterministic), for 3,642
+unique fits, matching the configuration's own expected count.
 
 **Uncertainty.** The interval reported is a **selection interval**: the 2.5th and 97.5th percentiles
 across the 10 block-selection repeats. It expresses sensitivity to *which* blocks were labelled and
 nothing else. It is not a bootstrap, it is not a confidence interval, and no *p*-values are
-produced;
-the diagnostic enforces this distinction with a forbidden-terminology check. There is consequently
-no comparable interval on the raw endpoint, which is a single deterministic fit.
+produced; the diagnostic enforces this distinction with a forbidden-terminology check. There is
+consequently no comparable interval on the raw endpoint, which is a single deterministic fit.
 
 **Recovery fraction.** Defined as (few-shot − raw) / (ceiling − raw), neither clipped nor
 absolute-valued, so a budget that leaves the model worse than raw transfer reports a negative
@@ -64,9 +61,9 @@ fraction rather than zero.
 
 ## S1.3 Result
 
-**Table S1. Few-shot recovery of target ROC-AUC, thermal model, natural-vegetation population.**
-Raw = source-only transfer (budget 0); ceiling = target-only model at the same 10-cell blocking.
-Values are the mean over 10 block-selection repeats. Read from `recovery_curve.csv`.
+**Table S1. Few-shot recovery of target ROC-AUC, thermal model, natural-vegetation population.** Raw
+= source-only transfer (budget 0); ceiling = target-only model at the same 10-cell blocking. Values
+are the mean over 10 block-selection repeats. Read from `recovery_curve.csv`.
 
 | Direction | Raw | 1 blk | 2 blk | 4 blk | 8 blk | 16 blk | 32 blk | Ceiling | Recovered at 32 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -93,8 +90,7 @@ target labels supply exactly that.
 **The recovery is slow where the transfer is worst.** The two directions into Muğla and Manavgat
 from Muğla reach only 51 to 57 % at the top budget. These are the directions whose raw transfer sits
 furthest below the ceiling, and Muğla → Manavgat is still below 0.5 AUC after 8 labelled blocks. A
-larger
-concept gap costs more labels, not the same labels.
+larger concept gap costs more labels, not the same labels.
 
 **Small budgets actively hurt the one direction that already transfers.** Bejís → Muğla is the pair
 that transfers above chance raw (0.618), and it is the pair few-shot recalibration helps least: the
@@ -104,8 +100,7 @@ label-free adaptation (§4.4): where the source model already carries a usable c
 relationship, a small target sample perturbs it before it can replace it. The mechanism differs,
 since here the target labels are real information rather than a covariate rescaling. The direction
 of the effect is nevertheless the same, and it is the one direction where the intervention is a
-liability at every
-budget a field campaign would plausibly afford.
+liability at every budget a field campaign would plausibly afford.
 
 ## S1.4 Methodological limits
 

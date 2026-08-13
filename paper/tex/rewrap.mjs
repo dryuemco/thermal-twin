@@ -1,14 +1,17 @@
 /*
- * rewrap.mjs — rewrap manuscript prose to the file's 100-column convention.
+ * rewrap.mjs — reflow manuscript prose to the file's 100-column convention.
  *
- * Splitting sentences leaves paragraphs as one very long line. This puts them
- * back to the width the rest of the file uses, so diffs stay readable.
+ * Splitting and joining sentences leaves paragraphs ragged: some lines run long
+ * and others are left holding a single orphaned word. This reflows each prose
+ * paragraph as a unit, so the source reads cleanly in a diff.
+ *
+ * It is formatting only. Nothing but whitespace changes, which the number and
+ * content checks confirm.
  *
  * Left alone: headings, table rows, blockquotes, comment blocks, fenced code,
- * list items whose continuation indent would be lost, and any line already
- * under the limit.
+ * and list items (whose continuation indent carries meaning).
  *
- * Usage: node paper/tex/rewrap.mjs 02_related_work 03_methods
+ * Usage: node paper/tex/rewrap.mjs 03_methods 02_related_work
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -16,32 +19,42 @@ import path from 'node:path';
 const WIDTH = 100;
 const ROOT = path.resolve('paper');
 
+const wrap = text => {
+  const out = [];
+  let cur = '';
+  for (const w of text.split(/\s+/).filter(Boolean)) {
+    if (cur && (cur + ' ' + w).length > WIDTH) { out.push(cur); cur = w; }
+    else cur = cur ? cur + ' ' + w : w;
+  }
+  if (cur) out.push(cur);
+  return out;
+};
+
 for (const stem of process.argv.slice(2)) {
   const f = stem.endsWith('.md') ? stem : stem + '.md';
   const p = path.join(ROOT, f);
   const lines = fs.readFileSync(p, 'utf8').split(/\r?\n/);
   const out = [];
+  let para = [];
   let inComment = false, inFence = false;
 
+  const flush = () => { if (para.length) { out.push(...wrap(para.join(' '))); para = []; } };
+
   for (const line of lines) {
-    if (/<!--/.test(line)) inComment = true;
-    if (/^```/.test(line)) inFence = !inFence;
-    const skip = inComment || inFence || /^\s*[>|#]/.test(line) ||
-                 /^\s*[-*]\s/.test(line) || /^\s*\d+\.\s/.test(line) ||
-                 /^\s{2,}\S/.test(line) || line.length <= WIDTH;
+    if (/<!--/.test(line)) { flush(); inComment = true; }
+    if (/^```/.test(line)) { flush(); inFence = !inFence; out.push(line); if (/-->/.test(line)) inComment = false; continue; }
+
+    const verbatim = inComment || inFence || /^\s*[>|#]/.test(line) ||
+                     /^\s*[-*]\s/.test(line) || /^\s*\d+\.\s/.test(line) ||
+                     /^\s{2,}\S/.test(line) || line.trim() === '';
+
     if (/-->/.test(line)) inComment = false;
 
-    if (skip) { out.push(line); continue; }
-
-    const words = line.trim().split(/\s+/);
-    let cur = '';
-    for (const w of words) {
-      if (cur && (cur + ' ' + w).length > WIDTH) { out.push(cur); cur = w; }
-      else cur = cur ? cur + ' ' + w : w;
-    }
-    if (cur) out.push(cur);
+    if (verbatim) { flush(); out.push(line); continue; }
+    para.push(line.trim());
   }
+  flush();
 
   fs.writeFileSync(p, out.join('\n'));
-  console.log(`rewrapped ${f}`);
+  console.log(`reflowed ${f}`);
 }
