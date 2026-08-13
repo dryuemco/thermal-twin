@@ -9,6 +9,26 @@
 % says otherwise. Author lists, volumes, issues, pages and years are as
 % returned by Crossref, not from memory.
 %
+% FULL RE-VERIFICATION 2026-08-13 (47 entries). Every DOI was resolved and
+% year/volume/pages machine-compared against Crossref. Outcome:
+%   - 42 entries confirmed field-for-field against Crossref.
+%   - Cook2014: DOI was BROKEN (10.3390/rs6111244, 404) and is corrected to
+%     10.3390/rs61111244. Title, authors, volume, issue, pages and year were
+%     already right; only the DOI digit was wrong.
+%   - Kondylatos2023 gained a DOI (NeurIPS proceedings are now Crossref-
+%     registered under 10.52202; the record confirms the existing page range).
+%   - Vibhandik2026 gained its article number; Xu2026 and Liu2025 gained their
+%     arXiv DOIs and primaryClass.
+%   - Valavi2019 and Vesk2021 differ from Crossref's "issued" year because that
+%     field carries the online-first date; both keep their print/issue year and
+%     carry a note. Do not "correct" them.
+%   - 3 DOIs are DataCite rather than Crossref (Liu2025, Xu2026 arXiv;
+%     Zanaga2022 Zenodo) and were verified against the DataCite API.
+%   - No duplicate keys, no duplicate DOIs, and every key cited in the
+%     manuscript resolves to an entry here.
+% Soydan2022 and Varela2022 are present but NOT cited anywhere in the
+% manuscript; see LITERATURE.md for the pending decision.
+%
 % RULES OBSERVED
 %   - No invented reference, DOI, volume or page number appears in this file.
 %   - Where a field could not be confirmed it is either omitted or carries a
@@ -61,8 +81,10 @@
   doi     = {10.3390/rs16152842},
 }
 
-% Resolved 2026-08-08: Crossref reports article-number 00921 for this record;
-% the DOI is unambiguous and sufficient for Elsevier styles -- cite by DOI.
+% Resolved 2026-08-08: Crossref reports an article number for this record (the
+% DOI suffix pads it to 00921); the DOI alone is sufficient for Elsevier styles.
+% Updated 2026-08-13: article number re-read from Crossref as 921 and now given
+% in `pages`, so the entry is complete for styles that print an article number.
 @article{Vibhandik2026,
   author  = {Vibhandik, Priyanka and Sawant, Suraj and Joshi, Amit and
              Bidwe, Ranjeet},
@@ -72,6 +94,9 @@
   journal = {Discover Artificial Intelligence},
   volume  = {6},
   number  = {1},
+  % Springer "Discover" journals use article numbers, not page ranges.
+  % Article number 921, confirmed in Crossref 2026-08-13.
+  pages   = {921},
   year    = {2026},
   doi     = {10.1007/s44163-026-00921-0},
 }
@@ -273,6 +298,9 @@
 % NOTE: Crossref records the online-first date (2018); the print issue is 2019
 % and the community cites it as 2019. The DOI is unambiguous either way.
 % Do not cite the 2018 bioRxiv preprint (10.1101/357798) instead of this.
+% YEAR NOTE (checked 2026-08-13): Crossref "issued" is 2018 (online-first,
+% 8 Nov 2018); published-print is Feb 2019, vol 10(2). The issue year 2019 below is
+% correct and is how this paper is conventionally cited. Do not "fix" to 2018.
 @article{Valavi2019,
   author  = {Valavi, Roozbeh and Elith, Jane and Lahoz-Monfort, Jos{\'e} J. and
              Guillera-Arroita, Gurutzeta},
@@ -438,14 +466,19 @@
                Camps-Valls, Gustau and Papoutsis, Ioannis},
   title     = {{Mesogeos}: A multi-purpose dataset for data-driven wildfire
                modeling in the {Mediterranean}},
-  booktitle = {Advances in Neural Information Processing Systems},
+  booktitle = {Advances in Neural Information Processing Systems 36
+               (NeurIPS 2023) Datasets and Benchmarks Track},
   volume    = {36},
   pages     = {50661--50676},
   year      = {2023},
+  % DOI ADDED 2026-08-13. NeurIPS proceedings are now Crossref-registered
+  % under the 10.52202 prefix; the record confirms these exact page numbers.
+  doi       = {10.52202/075280-2204},
 }
 
-% NOTE: arXiv preprint (v1 14 May 2026, v2 21 May 2026). Re-check for a
-% peer-reviewed version before submission.
+% NOTE: arXiv preprint (v1 14 May 2026, v2 21 May 2026). Re-checked
+% 2026-08-13: arXiv record carries no journal-ref, so still a preprint.
+% Re-check once more at proof stage, as for Liu2025.
 @misc{Xu2026,
   author        = {Xu, Yangshuang and Dai, Yuyang and Chang, Liling and
                    Wang, Qi and Dong, Yushun},
@@ -455,6 +488,8 @@
   year          = {2026},
   eprint        = {2605.18911},
   archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2605.18911},
 }
 
 
@@ -477,6 +512,9 @@
 }
 
 % NOTE: published online 2020, print issue January 2021. Cite as 2021.
+% YEAR NOTE (checked 2026-08-13): Crossref "issued" is 2020 (online-first,
+% 10 Nov 2020); published-print is Jan 2021, vol 44(1). The issue year 2021 below is
+% correct. Do not "fix" to 2020.
 @article{Vesk2021,
   author  = {Vesk, Peter A. and Morris, William K. and Neal, Will C. and
              Mokany, Karel and Pollock, Laura J.},
@@ -586,7 +624,10 @@
   number  = {11},
   pages   = {11244--11266},
   year    = {2014},
-  doi     = {10.3390/rs6111244},
+  % DOI CORRECTED 2026-08-13: was 10.3390/rs6111244, which 404s in Crossref
+  % (one digit short). MDPI pattern is rs{volume}{issue}{firstpage} =
+  % rs + 6 + 11 + 11244. Correct DOI verified against Crossref.
+  doi     = {10.3390/rs61111244},
 }
 
 @article{Breiman2001,
