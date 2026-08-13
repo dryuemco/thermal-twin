@@ -30,7 +30,7 @@ manuscript is complete in draft and waits on four external inputs and one assemb
 | `S1_few_shot_recovery.md` | **new 2026-08-13** — supplementary S1: target-label recovery curve, 3 regions / 6 directions, read from the frozen `few_shot_recovery` export; design, Table S1, seven stated methodological limits | 1 500 | none |
 | `highlights.md` | **complete** (5 bullets, all ≤85 chars, verified) | 90 | none |
 | `figure_captions.tex` | **complete** — Elsevier format, 8 captions in figure order, each self-contained (what is plotted, population, interval, meaning; panel letters explained inline). Every numeric value verified against the frozen outputs | 1 786 | none |
-| `REFERENCES.bib` | complete for all cited keys; 2026-08-08 sweep added Crossref-verified Sun2016 DOI, Soydan2022 (Manavgat event), Varela2022 (Evia event); **second round 2026-08-08 removed Cosandal2022** (Muğla weak-fit, never cited) | — | **none.** GLO-30 closed (cited inline by product-page URL + access date, no DOI, no bib entry; GLO-30 confirmed as the DEM that ran). Bejís and Muğla event descriptions closed as deliberately uncited — no citable event-specific source exists, numbers come from MCD64A1 |
+| `REFERENCES.bib` | **fully re-verified 2026-08-13** (47 entries: every DOI resolved, year/volume/pages machine-compared against Crossref; 1 broken DOI found and fixed — Cook2014; 3 entries completed). complete for all cited keys; 2026-08-08 sweep added Crossref-verified Sun2016 DOI, Soydan2022 (Manavgat event), Varela2022 (Evia event); **second round 2026-08-08 removed Cosandal2022** (Muğla weak-fit, never cited) | — | **none.** GLO-30 closed (cited inline by product-page URL + access date, no DOI, no bib entry; GLO-30 confirmed as the DEM that ran). Bejís and Muğla event descriptions closed as deliberately uncited — no citable event-specific source exists, numbers come from MCD64A1 |
 
 ## 2. Analysis reports (frozen evidence base — all complete, no open markers)
 
@@ -168,8 +168,12 @@ Mechanical only — no analysis, no new numbers, no open judgement calls.
    re-confirmed against the abstract and are as described in §2.4/§2.5/§5.4. One residual action
    at proof stage: check again, since a late-2025 preprint may appear in press by then
    (`LITERATURE.md` item E2).
-4. **Optional: graphical abstract** (Elsevier), from a Fig. 8 + Fig. 4 composite.
-5. **Supplementary figure S1** (new 2026-08-13, not built). The recovery curve described in
+4. **Decide on Soydan2022 / Varela2022** — the only two uncited entries in the bibliography,
+   added 2026-08-08 for the §3.1 event descriptions but never cited. Either cite them (abstracts
+   must be read first — both are recorded as full text unread) or drop them, as was done for the
+   Bejis and Mugla events. See the OPEN DECISION block in `LITERATURE.md`.
+5. **Optional: graphical abstract** (Elsevier), from a Fig. 8 + Fig. 4 composite.
+6. **Supplementary figure S1** (new 2026-08-13, not built). The recovery curve described in
    S1.5: budget on a log-2 axis, target ROC-AUC on the ordinate, one line per direction,
    selection interval as a band, each direction's ceiling as a reference line. Data are ready in
    the frozen `recovery_curve.csv` (thermal family, `metric = roc_auc`); Table S1 already carries
