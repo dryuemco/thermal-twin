@@ -9,3 +9,10 @@
 paper/era5_raw/**            -text
 paper/mugla_temporal_raw/**  -text
 paper/step9g_raw/**          -text
+# Added 2026-08-13. mugla_transfer_raw was MISSING from this list and its working
+# copy had already been CRLF-rewritten on checkout: 5 of its 9 files stopped
+# matching their own SHA256SUMS.txt (the committed blobs were always correct).
+# reproduction_check holds the five-region reproduction record whose SHA-256 is
+# quoted in Methods 3.13, so it must never be rewritten either.
+paper/mugla_transfer_raw/**  -text
+paper/reproduction_check/**  -text

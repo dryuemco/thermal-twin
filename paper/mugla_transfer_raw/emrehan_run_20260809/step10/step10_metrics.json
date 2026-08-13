@@ -1,0 +1,351 @@
+{
+  "analysis_id": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+  "point_metrics": {
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "within": {
+        "baseline": {
+          "roc_auc": 0.8638005365151683,
+          "pr_auc": 0.041810283531695705,
+          "positive_count": 331,
+          "negative_count": 38459
+        },
+        "thermal": {
+          "roc_auc": 0.9416049767441752,
+          "pr_auc": 0.2081809109524658,
+          "positive_count": 331,
+          "negative_count": 38459
+        }
+      },
+      "raw_source_only": {
+        "baseline": {
+          "roc_auc": 0.6421276976485887,
+          "pr_auc": 0.011667245004187716,
+          "positive_count": 331,
+          "negative_count": 38459
+        },
+        "thermal": {
+          "roc_auc": 0.5588060231914883,
+          "pr_auc": 0.00990857877751113,
+          "positive_count": 331,
+          "negative_count": 38459
+        }
+      },
+      "regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.6628902643526134,
+          "pr_auc": 0.012580739387759034,
+          "positive_count": 331,
+          "negative_count": 38459
+        },
+        "thermal": {
+          "roc_auc": 0.687988519024733,
+          "pr_auc": 0.013461997822058537,
+          "positive_count": 331,
+          "negative_count": 38459
+        }
+      },
+      "coral_after_regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.6453385560909255,
+          "pr_auc": 0.011856078054827524,
+          "positive_count": 331,
+          "negative_count": 38459
+        },
+        "thermal": {
+          "roc_auc": 0.6874424044313209,
+          "pr_auc": 0.01325409660253393,
+          "positive_count": 331,
+          "negative_count": 38459
+        }
+      }
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "within": {
+        "baseline": {
+          "roc_auc": 0.7433200295403336,
+          "pr_auc": 0.22494508611689773,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.8589830389802724,
+          "pr_auc": 0.44674739014417914,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      },
+      "raw_source_only": {
+        "baseline": {
+          "roc_auc": 0.580924224166471,
+          "pr_auc": 0.08330431812229776,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.6692151604002363,
+          "pr_auc": 0.1408454118074078,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      },
+      "regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.5759632990566574,
+          "pr_auc": 0.08240285846175344,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.5496311002478723,
+          "pr_auc": 0.08097928811380978,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      },
+      "coral_after_regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.5640557735077316,
+          "pr_auc": 0.08103064980464954,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.5760096344750522,
+          "pr_auc": 0.08473481947705779,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      }
+    }
+  },
+  "within_region_reproduction": {
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.8638005365151683,
+            "step8b": 0.8638005365151683,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.041810283531695705,
+            "step8b": 0.041810283531695705,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.9416049767441752,
+            "step8b": 0.9416049767441752,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.2081809109524658,
+            "step8b": 0.2081809109524658,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.7433200295403336,
+            "step8b": 0.7433200295403336,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.22494508611689773,
+            "step8b": 0.22494508611689773,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.8589830389802724,
+            "step8b": 0.8589830389802724,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.44674739014417914,
+            "step8b": 0.44674739014417914,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    }
+  },
+  "raw_reproduction": {
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.6421276976485887,
+            "step9b": 0.6421276976485887,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.011667245004187716,
+            "step9b": 0.011667245004187716,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.5588060231914883,
+            "step9b": 0.5588060231914883,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.00990857877751113,
+            "step9b": 0.00990857877751113,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "mugla_2021",
+        "root_target_experiment_id": "mugla_2022_event_relative",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.6421276976485887,
+          "pr_auc": 0.011667245004187716,
+          "brier_score": 0.0834372054903673
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.5588060231914883,
+          "pr_auc": 0.00990857877751113,
+          "brier_score": 0.07326147828513525
+        }
+      }
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.580924224166471,
+            "step9b": 0.5809242374405595,
+            "diff": 1.3274088495052183e-08,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.08330431812229776,
+            "step9b": 0.08330432150197827,
+            "diff": 3.3796805076757863e-09,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.6692151604002363,
+            "step9b": 0.6692151604002363,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.1408454118074078,
+            "step9b": 0.1408454118074078,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "mugla_2021",
+        "root_target_experiment_id": "mugla_2022_event_relative",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.5809242374405595,
+          "pr_auc": 0.08330432150197827,
+          "brier_score": 0.07437613874604898
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.6692151604002363,
+          "pr_auc": 0.1408454118074078,
+          "brier_score": 0.0674961414845562
+        }
+      }
+    }
+  },
+  "step9_raw_metric_provenance": {
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_metrics.json",
+      "schema": "step9b_results_v1",
+      "root_source_experiment_id": "mugla_2021",
+      "root_target_experiment_id": "mugla_2022_event_relative",
+      "required_metrics": [
+        "roc_auc",
+        "pr_auc",
+        "brier_score"
+      ],
+      "baseline_metrics": {
+        "roc_auc": 0.6421276976485887,
+        "pr_auc": 0.011667245004187716,
+        "brier_score": 0.0834372054903673
+      },
+      "thermal_metrics": {
+        "roc_auc": 0.5588060231914883,
+        "pr_auc": 0.00990857877751113,
+        "brier_score": 0.07326147828513525
+      }
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_metrics.json",
+      "schema": "step9b_results_v1",
+      "root_source_experiment_id": "mugla_2021",
+      "root_target_experiment_id": "mugla_2022_event_relative",
+      "required_metrics": [
+        "roc_auc",
+        "pr_auc",
+        "brier_score"
+      ],
+      "baseline_metrics": {
+        "roc_auc": 0.5809242374405595,
+        "pr_auc": 0.08330432150197827,
+        "brier_score": 0.07437613874604898
+      },
+      "thermal_metrics": {
+        "roc_auc": 0.6692151604002363,
+        "pr_auc": 0.1408454118074078,
+        "brier_score": 0.0674961414845562
+      }
+    }
+  }
+}

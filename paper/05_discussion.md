@@ -198,8 +198,8 @@ directions — that is, target labels; applied label-free, the same removal degr
 aligned directions. The consistent lesson is the one the adaptation literature reached once the
 conditional component was recognised as binding [@Tuia2016; @Persello2012]: a small number of
 target labels is the resource that label-free machinery cannot substitute for. A supervised
-few-shot recalibration analysis exists in the project diagnostics and is intended for the
-supplementary material [TO VERIFY: supplementary inclusion decision]; it is not drawn on here.
+few-shot recalibration analysis exists in the project diagnostics and is reported in the
+supplementary material (Supplementary S1); it is not drawn on here.
 
 ## 5.6 The pre-registered regime hypothesis, reported as it happened
 

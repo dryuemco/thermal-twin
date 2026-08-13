@@ -484,7 +484,11 @@ collapse.
 **Table R9. Transfer between the two Muğla events.** Primary population, thermal and baseline
 models, target ROC-AUC with 5 km spatial-block bootstrap 95 % CIs (Section 3.16.4). Within-region
 references are each target's own frozen value at 2-cell blocking (Table 3 for 2021; the 2022
-figure is its Step 8C point estimate, ΔAUC +0.078 [+0.061, +0.097]).
+figure is its Step 8C point estimate, ΔAUC +0.078 [+0.061, +0.097]). The baseline and thermal
+columns are point estimates on the full target; the ΔAUC column is the bootstrap mean reported
+alongside its interval, so it differs from the difference of the two point estimates in the third
+decimal (point ΔAUC −0.083 and +0.088 respectively). Both arms of this pair were reproduced
+independently by the pipeline author to ≤1×10⁻⁷ (Section 3.16.4).
 
 | Direction | Baseline | Thermal | ΔAUC (thermal − baseline) | Target's within-region thermal | Gap |
 |---|---|---|---|---|---|
