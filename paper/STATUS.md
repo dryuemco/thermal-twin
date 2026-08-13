@@ -94,8 +94,10 @@ and 8 (`*_greyscale.png`).
 
 1. **Emrehan's independent Methods narrative** — to be compared against §3.1–3.16; the ten
    candidate discrepancy points are pre-listed in 03_methods' METHODS ROUND NOTES.
-2. **Few-shot × conditional-index joint analysis** — planned as supplementary; until decided,
-   the §5.5 pointer stays [TO VERIFY]. Emrehan's existing curve: 3 regions, 6 directions.
+2. ~~**Few-shot × conditional-index joint analysis**~~ — **closed 2026-08-13 by decision.** The
+   few-shot curve is IN, as `S1_few_shot_recovery.md` (3 regions, 6 directions, Table S1). The
+   joint analysis against the conditional index was **not** run and S1 says so explicitly
+   (limit 3): with six directions it would be a description, not a test. §5.5 marker removed.
 3. ~~**Muğla 2022**~~ — **closed 2026-08-11.** Both frozen diagnostics arrived
    (`paper/mugla_temporal_raw/`, `paper/step9g_raw/`) and the transfer arms, which had never
    been run, were computed here with the pipeline author's unmodified step9b/step9c at 48b56e7
@@ -109,14 +111,40 @@ and 8 (`*_greyscale.png`).
    queried with `get_experiment()` and every Table 1 value matches. `repo/` is now wired into this
    repository as a git submodule pinned at that commit.
 5. **Two ERA5-Land follow-ups for the pipeline author** (new 2026-08-11):
-   (a) *Reproduction tolerances for the five-region set.* No `reproduction_check.json` exists
-   anywhere in `drive_new`; §3.13 still quotes the historical two-region figures. This is the last
-   TO VERIFY in `03_methods.md`.
-   (b) *Manifest commit discrepancy.* `manifest.git_commit` is `a07ea33`, but the diagnostic
+   (a) ~~*Reproduction tolerances for the five-region set.*~~ — **closed 2026-08-13.**
+   `reproduction_check.json` arrived, is archived at `paper/reproduction_check/`, and §3.13 now
+   quotes the five-region figures (within-region max |Δ| = 0 over 20 comparisons; CORAL
+   1.6×10⁻⁷ over 20 directions / 80 comparisons). Independently checked: all 20 referenced
+   frozen artefacts hash-match locally and all 100 `frozen_value` fields match the numbers
+   inside those files. `03_methods.md` now has no open marker.
+   (b) *Manifest commit discrepancy.* **STILL OPEN — and it was NOT included in the mail sent
+   2026-08-13**, which is an omission: it is the same class of problem as items 6.1/6.2 below
+   (published repo vs production commit) and should have been bundled with them. Ask it in the
+   next round. `manifest.git_commit` is `a07ea33`, but the diagnostic
    source does not exist at that commit (first committed in `48b56e7`), so the production run used
    an uncommitted working tree. Every contract semantics string matches `48b56e7` verbatim and the
    validator passes, so the output is consistent with the described code, but bit-identity is not
    established. Recorded in §3.17 and `paper/era5_raw/SHA256SUMS.txt`; one question would close it.
+
+6. **Requested 2026-08-13** (mail in `paper/emrehan_mail_4.md`, sent by YEC). Items 1–2 are the
+   same issue: the released repository does not contain the code that produced two artefacts the
+   paper relies on. Verified against main today — the GitHub zip's archive comment is `48b56e7`
+   and its 334 files are content-identical to our pinned `repo/`, so nothing has been pushed
+   since 2026-08-11.
+   1. *Reproduction-check code absent from the repository.* `scripts/run_reproduction_check.py`
+      and `src/reproduction_validation/` are recorded as untracked in the check's own
+      `working_tree` field and are absent from `48b56e7` (`find -iname "*reproduction*"` returns
+      nothing). §3.13 rests on this artefact and the paper names the repository authoritative, so
+      a reviewer cannot re-run it. Asked him to commit, push, and give the hash.
+   2. *Few-shot commit `19d825b` unreachable* — not in a full 92-commit clone, so S1's provenance
+      line points at something a reader cannot fetch. Either push/tag it, or confirm in one line
+      that `src/few_shot_recovery.py` is unchanged between `19d825b` and `48b56e7` (it is present
+      at `48b56e7` and last modified 2026-07-31, before the run, so almost certainly identical).
+   3. *(Optional)* Muğla block-10 ceiling artefact, which would turn S1's
+      `FSR-35[mugla_2021]` SKIPPED into a PASS and close limit 6 of S1.
+   4. *Two one-liners:* the Python version of his 2026-08-09 Muğla run (artefacts record
+      numpy/pandas/sklearn but not Python), and which validator his self-reference fix touched —
+      our frozen few-shot report (2026-08-02) already reads 64 PASS / 1 SKIPPED.
 
    *Repository URL / DOI is no longer waiting:* **closed 2026-08-08** — the data-and-code
    availability statement now names Emrehan's public repository
@@ -129,12 +157,19 @@ Mechanical only — no analysis, no new numbers, no open judgement calls.
 
 1. **Assembly round.** Merge the section files into one document; renumber the lettered
    R-tables (R1–R10) into the final sequence alongside Tables 3–6; drop the DRAFT-NOTES comment
-   blocks; apply the journal template. Figure numbering is already final and consistent across
-   `figure_captions.tex`, §4 and §5 — no figure work is left.
+   blocks; apply the journal template. Main-text figure numbering is already final and consistent
+   across `figure_captions.tex`, §4 and §5. **Added 2026-08-13:** `S1_few_shot_recovery.md` must
+   be carried through as supplementary material, with its Table S1 kept out of the main-text
+   table sequence.
 2. **Abstract trim** to the journal's word limit (currently 331 words).
 3. **WildfireGenome re-check** — the single remaining literature item; confirm whether a
    peer-reviewed version has replaced the arXiv preprint, then cite whichever is current.
 4. **Optional: graphical abstract** (Elsevier), from a Fig. 8 + Fig. 4 composite.
+5. **Supplementary figure S1** (new 2026-08-13, not built). The recovery curve described in
+   S1.5: budget on a log-2 axis, target ROC-AUC on the ordinate, one line per direction,
+   selection interval as a band, each direction's ceiling as a reference line. Data are ready in
+   the frozen `recovery_curve.csv` (thermal family, `metric = roc_auc`); Table S1 already carries
+   the numbers, so the figure is presentation only and the supplement stands without it.
 
 ### Closed this round (kept for the audit trail)
 
