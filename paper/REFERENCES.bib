@@ -9,8 +9,9 @@
 % says otherwise. Author lists, volumes, issues, pages and years are as
 % returned by Crossref, not from memory.
 %
-% FULL RE-VERIFICATION 2026-08-13 (47 entries). Every DOI was resolved and
-% year/volume/pages machine-compared against Crossref. Outcome:
+% FULL RE-VERIFICATION 2026-08-13 (47 entries checked; 45 remain after the two
+% removals recorded in Block H). Every DOI was resolved and year/volume/pages
+% machine-compared against Crossref. Outcome:
 %   - 42 entries confirmed field-for-field against Crossref.
 %   - Cook2014: DOI was BROKEN (10.3390/rs6111244, 404) and is corrected to
 %     10.3390/rs61111244. Title, authors, volume, issue, pages and year were
@@ -26,8 +27,11 @@
 %     Zanaga2022 Zenodo) and were verified against the DataCite API.
 %   - No duplicate keys, no duplicate DOIs, and every key cited in the
 %     manuscript resolves to an entry here.
-% Soydan2022 and Varela2022 are present but NOT cited anywhere in the
-% manuscript; see LITERATURE.md for the pending decision.
+%   - Soydan2022 and Varela2022 were the only entries cited nowhere. REMOVED
+%     2026-08-13 by decision; see Block H at the end of this file.
+% Every one of the 45 remaining entries is cited in the manuscript, and every
+% citation in the manuscript resolves here. There are no orphans in either
+% direction.
 %
 % RULES OBSERVED
 %   - No invented reference, DOI, volume or page number appears in this file.
@@ -735,34 +739,21 @@
 
 
 % -----------------------------------------------------------------------------
-% Block H -- Fire event descriptions (added 2026-08-08; metadata verified via
-% Crossref REST API on 2026-08-08; FULL TEXTS UNREAD -- confirm suitability
-% before final citation placement in the study-area section)
+% Block H -- Fire event descriptions: DELIBERATELY EMPTY
 % -----------------------------------------------------------------------------
-
-@article{Soydan2022,
-  author  = {Soydan, Orhun},
-  title   = {Detection of burnt areas by remote sensing techniques: {Antalya}
-             {Manavgat} forest fire},
-  journal = {Turkish Journal of Agriculture - Food Science and Technology},
-  year    = {2022},
-  volume  = {10},
-  number  = {sp2},
-  pages   = {3029--3035},
-  doi     = {10.24925/turjaf.v10isp2.3029-3035.5764},
-}
-
-@inproceedings{Varela2022,
-  author    = {Varela, Vassiliki and Eftychidis, George and Papageorgiou, Sofia
-               and Legaki, Georgia},
-  title     = {Local response to extreme wildfire events in populated areas:
-               practices and lessons learned from the {Mati}/{Attica} (2018)
-               and {North Evia} (2021) fires, {Greece}},
-  booktitle = {Advances in Forest Fire Research 2022},
-  pages     = {666--672},
-  year      = {2022},
-  doi       = {10.14195/978-989-26-2298-9_101},
-}
+% REMOVED 2026-08-13: Soydan2022 (Antalya/Manavgat 2021 burnt-area detection,
+% doi 10.24925/turjaf.v10isp2.3029-3035.5764) and Varela2022 (Mati/Attica 2018
+% and North Evia 2021 local response, doi 10.14195/978-989-26-2298-9_101).
+% Both were added 2026-08-08 to support the event descriptions in Methods 3.1,
+% and that citation was never inserted: the 2026-08-13 bibliography audit found
+% them to be the only two entries cited nowhere in the manuscript. Both were
+% also recorded as FULL TEXT UNREAD, so citing them would have breached the
+% project rule against citing unread sources. Decision (YEC, 2026-08-13):
+% do NOT cite -- remove. This matches the treatment already given to the Bejis
+% and Mugla events: every study-region extent, date and window in Table 1 and
+% Table 2 comes from the experiment registry and MCD64A1, not from the event
+% literature, so no event-description citation is needed anywhere in the paper.
+% Their metadata is preserved in LITERATURE.md if the decision is revisited.
 
 % REMOVED 2026-08-08: Cosandal2022 (tourism-impact study of the Mugla-Marmaris
 % fires) was carried here as a weak-fit candidate for the Mugla 2021 event

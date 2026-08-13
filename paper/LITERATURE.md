@@ -192,16 +192,16 @@ RESOLVED IN THIS SWEEP (2026-08-08, all via Crossref/arXiv API):
   pp 443–450, doi:10.1007/978-3-319-49409-8_35 — volume/pages now verified.
 - **arXiv:2103.05898** — Burns C, Steinhardt J, *"Limitations of Post-Hoc Feature Alignment for
   Robustness"*; arXiv listing states accepted to CVPR 2021. Authors/venue verified.
-> **OPEN DECISION (raised 2026-08-13, full bibliography re-verification).** Both entries below
-> are in `REFERENCES.bib` and both resolve correctly in Crossref, but **neither is cited anywhere
-> in the manuscript** — they are the only two uncited entries in the file. They were added on
-> 2026-08-08 to support the event descriptions in §3.1, and that citation was never inserted.
-> Two options, and this is YEC's call: (a) cite them in §3.1 where the Manavgat and North Evia
-> events are introduced — but the note below records both as *full text unread*, so at minimum
-> the abstracts must be read first, per the project's own rule against citing unread sources;
-> or (b) delete them from the bibliography, matching the decision already taken for the Bejís
-> and Muğla events (uncited, extents and dates taken from MCD64A1). Leaving them uncited in the
-> `.bib` is harmless for numeric styles but should not go to submission undecided.
+> **DECIDED 2026-08-13 (YEC): both REMOVED from `REFERENCES.bib`.** Raised by the full
+> bibliography re-verification, which found these two to be the only entries cited nowhere in
+> the manuscript. They were added on 2026-08-08 to support the event descriptions in §3.1 and
+> that citation was never inserted; both were also recorded as *full text unread*, so citing
+> them would have breached the project's rule against citing unread sources. The removal matches
+> the treatment already given to the Bejís and Muğla events: no event-description citation
+> appears anywhere in the paper, because every study-region extent, date and window in Tables 1
+> and 2 comes from the experiment registry and MCD64A1 rather than from the event literature.
+> The bibliography now has **no uncited entries**. The verified metadata is kept below in case
+> the decision is ever revisited.
 
 - **Manavgat 2021 event description** — Soydan O (2022), *TURJAF* 10(sp2):3029–3035,
   doi:10.24925/turjaf.v10isp2.3029-3035.5764; metadata verified, full text unread; `Soydan2022`.
