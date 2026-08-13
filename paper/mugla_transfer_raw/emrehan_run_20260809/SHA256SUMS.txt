@@ -1,0 +1,32 @@
+# SHA-256 of the pipeline author's OWN Muga 2021 <-> 2022 transfer outputs.
+# Received 2026-08-13 as a Drive export; source zip:
+#   c06fdf076d4f63a0255485bd1e71fb440d4637dd3657beb575e2447894be20ef  mugla_2021__mugla_2022_event_relative-20260813T155023Z-1-001.zip
+# Produced 2026-08-09 (step9b created_at 2026-08-09T11:03:44Z) at git commit
+#   a07ea33743f4e45963e52c50e706683f1eee164d, seed 42.
+# Environment recorded in step10/step10_final_report.json and step10/step10_input_audit.json:
+#   scikit-learn 1.9.0, pandas 3.0.2, numpy 2.4.4  (Python version not recorded in these artefacts).
+# Inputs (step9a/cross_region_input_audit.json) are the SAME frozen step8a parquets as our run:
+#   c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e  mugla_2021 step8a_500m_modeling_dataset.parquet
+#   7c545f4da8fa7f8973575400862595d6ef85a8d55b9b25bc16fc54aba23a1d52  mugla_2022_event_relative step8a_500m_modeling_dataset.parquet
+# Only files <2 MB are archived here; the step9b prediction CSV/parquet are not copied.
+# NOTE: step9b/cross_region_transfer_summary.md and step9c/cross_region_bootstrap_summary.md
+# are BYTE-IDENTICAL to the corresponding files of our own 2026-08-11 run (../SHA256SUMS.txt).
+
+fba03e226b16e79d50de03dc159bf3bc1a4c70485111101544dd654b18db7cb0     15765  step10/step10_adaptation_statistics.json
+b3a2e7d78582ad9952da420992cb288d9647e7a4caa4b7b6caa149ef1e1d77f3     16755  step10/step10_bootstrap_summary.json
+d23fa5ab43704f961bf6b75c866a0f182940eacfe23647963901df1424e734ef     76263  step10/step10_final_report.json
+cb46f699928aa09103b54e20f74fbf41e75a69ec2820f2f062460097ff4e7776     25441  step10/step10_final_report.md
+a34e9eed07a42a00a9770307b6ac4cda8590720f889ae0b0973039d370477fca      2878  step10/step10_input_audit.json
+4cdd1c6ae085c4bf31a7a0bd69b844377cf7ac6882863a982f05b8db3d17e2f9     10349  step10/step10_metrics.json
+c26e91b7aa47c3e5df8c6fcea28e18c08e598ff8cbf7fd84e37870a1242aa4a0      6721  step10/step10_preregistration.json
+363177c3057b9d67237b0e3db1394c7847139116b326b93c114418e8b63cd00b      2100  step10/step10_preregistration.md
+264aeb23161c7f329e00697dc2f2ec6ba51adbcfeffdf16ae82a0a9c0dc6a0a6     11423  step9a/cross_region_input_audit.json
+8489c86e3f88c3663def0a347465e4dd780bdf0858608404df50ab49701ed49d      1580  step9a/cross_region_input_audit.md
+31c5aa368d722e8158f2f20274af57b6ec7478cfc0bb691761622911f06939df     23528  step9b/cross_region_transfer_metrics.json
+83cddbd71610ce412c358be2d471e047372e53a077c35e8c61b986e1f4f205fa      2042  step9b/cross_region_transfer_summary.md
+0a01454b94cd10cc77a8b1802d12356cbb9d9c252d35aa96ce926d45aae6e456     13568  step9c/cross_region_bootstrap_metrics.json
+c12f271e169d6d5ef89d714a133499773d82137191bddd75898cb625a8980dc3      2160  step9c/cross_region_bootstrap_summary.md
+3174e060c24d5b948344184ecaa8aec06c27184679211ca06479bef739bb9d5c     51815  step9d/final_cross_region_report.json
+450c8530647569cf31b6fc2197101c88087f9af88eaa161b6ec14894d311dcb4      2249  step9d/final_cross_region_report.md
+911170fd4c8581fcd278e7e86e7b76b1ecf3e51a3159dcc95c7be1ae5bf4520b    191930  step9e/distribution_shift_audit.json
+ded5d90cd386289538ccf9d550d21fa8bea43e4bee16e64577d33777245837ef      5106  step9e/distribution_shift_summary.md

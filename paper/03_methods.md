@@ -515,11 +515,54 @@ probes reproduce to four decimal places under 1.9.0 but move by +0.021 and +0.02
 with byte-identical data, pipeline and seed, so cross-region point estimates carry an
 implementation tolerance of roughly ±0.02–0.03 unless the exact library version is fixed —
 within-region AUCs reproduce to ~4 decimals across versions (`paper/sklearn_version_sensitivity.md`;
-probe script `paper/pairwise_check.py`). `[TO VERIFY: quote the
-achieved reproduction tolerances for the final region set from `reproduction_check.json`; the
-two-region check agreed to ≤1×10⁻⁴ for within-region AUCs and to ±0.002 for CORAL transfer scores,
-but this must be re-established once all regions are included.]` No file belonging to the upstream
-pipeline or to previously frozen outputs was modified by this analysis.
+probe script `paper/pairwise_check.py`).
+
+The reproduction check was executed on the final five-region set by the pipeline author, and its
+record is archived with this manuscript
+(`paper/reproduction_check/reproduction_check_5region.json`, SHA-256 `7f7e41f5…09c8be`; commit
+`48b56e7`, Python 3.12.3, scikit-learn 1.9.0, pandas 3.0.2, NumPy 2.4.4, primary population
+`burnable_tree_shrub_grass`). Two families of comparison were re-executed
+against the frozen outputs. The within-region arm refitted `step8b`'s baseline and thermal models
+on the frozen Step 8A parquet of each of the five experiments and compared ROC-AUC and PR-AUC —
+twenty comparisons, all twenty produced, **maximum absolute difference exactly 0**. The transfer
+arm regenerated the label-blind CORAL predictions and re-evaluated them for all twenty directed
+region pairs, again in both model families and both metrics — eighty comparisons over twenty
+directions, none missing, **maximum absolute ROC-AUC difference 1.6×10⁻⁷** (largest case
+Montiferru→Manavgat, thermal: 0.6060780 against 0.6060778); sixty-nine of the eighty comparisons
+were bit-identical and the remaining eleven differed by 1.6×10⁻⁷ or less.
+
+The tolerance against which these differences are judged is not a criterion chosen for this
+report. It is the repository's own pre-existing Step 10C fail-fast reproduction criterion —
+absolute difference ≤ 1×10⁻⁶, defined in `src/step10c_paired_evaluation_bootstrap.py` — applied
+unchanged, and the check record states this explicitly. Both arms fall inside it, the within-region
+arm by exact equality. The reported `PASS` is a technical-completion status covering cohort
+resolution, comparison coverage and input-hash agreement; the achieved numerical differences are
+reported separately, as above, rather than folded into that status.
+
+What this check does and does not establish should be stated plainly. Because it re-executes the
+pipeline in the same library environment that produced the frozen outputs, the exact-zero
+within-region agreement demonstrates determinism and the absence of undeclared state — that the
+recorded numbers are regenerable from the recorded inputs, hashes included — rather than robustness
+to a change of environment. The residual 10⁻⁷-scale differences in the transfer arm arise from
+re-derived rather than re-read intermediate quantities, not from a different library stack.
+Cross-version behaviour is established separately and is far coarser: the ±0.02–0.03 implementation
+tolerance quoted above, from the 1.9.0-against-1.7.2 probes. The two statements are complementary
+and neither substitutes for the other.
+
+Two further properties of the record are stated for completeness. First, the five-region cohort was
+resolved by three independent routes — the experiment registry restricted to canonical records
+(those carrying no `superseded_by` key, which drops the legacy Evia AOI of Section 3.16.1 and the
+superseded Muğla calendar-shift record) and with non-cohort roles removed, the ERA5-Land
+diagnostic's `DEFAULT_EXPERIMENTS` constant, and the frozen multi-AOI synthesis manifest — and all
+three return the same ordered set (`routes_agree: true`); the two deliberate exclusions by role are
+Kozan 2023 as `negative_control` and the second Muğla event as `temporal_transfer_wildfire`
+(Sections 3.1, 3.3, 3.16.4). The roles and the supersession links are as recorded in
+`core/regions.py`. Second, two unordered region pairs
+carry duplicate Step 10 namespaces on disk under reversed directory orderings with distinct
+analysis identifiers (Bejís–Muğla and Manavgat–Muğla); the reference artefact was selected by the
+frozen synthesis manifest rather than by directory listing, and the check record names both the
+paths present and the one used for each pair. No file belonging to the upstream pipeline or to
+previously frozen outputs was modified by this analysis.
 
 **Data and code availability.** The satellite inputs are all public and are obtained through Google
 Earth Engine: MODIS MCD64A1 Collection 6 burned area, MODIS land surface temperature, Landsat
@@ -718,10 +761,16 @@ to the year alone. The registered claim is `same_geography_event_to_event`, and 
 made here. The entry is deliberately kept out of the canonical five-AOI cohort by its
 `temporal_transfer_wildfire` role so that a second year of an already-represented AOI cannot be
 silently enrolled into the spatial comparisons. That exclusion is not merely a convention we
-observe: it is enforced in code and tested. The ERA5-Land diagnostic's validator carries a
-dedicated check, `A07_mugla_2022_absent_from_default_analysis`, which fails if the second Muğla
-event appears in the default five-region cohort, and that check passes on the executed output
-(Section 3.17). The decision to keep this pair out of the 20-direction transfer matrix is therefore
+observe: it is enforced in code and tested. The ERA5-Land diagnostic's validator
+(`scripts/validate_era5_land_regional_diagnostic.py`) carries two relevant checks, and they have
+different reach. `A08_cohort_is_the_frozen_five` requires the executed cohort to equal the frozen
+`DEFAULT_EXPERIMENTS` tuple exactly, as an ordered comparison, so *any* addition — including this
+experiment — fails it. `A07_mugla_2022_absent_from_default_analysis` is narrower than its name
+suggests: it tests literal membership of the string `mugla_2022`, which is the registry's
+superseded calendar-shift record, and would not by itself catch the `mugla_2022_event_relative`
+entry analysed here. Both checks pass on the executed output (Section 3.17), but the guarantee for
+this experiment rests on A08. The decision to keep this pair out of the 20-direction transfer
+matrix is therefore
 verifiable in the released code rather than resting on the text of this paper. The same
 leakage-safe pre-label exclusion applies as in every other region: cells that burned inside this
 experiment's own predictor window are removed from the analysis universe rather than counted as
@@ -742,9 +791,9 @@ intervals; a reversal counts as bootstrap-supported only when both experiments' 
 in that export carry a `_superseded_pre_manavgat_repair` suffix and are superseded; they are
 retained for the record and are not read here.
 
-Unlike every other transfer direction in this paper, the two arms of this pair are **not** read
-from a frozen export: no `mugla_2021__mugla_2022_event_relative` directory existed, so they were
-computed for this analysis. They were produced by running the project's own unmodified
+Unlike every other transfer direction in this paper, the two arms of this pair were not present in
+the frozen export delivered to us — it contained no `mugla_2021__mugla_2022_event_relative`
+directory — so they were computed for this analysis. They were produced by running the project's own unmodified
 `src/step9b_run_cross_region_transfer.py` and `src/step9c_cross_region_block_bootstrap.py` at
 commit `48b56e7` — the same code and the same protocol as Section 3.10 and Section 3.9, with
 `random_state = 42`, the primary RF configuration, and the 1,000-replicate spatial-block bootstrap
@@ -754,12 +803,34 @@ read-only and the pipeline resolves its paths from its own location, the run use
 root containing a copy of `core/`, `src/` and `scripts/` plus those two inputs, so nothing was
 written into the pipeline repository or into the frozen output archive. The environment was Python
 3.12.3 with scikit-learn 1.9.0, pandas 3.0.5 and NumPy 2.5.2, matching the version to which every
-other transfer number in this paper is fixed (Section 4.7e). Two consequences are stated rather
-than hidden: the metrics file records `git_commit: null`, because the shadow root is not itself a
-git repository, and these two directions were executed by the authors of this manuscript rather
-than by the pipeline author who produced the other twenty. The interval-supported effects reported
-in Section 4.8 are an order of magnitude larger than the ±0.02–0.03 cross-version tolerance of
-Section 4.7e, so the conclusions do not rest on the exact point estimates.
+other transfer number in this paper is fixed (Section 4.7e). One consequence is stated rather than
+hidden: the metrics file records `git_commit: null`, because the shadow root is not itself a git
+repository.
+
+**Independent execution of this pair.** These two directions were subsequently found to have been
+run by the pipeline author as well, in a separate environment and before our own run, and that
+export was supplied to us; the pair therefore rests on two independent executions rather than on
+one performed by the authors of this manuscript. The two runs are separated in date, machine,
+code-tree state and library stack: the pipeline author's run was produced on 2026-08-09 at commit
+`a07ea33` under scikit-learn 1.9.0 with pandas 3.0.2 and NumPy 2.4.4, and ours on 2026-08-11 at
+commit `48b56e7` under Python 3.12.3, scikit-learn 1.9.0, pandas 3.0.5 and NumPy 2.5.2. Both read
+the same two frozen Step 8A parquets, identical by SHA-256 (`c4ab107d…` for 2021 and `7c545f4d…`
+for the 2022 event-relative experiment), and both used `random_state = 42`.
+
+Agreement is to floating-point noise rather than to a stated tolerance. Across both directions and
+both model families the transfer ROC-AUC and PR-AUC point estimates agree to **≤1×10⁻⁷** — the
+2021→2022 direction is bit-identical in every reported metric, and the largest discrepancy anywhere
+in the pair is 9.9×10⁻⁸ — and the 1,000-replicate spatial-block bootstrap reproduces to the same
+order, with the ΔAUC interval bounds agreeing to ≤3.4×10⁻⁸. The agreement also holds below the
+metric level: the two runs' per-cell prediction tables have identical row counts and columns, and
+across all 295,402 predicted probabilities the largest absolute difference is 4.4×10⁻¹⁶, which is
+double-precision round-off. The prediction files themselves therefore differ in SHA-256 — last-place
+decimal digits change the serialised string length — while the human-readable step9b and step9c
+summary files of the two runs are byte-identical. The pipeline author's copy of these outputs is
+archived alongside ours in `paper/mugla_transfer_raw/emrehan_run_20260809/` with hashes and
+provenance in that directory's `SHA256SUMS.txt`. The interval-supported effects reported in
+Section 4.8 are in any case an order of magnitude larger than the ±0.02–0.03 cross-version
+tolerance of Section 4.7e, so the conclusions do not rest on the exact point estimates.
 
 ## 3.17 Regional meteorological context (explanatory)
 
@@ -884,10 +955,45 @@ here and the version pinned as a submodule of the manuscript repository.
                the shared folds use add_spatial_block_id(..., spatial_block_size_cells) with
                STEP8B_SPATIAL_BLOCK_SIZE_CELLS = 2 (~1 km), at
                src/window_closure_sensitivity.py:8562 and core/config.py:556.
-    OPEN §3.13 reproduction tolerances for the FINAL five-region set. No reproduction_check.json
-               exists anywhere in drive_new; only the historical two-region figures (<=1e-4
-               within-region, +-0.002 CORAL) are quoted. Needs the pipeline author.
-    KEPT §3.13 reproduction tolerances for the final region set (reproduction_check.json).
+    CLOSED 2026-08-13  §3.13 reproduction tolerances for the FINAL five-region set. The pipeline
+               author produced reproduction_check.json on 2026-08-11 (commit 48b56e7); it is
+               archived at paper/reproduction_check/reproduction_check_5region.json, sha256
+               7f7e41f5210ee32de7585bb89f8121fa2d127ee98e3aa03ef4351c608909c8be, and was read
+               from source rather than from the covering mail. Achieved: within-region max
+               |dROC-AUC| = 0 exactly (20/20 comparisons); CORAL max |dROC-AUC| = 1.6164523e-7
+               (20/20 directions, 80 comparisons, 69 bit-identical, missing_directions empty).
+               Judged against the repo own pre-existing 1e-6 Step10C fail-fast criterion, applied
+               unchanged -- stated in the text, since it forecloses the "tolerance chosen to fit"
+               objection. Cohort resolution (3 agreeing routes) and the duplicate Step10
+               namespaces for Bejis-Mugla / Manavgat-Mugla also written into §3.13. The historical
+               two-region figures (<=1e-4 within-region, +-0.002 CORAL) are superseded and gone.
+               THIS FILE NOW HAS NO OPEN [TO VERIFY].
+    CLOSED 2026-08-13  §3.16.4 -- not a marker, but the same round: the pipeline author supplied
+               his own 2026-08-09 run (commit a07ea33) of the Mugla 2021<->2022 arms. Same input
+               hashes, different pandas/numpy, agreement <=1e-7 and byte-identical summary .md.
+               The paragraph claiming these two directions were authors-produced was replaced by
+               an independent-execution paragraph. Archive:
+               paper/mugla_transfer_raw/emrehan_run_20260809/.
+    VERIFIED 2026-08-13  Repo-source checks of claims that were previously self-referential
+               (read from repo/ at 48b56e7, not from the JSON/config that asserts them):
+               - Tolerance: RAW_/WITHIN_REGION_REPRODUCTION_TOLERANCE = 1e-6 at
+                 src/step10c_paired_evaluation_bootstrap.py:59-60, enforced by a raise at :373.
+                 git log -S shows both introduced in commit bccc258 on 2026-07-13, four weeks
+                 BEFORE the 2026-08-11 reproduction check, and never modified since. The
+                 "pre-existing, not chosen for this report" claim in §3.13 is now source-backed.
+               - Cohort route 1: core/regions.py has 9 entries; canonical = no superseded_by
+                 (drops evia_2021 and mugla_2022), minus roles negative_control /
+                 temporal_transfer_wildfire -> exactly the five. §3.13 amended to name the
+                 supersession filter, which was doing real work and was not described.
+               - CORRECTED §3.16.4: A07_mugla_2022_absent_from_default_analysis tests literal
+                 membership of the string "mugla_2022" (the SUPERSEDED calendar-shift record) at
+                 scripts/validate_era5_land_regional_diagnostic.py:317-321. It would NOT catch
+                 mugla_2022_event_relative, which is the entry §3.16.4 is about. The real
+                 guarantee is A08_cohort_is_the_frozen_five (exact ordered tuple equality with
+                 DEFAULT_EXPERIMENTS). The paragraph overclaimed A07 and now states both.
+               - S1 few-shot protocol claims verified in src/few_shot_recovery.py: tier
+                 constants :125-127, blake2b seed derivation :324, sort-then-shuffle :719-720,
+                 FORBIDDEN_UNCERTAINTY_TERMS :196.
 
     CLOSED 2026-08-08 (second round):
     §3.1  Kozan -- DECIDED IN. It now appears as a negative control in three places: a pointer in

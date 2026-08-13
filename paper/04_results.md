@@ -494,7 +494,11 @@ collapse.
 **Table R9. Transfer between the two Muğla events.** Primary population, thermal and baseline
 models, target ROC-AUC with 5 km spatial-block bootstrap 95 % CIs (Section 3.16.4). Within-region
 references are each target's own frozen value at 2-cell blocking (Table 3 for 2021; the 2022
-figure is its Step 8C point estimate, ΔAUC +0.078 [+0.061, +0.097]).
+figure is its Step 8C point estimate, ΔAUC +0.078 [+0.061, +0.097]). The baseline and thermal
+columns are point estimates on the full target; the ΔAUC column is the bootstrap mean reported
+alongside its interval, so it differs from the difference of the two point estimates in the third
+decimal (point ΔAUC −0.083 and +0.088 respectively). Both arms of this pair were reproduced
+independently by the pipeline author to ≤1×10⁻⁷ (Section 3.16.4).
 
 | Direction | Baseline | Thermal | ΔAUC (thermal − baseline) | Target's within-region thermal | Gap |
 |---|---|---|---|---|---|
@@ -558,9 +562,16 @@ interpretation of its transfer behaviour is taken up in Section 5.7.
 
 <!-- DRAFT NOTES:
 
-(a) TO VERIFY — one [PENDING], added 2026-08-11 in §4.8: the Muğla 2021 ↔ 2022 transfer AUCs do
-    not exist yet (no such pair in drive_new/cross_region/; step9f integration unavailable in
-    both directions), so §4.8 reports mechanism only. Every number that IS in this draft traces
+(a) CLOSED 2026-08-13. The [PENDING] added 2026-08-11 in §4.8 read: "the Muğla 2021 ↔ 2022
+    transfer AUCs do not exist yet (no such pair in drive_new/cross_region/)". They were then
+    computed for this analysis (§3.16.4) and now appear in Table R9. On 2026-08-13 the pipeline
+    author supplied his OWN earlier run of the same two arms (produced 2026-08-09, commit
+    a07ea33, pandas 3.0.2 / numpy 2.4.4 against our pandas 3.0.5 / numpy 2.5.2, same
+    scikit-learn 1.9.0, same input hashes): every point metric and bootstrap bound agrees to
+    <=1e-7 and the step9b/step9c summary .md files are byte-identical. Archived at
+    paper/mugla_transfer_raw/emrehan_run_20260809/ with SHA256SUMS.txt. Table R9 caption also
+    gained a note that its delta column is the bootstrap mean, not the difference of the two
+    point estimates. Every number that IS in this draft traces
     to facts_results.md, a paper/ analysis report, or — for §4.8 and §4.9, added 2026-08-11 —
     directly to hashed raw files under paper/mugla_temporal_raw/, paper/step9g_raw/ and
     paper/era5_raw/. Those three sources are outside the facts_results.md extraction and were

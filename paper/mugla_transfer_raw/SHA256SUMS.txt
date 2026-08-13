@@ -5,6 +5,20 @@
 # Inputs (frozen step8a datasets, hashed as read):
 #   c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e  mugla_2021 step8a_500m_modeling_dataset.parquet
 #   7c545f4da8fa7f8973575400862595d6ef85a8d55b9b25bc16fc54aba23a1d52  mugla_2022_event_relative step8a_500m_modeling_dataset.parquet
+#
+# LINE-ENDING WARNING (added 2026-08-13). The hashes below are of the files AS PRODUCED,
+# with LF line endings. This repository has core.autocrlf=true and this directory was
+# MISSING from .gitattributes until 2026-08-13, so a Windows checkout had rewritten the
+# .json/.csv/.md files to CRLF and 5 of the 9 hashes below stopped matching the working
+# tree. The committed blobs were correct throughout -- no data was lost. Fixed by adding
+# "paper/mugla_transfer_raw/** -text" to .gitattributes and re-checking out the files.
+# If a hash ever fails again, strip carriage returns before hashing and compare again
+# before suspecting the data.
+#
+# INDEPENDENT RUN: the pipeline author own execution of these same two arms is archived
+# in emrehan_run_20260809/ (see its SHA256SUMS.txt). Point metrics and bootstrap bounds
+# agree to <=1e-7; the 295,402 per-cell predicted probabilities agree to <=4.4e-16, i.e.
+# double-precision round-off. The prediction FILES differ in SHA-256 for that reason.
 
 9179104615a7409477a193eaae6a8ead221aa075043be725663a11bb7fd2de75      49663  mugla_2021__mugla_2022_event_relative/step9b/cross_region_pr_curves.png
 fcfee3b5009299adb2ea921a6ac0c678b3a8ca366a41971af6b9b6891c96af72      80256  mugla_2021__mugla_2022_event_relative/step9b/cross_region_roc_curves.png

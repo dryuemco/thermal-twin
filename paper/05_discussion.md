@@ -202,8 +202,8 @@ directions — that is, target labels; applied label-free, the same removal degr
 aligned directions. The consistent lesson is the one the adaptation literature reached once the
 conditional component was recognised as binding [@Tuia2016; @Persello2012]: a small number of
 target labels is the resource that label-free machinery cannot substitute for. A supervised
-few-shot recalibration analysis exists in the project diagnostics and is intended for the
-supplementary material [TO VERIFY: supplementary inclusion decision]; it is not drawn on here.
+few-shot recalibration analysis exists in the project diagnostics and is reported in the
+supplementary material (Supplementary S1); it is not drawn on here.
 
 ## 5.6 The pre-registered regime hypothesis, reported as it happened
 
@@ -558,8 +558,11 @@ separable in this design.
 COORDINATOR REVIEW (2026-08-08), changes applied after drafting:
     1. §5.8 — recency-of-information clause removed (borderline mechanism speculation); the
        contamination-direction logic and the "safe direction" validity remark retained.
-    2. §5.5 — few-shot supplementary pointer now carries an inline [TO VERIFY] (inclusion
-       decision pending); no numbers introduced.
+    2. §5.5 — few-shot supplementary pointer carried an inline [TO VERIFY] (inclusion decision
+       pending); no numbers introduced. CLOSED 2026-08-13: the pipeline author decided it IN.
+       The pointer now names Supplementary S1 (paper/S1_few_shot_recovery.md, written this round
+       from the frozen few_shot_recovery export: 3 regions, 6 directions, Table S1, seven stated
+       limits). §5.5 still introduces no numbers. 05_discussion now has no open body marker.
     3. §5.11(v) — "two to four times (0.038–0.225)" was numerically wrong (0.287/0.038 ≈ 7.6);
        corrected to 4–7× vs Manavgat/Bejís/Muğla, marginally above Montiferru.
     4. All 19 citation keys used here verified present in 01/02/03/LITERATURE/REFERENCES.bib;
