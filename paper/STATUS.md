@@ -155,7 +155,11 @@ and 8 (`*_greyscale.png`).
 
 Mechanical only — no analysis, no new numbers, no open judgement calls.
 
-1. **Assembly round.** Merge the section files into one document; renumber the lettered
+1. **Assembly round.** *(2026-08-13: the mechanical half is done — `paper/tex/` now holds a
+   generated `manuscript.tex` + `supplementary.tex` in Elsevier `elsarticle` format, built from
+   the Markdown by `build_tex.mjs` and checked by `verify_tex.mjs`, 12/12 source checks passing.
+   **Never compiled — no TeX on this machine.** Remaining: affiliation, keyword confirmation,
+   Table 2, and a first compile.)* Merge the section files into one document; renumber the lettered
    R-tables (R1–R10) into the final sequence alongside Tables 3–6; drop the DRAFT-NOTES comment
    blocks; apply the journal template. Main-text figure numbering is already final and consistent
    across `figure_captions.tex`, §4 and §5. **Added 2026-08-13:** `S1_few_shot_recovery.md` must
