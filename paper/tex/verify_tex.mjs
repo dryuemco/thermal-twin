@@ -28,8 +28,20 @@ let md = SECTIONS.map(f => read(f + '.md')).join('\n')
   .split(/\r?\n/).filter(l => !/^>\s?/.test(l)).join('\n');
 
 const tex = read('tex/manuscript.tex');
-const body = tex.slice(tex.indexOf('\\end{frontmatter}'),
-                       tex.indexOf('% ---------------------------------------------------------------- figures --'));
+// The body is what was ported from the Markdown. Everything the template
+// generates is excluded: the frontmatter above it, and below it the journal
+// declarations (CRediT, competing interest, funding, data availability) and the
+// figure captions, which are maintained in their own file. The declarations
+// carry facts that exist nowhere in the Markdown, such as the grant number, so
+// including them would make the number comparison report inventions that are
+// not inventions.
+const DECLARATIONS = '% ------------------------------------------------------------ declarations --';
+const FIGURES = '% ---------------------------------------------------------------- figures --';
+const bodyEnd = [DECLARATIONS, FIGURES]
+  .map(m => tex.indexOf(m))
+  .filter(i => i !== -1)
+  .reduce((a, b) => Math.min(a, b), tex.length);
+const body = tex.slice(tex.indexOf('\\end{frontmatter}'), bodyEnd);
 
 // ------------------------------------------------------------ 1. numbers --
 // Unicode superscripts and subscripts are digits too: 10^-8 is written with
