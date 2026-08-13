@@ -1,0 +1,674 @@
+{
+  "meta": {
+    "created": "2026-08-14",
+    "purpose": "Referee round 2: numbers the panel asked for, computed from frozen artefacts only.",
+    "seed": 42,
+    "inputs_are_read_only": true
+  },
+  "A_mean_paired_contribution": {
+    "n_directions": 20,
+    "mean": 0.004240575177514203,
+    "sd": 0.07126564410648138,
+    "min": -0.14763956562833563,
+    "max": 0.13245290018710887,
+    "n_positive": 12,
+    "n_negative": 8,
+    "ci_naive_percentile": [
+      -0.026757662229092653,
+      0.0338917815069705
+    ],
+    "ci_pair_cluster_percentile": [
+      -0.02772389708869454,
+      0.03551864831423447
+    ],
+    "ci_pair_t": [
+      -0.03390209916514054,
+      0.04238324952016894
+    ],
+    "ci_region_jackknife_t": [
+      -0.03710987062126625,
+      0.04559102097629465
+    ],
+    "replicates": 20000,
+    "leave_one_region_out": [
+      {
+        "region": "manavgat_2021",
+        "n_directions": 12,
+        "mean": 0.014799004215845934
+      },
+      {
+        "region": "bejis_2022",
+        "n_directions": 12,
+        "mean": 0.002071463342146677
+      },
+      {
+        "region": "mugla_2021",
+        "n_directions": 12,
+        "mean": 0.006463344102611582
+      },
+      {
+        "region": "evia_2021_extended",
+        "n_directions": 12,
+        "mean": -0.008130482321366761
+      },
+      {
+        "region": "montiferru_2021",
+        "n_directions": 12,
+        "mean": 0.005999546548333581
+      }
+    ]
+  },
+  "B_conditional_index": {
+    "n_directions": 16,
+    "n_pairs": 8,
+    "spearman_16dir": 0.8404180632330576,
+    "published_16dir": 0.8404180632330576,
+    "published_ci": [
+      0.5764930300097753,
+      0.87635999649456
+    ],
+    "tie_ceiling_16dir": 0.8609160647753272,
+    "spearman_pair_level": 0.8660254037844386,
+    "exact_permutation_p_one_sided": 0.005952380952380952,
+    "n_permutations": 40320,
+    "max_attainable_rho_pair": 0.8660254037844386,
+    "bonferroni_threshold_19_variants": 0.002631578947368421,
+    "survives_bonferroni": false,
+    "fisher_ci_n8": [
+      0.4140052431461058,
+      0.97542868188357
+    ],
+    "fisher_ci_n16": [
+      0.5908682960483153,
+      0.9431905008897196
+    ],
+    "bonett_wright_ci_n8": [
+      0.28134686345313875,
+      0.9817856418358583
+    ],
+    "index_distinct_values": [
+      0,
+      0.5,
+      1
+    ],
+    "index_tie_counts": [
+      {
+        "value": 0,
+        "n": 2
+      },
+      {
+        "value": 0.5,
+        "n": 1
+      },
+      {
+        "value": 1,
+        "n": 5
+      }
+    ],
+    "pair_rows": [
+      {
+        "pair": "bejis_2022__manavgat_2021",
+        "index": 0,
+        "mean_raw_thermal_auc": 0.38468104820168947,
+        "n_directions": 2
+      },
+      {
+        "pair": "manavgat_2021__mugla_2021",
+        "index": 0.5,
+        "mean_raw_thermal_auc": 0.4355797684669911,
+        "n_directions": 2
+      },
+      {
+        "pair": "evia_2021_extended__manavgat_2021",
+        "index": 1,
+        "mean_raw_thermal_auc": 0.6491699111133777,
+        "n_directions": 2
+      },
+      {
+        "pair": "bejis_2022__mugla_2021",
+        "index": 1,
+        "mean_raw_thermal_auc": 0.6008329935711114,
+        "n_directions": 2
+      },
+      {
+        "pair": "bejis_2022__evia_2021_extended",
+        "index": 0,
+        "mean_raw_thermal_auc": 0.415414684563159,
+        "n_directions": 2
+      },
+      {
+        "pair": "evia_2021_extended__mugla_2021",
+        "index": 1,
+        "mean_raw_thermal_auc": 0.6151208313273461,
+        "n_directions": 2
+      },
+      {
+        "pair": "montiferru_2021__mugla_2021",
+        "index": 1,
+        "mean_raw_thermal_auc": 0.5752976105196292,
+        "n_directions": 2
+      },
+      {
+        "pair": "evia_2021_extended__montiferru_2021",
+        "index": 1,
+        "mean_raw_thermal_auc": 0.6164485789097961,
+        "n_directions": 2
+      }
+    ]
+  },
+  "C_block_counts": [
+    {
+      "region": "Manavgat",
+      "region_id": "manavgat_2021",
+      "n_cells": 20511,
+      "n_burned": 784,
+      "blocks": {
+        "2": {
+          "total": 5439,
+          "positive_carrying": 235
+        },
+        "10": {
+          "total": 237,
+          "positive_carrying": 28
+        },
+        "20": {
+          "total": 60,
+          "positive_carrying": 12
+        }
+      }
+    },
+    {
+      "region": "Bejis",
+      "region_id": "bejis_2022",
+      "n_cells": 15190,
+      "n_burned": 1100,
+      "blocks": {
+        "2": {
+          "total": 3967,
+          "positive_carrying": 302
+        },
+        "10": {
+          "total": 176,
+          "positive_carrying": 19
+        },
+        "20": {
+          "total": 48,
+          "positive_carrying": 6
+        }
+      }
+    },
+    {
+      "region": "Mugla",
+      "region_id": "mugla_2021",
+      "n_cells": 41730,
+      "n_burned": 2911,
+      "blocks": {
+        "2": {
+          "total": 11316,
+          "positive_carrying": 843
+        },
+        "10": {
+          "total": 576,
+          "positive_carrying": 70
+        },
+        "20": {
+          "total": 167,
+          "positive_carrying": 33
+        }
+      }
+    },
+    {
+      "region": "Evia",
+      "region_id": "evia_2021_extended",
+      "n_cells": 9298,
+      "n_burned": 2664,
+      "blocks": {
+        "2": {
+          "total": 2566,
+          "positive_carrying": 716
+        },
+        "10": {
+          "total": 155,
+          "positive_carrying": 41
+        },
+        "20": {
+          "total": 50,
+          "positive_carrying": 15
+        }
+      }
+    },
+    {
+      "region": "Montiferru",
+      "region_id": "montiferru_2021",
+      "n_cells": 2544,
+      "n_burned": 539,
+      "blocks": {
+        "2": {
+          "total": 743,
+          "positive_carrying": 192
+        },
+        "10": {
+          "total": 35,
+          "positive_carrying": 16
+        },
+        "20": {
+          "total": 12,
+          "positive_carrying": 6
+        }
+      }
+    }
+  ],
+  "D_step8d_ablation": [
+    {
+      "region": "Manavgat",
+      "region_id": "manavgat_2021",
+      "all_thermal": 0.06690615808852052,
+      "best_subset": "tvdi_group",
+      "best_subset_delta": 0.06454031845921315,
+      "fraction_of_full_block": 0.964639433844382,
+      "ranking": [
+        {
+          "group": "all_thermal",
+          "delta": 0.06690615808852052
+        },
+        {
+          "group": "tvdi_group",
+          "delta": 0.06454031845921315
+        },
+        {
+          "group": "downscaled_only",
+          "delta": 0.05850008871090384
+        },
+        {
+          "group": "fused_downscaled_group",
+          "delta": 0.057546381836559024
+        },
+        {
+          "group": "lst_anomaly_group",
+          "delta": 0.05608006559951517
+        },
+        {
+          "group": "tvdi_only",
+          "delta": 0.04869863302445743
+        },
+        {
+          "group": "tvdi_difference_only",
+          "delta": 0.048573228652742606
+        },
+        {
+          "group": "fused_lst_only",
+          "delta": 0.0474305585010909
+        },
+        {
+          "group": "current_lst_only",
+          "delta": 0.046010181839248876
+        },
+        {
+          "group": "lst_anomaly_only",
+          "delta": 0.032643511224127675
+        }
+      ]
+    },
+    {
+      "region": "Bejis",
+      "region_id": "bejis_2022",
+      "all_thermal": 0.05613342796309451,
+      "best_subset": "fused_downscaled_group",
+      "best_subset_delta": 0.040104974514484804,
+      "fraction_of_full_block": 0.7144579614993801,
+      "ranking": [
+        {
+          "group": "all_thermal",
+          "delta": 0.05613342796309451
+        },
+        {
+          "group": "fused_downscaled_group",
+          "delta": 0.040104974514484804
+        },
+        {
+          "group": "downscaled_only",
+          "delta": 0.03981798825730687
+        },
+        {
+          "group": "lst_anomaly_group",
+          "delta": 0.038711658816697914
+        },
+        {
+          "group": "tvdi_group",
+          "delta": 0.03786644299632236
+        },
+        {
+          "group": "fused_lst_only",
+          "delta": 0.028795470675527457
+        },
+        {
+          "group": "tvdi_only",
+          "delta": 0.02589089618685081
+        },
+        {
+          "group": "current_lst_only",
+          "delta": 0.025297696625588784
+        },
+        {
+          "group": "lst_anomaly_only",
+          "delta": 0.023228079230918186
+        },
+        {
+          "group": "tvdi_difference_only",
+          "delta": 0.01617904380927815
+        }
+      ]
+    },
+    {
+      "region": "Mugla",
+      "region_id": "mugla_2021",
+      "all_thermal": 0.11566300943993879,
+      "best_subset": "tvdi_group",
+      "best_subset_delta": 0.08932219132299568,
+      "fraction_of_full_block": 0.7722623832417113,
+      "ranking": [
+        {
+          "group": "all_thermal",
+          "delta": 0.11566300943993879
+        },
+        {
+          "group": "tvdi_group",
+          "delta": 0.08932219132299568
+        },
+        {
+          "group": "fused_downscaled_group",
+          "delta": 0.0822845483352882
+        },
+        {
+          "group": "lst_anomaly_group",
+          "delta": 0.08089818482945299
+        },
+        {
+          "group": "downscaled_only",
+          "delta": 0.07493472533331214
+        },
+        {
+          "group": "tvdi_only",
+          "delta": 0.05774331167571389
+        },
+        {
+          "group": "lst_anomaly_only",
+          "delta": 0.05724011752736402
+        },
+        {
+          "group": "tvdi_difference_only",
+          "delta": 0.0564811228434684
+        },
+        {
+          "group": "current_lst_only",
+          "delta": 0.051780467212342085
+        },
+        {
+          "group": "fused_lst_only",
+          "delta": 0.049819972829002745
+        }
+      ]
+    },
+    {
+      "region": "Evia",
+      "region_id": "evia_2021_extended",
+      "all_thermal": 0.15328490798606853,
+      "best_subset": "lst_anomaly_group",
+      "best_subset_delta": 0.12448011019762606,
+      "fraction_of_full_block": 0.8120832757321391,
+      "ranking": [
+        {
+          "group": "all_thermal",
+          "delta": 0.15328490798606853
+        },
+        {
+          "group": "lst_anomaly_group",
+          "delta": 0.12448011019762606
+        },
+        {
+          "group": "fused_downscaled_group",
+          "delta": 0.10452948049043909
+        },
+        {
+          "group": "tvdi_group",
+          "delta": 0.1033129904097646
+        },
+        {
+          "group": "downscaled_only",
+          "delta": 0.10139016767747555
+        },
+        {
+          "group": "fused_lst_only",
+          "delta": 0.07624737339087662
+        },
+        {
+          "group": "tvdi_only",
+          "delta": 0.07598567439915038
+        },
+        {
+          "group": "lst_anomaly_only",
+          "delta": 0.07367050122175245
+        },
+        {
+          "group": "current_lst_only",
+          "delta": 0.07054307095760204
+        },
+        {
+          "group": "tvdi_difference_only",
+          "delta": 0.03396309710373624
+        }
+      ]
+    },
+    {
+      "region": "Montiferru",
+      "region_id": "montiferru_2021",
+      "all_thermal": 0.10143750086749737,
+      "best_subset": "tvdi_group",
+      "best_subset_delta": 0.10043629331124881,
+      "fraction_of_full_block": 0.9901298085255829,
+      "ranking": [
+        {
+          "group": "all_thermal",
+          "delta": 0.10143750086749737
+        },
+        {
+          "group": "tvdi_group",
+          "delta": 0.10043629331124881
+        },
+        {
+          "group": "lst_anomaly_group",
+          "delta": 0.0829059077723131
+        },
+        {
+          "group": "downscaled_only",
+          "delta": 0.07435400367356193
+        },
+        {
+          "group": "tvdi_only",
+          "delta": 0.07304466107458629
+        },
+        {
+          "group": "fused_downscaled_group",
+          "delta": 0.07139757285820691
+        },
+        {
+          "group": "fused_lst_only",
+          "delta": 0.06448813032354206
+        },
+        {
+          "group": "current_lst_only",
+          "delta": 0.06434655476336992
+        },
+        {
+          "group": "tvdi_difference_only",
+          "delta": 0.04260961695945675
+        },
+        {
+          "group": "lst_anomaly_only",
+          "delta": 0.03507742702612682
+        }
+      ]
+    }
+  ],
+  "E_step7c_downscaling": [
+    {
+      "region": "Manavgat",
+      "region_id": "manavgat_2021",
+      "test_rmse_celsius": 2.038218769122207,
+      "test_r2": 0.8663059910246819,
+      "test_mae_celsius": 1.5294703059792307,
+      "validation_rmse_celsius": 2.031007600916406,
+      "validation_r2": 0.8602858008803309,
+      "spatial_calibration_note": "modis_lst_mean_celsius is a 4-year summer-mean MODIS context layer, not a current daily MODIS observation. This is a spatial downscaling/context calibration prototype, not yet daily MODIS downscaling.",
+      "coordinate_importance_sum": 0.12297530653906945,
+      "top_feature": {
+        "feature": "modis_lst_mean_celsius",
+        "importance": 0.5247490666888937
+      }
+    },
+    {
+      "region": "Bejis",
+      "region_id": "bejis_2022",
+      "test_rmse_celsius": 1.751180893387063,
+      "test_r2": 0.7951935706344972,
+      "test_mae_celsius": 1.3580493266277094,
+      "validation_rmse_celsius": 1.7499290435154706,
+      "validation_r2": 0.8097615383170109,
+      "spatial_calibration_note": "modis_lst_mean_celsius and modis_lst_std_celsius are single-season MODIS predictor-window summary layers for 2022-06-15 -> 2022-08-14; they are not multi-year baselines and not daily MODIS products.",
+      "coordinate_importance_sum": 0.12198325276567766,
+      "top_feature": {
+        "feature": "ndvi",
+        "importance": 0.48175618665338954
+      }
+    },
+    {
+      "region": "Mugla",
+      "region_id": "mugla_2021",
+      "test_rmse_celsius": 1.6462027573795206,
+      "test_r2": 0.9564664716865785,
+      "test_mae_celsius": 1.0755779385956032,
+      "validation_rmse_celsius": 1.5911776741041506,
+      "validation_r2": 0.9589605853149107,
+      "spatial_calibration_note": "modis_lst_mean_celsius and modis_lst_std_celsius are single-season MODIS predictor-window summary layers for 2021-06-01 -> 2021-07-28; they are not multi-year baselines and not daily MODIS products.",
+      "coordinate_importance_sum": 0.034677637079137846,
+      "top_feature": {
+        "feature": "slope",
+        "importance": 0.7765572039815868
+      }
+    },
+    {
+      "region": "Evia",
+      "region_id": "evia_2021_extended",
+      "test_rmse_celsius": 1.8026998395085359,
+      "test_r2": 0.8661269270995977,
+      "test_mae_celsius": 1.3890671047269116,
+      "validation_rmse_celsius": 1.8724395144170494,
+      "validation_r2": 0.8664891224438636,
+      "spatial_calibration_note": "modis_lst_mean_celsius and modis_lst_std_celsius are single-season MODIS predictor-window summary layers for 2021-06-05 -> 2021-08-02; they are not multi-year baselines and not daily MODIS products.",
+      "coordinate_importance_sum": 0.09717037747135945,
+      "top_feature": {
+        "feature": "modis_lst_mean_celsius",
+        "importance": 0.5926767238050875
+      }
+    },
+    {
+      "region": "Montiferru",
+      "region_id": "montiferru_2021",
+      "test_rmse_celsius": 1.8343670144258524,
+      "test_r2": 0.9091104365775087,
+      "test_mae_celsius": 1.4053903222367217,
+      "validation_rmse_celsius": 1.8902660403448919,
+      "validation_r2": 0.8884112435190499,
+      "spatial_calibration_note": "modis_lst_mean_celsius and modis_lst_std_celsius are single-season MODIS predictor-window summary layers for 2021-05-25 -> 2021-07-23; they are not multi-year baselines and not daily MODIS products.",
+      "coordinate_importance_sum": 0.06638005888948294,
+      "top_feature": {
+        "feature": "ndvi",
+        "importance": 0.6662573428163152
+      }
+    }
+  ],
+  "F_fused_gapfill": [
+    {
+      "region": "Manavgat",
+      "region_id": "manavgat_2021",
+      "gapfilled_pct_of_fused": 2.1497,
+      "gapfilled_pct_of_total": 2.1362,
+      "observed_coverage_pct": 97.2361,
+      "fused_coverage_pct": 99.3722,
+      "coverage_gain_pct": 2.1361
+    },
+    {
+      "region": "Bejis",
+      "region_id": "bejis_2022",
+      "gapfilled_pct_of_fused": 9.7002,
+      "gapfilled_pct_of_total": 9.7002,
+      "observed_coverage_pct": 90.2996,
+      "fused_coverage_pct": 99.9998,
+      "coverage_gain_pct": 9.7002
+    },
+    {
+      "region": "Mugla",
+      "region_id": "mugla_2021",
+      "gapfilled_pct_of_fused": 0.5882,
+      "gapfilled_pct_of_total": 0.588,
+      "observed_coverage_pct": 99.3855,
+      "fused_coverage_pct": 99.9735,
+      "coverage_gain_pct": 0.588
+    },
+    {
+      "region": "Evia",
+      "region_id": "evia_2021_extended",
+      "gapfilled_pct_of_fused": 0.8991,
+      "gapfilled_pct_of_total": 0.8976,
+      "observed_coverage_pct": 98.9307,
+      "fused_coverage_pct": 99.8283,
+      "coverage_gain_pct": 0.8976
+    },
+    {
+      "region": "Montiferru",
+      "region_id": "montiferru_2021",
+      "gapfilled_pct_of_fused": 0.1108,
+      "gapfilled_pct_of_total": 0.1108,
+      "observed_coverage_pct": 99.8365,
+      "fused_coverage_pct": 99.9473,
+      "coverage_gain_pct": 0.1108
+    }
+  ],
+  "G_pre_label_exclusion": [
+    {
+      "region": "Manavgat",
+      "region_id": "manavgat_2021",
+      "field_present": true,
+      "exclude_pre_label_burns": false,
+      "excluded_cells": 0
+    },
+    {
+      "region": "Bejis",
+      "region_id": "bejis_2022",
+      "field_present": false,
+      "exclude_pre_label_burns": null,
+      "excluded_cells": null
+    },
+    {
+      "region": "Mugla",
+      "region_id": "mugla_2021",
+      "field_present": true,
+      "exclude_pre_label_burns": true,
+      "excluded_cells": 49
+    },
+    {
+      "region": "Evia",
+      "region_id": "evia_2021_extended",
+      "field_present": true,
+      "exclude_pre_label_burns": true,
+      "excluded_cells": 16
+    },
+    {
+      "region": "Montiferru",
+      "region_id": "montiferru_2021",
+      "field_present": true,
+      "exclude_pre_label_burns": true,
+      "excluded_cells": 61
+    }
+  ]
+}

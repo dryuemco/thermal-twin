@@ -46,18 +46,20 @@
   \includegraphics[width=190mm]{figures/fig2_schematic.pdf}
   \caption{\textbf{Processing pipeline and evaluation programme.} Flow from
   source products (left) to the transfer and diagnostic programme (right);
-  every box carries the Methods subsection that specifies it. The three source
-  products merge onto the reconstructed $\sim$510\,m analysis grid
+  every box carries the Methods subsection that specifies it. The five source
+  products (MCD64A1 burned area, Landsat Collection 2 Level-2, MOD11A1,
+  Copernicus DEM GLO-30 and ESA WorldCover) merge onto the reconstructed
+  $\sim$510\,m analysis grid
   ($17\times17$ pixels of the 30\,m reference grid). The burned-landcover
   admissibility gate has two outcomes: regions that \emph{pass} proceed to the
   natural-vegetation primary population, while the rejecting branch (grey,
   dashed) terminates in the Kozan 2023 negative control, whose burned area is
   98\% cropland and which is never modelled. The dashed connector deliberately
   carries no arrowhead onward, so the control cannot be read as entering the
-  pipeline. Feature sets feed two evaluations in parallel --- within-region
+  pipeline. Feature sets feed two evaluations in parallel: within-region
   (random forest under spatial-block cross-validation) and cross-region
   transfer (source-only, 20 ordered directions, with label-blind z-score and
-  CORAL adaptation) --- whose levels are combined in the transfer-gap
+  CORAL adaptation). Their levels are combined in the transfer-gap
   decomposition (\S3.12). The footer states what applies throughout: leakage
   hard-exclusion, seed 42, 1000-replicate spatial-block bootstrap (\S3.13), and
   the sensitivity designs (\S3.16). Section references are verified against the
@@ -87,7 +89,7 @@
   with 95\% intervals: the increment does \emph{not} melt away, and its
   interval excludes zero in all fifteen region--block-size combinations. In (c)
   the five regions are offset horizontally by 0.15 cell so their whiskers
-  separate; \textbf{this offset is cosmetic --- all five regions are evaluated
+  separate; \textbf{this offset is cosmetic, since all five regions are evaluated
   at exactly the same three block sizes} (2, 10, 20 cells), and the offset is
   smaller than half the spacing between block sizes, so the groups cannot
   merge. Colour and marker shape both encode region, so the panels remain
@@ -110,14 +112,14 @@
   exactly on chance (0.5, marked by the black rule on the colour bar), so
   orange is below chance and purple above. Each panel header states that
   panel's range: adaptation compresses the spread from 0.326--0.686 (raw) to
-  0.431--0.630 (z-score) and 0.443--0.624 (CORAL) --- it pulls the extremes
+  0.431 to 0.630 (z-score) and 0.443 to 0.624 (CORAL). It pulls the extremes
   toward chance rather than lifting transfer. Cells below chance are hatched.
   The hatch is a redundant cue for print: a diverging palette is symmetric in
   luminance about its centre, so in greyscale a below-chance cell would
   otherwise be indistinguishable from an equally distant above-chance one.
   Hatching follows the \emph{exact} value while the printed label is rounded to
   two decimals, so two cells print ``0.50'' with different hatching: CORAL
-  Bej\'is$\rightarrow$Montiferru is 0.4991 (hatched, below chance) and
+  Bej\'is$\rightarrow$Evia is 0.4991 (hatched, below chance) and
   z-score Evia$\rightarrow$Mu\u{g}la is 0.5013 (un-hatched, above chance).
   Every cell carries its value, and every label's colour is chosen by measured
   WCAG contrast against that cell's rendered colour (worst case 4.7:1).
@@ -130,8 +132,8 @@
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=190mm]{figures/fig5_adaptation.pdf}
-  \caption{\textbf{Label-blind adaptation compresses every direction toward
-  chance rather than recovering transfer.} All 12 ordered directions among the
+  \caption{\textbf{Label-blind adaptation compresses transfer toward chance
+  rather than recovering it.} All 12 ordered directions among the
   four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u{g}la,
   Evia), natural-vegetation primary population. Each row is one direction. The
   open circle is raw transfer ROC-AUC and the arrow runs to the best
@@ -163,10 +165,12 @@
   target (open blue diamond), with the within-region ceiling as a grey vertical
   tick and chance as the dashed rule. Natural-vegetation primary population,
   thermal feature set, no adaptation. The pooled model lies to the left of the
-  best pairwise source in all five targets without exception --- adding source
+  best pairwise source in all five targets without exception. Adding source
   regions does not accumulate transferable signal. In two targets the pooled
-  model falls \emph{below chance} (Manavgat 0.469, Bej\'is 0.417) while a
-  single well-chosen source reaches 0.686 and 0.583 respectively. Every point
+  model falls \emph{below chance} at the point estimate (Manavgat 0.469,
+  Bej\'is 0.417), and only for Bej\'is does the interval lie entirely below
+  chance, while a single well-chosen source reaches 0.686 and 0.583
+  respectively. Every point
   remains far below the within-region ceiling.}
   \label{fig:loro}
 \end{figure}
@@ -184,7 +188,7 @@
   own marker and is named in the key; the grey path connects them in that
   order. Moving left along the path, transfer rises monotonically
   (0.541 $\rightarrow$ 0.556) while within-region skill falls monotonically
-  (0.888 $\rightarrow$ 0.807) --- both monotonicities are verified when the
+  (0.888 $\rightarrow$ 0.807). Both monotonicities are verified when the
   figure is built, so the figure cannot silently contradict the claim. The
   transfer gain is 0.014 AUC and the within-region cost 0.081 AUC, about six
   times larger: what is removed is locally informative and non-portable, and
@@ -199,8 +203,8 @@
   \centering
   \includegraphics[width=190mm]{figures/fig8_contrast_pairs.pdf}
   \caption{\textbf{Burned-niche overlap does not determine transfer: the
-  contrast pair.} Per-feature signed univariate AUC --- the probability that a
-  predictor takes a higher value on a burned cell than on an unburned one ---
+  contrast pair.} Per-feature signed univariate AUC, the probability that a
+  predictor takes a higher value on a burned cell than on an unburned one,
   for the two most informative region pairs, natural-vegetation primary
   population. Arrows run from chance (0.5) to the observed value, so their
   direction is the sign of the association and their length its strength;
@@ -224,7 +228,7 @@
   is supported in \emph{both} regions: there are two such features in (a)
   (NDVI and elevation) and \textbf{none in (b)}, where the two regions'
   supported sets are disjoint and Montiferru's intervals are wide. Pair (b)
-  therefore drops out of the supported-index sample entirely --- the index is
+  therefore drops out of the supported-index sample entirely. The index is
   undefined exactly on the pair that most challenges the overlap explanation,
   which is a limitation of the index and not evidence for it.}
   \label{fig:contrast-pairs}
