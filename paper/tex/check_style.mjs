@@ -29,10 +29,17 @@ function prose(md) {
 }
 
 // Sentence split that does not break on decimals, initials, or "e.g.".
+// Paragraphs are split first: a blank line always ends a sentence, and merging
+// across it would report two short sentences as one long one. Bold run-in
+// headers such as "**Q3. Recoverability.**" also end a sentence, even though the
+// full stop is followed by asterisks rather than by a space.
 function sentences(text) {
   return text
-    .replace(/\s+/g, ' ')
-    .split(/(?<![A-Z])(?<!\d)\.(?:\s+)(?=[A-Z“"(])/)
+    .split(/\n\s*\n/)                       // paragraphs
+    .flatMap(par => par
+      .replace(/\s+/g, ' ')
+      .replace(/\.\*\*\s+/g, '.** ')        // normalise the run-in header form
+      .split(/(?<![A-Z])(?<!\d)\.(?:\*\*)?\s+(?=[*A-Z“"(])/))
     .map(s => s.trim())
     .filter(s => s.split(/\s+/).length > 2);
 }
