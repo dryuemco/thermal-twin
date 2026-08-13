@@ -13,7 +13,8 @@
 
 ## 4.1 Study regions and data summary
 
-Five Mediterranean regions enter the analysis (Section 3.1, Table 1). Table R1 summarises cell counts, burned-cell counts
+Five Mediterranean regions enter the analysis (Section 3.1, Table 1). Table R1 summarises cell
+counts, burned-cell counts
 and prevalence for both analysis populations, together with the burned-landcover gate verdict of
 Section 3.3.
 
@@ -77,7 +78,7 @@ bootstrap, 1000 replicates. Block sizes 2/10/20 cells ≈ 1/5/10 km.
 | | 20 (~10 km) | 0.555 | 0.681 | +0.126 | [+0.053, +0.228] |
 
 At the default 2-cell blocking, thermal ΔAUC ranges from +0.056 (Bejís) to +0.153 (Evia), with
-ΔPR-AUC from +0.097 (Manavgat, [+0.071, +0.123]) to +0.300 (Evia, [+0.273, +0.329]); every
+ΔPR-AUC from +0.097 (Manavgat, [+0.071, +0.123]) to +0.300 (Evia, [+0.273, +0.329]). Every
 interval excludes zero. Absolute AUC declines as blocks coarsen, as expected when long-range
 spatial structure is progressively withheld, but the increment itself does not erode toward
 zero: at 20-cell (~10 km) blocking ΔAUC remains between +0.048 and +0.154 with all intervals
@@ -136,7 +137,7 @@ the Bejís-Muğla pair the thermal block is what carries transfer above chance i
 **Table R6. Paired baseline-versus-thermal raw transfer contrast (final numbering at
 assembly).** Target ROC-AUC per model; Δ = thermal − baseline computed on identical resampled
 target blocks (2-cell blocks, 1000 replicates). Full 20-direction table with baseline and
-thermal CIs in `baseline_vs_thermal_transfer.csv`; the seven CI-supported negative and ten
+thermal CIs in `baseline_vs_thermal_transfer.csv`. The seven CI-supported negative and ten
 CI-supported positive directions are listed there. Selected rows:
 
 | Direction | Baseline | Thermal | Δ [95% CI] | Support |
@@ -148,7 +149,8 @@ CI-supported positive directions are listed there. Selected rows:
 | Bejís→Evia | 0.531 | 0.383 | −0.148 [−0.168, −0.126] | negative |
 
 **Label-blind adaptation compresses the matrix toward chance.** Under region-wise z-scoring the
-20 directions span 0.431 to 0.630, and under CORAL 0.443 to 0.624. That is roughly half the raw spread, with no
+20 directions span 0.431 to 0.630, and under CORAL 0.443 to 0.624. That is roughly half the raw
+spread, with no
 adapted direction exceeding 0.63 against within-region references of 0.859 to 0.918. Adaptation
 raises the failing directions (e.g. Manavgat→Bejís 0.326 → 0.511 CORAL; Muğla→Manavgat 0.401 →
 0.560) and simultaneously degrades every direction that already transferred (e.g. Evia→Manavgat
@@ -179,7 +181,7 @@ without fraction CIs).
 
 The decomposition ([Fig. 5]) shows both faces of the same behaviour. In the five directions
 where raw transfer was below chance, the best label-blind method recovers at most 34% of the gap
-to the within-region reference; the remaining (concept) fraction is at least 0.66 everywhere.
+to the within-region reference. The remaining (concept) fraction is at least 0.66 everywhere.
 Seven directions show *negative* recovery, meaning that adaptation moves the score away from the
 within-region reference, in the worst case (Evia→Manavgat) recovering −0.86 of the gap. In six
 of the seven, raw transfer was already above chance and adaptation destroyed that advantage; in
@@ -199,7 +201,7 @@ bootstrap (Section 3.14.1). Table 6 gives the complete set.
 
 **Table 6. All transferability diagnostics versus raw thermal transfer (20 ordered
 directions).** Spearman ρ with pair-based bootstrap 95% CIs. Exp. = expected sign. Rows with n =
-12 exist only for the four-AOI subset; the supported-features conditional rows use the 16
+12 exist only for the four-AOI subset. The supported-features conditional rows use the 16
 directions (8 pairs) with at least one CI-supported feature.
 
 | Diagnostic | Family | Exp. | n dir | Spearman ρ [95% CI] | CI excludes 0 |
@@ -226,14 +228,15 @@ directions (8 pairs) with at least one CI-supported feature.
 | Vector Spearman, supported (≥3 feats) | P(y\|x) conditional | + | 2 | not computable | — |
 
 *Table note (power): the effective sample is 10 unordered pairs (6 for the 12-direction rows;
-8 for the supported-conditional rows); the two directions of a pair are not independent and every
+8 for the supported-conditional rows). The two directions of a pair are not independent and every
 pair shares regions with three others. Intervals of width ±0.5 to 0.8 cannot rule out moderate true
 correlations; null rows are "not shown to order transfer", not "shown not to".*
 
 Of the 20 variants, exactly two have bootstrap intervals excluding zero, and both belong to the
 conditional family: the sign-agreement fraction over CI-supported features (ρ = +0.84
 [+0.58, +0.88]) and the cosine similarity of supported signed-AUC vectors (ρ = +0.81
-[+0.33, +0.88]) (Section 3.14.4). These indices are computed from signed feature-response directions in *both* regions and
+[+0.33, +0.88]) (Section 3.14.4). These indices are computed from signed feature-response directions
+in *both* regions and
 therefore require burned labels (or a labelled probe) in the target; unlike every P(x), P(x|y=1)
 and P(y) row, they are not label-free.
 
@@ -274,10 +277,11 @@ cells occupy the most similar environmental envelope of any pair in the matrix (
 and all four absolute thermal channels (e.g. `current_lst_mean` 0.538 [0.452, 0.621] vs 0.325
 [0.271, 0.382]). Transfer is below chance in both directions with CI support. Bejís and
 Montiferru sit at the opposite extreme: burned envelopes that barely overlap (per-feature D
-0.23 to 0.77; the pair is the most dissimilar on every overlap measure), yet seven of nine
+0.23 to 0.77. The pair is the most dissimilar on every overlap measure), yet seven of nine
 directions agree. The pair has no jointly supported features, because the two regions' supported
 sets do not intersect, so the supported-agreement index is undefined for it. And
-transfer is above chance in both directions with CI support. Where the envelope agrees but the direction reverses, transfer
+transfer is above chance in both directions with CI support. Where the envelope agrees but the
+direction reverses, transfer
 fails; where the envelope disagrees but the direction agrees, transfer works.
 
 ## 4.6 Interventions: pooling and feature removal obey the same conservation
@@ -308,7 +312,7 @@ Region-wise z-scoring of the pool raises only the into-Manavgat fold substantial
 (0.469 → 0.657) and leaves Bejís below chance (0.417 → 0.472), while degrading the three folds
 where raw pooling was least bad (Evia 0.637 → 0.569; Montiferru 0.601 → 0.523; Muğla
 0.552 → 0.522). Pooled PR-AUC sits close to its no-skill base for every fold (e.g. Bejís 0.056
-vs base 0.072); no fold achieves operationally useful ranking of burned cells. For three of five
+vs base 0.072). No fold achieves operationally useful ranking of burned cells. For three of five
 targets the pooled *baseline* model matches or beats the pooled thermal one raw (Manavgat 0.563
 vs 0.469; Muğla 0.562 vs 0.552; Montiferru 0.596 vs 0.601 ≈ tie), with thermal ahead only for
 Evia (0.637 vs 0.597) and Bejís (0.417 vs 0.389).
@@ -322,7 +326,7 @@ within-region skill for a near-zero mean transfer gain (Table R4).
 deltas. *Note: the CI-supported above-chance counts in this table use the feature-drop
 analysis's ~5 km-block bootstrap and are therefore more conservative than the 2-cell-block
 step10 intervals of Table 4, under which 12 of 20 raw directions are CI-supported above
-chance; the coarser blocks widen the intervals without changing any point estimate.*
+chance. The coarser blocks widen the intervals without changing any point estimate.*
 
 | Config | Mean within AUC | Mean transfer AUC | Directions >0.5 (point) | Directions >0.5 (CI-supported) |
 |---|---|---|---|---|
@@ -332,11 +336,11 @@ chance; the coarser blocks widen the intervals without changing any point estima
 | Drop both | 0.807 | **0.556** | 17 | **10** |
 
 Dropping both reversal features buys +0.014 mean transfer AUC and one additional CI-supported
-above-chance direction at the price of −0.081 mean within-region AUC; the within-region cost of
+above-chance direction at the price of −0.081 mean within-region AUC. The within-region cost of
 removing elevation is bootstrap-supported in every region (largest Bejís −0.114
 [−0.147, −0.079]). The transfer deltas land exactly where the reversal diagnosis points:
 the three CI-supported gains are Manavgat→Bejís +0.118 [+0.048, +0.203], Evia→Bejís +0.075
-[+0.023, +0.131] and Montiferru→Manavgat +0.057 [+0.017, +0.092]; the mean delta over the eight
+[+0.023, +0.131] and Montiferru→Manavgat +0.057 [+0.017, +0.092]. The mean delta over the eight
 Manavgat-involved directions is +0.025 against −0.009 over the other twelve. Manavgat is
 the elevation dissenter (signed AUC 0.374 vs 0.61 to 0.65 elsewhere). Conversely, the five
 CI-supported losses (Evia→Manavgat −0.078; Manavgat→Evia −0.071; Muğla→Evia −0.038;
@@ -350,7 +354,8 @@ labels; applied label-free, the same removal degrades the five aligned direction
 
 **(a) Evia AOI and prevalence.** Repeating the raw transfer arms with the legacy (small,
 prevalence 0.361; TSG prevalence 0.676) versus extended (prevalence 0.122; TSG prevalence 0.287)
-Evia AOI (Section 3.16.1) leaves every qualitative conclusion unchanged: thermal raw transfer AUCs move by at most
+Evia AOI (Section 3.16.1) leaves every qualitative conclusion unchanged: thermal raw transfer AUCs
+move by at most
 0.070 (Evia→Bejís 0.378 → 0.448) and no direction changes side of chance (Manavgat→Evia
 0.662 → 0.613; Evia→Manavgat 0.670 → 0.686; Bejís→Evia 0.397 → 0.383; Muğla→Evia 0.630 → 0.653;
 Evia→Muğla 0.572 → 0.577). The 2.4-fold change in target prevalence does not create or destroy
@@ -360,7 +365,7 @@ any CI-supported transfer.
 leaves the thermal increment essentially unchanged: ΔAUC 0.104 [0.075, 0.131] versus 0.101
 [0.080, 0.125] for TSG (Section 3.16.2). Cross-region, the thermal-minus-baseline delta on the
 target agrees in sign and support between the two populations for six of eight
-Montiferru-involved directions; the two disagreements (Bejís→Montiferru, Montiferru→Muğla) move
+Montiferru-involved directions. The two disagreements (Bejís→Montiferru, Montiferru→Muğla) move
 from supported to uncertain, not to sign reversal. Montiferru's transfer behaviour is not driven
 by its cropland/grassland fringe.
 
@@ -382,7 +387,8 @@ assembly).**
 | Montiferru | 0.096 [0.074, 0.118] | 0.091 [0.068, 0.113] | 0.100 [0.077, 0.122] |
 
 **(d) CORAL regularisation.** The available sweep covers four directions (Bejís↔Muğla,
-Manavgat↔Muğla) and nine λ values from 0 to 10⁻¹. Over that sweep the CORAL transfer AUC moves by at most 0.008
+Manavgat↔Muğla) and nine λ values from 0 to 10⁻¹. Over that sweep the CORAL transfer AUC moves by at
+most 0.008
 within any direction (e.g. Muğla→Manavgat 0.559 to 0.564; Manavgat→Muğla 0.443 to 0.451). No
 CORAL-dependent conclusion for these directions is sensitive to λ in this range. The sweep does
 not cover λ = 1 or the Montiferru/Evia directions.
@@ -391,10 +397,10 @@ not cover λ = 1 or the Montiferru/Evia directions.
 library version from 1.9.0 to 1.7.2 moves raw transfer AUC by +0.021 (Montiferru→Bejís) and
 +0.026 (Manavgat→Bejís) on the two probes tested, which is the same order as some reported effects.
 while within-region AUCs reproduce to ~4 decimals across environments. All numbers in this
-paper were produced under, or verified against, scikit-learn 1.9.0; the two probes reproduce to
+paper were produced under, or verified against, scikit-learn 1.9.0. The two probes reproduce to
 four decimal places in the verification environment (difference 0.0000). Cross-region point
 estimates therefore carry an implementation tolerance of roughly ±0.02 to 0.03 unless the exact
-library version is fixed; the bootstrap intervals reported throughout are wider than this
+library version is fixed. The bootstrap intervals reported throughout are wider than this
 jitter.
 
 **(f) Analysis population.** In the secondary all-valid population the within-region thermal
@@ -443,7 +449,8 @@ Read from `paper/mugla_temporal_raw/.../multi_aoi_burned_pattern_comparison.csv`
 | Dominant class (share) | tree cover (0.925) | tree cover (0.979) |
 
 The 2021 season burned as a dispersed multi-fire complex, with ten components, an effective count of
-4.05 and no single component holding a third of the area. It spanned the region's full relief from near
+4.05 and no single component holding a third of the area. It spanned the region's full relief from
+near
 sea level to 1,975 m. The 2022 event is one compact scar: two components, an effective count of
 1.34, 85.2 % of burned cells in the largest, and confined to the low belt. Its highest burned cell
 lies at 777 m, below the 2021 event's 95th percentile of 1,526 m, and its median elevation of 187 m
@@ -494,9 +501,9 @@ collapse.
 
 **Table R9. Transfer between the two Muğla events.** Primary population, thermal and baseline
 models, target ROC-AUC with 5 km spatial-block bootstrap 95 % CIs (Section 3.16.4). Within-region
-references are each target's own frozen value at 2-cell blocking (Table 3 for 2021; the 2022
+references are each target's own frozen value at 2-cell blocking (Table 3 for 2021. The 2022
 figure is its Step 8C point estimate, ΔAUC +0.078 [+0.061, +0.097]). The baseline and thermal
-columns are point estimates on the full target; the ΔAUC column is the bootstrap mean reported
+columns are point estimates on the full target. The ΔAUC column is the bootstrap mean reported
 alongside its interval, so it differs from the difference of the two point estimates in the third
 decimal (point ΔAUC −0.083 and +0.088 respectively). Both arms of this pair were reproduced
 independently by the pipeline author to ≤1×10⁻⁷ (Section 3.16.4).
@@ -511,7 +518,8 @@ anywhere else in the paper: **the same six predictors change the sign of their c
 depending on which event is the source, and both signs are interval-supported.** Carried forward
 from 2021 to 2022 they cost 0.082 AUC; carried back from 2022 to 2021 they buy 0.089. This is not
 a case of a weak signal failing to travel. Within each event separately the thermal block helps and
-its interval excludes zero, at +0.116 in 2021 (Table 3) and +0.078 in 2022. The block is therefore locally
+its interval excludes zero, at +0.116 in 2021 (Table 3) and +0.078 in 2022. The block is therefore
+locally
 informative in both, and still actively harmful in one direction between them.
 
 The asymmetry follows the elevation reversal. A model fitted on 2021 learned a relationship whose
@@ -556,7 +564,8 @@ small in absolute terms, spanning −0.06 to +1.11 °C, and wind departures smal
 The one region-level contrast the analysis was run to test concerns Manavgat. Its predictor-window
 temperature is −0.06 °C from its climatological mean, while the other four sit
 0.31 to 1.11 °C above theirs. It is the only region at or below its own baseline, and the anomaly is
-small enough to be read as *at* the baseline. Its humidity deficit (−3.24 %) is mid-range among the five and its
+small enough to be read as *at* the baseline. Its humidity deficit (−3.24 %) is mid-range among the
+five and its
 precipitation is within 1.4 mm of climatology, the smallest precipitation departure in the set.
 On none of the four variables is Manavgat the extreme member. The consequence for the
 interpretation of its transfer behaviour is taken up in Section 5.7.

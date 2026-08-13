@@ -197,7 +197,8 @@ coexisting counterexamples and is independent of the number of pairs available. 
 contribution to a live disagreement rather than as a settled general law. The fire literature
 expects similarity to predict transfer [@Dimarco2026; @Liu2025], while the species distribution
 modelling literature has found that it does not [@Vesk2021; @Rousseau2022]. Dimarco et al. reach a
-compatible conclusion from the opposite direction, attributing their weakest transfer to non-climatic
+compatible conclusion from the opposite direction, attributing their weakest transfer to
+non-climatic
 factors rather than to bioclimatic distance.
 
 **Contribution 4. The failure is conditional, and only a conditional diagnostic sees it.** Twenty

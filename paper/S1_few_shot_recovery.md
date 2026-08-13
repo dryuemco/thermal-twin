@@ -44,7 +44,8 @@ evaluated under the same folds.
 **Selection and evaluation.** Blocks are drawn under a fixed tier order (blocks containing both
 classes, then burned-only, then unburned-only), shuffled within tier by a seed derived as
 `blake2b(schema|source|target|outer_fold|repeat)`. The seed is independent of the budget, of the
-model family and of any result, so no branch of the selection can react to an outcome. Budgets are nested: the
+model family and of any result, so no branch of the selection can react to an outcome. Budgets are
+nested: the
 32-block set contains the 16-block set. Evaluation is 5-fold `StratifiedGroupKFold` grouped on the
 target's large blocks, in strict mode. Each budget is repeated 10 times with different block draws
 (the raw and ceiling endpoints once each, being deterministic), for 3,642 unique fits, matching the
@@ -52,7 +53,8 @@ configuration's own expected count.
 
 **Uncertainty.** The interval reported is a **selection interval**: the 2.5th and 97.5th percentiles
 across the 10 block-selection repeats. It expresses sensitivity to *which* blocks were labelled and
-nothing else. It is not a bootstrap, it is not a confidence interval, and no *p*-values are produced;
+nothing else. It is not a bootstrap, it is not a confidence interval, and no *p*-values are
+produced;
 the diagnostic enforces this distinction with a forbidden-terminology check. There is consequently
 no comparable interval on the raw endpoint, which is a single deterministic fit.
 
@@ -90,7 +92,8 @@ target labels supply exactly that.
 
 **The recovery is slow where the transfer is worst.** The two directions into Muğla and Manavgat
 from Muğla reach only 51 to 57 % at the top budget. These are the directions whose raw transfer sits
-furthest below the ceiling, and Muğla → Manavgat is still below 0.5 AUC after 8 labelled blocks. A larger
+furthest below the ceiling, and Muğla → Manavgat is still below 0.5 AUC after 8 labelled blocks. A
+larger
 concept gap costs more labels, not the same labels.
 
 **Small budgets actively hurt the one direction that already transfers.** Bejís → Muğla is the pair
@@ -100,7 +103,8 @@ reaches 30 % at 32, the worst of the six. This is the same asymmetry the main te
 label-free adaptation (§4.4): where the source model already carries a usable conditional
 relationship, a small target sample perturbs it before it can replace it. The mechanism differs,
 since here the target labels are real information rather than a covariate rescaling. The direction
-of the effect is nevertheless the same, and it is the one direction where the intervention is a liability at every
+of the effect is nevertheless the same, and it is the one direction where the intervention is a
+liability at every
 budget a field campaign would plausibly afford.
 
 ## S1.4 Methodological limits
@@ -111,7 +115,7 @@ These are stated so the analysis is not read as more than it is.
    twenty directed pairs in the main analysis and cannot speak to the five-region scope.
 2. **It requires labelled target cells.** The budget axis is labels in the target region. Nothing
    here is a label-free method and nothing here weakens the paper's negative result about
-   label-free alignment; it prices that result.
+   label-free alignment. It prices that result.
 3. **No joint analysis with the conditional index.** Whether the labelled budget needed to reach a
    given recovery fraction is predicted by the conditional sign-agreement index of §3.14.4 was not
    computed. With six directions it would in any case be a description rather than a test.

@@ -153,7 +153,7 @@ of environmental envelopes. It is also consistent with the SDM findings that env
 geographic similarity do not predict transfer success [@Vesk2021; @Rousseau2022], now reproduced
 in a fire application with interval support on both halves of a counterexample pair. None of this
 is a criticism of the area-of-applicability construction, which does what it claims for the
-extrapolation failure mode it was designed for; it is a demonstration that a reassuring marginal
+extrapolation failure mode it was designed for. It is a demonstration that a reassuring marginal
 diagnostic is not evidence of portability when the predictors are dynamic state variables.
 
 ## 5.4 What the conditional diagnostic is, and what it is not
@@ -180,7 +180,7 @@ disagreement". And the power caveat of Section 4.4 applies to *every* correlatio
 in the diagnostic table, including the two successes: the effective sample is ten unordered pairs,
 the two directions of a pair are not independent, and intervals of width ±0.5 to 0.8 on the null
 rows cannot rule out moderate true correlations. The null diagnostics are "not shown to order
-transfer", not "shown not to"; the conditional result is a strong ordering on a small pair set,
+transfer", not "shown not to". The conditional result is a strong ordering on a small pair set,
 not an established general law.
 
 ## 5.5 Interventions, and the conservation pattern that runs through them
@@ -212,7 +212,7 @@ consistent lesson is the one the adaptation literature reached once the conditio
 recognised as binding [@Tuia2016; @Persello2012]: a small number of target labels is the resource
 that label-free machinery cannot substitute for. A supervised
 few-shot recalibration analysis exists in the project diagnostics and is reported in the
-supplementary material (Supplementary S1); it is not drawn on here.
+supplementary material (Supplementary S1). It is not drawn on here.
 
 ## 5.6 The pre-registered regime hypothesis, reported as it happened
 
@@ -248,7 +248,8 @@ climatology, and Manavgat is not the meteorologically extreme member of the set.
 predictor-window temperature sits 0.06 °C *below* its climatological mean, while the other four
 regions run 0.31 to 1.11 °C warm. It is the only region at or below its own baseline, and the
 departure is small enough that the honest reading is simply that Manavgat burned under
-climatologically ordinary temperatures. Its humidity deficit of 3.24 % is mid-range among the five, its wind
+climatologically ordinary temperatures. Its humidity deficit of 3.24 % is mid-range among the five,
+its wind
 departure of +0.07 m s⁻¹ is the second smallest, and its precipitation total is within 1.4 mm of
 climatology, the smallest precipitation departure in the set. On none of the four variables is
 Manavgat the extreme member; on two it is the least anomalous. Whatever makes its transfer
@@ -284,7 +285,8 @@ comparable +0.67 °C anomaly yields 1.9 standardised units against an SD of 0.35
 anomalies of the two regions are similar; only their denominators differ.
 
 The second caution is that the label window is not fire weather: it opens on the ignition date and
-runs 35 to 59 days into the autumn rains, so it describes conditions during and after the fire rather
+runs 35 to 59 days into the autumn rains, so it describes conditions during and after the fire
+rather
 than those that preceded it. Only predictor-window values are used anywhere in this paper, and the
 label-window figures quoted immediately above serve solely to demonstrate the instability of the
 standardised scale.
@@ -303,7 +305,7 @@ the fire itself into the predictors.
 One observation from this analysis must be reported even though we cannot explain it: in Manavgat
 and Bejís the increment *increases* with earlier closure (0.074 → 0.101 and 0.094; 0.058 → 0.077
 and 0.079). This is unexpected in direction: contamination by early fire signal would predict the
-opposite. We do not know why the increment increases and we do not speculate; we note only that
+opposite. We do not know why the increment increases and we do not speculate. We note only that
 the direction of the effect is the safe one for the validity of the pre-fire claim.
 
 ## 5.9 The empirical contrast with Dimarco et al. (2026)
@@ -317,14 +319,15 @@ AUC 0.80. Our predictors describe the dynamic state of a particular pre-fire win
 collapses to chance or below. Read together, the two studies bracket the predictor-class
 explanation: stationary-attribute models learn a spatial ordering of susceptibility that a
 neighbouring region can inherit. Dynamic-state models additionally encode how a given degree of
-anomalous dryness translates into burning *there, then*, and that mapping is what fails to travel. WildfireGenome's county-level matrix [@Liu2025], with its mixture of strong and collapsed
+anomalous dryness translates into burning *there, then*, and that mapping is what fails to travel.
+WildfireGenome's county-level matrix [@Liu2025], with its mixture of strong and collapsed
 transfers, sits between the two poles.
 
 The contrast must not be overdrawn, and the bounding differences are stated in Section 2.5:
 their target is an ignition proxy evaluated against a 1:1 balanced background, ours is
 burned-area classification at the true, heavily imbalanced base rate. These are different problems
 with different achievable ceilings. Their temperature variable is a static reanalysis climatology,
-ours are event-specific satellite observations referenced to their own baselines; they apply no
+ours are event-specific satellite observations referenced to their own baselines. They apply no
 adaptation, whereas adaptation is central to our diagnosis. The comparison is between two
 coherent experimental programmes, not an ablation. What it supports is precisely the thesis-level
 reading: portability tracks predictor class, and the class that carries the within-region gain is
@@ -333,7 +336,8 @@ the class that fails to port.
 ## 5.10 Implications
 
 For practice, the immediate implication concerns regional and "global" fire-susceptibility
-products. A within-region AUC prices only half of a predictor block's contribution, even when it is spatially
+products. A within-region AUC prices only half of a predictor block's contribution, even when it is
+spatially
 blocked and honestly computed. The portability it consumes appears on no ledger unless transfer is
 measured. Our results say that for dynamic thermal predictors this cost can be total,
 and that neither predictor-space applicability screening [@Meyer2021; @Ludwig2023] nor label-free
@@ -355,10 +359,10 @@ alignment.
 
 ## 5.11 Limitations
 
-The transfer failure is a finding, not a limitation; the limitations are the boundaries on how
+The transfer failure is a finding, not a limitation. The limitations are the boundaries on how
 far it generalises. (i) No meteorological covariates (wind, humidity, precipitation) enter the
 models, so we cannot say how the trade-off behaves for a mixed thermal-plus-weather predictor
-set; the ERA5-Land diagnostic of Sections 3.17 and 4.9 characterises the regions but is not a
+set. The ERA5-Land diagnostic of Sections 3.17 and 4.9 characterises the regions but is not a
 predictor and does not close this gap, and its own four-year climatology limits how firmly its
 anomalies can be read. (ii) Temporal transfer is measured for one region only, Muğla,
 and even there year and seasonal phase are confounded by the 2022 event's roughly five-week-earlier
@@ -366,7 +370,8 @@ ignition, so the design is same-geography event-to-event rather than clean tempo
 (Section 3.16.4). Its 331 burned cells also leave the thermal direction reversals unresolved at
 interval level. Those two arms are additionally the only transfer directions in this paper computed
 by us rather than read from the pipeline author's frozen export, albeit with his unmodified code
-and the same pinned environment (Section 3.16.4). No other region has a second event. (iii) All labels derive
+and the same pinned environment (Section 3.16.4). No other region has a second event. (iii) All
+labels derive
 from a single
 burned-area product, MCD64A1 [@Giglio2018], whose omission and commission characteristics
 [@Boschetti2019] bound every model evaluated here. (iv) The ~510 m analysis cells approximate,
@@ -374,12 +379,13 @@ but are not co-registered with, the native MODIS sinusoidal grid (Section 3.2). 
 the AOI extension, Evia's TSG prevalence (0.287) remains the highest of the five regions. It is
 four to seven times that of Manavgat, Bejís and Muğla (0.038 to 0.072), though only marginally
 above Montiferru (0.225). Prevalence sensitivity was checked for transfer (Section 4.7a), but Evia
-remains the most imbalance-atypical population. (vi) Each region contributes one fire season, so regional concept
+remains the most imbalance-atypical population. (vi) Each region contributes one fire season, so
+regional concept
 shift is confounded with event meteorology; distinguishing them requires multi-year labels.
 (vii) Cross-region point estimates carry an implementation tolerance of roughly ±0.02 to 0.03 across
-scikit-learn versions (Section 4.7e); all reported numbers are fixed to one verified version, but
+scikit-learn versions (Section 4.7e). All reported numbers are fixed to one verified version, but
 exact reproduction elsewhere requires the archived environment. (viii) The diagnostic
-correlations rest on an effective sample of ten region pairs; both the successes and the failures
+correlations rest on an effective sample of ten region pairs. Both the successes and the failures
 of Section 4.4 should be read at that power. (ix) Manavgat's atypical transfer behaviour remains
 unexplained. It is the region where the conditional diagnosis bites hardest and where feature
 removal recovers most. The one explanation we were able to test, that its predictor window was
