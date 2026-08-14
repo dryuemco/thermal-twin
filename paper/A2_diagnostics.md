@@ -96,3 +96,42 @@ two. Twenty-nine further pairs reverse at the point estimate only, spread across
 features, and they are not counted. The conservative criterion costs the paper findings rather than
 manufacturing them: a difference interval on the pair, which is the instrument Section 4.8 uses,
 would support more reversals than the three listed here.
+
+## B4. The transfer matrix in precision-recall terms
+
+ROC-AUC is reported throughout the main text for comparability with the susceptibility literature.
+A susceptibility surface is used as a ranked area budget, so precision-recall is the operational
+quantity, and at target prevalences of 3.8 to 28.7 % the two can differ sharply. Read from the same
+frozen step9b exports as Table 4.
+
+**Table B4. Thermal transfer, PR-AUC against the no-skill baseline.** The baseline is the target's
+burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random
+ranking. Ordered by lift.
+
+| Direction | ROC-AUC | PR-AUC | No-skill | Lift |
+|---|---:|---:|---:|---:|
+| Evia → Manavgat | 0.686 | 0.094 | 0.038 | **2.45** |
+| Bejís → Montiferru | 0.594 | 0.289 | 0.212 | 1.36 |
+| Evia → Montiferru | 0.647 | 0.283 | 0.212 | 1.34 |
+| Bejís → Muğla | 0.619 | 0.093 | 0.070 | 1.33 |
+| Muğla → Evia | 0.653 | 0.379 | 0.287 | 1.32 |
+| Montiferru → Bejís | 0.548 | 0.093 | 0.072 | 1.28 |
+| Montiferru → Muğla | 0.619 | 0.089 | 0.070 | 1.27 |
+| Evia → Muğla | 0.577 | 0.086 | 0.070 | 1.23 |
+| Muğla → Bejís | 0.583 | 0.088 | 0.072 | 1.22 |
+| Manavgat → Evia | 0.613 | 0.343 | 0.287 | 1.20 |
+| Manavgat → Montiferru | 0.533 | 0.243 | 0.212 | 1.15 |
+| Montiferru → Manavgat | 0.567 | 0.043 | 0.038 | 1.11 |
+| Montiferru → Evia | 0.586 | 0.317 | 0.287 | 1.11 |
+| Muğla → Montiferru | 0.531 | 0.214 | 0.212 | 1.01 |
+| Bejís → Manavgat | 0.444 | 0.034 | 0.038 | **0.90** |
+| Manavgat → Muğla | 0.470 | 0.063 | 0.070 | **0.90** |
+| Evia → Bejís | 0.448 | 0.059 | 0.072 | **0.82** |
+| Bejís → Evia | 0.383 | 0.226 | 0.287 | **0.79** |
+| Muğla → Manavgat | 0.401 | 0.029 | 0.038 | **0.75** |
+| Manavgat → Bejís | 0.326 | 0.049 | 0.072 | **0.67** |
+| **Mean** | **0.541** | **0.156** | **0.136** | **1.16** |
+
+Six directions fall below their own no-skill baseline, and only one exceeds twice it. The six are the
+same six that are below chance on ROC-AUC, which is what a sign reversal predicts: a model that ranks
+in the wrong direction ranks worse than random in either metric.

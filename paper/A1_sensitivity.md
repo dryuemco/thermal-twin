@@ -202,3 +202,26 @@ Over all 36 combinations the mean is 0.559, the range 0.374 to 0.724, and ten fa
 mean spread across the four sources for a single scar is 0.164. Averaging over sources is what makes
 row D comparable with row C, which is fitted on one region; it is not a claim that the choice of
 foreign source is immaterial, and Section 4.3 states the distinction.
+
+**Table A4. Prevalence is not the cause of the evaluation-area effect.** The same fitted model and
+the same out-of-fold predictions are scored three ways: on the whole region, on a random sample of
+region cells drawn at the scar area's own burned fraction, and on the scar area. Twenty draws per
+scar, seed 42. Nine scars, since this control needs no leave-one-scar-out arm and Bejís therefore
+qualifies.
+
+| Target region | Scar | Burned fraction | A whole region | A′ prevalence-matched | B scar area |
+|---|---:|---:|---:|---:|---:|
+| Manavgat 2021 | 1 | 0.61 | 0.797 | 0.796 | 0.589 |
+| Bejís 2022 | 1 | 0.66 | 0.824 | 0.825 | 0.575 |
+| Muğla 2021 | 6 | 0.72 | 0.777 | 0.772 | 0.564 |
+| Muğla 2021 | 1 | 0.59 | 0.777 | 0.779 | 0.654 |
+| Muğla 2021 | 10 | 0.68 | 0.777 | 0.779 | 0.673 |
+| Muğla 2021 | 8 | 0.57 | 0.777 | 0.782 | 0.761 |
+| North Evia 2021 | 1 | 0.87 | 0.864 | 0.866 | 0.745 |
+| Montiferru 2021 | 1 | 0.58 | 0.720 | 0.717 | 0.622 |
+| Montiferru 2021 | 5 | 0.34 | 0.720 | 0.723 | 0.461 |
+| **Mean** | | | **0.782** | **0.782** | **0.627** |
+
+A minus A′, the effect of prevalence alone, is **−0.000 [−0.003, +0.002]**. A′ minus B, the effect of
+replacing the region's negatives with fire-adjacent ones, is **+0.155 [+0.093, +0.217]**. The
+evaluation-area effect is entirely the negative pool.
