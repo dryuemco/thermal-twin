@@ -654,9 +654,18 @@ observation (Section 3.4). Muğla's share is more than four times Manavgat's and
 pipeline's own 5 % guard. The split follows export
 date, not design, so it is confounded with nothing in the study and with everything about when each
 region was run. Three of the five regions are on the unscreened path, Manavgat among them, and
-Manavgat is the subject of the unexplained behaviour in (ix). This is a candidate explanation that
-we have not been able to test, since rebuilding Step 7 on one common contract is upstream of this
-analysis. An earlier version of this paper attributed the anomaly instead to Manavgat using a
+Manavgat is the subject of the unexplained behaviour in (ix). Rebuilding Step 7 on one common
+contract is upstream of this analysis and was not done, so the candidate remains untested as an
+explanation. **Its size and shape were measured, though, and they do not argue it away.** Applying
+the pipeline's own QC rule to the three unscreened regions moves the predictor-window MODIS mean by
++1.17 °C in Manavgat, +0.67 °C in Muğla and +0.47 °C in Bejís, while costing almost no coverage,
+0.1 % to 3.6 % of pixels falling below the three-observation minimum. More to the point, the change
+is not a uniform offset that a downscaler fitted to Landsat would simply absorb: in Manavgat it
+correlates with elevation at +0.615, and in Muğla at +0.443, against −0.041 in Bejís. Manavgat is
+therefore the region with the largest QC-induced shift, the strongest elevation structure in that
+shift, the heaviest downscaler reliance on the MODIS layer (importance 0.525), the reversing
+elevation association and the unexplained transfer behaviour. That is a coincidence of five things
+in one region, which is a reason to run the rebuild rather than a substitute for it. An earlier version of this paper attributed the anomaly instead to Manavgat using a
 four-year summer-mean MODIS layer. That was read from a stale metadata string and is withdrawn;
 all five regions used single-season predictor-window layers (Section 3.4). (xiv) **Label noise is spatially structured and its
 interaction with the predictors is untested.** The cell's representative burn date is the mode of its

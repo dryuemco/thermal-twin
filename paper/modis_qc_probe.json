@@ -1,0 +1,26 @@
+{
+  "manavgat_2021": {
+    "n_images": 57,
+    "mean_unscreened_c": 32.6581461559812,
+    "mean_screened_c": 33.82452352569524,
+    "mean_abs_difference_c": 1.1799087155899575,
+    "median_accepted_observations": 36.00000000000002,
+    "share_below_min_obs": 0.0015617014993014784
+  },
+  "bejis_2022": {
+    "n_images": 61,
+    "mean_unscreened_c": 35.97223264954459,
+    "mean_screened_c": 36.207789233381355,
+    "mean_abs_difference_c": 0.7695961479010295,
+    "median_accepted_observations": 42.000000000000014,
+    "share_below_min_obs": 0.03638745337847764
+  },
+  "mugla_2021": {
+    "n_images": 58,
+    "mean_unscreened_c": 35.03719536211738,
+    "mean_screened_c": 35.70686521887861,
+    "mean_abs_difference_c": 0.7221327058217634,
+    "median_accepted_observations": 44.000000000000014,
+    "share_below_min_obs": 0.0011735643418533332
+  }
+}
