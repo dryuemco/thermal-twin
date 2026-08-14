@@ -66,7 +66,7 @@ Section 4.1.
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
 The target variable is burned/unburned status derived from the MODIS MCD64A1 Collection 6.1
-burned-area product (`MODIS/061/MCD64A1`), retrieved through Google Earth Engine. Collection 6.1 is
+burned-area product (`MODIS/061/MCD64A1`), retrieved through Google Earth Engine [@Gorelick2017]. Collection 6.1 is
 a reprocessing of the Collection 6 product described by Giglio et al. [@Giglio2018] and validated by
 Boschetti et al. [@Boschetti2019]. Active-fire detections (FIRMS) are never used as a target.
 
@@ -351,7 +351,7 @@ GLO-30 is a mosaicked collection without a fixed projection, slope is computed o
 projection before reprojection, not after (`step2b_dem.py:148 to 159`). Both bands are exported at
 30 m.
 
-**Land cover.** ESA WorldCover v200 (10 m native, 2021 epoch), nearest-neighbour aligned to the 30 m
+**Land cover.** ESA WorldCover v200 [@Zanaga2022] (10 m native, 2021 epoch), nearest-neighbour aligned to the 30 m
 reference grid. The 2021 epoch is applied unchanged to every region, including Bejís 2022, so for
 that region the land-cover layer precedes the fire year by one growing season. Class codes: 10 tree cover, 20 shrubland, 30 grassland, 40 cropland, 50 built-up, 60
 bare/sparse vegetation, 70 snow/ice, 80 permanent water, 90 herbaceous wetland, 95 mangroves, 100
