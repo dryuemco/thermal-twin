@@ -369,10 +369,10 @@ paid.
 
 ## 4.7 Sensitivity analyses
 
-Six design choices were varied with everything else held fixed. They are the Evia AOI and its
+Seven design choices were varied with everything else held fixed. They are the Evia AOI and its
 prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor
-window, the quality screening of the coarse thermal input, and the contrast between the normalised
-and the absolute dryness channels. None changes a conclusion above. Two
+window, the quality screening of the coarse thermal input, the contrast between the normalised and the
+absolute dryness channels, and the removal of the coordinate-informed channels. None changes a conclusion above. Two
 bound how the results should be read, so they are carried into the main text here.
 
 Coarsening the blocks from 1 km to 5 km moves the verdict counts from ten positive, seven negative
@@ -383,7 +383,7 @@ is the resampling unit, and it cannot move an estimate computed once over all ta
 Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes
 the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
 moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
-behaviour. Appendix A reports all six arms, including one that tests a claim of Section 1.2 and does not uphold it.
+behaviour. Appendix A reports all seven arms, including one that tests a claim of Section 1.2 and does not uphold it.
 
 ## 4.8 The same geography, a second fire: reversal with place held constant
 

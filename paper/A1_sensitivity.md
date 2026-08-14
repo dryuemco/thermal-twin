@@ -96,3 +96,32 @@ the 0.537 read from the frozen per-direction export. Details are in
 The comparison is between two sub-blocks of one thermal set on one cohort. It does not test
 normalised dryness indices in general, and it does not test a normalisation fitted against a pooled
 multi-region reference rather than each region's own baseline years.
+
+**(g) The coordinate-informed channels.** `downscaled_lst_mean` and `fused_lst_mean` come from a
+per-region downscaling model whose own inputs include coordinates, which Section 3.14 names as the
+one route by which a coordinate-derived surface re-enters a feature set that excludes coordinates. A
+coordinate-smoothed surface is by construction locally informative and non-portable, so if the
+within-region increment depended on it, that increment would be this paper's own result in
+miniature rather than a finding about thermal dryness. The arm was therefore run here rather than
+deferred.
+
+Both channels were dropped and everything refitted, over all twenty directions and all five
+within-region folds. The reference configuration reproduces the frozen exports exactly, at
+0.000000 against both the transfer and the within-region references.
+
+| Region | Increment, full set | Increment without the two channels | Retained |
+|---|---:|---:|---:|
+| Manavgat 2021 | +0.067 | +0.063 | 94 % |
+| Bejís 2022 | +0.056 | +0.046 | 82 % |
+| Muğla 2021 | +0.116 | +0.097 | 84 % |
+| North Evia 2021 | +0.153 | +0.145 | 94 % |
+| Montiferru 2021 | +0.101 | +0.105 | 103 % |
+| **Mean** | **+0.099** | **+0.091** | **92 %** |
+
+**The increment does not depend on them.** It stays positive in every region and retains 82 % to
+103 % of its size, rising slightly in one region. Mean transfer is likewise unchanged, at 0.545
+without the two channels against 0.541 with them and 0.537 for the baseline alone. The local skill
+this paper reports is therefore not an artefact of a coordinate-smoothed surface.
+
+This arm was computed independently here and reproduces the companion paper's figure for the same
+quantity, 82 % to 103 %, from a separately written harness.

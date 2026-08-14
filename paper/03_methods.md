@@ -91,8 +91,8 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
   wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore
   never replaces or blends a valid observation. The gap-filled share is 0.11 % to 9.70 % by region. The
   downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived
-  surface re-enters a feature set from which Section 3.14 excludes coordinates; the companion paper
-  measures what the increment is worth without these two channels.
+  surface re-enters a feature set from which Section 3.14 excludes coordinates. Appendix A(g)
+  reports the increment without these two channels.
 
 ## 3.5 Cell aggregation, validity and analysis populations
 
