@@ -114,7 +114,7 @@ Because only that side of the ledger is reported, the trade-off is structurally 
 
 \subsection{Pre-fire thermal dryness is the natural test case}\label{sec:1.2}
 
-The dynamic class used here is pre-fire thermal dryness, and it is the class most plausibly \emph{expected} to transfer. Standard susceptibility predictors are terrain, fuel type, greenness, long-term climatology and proximity to roads and settlements, and most are static or near-static over the timescale at which fire danger varies. Such a set explains poorly why a particular summer burned and the preceding one did not. What changes between those summers is the state of the surface: fuel dryness, moisture stress, and how anomalously hot the land surface has become relative to its own baseline. Satellite thermal observation gives direct access to part of that state through fuel moisture content \citep{Yebra2013}, and pairing surface temperature with a vegetation index was established as a live-fuel-moisture estimator for fire-danger rating by \citet{Chuvieco2004}. The Temperature-Vegetation Dryness Index \citep{Sandholt2002} formalises that feature space into an internally normalised measure which should, in principle, be less exposed to absolute-temperature offsets between regions than raw land surface temperature. That theoretical portability advantage is tested here.
+The dynamic class used here is pre-fire thermal dryness, and it is the class most plausibly \emph{expected} to transfer. Standard susceptibility predictors are terrain, fuel type, greenness, long-term climatology and proximity to roads and settlements, and most are static or near-static over the timescale at which fire danger varies. Such a set explains poorly why a particular summer burned and the preceding one did not. What changes between those summers is the state of the surface: fuel dryness, moisture stress, and how anomalously hot the land surface has become relative to its own baseline. Satellite thermal observation gives direct access to part of that state through fuel moisture content \citep{Yebra2013}, and pairing surface temperature with a vegetation index was established as a live-fuel-moisture estimator for fire-danger rating by \citet{Chuvieco2004}. The Temperature-Vegetation Dryness Index \citep{Sandholt2002} formalises that feature space into an internally normalised measure. In principle it should be less exposed to absolute-temperature offsets between regions than raw land surface temperature. That theoretical portability advantage is tested here, and it is not found: the two internally normalised channels transfer no better than the four absolute ones, at means of 0.544 and 0.548 over the twenty directions (Appendix A(f)).
 
 That pre-fire thermal state carries genuine information about subsequent fire is established \citep{Maffei2018,MaffeiMenenti2019,Maffei2021,Gelabert2025}. What has not been established is whether the predictive \emph{skill} of a classifier trained on it in one fire region survives strict, label-free application to another. The physics linking moisture stress to combustion is universal, so portability should be most expected for this class, which is what makes it diagnostic: a loss here cannot be dismissed as a peculiarity of a locally defined covariate.
 
@@ -620,7 +620,7 @@ For model builders, local skill and portability should be reported separately ra
 
 \section{Appendix A. Sensitivity analyses}
 
-Each arm below varies one design choice and leaves everything else fixed. None changes a conclusion in the main text. They are reported so that a reader can see which choices were tested, and what each was worth.
+Each arm below varies one design choice and leaves everything else fixed. None changes a conclusion in the main text. They are reported so that a reader can see which choices were tested, and what each was worth. Arm (f) is the exception in one respect: it is not a robustness check but a test of a claim the introduction makes, and the claim is not upheld.
 
 \textbf{(a) Evia AOI and prevalence.} The raw transfer arms were repeated with the legacy, high-prevalence Evia box. Every qualitative conclusion is unchanged. Thermal raw transfer AUCs move by up to 0.07, the largest being Evia to Bejís at 0.378 to 0.448, and no direction changes side of the chance line.
 
@@ -633,6 +633,34 @@ The point estimates are unchanged. That is an identity rather than a result, and
 \textbf{(d) Predictor-window closure.} The predictor window was closed 7 and 14 days earlier in all five regions. The thermal contribution stays positive and bootstrap-supported everywhere. The direction of the change is region-specific. It strengthens in Bejís, from 0.058 to 0.079 at 14 days, and in Muğla, from 0.115 to 0.128. It is flat in Montiferru. It weakens monotonically in Evia, from 0.156 to 0.149 to 0.135. What holds in every region is survival, not improvement. That is the claim made in Section~\ref{sec:5.2}.
 
 \textbf{(e) Quality screening of the coarse thermal input.} Two of the five regions' MODIS inputs are quality-screened and three are not. The split follows export date rather than design, and it induces an elevation-correlated change at the input, at r = +0.615 in Manavgat. Manavgat's entire downstream chain was rebuilt from a quality-screened input. That changes the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 \textdegree{}C. No signed univariate association moves by more than +0.0003. Elevation stays at 0.374 [0.290, 0.472] in both arms, the population is unchanged, and the within-region increment moves from [+0.055, +0.079] to [+0.054, +0.077]. The reason is structural. Elevation is a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived surface across only 2.14 points of coverage. Details are in \texttt{paper/\allowbreak{}modis\_\allowbreak{}qc\_\allowbreak{}downstream\_\allowbreak{}propagation.\allowbreak{}md}.
+
+\textbf{(f) Normalised against absolute dryness channels.} Section~\ref{sec:1.2} argues that an internally normalised index should be less exposed to absolute-temperature offsets between regions than raw land surface temperature. The thermal block contains both kinds, which allows the argument to be tested directly as a feature-set contrast. It is also the natural place to look for a constructive result, because the two channels that do \textbf{not} reverse sign between regions are exactly the normalised ones, \texttt{lst\_\allowbreak{}anomaly\_\allowbreak{}mean} and \texttt{tvdi\_\allowbreak{}difference\_\allowbreak{}mean}, while the four absolute channels are the ones that do.
+
+Three feature sets were run over all twenty directions and all five within-region folds, with the classifier, population, folds and bootstrap held fixed. The harness aborts unless its reference configuration lands on the frozen exports. It did exactly: the maximum absolute difference between the reference arm and the frozen transfer AUCs is 0.000000 across all twenty directions.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{}
+  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrr>{\raggedleft\arraybackslash}X}
+    \hline
+    Feature set & Mean transfer AUC & Directions > 0.5 & Mean within-region AUC \\
+    \hline
+    baseline only & 0.5371 & 16 & 0.7896 \\
+    baseline + normalised anomalies & 0.5442 & 15 & 0.8551 \\
+    baseline + absolute surface state & 0.5479 & 13 & 0.8564 \\
+    all ten features (reference) & 0.5414 & 14 & 0.8883 \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\textbf{The advantage is not found.} Per direction, the normalised set minus the absolute set has a mean of $-$0.0037. It is positive in 12 of 20 directions and runs from $-$0.099 to +0.094, so the spread is an order of magnitude larger than the difference. The normalised channels transfer very slightly worse at the mean, and nothing here supports a design rule favouring anomaly-referenced dryness for portability.
+
+Within region the two sub-blocks are indistinguishable, at 0.8551 and 0.8564, and each recovers most of the gap between the baseline's 0.7896 and the full model's 0.8883. What separates them in sign stability does not become transferable skill.
+
+This arm strengthens the negative finding rather than softening it. Four differently constituted feature sets were tried. None clears a mean of 0.548 across regions, and all differ sharply within them. The baseline arm also gives an independent confirmation of the control reported in Section~\ref{sec:4.3}: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches the 0.537 read from the frozen per-direction export. Details are in \texttt{paper/\allowbreak{}anomaly\_\allowbreak{}only\_\allowbreak{}transfer.\allowbreak{}md}.
+
+The comparison is between two sub-blocks of one thermal set on one cohort. It does not test normalised dryness indices in general, and it does not test a normalisation fitted against a pooled multi-region reference rather than each region's own baseline years.
 
 
 
