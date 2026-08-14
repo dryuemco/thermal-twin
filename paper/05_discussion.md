@@ -161,9 +161,17 @@ is still cool, moist and effectively unburnable while by late July it is not. A 
 contrast therefore predicts the observed direction of the elevation reversal, and it predicts the
 sign change in the absolute LST channels as well, since their baseline climatology is recomputed for
 the shifted calendar window. The two explanations, a genuine reparameterisation of the
-elevation-burning relationship and a seasonal-phase artefact, are not separated by this design. A
-calendar-matched 2022 arm would separate them and was not run; it is the single most valuable
-follow-up this paper can name and it is listed in Section 5.11. Until it exists, the comparison
+elevation-burning relationship and a seasonal-phase artefact, are not separated by this design. **Nor
+can they be, in this study area.** An earlier version of this section called a calendar-matched 2022
+arm the single most valuable follow-up the paper could name. That arm was then attempted and the
+burned-area record rules it out. The two Muğla events sit 42 days apart in seasonal phase, with
+median burn day-of-year 215 in 2021 and 173 in 2022, and holding the calendar fixed at the 2021
+window leaves nine burned cells in 2022 against a gate minimum of thirty. The mirror pairing fails
+for the same reason: 2022 contains no high-summer event and 2021 no late-spring one, the whole of
+2022 in this area amounting to 358 burned cells against 3,206 in 2021. Separating year from seasonal
+phase needs a region with two events at a matching phase in different years, and no region in this
+cohort has one, since each contributes a single fire season (limitation (vi)). The details and the
+validation of these counts are in `paper/mugla_calendar_arm.md`. The comparison therefore
 establishes that *something* reverses the elevation-burning association with geography, grid and
 pipeline held fixed, and it does not establish that the something is year rather than season. What
 the confound does not weaken is the narrower reading that the sign of the thermal block's transfer
@@ -564,8 +572,12 @@ so we cannot say how the trade-off behaves for a mixed thermal-plus-weather pred
 ERA5-Land diagnostic of Sections 3.17 and 4.9 characterises the regions but is not a predictor and
 does not close this gap, and its own four-year climatology limits how firmly its anomalies can be
 read. (ii) Temporal transfer is measured for one region only, Muğla, and even there year and
-seasonal phase are confounded by the 2022 event's roughly five-week-earlier ignition, so the design
-is same-geography event-to-event rather than clean temporal transfer (Section 3.16.4). Its 331
+seasonal phase are confounded by the 2022 event's six-week-earlier ignition, so the design is
+same-geography event-to-event rather than clean temporal transfer (Section 3.16.4). That confound
+is not merely unaddressed: it cannot be addressed here. The two events differ by 42 days in median
+burn day-of-year, and neither year contains a second event at the other's phase, so a
+calendar-matched arm would carry nine burned cells against a gate minimum of thirty (Section 5.2 and
+`paper/mugla_calendar_arm.md`). Its 331
 burned cells also leave the thermal direction reversals unresolved at interval level. The pair holds
 place fixed but not population: the 2022 arm is the 2021 arm with the 2021 scar removed, so the two
 share 38,789 of 38,790 cells and three identical static predictors, and in the 2022 to 2021
@@ -671,10 +683,12 @@ TVDI, fitted once across the pooled land pixels of all five regions, does not br
 into agreement, so the index's scene dependence is not the explanation for its reversal (Section
 4.7k). The signed univariate AUCs recomputed on high-agreement cells only leave the elevation
 reversal intact at every threshold, so differential fringe contamination is not the explanation
-either (Section 4.7l). Two remain outstanding and both need work upstream of this analysis: the
-compositing A/B extended to a second region, and a calendar-matched Muğla 2022 arm to separate year
-from season (Section 5.2), which is the more valuable of the two because it addresses the one
-confound the two-event control cannot resolve from the existing export.
+either (Section 4.7l). A third, the calendar-matched Muğla 2022 arm, was attempted and **cannot be
+run at all**: the two Muğla events are 42 days apart in seasonal phase and neither year holds a
+second event at the other's phase, so the calendar-matched window carries nine burned cells against
+a gate minimum of thirty (Section 5.2). That is a limit of the fire record rather than of effort,
+and it is now stated as one. Only the compositing A/B extended to a second region remains genuinely
+outstanding.
 
 <!-- DRAFT NOTES:
 

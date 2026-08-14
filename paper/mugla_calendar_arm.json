@@ -1,0 +1,29 @@
+{
+  "question": "can a calendar-matched Mugla 2022 arm separate year from seasonal phase?",
+  "answer": "no; not obtainable from this study area",
+  "executed": "2026-08-14, Earth Engine project thermaltwin, earthengine-api 1.7.34",
+  "burn_day_of_year": {
+    "mugla_2021":                 {"min": 210, "max": 235, "median": 215, "positive_subpixels": 759212},
+    "mugla_2022_event_relative":  {"min": 172, "max": 198, "median": 173, "positive_subpixels": 76752},
+    "median_separation_days": 42
+  },
+  "mcd64a1_burned_pixels_in_aoi": {
+    "2021_label_window_doy_210_258": 3181,
+    "2022_same_calendar_window_doy_210_258": 9,
+    "2022_event_relative_window_doy_172_220": 319,
+    "2021_on_2022_window_doy_172_220": 3127,
+    "2021_whole_year": 3206,
+    "2022_whole_year": 358
+  },
+  "validation": {
+    "frozen_mugla_2021_physical_burned_cells": 3073,
+    "ratio_cells_per_pixel_2021": 0.97,
+    "frozen_mugla_2022_gate_burned_count": 332,
+    "ratio_cells_per_pixel_2022": 1.04
+  },
+  "thresholds": {
+    "STEP6_BURNED_LANDCOVER_GATE_MIN_POSITIVES": 30,
+    "step8b_min_positives_per_population": 30
+  },
+  "method_note": "MCD64A1 is a monthly composite stamped at the first of the month; filtering the collection by the analysis window's own dates drops the composite of the month the window opens in and undercounted the June 2022 event eightfold on the first attempt. Filter by whole months and let the day-of-year mask select."
+}
