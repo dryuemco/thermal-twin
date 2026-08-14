@@ -2,7 +2,7 @@
 
 These protocols are given here in full rather than in Methods, because each is a specification a
 reader needs only when checking the corresponding result, and none is needed to follow the
-argument. Sections 3.2, 3.3, 3.11 and 3.14 state in summary what each does.
+argument. Sections 3.2, 3.3, 3.11 and 3.15 state in summary what each does.
 
 ## C.1 Burned-area label, the reconstructed analysis grid, and the admissibility gate
 
@@ -33,7 +33,7 @@ window are removed from its analysis universe rather than counted as unburned, w
 Evia and Montiferru, is recorded as not run for Manavgat and has no recorded status for Bejís.
 Burning in earlier years is screened for no region in the five-region cohort; the only historical
 exclusion in the study removes the 2021 Muğla scar from the 2022 event-relative experiment of
-Section 3.14.
+Section 3.15.
 
 Before any modelling each region passes a gate that answers one question: of the cells labelled
 burned, what fraction is dominated by natural vegetation? A region is admitted as a wildfire
@@ -67,7 +67,7 @@ regions the effective sample is ten unordered pairs, so nineteen computed varian
 that power with no family-wise error control claimed; where a diagnostic clears an interval test but
 not a Bonferroni threshold, both are reported.
 
-## C.3 Same-geography event-to-event comparison (Mugla 2021 versus 2022)
+## C.3 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 
 Muğla is the one region for which a second fire event is analysed on the identical AOI and analysis
 grid, which allows the direction of feature-label associations to be compared with geography held
