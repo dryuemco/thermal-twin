@@ -18,7 +18,8 @@ canonical λ = 1, which the released sweep omits.
 **(c) Blocking scale.** Recomputing the transfer quantities at 10-cell (≈ 5 km) blocking from the
 frozen per-cell predictions widens the intervals and moves the verdict counts, from ten positive,
 seven negative and three uncertain at 1 km to six, four and ten at 5 km. Coarser blocking therefore
-removes support from six verdicts and adds none.
+removes support from seven verdicts and adds none. Across five seeds the counts run 5 to 6 positive,
+3 to 4 negative and 10 to 11 uncertain, so they are not exact.
 
 The point estimates are unchanged. That is an identity rather than a result, and it should not be
 offered as robustness. The blocking scale is the bootstrap *resampling unit*, and each point
@@ -43,7 +44,7 @@ chain was rebuilt from a quality-screened input. That changes the downscaled sur
 Elevation stays at 0.374 [0.290, 0.472] in both arms, the population is unchanged, and the
 within-region increment moves from [+0.055, +0.079] to [+0.054, +0.077]. The reason is structural.
 Elevation is a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived
-surface across only 2.14 points of coverage. Details are in
+surface across only 2.14 percentage points of coverage. Details are in
 `paper/modis_qc_downstream_propagation.md`.
 
 **(f) Normalised against absolute dryness channels.** Section 1.2 argues that an internally

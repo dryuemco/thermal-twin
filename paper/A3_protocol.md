@@ -1,7 +1,7 @@
 # Appendix C. Protocol detail
 
 These protocols are given here in full rather than in Methods, because each is a specification a
-reader needs only when checking the corresponding result, and neither is needed to follow the
+reader needs only when checking the corresponding result, and none is needed to follow the
 argument. Sections 3.2, 3.3, 3.11 and 3.14 state in summary what each does.
 
 ## C.1 Burned-area label, the reconstructed analysis grid, and the admissibility gate
