@@ -615,8 +615,8 @@ Manavgat↔Bejís directions were not re-run over the grid, and the configuratio
 direction, and at most 0.008 within the thermal family; the three widest spreads are all
 baseline-family rows (Section 4.7d).
 
-**Why λ = 1 was not run.** The canonical value is the one value the sweep does not contain, and the
-omission is deliberate rather than accidental. In the canonical formulation the identity is added to
+**Why the released sweep stops short of λ = 1.** The canonical value is the one value that sweep does
+not contain, and the omission is deliberate rather than accidental. In the canonical formulation the identity is added to
 the covariance of unstandardised features, where it acts as a mild ridge relative to feature scale.
 Here every feature has already been given unit variance by the region-wise z-score of variant (b).
 Adding the full identity therefore doubles each diagonal entry and halves the relative weight of
