@@ -58,11 +58,11 @@ instability is not the thermal block's peculiarity.
 
 ## 5.3 Why the similarity-based diagnostics fail
 
-A diagnostic built on distance in predictor space asks whether the target's predictor values look
-like the training data's. That question is orthogonal to the one that matters when the failure is
-conditional. A target region can sit deep inside the training envelope while the relationship
-between those predictors and burning points the other way, and Manavgat to Muğla is exactly that
-case: 0.875 of target cells inside the weighted area of applicability, and transfer below chance.
+A diagnostic built on distance in predictor space asks one question: do the target's predictor
+values look like the training data's? That is not the question that matters when the failure is
+conditional. A target region can sit well inside the training envelope while the relationship
+between those predictors and burning points the other way. Manavgat to Muğla is exactly that case,
+with 0.875 of target cells inside the weighted area of applicability and transfer below chance.
 
 The same holds for the niche-overlap and regime families. At the point estimates, the pair with the
 highest burned-niche overlap in the matrix fails in both directions while the pair with the lowest
@@ -75,13 +75,13 @@ whether or not their transfer works, so separability carries no ordering informa
 
 ## 5.4 What the conditional diagnostic is, and what it is not
 
-The sign-agreement index reaches ρ = +0.84 [+0.58, +0.88] against observed transfer, and it is
-reported with three limits attached rather than after the fact. Its tie structure caps the achievable
-Spearman at +0.861, so the observed value sits essentially on its own ceiling and the ranking it
-supports is coarse. Its exact one-sided permutation p is 0.0060, the smallest that tie structure can
-produce, against a Bonferroni threshold of 0.0026 over nineteen computed variants, so no outcome
-could have cleared family-wise correction on ten effective pairs. And it needs burned labels in both
-regions, which makes it a mechanism diagnosis rather than a pre-deployment screen.
+The sign-agreement index reaches ρ = +0.84 [+0.58, +0.88] against observed transfer. Three limits
+are reported with it rather than after it. Its tie structure caps the achievable Spearman at +0.861,
+so the observed value sits essentially on its own ceiling and the ranking it supports is coarse. Its
+exact one-sided permutation p is 0.0060, the smallest that tie structure can produce, against a
+Bonferroni threshold of 0.0026 over nineteen computed variants. No outcome could have cleared
+family-wise correction on ten effective pairs. And it needs burned labels in both regions, which
+makes it a mechanism diagnosis rather than a pre-deployment screen.
 
 That last limit is the substantive one, and it is why the paper's practical conclusion is not "use
 this index instead". It is that the family of diagnostics that can be run before deployment is the
@@ -97,13 +97,12 @@ not manufacture the missing conditional information. Removing the reversing pred
 of within-region skill with interval support in every region, and changes mean transfer by
 +0.014 [−0.017, +0.045], which is not distinguishable from zero.
 
-We should be exact about what that pair of numbers is, because it is easy to read as an exchange and
-it is not one. The thermal block's own contribution to transfer is +0.004 with an interval spanning
-zero; removing the reversing predictors returns +0.014 with an interval spanning zero. Both arms are
-null on the portability axis. So what the interventions measure is a local cost and no compensating
-transfer gain — not a conservation law, and not a rate at which local skill can be sold for
-portability. No such rate is estimated here, and the earlier framing of the increment as something
-that is "spent" on portability overstated what two nulls can support.
+That pair of numbers is easy to read as an exchange, and it is not one. The thermal block's own
+contribution to transfer is +0.004, with an interval spanning zero. Removing the reversing
+predictors returns +0.014, with an interval spanning zero. Both arms are null on the portability
+axis. What the interventions measure is a local cost and no compensating transfer gain. That is not
+a conservation law, and it is not a rate at which local skill can be sold for portability. No such
+rate is estimated here.
 
 ## 5.6 The regime hypothesis, reported as it happened
 
@@ -180,14 +179,14 @@ successes and the failures of Section 4.4 should be read at that power.
 
 (viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
 diagnosis bites hardest and where feature removal recovers most. Two candidates have now been tested
-and neither survives. Its predictor window was not meteorologically extreme. And the
-quality-screening difference in its coarse thermal input, whose induced change correlates with
-elevation at +0.615 and was therefore the more worrying of the two, does not propagate: rebuilding
-the region's entire downstream chain from a quality-screened MODIS input changes 22,304 of 24,150
-cells' downscaled surface by up to 10.9 °C and moves no signed univariate association by more than
-+0.0003, leaving elevation's at 0.374 [0.290, 0.472] in both arms and the population unchanged. That
-is structural rather than fortunate: elevation is a DEM variable the screening cannot touch, and
-fusion falls back on the MODIS-derived surface across only 2.14 points of coverage. With one fire
+and neither survives. Its predictor window was not meteorologically extreme. The second candidate was the quality-screening difference in its coarse thermal input. It was the
+more worrying of the two, because the change it induces correlates with elevation at +0.615. It does
+not propagate. The region's entire downstream chain was rebuilt from a quality-screened MODIS input.
+That changes the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed
+univariate association moves by more than +0.0003. Elevation's stays at 0.374 [0.290, 0.472] in both
+arms, and the population is unchanged. The result is structural rather than fortunate. Elevation is
+a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived surface across
+only 2.14 points of coverage. With one fire
 season per region the remaining candidates are not separable in this design.
 
 (ix) **The interval-support counts are less stable than the point estimates behind them.** Several

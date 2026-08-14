@@ -13,11 +13,11 @@ Five Mediterranean wildfire regions are analysed: Manavgat 2021 and Muğla 2021 
 2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. Each is a place-based
 rectangular area of interest in EPSG:4326, defined from place coverage rather than from a fire
 perimeter, and not tuned on burned prevalence, gate outcome or any model metric. One AOI choice was
-label-informed and is stated as such: the North Evia box was extended after the legacy box was found
-to carry an atypically high burned prevalence, the extended geometry was then defined from place
-anchors, and the legacy variant is retained as a sensitivity (Section 4.7a). The AOIs are
-deliberately not clipped to fire perimeters, so that unburned cells surrounding each fire form the
-negative class rather than being excluded by construction. A sixth region, Kozan 2023, is carried as
+label-informed and is stated as such. The North Evia box was extended after the legacy box was found
+to carry an atypically high burned prevalence. The extended geometry was then defined from place
+anchors, and the legacy variant is kept as a sensitivity arm (Appendix A). The AOIs are deliberately
+not clipped to fire perimeters, so that unburned cells around each fire form the negative class
+rather than being excluded by construction. A sixth region, Kozan 2023, is carried as
 a negative control and is excluded from all modelling by the gate of Section 3.3.
 
 Each region has two non-overlapping windows. The **predictor window** closes the day before the
@@ -75,9 +75,9 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
   standard deviations, which is why it is reported alongside the z-scored channel rather than in
   place of it.
 - **Downscaled LST** and **fused LST**. A MODIS-to-Landsat downscaling model is trained on the
-  predictor window and applied to the full 30 m grid; the fused product equals observed Landsat LST
-  wherever that is valid and the downscaled surface only where it is not, so gap-filling never
-  replaces or blends a valid observation. The gap-filled share is 0.11 % to 9.70 % by region. The
+  predictor window and applied to the full 30 m grid. The fused product equals observed Landsat LST
+  wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore
+  never replaces or blends a valid observation. The gap-filled share is 0.11 % to 9.70 % by region. The
   downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived
   surface re-enters a feature set from which Section 3.13 excludes coordinates; the companion paper
   measures what the increment is worth without these two channels.
@@ -143,10 +143,10 @@ The canonical λ = 1 lies outside the released sweep; the companion paper report
 ## 3.10 Transfer-gap decomposition and the concept-shift diagnostic
 
 For each direction the gap between the target's own within-region skill and the raw transfer result
-is split into a part the best label-free adaptation recovers and a part it does not, with the
-recovered fraction defined as (adapted − raw) / (within − raw), signed and unclipped, and its
-interval from the same paired bootstrap. The recovered part bounds what covariate-level correction
-can achieve; the remainder is the conditional residual.
+is split in two. One part is what the best label-free adaptation recovers, and the other is what it
+does not. The recovered fraction is defined as (adapted − raw) / (within − raw), signed and
+unclipped, and its interval comes from the same paired bootstrap. The recovered part bounds what
+covariate-level correction can achieve. The remainder is the conditional residual.
 
 The mechanism is diagnosed by **signed univariate association**. For each numeric predictor the raw
 ROC-AUC of that predictor against `burned` is computed in each region and never folded to
@@ -189,13 +189,13 @@ convention. The natural-vegetation mask is used only to define the population, n
 Spatial blocking prevents a cell from sharing a fold with its own neighbours.
 
 **Reproducibility.** All randomness uses seed 42 and the bootstrap uses 1000 replicates throughout.
-The transfer and adaptation analysis runs in an environment separate from the upstream pipeline's,
-so every within-region model was refitted there and compared against the frozen upstream output, and
-the independently implemented adaptation against the pipeline's own; the within-region comparisons
-agree exactly and the twenty transfer directions to within 1.6×10⁻⁷. Because random-forest fits are
-not bit-identical across library versions, all numbers here were produced under, or verified
-against, scikit-learn 1.9.0, and cross-region point estimates carry an implementation tolerance of
-about ±0.02 to 0.03 if that version is not fixed. The companion paper reports the version
+The transfer and adaptation analysis runs in an environment separate from the upstream pipeline's.
+Every within-region model was therefore refitted there and compared against the frozen upstream
+output, and the independently implemented adaptation was compared against the pipeline's own. The
+within-region comparisons agree exactly, and the twenty transfer directions agree to within
+1.6×10⁻⁷. Random-forest fits are not bit-identical across library versions. All numbers here were
+therefore produced under scikit-learn 1.9.0, or verified against it. If that version is not fixed,
+cross-region point estimates carry an implementation tolerance of about ±0.02 to 0.03. The companion paper reports the version
 sensitivity and the reproduction check in full.
 
 **Sensitivity analyses.** Every headline result is repeated across two analysis populations, three

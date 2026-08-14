@@ -32,15 +32,15 @@ population every model in this paper was fitted and scored on.
 
 North Evia is analysed on an extended AOI. Relative to the legacy box, the extended box leaves the
 burned scar essentially unchanged while cutting overall prevalence from 0.361 to 0.122 and TSG
-prevalence from 0.676 to 0.287. The effect of that choice on transfer is reported in Section 4.7a.
+prevalence from 0.676 to 0.287. The effect of that choice on transfer is reported in Appendix A(a).
 
 ## 4.2 Within-region: the thermal increment replicates in five regions
 
-In every region, adding the six thermal predictors to the baseline increases spatially blocked
-out-of-fold ROC-AUC. The increment's bootstrap interval excludes zero in all five regions at 1 km
-and at 5 km blocking, which are the two scales this design supports as intervals. At 10 km the point
-estimates hold, from +0.048 to +0.154, but they rest on 6 to 33 positive-carrying blocks and are
-reported as indicative rather than as intervals, for the reason given in the table note.
+Adding the six thermal predictors to the baseline raises spatially blocked out-of-fold ROC-AUC in
+every region. The increment's bootstrap interval excludes zero in all five regions at 1 km and at
+5 km blocking. Those are the two scales this design supports as intervals. At 10 km the point
+estimates hold, from +0.048 to +0.154. They rest on 6 to 33 positive-carrying blocks, so they are
+reported as indicative rather than as intervals. The table note gives the reason.
 
 **Table 3. Within-region baseline versus thermal performance and block-size robustness.** Primary
 (TSG) population; spatially blocked 5-fold CV (Section 3.8); paired spatial-block bootstrap, 1000
@@ -69,15 +69,14 @@ interval's reliability is the number of blocks that carry at least one burned ce
 fall quickly as blocks coarsen. At 2 cells they are 235 (Manavgat), 302 (Bejís), 843 (Muğla), 716
 (Evia) and 192 (Montiferru), out of 5 439, 3 967, 11 316, 2 566 and 743 blocks. At 10 cells they are
 28, 19, 70, 41 and 16, out of 237, 176, 576, 155 and 35. At 20 cells they are **12, 6, 33, 15 and
-6**, out of 60, 48, 167, 50 and 12. No bootstrap replicate was invalid at any block size except
-Bejís at 20 cells, where 5 of 1000 were single-class — which is the symptom of the six
-positive-carrying blocks just reported, and a further reason to read that row as indicative. An
-equal-tailed percentile interval built on six positive-carrying blocks has no meaningful coverage,
-and Montiferru at 20 cells additionally feeds only 12 groups into a 5-fold grouped split, so its
-models train on about ten blocks each. **The 20-cell row of this table should be read as indicative
-rather than as an interval.** The 10-cell row, where every region has 16 to 70 positive-carrying
-blocks, is the coarsest blocking this design supports properly, and the increment holds there in all
-five regions. Source: `paper/referee2_numbers.md`, block C, counted from the frozen per-cell
+6**, out of 60, 48, 167, 50 and 12. No bootstrap replicate was invalid at any block size, with one exception. At 20 cells Bejís had 5
+of 1000 replicates single-class. That is the symptom of the six positive-carrying blocks just
+reported, and a further reason to read the row as indicative. An equal-tailed percentile interval
+built on six positive-carrying blocks has no meaningful coverage. Montiferru at 20 cells also feeds
+only 12 groups into a 5-fold grouped split, so its models train on about ten blocks each. **The
+20-cell row of this table should be read as indicative rather than as an interval.** The 10-cell row
+is the coarsest blocking this design supports properly, because every region there has 16 to 70
+positive-carrying blocks. The increment holds at that scale in all five regions. Source: `paper/referee2_numbers.md`, block C, counted from the frozen per-cell
 prediction tables.
 
 This is the first half of the trade-off. It is not itself novel, and it is reported because the
@@ -86,31 +85,31 @@ second half is measured against it.
 ## 4.3 Cross-region transfer, and what label-free adaptation does to it
 
 **Raw transfer is heterogeneous and includes anti-predictive directions.** Raw target AUC spans
-0.326 to 0.686. Twelve of 20 directions are above chance with CI support, six are *below* chance
-with CI support (both directions of Manavgat↔Bejís and Manavgat↔Muğla, plus Bejís→Evia and
-Evia→Bejís), and two intervals span 0.5. Even the best raw transfer (Evia→Manavgat, 0.686) remains
-far below the target's own within-region thermal performance (0.870); across all directions the raw
-deficit against the within-region reference is 0.184 to 0.592 AUC. Those counts belong to the 2-cell
-blocking of Table 4. At the more conservative 10-cell (~5 km) blocking the same points give 9 above,
-4 below and 7 uncertain, with no direction changing side of the chance line (Section 4.7g). Four of
-the six below-chance directions keep their support there: Manavgat→Bejís, Muğla→Manavgat, Bejís→Evia
-and Evia→Bejís. Bejís→Manavgat and Manavgat→Muğla lose it and carry no verdict. The qualitative
-statement is unchanged. The counts should not be read as exact.
+0.326 to 0.686. Twelve of 20 directions are above chance with CI support. Six are *below* chance
+with CI support: both directions of Manavgat to Bejís and of Manavgat to Muğla, plus Bejís to Evia
+and Evia to Bejís. Two intervals span 0.5. Even the best raw transfer, Evia to Manavgat at 0.686,
+stays far below that target's own within-region thermal performance of 0.870. Across all directions
+the raw deficit against the within-region reference is 0.184 to 0.592 AUC.
 
-**The static baseline does not transfer either.** This is the control for the interpretation the
-rest of the paper invites, and it constrains that interpretation sharply. Running the same twenty
-directions with the terrain, fuel and greenness baseline alone gives a mean target AUC of **0.537**,
-against **0.541** for the thermal model. The predictor class that this paper's framing treats as the
-portable one — static attributes of a place, the class Dimarco et al. transfer successfully — is
-itself barely above chance here. The paired per-direction contrast is reported in Section 4.6b; what
-matters at this point is that the transfer failure documented below is not specific to the dynamic
-block. Adding pre-fire thermal state to a baseline that does not travel produces a model that does
-not travel.
+Those counts belong to the 2-cell blocking of Table 4. At the more conservative 10-cell blocking the
+same points give 9 above, 4 below and 7 uncertain, and no direction changes side of the chance line
+(Section 4.7). Four of the six below-chance directions keep their support there. Bejís to Manavgat
+and Manavgat to Muğla lose it and carry no verdict. The qualitative statement is unchanged. The
+counts should not be read as exact.
 
-**The thermal block's paired contribution to transfer, with its interval.** Differencing the two
-matrices direction by direction gives a mean of **+0.004**. The directions are not independent —
-each region appears in eight of the twenty — so the interval depends on what is treated as the
-resampling unit, and all four units the design permits give the same answer:
+**The static baseline does not transfer either.** This is the control for the reading the rest of
+the paper invites, and it constrains that reading sharply. The same twenty directions were run with
+the terrain, fuel and greenness baseline alone. The mean target AUC is **0.537**, against **0.541**
+for the thermal model. Static attributes of a place are the class Dimarco et al. transfer
+successfully, and are the class this paper's framing treats as portable. Here that class is itself
+barely above chance. The paired per-direction contrast is given in Section 4.6b. What matters here
+is that the transfer failure below is not specific to the dynamic block. A baseline that does not
+travel, plus pre-fire thermal state, gives a model that does not travel.
+
+**The thermal block's paired contribution to transfer, with its interval.** The two matrices were
+differenced direction by direction. The mean is **+0.004**. The directions are not independent,
+because each region appears in eight of the twenty. The interval therefore depends on what is
+treated as the resampling unit. All four units the design permits give the same answer:
 
 | Resampling unit | n | 95 % interval on the mean paired contribution |
 |---|---:|---|
@@ -119,11 +118,11 @@ resampling unit, and all four units the design permits give the same answer:
 | Unordered pairs, t on pair means | 10 | [−0.034, +0.042] |
 | Regions, leave-one-out jackknife | 5 | [−0.037, +0.046] |
 
-Every interval spans zero and the point estimate is a small fraction of each width. The per-region
-jackknife also shows how little the mean is anchored: holding out Manavgat, Bejís, Muğla, Evia and
-Montiferru in turn gives +0.0148, +0.0021, +0.0065, **−0.0081** and +0.0060, so **dropping Evia alone
-reverses the sign of the headline**. Within-direction sampling variability is not propagated into
-any of these four; they resample between directions only.
+Every interval spans zero, and the point estimate is a small fraction of each width. The per-region
+jackknife shows how little the mean is anchored. Holding out Manavgat, Bejís, Muğla, Evia and
+Montiferru in turn gives +0.0148, +0.0021, +0.0065, **−0.0081** and +0.0060. **Dropping Evia alone
+reverses the sign of the headline.** None of these four units propagates within-direction sampling
+variability. They resample between directions only.
 
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
 spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise z-scoring (λ =
@@ -168,7 +167,7 @@ within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered
 directions are not part of this decomposition (per-pair absolute decompositions exist without
 fraction CIs). The status column asks whether the *adapted* value clears chance and uses the 2-cell
 adapted intervals of Table 4. The adapted arms were not recomputed at the coarser blocking of
-Section 4.7g, which covers the raw arm and the paired delta only.
+Appendix A(c), which covers the raw arm and the paired delta only.
 
 | Direction | Within | Raw | Best adapted (method) | Recovered fraction [CI] | Status |
 |---|---|---|---|---|---|
@@ -210,58 +209,58 @@ expected direction is named. All twenty individual diagnostics are in Appendix B
 | geographic | 1 | −0.24 [−0.84, +0.73] centroid geodesic distance | no |
 
 **Only two diagnostics have intervals excluding zero, and both are conditional.** The stronger is
-the sign-agreement fraction over interval-supported features, at ρ = +0.84 [+0.58, +0.88]; the
-cosine variant reaches +0.81. No marginal measure was shown to order the matrix, including area-of-applicability-style
-dissimilarity in predictor space, climatic distance and geographic distance, and so do the
-niche-overlap and regime families. The learned domain classifier is at ceiling, separating source
-from target at AUC ≥ 0.96 for every pair, which makes it useless as an ordering instrument precisely
-because it always succeeds.
+the sign-agreement fraction over interval-supported features, at ρ = +0.84 [+0.58, +0.88]. The
+cosine variant reaches +0.81. No marginal measure was shown to order the matrix. That includes
+area-of-applicability-style dissimilarity in predictor space, climatic distance and geographic
+distance. The niche-overlap and regime families were not shown to order it either. The learned
+domain classifier is at ceiling, separating source from target at AUC ≥ 0.96 for every pair. It
+always succeeds, which is why it carries no ordering information.
 
-Two limits are stated with the result rather than after it. The conditional index is evaluated at
-its own design size: its tie structure caps the achievable Spearman at +0.861, the observed +0.840
-therefore sits essentially on that ceiling, and the exact one-sided permutation p is 0.0060, the
-smallest this tie structure can produce, against a Bonferroni threshold of 0.0026 over the nineteen
-computed variants. No outcome of this diagnostic could have cleared family-wise correction on ten
-effective pairs. And signed associations require burned labels in both regions, so the family that
-works is not available before deployment while the family that fails is.
+Two limits are stated with the result rather than after it. The first is size. The index's tie
+structure caps the achievable Spearman at +0.861, so the observed +0.840 sits essentially on that
+ceiling. Its exact one-sided permutation p is 0.0060, the smallest this tie structure can produce,
+against a Bonferroni threshold of 0.0026 over the nineteen computed variants. No outcome of this
+diagnostic could have cleared family-wise correction on ten effective pairs. The second limit is
+labels. Signed associations need burned labels in both regions. The family that works is therefore
+not available before deployment, while the family that fails is.
 
-A third limit is a selection rather than a sample-size issue, and it is the sharpest of the three.
-The two rows that clear zero are the *supported-feature* variants, where the feature subset is
-chosen by whether two regions' bootstrap intervals happen to be disjoint — a data-dependent
-selection made on the same data, with no correction. Their unselected counterparts over all nine
-features are ρ = +0.50 [−0.17, +0.83] for the cosine and ρ = +0.18 [−0.40, +0.72] for the agreement
-count, both spanning zero. The result lives in the selection step, and is reported as such.
+A third limit is about selection, and it is the sharpest of the three. The two rows that clear zero
+are the *supported-feature* variants. Their feature subset is chosen by whether two regions'
+bootstrap intervals happen to be disjoint. That is a data-dependent selection, made on the same
+data, with no correction. The unselected counterparts over all nine features are ρ = +0.50
+[−0.17, +0.83] for the cosine and ρ = +0.18 [−0.40, +0.72] for the agreement count. Both span zero.
+The result lives in the selection step, and is reported as such.
 
 **The families are compared on unequal samples, and equalising them does not change the ordering.**
 The marginal, applicability, climatic and geographic rows sit on twelve directions, because those
-diagnostics exist only for the four-region subset; the supported-conditional rows sit on sixteen and
-the rest on twenty. A reader may reasonably ask whether "the marginal family fails" is a statement
-about power rather than about diagnostics. Recomputing every row on the common twelve directions
-answers it: the published values reproduce to 4.8 × 10⁻⁵, the conditional rows still lead at +0.87
+diagnostics exist only for the four-region subset. The supported-conditional rows sit on sixteen and
+the rest on twenty. A reader may reasonably ask whether the marginal family's failure is a statement
+about power rather than about diagnostics. Every row was therefore recomputed on the common twelve
+directions. The published values reproduce to 4.8 × 10⁻⁵. The conditional rows still lead, at +0.87
 [+0.65, +0.88] and +0.85 [+0.43, +0.88], and every marginal row still spans zero. The ordering is not
 an artefact of unequal samples.
 
 ## 4.5 The contrast pair: similarity is not sufficient
 
 The clearest single view of Table 6 needs no ranking at all. Manavgat and Muğla lie in the same
-country and fire year, 307 km apart by the centroid geodesic distance this paper uses as a
-diagnostic (their nearest boundaries are 191 km apart), and their burned cells occupy the most
-similar
-environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77 to 0.89. Yet
-five of nine feature-response directions point opposite ways, including elevation, whose signed AUC
-is 0.374 [0.289, 0.471] in Manavgat against 0.611 [0.532, 0.690] in Muğla with disjoint intervals,
-and all four absolute thermal channels. Transfer is below chance in both directions at the point
-estimate, 0.470 and 0.401. Both directions also sit deep inside the nominal area of applicability,
-at 0.875 and 0.531 of target cells inside the weighted region.
+country and the same fire year. They are 307 km apart by the centroid geodesic distance this paper
+uses as a diagnostic, and their nearest boundaries are 191 km apart. Their burned cells occupy the
+most similar environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77
+to 0.89. Yet five of nine feature-response directions point opposite ways. Elevation is one of them,
+at a signed AUC of 0.374 [0.289, 0.471] in Manavgat against 0.611 [0.532, 0.690] in Muğla, with
+disjoint intervals. All four absolute thermal channels are among the others. Transfer is below
+chance in both directions at the point estimate, at 0.470 and 0.401. Both directions also sit inside
+the nominal area of applicability, at 0.875 and 0.531 of target cells.
 
-Bejís and Montiferru sit at the opposite extreme, with burned envelopes that barely overlap and the
-most dissimilar values on every overlap measure, and they transfer above chance in both directions.
-That half of the contrast rests on point estimates, since neither direction carries a verdict at
-5 km blocking, and the marginal applicability audit was never produced for Montiferru. The claim is
-one of *sufficiency*: similarity does not guarantee transfer, and dissimilarity does not preclude
-it. Established by coexisting counterexamples, it does not depend on the number of pairs available.
+Bejís and Montiferru sit at the opposite extreme. Their burned envelopes barely overlap, and they
+carry the most dissimilar values on every overlap measure. They transfer above chance in both
+directions. That half of the contrast rests on point estimates: neither direction carries a verdict
+at 5 km blocking, and the marginal applicability audit was never produced for Montiferru. The claim
+is one of *sufficiency*. Similarity does not guarantee transfer, and dissimilarity does not preclude
+it. The claim rests on two coexisting counterexamples, so it does not depend on the number of pairs
+available.
 
-## 4.6 Interventions: pooling and feature removal obey the same conservation
+## 4.6 Interventions: pooling and feature removal
 
 **(a) Pooled multi-region training.** Training on the pooled primary populations of the other four
 regions never beats the best single-source transfer for any target, and stays 0.28 to 0.50 AUC below
@@ -276,11 +275,11 @@ costs **−0.081** of mean within-region AUC, supported in every region (per-reg
 **+0.014 [−0.017, +0.045]**, which spans zero.
 
 Two qualifications belong with those numbers rather than after them. First, the debit is not the
-thermal block's. Dropping elevation alone accounts for −0.061 of it (0.888 → 0.827) and dropping the
-LST anomaly alone for −0.013 (0.888 → 0.875), so roughly three quarters of the cost is the removal
-of a **baseline** terrain variable, not of a thermal channel. Second, both figures are
-post-selection: the two predictors were chosen because they reverse, using the same data on which
-the −0.081 and the +0.014 are then estimated, and no correction for that selection is applied.
+thermal block's. Dropping elevation alone accounts for −0.061 of it, from 0.888 to 0.827. Dropping
+the LST anomaly alone accounts for −0.013, from 0.888 to 0.875. Roughly three quarters of the cost
+is therefore the removal of a **baseline** terrain variable, not of a thermal channel. Second, both
+figures are post-selection. The two predictors were chosen because they reverse, using the same data
+on which the −0.081 and the +0.014 are then estimated. No correction for that selection is applied.
 
 | Configuration | Mean within-region AUC | Mean transfer AUC |
 |---|---|---|
@@ -289,34 +288,38 @@ the −0.081 and the +0.014 are then estimated, and no correction for that selec
 | drop `lst_anomaly_mean` | 0.875 | 0.544 |
 | drop both | 0.807 | 0.556 |
 
-What this measures, stated at the strength it supports, is a local cost with no compensating
-transfer gain. It does not measure an exchange, because the transfer side is a null on both arms:
-the thermal block's own contribution to transfer is +0.004 with an interval spanning zero
-(Section 4.3), and removing the reversing predictors returns +0.014 with an interval spanning zero.
-Two nulls on the portability axis do not constitute a price paid.
+What this measures is a local cost with no compensating transfer gain. It does not measure an
+exchange, because the transfer side is a null on both arms. The thermal block's own contribution to
+transfer is +0.004, with an interval spanning zero (Section 4.3). Removing the reversing predictors
+returns +0.014, with an interval spanning zero. Two nulls on the portability axis are not a price
+paid.
 
 ## 4.7 Sensitivity analyses
 
-Five design choices were varied with everything else held fixed: the Evia AOI and its prevalence,
-the CORAL regularisation constant, the blocking scale, the closure date of the predictor window, and
-the quality screening of the coarse thermal input. None changes a conclusion above. Two are worth
-carrying into the main text because they bound how the results should be read. Coarsening the blocks
-from 1 km to 5 km moves the verdict counts from ten positive, seven negative and three uncertain to
-six, four and ten, removing support from six verdicts and adding none; the point estimates are
-unchanged, but that is an identity, since the blocking scale is the resampling unit and cannot move
-an estimate computed once over all target cells. And rebuilding Manavgat's whole downstream chain
-from a quality-screened MODIS input, which changes the downscaled surface on 22,304 of 24,150 cells
-by up to 10.9 °C, moves no signed univariate association by more than +0.0003, closing the one
-processing-artefact candidate for that region's behaviour. Appendix A reports all five.
+Five design choices were varied with everything else held fixed. They are the Evia AOI and its
+prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor
+window, and the quality screening of the coarse thermal input. None changes a conclusion above. Two
+bound how the results should be read, so they are carried into the main text here.
+
+Coarsening the blocks from 1 km to 5 km moves the verdict counts from ten positive, seven negative
+and three uncertain to six, four and ten. Support is removed from six verdicts and added to none.
+The point estimates are unchanged, but that is an identity rather than a result. The blocking scale
+is the resampling unit, and it cannot move an estimate computed once over all target cells.
+
+Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes
+the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
+moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
+behaviour. Appendix A reports all five arms.
 
 ## 4.8 The same geography, a second fire: reversal with place held constant
 
 Every result above compares different places. Muğla admits a stricter test, because a second fire
-occurred inside the identical AOI on the identical analysis grid: the 2021 event, with its predictor
-window closing on 28 July, and the 2022 event, whose matched window closes on 20 June. Region,
-bounding box, cell definition, feature registry and processing chain are the same. What the design
-holds fixed is place; what it does not hold fixed is season, since the 2022 fire ignites about six
-weeks earlier, nor population, since the 2022 arm is defined by removing the 2021 scar.
+burned inside the identical AOI on the identical analysis grid. The 2021 event has a predictor
+window closing on 28 July. The 2022 event has a matched window closing on 20 June. Region, bounding
+box, cell definition, feature registry and processing chain are the same in both arms. The design
+holds place fixed. It does not hold season fixed, because the 2022 fire ignites about six weeks
+earlier, and it does not hold the population fixed, because the 2022 arm is defined by removing the
+2021 scar.
 
 **Table R8. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
