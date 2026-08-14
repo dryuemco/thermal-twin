@@ -63,7 +63,8 @@ This paper is about a property that the pattern does not report. Predictors that
 *state* of a surface in a particular season are more informative about that season than predictors
 that describe a place. They are also, as we show, not portable: the relationship they carry is
 reparameterised locally, existing everywhere but pointing in different directions in different
-places. The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region and contributes
+places. The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
+cross-validation, +0.022 when a whole burn scar is withheld, and contributes
 +0.004 between them, an estimate whose interval spans zero, with a sign that is a property of the
 source-target pair rather than of the block.
 
@@ -152,8 +153,11 @@ Three findings carry this paper. Each is stated at the strength its interval sup
 nearest prior work is named inside the claim.
 
 **Contribution 1. Local skill and portability, measured separately and per direction.** The thermal
-block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with every bootstrap
-interval above zero and the result holding in both analysis populations. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
+block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions under blocked
+cross-validation, with every bootstrap
+interval above zero and the result holding in both analysis populations. That increment is
+substantially a property of interleaved holdout: withholding a whole burn scar leaves +0.022
+[−0.032, +0.077], and across regions +0.004. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
 run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
 model's 0.541, so the static predictor class is not the portable one either. Three evaluations scored on **identical cells**

@@ -188,10 +188,24 @@ not the value at any one separation: the 2,802 km pair returns 0.326 and 0.444.
 component sizes from 25 to 200 cells and under both 4- and 8-connectivity, and flat across buffers
 of 2, 5 and 10 km.
 
-**The increment behaves the same way.** Contribution 1 is about the paired thermal-minus-baseline
-difference. At the half-split separation it is **+0.027** on average, positive in 13 of 18 splits and
-running from −0.255 to +0.164, between the within-region +0.056 to +0.153 and the cross-region
-+0.004.
+**The increment declines with the holdout, and is not established once the fire is withheld.**
+Contribution 1 is about the paired thermal-minus-baseline difference, so the same evaluations were
+run on it.
+
+| Evaluation | Thermal increment | Interval |
+|---|---:|---|
+| Blocked cross-validation, per region | +0.056 to +0.153 | every interval above zero |
+| Within-region half-split | +0.027 | positive in 13 of 18 splits |
+| Leave-one-scar-out | **+0.022** | **[−0.032, +0.077]** |
+| Cross-region, twenty directions | +0.004 | [−0.028, +0.036] |
+
+The point estimate falls monotonically as the holdout hardens, and the last two intervals span zero.
+Under leave-one-scar-out the increment is positive in six of eight scars and averages +0.022, against
+a baseline of 0.529 and a thermal 0.552 that are both close to chance on that evaluation; restricted
+to Muğla it is +0.009 [−0.051, +0.070]. **The within-region increment of +0.056 to +0.153 is
+therefore substantially a property of interleaved holdout.** It is not shown to be zero on an unseen
+fire, and eight scars cannot show that; what this design establishes is that it is not established
+there.
 
 **Six directions are below chance with interval support**, the sharpest at 0.326 [0.305, 0.349]. No
 account of merely lost skill produces a reliably reversed ranking, so those six need a mechanism

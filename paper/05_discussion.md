@@ -35,7 +35,10 @@ therefore reads the increment as local in a specific sense: it holds where the h
 training cells, and most of it is gone once they are not, before the fire or the region changes. What that does not explain is why the directions differ from each
 other, and in particular why six of them are anti-predictive.
 
-The within-region increment is not an artefact to be explained away. It replicates in five
+The within-region increment is not an artefact to be explained away, but it is measured under a
+holdout that Section 4.3 shows is generous. Withholding a whole burn scar reduces it to +0.022
+[−0.032, +0.077], so what follows describes an increment that is established under interleaved
+validation and not established beyond it. It replicates in five
 independent regions, survives coarsening of the spatial blocks to ~5 km with its interval intact,
 persists in the secondary all-valid population, and survives a predictor window closed 7 and 14 days
 earlier in all five regions. The direction of that last result is region-specific and should not be

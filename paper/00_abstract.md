@@ -95,7 +95,8 @@ here, on about 500 m cells, with MCD64A1 labels and spatially blocked validation
 thermal predictors were added to a terrain, fuel and greenness baseline.
 
 **The local skill does not travel, and almost all of it is lost before the region changes.**
-Within-region ROC-AUC rose by +0.056 to +0.153 in every region. Across twenty ordered transfer directions the same
+Within-region ROC-AUC rose by +0.056 to +0.153 in every region under blocked cross-validation, but
+only +0.022 [−0.032, +0.077] when a whole burn scar is withheld. Across twenty ordered transfer directions the same
 block contributed +0.004 [−0.028, +0.036]. That is not distinguishable from zero, and its sign
 changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. Three evaluations on **identical
 cells** locate the failure. A model that has the held-out burn scar in its training data scores
