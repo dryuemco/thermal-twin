@@ -98,6 +98,15 @@ same points give 9 above, 4 below and 7 uncertain, and no direction changes side
 and Manavgat to Muğla lose it and carry no verdict. The qualitative statement is unchanged. The
 counts should not be read as exact.
 
+**In precision terms the transfer is worse than the ROC figures suggest.** ROC-AUC is the metric
+used throughout this paper, for comparability with the literature, but a susceptibility surface is
+used as a ranked area budget, so precision-recall is the operational quantity. Across the twenty
+directions the thermal model's PR-AUC averages **0.156 against a no-skill baseline of 0.136**, a lift
+of 1.16. **Six of the twenty fall below their own no-skill baseline**, and only one, Evia to
+Manavgat, exceeds twice it, at 0.094 against 0.038. A transferred model therefore ranks burned cells
+about a sixth better than random on average, and worse than random in six directions. This is a
+sharper statement than the ROC means support and it should be the one a practitioner reads.
+
 **The static baseline does not transfer either.** This is the control for the reading the rest of
 the paper invites, and it constrains that reading sharply. The same twenty directions were run with
 the terrain, fuel and greenness baseline alone. The mean target AUC is **0.537**, against **0.541**
@@ -131,12 +140,17 @@ first is included to show why an unmatched comparison misleads. Each uses the tr
 unchanged: fit, then apply with no refit, no recalibration and no threshold selection.
 
 The held-out unit is a burned connected component of at least 50 cells together with all cells
-within 2 km of it. What makes that a harder discrimination problem than a whole region is not its
-burned fraction, since ROC-AUC does not depend on class balance for fixed class-conditional
-distributions. It is the composition of the negative pool: every negative in a scar collar is
-fire-adjacent, sharing the terrain, land cover and synoptic conditions of the positives, whereas a
-region's negatives include the whole easy far field. The burned fraction, 34 to 87 % against 3.8 to
-28.7 % for a region, is a symptom of that construction rather than its cause.
+within 2 km of it. What makes that a harder discrimination problem than a whole region is the
+composition of its negatives, not its burned fraction, and that can be shown rather than argued.
+Taking the same fitted model and the same out-of-fold predictions, and scoring them on a random
+sample of region cells drawn at the scar area's own burned fraction, gives **0.782 against the
+region-wide 0.782**: matching the prevalence changes nothing, at −0.000 [−0.003, +0.002] over the
+nine scars. Scoring the same predictions on the scar area itself gives 0.627, a fall of **+0.155
+[+0.093, +0.217]**. The whole effect is therefore the negative pool. Every negative in a scar collar
+is fire-adjacent, sharing the terrain, land cover and synoptic conditions of the positives, whereas a
+region's negatives include its easy far field. The burned fraction, 34 to 87 % against 3.8 to 28.7 %
+for a region, is a symptom of that construction, and ROC-AUC is in any case invariant to class
+balance at fixed class-conditional distributions.
 
 **Table 5. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
 Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make

@@ -18,30 +18,32 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (15)
+## review (17)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
-- TABLE WITHOUT CAPTION in 04_results near md line 120
-- TABLE WITHOUT CAPTION in 04_results near md line 229
-- TABLE WITHOUT CAPTION in 04_results near md line 423
+- TABLE WITHOUT CAPTION in 04_results near md line 129
+- TABLE WITHOUT CAPTION in 04_results near md line 243
+- TABLE WITHOUT CAPTION in 04_results near md line 437
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 77
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 119
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 160
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 176
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 199
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 223
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 76
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 92
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 133
 
 ## stripped (5)
 
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (35)
+## table (39)
 
 - Study regions, areas of interest and tempora: 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
 - Study regions, areas of interest and temporal wi: 5 of 5 columns wrap (widest cell 49 chars)
@@ -70,12 +72,15 @@ converter made is listed so it can be reviewed.
 - : 1 of 4 columns wrap (widest cell 34 chars)
 - : 7 cols, est. width 113 chars -> scriptsize
 - : 6 cols, est. width 96 chars -> footnotesize, 1 wrapping
-- : 1 of 6 columns wrap (widest cell 21 chars)
+- : 1 of 6 columns wrap (widest cell 21 chars) _(x2)_
+- : 6 cols, est. width 95 chars -> footnotesize, 1 wrapping
 - : 6 cols, est. width 125 chars -> footnotesize, 3 wrapping
 - : 3 of 6 columns wrap (widest cell 42 chars)
 - : 6 cols, est. width 157 chars -> scriptsize, 6 wrapping
 - : 6 of 6 columns wrap (widest cell 24 chars)
 - : 6 cols, est. width 82 chars -> small, 1 wrapping
 - : 1 of 6 columns wrap (widest cell 23 chars)
+- : 5 cols, est. width 69 chars -> small, 1 wrapping
+- : 1 of 5 columns wrap (widest cell 21 chars)
 - Few-shot recovery of target ROC-AUC, thermal: 10 cols, est. width 100 chars -> footnotesize
 

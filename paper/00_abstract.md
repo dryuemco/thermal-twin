@@ -98,7 +98,9 @@ thermal predictors were added to a terrain, fuel and greenness baseline.
 Within-region ROC-AUC rose by +0.056 to +0.153 in every region under blocked cross-validation, but
 only +0.022 [−0.032, +0.077] when a whole burn scar is withheld. Across twenty ordered transfer directions the same
 block contributed +0.004 [−0.028, +0.036]. That is not distinguishable from zero, and its sign
-changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. Three evaluations on **identical
+changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. In precision-recall terms the
+transfer is worse than those figures suggest: PR-AUC averages 0.156 against a no-skill baseline of
+0.136, and six of the twenty directions fall below their own baseline. Three evaluations on **identical
 cells** locate the failure. A model that has the held-out burn scar in its training data scores
 0.634; withholding that scar gives 0.552; and a model fitted 306 to 2,802 km away gives 0.555, though that last is a mean over four foreign
 models whose individual results run from 0.374 to 0.724. The

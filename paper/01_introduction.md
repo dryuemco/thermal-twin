@@ -180,8 +180,11 @@ chance, so neither the fire's identity nor the region boundary is shown to cost 
 evaluation geometry is fixed. What is measurable is the geometry itself. It is not shown to be a property of the
 fire event either, because the held-out patch is defined by the labels and its identity cannot be
 separated from its location. Two thirds of the apparent fall from the region-wide 0.776 is the
-evaluation area. Its negatives are all fire-adjacent, and therefore the hardest in the region, so a
-scar-level result compared against a region-level reference overstates the collapse. Separation does not order
+evaluation area, and a control isolates why. Matching the prevalence of a region sample to the scar
+area's changes nothing, at −0.000 [−0.003, +0.002]; scoring the same predictions on the scar area
+costs +0.155 [+0.093, +0.217]. The cause is that a scar collar's negatives are all fire-adjacent,
+and therefore the hardest in the region, so a scar-level result compared against a region-level
+reference overstates the collapse. Separation does not order
 the matrix either, at ρ = −0.32 with an interval spanning zero. Six directions are nonetheless below
 chance with interval support, which no account of merely lost skill explains, and that residual is
 what Contributions 2 and 3 address. Feature removal measures the local cost.

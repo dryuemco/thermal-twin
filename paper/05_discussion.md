@@ -147,7 +147,13 @@ travel either.
 
 ## 5.8 Implications
 
-For practice, this paper supports one concrete change in what is reported. Alongside a spatially
+For practice, one number should be stated before any other. In precision-recall terms, which is how
+a susceptibility surface is actually used, transferred models average a PR-AUC of 0.156 against a
+no-skill baseline of 0.136, and six of twenty directions fall below their own baseline. Whatever
+the ROC figures suggest, a model moved to a region it was not fitted in does not usefully rank
+burned cells there.
+
+This paper also supports one concrete change in what is reported. Alongside a spatially
 blocked within-region figure, report skill on a held-out burn scar and its surroundings, or on a
 held-out fire event. On these five regions the two differ by about 0.14 ROC-AUC on the same model,
 which is the size of the effect such papers usually claim, so a blocked figure alone should be read
