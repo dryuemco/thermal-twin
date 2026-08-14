@@ -44,13 +44,15 @@ at the chance line.
 
 Two controls fix the meaning of all this. The baseline arm transfers at a mean of 0.537 against the
 thermal model's 0.541, so the static predictor class is not portable here either. And a
-within-region half-split, applied with no refit through the same code path, returns 0.574: skill
-falls from the blocked-CV range of 0.859 to 0.918 to about 0.57 before any boundary is crossed. It
-decays with separation from the training cells and flattens near 0.50 by 10 to 20 km, and the twenty
-cross-region directions, at 306 to 2,802 km, sit on the continuation of that curve rather than below
-it. The honest summary is therefore not that these predictors fail to cross regions. It is that a
-model of this kind does not generalise much beyond ten to twenty kilometres, and that a region
-boundary adds nothing to a loss that has already happened.
+within-region half-split, applied with no refit through the same code path, returns 0.574, with
+skill near chance from about 10 km outward. Most of the loss is incurred before any boundary is
+crossed, and no further loss attributable to region crossing is detectable on top of it. The honest
+summary is therefore not that these predictors fail to cross regions, but that a model of this kind
+does not generalise far beyond its training footprint, and that a region boundary adds nothing
+measurable to a loss that has already happened. That is a null about region crossing, not a
+demonstration that distance is the cause, and it leaves the variation between directions unexplained:
+separation does not order the matrix, and six directions are anti-predictive with interval support,
+which extrapolation alone does not produce.
 
 Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region skill, with interval support in every region and roughly three quarters of it
@@ -62,8 +64,9 @@ The relationship itself is also unstable, and that is a separate finding. The di
 between dryness and burning changes from one region to another, with bootstrap support for two
 predictors. This is measured on univariate associations and does not depend on any fitted model, so
 the distance result above neither establishes it nor removes it. What the two together rule out is
-the comfortable reading in which regional concept shift is the whole explanation of the transfer
-matrix: most of that matrix is accounted for by separation alone.
+the comfortable reading in which regional concept shift explains the whole transfer matrix. Most of
+its *level* is reached without leaving a region. What varies around that level, including six
+anti-predictive directions, is not explained by separation and is where the instability matters.
 
 None of the similarity diagnostics tested here ordered the transfer matrix: predictor-space distance,
 domain separability, niche overlap and regime structure all failed. On ten effective pairs those null

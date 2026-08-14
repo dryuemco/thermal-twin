@@ -124,7 +124,8 @@ Montiferru in turn gives +0.0148, +0.0021, +0.0065, **−0.0081** and +0.0060. *
 reverses the sign of the headline.** None of these four units propagates within-direction sampling
 variability. They resample between directions only.
 
-**The failure is distance, not region.** Two controls settle what the matrix above is measuring.
+**Crossing a region boundary adds nothing detectable to a loss already incurred inside the region.**
+Two controls establish this, and the section is careful about what they do and do not support.
 
 The first asks whether this evaluation can register transfer at all. Within each region the modelled
 cells were cut in half by a straight line, a model fitted on one half and applied to the other with
@@ -132,35 +133,54 @@ no refit, no recalibration and no threshold selection, which is the protocol the
 use. The relationship is shared by construction: same region, same season, same fire, same units.
 Fitted through the same code path, which reproduces the frozen cross-region AUCs to 0.000000, the
 eighteen usable splits give a mean of **0.574**, ranging from 0.294 to 0.750. The harness is
-therefore not broken, since it returns 0.75 on the easiest split. But skill has already fallen from
-the blocked-CV range of 0.859 to 0.918 to about 0.57 **without leaving the region**, as soon as the
-held-out area is contiguous rather than interleaved.
+therefore not broken, since it returns 0.750 on the easiest split.
 
-The second control asks how far the model travels. Because each cut is a straight line, a target
-cell's distance to the nearest training cell is its distance to that line, so one fitted model per
-split yields an AUC at every separation. Over 55 bins in five regions:
+**That 0.574 is not a clean measure of separation.** A straight cut does not produce two exchangeable
+halves. Source burned counts across the eighteen splits run from 84 to 2,564, one region contributes
+a split with 700 source positives against another with 84, and two further splits were unusable
+because one half of Manavgat contains no burned cells at all. Blocked cross-validation, by contrast,
+trains on about four fifths of a region with positives drawn from across the whole scar. The drop
+from the blocked-CV range of 0.859 to 0.918 down to 0.574 therefore mixes separation with
+training-set composition and with where a single scar happens to fall, and this design does not
+separate them.
 
-| Separation from the training half | Bins | Mean AUC |
-|---|---:|---:|
-| 0 to 5 km | 18 | 0.692 |
-| 5 to 10 km | 16 | 0.519 |
-| 10 to 20 km | 11 | 0.499 |
-| 20 to 40 km | 6 | 0.445 |
-| 40 to 80 km | 3 | 0.541 |
+The second control asks how skill varies with separation. Because each cut is a straight line, a
+target cell's distance to the nearest training cell is its distance to that line, so one fitted model
+per split yields an AUC at every separation:
 
-Skill decays with separation and flattens by about 10 to 20 km. The near bins are inflated by
-autocorrelation, which is what blocked validation exists to remove, so 0.692 is an upper bound
-rather than an estimate. Placing the twenty transfer directions at their AOI-centroid separations,
-which run from 306 to 2,802 km, gives a mean of 0.541. **The cross-region points sit on the
-continuation of that curve, not below it.** Crossing a national border and going a hundred times
-further than 20 km does not cost more than the first 20 km already cost.
+| Separation from the training half | Bins | Burned cells | Mean AUC | Weighted by burned cells |
+|---|---:|---:|---:|---:|
+| 0 to 5 km | 18 | 4,504 | 0.692 | 0.674 |
+| 5 to 10 km | 16 | 3,369 | 0.519 | 0.574 |
+| 10 to 20 km | 11 | 3,740 | 0.499 | 0.494 |
+| 20 to 40 km | 6 | 2,215 | 0.445 | 0.495 |
+| 40 to 80 km | 3 | 1,357 | 0.541 | 0.555 |
+| 80 to 160 km | 1 | 27 | 0.421 | 0.421 |
 
-The transfer failure is therefore a property of moving away from the training cells, not of moving
-between regions, and it saturates at a length scale this design can name. Two limits attach. The
-within-region separations stop at 86 km while the cross-region ones begin at 306, so the comparison
-extrapolates a flattened curve rather than interpolating between measured points; and distance is
-not the only thing that changes with distance, so this separates distance from crossing an AOI
-boundary rather than from everything that covaries with it. Full detail is in
+Skill declines with separation and is near chance from about 10 km outward. Three cautions attach.
+The near bins are inflated by autocorrelation, which is what blocked validation exists to remove, so
+0.692 is an upper bound rather than an estimate. The far bins are thin, one of them resting on 27
+burned cells, and the profile is not monotonic. And the two aggregations disagree by up to 0.05, so
+the level of the plateau is sensitive to a choice the data do not settle.
+
+**What this supports, and what it does not.** Placing the twenty transfer directions at their
+AOI-centroid separations of 306 to 2,802 km gives a mean of 0.541, which is where the within-region
+curve already sits by 10 to 20 km. The defensible statement is therefore a **null**: no additional
+loss attributable to region crossing is detectable on top of a loss already largely incurred inside
+a region. It is not evidence that distance *causes* the cross-region deficit. Once the within-region
+curve is at the chance floor, any cross-region mean near 0.5 lies on its continuation, so this
+comparison could not have come out otherwise, and the two ranges do not overlap: within-region
+separations stop at 86 km and cross-region ones begin at 306.
+
+**Separation also does not order the matrix, and something else must.** Every cross-region direction
+is past the saturation, so separation is effectively constant across the matrix while transfer runs
+from 0.326 to 0.686. Tested directly, geographic distance does not order transfer, at Spearman
+ρ = −0.32 with an interval spanning zero, and the two nearest directions, Manavgat and Muğla at
+306 km, are among the worst at 0.470 and 0.401 while directions eight times more distant transfer
+above chance. **Six directions are below chance with interval support**, the sharpest at 0.326
+[0.305, 0.349]. Extrapolating an uninformative model produces about 0.5, not a reliably reversed
+ranking, so those six require a mechanism that acts on the direction of the relationship rather than
+on its strength. That is what Sections 4.4 to 4.8 are about. Full detail on both controls is in
 `paper/positive_control.md` and `paper/distance_curve.md`.
 
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
@@ -224,8 +244,9 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 | Bejís→Muğla | 0.859 | 0.618 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
 
 In the six directions where raw transfer was below chance, the best label-free method recovers at
-most 34 % of the gap to the within-region reference, so the remaining conditional fraction is at
-least 0.66 everywhere. Seven directions show *negative* recovery, meaning adaptation moves the score
+most 34 % of the gap to the within-region reference, so the remaining unrecovered fraction is at
+least 0.66 everywhere. The half-split control above shows that the larger part of that remainder is
+already incurred inside the region, so it should not be read as a measure of concept shift. Seven directions show *negative* recovery, meaning adaptation moves the score
 away from the reference; in six of those raw transfer was already above chance and adaptation
 destroyed that advantage. Label-free alignment therefore does not act as a repair mechanism.
 
@@ -306,8 +327,9 @@ available.
 **(a) Pooled multi-region training.** At the point estimate, training on the pooled primary
 populations of the other four regions never beats the best single-source transfer for any target,
 with shortfalls of 0.02 to 0.22, and it stays 0.28 to 0.50 AUC below the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though
-only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not
-manufacture the missing conditional information.
+only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not recover what single-source
+transfer loses, and since it is evaluated entirely outside the saturation radius its failure is what
+separation alone predicts.
 
 **(b) Removing the direction-reversing features.** The two predictors whose signed association
 reverses between regions **with bootstrap support** are **`elevation_mean` and `lst_anomaly_mean`**.
@@ -341,7 +363,8 @@ paid.
 
 Six design choices were varied with everything else held fixed. They are the Evia AOI and its
 prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor
-window, and the quality screening of the coarse thermal input. None changes a conclusion above. Two
+window, the quality screening of the coarse thermal input, and the contrast between the normalised
+and the absolute dryness channels. None changes a conclusion above. Two
 bound how the results should be read, so they are carried into the main text here.
 
 Coarsening the blocks from 1 km to 5 km moves the verdict counts from ten positive, seven negative
@@ -410,8 +433,8 @@ reversal smaller rather than larger.
 
 ## 4.9 What target labels cost: the recovery curve
 
-Everything above measures a failure; this prices it. If the residual gap is conditional and
-label-free alignment cannot close it, the missing resource is target-conditional information, and
+Everything above measures a failure; this prices it. Label-free alignment does not close the residual
+gap, so the missing resource is information about the target that alignment cannot synthesise, and
 the direct way to supply it is target labels. A frozen few-shot diagnostic answers how many, for
 three regions across all six ordered directions, using one 10-cell (~5 km) spatial block as the unit
 of labelling effort and reading recovery against a matched target-only ceiling of 0.777 to 0.824.

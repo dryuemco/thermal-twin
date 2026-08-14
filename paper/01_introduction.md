@@ -154,12 +154,15 @@ all four between-direction resampling units we computed, and the sign varies by 
 run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
 model's 0.541, so the static predictor class is not the portable one either. And a within-region
 half-split, fitted on one contiguous half and applied to the other with no refit through the same
-code path, returns 0.574. Skill therefore falls from the blocked-CV range of 0.859 to 0.918 to about
-0.57 **without leaving the region**. Binning the target cells by their separation from the training
-half shows why: skill decays to about 0.50 by 10 to 20 km and then flattens, and the twenty
-cross-region directions, at 306 to 2,802 km, average 0.541, which sits on the continuation of that
-curve rather than below it. **The failure is a property of distance from the training cells, not of
-crossing a region boundary**, and it saturates at about 10 to 20 km. Feature removal measures the local cost.
+code path, returns 0.574, with skill near chance from about 10 km outward. Most of the loss is
+therefore incurred **without leaving the region**, and **no additional loss attributable to region
+crossing is detectable on top of it**. That is a null rather than a positive attribution to
+distance: the within-region curve is at the chance floor before the cross-region separations begin,
+so the comparison could not have come out otherwise, and the half-split confounds separation with
+training-set composition. What separation demonstrably does *not* do is order the matrix. Geographic
+distance gives ρ = −0.32 with an interval spanning zero, the nearest pair is among the worst, and
+six directions are below chance with interval support, which extrapolation alone does not produce.
+The variation around the floor is what Contributions 2 and 3 address. Feature removal measures the local cost.
 Dropping the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region AUC, supported in every region. Roughly three quarters of that is elevation, a
 *baseline* terrain variable. Mean transfer changes by +0.014, whose interval also spans zero. Both
