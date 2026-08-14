@@ -46,7 +46,7 @@ converter made is listed so it can be reviewed.
 ## review (2)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Citation convention.** Citations are given as `[@BibKey]`, resolving against > `paper/REFERENCES.bib`. **E
-- TABLE WITHOUT CAPTION in 04_results near md line 942
+- TABLE WITHOUT CAPTION in 04_results near md line 943
 
 ## stripped (12)
 

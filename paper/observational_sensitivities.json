@@ -1957,7 +1957,330 @@
         "retained_fraction": 1.0331408554774077
       }
     },
-    "intervals": {}
+    "intervals": {
+      "manavgat_2021": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.0628767303798895,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.09003062258405609,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.017790039676884153,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.062479873746497966,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.005851484622637751,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.05096854576294274,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.062457842948837716,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.07370254751365672,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.08900594010465628,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.01284398622129812,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.06531991059317861,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.0883516470027776,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.11636306969577541,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.01775238583787305,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.0009227244717498187,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.01968133552574397,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.0177712423556198,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.015912440820098385,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.05096854576294274,
+          0.07370254751365672
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.06531991059317861,
+          0.11636306969577541
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.01968133552574397,
+          -0.015912440820098385
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.06319450549056164,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.006121060223532031,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.050951923373452446,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.06313469190094861,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.07558284639055236,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.08970455738181131,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.012706944696908168,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.06555821583004612,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.08955677384469699,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.11487813246404899,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.017806569936135063,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.0009631280641327302,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.01976563132860651,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.017811981245311654,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.016009575278511712,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.050951923373452446,
+          0.07558284639055236
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.06555821583004612,
+          0.11487813246404899
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.01976563132860651,
+          -0.016009575278511712
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "bejis_2022": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.04604955158397328,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.16115576722887331,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.02398026132031482,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.04601222480634462,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.004377374473501484,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.03807132439661125,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.04588415404864299,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.05461617205962247,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.16099073325697136,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.018866291828816228,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.12310906404592124,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.1615932620223452,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.19690750182912434,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.023982315569297207,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.0013563052828251165,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.026720967075627516,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.023979223409706277,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.02134771138598553,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.03807132439661125,
+          0.05461617205962247
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.12310906404592124,
+          0.19690750182912434
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.026720967075627516,
+          -0.02134771138598553
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.046234421372216984,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.004180407044761,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.0379430053649691,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.046357722283416836,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.0539730118707342,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.16161588287974166,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.019016200666500272,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.1224773096254011,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.16121536956808002,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.1971651533793512,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.024056770053517418,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.00135110398182432,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.026656865514330278,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.02405014178771018,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.021328965037928277,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.0379430053649691,
+          0.0539730118707342
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.1224773096254011,
+          0.1971651533793512
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.026656865514330278,
+          -0.021328965037928277
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "mugla_2021": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.0971252403793631,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.18382807380957278,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.0298376661124886,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.09719094855189948,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.004783161722531666,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.08816055131620357,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.09702819527662926,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.10670909454045993,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.18341964618989637,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.010929118315312824,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.16121207166695292,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.1834374880385012,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.20541849968533032,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.029839508912867643,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.000769104532579957,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.03135260055949731,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.02986087362587348,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.02825404019464928,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.08816055131620357,
+          0.10670909454045993
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.16121207166695292,
+          0.20541849968533032
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.03135260055949731,
+          -0.02825404019464928
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.09115661299365692,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.0051923656835617844,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.08113304614398113,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.09122093909153628,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.10121662120702155,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.15526996983530908,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.011081644702194774,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.1326806245620918,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.1557041252809391,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.17627290487032476,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.02907185488766471,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.0007711741265395083,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.03066496218515395,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.029043733489565494,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.02758435799660834,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.08113304614398113,
+          0.10121662120702155
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.1326806245620918,
+          0.17627290487032476
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.03066496218515395,
+          -0.02758435799660834
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "evia_2021_extended": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.14461972901451337,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.2872893339956759,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.06880676811145102,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.14486763446794673,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.00619110527610526,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.13335965110486486,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.1449106440285114,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.1573473669629566,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.2871868635305831,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.013657714323391185,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.26066681723040086,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.2864544896742166,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.3157830212636065,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.06891190307706042,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.0025691582638269262,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.07408229966896901,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.06889506028492338,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.06389289101195383,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.13335965110486486,
+          0.1573473669629566
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.26066681723040086,
+          0.3157830212636065
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.07408229966896901,
+          -0.06389289101195383
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.14441301073390844,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.006480551376469343,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.13112870357465775,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.14449196266196462,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.15723354877001164,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.2863796384154832,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.013289963152877504,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.2607217988865177,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.2857363686689417,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.31194275597051047,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.06875706414604212,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.002617389820239628,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.07379262053302087,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.0687390579334215,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.06330011390359847,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.13112870357465775,
+          0.15723354877001164
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.2607217988865177,
+          0.31194275597051047
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.07379262053302087,
+          -0.06330011390359847
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "montiferru_2021": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.10479922642373651,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.20509043933034088,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.04684628462558889,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.10426977609858587,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.01146773375363806,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.08216497219351279,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.10420989415028459,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.12824442031799568,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.20180420319869363,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.024715380696371986,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.15467616271082213,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.20152586529168365,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.2506675454379048,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.04672850158864699,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.004486432522431699,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.05574449871185258,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.04675429477171136,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.038225122769557696,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.08216497219351279,
+          0.12824442031799568
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.15467616271082213,
+          0.2506675454379048
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.05574449871185258,
+          -0.038225122769557696
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support"
+      }
+    }
   },
   "modis_zero_fill": {
     "manavgat_2021": {

@@ -61,11 +61,11 @@ absolute difference of exactly 0 in all five regions**, so the harness contribut
 
 | Region | dAUC, full block | dAUC without the two [95 % CI] | Retained |
 |---|---|---|---:|
-| Manavgat 2021 | +0.0669 | +0.0629 | 94 % |
-| Bejis 2022 | +0.0561 | +0.0460 | 82 % |
-| Mugla 2021 | +0.1157 | +0.0971 | 84 % |
-| North Evia 2021 (ext.) | +0.1533 | +0.1446 | 94 % |
-| Montiferru 2021 | +0.1014 | +0.1048 | 103 % |
+| Manavgat 2021 | +0.0669 | +0.0629 [+0.051, +0.074] | 94 % |
+| Bejis 2022 | +0.0561 | +0.0460 [+0.038, +0.055] | 82 % |
+| Mugla 2021 | +0.1157 | +0.0971 [+0.088, +0.107] | 84 % |
+| North Evia 2021 (ext.) | +0.1533 | +0.1446 [+0.133, +0.157] | 94 % |
+| Montiferru 2021 | +0.1014 | +0.1048 [+0.082, +0.128] | 103 % |
 
 The increment retains 82 % to 103 % of its full-block value without the two channels, so the
 coordinate-derived component is not what produces the within-region skill.
