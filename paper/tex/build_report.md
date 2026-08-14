@@ -24,8 +24,8 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - TABLE 1 REFERENCED BUT NOT PRESENT — left as literal text _(x2)_
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
-- TABLE WITHOUT CAPTION in 04_results near md line 120
-- TABLE WITHOUT CAPTION in 04_results near md line 290
+- TABLE WITHOUT CAPTION in 04_results near md line 119
+- TABLE WITHOUT CAPTION in 04_results near md line 289
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 
