@@ -89,7 +89,8 @@ measured against it.
 with CI support: both directions of Manavgat to Bejís and of Manavgat to Muğla, plus Bejís to Evia
 and Evia to Bejís. Two intervals span 0.5. Even the best raw transfer, Evia to Manavgat at 0.686,
 stays far below that target's own within-region thermal performance of 0.870. Across all directions
-the raw deficit against the within-region reference is 0.184 to 0.592 AUC.
+the raw deficit against the within-region reference is 0.184 to 0.592 AUC. That reference is a
+region-level blocked estimate; the controls below show it is not matched to a transfer evaluation.
 
 Those counts belong to the 2-cell blocking of Table 4. At the more conservative 10-cell blocking the
 same points give 9 above, 4 below and 7 uncertain, and no direction changes side of the chance line
@@ -132,6 +133,10 @@ unchanged: fit, then apply with no refit, no recalibration and no threshold sele
 The held-out unit is a burned connected component of at least 50 cells together with all cells
 within 2 km of it. That area is 34 to 87 % burned, against 3.8 to 28.7 % for a whole region, and
 every negative in it is fire-adjacent, so it is a harder discrimination problem than a region.
+
+**Table 5. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
+Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make
+the mismatch visible. Means and Student *t* intervals are over the eight held-out scars.
 
 | Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
 |---|---|---|---:|---|
@@ -222,7 +227,7 @@ spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region
 
 **Label-blind adaptation compresses the matrix toward chance rather than repairing it.** Under
 region-wise z-scoring the twenty directions span 0.431 to 0.630 and under CORAL 0.443 to 0.624,
-roughly half the raw spread, with no adapted direction exceeding 0.631 against within-region
+roughly half the raw spread, with no adapted direction exceeding 0.631 against the unmatched within-region
 references of 0.859 to 0.918. Adaptation raises the failing directions and degrades most of those
 that already transferred. Taking the better of the two adaptations per direction, 14 of the 20 end
 closer to chance than they began and 6 end further from it; five of those six involve Montiferru,
@@ -230,7 +235,7 @@ the smallest and last-added region, and move upward, while the sixth is Manavgat
 downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (ix) in
 Section 5.9, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
 
-**Table 5. Transfer-gap decomposition (four-AOI set, 12 directions).** Within = target's
+**Table 6. Transfer-gap decomposition (four-AOI set, 12 directions).** Within = target's
 within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered fraction = (adapted
 − raw)/(within − raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru
 directions are not part of this decomposition (per-pair absolute decompositions exist without
@@ -253,7 +258,7 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 | Muğla→Evia | 0.912 | 0.653 | 0.563 (CORAL) | −0.35 [−0.43, −0.27] | **negative recovery** |
 | Bejís→Muğla | 0.859 | 0.618 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
 
-**Against the right reference, adaptation is not failing** (Fig. 5)**.** The three controls above give an
+**Against the right reference, adaptation is not failing** (Fig. 5). The three controls above give an
 achievable reference for a model applied to a fire it has not seen: 0.574 for the half-split, 0.552
 for the leave-one-scar-out. The best label-free adaptation averages **0.556** across the twenty
 directions, against 0.541 raw. It is therefore at that reference, not far below it. What it does is
@@ -275,7 +280,7 @@ Twenty candidate diagnostics from four families were each rank-correlated with t
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
 pair-based bootstrap.
 
-**Table 6. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
+**Table 7. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
 raw transfer AUC with pair-based bootstrap 95 % CIs. Exp. is the sign expected if the diagnostic
 orders transfer. The member named is the one with the largest absolute correlation in its family,
 which is not always in the expected direction. All twenty individual diagnostics are in Appendix B,
@@ -323,7 +328,7 @@ an artefact of unequal samples.
 
 ## 4.5 The contrast pair: similarity is not sufficient
 
-The clearest single view of Table 6 needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
+The clearest single view of Table 7 needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
 country and the same fire year. They are 306 km apart by the centroid geodesic distance this paper
 uses as a diagnostic, and their nearest boundaries are 191 km apart. Their burned cells occupy the
 most similar environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77
@@ -343,12 +348,11 @@ available.
 
 ## 4.6 Interventions: pooling and feature removal
 
-**(a) Pooled multi-region training** (Fig. 6)**.** At the point estimate, training on the pooled primary
+**(a) Pooled multi-region training** (Fig. 6). At the point estimate, training on the pooled primary
 populations of the other four regions never beats the best single-source transfer for any target,
 with shortfalls of 0.02 to 0.22, and it stays 0.28 to 0.50 AUC below the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though
 only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not recover what single-source
-transfer loses, and since it is evaluated entirely outside the saturation radius its failure is what
-separation alone predicts.
+transfer loses.
 
 **(b) Removing the direction-reversing features.** The two predictors whose signed association
 reverses between regions **with bootstrap support** are **`elevation_mean` and `lst_anomaly_mean`**.
@@ -407,7 +411,7 @@ holds place fixed. It does not hold season fixed, because the 2022 fire ignites 
 earlier, and it does not hold the population fixed, because the 2022 arm is defined by removing the
 2021 scar.
 
-**Table 7. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
+**Table 8. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
 replicates, seed 42 (Section 3.15). Analysis population 41,730 rows / 2,911 burned (2021) and
 38,790 rows / 331 burned (2022). **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for the
@@ -444,7 +448,8 @@ cells, so only NDVI and the six thermal channels carry new information between t
 is the target's own positive class, so in the 2022 to 2021 direction not one target positive is
 present in the source training population while 38,789 of 38,819 target negatives are, and
 membership of the source training set alone separates the 2021 target's classes at ROC-AUC 0.9996.
-We therefore cannot bound what that asymmetry does to the two transfer numbers, only state that a
+We therefore cannot bound what that asymmetry does to a transfer estimate between the two arms,
+which is why none is reported here, only state that a
 direction with this structure is not comparable to the twenty between-region directions. The
 elevation reversal is the finding; the structural asymmetry is a competing explanation this design
 cannot exclude. The known part of the bias runs the safe way: the removed cells are high, with a

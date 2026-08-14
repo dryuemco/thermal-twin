@@ -87,7 +87,9 @@ whether or not their transfer works, so separability carries no ordering informa
 ## 5.4 What the conditional diagnostic is, and what it is not
 
 The sign-agreement index reaches ρ = +0.84 [+0.58, +0.88] against observed transfer. Three limits
-are reported with it rather than after it. Its tie structure caps the achievable Spearman at +0.861,
+are reported with it rather than after it, and the sharpest is a selection: the two rows that clear
+zero are supported-feature variants whose subset is chosen on the same data, and their
+all-nine-feature counterparts span zero. Its tie structure caps the achievable Spearman at +0.861,
 so the observed value sits essentially on its own ceiling and the ranking it supports is coarse. Its
 exact one-sided permutation p is 0.0060, the smallest that tie structure can produce, against a
 Bonferroni threshold of 0.0026 over nineteen computed variants. No outcome could have cleared
@@ -145,7 +147,7 @@ travel either.
 For practice, transfer skill has to be *measured* rather than inferred from similarity, and the
 pre-deployment diagnostics currently used for that inference did not order it here. Where a model
 must be moved, the resource that closes the gap is target labels: thirty-two labelled 5 km blocks
-recover 85 to 89 % of the target's own ceiling in three of six directions, and 30 to 57 % in the
+recover 85 to 89 % of the target's matched ceiling in three of six directions, and 30 to 57 % in the
 rest. That is a real answer and not a cheap one, being 7 to 20 % of the target's natural-vegetation
 population, and at small budgets the same intervention damages the direction that already transfers
 best.
@@ -166,7 +168,7 @@ it generalises.
 (i) **No meteorological covariates** enter the models, so we cannot say how local skill and
 portability behave for a mixed thermal-plus-weather predictor set.
 
-(ii) **Temporal transfer is measured for one region only**, and even there year and seasonal phase
+(ii) **The same-geography comparison covers one region only**, and even there year and seasonal phase
 are confounded, a confound that cannot be resolved in this study area for the reason given in
 Section 5.2. Its 331 burned cells also leave the thermal reversals unresolved at interval level, and
 the pair holds place fixed but not population. Those two arms are additionally the only transfer

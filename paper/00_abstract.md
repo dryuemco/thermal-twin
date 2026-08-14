@@ -119,8 +119,8 @@ burned-niche overlap failed in both directions, while the lowest transferred in 
 associations need labels on both sides. The family that works is therefore the one a practitioner
 does not have.
 
-**The mechanism is a reversal of sign.** Predictors do not weaken across regions. They reverse the
-direction of their association with burning. A distance in predictor space cannot see that. The same
+**The mechanism of the residual is a reversal of sign.** Predictors do not merely weaken across
+regions. Two reverse the direction of their association with burning, with bootstrap support. A distance in predictor space cannot see that. The same
 reversal appears inside one study area, between two fires eleven months apart on an identical grid.
 That arm rests on one fire and eleven positive-carrying blocks, so it corroborates rather than
 establishes.

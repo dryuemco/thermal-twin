@@ -40,8 +40,7 @@ spatial blocking throughout and reports every result at three block sizes, so th
 which verdicts depend on the choice.
 
 Blocking corrects the inflation that random folds produce within a region. It does not
-speak to performance on a fire the model has not seen, which Section 4.3 measures and finds to be a
-larger gap than the blocking correction itself. For that, the
+speak to performance on a fire the model has not seen, which Section 4.3 measures on identical cells. For that, the
 field's instrument is the area of applicability and related predictor-space dissimilarity measures
 [@Meyer2021; @Meyer2022; @Ludwig2023], which ask whether a target's predictor values fall inside the
 training data's envelope. Species distribution modelling has examined transferability far more

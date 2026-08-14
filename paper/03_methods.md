@@ -34,11 +34,11 @@ window-symmetric years preceding each predictor window.
 
 | Region | Bounding box (lon min, lat min, lon max, lat max) | Predictor window | Label window | Baseline years |
 |---|---|---|---|---|
-| Manavgat 2021 (Türkiye) | 31.05, 36.72, 31.85, 37.35 | 2021-06-01 to 2021-07-27 (56 d) | 2021-07-28 to 2021-08-31 (34 d) | 2017, 2018, 2019, 2020 |
-| Bejís 2022 (Spain) | -1.05, 39.68, -0.35, 40.15 | 2022-06-15 to 2022-08-14 (60 d) | 2022-08-15 to 2022-09-30 (46 d) | 2018, 2019, 2020, 2021 |
-| Muğla 2021 (Türkiye) | 27.1, 36.6, 28.9, 37.45 | 2021-06-01 to 2021-07-28 (57 d) | 2021-07-29 to 2021-09-15 (48 d) | 2017, 2018, 2019, 2020 |
-| North Evia 2021 (Greece) | 23.05, 38.55, 23.85, 39.15 | 2021-06-05 to 2021-08-02 (58 d) | 2021-08-03 to 2021-09-30 (58 d) | 2017, 2018, 2019, 2020 |
-| Montiferru 2021 (Italy) | 8.45, 40.05, 8.75, 40.27 | 2021-05-25 to 2021-07-23 (59 d) | 2021-07-24 to 2021-08-31 (38 d) | 2017, 2018, 2019, 2020 |
+| Manavgat 2021 (Türkiye) | 31.05, 36.72, 31.85, 37.35 | 2021-06-01 to 2021-07-27 (57 d) | 2021-07-28 to 2021-08-31 (35 d) | 2017, 2018, 2019, 2020 |
+| Bejís 2022 (Spain) | -1.05, 39.68, -0.35, 40.15 | 2022-06-15 to 2022-08-14 (61 d) | 2022-08-15 to 2022-09-30 (47 d) | 2018, 2019, 2020, 2021 |
+| Muğla 2021 (Türkiye) | 27.1, 36.6, 28.9, 37.45 | 2021-06-01 to 2021-07-28 (58 d) | 2021-07-29 to 2021-09-15 (49 d) | 2017, 2018, 2019, 2020 |
+| North Evia 2021 (Greece) | 23.05, 38.55, 23.85, 39.15 | 2021-06-05 to 2021-08-02 (59 d) | 2021-08-03 to 2021-09-30 (59 d) | 2017, 2018, 2019, 2020 |
+| Montiferru 2021 (Italy) | 8.45, 40.05, 8.75, 40.27 | 2021-05-25 to 2021-07-23 (60 d) | 2021-07-24 to 2021-08-31 (39 d) | 2017, 2018, 2019, 2020 |
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
@@ -158,7 +158,9 @@ For each direction the gap between the target's own within-region skill and the 
 is split in two. One part is what the best label-free adaptation recovers, and the other is what it
 does not. The recovered fraction is defined as (adapted − raw) / (within − raw), signed and
 unclipped, and its interval comes from the same paired bootstrap. The recovered part bounds what
-covariate-level correction can achieve. The remainder is the conditional residual.
+covariate-level correction can achieve. The remainder is unrecovered by that correction; Section 4.3
+shows it should not be read as a conditional residual, because much of it is incurred inside a
+single region.
 
 The mechanism is diagnosed by **signed univariate association**. For each numeric predictor the raw
 ROC-AUC of that predictor against `burned` is computed in each region and never folded to
@@ -215,7 +217,8 @@ grid. Every component of at least 50 cells is held out together with all cells w
 a model is fitted on the remainder of the same region, and applied to the held-out area. Buffers of
 2, 5 and 10 km are run. A scar held out at 2 km inside its own region is close to its
 training data and yet wholly unseen, which is what makes the comparison with the foreign-region arm
-informative.
+informative. The held-out patch is defined by the labels, so this arm cannot separate the identity of
+a fire from its location.
 
 Appendix A(h) reports all four in full, with per-split and per-scar tables. Intervals for the
 four-row ladder are Student *t* over the eight held-out scars, which is that arm's resampling unit,

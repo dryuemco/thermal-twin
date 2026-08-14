@@ -21,8 +21,8 @@
 
 ## S1.1 Purpose and status
 
-The main text establishes that the residual transfer gap is dominated by a conditional (concept)
-component, and that label-free alignment cannot close it. CORAL and per-region standardisation
+The main text establishes that label-free alignment does not close the residual transfer gap, and
+that the part of that gap not attributable to contiguous spatial holdout is conditional. CORAL and per-region standardisation
 recover a minority of the gap at best, and degrade most of the directions that transfer above chance
 without them (§4.3, §4.6, §5.5). Within the six directions covered here, the direction that
 transfers above chance raw is Bejís to Muğla, and it is the direction that both interventions help
@@ -99,7 +99,7 @@ Three observations follow, and only the first is comfortable.
 carry on average 2,700 to 3,000 labelled cells, roughly 7 to 20 % of the target's natural-vegetation
 population depending on the region. At that budget three directions stand at 85 to 89 % of their
 target-only ceiling: Manavgat → Bejís and Bejís → Manavgat started below chance, Muğla → Bejís at
-0.583, above it. The failure the main text documents is
+0.583, above it. The residual the main text documents is
 therefore expensive but not structural: it is a shortage of target-conditional information, and
 target labels supply exactly that. That budget should not be described as modest. Limit 4 below
 gives the reason: for these AOIs the top budget already contains most of the target's burned cells.
