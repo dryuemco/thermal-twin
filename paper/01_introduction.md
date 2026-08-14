@@ -111,9 +111,11 @@ to its own baseline. Satellite thermal observation gives direct access to part o
 fuel moisture content [@Yebra2013], and pairing surface temperature with a vegetation index was
 established as a live-fuel-moisture estimator for fire-danger rating by Chuvieco et al.
 [@Chuvieco2004]. The Temperature-Vegetation Dryness Index [@Sandholt2002] formalises that feature
-space into an internally normalised measure which should, in principle, be less exposed to
+space into an internally normalised measure. In principle it should be less exposed to
 absolute-temperature offsets between regions than raw land surface temperature. That theoretical
-portability advantage is tested here.
+portability advantage is tested here, and it is not found: the two internally normalised channels
+transfer no better than the four absolute ones, at means of 0.544 and 0.548 over the twenty
+directions (Appendix A(f)).
 
 That pre-fire thermal state carries genuine information about subsequent fire is established
 [@Maffei2018; @MaffeiMenenti2019; @Maffei2021; @Gelabert2025]. What has not been established is

@@ -2,7 +2,8 @@
 
 Each arm below varies one design choice and leaves everything else fixed. None changes a conclusion
 in the main text. They are reported so that a reader can see which choices were tested, and what
-each was worth.
+each was worth. Arm (f) is the exception in one respect: it is not a robustness check but a test of
+a claim the introduction makes, and the claim is not upheld.
 
 **(a) Evia AOI and prevalence.** The raw transfer arms were repeated with the legacy,
 high-prevalence Evia box. Every qualitative conclusion is unchanged. Thermal raw transfer AUCs move
@@ -44,3 +45,44 @@ within-region increment moves from [+0.055, +0.079] to [+0.054, +0.077]. The rea
 Elevation is a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived
 surface across only 2.14 points of coverage. Details are in
 `paper/modis_qc_downstream_propagation.md`.
+
+**(f) Normalised against absolute dryness channels.** Section 1.2 argues that an internally
+normalised index should be less exposed to absolute-temperature offsets between regions than raw
+land surface temperature. The thermal block contains both kinds, which allows the argument to be
+tested directly as a feature-set contrast. It is also the natural place to look for a constructive
+result, because the two channels that do **not** reverse sign between regions are exactly the
+normalised ones, `lst_anomaly_mean` and `tvdi_difference_mean`, while the four absolute channels are
+the ones that do.
+
+Three feature sets were run over all twenty directions and all five within-region folds, with the
+classifier, population, folds and bootstrap held fixed. The harness aborts unless its reference
+configuration lands on the frozen exports. It did exactly: the maximum absolute difference between
+the reference arm and the frozen transfer AUCs is 0.000000 across all twenty directions.
+
+| Feature set | Mean transfer AUC | Directions > 0.5 | Mean within-region AUC |
+|---|---:|---:|---:|
+| baseline only | 0.5371 | 16 | 0.7896 |
+| baseline + normalised anomalies | 0.5442 | 15 | 0.8551 |
+| baseline + absolute surface state | 0.5479 | 13 | 0.8564 |
+| all ten features (reference) | 0.5414 | 14 | 0.8883 |
+
+**The advantage is not found.** Per direction, the normalised set minus the absolute set has a mean
+of −0.0037. It is positive in 12 of 20 directions and runs from −0.099 to +0.094, so the spread is an
+order of magnitude larger than the difference. The normalised channels transfer very slightly worse
+at the mean, and nothing here supports a design rule favouring anomaly-referenced dryness for
+portability.
+
+Within region the two sub-blocks are indistinguishable, at 0.8551 and 0.8564, and each recovers most
+of the gap between the baseline's 0.7896 and the full model's 0.8883. What separates them in sign
+stability does not become transferable skill.
+
+This arm strengthens the negative finding rather than softening it. Four differently constituted
+feature sets were tried. None clears a mean of 0.548 across regions, and all differ sharply within
+them. The baseline arm also gives an independent confirmation of the control reported in
+Section 4.3: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches
+the 0.537 read from the frozen per-direction export. Details are in
+`paper/anomaly_only_transfer.md`.
+
+The comparison is between two sub-blocks of one thermal set on one cohort. It does not test
+normalised dryness indices in general, and it does not test a normalisation fitted against a pooled
+multi-region reference rather than each region's own baseline years.
