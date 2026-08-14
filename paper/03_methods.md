@@ -249,9 +249,10 @@ contains, so they are fitted per AOI and per window. A TVDI of 0.5 therefore den
 physical moisture state in each region, set by whatever dryness range that AOI happened to span on
 those dates, and the AOIs differ widely in size and relief (Montiferru 0.30° × 0.22° against Muğla
 1.80° × 0.85°). TVDI is normalised in a statistical sense, not in a physical one. A common-edge
-version of the index, fitted once across the pooled regions, was not computed, and Section 5.2 treats
-scene-fitted edges as a competing explanation for the TVDI reversals rather than as a controlled-for
-factor.
+version of the index, fitted once across the pooled land pixels of all five regions so that a TVDI
+of 0.5 denotes the same dryness everywhere, was computed for this paper and is reported in Section
+4.7k. It does not remove the reversal, so scene-fitted edges are a controlled-for factor here rather
+than an open competing explanation.
 
 **Sea water enters the edge fit, and the extent of the resulting problem was measured rather than
 assumed.** Because the water bit is preserved and the AOIs are not clipped to the coastline, sea
@@ -271,10 +272,18 @@ below 0.15, and 0.01 % or less lies below 0.20; the 5th percentile of that popul
 0.376 in Evia and 0.290 to 0.383 elsewhere. Nor is there evidence of the saturation such a
 mis-normalisation would produce: the share of primary-population cells at the upper clamp is 0.5 %
 in Evia, 0.5 % in Muğla and 0.4 % in Manavgat, against 0.1 % in Bejís, with the distribution well
-spread in every region. Two limits on this check should be stated. It is made on 500 m cell means,
-so it bounds rather than excludes the effect on individual 30 m pixels, and it does not license the
-all-valid population, where sea cells are present in bulk (Section 4.7f). Refitting the edges on
-land-only pixels remains the clean test and was not run here.
+spread in every region. That check is made on 500 m cell means, so it bounds rather than excludes the
+effect on individual 30 m pixels, and it does not license the all-valid population, where sea cells
+are present in bulk (Section 4.7f).
+
+**The clean test was then run.** The edges were refitted on land pixels alone, and a third set was
+fitted once over the pooled land pixels of all five regions, which is the common-edge index promised
+below. Both re-runs import the pipeline's own binning, percentile and clamp functions, so the only
+difference between arms is which pixels enter the percentile. The all-pixel arm reproduces every
+frozen edge to floating-point noise with exactly equal bin pixel counts, and its cell-aggregated
+index reproduces the frozen `current_tvdi_mean` column to 1.8×10⁻⁷, which is float32 storage
+precision. Section 4.7k reports the outcome: sea in the edge fit does move the index, by an amount
+that scales with each AOI's sea fraction, and it does not change any region's direction.
 
 **Downscaled and fused LST.** To mitigate Landsat's sparse thermal revisit, a MODIS→Landsat
 downscaling model is trained on the predictor window and applied to the full 30 m grid (`step7c`,
@@ -304,12 +313,21 @@ five regions use single-season predictor-window MODIS summary layers, each match
 window, as recorded in every region's `data/modis/modis_metadata.json`. What differs is quality
 control. Evia and Montiferru apply a `QC_Day` bit rule and require at least three valid daily
 observations per pixel, and they write an explicit nodata sentinel of −9999. Manavgat, Bejís and
-Muğla apply no quality mask and declare no nodata value, so no-observation and sea cells are
+Muğla apply no quality mask and declare no nodata value, so cells with nothing to report are
 encoded as exact 0.0 °C. The screening was added to the export script on 2026-07-23, after the
 first three regions had already been exported, so the cohort is split by export date rather than by
-design. The zero-fill is quantified for Manavgat only, at 518 of 6,390 pixels (8.1 %), which is
-above the pipeline's own 5 % suspicious-zero guard; the Bejís and Muğla fractions are not measured
-here, and their zero-fill is inferred from the same nodata signature. This matters because
+design.
+
+The zero-fill was measured for this paper rather than inferred, and it is not distributed as the
+nodata signature alone would suggest. Counting exact zeros in each region's MODIS mean layer gives
+518 of 6,390 pixels for Manavgat (8.11 %), **7,347 of 19,190 for Muğla (38.29 %)** and **none at all
+for Bejís**. Both non-zero fractions are above the pipeline's own 5 % suspicious-zero guard
+(`STEP7B_MODIS_SUSPICIOUS_ZERO_FRACTION`), and Muğla's is more than four times Manavgat's. The two
+regions that apply the QC rule contain no exact zeros, because they carry an explicit −9999
+sentinel instead. What the zeros are is also settled by the counts: 8.11 % against a water-dominant
+cell share of 8.3 % in Manavgat, and 38.29 % against 38.9 % in Muğla, while inland Bejís has 0.1 %
+water and no zeros. The zero-fill is therefore the sea rather than missing observation, and it is
+absent from the one AOI with no coastline. This matters because
 `downscaled_lst` and `fused_lst` rest on these layers, and Section 4.7h reports how much of the
 thermal increment those two channels carry. Section 5.11 records it as an untested candidate
 explanation.
@@ -607,13 +625,23 @@ structure that CORAL exists to transport is largely erased. A λ = 1 arm would m
 pipeline behaves when CORAL is effectively switched off. It would not measure how sensitive the
 reported result is to reasonable regularisation, which is what the sweep is for.
 
-Evidence on λ = 1 does exist, but only from a superseded analysis. An earlier two-region version of
-this study, using Manavgat and Bejís alone, ran λ at 10⁻⁵, 10⁻³, 10⁻¹ and 1. In that analysis the
-one direction whose interval sat above chance kept that status at λ up to 10⁻¹ and lost it at λ = 1,
-where the interval again spanned chance. This is what the argument above predicts. It is reported
-for completeness and nothing more is drawn from it: that analysis used a different region set and is
-superseded throughout by the five-region analysis reported here. No λ = 1 evidence exists for the 20
-directions of this paper. The sweep also does not cover the Montiferru and Evia directions, so
+**The λ = 1 arm was subsequently computed for this paper, and the argument above turns out to
+overstate the case.** The released sweep tool cannot be extended: its λ grid is a fixed token
+sequence and the module asserts its own fit count at import, so the arm was produced instead by
+driving the pipeline's own primitives (`fit_coral_alignment`, `apply_coral`, the region-wise
+z-score, and Step 8B's pipeline builder) in the order `step10b` calls them. λ = 10⁻¹ was recomputed
+alongside as a control and reproduces the frozen sweep to 4.4×10⁻⁹ over all eight rows, seven of
+them exactly. At λ = 1 no direction changes side of the chance line, and the largest movement is an
+*improvement*, Muğla→Manavgat thermal from 0.559 to 0.574. Heavy regularisation therefore does not
+switch CORAL off in this region set, as the scale argument predicted it would. Including λ = 1
+widens the spread over the grid to at most 0.019 in any direction and 0.016 within the thermal
+family, against 0.014 and 0.008 over the released grid. Section 4.7d reports this.
+
+An earlier two-region version of this study, using Manavgat and Bejís alone, ran λ at 10⁻⁵, 10⁻³,
+10⁻¹ and 1, and there the one direction whose interval sat above chance lost that status at λ = 1.
+That analysis is superseded throughout by the five-region analysis, its region set is different, and
+the four directions of the sweep do not include Bejís↔Manavgat, so the two results are not in direct
+contradiction. Nothing further is drawn from it. The sweep also does not cover the Montiferru and Evia directions, so
 conclusions for those directions rest on the default λ = 10⁻⁵ alone.
 
 The order of operations for variant (c) is thus: region-wise z-score of both regions → CORAL
@@ -679,9 +707,10 @@ learning any relationship with the surface state. Grid indices are used only to 
 cross-validation blocks and bootstrap groups. The natural-vegetation mask is used only to define the
 population. The fused-LST provenance fractions are retained as diagnostics, never as predictors.
 They are reported per region in Section 4.7h, where the gap-filled share is 0.11 % to 9.70 % of the
-fused product. A performance sensitivity restricted to cells with a low gap-filled fraction was
-considered and **was not run**; it matters most for Bejís, whose 9.70 % is an order of magnitude
-above the other four regions, and it is listed as an open item in Section 5.11.
+fused product. A performance sensitivity restricted to cells with a low gap-filled fraction **was
+run** for this paper and is reported in Section 4.7m. It matters most for Bejís, whose 9.70 % is an
+order of magnitude above the other four regions, and Bejís is indeed where it moves the increment
+most, from +0.056 to +0.043, while the increment keeps bootstrap support in all five regions.
 
 **Sensitivity analyses.** Every headline result is repeated across: two analysis populations
 (natural vegetation, primary; all valid cells, secondary); three spatial-block sizes for the

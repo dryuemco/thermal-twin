@@ -92,15 +92,18 @@ denotes whatever the middle of that AOI's own dryness range happened to be, and 
 by an order of magnitude in area and widely in relief. Two regions can therefore disagree about the
 sign of the TVDI-burning association without any difference in the underlying dryness-to-burning
 relationship, purely because the index is anchored to different populations in the two places. We
-did not compute a common-edge TVDI fitted once across the pooled regions, which is the analysis that
-would separate the two explanations, and it is listed in Section 5.11. One version of this concern
-can be dismissed on the evidence. Sea water takes part in the edge fit and dominates two of the
-AOIs, so the edges of the lowest NDVI bins in Evia are sea-surface temperature rather than a land
-dry edge. That contamination does not reach the modelled population, which occupies no NDVI bin
-below 0.15 in any region and shows no sign of clamp saturation, and in the vegetated bins the edges
-do not order by sea fraction at all (Section 3.4). The scene-dependence that remains is the ordinary
-one, driven by each AOI's own relief and dryness range. Until the common-edge index exists, the
-honest reading is narrower than the general one: statistical self-normalisation against locally fitted
+therefore computed the analysis that separates the two explanations, and it does not support the
+index-artefact reading (Section 4.7k). Two things were done. Sea water takes part in the edge fit and
+dominates two of the AOIs, so the edges were refitted on land pixels alone; and because that still
+leaves each region normalised against its own scene, one set of edges was then fitted once over the
+pooled land pixels of all five regions, so that a TVDI of 0.5 denotes the same dryness everywhere.
+The sea does move the index, by an amount that scales with each AOI's sea fraction, +0.017 in Evia
+and +0.016 in Muğla against +0.002 in inland Bejís. Neither re-run changes any region's direction.
+Under the common edge Manavgat still ranks burned cells by higher TVDI at 0.565, while Muğla and
+Evia still rank them by lower TVDI with intervals entirely below 0.5, at 0.341 and 0.378. Since the
+index's scene dependence was the competing explanation, and removing it leaves the disagreement
+intact, the reversal belongs to the dryness-to-burning relationship rather than to the normalisation.
+The honest reading is still narrower than the fully general one: statistical self-normalisation against locally fitted
 reference values does not guarantee a stable direction of association, and the TVDI reversal is
 consistent both with concept shift and with the index's own scene dependence. The reversals in the
 absolute LST channels, which carry no such normalisation, and the elevation reversal, which involves
@@ -617,15 +620,21 @@ equals observed LST outside a gap-filled share of 0.11 % to 9.70 %, `downscaled_
 surface whose dominant input is the MODIS context layer in two regions, NDVI in two and slope in
 Muğla, and a single subgroup recovers 71 % to 99 % of the whole block's increment in every region
 (Section 4.7h). The six reversal tests of Section 4.4 are therefore not six independent probes of
-concept shift. Two related items are unresolved: a performance sensitivity restricted to cells with
-a low gap-filled fraction was not run, and it matters most for Bejís at 9.70 %; and the two derived
-channels carry a coordinate-derived component from the downscaler's own inputs (summed importance
-0.035 to 0.123), which is not label leakage but is the one route by which coordinates re-enter a
-feature set from which Section 3.13 excludes them. (xiii) **The MODIS input behind the two derived
+concept shift. Two related concerns have since been tested and neither survives as a threat to the
+increment. Restricting to cells with a gap-filled fraction of at most 0.10 leaves the increment
+bootstrap-supported in all five regions; Bejís moves the most, from +0.056 to +0.043, and the other
+four by at most 0.008 (Section 4.7m). And dropping the two derived channels, which carry a
+coordinate-derived component from the downscaler's own inputs (summed importance 0.035 to 0.123) and
+are the one route by which coordinates re-enter a feature set from which Section 3.13 excludes them,
+retains 82 % to 103 % of the increment (Section 4.7h). What remains true is the redundancy itself:
+the block is six predictors but not six independent measurements. (xiii) **The MODIS input behind the two derived
 channels is quality-screened in two regions and unscreened in three.** Evia and Montiferru apply a
 `QC_Day` mask, a three-observation minimum and an explicit nodata sentinel. Manavgat, Bejís and
-Muğla apply none of these, so sea and no-observation cells enter as exact 0.0 °C, measured at 8.1 %
-of pixels in Manavgat and not measured in the other two (Section 3.4). The split follows export
+Muğla apply none of these, so cells with nothing to report enter as exact 0.0 °C. Those zeros were
+measured for this paper: 8.11 % of pixels in Manavgat, **38.29 % in Muğla** and **none in Bejís**,
+each tracking that AOI's water share almost exactly, so the zero-fill is sea rather than missing
+observation (Section 3.4). Muğla's share is more than four times Manavgat's and both exceed the
+pipeline's own 5 % guard. The split follows export
 date, not design, so it is confounded with nothing in the study and with everything about when each
 region was run. Three of the five regions are on the unscreened path, Manavgat among them, and
 Manavgat is the subject of the unexplained behaviour in (ix). This is a candidate explanation that
@@ -648,16 +657,24 @@ no second label product was used as a control. (xv) **Two safeguards did not run
 pre-label burn exclusion ran for Muğla, Evia and Montiferru, is recorded as not run for Manavgat, and
 has no recorded status for Bejís (Section 3.2). Prior-year burning is screened for no region in the
 five-region cohort; the only historical-burn exclusion in the study removes the 2021 Muğla scar from
-the 2022 event-relative experiment of Section 3.16.4. The exposure this leaves has not been
-quantified, and doing so is a cheap query rather than a re-run. In the same vein, the per-region acquisition inventory behind the composites exists for
+the 2022 event-relative experiment of Section 3.16.4. The exposure this leaves cannot be quantified
+from the archive, and an earlier version of this paper wrongly described doing so as a cheap query.
+It is not: both the working and the raw MCD64A1 rasters in the export are clipped to each region's
+label window, with zero positive sub-pixels anywhere in any predictor window, so a pre-label
+detection leaves no trace to count. Measuring the exposure needs MCD64A1 re-exported unclipped,
+which is an upstream re-run. In the same vein, the per-region acquisition inventory behind the composites exists for
 Manavgat alone.
 
-Four analyses would close most of the above and none of them is exotic: the compositing A/B extended
-to a second region, a calendar-matched Muğla 2022 arm to separate year from season (Section 5.2), a
-common-edge TVDI fitted across the pooled regions to separate concept shift from the index's scene
-dependence, and the signed univariate AUCs recomputed on high-agreement cells only. All four are
-listed here rather than in a future-work sentence because each of them bears on a claim the paper
-actually makes.
+Four analyses were named in an earlier version of this section as the ones that would close most of
+the above. **Two have since been run and are reported here rather than promised.** The common-edge
+TVDI, fitted once across the pooled land pixels of all five regions, does not bring the directions
+into agreement, so the index's scene dependence is not the explanation for its reversal (Section
+4.7k). The signed univariate AUCs recomputed on high-agreement cells only leave the elevation
+reversal intact at every threshold, so differential fringe contamination is not the explanation
+either (Section 4.7l). Two remain outstanding and both need work upstream of this analysis: the
+compositing A/B extended to a second region, and a calendar-matched Muğla 2022 arm to separate year
+from season (Section 5.2), which is the more valuable of the two because it addresses the one
+confound the two-event control cannot resolve from the existing export.
 
 <!-- DRAFT NOTES:
 

@@ -1,0 +1,2191 @@
+{
+  "label_agreement": {
+    "manavgat_2021": {
+      "elevation_mean": {
+        "all": {
+          "point": 0.3741075566689392,
+          "ci_low": 0.2890796631009303,
+          "ci_high": 0.4711534398242251,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.36792475253830875,
+          "ci_low": 0.28382161869361755,
+          "ci_high": 0.4622282143191181,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.36202642838951343,
+          "ci_low": 0.2793536875602177,
+          "ci_high": 0.45961181685822566,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 581
+        }
+      },
+      "slope_mean": {
+        "all": {
+          "point": 0.530957486786472,
+          "ci_low": 0.4228454993639831,
+          "ci_high": 0.641707826568334,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.5222560715527189,
+          "ci_low": 0.420382190188306,
+          "ci_high": 0.6351834788132401,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.5029903012610952,
+          "ci_low": 0.40719532979051026,
+          "ci_high": 0.6150782043980343,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 581
+        }
+      },
+      "ndvi_mean": {
+        "all": {
+          "point": 0.6359169371099177,
+          "ci_low": 0.5872285206570871,
+          "ci_high": 0.6762849193685545,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.6352319941095806,
+          "ci_low": 0.5886410832540556,
+          "ci_high": 0.6742941943972514,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.6350884932163969,
+          "ci_low": 0.5860648588302549,
+          "ci_high": 0.6735241261544382,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 581
+        }
+      },
+      "lst_anomaly_mean": {
+        "all": {
+          "point": 0.4823529005017941,
+          "ci_low": 0.42795304171058424,
+          "ci_high": 0.5299474237983043,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.4909936358635202,
+          "ci_low": 0.4358675428377218,
+          "ci_high": 0.5373463190068875,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.4935892780290776,
+          "ci_low": 0.438448234850263,
+          "ci_high": 0.5406856451464471,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 581
+        }
+      },
+      "current_lst_mean": {
+        "all": {
+          "point": 0.5382779853437282,
+          "ci_low": 0.451762272301704,
+          "ci_high": 0.620503038933485,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.5444147329207326,
+          "ci_low": 0.4608235492883953,
+          "ci_high": 0.6222216586499489,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.5523386064724654,
+          "ci_low": 0.47124029510916915,
+          "ci_high": 0.6260970802209944,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 581
+        }
+      },
+      "current_tvdi_mean": {
+        "all": {
+          "point": 0.5520208992479892,
+          "ci_low": 0.4602480293883392,
+          "ci_high": 0.6410618349429631,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.5587617673412546,
+          "ci_low": 0.4674887752546156,
+          "ci_high": 0.6418678612797293,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.5675101017133203,
+          "ci_low": 0.477521494602081,
+          "ci_high": 0.6477907268388812,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 581
+        }
+      },
+      "tvdi_difference_mean": {
+        "all": {
+          "point": 0.44939202798988,
+          "ci_low": 0.3905414223569665,
+          "ci_high": 0.5051782545937413,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.4564386869213591,
+          "ci_low": 0.39964546694991043,
+          "ci_high": 0.5110588974678814,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.45577399017989406,
+          "ci_low": 0.39768402611735537,
+          "ci_high": 0.5123433669828554,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 581
+        }
+      },
+      "downscaled_lst_mean": {
+        "all": {
+          "point": 0.5520694210669517,
+          "ci_low": 0.4659633972389293,
+          "ci_high": 0.637150621852662,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.5581505070771416,
+          "ci_low": 0.47355609284104316,
+          "ci_high": 0.6366086280179861,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.565815899943,
+          "ci_low": 0.4815398246849512,
+          "ci_high": 0.6409022441013381,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 581
+        }
+      },
+      "fused_lst_mean": {
+        "all": {
+          "point": 0.5400826188182983,
+          "ci_low": 0.4542805043929701,
+          "ci_high": 0.6218679874478805,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 784
+        },
+        "agree_ge_0.75": {
+          "point": 0.5461826311550233,
+          "ci_low": 0.4640495417575812,
+          "ci_high": 0.6236647934318397,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 659
+        },
+        "agree_ge_0.9": {
+          "point": 0.554063570142078,
+          "ci_low": 0.4730072704167057,
+          "ci_high": 0.6276023394825068,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance",
+          "n_burned": 581
+        }
+      }
+    },
+    "bejis_2022": {
+      "elevation_mean": {
+        "all": {
+          "point": 0.6432824053164721,
+          "ci_low": 0.5583150457861116,
+          "ci_high": 0.7290055219147464,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.6423877138681778,
+          "ci_low": 0.5595252970481044,
+          "ci_high": 0.7284092498824281,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.6351046258844727,
+          "ci_low": 0.5504938369781908,
+          "ci_high": 0.7221273460068937,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 761
+        }
+      },
+      "slope_mean": {
+        "all": {
+          "point": 0.5207878895412608,
+          "ci_low": 0.4393212094762653,
+          "ci_high": 0.605295958421595,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.5229067824380002,
+          "ci_low": 0.44167533500145373,
+          "ci_high": 0.6077090233519917,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.5258580796065093,
+          "ci_low": 0.4433986552299039,
+          "ci_high": 0.6099262225724591,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 761
+        }
+      },
+      "ndvi_mean": {
+        "all": {
+          "point": 0.5587527905026131,
+          "ci_low": 0.49718185826434286,
+          "ci_high": 0.619346637555737,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.557344936350097,
+          "ci_low": 0.49226711639761994,
+          "ci_high": 0.619795774498806,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.5618910346384095,
+          "ci_low": 0.4986656821421472,
+          "ci_high": 0.6235533669356894,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 761
+        }
+      },
+      "lst_anomaly_mean": {
+        "all": {
+          "point": 0.4179915266529903,
+          "ci_low": 0.36378505075441114,
+          "ci_high": 0.4795630994864564,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.414303935786223,
+          "ci_low": 0.3582285309785096,
+          "ci_high": 0.47563514195349615,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.41443622661816254,
+          "ci_low": 0.35706057518853845,
+          "ci_high": 0.47308037043455736,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 761
+        }
+      },
+      "current_lst_mean": {
+        "all": {
+          "point": 0.4767477506934929,
+          "ci_low": 0.4011532923534439,
+          "ci_high": 0.5474889652503846,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.47121280173178204,
+          "ci_low": 0.3951300973615723,
+          "ci_high": 0.5444215388135923,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.4733676746944596,
+          "ci_low": 0.3987154064601884,
+          "ci_high": 0.5440135673120342,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 761
+        }
+      },
+      "current_tvdi_mean": {
+        "all": {
+          "point": 0.5172782323463782,
+          "ci_low": 0.4290091381060554,
+          "ci_high": 0.595208856020078,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.5086360299698033,
+          "ci_low": 0.41801532236087,
+          "ci_high": 0.5890629140427753,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.5170682576201836,
+          "ci_low": 0.42955659934058465,
+          "ci_high": 0.5985804677989118,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 761
+        }
+      },
+      "tvdi_difference_mean": {
+        "all": {
+          "point": 0.5124941631737098,
+          "ci_low": 0.4431549328523629,
+          "ci_high": 0.5829402577021532,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.5051007774266024,
+          "ci_low": 0.42704340229305743,
+          "ci_high": 0.5753325946831116,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.5041289704422173,
+          "ci_low": 0.43304901230172077,
+          "ci_high": 0.5713334429267394,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 761
+        }
+      },
+      "downscaled_lst_mean": {
+        "all": {
+          "point": 0.48364307374669335,
+          "ci_low": 0.40036059030740356,
+          "ci_high": 0.5598325680030974,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.480349053365905,
+          "ci_low": 0.3969823839350232,
+          "ci_high": 0.5595218625900235,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.4828472211212135,
+          "ci_low": 0.40236651657723416,
+          "ci_high": 0.5633964016193491,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 761
+        }
+      },
+      "fused_lst_mean": {
+        "all": {
+          "point": 0.4806129105103555,
+          "ci_low": 0.4039472512732557,
+          "ci_high": 0.5514025133468519,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1100
+        },
+        "agree_ge_0.75": {
+          "point": 0.47580655305918657,
+          "ci_low": 0.3998999560149022,
+          "ci_high": 0.5489692296936607,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 914
+        },
+        "agree_ge_0.9": {
+          "point": 0.47788503416650424,
+          "ci_low": 0.4030915525849736,
+          "ci_high": 0.5493286546350139,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance",
+          "n_burned": 761
+        }
+      }
+    },
+    "mugla_2021": {
+      "elevation_mean": {
+        "all": {
+          "point": 0.6114025048859929,
+          "ci_low": 0.5305636631901508,
+          "ci_high": 0.694677117119909,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.6064136379411101,
+          "ci_low": 0.5265401475093238,
+          "ci_high": 0.6903951149568426,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.6016838468416152,
+          "ci_low": 0.5196946130749498,
+          "ci_high": 0.6864731643087169,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 1836
+        }
+      },
+      "slope_mean": {
+        "all": {
+          "point": 0.6368180084143386,
+          "ci_low": 0.5821683584444763,
+          "ci_high": 0.6926435395137135,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.6243393091127911,
+          "ci_low": 0.5676142092795776,
+          "ci_high": 0.6795675276458815,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.6219487180911847,
+          "ci_low": 0.5689174163991189,
+          "ci_high": 0.6762023876105325,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 1836
+        }
+      },
+      "ndvi_mean": {
+        "all": {
+          "point": 0.6616527794184797,
+          "ci_low": 0.6153025074617953,
+          "ci_high": 0.7025854521053138,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.6609158725991645,
+          "ci_low": 0.6128289077106174,
+          "ci_high": 0.7037051471563934,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.6606173498019213,
+          "ci_low": 0.6123478495222763,
+          "ci_high": 0.7015239589746909,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 1836
+        }
+      },
+      "lst_anomaly_mean": {
+        "all": {
+          "point": 0.48457355690260684,
+          "ci_low": 0.396432495493335,
+          "ci_high": 0.5686503283140772,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.4799736148291535,
+          "ci_low": 0.39760820631637106,
+          "ci_high": 0.562726315730478,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.47967722828043896,
+          "ci_low": 0.39738735017746174,
+          "ci_high": 0.5593533475609679,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1836
+        }
+      },
+      "current_lst_mean": {
+        "all": {
+          "point": 0.324818209196232,
+          "ci_low": 0.27071668561718487,
+          "ci_high": 0.38100408862762186,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.3292533118737974,
+          "ci_low": 0.27287892052514495,
+          "ci_high": 0.386902300489046,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.33185743886347774,
+          "ci_low": 0.27600914470409416,
+          "ci_high": 0.38908400868505283,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1836
+        }
+      },
+      "current_tvdi_mean": {
+        "all": {
+          "point": 0.3357699119089857,
+          "ci_low": 0.2756393419131363,
+          "ci_high": 0.4011244696897628,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.3410939351948432,
+          "ci_low": 0.2784446309636207,
+          "ci_high": 0.406809898903208,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.34414193681713834,
+          "ci_low": 0.28393895506977557,
+          "ci_high": 0.41008615052265,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1836
+        }
+      },
+      "tvdi_difference_mean": {
+        "all": {
+          "point": 0.49002459954410754,
+          "ci_low": 0.40259725038728655,
+          "ci_high": 0.5804872151023253,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.4825513228265519,
+          "ci_low": 0.3975822515331756,
+          "ci_high": 0.5703825617974501,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.4810843542432589,
+          "ci_low": 0.39739926408648113,
+          "ci_high": 0.567473508164502,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1836
+        }
+      },
+      "downscaled_lst_mean": {
+        "all": {
+          "point": 0.30697725296436723,
+          "ci_low": 0.25209904045179854,
+          "ci_high": 0.36680271402282566,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.3108904969794995,
+          "ci_low": 0.2538949363888265,
+          "ci_high": 0.3720733919560542,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.31370893383128146,
+          "ci_low": 0.256535837169956,
+          "ci_high": 0.37435247521987197,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1836
+        }
+      },
+      "fused_lst_mean": {
+        "all": {
+          "point": 0.3252143462207418,
+          "ci_low": 0.27114232112161,
+          "ci_high": 0.381328509116026,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2911
+        },
+        "agree_ge_0.75": {
+          "point": 0.32966773191976245,
+          "ci_low": 0.2733087454128909,
+          "ci_high": 0.3877711425754757,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2225
+        },
+        "agree_ge_0.9": {
+          "point": 0.3322771635366438,
+          "ci_low": 0.27648635610469496,
+          "ci_high": 0.3893806709155179,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1836
+        }
+      }
+    },
+    "evia_2021_extended": {
+      "elevation_mean": {
+        "all": {
+          "point": 0.540559580910425,
+          "ci_low": 0.4578843107141271,
+          "ci_high": 0.6322444453383133,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.5443605991021936,
+          "ci_low": 0.46140439758123986,
+          "ci_high": 0.6360560590777042,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.5500446514699638,
+          "ci_low": 0.46310315565800714,
+          "ci_high": 0.6356179452592552,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1983
+        }
+      },
+      "slope_mean": {
+        "all": {
+          "point": 0.486543098344048,
+          "ci_low": 0.41966058279686763,
+          "ci_high": 0.5556143785223414,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.4864354277029665,
+          "ci_low": 0.4212084754145721,
+          "ci_high": 0.5553926631383198,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.4880135432150062,
+          "ci_low": 0.4215856784334893,
+          "ci_high": 0.554679011824528,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1983
+        }
+      },
+      "ndvi_mean": {
+        "all": {
+          "point": 0.6391494562092994,
+          "ci_low": 0.5716053584479929,
+          "ci_high": 0.698179222962138,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.6422692393436745,
+          "ci_low": 0.5746123154841898,
+          "ci_high": 0.7021375272767469,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.645532131650838,
+          "ci_low": 0.5805074203827638,
+          "ci_high": 0.7036154495189031,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 1983
+        }
+      },
+      "lst_anomaly_mean": {
+        "all": {
+          "point": 0.6400549435604516,
+          "ci_low": 0.5673141558693703,
+          "ci_high": 0.7130822344109785,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.6335367504559963,
+          "ci_low": 0.5593862316444703,
+          "ci_high": 0.7073347010897989,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.6291752246600152,
+          "ci_low": 0.5558320984140565,
+          "ci_high": 0.7032043662492014,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 1983
+        }
+      },
+      "current_lst_mean": {
+        "all": {
+          "point": 0.376519076673484,
+          "ci_low": 0.30031163656554394,
+          "ci_high": 0.4536407042461406,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.3719393514341225,
+          "ci_low": 0.29824203146764267,
+          "ci_high": 0.44788572946483063,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.3672550962698948,
+          "ci_low": 0.29260057692628305,
+          "ci_high": 0.44097818414535905,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1983
+        }
+      },
+      "current_tvdi_mean": {
+        "all": {
+          "point": 0.3618882658736982,
+          "ci_low": 0.2798981011067888,
+          "ci_high": 0.43957510869092786,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.3567841372479074,
+          "ci_low": 0.27524985065699364,
+          "ci_high": 0.432589835440883,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.35207023114973945,
+          "ci_low": 0.2746257863548766,
+          "ci_high": 0.42941206920877684,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1983
+        }
+      },
+      "tvdi_difference_mean": {
+        "all": {
+          "point": 0.5191031776643451,
+          "ci_low": 0.448496225986367,
+          "ci_high": 0.5887450196303711,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.5104102754957934,
+          "ci_low": 0.43890968223048116,
+          "ci_high": 0.5828280441716759,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.5066630391890137,
+          "ci_low": 0.4373230287522011,
+          "ci_high": 0.5768532721544278,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "interval_includes_chance",
+          "n_burned": 1983
+        }
+      },
+      "downscaled_lst_mean": {
+        "all": {
+          "point": 0.37654911293624144,
+          "ci_low": 0.29623276115631375,
+          "ci_high": 0.45737767917776206,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.37206394284090316,
+          "ci_low": 0.2932313767582239,
+          "ci_high": 0.4522078633396504,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.36745833435548064,
+          "ci_low": 0.2899172123559078,
+          "ci_high": 0.4468184334355127,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1983
+        }
+      },
+      "fused_lst_mean": {
+        "all": {
+          "point": 0.37566126384147186,
+          "ci_low": 0.29961581431056244,
+          "ci_high": 0.45266399050993,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2664
+        },
+        "agree_ge_0.75": {
+          "point": 0.37093745395860184,
+          "ci_low": 0.29701035064476544,
+          "ci_high": 0.44749805514902136,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 2257
+        },
+        "agree_ge_0.9": {
+          "point": 0.3665292383511278,
+          "ci_low": 0.29234900991613894,
+          "ci_high": 0.44087384271289104,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 154,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 1983
+        }
+      }
+    },
+    "montiferru_2021": {
+      "elevation_mean": {
+        "all": {
+          "point": 0.5837706290859123,
+          "ci_low": 0.3953155499799928,
+          "ci_high": 0.7623088314675833,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.5667951968817452,
+          "ci_low": 0.3899097059505549,
+          "ci_high": 0.7484793013465383,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.5461487789959064,
+          "ci_low": 0.3801161155433927,
+          "ci_high": 0.7293534594327327,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "slope_mean": {
+        "all": {
+          "point": 0.6519721105399766,
+          "ci_low": 0.5059965620455152,
+          "ci_high": 0.7705472817222545,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "bootstrap_supported_higher_values_rank_burned",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.6405341687797313,
+          "ci_low": 0.4957171912329983,
+          "ci_high": 0.7622312875858039,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.6316614125064697,
+          "ci_low": 0.4977199794941695,
+          "ci_high": 0.752696792186074,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "ndvi_mean": {
+        "all": {
+          "point": 0.5862731853113043,
+          "ci_low": 0.4501438316160232,
+          "ci_high": 0.7043832813462082,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.5780071879125716,
+          "ci_low": 0.44432661143645025,
+          "ci_high": 0.70156871075711,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.5701812685267962,
+          "ci_low": 0.43647592416475767,
+          "ci_high": 0.6981585926753086,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "lst_anomaly_mean": {
+        "all": {
+          "point": 0.39519013227598904,
+          "ci_low": 0.285145350453144,
+          "ci_high": 0.5345227829044744,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.39421090131813324,
+          "ci_low": 0.28443840822843397,
+          "ci_high": 0.5343750185848583,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.39125182327200864,
+          "ci_low": 0.2799959954263471,
+          "ci_high": 0.5400568816605242,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "current_lst_mean": {
+        "all": {
+          "point": 0.3704643770906685,
+          "ci_low": 0.24782684782865552,
+          "ci_high": 0.5129602234841383,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.3767838806345481,
+          "ci_low": 0.2514262551334665,
+          "ci_high": 0.5189300186566391,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.38563614548534325,
+          "ci_low": 0.2550703656327347,
+          "ci_high": 0.5211477231042777,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "current_tvdi_mean": {
+        "all": {
+          "point": 0.3555286181577596,
+          "ci_low": 0.23316713048455487,
+          "ci_high": 0.4990539748344443,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.3608782665185775,
+          "ci_low": 0.23506831713879187,
+          "ci_high": 0.504518671599641,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.36915847174516536,
+          "ci_low": 0.24020283869391498,
+          "ci_high": 0.5071022028597303,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "tvdi_difference_mean": {
+        "all": {
+          "point": 0.37762180818824925,
+          "ci_low": 0.2821229847499818,
+          "ci_high": 0.4965114911278295,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "bootstrap_supported_lower_values_rank_burned",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.38257926612041326,
+          "ci_low": 0.2842869851918928,
+          "ci_high": 0.5032520247656024,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.3866995247729732,
+          "ci_low": 0.28574275837659896,
+          "ci_high": 0.5081376348121109,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "downscaled_lst_mean": {
+        "all": {
+          "point": 0.364736376795746,
+          "ci_low": 0.24025899649425494,
+          "ci_high": 0.5110558445055425,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.37199355266582157,
+          "ci_low": 0.24216377919946688,
+          "ci_high": 0.5168105562623106,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.3817291199366671,
+          "ci_low": 0.2476745076987509,
+          "ci_high": 0.5185715709752649,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      },
+      "fused_lst_mean": {
+        "all": {
+          "point": 0.3704727050647963,
+          "ci_low": 0.247836825343333,
+          "ci_high": 0.5130079558295708,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 539
+        },
+        "agree_ge_0.75": {
+          "point": 0.3768006454452105,
+          "ci_low": 0.25140553675151783,
+          "ci_high": 0.5189393414570715,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 476
+        },
+        "agree_ge_0.9": {
+          "point": 0.385662024184821,
+          "ci_low": 0.255004194956356,
+          "ci_high": 0.5211529742051974,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance",
+          "n_burned": 424
+        }
+      }
+    }
+  },
+  "gap_fill": {
+    "deltas": {
+      "manavgat_2021": {
+        "n_rows_full": 24150,
+        "n_rows_kept": 23051,
+        "kept_fraction": 0.9544927536231884,
+        "full": {
+          "baseline": 0.8027358197042693,
+          "thermal": 0.8696419777927898,
+          "delta": 0.06690615808852052
+        },
+        "lowgap": {
+          "baseline": 0.7958806122448978,
+          "thermal": 0.8679798979591837,
+          "delta": 0.07209928571428592
+        },
+        "delta_change": 0.0051931276257654035
+      },
+      "bejis_2022": {
+        "n_rows_full": 15759,
+        "n_rows_kept": 13417,
+        "kept_fraction": 0.8513865092962751,
+        "full": {
+          "baseline": 0.8616776566230079,
+          "thermal": 0.9178110845861024,
+          "delta": 0.05613342796309451
+        },
+        "lowgap": {
+          "baseline": 0.8685681582397864,
+          "thermal": 0.9113883715371027,
+          "delta": 0.042820213297316334
+        },
+        "delta_change": -0.013313214665778172
+      },
+      "mugla_2021": {
+        "n_rows_full": 73098,
+        "n_rows_kept": 72524,
+        "kept_fraction": 0.9921475279761416,
+        "full": {
+          "baseline": 0.7433200295403336,
+          "thermal": 0.8589830389802724,
+          "delta": 0.11566300943993879
+        },
+        "lowgap": {
+          "baseline": 0.7492598231091688,
+          "thermal": 0.8631511731872592,
+          "delta": 0.11389135007809037
+        },
+        "delta_change": -0.001771659361848421
+      },
+      "evia_2021_extended": {
+        "n_rows_full": 22925,
+        "n_rows_kept": 22532,
+        "kept_fraction": 0.9828571428571429,
+        "full": {
+          "baseline": 0.7589523122760988,
+          "thermal": 0.9122372202621674,
+          "delta": 0.15328490798606853
+        },
+        "lowgap": {
+          "baseline": 0.7448797257340718,
+          "thermal": 0.9036936320629457,
+          "delta": 0.15881390632887393
+        },
+        "delta_change": 0.005528998342805402
+      },
+      "montiferru_2021": {
+        "n_rows_full": 3234,
+        "n_rows_kept": 3225,
+        "kept_fraction": 0.9972170686456401,
+        "full": {
+          "baseline": 0.7811972850804343,
+          "thermal": 0.8826347859479317,
+          "delta": 0.10143750086749737
+        },
+        "lowgap": {
+          "baseline": 0.7724035032140046,
+          "thermal": 0.8818301663998781,
+          "delta": 0.10942666318587346
+        },
+        "delta_change": 0.007989162318376097
+      }
+    },
+    "intervals": {
+      "manavgat_2021": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.07209928571428592,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.10532144444456046,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.02477331676442754,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.07188712234540873,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.0057792426618615035,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.0605357446733027,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.0720087007441062,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.08307384320526316,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.1056081809399037,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.01447758538716311,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.0796973766180362,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.10463230113214735,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.13488678565800144,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.024736253535293594,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.001007164825624698,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.026721306195391845,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.02471751027829311,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.022747315880054592,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.0605357446733027,
+          0.08307384320526316
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.0796973766180362,
+          0.13488678565800144
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.026721306195391845,
+          -0.022747315880054592
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.07215263312238639,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.005705638789269688,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.0610748882392265,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.07211000187577626,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.08267180076567698,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.1057454417984367,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.01399630623552664,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.07817828166984245,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.10565207453163498,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.13347293155301915,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.024781863147636807,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.0009759328112120162,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.0267753723415795,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.02477226737253685,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.022912749032123675,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.0610748882392265,
+          0.08267180076567698
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.07817828166984245,
+          0.13347293155301915
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.0267753723415795,
+          -0.022912749032123675
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "bejis_2022": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.042820213297316334,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.13917424255840866,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.02245326829548093,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.04278691562946871,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.005182522540337701,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.03281673369453591,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.04283278136952662,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.053375717542912086,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.1384208091432322,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.019017967916493517,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.10249009937160625,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.13837547236475112,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.1751256477040233,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.02244307590687358,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.0013522561867035303,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.025187687164758735,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.022361368929503175,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.019786202374562047,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.03281673369453591,
+          0.053375717542912086
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.10249009937160625,
+          0.1751256477040233
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.025187687164758735,
+          -0.019786202374562047
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.042840257558753536,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.0051829531953300366,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.03242001473878359,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.04269859223263245,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.052588246726727315,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.13791967730031301,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.01930141215164874,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.10075960623604459,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.13713372127669254,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.17663623754472293,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.02241854210821588,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.001359951792828078,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.0250839227733551,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.022420463384377257,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.01974668772052986,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.03242001473878359,
+          0.052588246726727315
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.10075960623604459,
+          0.17663623754472293
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.0250839227733551,
+          -0.01974668772052986
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "mugla_2021": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.11389135007809037,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.21642320704556767,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.03887868442684486,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.11379172817638487,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.005030548743358976,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.1038087940067772,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.11382311986163501,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.12335750714351938,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.21528024673493212,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.011137393533871155,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.19333774556315408,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.21506261927823317,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.23690445922486136,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.03884576712688677,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.0008290134854460442,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.04048329384052908,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.038851294711259955,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.03726783498989485,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.1038087940067772,
+          0.12335750714351938
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.19333774556315408,
+          0.23690445922486136
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.04048329384052908,
+          -0.03726783498989485
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.10441013641244669,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.005335271391047104,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.09421793355154916,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.10429647140601533,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.11572876422898598,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.17952316749082928,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.01144445604450143,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.1577398385666912,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.17962427069857434,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.20292420294237867,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.03795275662185412,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.000794592932387316,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.03948284302644345,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.037943504167247705,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.03631719511964903,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.09421793355154916,
+          0.11572876422898598
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.1577398385666912,
+          0.20292420294237867
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.03948284302644345,
+          -0.03631719511964903
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "evia_2021_extended": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.15881390632887393,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.3074999171837205,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.07496571357422785,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.15896138551167513,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.006549251717607415,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.14614698054872569,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.1587204611619778,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.17143196388622614,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.3074239050008917,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.013494302827995531,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.2819212218557083,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.3071142891032259,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.334447682749374,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.07505458606377143,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.002614292780047167,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.08018256564774884,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.0750049518413479,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.07014853999161043,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.14614698054872569,
+          0.17143196388622614
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.2819212218557083,
+          0.334447682749374
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.08018256564774884,
+          -0.07014853999161043
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.mean": 0.15868937550511095,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.std": 0.006361216953884488,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p2_5": 0.1471891924652338,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p50": 0.15849154230191348,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc.p97_5": 0.1710538308756619,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.mean": 0.30672095746367184,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.std": 0.013055245962874724,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p2_5": 0.28036687410269545,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p50": 0.30693255785650797,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc.p97_5": 0.33274143197269435,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.mean": -0.0749694391045743,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.std": 0.0025124149562845083,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p2_5": -0.08016953263939172,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p50": -0.07485591395400391,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier.p97_5": -0.0703645343468502,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_ci95": [
+          0.1471891924652338,
+          0.1710538308756619
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_ci95": [
+          0.28036687410269545,
+          0.33274143197269435
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_ci95": [
+          -0.08016953263939172,
+          -0.0703645343468502
+        ],
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_pr_auc_gt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.probability_delta_brier_lt_0": 1.0,
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "monthly_bootstrap_ci_by_population.burnable_tree_shrub_grass.august.delta_brier_interpretation": "positive_bootstrap_support"
+      },
+      "montiferru_2021": {
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_auc": 0.10942666318587346,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_pr_auc": 0.2170661164671136,
+        "overall_point_estimates_from_predictions.burnable_tree_shrub_grass.delta_brier": -0.04653948755770568,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.mean": 0.10905179871579233,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.std": 0.011835348794679772,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p2_5": 0.08695120202795241,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p50": 0.10844266731452623,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc.p97_5": 0.13385992014369205,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.mean": 0.2129327621041787,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.std": 0.026250482201409443,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p2_5": 0.16251379398853777,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p50": 0.21237595120111827,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc.p97_5": 0.26347774610584906,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.mean": -0.04646432696957733,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.std": 0.004763019793873227,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p2_5": -0.05601389412659316,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p50": -0.04640306159003341,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier.p97_5": -0.037566959095782566,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_ci95": [
+          0.08695120202795241,
+          0.13385992014369205
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_ci95": [
+          0.16251379398853777,
+          0.26347774610584906
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_ci95": [
+          -0.05601389412659316,
+          -0.037566959095782566
+        ],
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_pr_auc_gt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.probability_delta_brier_lt_0": 1.0,
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_pr_auc_interpretation": "positive_bootstrap_support",
+        "bootstrap_ci_by_population.burnable_tree_shrub_grass.delta_brier_interpretation": "positive_bootstrap_support"
+      }
+    }
+  },
+  "coordinate_free_increment": {
+    "deltas": {
+      "manavgat_2021": {
+        "frozen": {
+          "baseline": 0.8027358197042693,
+          "thermal": 0.8696419777927898,
+          "delta": 0.06690615808852052
+        },
+        "full": {
+          "baseline": 0.8027358197042693,
+          "thermal": 0.8696419777927898,
+          "delta": 0.06690615808852052
+        },
+        "no_coord_channels": {
+          "baseline": 0.8027358197042693,
+          "thermal": 0.8656125500841588,
+          "delta": 0.0628767303798895
+        },
+        "reproduction_max_abs_diff": 0.0,
+        "retained_fraction": 0.9397749351666574
+      },
+      "bejis_2022": {
+        "frozen": {
+          "baseline": 0.8616776566230079,
+          "thermal": 0.9178110845861024,
+          "delta": 0.05613342796309451
+        },
+        "full": {
+          "baseline": 0.8616776566230079,
+          "thermal": 0.9178110845861024,
+          "delta": 0.05613342796309451
+        },
+        "no_coord_channels": {
+          "baseline": 0.8616776566230079,
+          "thermal": 0.9077272082069812,
+          "delta": 0.04604955158397328
+        },
+        "reproduction_max_abs_diff": 0.0,
+        "retained_fraction": 0.8203587996487409
+      },
+      "mugla_2021": {
+        "frozen": {
+          "baseline": 0.7433200295403336,
+          "thermal": 0.8589830389802724,
+          "delta": 0.11566300943993879
+        },
+        "full": {
+          "baseline": 0.7433200295403336,
+          "thermal": 0.8589830389802724,
+          "delta": 0.11566300943993879
+        },
+        "no_coord_channels": {
+          "baseline": 0.7433200295403336,
+          "thermal": 0.8404452699196967,
+          "delta": 0.0971252403793631
+        },
+        "reproduction_max_abs_diff": 0.0,
+        "retained_fraction": 0.8397260355723154
+      },
+      "evia_2021_extended": {
+        "frozen": {
+          "baseline": 0.7589523122760988,
+          "thermal": 0.9122372202621674,
+          "delta": 0.15328490798606853
+        },
+        "full": {
+          "baseline": 0.7589523122760988,
+          "thermal": 0.9122372202621674,
+          "delta": 0.15328490798606853
+        },
+        "no_coord_channels": {
+          "baseline": 0.7589523122760988,
+          "thermal": 0.9035720412906122,
+          "delta": 0.14461972901451337
+        },
+        "reproduction_max_abs_diff": 0.0,
+        "retained_fraction": 0.9434701101014934
+      },
+      "montiferru_2021": {
+        "frozen": {
+          "baseline": 0.7811972850804343,
+          "thermal": 0.8826347859479317,
+          "delta": 0.10143750086749737
+        },
+        "full": {
+          "baseline": 0.7811972850804343,
+          "thermal": 0.8826347859479317,
+          "delta": 0.10143750086749737
+        },
+        "no_coord_channels": {
+          "baseline": 0.7811972850804343,
+          "thermal": 0.8859965115041708,
+          "delta": 0.10479922642373651
+        },
+        "reproduction_max_abs_diff": 0.0,
+        "retained_fraction": 1.0331408554774077
+      }
+    },
+    "intervals": {}
+  },
+  "modis_zero_fill": {
+    "manavgat_2021": {
+      "modis_lst_mean_celsius.tif": {
+        "total_pixels": 6390,
+        "finite_pixels": 6390,
+        "exact_zero": 518,
+        "exact_zero_fraction": 0.0810641627543036,
+        "guard_would_reject": true,
+        "nodata": null
+      },
+      "modis_lst_std_celsius.tif": {
+        "total_pixels": 6390,
+        "finite_pixels": 6390,
+        "exact_zero": 518,
+        "exact_zero_fraction": 0.0810641627543036,
+        "guard_would_reject": true,
+        "nodata": null
+      }
+    },
+    "bejis_2022": {
+      "modis_lst_mean_celsius.tif": {
+        "total_pixels": 4187,
+        "finite_pixels": 4187,
+        "exact_zero": 0,
+        "exact_zero_fraction": 0.0,
+        "guard_would_reject": false,
+        "nodata": null
+      },
+      "modis_lst_std_celsius.tif": {
+        "total_pixels": 4187,
+        "finite_pixels": 4187,
+        "exact_zero": 0,
+        "exact_zero_fraction": 0.0,
+        "guard_would_reject": false,
+        "nodata": null
+      }
+    },
+    "mugla_2021": {
+      "modis_lst_mean_celsius.tif": {
+        "total_pixels": 19190,
+        "finite_pixels": 19190,
+        "exact_zero": 7347,
+        "exact_zero_fraction": 0.38285565398645127,
+        "guard_would_reject": true,
+        "nodata": null
+      },
+      "modis_lst_std_celsius.tif": {
+        "total_pixels": 19190,
+        "finite_pixels": 19190,
+        "exact_zero": 7347,
+        "exact_zero_fraction": 0.38285565398645127,
+        "guard_would_reject": true,
+        "nodata": null
+      }
+    },
+    "evia_2021_extended": {
+      "modis_lst_mean_celsius.tif": {
+        "total_pixels": 6120,
+        "finite_pixels": 2614,
+        "exact_zero": 0,
+        "exact_zero_fraction": 0.0,
+        "guard_would_reject": false,
+        "nodata": -9999.0
+      },
+      "modis_lst_std_celsius.tif": {
+        "total_pixels": 6120,
+        "finite_pixels": 2614,
+        "exact_zero": 0,
+        "exact_zero_fraction": 0.0,
+        "guard_would_reject": false,
+        "nodata": -9999.0
+      }
+    },
+    "montiferru_2021": {
+      "modis_lst_mean_celsius.tif": {
+        "total_pixels": 875,
+        "finite_pixels": 797,
+        "exact_zero": 0,
+        "exact_zero_fraction": 0.0,
+        "guard_would_reject": false,
+        "nodata": -9999.0
+      },
+      "modis_lst_std_celsius.tif": {
+        "total_pixels": 875,
+        "finite_pixels": 797,
+        "exact_zero": 0,
+        "exact_zero_fraction": 0.0,
+        "guard_would_reject": false,
+        "nodata": -9999.0
+      }
+    }
+  },
+  "pre_label_exposure": {
+    "manavgat_2021": {
+      "predictor_window": [
+        "2021-06-01",
+        "2021-07-27"
+      ],
+      "label_window": [
+        "2021-07-28",
+        "2021-08-31"
+      ],
+      "raw_raster": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\drive_new\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_raw.tif",
+      "exists": true,
+      "n_positive_subpixels": 179667,
+      "doy_min": 213,
+      "doy_max": 241,
+      "label_doy_range": [
+        209,
+        243
+      ],
+      "predictor_doy_range": [
+        152,
+        208
+      ],
+      "in_label_window": 179667,
+      "in_predictor_window": 0,
+      "before_label_start": 0,
+      "clipped_to_label_window": true
+    },
+    "bejis_2022": {
+      "predictor_window": [
+        "2022-06-15",
+        "2022-08-14"
+      ],
+      "label_window": [
+        "2022-08-15",
+        "2022-09-30"
+      ],
+      "raw_raster": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\drive_new\\experiments\\bejis_2022\\validation\\labels\\mcd64a1_raw.tif",
+      "exists": true,
+      "n_positive_subpixels": 285751,
+      "doy_min": 227,
+      "doy_max": 237,
+      "label_doy_range": [
+        227,
+        273
+      ],
+      "predictor_doy_range": [
+        166,
+        226
+      ],
+      "in_label_window": 285751,
+      "in_predictor_window": 0,
+      "before_label_start": 0,
+      "clipped_to_label_window": true
+    },
+    "mugla_2021": {
+      "predictor_window": [
+        "2021-06-01",
+        "2021-07-28"
+      ],
+      "label_window": [
+        "2021-07-29",
+        "2021-09-15"
+      ],
+      "raw_raster": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\drive_new\\experiments\\mugla_2021\\validation\\labels\\mcd64a1_raw.tif",
+      "exists": true,
+      "n_positive_subpixels": 759212,
+      "doy_min": 210,
+      "doy_max": 235,
+      "label_doy_range": [
+        210,
+        258
+      ],
+      "predictor_doy_range": [
+        152,
+        209
+      ],
+      "in_label_window": 759212,
+      "in_predictor_window": 0,
+      "before_label_start": 0,
+      "clipped_to_label_window": true
+    },
+    "evia_2021_extended": {
+      "predictor_window": [
+        "2021-06-05",
+        "2021-08-02"
+      ],
+      "label_window": [
+        "2021-08-03",
+        "2021-09-30"
+      ],
+      "raw_raster": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\drive_new\\experiments\\evia_2021_extended\\validation\\labels\\mcd64a1_raw.tif",
+      "exists": true,
+      "n_positive_subpixels": 751622,
+      "doy_min": 215,
+      "doy_max": 226,
+      "label_doy_range": [
+        215,
+        273
+      ],
+      "predictor_doy_range": [
+        156,
+        214
+      ],
+      "in_label_window": 751622,
+      "in_predictor_window": 0,
+      "before_label_start": 0,
+      "clipped_to_label_window": true
+    },
+    "montiferru_2021": {
+      "predictor_window": [
+        "2021-05-25",
+        "2021-07-23"
+      ],
+      "label_window": [
+        "2021-07-24",
+        "2021-08-31"
+      ],
+      "raw_raster": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\drive_new\\experiments\\montiferru_2021\\validation\\labels\\mcd64a1_raw.tif",
+      "exists": true,
+      "n_positive_subpixels": 181738,
+      "doy_min": 205,
+      "doy_max": 219,
+      "label_doy_range": [
+        205,
+        243
+      ],
+      "predictor_doy_range": [
+        145,
+        204
+      ],
+      "in_label_window": 181738,
+      "in_predictor_window": 0,
+      "before_label_start": 0,
+      "clipped_to_label_window": true
+    }
+  }
+}

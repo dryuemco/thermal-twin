@@ -661,13 +661,22 @@ most 0.014 within any direction, and by at most 0.008 within the thermal family 
 0.559 to 0.564; Manavgat→Muğla 0.443 to 0.451). The three widest spreads are baseline-family rows,
 the largest being Muğla→Bejís at 0.014, which the export's own summary flags as
 `modest_lambda_sensitivity`.
-No CORAL-dependent conclusion for these directions is sensitive to λ in this range. The sweep does
-not cover λ = 1 or the Montiferru/Evia directions. It should be read for what it is. With nine
+No CORAL-dependent conclusion for these directions is sensitive to λ in this range. With nine
 predictors and thousands of cells, a λ of 10⁻¹ is still far too small to bite on the covariance
 estimate, so a movement of at most 0.014 across the range establishes numerical stability of the
-alignment map rather than robustness to regularisation. The superseded two-region run, which did
-include λ = 1, is the only evidence in this project about what heavy regularisation does, and there
-it removed the effect (Section 3.11).
+alignment map rather than robustness to regularisation.
+
+**The canonical λ = 1, which the released sweep omits, was computed for this paper** by driving the
+pipeline's own alignment primitives in the order `step10b` calls them; λ = 10⁻¹ recomputed the same
+way reproduces the frozen sweep to 4.4×10⁻⁹ over all eight rows. At λ = 1 no direction changes side
+of the chance line. The largest movement is an improvement rather than a collapse, Muğla→Manavgat
+thermal from 0.559 to 0.574, and the next largest is Bejís→Muğla baseline from 0.564 to 0.574.
+Including λ = 1 widens the spread over the grid to at most 0.019 in any direction and 0.016 within
+the thermal family, against 0.014 and 0.008 over the released grid alone. So heavy regularisation
+does not erase the effect in this region set, which is the opposite of what the superseded
+two-region run showed and of what the scale argument in Section 3.11 predicted; note that the sweep's
+four directions do not include Bejís↔Manavgat, where that earlier result sat. The sweep still does
+not cover the Montiferru or Evia directions. Source: `paper/observational_sensitivities.md`.
 
 **(e) scikit-learn version.** With byte-identical data, pipeline and seed, changing only the library
 version from 1.9.0 to 1.7.2 moves raw transfer AUC by +0.021 (Montiferru→Bejís) and +0.026
@@ -772,6 +781,18 @@ It converts "the thermal block" from an opaque bundle into a statement about whi
 carries the increment, and it means the six reversal tests of Section 4.4 are not six independent
 probes of concept shift. Source: `paper/referee2_numbers.md`, blocks D, E and F.
 
+That table reports what each subgroup adds. The complementary question is what the block is worth
+**without** its two coordinate-bearing channels, since `downscaled_lst` is a fitted surface whose own
+inputs include `lon`, `lat`, `row` and `col`, and `fused_lst` inherits that on its gap-filled share.
+This is the one route by which a coordinate-derived surface re-enters a feature set from which
+Section 3.13 excludes coordinates, so the increment ought not to depend on it. It does not. Dropping
+both channels and re-running the comparison with the pipeline's own Step 8B leaves ΔAUC at +0.063
+(Manavgat), +0.046 (Bejís), +0.097 (Muğla), +0.145 (Evia) and +0.105 (Montiferru), which is 94 %,
+82 %, 84 %, 94 % and 103 % of the full-block value. The six-channel arm of the same harness
+reproduces the frozen metrics with a maximum absolute difference of exactly zero in all five
+regions, so the comparison is not confounded by the re-run. Source:
+`paper/observational_sensitivities.md`.
+
 **(i) Landsat compositing.** The current-period LST composite is a median over the clear
 acquisitions inside the predictor window, and how those acquisitions are weighted is a choice. Three
 controlled chains exist for Manavgat, on an identical cohort with identical folds and an identical
@@ -826,6 +847,105 @@ narrower than any sampling distribution; and the positive count is not equalised
 the prevalence, so a residual positive-count difference is not separated here. No bootstrap was run
 and no probability statement is made. Source: `mugla_subsampling` in the frozen diagnostics export,
 recomputed here from its 20 per-repeat records.
+
+**(k) Sea in the TVDI edges, and a common-edge index.** TVDI is normalised against wet and dry edges
+fitted as the 2nd and 98th LST percentiles inside each NDVI bin, over whatever the scene contains
+(Section 3.4). The AOIs are place-based rectangles that are not clipped to the coastline, so sea
+takes part in that fit, and two of the five are largely marine. The index is also the one whose
+internal normalisation was expected to make it portable, so if its reversal were an artefact of the
+edges, the paper's mechanism would be weaker than it looks. Three arms were therefore compared: the
+frozen scene fit; the same fit restricted to land cover classes 10, 20, 30, 40 and 60; and one set of
+edges fitted once over the pooled land pixels of all five regions, 26.2 million of them, which puts
+every region on a common dryness scale.
+
+**Table R11. Signed univariate AUC of `current_tvdi_mean` against `burned` under three edge
+definitions.** Primary population; raw AUC, never folded, so a value below 0.5 is a direction;
+10-cell (≈ 5 km) spatial-block bootstrap, 1000 replicates, seed 42, at the registered specification
+of Section 3.12. Bold marks an interval excluding 0.5. Source: `paper/tvdi_land_refit.md`.
+
+| Region | Water share | Scene, all pixels | Scene, land only | Pooled, land only |
+|---|---:|---|---|---|
+| Bejís 2022 | 0.1 % | 0.517 [0.429, 0.595] | 0.519 [0.431, 0.597] | 0.503 [0.416, 0.578] |
+| Montiferru 2021 | 7.4 % | **0.356** [0.233, 0.499] | 0.353 [0.229, 0.500] | 0.356 [0.232, 0.500] |
+| Manavgat 2021 | 8.3 % | 0.552 [0.460, 0.641] | 0.558 [0.465, 0.646] | 0.565 [0.469, 0.656] |
+| Muğla 2021 | 38.9 % | **0.336** [0.276, 0.401] | **0.351** [0.288, 0.424] | **0.341** [0.280, 0.408] |
+| North Evia 2021 (ext.) | 57.6 % | **0.362** [0.280, 0.440] | **0.379** [0.298, 0.458] | **0.378** [0.297, 0.455] |
+
+The effect of sea on the index is real and it is small. Removing water moves the signed AUC by
++0.017 in Evia and +0.016 in Muğla, the two marine AOIs, against +0.006 in Manavgat, −0.002 in
+Montiferru and +0.002 in Bejís, so the shift scales with sea fraction as the mechanism predicts.
+**It changes no region's direction.** The two regions in which higher TVDI ranks burned cells stay
+above 0.5 and the three in which lower TVDI does stay below, with Muğla and Evia keeping intervals
+entirely below 0.5. One verdict moves, on a knife edge: Montiferru's upper bound goes from 0.4991 to
+0.5004, a shift of 0.0013, which is the count instability recorded as limitation (x) in Section 5.11
+rather than a change of finding.
+
+The common-edge arm is the stronger test, because it removes the scene dependence itself rather than
+only the sea. With one set of edges for all five regions, Manavgat still ranks burned cells by higher
+TVDI (0.565) while Muğla and Evia still rank them by lower TVDI with bootstrap support (0.341 and
+0.378). Putting every region on the same dryness scale does not bring the directions into agreement.
+The reversal is therefore a property of the relationship between dryness and burning in these
+landscapes, not of how the index was normalised. Two limits: only `current_tvdi_mean` was
+re-derived, since `tvdi_difference_mean` would need the four baseline-year surfaces refitted as
+well; and pooling the current-window LST of five regions observed on different dates gives a common
+statistical scale, not a radiometrically harmonised one.
+
+**(l) Label agreement, and whether the reversals are fringe artefacts.** MCD64A1 labels a 500 m cell
+from its 30 m sub-pixels, and `burn_date_pixel_agreement_fraction` records the share of a cell's
+positive sub-pixels that agree with its modal burn date. It is defined for burned cells only, and its
+median is 1.000 in every region, but its lower tail is not empty: the 25th percentile runs from 0.765
+(Muğla) to 0.985 (Montiferru). Cells with low agreement are disproportionately scar-fringe cells, and
+fringe cells differ systematically in terrain from core cells, so differential fringe contamination
+is a competing explanation for a reversal in a terrain variable. That is exactly what the paper's
+sharpest reversal is. The signed univariate AUCs were therefore recomputed with burned cells below an
+agreement threshold dropped and the negative class left whole, at thresholds of 0.75 and 0.90, which
+retain 76 % to 88 % and 63 % to 79 % of each region's burned cells. The unrestricted arm reproduces
+the archived step9g values exactly, to 1.1×10⁻¹⁶.
+
+**Table R12. Signed univariate AUC of `elevation_mean` against `burned` by label-agreement
+threshold.** Primary population; raw AUC; 10-cell spatial-block bootstrap, 1000 replicates, seed 42.
+Bold marks an interval excluding 0.5.
+
+| Region | All burned cells | Agreement ≥ 0.75 | Agreement ≥ 0.90 |
+|---|---|---|---|
+| Manavgat 2021 | **0.374** [0.289, 0.471] | **0.368** [0.284, 0.462] | **0.362** [0.279, 0.460] |
+| Bejís 2022 | **0.643** [0.558, 0.729] | **0.642** [0.560, 0.728] | **0.635** [0.550, 0.722] |
+| Muğla 2021 | **0.611** [0.531, 0.695] | **0.606** [0.527, 0.690] | **0.602** [0.520, 0.686] |
+| North Evia 2021 (ext.) | 0.541 [0.458, 0.632] | 0.544 [0.461, 0.636] | 0.550 [0.463, 0.636] |
+| Montiferru 2021 | 0.584 [0.395, 0.762] | 0.567 [0.390, 0.748] | 0.546 [0.380, 0.729] |
+
+The elevation reversal is not a fringe artefact. Manavgat's interval stays entirely below 0.5 and
+Bejís's and Muğla's stay entirely above it at every threshold, so the disjoint-interval contrast that
+carries Section 4.4 survives the restriction; if anything Manavgat moves further from chance, from
+0.374 to 0.362, as thin-evidence cells are removed. The thermal channels behave the same way: Muğla
+and Evia keep `current_lst_mean`, `downscaled_lst_mean`, `fused_lst_mean` and `current_tvdi_mean`
+entirely below 0.5 at both thresholds, while Manavgat's point estimates drift slightly upward and
+its intervals continue to span chance. Two verdicts change, and both are Montiferru's, both by about
+0.005 on an interval bound: `current_tvdi_mean` moves from an upper bound of 0.499 to 0.505 and
+`tvdi_difference_mean` from 0.497 to 0.503. That is the count instability of limitation (x) in
+Section 5.11, in the region with the fewest positive-carrying blocks, not a change of finding.
+Source: `paper/observational_sensitivities.md`.
+
+**(m) Gap-filled thermal cells.** `fused_lst` equals the observed Landsat LST outside a gap-filled
+share, and where that share is high the channel is the downscaled surface rather than an
+observation. The gap-fill is concentrated rather than diffuse: its median is zero in every region,
+but 18.8 % of Bejís's primary-population cells carry some, with a 90th percentile of 0.47, against
+2.0 % to 9.1 % elsewhere. The within-region comparison was therefore re-run on cells whose gap-filled
+fraction is at most 0.10, using the pipeline's own Step 8B and Step 8C on the restricted population.
+
+| Region | Cells retained | ΔAUC, full | ΔAUC, low gap-fill [95 % CI] |
+|---|---:|---|---|
+| Manavgat 2021 | 95.4 % | +0.067 | +0.072 [+0.061, +0.083] |
+| Bejís 2022 | 85.1 % | +0.056 | +0.043 [+0.033, +0.053] |
+| Muğla 2021 | 99.2 % | +0.116 | +0.114 [+0.104, +0.123] |
+| North Evia 2021 (ext.) | 98.3 % | +0.153 | +0.159 [+0.146, +0.171] |
+| Montiferru 2021 | 99.7 % | +0.101 | +0.109 [+0.087, +0.134] |
+
+The increment keeps bootstrap support in all five regions. Bejís moves the most and in the direction
+the concern predicts, from +0.056 to +0.043, so part of its increment does rest on gap-filled cells;
+the remaining four move by at most 0.008, in both directions. The restriction changes the population,
+so these are not paired comparisons with the full-population row of Table 3. Source:
+`paper/observational_sensitivities.md`.
 
 ## 4.8 The same geography, a second fire: direction reversal with place held constant
 
