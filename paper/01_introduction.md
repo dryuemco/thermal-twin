@@ -141,18 +141,23 @@ sides on the same pairs.
 Three findings carry this paper. Each is stated at the strength its interval supports, and the
 nearest prior work is named inside the claim rather than omitted.
 
-**Contribution 1. The local-skill and portability trade-off, quantified per direction.** For every
+**Contribution 1. Local skill and portability, measured separately and per direction.** For every
 ordered region pair, the change in transfer skill from adding the dynamic pre-fire thermal block to
 a matched baseline is set against the within-region increment the same block delivers. The block is
 worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with every bootstrap interval above
 zero and the result holding in both analysis populations. Across the twenty ordered transfer
-directions it contributes +0.004 on average, an estimate whose interval spans zero under every
-resampling unit the design permits, and its sign is unstable: paired deltas run from −0.148 to
-+0.132, twelve positive and eight negative, and neither the point estimates nor those signs depend
-on the blocking scale. Feature removal measures the cost side directly. Dropping the two reversing
-predictors costs −0.081 of mean within-region AUC, supported in every region, and changes mean
-transfer by +0.014, whose interval spans zero: the debit is measured and the credit is not
-(Section 4.6b). The within-region half is not itself novel, since comparable results exist for these
+directions it contributes +0.004, an estimate whose interval spans zero under all four
+between-direction resampling units we computed, and its sign is unstable: paired deltas run from
+−0.148 to +0.132, twelve positive and eight negative. The control that bounds the interpretation is
+the baseline arm: it transfers at a mean of 0.537 against the thermal model's 0.541, so the static
+predictor class is not the portable one here either, and what the matrix shows is that **nothing in
+this feature space travels** rather than that dynamic state is uniquely fragile. Feature removal
+measures the local cost directly. Dropping the two reversing predictors, elevation and the LST
+anomaly, costs −0.081 of mean within-region AUC, supported in every region and roughly three
+quarters of it attributable to elevation, which is a *baseline* terrain variable; it changes mean
+transfer by +0.014, whose interval spans zero. Both figures are post-selection, the two predictors
+having been chosen on the same reversal analysis (Section 4.6b). A local cost is measured and no
+compensating transfer gain is, which is weaker than an exchange and is stated as such. The within-region half is not itself novel, since comparable results exist for these
 landscapes [@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is. Dimarco et al.
 [@Dimarco2026] transfer a predominantly spatially stationary predictor set successfully across a
 comparable Mediterranean design, and this is the complementary half of that picture rather than a
@@ -166,12 +171,16 @@ climatic and geographic distance, learned domain separability, niche-overlap sta
 burn-pattern regime distances all fail to order the matrix; the domain classifier is at ceiling, with
 AUC ≥ 0.96 for every pair. Only two diagnostics have intervals excluding zero, and both measure
 conditional direction agreement, whether each predictor's signed association with burning points the
-same way in both regions (Spearman ρ = +0.84 and +0.81 over eight pairs). Signed associations need
+same way in both regions (Spearman ρ = +0.84 and +0.81 over sixteen directions from eight region
+pairs). Both are computed on a data-selected subset of predictors, and their all-nine-feature
+counterparts span zero, so the result rests on that selection and is reported with it. Equalising
+the families onto a common twelve directions leaves the ordering unchanged, so it is not an artefact
+of the marginal rows carrying the smaller sample. Signed associations need
 burned labels on both sides, so this is a mechanism diagnosis rather than a pre-deployment screen,
 and the marginal family, which is the only one that can be run before deployment, is the one that
-fails. The same point survives without any ranking: the pair with the highest burned-niche overlap
-in the matrix fails in both directions while the pair with the lowest transfers in both, so
-similarity is not sufficient for transfer. That contradicts an expectation the fire literature
+fails. The same point survives without any ranking, at the point estimates: the pair with the highest
+burned-niche overlap in the matrix fails in both directions while the pair with the lowest transfers
+in both, so similarity is not sufficient for transfer. That contradicts an expectation the fire literature
 carries [@Dimarco2026; @Liu2025] and agrees with what species distribution modelling has found
 [@Vesk2021; @Rousseau2022]. Shift decomposition in applied remote sensing is not itself new
 [@Huang2026]; what is added here is the fire application and the head-to-head of marginal,
@@ -183,7 +192,9 @@ burning, which is why a distance in predictor space cannot see the failure. The 
 elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla with disjoint
 bootstrap intervals. The same reversal appears inside a single study area, between two fires eleven
 months apart on an identical grid, where season and population also differ but place does not
-(Section 4.8). Two consequences follow and are reported as supporting rather than leading results:
+(Section 4.8); that arm rests on one fire and eleven positive-carrying 5 km blocks, below the floor
+this design sets for itself, so it corroborates the mechanism rather than establishing it. Two
+consequences follow and are reported as supporting rather than leading results:
 label-free alignment by standardisation and covariance alignment [@Sun2016] does not repair transfer
 but compresses it towards chance in fourteen of twenty directions, which we believe is the first
 application of covariance alignment to fire susceptibility; and because the residual gap is
@@ -193,9 +204,10 @@ tested, 51 to 57 % in two more and 30 % in the sixth.
 
 Alongside these, a leakage-audited, spatially blocked evaluation and transfer protocol is released
 with code, configuration and frozen outputs, so that most of this result can be re-run rather than
-taken on trust. Two components are exceptions and are named in the data-and-code availability
-statement: the reproduction-check code and the few-shot export's exact commit are not in the
-released repository at the commit of record. This matters given evidence that wildfire transfer
+taken on trust. One component is an exception and is named in the data-and-code availability
+statement: the reproduction-check code is not in the released repository at the commit of record.
+The few-shot export, previously also listed as an exception, was regenerated at commit `6d7a6a71`
+and its validator now passes on every check. This matters given evidence that wildfire transfer
 conclusions are sensitive to evaluation design and task formulation [@Xu2026].
 
 A companion paper treats the observational layer beneath this one, where preprocessing decisions

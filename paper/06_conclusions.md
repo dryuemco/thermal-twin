@@ -36,14 +36,20 @@ before the first labelled burning.
 
 That skill is local. Paired per direction, the same predictor block adds nothing distinguishable
 from zero to cross-region transfer. The mean is +0.004 over twenty directions and its interval spans
-zero under every resampling unit the design permits. Its contribution changes sign from one
-direction to another. The paired deltas run from −0.148 to +0.132, twelve positive and eight
-negative, at either blocking scale. At the conservative 5 km blocking, five to six directions are
-helped and three to four are harmed with interval support, with the rest carrying no verdict. The
-block is also the swing factor at the chance line. Removing the two reversing predictors costs
-−0.081 of mean within-region skill, with interval support in every region, and changes mean transfer
-by +0.014, an estimate whose interval spans zero. The cost of the trade-off is measured; the return
-is not.
+zero under all four between-direction resampling units we computed. Its contribution changes sign
+from one direction to another. The paired deltas run from −0.148 to +0.132, twelve positive and eight
+negative. At the conservative 5 km blocking, five to six directions are helped and three to four are
+harmed with interval support, with the rest carrying no verdict. The block is also the swing factor
+at the chance line.
+
+The control that fixes the meaning of all this is the baseline arm, which transfers at a mean of
+0.537 against the thermal model's 0.541. The static predictor class is not portable here either, so
+the honest summary is that nothing in this feature space travels, not that dynamic state is uniquely
+fragile. Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
+within-region skill, with interval support in every region and roughly three quarters of it
+attributable to elevation, a baseline terrain variable; it changes mean transfer by +0.014, an
+estimate whose interval spans zero. A local cost is measured. No compensating transfer gain is, on
+either arm, so no exchange between the two is demonstrated.
 
 The failure is conditional. The direction of the link between dryness and burning changes from one
 region to another. None of the similarity diagnostics tested here ordered the transfer
@@ -69,8 +75,9 @@ three of six directions, 51 to 57 % in two more and 30 % in the sixth, and at it
 labelled set already holds most of one target region's burned cells. Where no target labels exist, the transfer performance of such
 models should be treated as unknown rather than inferred from similarity.
 
-For model builders, the trade-off should be priced openly. A predictor block that buys large
-within-region skill can carry a transfer cost of the opposite sign. Reporting only within-region
-validation hides that cost completely. Three extensions are left for future work: temporal transfer,
+For model builders, local skill and portability should be reported separately rather than assumed to
+travel together. A predictor block worth a large within-region increment may contribute nothing
+distinguishable from zero across regions, with a sign that varies by pair, and reporting only
+within-region validation hides that completely. Three extensions are left for future work: temporal transfer,
 meteorological covariates, and physically normalised dryness variables. Each is a step towards the
 self-calibrating thermal monitoring system that motivated this study.

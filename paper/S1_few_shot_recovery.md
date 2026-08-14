@@ -142,15 +142,17 @@ These are stated so the analysis is not read as more than it is.
 5. **The ceiling is the 10-cell-block target-only value**, not the ≈ 1 km within-region headline of
    Table 3, and is correspondingly lower (0.777 to 0.824 against 0.87 to 0.94). Recovery fractions are
    only interpretable against this matched-blocking ceiling.
-6. **Ceiling reproduction verified for two of three targets.** The Manavgat and Bejís ceilings
-   reproduce the frozen large-block artefacts exactly (absolute difference 0.0 against a 10⁻⁹
-   tolerance, both families). Muğla has no frozen block-10 artefact, so its ceiling is unverified
-   against an independent output and the corresponding validator check `FSR-35[mugla_2021]` is
-   recorded as SKIPPED rather than PASS.
-7. **Provenance differs from the manuscript commit.** The export was produced on 2026-08-02 at
-   commit `19d825b` under scikit-learn 1.9.0, pandas 3.0.2 and NumPy 2.4.4. That is the same
-   scikit-learn version to which every other number in this paper is fixed (§4.7e), but it is an
-   earlier code state than the `48b56e7` of record. Its validator reports 64 PASS and the one SKIPPED check above.
+6. **Ceiling reproduction verified for all three targets.** Manavgat, Bejís and Muğla all reproduce
+   the frozen large-block artefacts exactly, at an absolute difference of 0.0 against a 10⁻⁹
+   tolerance in both families. An earlier draft of this supplement recorded Muğla as unverified,
+   because at that time no frozen block-10 artefact had been located for it; one is now referenced
+   in the export and the corresponding validator check passes.
+7. **Provenance.** The export of record was regenerated on 2026-08-14 at commit `6d7a6a71` under
+   scikit-learn 1.9.0, pandas 3.0.2 and NumPy 2.4.4 — the same scikit-learn version to which every
+   other number in this paper is fixed. Its validator reports **67 PASS, 0 FAIL and 0 SKIPPED**.
+   Two files in the export directory, `repeat_metrics.csv` and `oof_predictions.parquet`, retain
+   their 2026-08-03 timestamps and were not regenerated; every value quoted in Table S1 was checked
+   against the regenerated export.
 
 ## S1.5 Figure
 

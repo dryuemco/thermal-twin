@@ -10,10 +10,13 @@
 
 Three results carry this paper. First, the pre-fire thermal block raises spatially blocked
 within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean regions, with bootstrap
-support at 1 km and 5 km blocking, and contributes +0.004 on average across twenty ordered transfer
-directions with an interval spanning zero and an unstable sign. Removing the two reversing
-predictors costs −0.081 of within-region skill, supported in every region, and buys +0.014 of
-transfer whose interval spans zero. Second, of twenty candidate transferability diagnostics only two
+support at 1 km and 5 km blocking, and contributes +0.004 [−0.028, +0.036] across twenty ordered
+transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
+baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is a property of this
+matrix rather than of the dynamic block specifically. Removing the two reversing predictors,
+elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
+three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
+also spans zero. Second, of twenty candidate transferability diagnostics only two
 have intervals excluding zero and both are conditional, while every marginal measure fails,
 including the area-of-applicability family that is the only one runnable before deployment. Third,
 the mechanism is a reversal in the sign of the predictor-burning association, and it persists inside
@@ -23,9 +26,12 @@ one study area across two fires.
 
 The within-region increment is not an artefact to be explained away. It replicates in five
 independent regions, survives coarsening of the spatial blocks to ~5 km with its interval intact,
-persists in the secondary all-valid population, and strengthens rather than weakens when the
-predictor window is closed earlier. The transfer failure is therefore not evidence that the thermal
-signal is spurious. It is evidence that the fitted relationship is *local*.
+persists in the secondary all-valid population, and survives a predictor window closed 7 and 14 days
+earlier in all five regions. The direction of that last result is region-specific and should not be
+overstated: the contribution strengthens in Bejís (0.058 → 0.079 at 14 days) and Muğla (0.115 →
+0.128), is flat in Montiferru, and **weakens monotonically in Evia** (0.156 → 0.149 → 0.135). What
+holds everywhere is survival, not improvement. The transfer failure is therefore not evidence that
+the thermal signal is spurious. It is evidence that the fitted relationship is *local*.
 
 The natural objection is that different Mediterranean regions are simply different systems, with
 distinct fuels, terrain and fire histories, so that a predictor meaning one thing in one place and
@@ -60,9 +66,12 @@ conditional. A target region can sit deep inside the training envelope while the
 between those predictors and burning points the other way, and Manavgat to Muğla is exactly that
 case: 0.875 of target cells inside the weighted area of applicability, and transfer below chance.
 
-The same holds for the niche-overlap and regime families. The pair with the highest burned-niche
-overlap in the matrix fails in both directions while the pair with the lowest transfers in both, so
-no monotone function of overlap can order the outcomes. The domain classifier is at ceiling for
+The same holds for the niche-overlap and regime families. At the point estimates, the pair with the
+highest burned-niche overlap in the matrix fails in both directions while the pair with the lowest
+transfers in both, so no monotone function of overlap can order the outcomes. The qualifier is not
+decorative: at the 5 km blocking this paper otherwise defends, neither Bejís↔Montiferru direction
+carries a verdict and Manavgat→Muğla loses its below-chance support, so this contrast is a
+statement about point estimates and is made as one. The domain classifier is at ceiling for
 every pair, which is informative in itself: the regions are trivially separable in predictor space
 whether or not their transfer works, so separability carries no ordering information here.
 
@@ -86,10 +95,17 @@ candidates were **not shown to order transfer**, not that they are shown incapab
 
 Both interventions show the same shape. Pooling four regions never beats the best single-source
 transfer for any target and stays 0.28 to 0.50 below the within-region ceiling, so aggregation does
-not manufacture the missing conditional information. Removing the reversing predictors buys a little
-transfer and pays for it locally, at about six times the cost in within-region skill at the point
-estimates, though the transfer side's interval spans zero so no exchange rate is claimed. What
-transfer gains, the within-region model pays for.
+not manufacture the missing conditional information. Removing the reversing predictors costs −0.081
+of within-region skill with interval support in every region, and changes mean transfer by
++0.014 [−0.017, +0.045], which is not distinguishable from zero.
+
+We should be exact about what that pair of numbers is, because it is easy to read as an exchange and
+it is not one. The thermal block's own contribution to transfer is +0.004 with an interval spanning
+zero; removing the reversing predictors returns +0.014 with an interval spanning zero. Both arms are
+null on the portability axis. So what the interventions measure is a local cost and no compensating
+transfer gain — not a conservation law, and not a rate at which local skill can be sold for
+portability. No such rate is estimated here, and the earlier framing of the increment as something
+that is "spent" on portability overstated what two nulls can support.
 
 ## 5.6 The regime hypothesis, reported as it happened
 
@@ -106,7 +122,16 @@ data, and with ten pairs this cannot refute regime typology [@Archibald2013] in 
 Dimarco et al. [@Dimarco2026] transfer successfully across a comparable Mediterranean design and we
 do not, and the two results are not in conflict. Their predictors are attributes of a place, ours
 describe the state of a surface in one season. Read together they suggest that the relationship
-between domain similarity and transfer success is predictor-class dependent. We present that as a
+between domain similarity and transfer success is predictor-class dependent.
+
+That reading is one of at least two, and the alternative should be stated because we cannot separate
+them here. Their response variable is human-driven **ignition**; ours is burned **area**. Ignition
+likelihood is dominated by human access and activity, which are stable and near-universal drivers,
+whereas burned extent is dominated by spread — fire weather, fuel continuity, terrain. A
+predictor-class explanation and a response-variable explanation for the divergence are therefore
+confounded in this comparison. Our own data speak against a simple predictor-class reading in any
+case: the static baseline transfers at a mean of 0.537 here (Section 4.3), so within this cohort the
+place-attribute class does not travel either. We present that as a
 live disagreement, since species distribution modelling aligns with it and the fire literature does
 not, and it is a reading our data support without proving.
 
@@ -159,11 +184,16 @@ reproduction elsewhere requires the archived environment.
 successes and the failures of Section 4.4 should be read at that power.
 
 (viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
-diagnosis bites hardest and where feature removal recovers most. The explanation we could test, that
-its predictor window was meteorologically extreme, is not supported; the companion paper reports a
-second candidate, a quality-screening difference in its coarse thermal input whose induced change
-correlates with elevation. With one fire season per region the remaining candidates are not
-separable in this design.
+diagnosis bites hardest and where feature removal recovers most. Two candidates have now been tested
+and neither survives. Its predictor window was not meteorologically extreme. And the
+quality-screening difference in its coarse thermal input, whose induced change correlates with
+elevation at +0.615 and was therefore the more worrying of the two, does not propagate: rebuilding
+the region's entire downstream chain from a quality-screened MODIS input changes 22,304 of 24,150
+cells' downscaled surface by up to 10.9 °C and moves no signed univariate association by more than
++0.0003, leaving elevation's at 0.374 [0.290, 0.472] in both arms and the population unchanged. That
+is structural rather than fortunate: elevation is a DEM variable the screening cannot touch, and
+fusion falls back on the MODIS-derived surface across only 2.14 points of coverage. With one fire
+season per region the remaining candidates are not separable in this design.
 
 (ix) **The interval-support counts are less stable than the point estimates behind them.** Several
 verdicts sit within a thousandth of their reference value, and at 1 km blocking the published split

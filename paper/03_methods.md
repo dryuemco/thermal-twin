@@ -88,7 +88,11 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
   percentiles within each of twenty NDVI bins and the index clamped to [0, 1]. The edges are
   percentiles of the LST values a given scene contains, so they are fitted per AOI and per window,
   and a TVDI of 0.5 denotes a different physical moisture state in each region. The companion paper
-  reports what that scene dependence does and does not explain.
+  reports what that scene dependence does and does not explain. **TVDI difference** is the raw
+  anomaly of that index against the same four window-symmetric baseline years used for the LST
+  anomaly: `tvdi_difference = current_tvdi − mean(baseline_tvdi)`, in index units rather than
+  standard deviations, which is why it is reported alongside the z-scored channel rather than in
+  place of it.
 - **Downscaled LST** and **fused LST**. A MODIS-to-Landsat downscaling model is trained on the
   predictor window and applied to the full 30 m grid; the fused product equals observed Landsat LST
   wherever that is valid and the downscaled surface only where it is not, so gap-filling never
@@ -200,9 +204,13 @@ populations of the other four regions and evaluated on the held-out region, with
 before. This asks whether pooling recovers what single-source transfer loses.
 
 **Removal of direction-reversing features.** The two predictors whose signed association reverses
-between regions are dropped and everything is refitted, within-region and across every direction.
-This measures both sides of the trade-off on the same footing: what the removal costs locally and
-what it buys on transfer.
+between regions with bootstrap support are **`elevation_mean`** (Manavgat against Bejís and against
+Muğla) and **`lst_anomaly_mean`** (Bejís against Evia). They are dropped and everything is refitted,
+within-region and across every direction, and the two are also dropped singly so the cost can be
+attributed. This measures what the removal costs locally and what it returns on transfer on the same
+footing. Note that the two features are selected by the same reversal analysis against which the
+result is then read, so both quantities are post-selection estimates and no correction for that
+selection is applied.
 
 ## 3.13 Leakage control
 

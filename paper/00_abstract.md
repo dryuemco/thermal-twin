@@ -64,6 +64,24 @@
 > in the closing sentence, then "with an unstable sign". Do not cut the interval on +0.004, the
 > feature-removal exchange, or the disjoint-intervals clause in the third finding.
 >
+> **Referee round 4, 2026-08-14. Now ~340 words.** Four independent referees; every claim applied
+> here was re-derived from the frozen artefacts first (13 checked, 13 confirmed, 0 refuted — see
+> `REFEREE_ROUND_4.md`). Six changes. (i) The heading no longer says the block "buys" and "spends":
+> with the transfer side a null, there are two nulls on the portability axis and no exchange, so the
+> paragraph now states a measured local cost and no measured transfer gain. (ii) **The baseline
+> transfer mean enters the abstract** (0.537 against 0.541). It was absent from the whole manuscript
+> and it is the decisive control for the thesis: the static predictor class the paper argues should
+> travel does not travel either. (iii) The two removed predictors are named, and elevation's
+> dominance of the −0.081 is stated, because elevation is a *baseline* variable and a reader would
+> otherwise attribute the whole debit to the thermal block. (iv) Both feature-removal figures are
+> marked post-selection. (v) The two-event arm is downgraded to corroborating and its eleven
+> positive-carrying blocks are stated, because Table 3's own note sets sixteen as the floor. (vi) The
+> niche-overlap sentence gains the point-estimate qualifier that §4.5 and §6 already carry, and
+> ρ = 0.84 is correctly attributed to sixteen directions rather than eight pairs (the eight-pair
+> value is 0.866). **If the limit turns out to be 250, cut in this order:** the post-selection
+> sentence, then the recovery figures, then the baseline-transfer clause — but the baseline number is
+> the last of the three to go, since it is the control the panel most faulted its absence.
+>
 > **Word limit not verified.** Both the Elsevier and ScienceDirect guide-for-authors pages return
 > HTTP 403 to automated fetching. A web search reports 400 words for *Ecological Informatics*, but
 > that was not corroborated by a second source and is not quoted from the guide itself. 250 is
@@ -76,26 +94,31 @@ tested outside the region they were fitted in. Five Mediterranean wildfire regio
 about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six pre-fire thermal
 predictors to a terrain, fuel and greenness baseline.
 
-**The block buys local skill and spends portability.** Within-region ROC-AUC rose by +0.056 to
-+0.153 in every region. Across twenty ordered transfer directions the same block contributed +0.004,
-an estimate whose interval spans zero, with an unstable sign. Removing the two reversing predictors
-cost −0.081 of within-region skill, supported in every region, and bought +0.014 of transfer whose
-interval also spans zero: the debit is measured and the credit is not.
+**The local skill does not travel, and neither does the baseline.** Within-region ROC-AUC rose by
++0.056 to +0.153 in every region. Across twenty ordered transfer directions the same block
+contributed +0.004 [−0.028, +0.036], indistinguishable from zero, with a sign that changes from pair
+to pair. The static baseline transferred no better, at 0.537 against 0.541. Removing the two
+predictors whose association reverses, elevation and the LST anomaly, cost −0.081 of within-region
+skill, supported in every region and mostly attributable to elevation, and changed transfer by
++0.014 [−0.017, +0.045]. Both are post-selection estimates. A local cost is measured; no
+compensating transfer gain is.
 
-**The loss is invisible to the diagnostics available before deployment.** Of twenty candidate
+**The failure is invisible to the diagnostics available before deployment.** Of twenty candidate
 transferability diagnostics rank-correlated against observed transfer, only two had intervals
 excluding zero and both were conditional, the stronger being agreement in the sign of each
-predictor's association (Spearman ρ = 0.84 over eight pairs). Every marginal measure failed,
-including predictor-space dissimilarity, and the pair with the highest burned-niche overlap failed
-in both directions while the lowest transferred in both. Signed associations need labels on both
-sides, so the family that works is the one a practitioner does not have.
+predictor's association (Spearman ρ = 0.84 over sixteen directions). No marginal measure was shown
+to order the matrix, including predictor-space dissimilarity, and at the point estimates the pair
+with the highest burned-niche overlap failed in both directions while the lowest transferred in
+both. Signed associations need labels on both sides, so the family that works is the one a
+practitioner does not have.
 
-**The mechanism is a sign reversal.** Predictors do not weaken across regions, they reverse the
+**The mechanism is a reversal of sign.** Predictors do not weaken across regions, they reverse the
 direction of their association with burning, which is why a distance cannot see the failure. The
-reversal persists inside one study area, between two fires eleven months apart on an identical grid,
-with disjoint bootstrap intervals.
+same reversal appears inside one study area, between two fires eleven months apart on an identical
+grid; that arm rests on one fire and eleven positive-carrying blocks, so it corroborates rather than
+establishes.
 
 Label-free alignment pushed fourteen of twenty directions towards chance rather than repairing them.
 Transfer skill has to be measured rather than inferred from similarity, and the price is target
-labels: thirty-two labelled 5 km blocks recovered 85 to 89 % of the target's ceiling in three of six
-directions.
+labels: thirty-two labelled 5 km blocks recovered 85 to 89 % of the target's matched ceiling in
+three of six directions.
