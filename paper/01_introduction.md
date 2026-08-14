@@ -151,10 +151,15 @@ nearest prior work is named inside the claim.
 block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with every bootstrap
 interval above zero and the result holding in both analysis populations. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
-run from −0.148 to +0.132, twelve positive and eight negative. The baseline arm bounds the reading.
-It transfers at a mean of 0.537, against the thermal model's 0.541. The static predictor class is
-not the portable one here either. What the matrix shows is that **nothing in this feature space
-travels**, not that dynamic state is uniquely fragile. Feature removal measures the local cost.
+run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
+model's 0.541, so the static predictor class is not the portable one either. And a within-region
+half-split, fitted on one contiguous half and applied to the other with no refit through the same
+code path, returns 0.574. Skill therefore falls from the blocked-CV range of 0.859 to 0.918 to about
+0.57 **without leaving the region**. Binning the target cells by their separation from the training
+half shows why: skill decays to about 0.50 by 10 to 20 km and then flattens, and the twenty
+cross-region directions, at 306 to 2,802 km, average 0.541, which sits on the continuation of that
+curve rather than below it. **The failure is a property of distance from the training cells, not of
+crossing a region boundary**, and it saturates at about 10 to 20 km. Feature removal measures the local cost.
 Dropping the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region AUC, supported in every region. Roughly three quarters of that is elevation, a
 *baseline* terrain variable. Mean transfer changes by +0.014, whose interval also spans zero. Both

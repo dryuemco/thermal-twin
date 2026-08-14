@@ -42,21 +42,34 @@ negative. At the conservative 5 km blocking, five to six directions are helped a
 harmed with interval support, with the rest carrying no verdict. The block is also the swing factor
 at the chance line.
 
-The control that fixes the meaning of all this is the baseline arm, which transfers at a mean of
-0.537 against the thermal model's 0.541. The static predictor class is not portable here either, so
-the honest summary is that nothing in this feature space travels, not that dynamic state is uniquely
-fragile. Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
+Two controls fix the meaning of all this. The baseline arm transfers at a mean of 0.537 against the
+thermal model's 0.541, so the static predictor class is not portable here either. And a
+within-region half-split, applied with no refit through the same code path, returns 0.574: skill
+falls from the blocked-CV range of 0.859 to 0.918 to about 0.57 before any boundary is crossed. It
+decays with separation from the training cells and flattens near 0.50 by 10 to 20 km, and the twenty
+cross-region directions, at 306 to 2,802 km, sit on the continuation of that curve rather than below
+it. The honest summary is therefore not that these predictors fail to cross regions. It is that a
+model of this kind does not generalise much beyond ten to twenty kilometres, and that a region
+boundary adds nothing to a loss that has already happened.
+
+Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region skill, with interval support in every region and roughly three quarters of it
 attributable to elevation, a baseline terrain variable; it changes mean transfer by +0.014, an
 estimate whose interval spans zero. A local cost is measured. No compensating transfer gain is, on
 either arm, so no exchange between the two is demonstrated.
 
-The failure is conditional. The direction of the link between dryness and burning changes from one
-region to another. None of the similarity diagnostics tested here ordered the transfer
-matrix: predictor-space distance, domain separability, niche overlap and regime structure all
-failed. On ten effective pairs those null results mean not shown to order transfer, rather than
-shown not to. It is also why label-blind adaptation compresses transfer towards chance instead of
-repairing it, and why pooled multi-region training does not escape it.
+The relationship itself is also unstable, and that is a separate finding. The direction of the link
+between dryness and burning changes from one region to another, with bootstrap support for two
+predictors. This is measured on univariate associations and does not depend on any fitted model, so
+the distance result above neither establishes it nor removes it. What the two together rule out is
+the comfortable reading in which regional concept shift is the whole explanation of the transfer
+matrix: most of that matrix is accounted for by separation alone.
+
+None of the similarity diagnostics tested here ordered the transfer matrix: predictor-space distance,
+domain separability, niche overlap and regime structure all failed. On ten effective pairs those null
+results mean not shown to order transfer, rather than shown not to. Label-blind adaptation compresses
+transfer towards chance instead of repairing it, and pooled multi-region training does not escape
+it.
 
 The practical implication is a change in what is checked before a dynamic-state fire model is
 transferred. The question is not whether the target region lies inside the source's environmental

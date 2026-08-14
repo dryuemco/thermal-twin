@@ -124,6 +124,45 @@ Montiferru in turn gives +0.0148, +0.0021, +0.0065, **−0.0081** and +0.0060. *
 reverses the sign of the headline.** None of these four units propagates within-direction sampling
 variability. They resample between directions only.
 
+**The failure is distance, not region.** Two controls settle what the matrix above is measuring.
+
+The first asks whether this evaluation can register transfer at all. Within each region the modelled
+cells were cut in half by a straight line, a model fitted on one half and applied to the other with
+no refit, no recalibration and no threshold selection, which is the protocol the cross-region arms
+use. The relationship is shared by construction: same region, same season, same fire, same units.
+Fitted through the same code path, which reproduces the frozen cross-region AUCs to 0.000000, the
+eighteen usable splits give a mean of **0.574**, ranging from 0.294 to 0.750. The harness is
+therefore not broken, since it returns 0.75 on the easiest split. But skill has already fallen from
+the blocked-CV range of 0.859 to 0.918 to about 0.57 **without leaving the region**, as soon as the
+held-out area is contiguous rather than interleaved.
+
+The second control asks how far the model travels. Because each cut is a straight line, a target
+cell's distance to the nearest training cell is its distance to that line, so one fitted model per
+split yields an AUC at every separation. Over 55 bins in five regions:
+
+| Separation from the training half | Bins | Mean AUC |
+|---|---:|---:|
+| 0 to 5 km | 18 | 0.692 |
+| 5 to 10 km | 16 | 0.519 |
+| 10 to 20 km | 11 | 0.499 |
+| 20 to 40 km | 6 | 0.445 |
+| 40 to 80 km | 3 | 0.541 |
+
+Skill decays with separation and flattens by about 10 to 20 km. The near bins are inflated by
+autocorrelation, which is what blocked validation exists to remove, so 0.692 is an upper bound
+rather than an estimate. Placing the twenty transfer directions at their AOI-centroid separations,
+which run from 306 to 2,802 km, gives a mean of 0.541. **The cross-region points sit on the
+continuation of that curve, not below it.** Crossing a national border and going a hundred times
+further than 20 km does not cost more than the first 20 km already cost.
+
+The transfer failure is therefore a property of moving away from the training cells, not of moving
+between regions, and it saturates at a length scale this design can name. Two limits attach. The
+within-region separations stop at 86 km while the cross-region ones begin at 306, so the comparison
+extrapolates a flattened curve rather than interpolating between measured points; and distance is
+not the only thing that changes with distance, so this separates distance from crossing an AOI
+boundary rather than from everything that covaries with it. Full detail is in
+`paper/positive_control.md` and `paper/distance_curve.md`.
+
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
 spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise z-scoring (λ =
 10⁻⁵).

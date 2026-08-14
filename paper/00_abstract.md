@@ -94,10 +94,14 @@ tested outside the region they were fitted in. Five Mediterranean wildfire regio
 here, on about 500 m cells, with MCD64A1 labels and spatially blocked validation. Six pre-fire
 thermal predictors were added to a terrain, fuel and greenness baseline.
 
-**The local skill does not travel, and neither does the baseline.** Within-region ROC-AUC rose by
-+0.056 to +0.153 in every region. Across twenty ordered transfer directions the same block
-contributed +0.004 [−0.028, +0.036]. That is not distinguishable from zero, and its sign changes
-from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. Two predictors
+**The local skill does not travel, and the reason is distance rather than region.** Within-region
+ROC-AUC rose by +0.056 to +0.153 in every region. Across twenty ordered transfer directions the same
+block contributed +0.004 [−0.028, +0.036]. That is not distinguishable from zero, and its sign
+changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. A
+within-region half-split, applied with no refit through the same code path, returned 0.574, so most
+of the loss occurs before any boundary is crossed. Skill decays with separation from the training
+cells and flattens near 0.50 by 10 to 20 km, and the cross-region directions, at 306 to 2,802 km,
+sit on the continuation of that curve. Two predictors
 reverse their association between regions: elevation and the LST anomaly. Removing them cost −0.081
 of within-region skill, supported in every region and mostly due to elevation. It changed transfer
 by +0.014 [−0.017, +0.045]. Both figures are post-selection estimates. A local cost is measured. No

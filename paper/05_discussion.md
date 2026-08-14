@@ -12,8 +12,10 @@ Three results carry this paper. First, the pre-fire thermal block raises spatial
 within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean regions, with bootstrap
 support at 1 km and 5 km blocking, and contributes +0.004 [−0.028, +0.036] across twenty ordered
 transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
-baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is a property of this
-matrix rather than of the dynamic block specifically. Removing the two reversing predictors,
+baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is not a property of
+the dynamic block specifically. Nor is it a property of region change: a within-region half-split
+returns 0.574 and the decay flattens by 10 to 20 km, so the cross-region directions sit on the
+continuation of a within-region curve. Removing the two reversing predictors,
 elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
 three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
 also spans zero. Second, of twenty candidate transferability diagnostics only two have intervals excluding zero and
@@ -23,6 +25,12 @@ the mechanism is a reversal in the sign of the predictor-burning association, an
 one study area across two fires.
 
 ## 5.2 Why the thermal increment is real but local
+
+A distinction has to be drawn before this section can say anything useful. The within-region
+increment and the transfer failure are measured at different separations, and Section 4.3 shows that
+separation is what drives the difference. What follows therefore reads the increment as local in the
+literal sense: it holds where training and evaluation cells are interleaved, and it is largely gone
+by 10 to 20 km, whether or not a region boundary has been crossed.
 
 The within-region increment is not an artefact to be explained away. It replicates in five
 independent regions, survives coarsening of the spatial blocks to ~5 km with its interval intact,
