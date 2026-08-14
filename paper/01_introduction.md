@@ -149,10 +149,20 @@ sides on the same pairs.
 
 ## 1.4 Contributions
 
-Three findings carry this paper. Each is stated at the strength its interval supports, and the
+Four findings carry this paper. Each is stated at the strength its interval supports, and the
 nearest prior work is named inside the claim.
 
-**Contribution 1. Local skill and portability, measured separately and per direction.** The thermal
+**Contribution 1. A region-wide validation figure is not what the model achieves where the fire is.**
+On one model in one region, moving the evaluation from the whole region to the burn scar and its
+2 km collar costs **0.148 ROC-AUC**, from 0.782 to 0.634. That is the size of the increment this
+literature ordinarily reports, and it is a property of the evaluation geometry rather than of the
+model, the region or the distance to anything. Withholding the scar from training costs a further
++0.082 [−0.011, +0.175], and replacing the same-region model with one fitted 306 to 2,802 km away
+costs −0.003 [−0.075, +0.069]; both span zero, so neither the fire's identity nor the region
+boundary is shown to matter once the evaluation geometry is fixed. The practical consequence is a
+reporting standard, stated in Section 5.8.
+
+**Contribution 2. Local skill and portability, measured separately and per direction.** The thermal
 block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions under blocked
 cross-validation, with every bootstrap
 interval above zero and the result holding in both analysis populations. That increment is
@@ -161,9 +171,9 @@ substantially a property of interleaved holdout: withholding a whole burn scar l
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
 run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
 model's 0.541, so the static predictor class is not the portable one either. Three evaluations scored on **identical cells**
-locate where the skill goes. A model with the held-out burn scar in its training data returns 0.627
+locate where the skill goes. A model with the held-out burn scar in its training data returns 0.634
 on that scar's area; withholding the scar returns 0.552; and a model fitted 306 to 2,802 km away
-returns 0.559. The fire-specific residual is +0.082 [−0.011, +0.175]; the effect of the 2,800 km is
+returns 0.555. The fire-specific residual is +0.082 [−0.011, +0.175]; the effect of the 2,800 km is
 **−0.003 [−0.075, +0.069]**. **The failure is a property of contiguous spatial holdout**, not of
 separation distance and not of crossing a region boundary. It is not shown to be a property of the
 fire event either, because the held-out patch is defined by the labels and its identity cannot be
@@ -183,7 +193,7 @@ et al. [@Dimarco2026] transfer a predominantly stationary predictor set successf
 comparable Mediterranean design, though their response variable is ignition rather than burned area
 (Section 5.7).
 
-**Contribution 2. The loss is invisible to the diagnostics that could be run before deployment, and
+**Contribution 3. The loss is invisible to the diagnostics that could be run before deployment, and
 visible to one that cannot.** Twenty candidate diagnostics from four families are evaluated against
 observed transfer under one bootstrap framework. Area-of-applicability-style predictor-space
 dissimilarity [@Meyer2021; @Meyer2022; @Ludwig2023], climatic and geographic distance, learned domain
@@ -202,7 +212,8 @@ the lowest transfers in both. That contradicts an expectation the fire literatur
 Shift decomposition in applied remote sensing is not itself new [@Huang2026]; the fire application
 and the head-to-head of four diagnostic families on the same pairs are.
 
-**Contribution 3. The mechanism is a reversal of sign, and it survives holding geography fixed.**
+**Contribution 4. The mechanism of the residual is a reversal of sign, and it survives holding
+geography fixed.**
 Predictors do not merely weaken across regions, they reverse the direction of their association with
 burning, which is why a distance in predictor space cannot see the failure. The sharpest reversal is
 elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla, with each

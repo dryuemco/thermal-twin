@@ -148,11 +148,17 @@ the mismatch visible. Means and Student *t* intervals are over the eight held-ou
 All four rows are means over the **same eight scars**, and the intervals are Student *t* over those
 eight, which is the resampling unit for this arm rather than the spatial-block bootstrap used
 elsewhere in the paper. Eight is a small number and the intervals are wide accordingly. Four of the
-eight scars are in Muğla, so they are not fully independent.
+eight scars are in Muğla and two in Montiferru, so they are not independent; row A in particular is
+a region-level quantity repeated across the scars of a region, and its interval is pseudo-replicated
+and should not be read as coverage. The two differences are computed per scar and paired, which is
+what they are reported for.
 
-**Most of the apparent collapse is the evaluation area, not the fire.** A and B use the same model
-and differ only in which cells it is scored on, and that alone accounts for 0.155 of the 0.230 fall
-from A to C, about two thirds. Any comparison of a scar-level result against a region-level
+**The same model, scored two ways on the same region, differs by 0.148 AUC.** Rows A and B are one
+model. The only change is which cells it is scored on: the whole region, or the burn scar and its
+2 km collar. That change alone costs 0.148 of the 0.230 fall from A to C, about two thirds, and it
+is the size of the entire increment this literature usually reports. A region-wide blocked figure is
+therefore an upper bound on what the same model achieves where the fire actually is, and the
+difference is not small enough to ignore. Any comparison of a scar-level result against a region-level
 reference inherits that, and the region-level reference is what a paper of this kind normally
 reports.
 
@@ -165,9 +171,14 @@ fitted in the same region with the scar withheld, and it survives restriction to
 region where holding out one scar still leaves the source model properly trained, at 0.579 against
 0.597.
 
-The first difference should not be over-read. With eight scars this design cannot establish a
-fire-specific residual, only bound it: it is at most about 0.18, against the 0.148 that separates
-row A from row B on the same model.
+The first difference should not be over-read, and one confound has to be stated. Holding out a
+region's only large scar also removes most of its positives: the source model retains 11 positives
+in Evia, 88 in Manavgat and 97 in Montiferru, against about 2,000 in Muğla, which has four separate
+scars. Those four starved arms average 0.525 and the four Muğla arms 0.579, so row C mixes "the fire
+was withheld" with "almost all the positives were withheld". Restricted to Muğla, C is 0.579 and D
+is 0.597, and the C to D comparison still shows nothing. With eight scars, half of them starved, this
+design cannot establish a fire-specific residual, only bound it at about 0.18 against the 0.148 that
+separates row A from row B on the same model.
 
 What this establishes is that the failure is a property of **contiguous spatial holdout**. It is not
 a property of separation distance and not of crossing a region boundary. What it does not establish
@@ -274,8 +285,11 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 
 **Against the right reference, adaptation is not failing** (Fig. 5). The three controls above give an
 achievable reference for a model applied to a fire it has not seen: 0.574 for the half-split, 0.552
-for the leave-one-scar-out. The best label-free adaptation averages **0.556** across the twenty
-directions, against 0.541 raw. It is therefore at that reference, not far below it. What it does is
+for the leave-one-scar-out. CORAL, committed to in advance, averages **0.552** across the twenty
+directions against 0.541 raw, which is exactly that reference. Taking whichever of the two
+adaptations scores higher per direction gives 0.556, but that selection uses the target labels the
+protocol forbids, so it is an oracle upper bound rather than an achievable result and is reported
+as one. What it does is
 regress the matrix towards that value: fourteen of twenty directions move closer to chance, which
 harms the directions that already worked and helps the ones that did not. The verdict that follows
 is narrower than "alignment fails". Alignment cannot exceed what a model can achieve on an unseen

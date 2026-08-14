@@ -44,8 +44,8 @@ at the chance line.
 
 Two controls fix the meaning of all this. The baseline arm transfers at a mean of 0.537 against the
 thermal model's 0.541, so the static predictor class is not portable here either. And three evaluations on identical cells locate
-where it goes: 0.627 with the held-out burn scar in the training data, 0.552 with it withheld, and
-0.559 for a model fitted 306 to 2,802 km away. The honest summary is therefore not that these
+where it goes: 0.634 with the held-out burn scar in the training data, 0.552 with it withheld, and
+0.555 for a model fitted 306 to 2,802 km away. The honest summary is therefore not that these
 predictors fail to cross regions. **The failure is a property of contiguous spatial holdout**: the
 fire-specific residual is +0.082 [−0.011, +0.175] and the 2,800 km costs −0.003 [−0.075, +0.069].
 Two thirds of the apparent collapse from a region-wide 0.782 is the evaluation area itself, which is

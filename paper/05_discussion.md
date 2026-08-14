@@ -147,8 +147,12 @@ travel either.
 
 ## 5.8 Implications
 
-For practice, transfer skill has to be *measured* rather than inferred from similarity, and the
-pre-deployment diagnostics currently used for that inference did not order it here. Where a model
+For practice, this paper supports one concrete change in what is reported. Alongside a spatially
+blocked within-region figure, report skill on a held-out burn scar and its surroundings, or on a
+held-out fire event. On these five regions the two differ by about 0.15 ROC-AUC on the same model,
+which is the size of the effect such papers usually claim, so a blocked figure alone should be read
+as an upper bound. Transfer skill likewise has to be *measured* rather than inferred from similarity,
+and the pre-deployment diagnostics currently used for that inference did not order it here. Where a model
 must be moved, the resource that closes the gap is target labels: thirty-two labelled 5 km blocks
 recover 85 to 89 % of the target's matched ceiling in three of six directions, and 30 to 57 % in the
 rest. That is a real answer and not a cheap one, being 7 to 20 % of the target's natural-vegetation
