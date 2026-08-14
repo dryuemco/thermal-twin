@@ -44,7 +44,7 @@ field's instrument is the area of applicability and related predictor-space diss
 [@Meyer2021; @Meyer2022; @Ludwig2023], which ask whether a target's predictor values fall inside the
 training data's envelope. Species distribution modelling has examined transferability far more
 systematically than fire has [@Yates2018], and two studies there report that geographic and
-environmental similarity do not reliably predict transfer success [@Vesk2021; @Rousseau2022].
+environmental similarity do not reliably predict transfer success [@Vesk2021; @Rousseau2022], and the transferability of satellite-derived empirical models is an active question in fire remote sensing itself [@Marino2024].
 
 ## 2.4 Dataset shift and label-free adaptation
 
@@ -52,7 +52,7 @@ The canonical taxonomy separates covariate shift, where the predictor distributi
 predictor-response relationship holds, from concept shift, where the relationship itself changes
 [@MorenoTorres2012]. Covariate shift is in principle correctable without target labels, by
 per-region standardisation or by covariance alignment such as CORAL [@Sun2016], and domain
-adaptation has an established remote-sensing literature [@Tuia2016]. Concept shift is not: no
+adaptation has an established remote-sensing literature [@Tuia2016; @Persello2012]. Concept shift is not: no
 realignment of input distributions can repair a reversal in the sign of an association, because
 detecting it requires the labels being withheld. Shift decomposition in applied remote sensing is
 not itself new [@Huang2026]. We are not aware of a prior application of covariance alignment to fire

@@ -180,7 +180,7 @@ direction P(y|x).
 The **marginal** family includes area-of-applicability-style dissimilarity in scaled,
 importance-weighted predictor space [@Meyer2021; @Meyer2022; @Ludwig2023], climatic and geographic
 distance, and a learned domain classifier trained to separate source from target cells. The
-**niche-overlap** family includes Schoener's D and Warren's I over the burned cells of each region.
+**niche-overlap** family includes Schoener's D [@Schoener1968] and Warren's I [@Warren2008] over the burned cells of each region.
 The **regime** family includes burned-patch component counts and effective component counts. The
 **conditional** family is the sign-agreement index: the fraction of predictors whose signed
 univariate association points the same way in both regions, computed over all predictors and over

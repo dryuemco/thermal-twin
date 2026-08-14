@@ -138,7 +138,7 @@ that already transferred. Taking the better of the two adaptations per direction
 closer to chance than they began and 6 end further from it; five of those six involve Montiferru,
 the smallest and last-added region, and move upward, while the sixth is Manavgat→Muğla moving
 downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (x) in
-Section 5.11, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
+Section 5.9, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
 
 **Table 5. Transfer-gap decomposition (four-AOI set, 12 directions).** Within = target's
 within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered fraction = (adapted
