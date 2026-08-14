@@ -863,10 +863,21 @@ matching**: it is +0.079 at full size and +0.071 at the median size-matched repe
 larger population inflates its absolute AUC by roughly 0.01 to 0.02 and leaves both the increment
 and the transfer behaviour substantially intact. Two limits belong with this. The repeats vary only
 in which cells fill each stratum, so the range describes within-stratum selection variability and is
-narrower than any sampling distribution; and the positive count is not equalised to Manavgat's, only
-the prevalence, so a residual positive-count difference is not separated here. No bootstrap was run
-and no probability statement is made. Source: `mugla_subsampling` in the frozen diagnostics export,
-recomputed here from its 20 per-repeat records.
+narrower than any sampling distribution; and that diagnostic equalises prevalence rather than the
+positive count, which it states as its own limitation. No bootstrap was run there and no probability
+statement is made. Source: `mugla_subsampling` in the frozen diagnostics export, recomputed here from
+its 20 per-repeat records.
+
+**The positive count was then equalised as well, since the variance of an AUC is dominated by the
+minority class.** Muğla was cut to Manavgat's population on both axes at once, 20,511 cells of which
+784 burned, over ten seeded stratified draws, and the pipeline's own Step 8B and feature lists were
+used. The transfer behaviour again does not move: Muğla→Manavgat sits at 0.401 against a matched
+range of 0.375 to 0.415, and Muğla→Bejís at 0.583 against 0.518 to 0.594, both inside. What does move
+is the within-region increment, which falls from +0.116 to a matched median of +0.098, range +0.088
+to +0.105, so the full-population value lies above the matched range. Part of Muğla's larger
+increment is therefore a positive-count effect, and the part that is not still leaves it among the
+larger increments in the cohort. This arm is our own design rather than the frozen diagnostic's and
+is reported as such. Source: `paper/mugla_positive_matched.md`.
 
 **(k) Sea in the TVDI edges, and a common-edge index.** TVDI is normalised against wet and dry edges
 fitted as the 2nd and 98th LST percentiles inside each NDVI bin, over whatever the scene contains
