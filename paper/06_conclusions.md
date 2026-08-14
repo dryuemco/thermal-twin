@@ -43,16 +43,15 @@ harmed with interval support, with the rest carrying no verdict. The block is al
 at the chance line.
 
 Two controls fix the meaning of all this. The baseline arm transfers at a mean of 0.537 against the
-thermal model's 0.541, so the static predictor class is not portable here either. And a
-within-region half-split, applied with no refit through the same code path, returns 0.574, with
-skill near chance from about 10 km outward. Most of the loss is incurred before any boundary is
-crossed, and no further loss attributable to region crossing is detectable on top of it. The honest
-summary is therefore not that these predictors fail to cross regions, but that a model of this kind
-does not generalise far beyond its training footprint, and that a region boundary adds nothing
-measurable to a loss that has already happened. That is a null about region crossing, not a
-demonstration that distance is the cause, and it leaves the variation between directions unexplained:
-separation does not order the matrix, and six directions are anti-predictive with interval support,
-which extrapolation alone does not produce.
+thermal model's 0.541, so the static predictor class is not portable here either. And three controls locate what fails. A
+within-region half-split returns 0.574 against a blocked reference of 0.797; separation does not
+order the matrix, at ρ = −0.32 with an interval spanning zero; and holding out an entire fire scar
+with a 2 km buffer, fitting on the rest of the same region, returns 0.552, the value the model
+achieves 2,802 km away. The honest summary is therefore not that these predictors fail to cross
+regions, nor that skill decays with distance. **A model of this kind retains the fire it was fitted
+to**, and returns about 0.55 on a fire it has not seen at any separation we can measure. The unit
+that fails to transfer is the fire event. Six directions are nonetheless anti-predictive with
+interval support, which no account of merely lost skill explains.
 
 Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region skill, with interval support in every region and roughly three quarters of it

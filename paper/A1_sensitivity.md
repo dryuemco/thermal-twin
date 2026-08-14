@@ -41,7 +41,7 @@ quality-screened and three are not. The split follows export date rather than de
 an elevation-correlated change at the input, at r = +0.615 in Manavgat. Manavgat's entire downstream
 chain was rebuilt from a quality-screened input. That changes the downscaled surface on 22,304 of
 24,150 cells, by up to 10.9 °C. No signed univariate association moves by more than +0.0003.
-Elevation stays at 0.374 [0.290, 0.472] in both arms, the population is unchanged, and the
+Elevation is identical in both arms, at 0.374, the population is unchanged, and the
 within-region increment moves from [+0.055, +0.079] to [+0.054, +0.077]. The reason is structural.
 Elevation is a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived
 surface across only 2.14 percentage points of coverage. Details are in

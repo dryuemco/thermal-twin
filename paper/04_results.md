@@ -16,7 +16,7 @@ between neighbouring cases. That is consistent with the gate separating burned a
 natural-fuel combustion from post-harvest stubble burning, which MCD64A1 does not distinguish,
 though one negative control cannot establish it.
 
-**Table R1. Region summary (recap of Table 1; final numbering at assembly).** Counts from each
+**Table 2. Region summary: populations and gate outcomes.** Counts from each
 region's Step 8A dataset statistics; gate fractions from each region's burned-landcover gate output.
 TSG = the primary natural-vegetation population. The TSG columns use the canonical modelled
 population, `burnable_tree_shrub_grass` **and** `valid_for_modeling == True`, which is the
@@ -124,64 +124,62 @@ Montiferru in turn gives +0.0148, +0.0021, +0.0065, **−0.0081** and +0.0060. *
 reverses the sign of the headline.** None of these four units propagates within-direction sampling
 variability. They resample between directions only.
 
-**Crossing a region boundary adds nothing detectable to a loss already incurred inside the region.**
-Two controls establish this, and the section is careful about what they do and do not support.
+**What fails to travel is the fire, not the region and not the distance.** Three controls establish
+this, and each was run because the previous one left an alternative open.
 
-The first asks whether this evaluation can register transfer at all. Within each region the modelled
-cells were cut in half by a straight line, a model fitted on one half and applied to the other with
-no refit, no recalibration and no threshold selection, which is the protocol the cross-region arms
-use. The relationship is shared by construction: same region, same season, same fire, same units.
-Fitted through the same code path, which reproduces the frozen cross-region AUCs to 0.000000, the
-eighteen usable splits give a mean of **0.574**, ranging from 0.294 to 0.750. The harness is
-therefore not broken, since it returns 0.750 on the easiest split.
+**A positive control, to show the evaluation can register transfer at all.** Within each region the
+modelled cells were cut in half by a straight line, a model fitted on one half and applied to the
+other with no refit, no recalibration and no threshold selection, which is the protocol the
+cross-region arms use. The relationship is shared by construction. Fitted through the same code
+path, which reproduces the frozen cross-region AUCs to 0.000000, the eighteen usable splits give a
+mean of **0.574**, ranging from 0.294 to 0.750. The harness is not broken: it returns 0.750 on the
+easiest split. But skill has already fallen to about 0.57 without leaving the region, against a
+blocked-CV mean of 0.797 at the same 5 km blocking. Two further splits were unusable because one
+half of Manavgat contains no burned cells, which is itself informative.
 
-**That 0.574 is not a clean measure of separation.** A straight cut does not produce two exchangeable
-halves. Source burned counts across the eighteen splits run from 84 to 2,564, one region contributes
-a split with 700 source positives against another with 84, and two further splits were unusable
-because one half of Manavgat contains no burned cells at all. Blocked cross-validation, by contrast,
-trains on about four fifths of a region with positives drawn from across the whole scar. The drop
-from the blocked-CV range of 0.859 to 0.918 down to 0.574 therefore mixes separation with
-training-set composition and with where a single scar happens to fall, and this design does not
-separate them.
-
-The second control asks how skill varies with separation. Because each cut is a straight line, a
-target cell's distance to the nearest training cell is its distance to that line, so one fitted model
-per split yields an AUC at every separation:
-
-| Separation from the training half | Bins | Burned cells | Mean AUC | Weighted by burned cells |
-|---|---:|---:|---:|---:|
-| 0 to 5 km | 18 | 4,504 | 0.692 | 0.674 |
-| 5 to 10 km | 16 | 3,369 | 0.519 | 0.574 |
-| 10 to 20 km | 11 | 3,740 | 0.499 | 0.494 |
-| 20 to 40 km | 6 | 2,215 | 0.445 | 0.495 |
-| 40 to 80 km | 3 | 1,357 | 0.541 | 0.555 |
-| 80 to 160 km | 1 | 27 | 0.421 | 0.421 |
-
-Skill declines with separation and is near chance from about 10 km outward. Three cautions attach.
-The near bins are inflated by autocorrelation, which is what blocked validation exists to remove, so
-0.692 is an upper bound rather than an estimate. The far bins are thin, one of them resting on 27
-burned cells, and the profile is not monotonic. And the two aggregations disagree by up to 0.05, so
-the level of the plateau is sensitive to a choice the data do not settle.
-
-**What this supports, and what it does not.** Placing the twenty transfer directions at their
-AOI-centroid separations of 306 to 2,802 km gives a mean of 0.541, which is where the within-region
-curve already sits by 10 to 20 km. The defensible statement is therefore a **null**: no additional
-loss attributable to region crossing is detectable on top of a loss already largely incurred inside
-a region. It is not evidence that distance *causes* the cross-region deficit. Once the within-region
-curve is at the chance floor, any cross-region mean near 0.5 lies on its continuation, so this
-comparison could not have come out otherwise, and the two ranges do not overlap: within-region
-separations stop at 86 km and cross-region ones begin at 306.
-
-**Separation also does not order the matrix, and something else must.** Every cross-region direction
-is past the saturation, so separation is effectively constant across the matrix while transfer runs
-from 0.326 to 0.686. Tested directly, geographic distance does not order transfer, at Spearman
+**A distance curve, to ask whether separation explains that fall. It does not.** Binning each split's
+target cells by their distance from the cut gives 0.692, 0.519, 0.499, 0.445, 0.541 and 0.421 across
+bands from 0 to 5 km out to 80 to 160 km, on 4,504, 3,369, 3,740, 2,215, 1,357 and 27 burned cells.
+Weighting by burned cells instead gives 0.674, 0.574, 0.494, 0.495, 0.555 and 0.421, so the profile
+is sensitive to an aggregation the data do not settle. Beyond the first band, which is inflated by
+autocorrelation, there is no ordered decline: the far bands rest on three regions and one of them on
+27 burned cells. Across the matrix, geographic distance does not order transfer either, at Spearman
 ρ = −0.32 with an interval spanning zero, and the two nearest directions, Manavgat and Muğla at
-306 km, are among the worst at 0.470 and 0.401 while directions eight times more distant transfer
-above chance. **Six directions are below chance with interval support**, the sharpest at 0.326
-[0.305, 0.349]. Extrapolating an uninformative model produces about 0.5, not a reliably reversed
-ranking, so those six require a mechanism that acts on the direction of the relationship rather than
-on its strength. That is what Sections 4.4 to 4.8 are about. Full detail on both controls is in
-`paper/positive_control.md` and `paper/distance_curve.md`.
+306 km, are among the worst at 0.470 and 0.401.
+
+**A leave-one-scar-out control, which locates the unit that does not travel.** Every burned connected
+component of at least 50 cells was held out together with all cells within 2 km of it, a model
+fitted on the rest of **the same region**, and applied to the held-out area with no refit. Over eight
+scars the mean is **0.552**, and widening the buffer to 5 and 10 km gives 0.540 and 0.553. In Muğla,
+the only region with four separate scars and therefore the only one where holding one out still
+leaves about 2,000 training positives, the mean is 0.579. These are the same values the model
+achieves 2,802 km away.
+
+The three together give a single reading. A model of this kind retains the fire it was fitted to. Ask
+it about a scar it has not seen and it returns about 0.55, whether that scar is two kilometres from
+its training cells or two thousand. Skill does not decay with distance, because it is already gone at
+the first separation this design can measure; and a region boundary adds nothing, because there is
+nothing left for it to take. **The unit that fails to transfer is the fire event.**
+
+Two limits attach and neither is small. Manavgat, Bejís and Evia each contain a single scar of any
+size, so holding it out leaves 88, no usable arm and 11 training positives respectively, and only
+Muğla supports the control cleanly. And this design cannot separate the fire event from the season
+and the meteorology that produced it, since each region contributes one fire season. What it does
+separate is the fire event from distance and from region identity, which were the two explanations
+previously on offer. Detail is in `paper/positive_control.md`, `paper/distance_curve.md` and
+`paper/scar_control.md`.
+
+**The increment behaves the same way.** Contribution 1 is about the paired thermal-minus-baseline
+difference, not about absolute skill, so the same controls were run on it. At the half-split
+separation the increment is **+0.027** on average, positive in 13 of 18 splits and running from
+−0.255 to +0.164. That sits between the within-region +0.056 to +0.153 and the cross-region +0.004,
+which is what an account based on the fire event predicts: the increment survives in proportion to
+how much of the target fire the model has already seen.
+
+**Six directions are below chance with interval support**, the sharpest at 0.326 [0.305, 0.349].
+Extrapolating an uninformative model gives about 0.5, not a reliably reversed ranking, so those six
+need a mechanism acting on the direction of the relationship rather than on its strength. That is
+the subject of Sections 4.4 to 4.8.
 
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
 spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise z-scoring (λ =
@@ -242,6 +240,15 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 | Evia→Muğla | 0.859 | 0.577 | 0.530 (CORAL) | −0.17 [−0.22, −0.11] | **negative recovery** |
 | Muğla→Evia | 0.912 | 0.653 | 0.563 (CORAL) | −0.35 [−0.43, −0.27] | **negative recovery** |
 | Bejís→Muğla | 0.859 | 0.618 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
+
+**Against the right reference, adaptation is not failing.** The three controls above give an
+achievable reference for a model applied to a fire it has not seen: 0.574 for the half-split, 0.552
+for the leave-one-scar-out. The best label-free adaptation averages **0.556** across the twenty
+directions, against 0.541 raw. It is therefore at that reference, not far below it. What it does is
+regress the matrix towards that value: fourteen of twenty directions move closer to chance, which
+harms the directions that already worked and helps the ones that did not. The verdict that follows
+is narrower than "alignment fails". Alignment cannot exceed what a model can achieve on an unseen
+fire, and it does not.
 
 In the six directions where raw transfer was below chance, the best label-free method recovers at
 most 34 % of the gap to the within-region reference, so the remaining unrecovered fraction is at
@@ -387,9 +394,9 @@ holds place fixed. It does not hold season fixed, because the 2022 fire ignites 
 earlier, and it does not hold the population fixed, because the 2022 arm is defined by removing the
 2021 scar.
 
-**Table R8. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
+**Table 7. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
-replicates, seed 42 (Section 3.14). Analysis population 41,730 rows / 2,911 burned (2021) and
+replicates, seed 42 (Section 3.15). Analysis population 41,730 rows / 2,911 burned (2021) and
 38,790 rows / 331 burned (2022). **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for the
 2022 arm.** Table 3's note sets sixteen as the floor this design supports at that blocking, so the
 2022 intervals here fall below the paper's own standard and are read as indicative, exactly as the

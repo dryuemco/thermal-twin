@@ -94,16 +94,17 @@ tested outside the region they were fitted in. Five Mediterranean wildfire regio
 here, on about 500 m cells, with MCD64A1 labels and spatially blocked validation. Six pre-fire
 thermal predictors were added to a terrain, fuel and greenness baseline.
 
-**The local skill does not travel, and a region boundary is not what stops it.** Within-region
-ROC-AUC rose by +0.056 to +0.153 in every region. Across twenty ordered transfer directions the same
+**What fails to travel is the fire, not the region.** Within-region ROC-AUC rose by +0.056 to
++0.153 in every region. Across twenty ordered transfer directions the same
 block contributed +0.004 [−0.028, +0.036]. That is not distinguishable from zero, and its sign
-changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. A
-within-region half-split, applied with no refit through the same code path, returned 0.574, and
-skill is near chance from about 10 km outward, so most of the loss is incurred before any boundary
-is crossed. No further loss attributable to region crossing is detectable on top of it. Separation
-does not order the matrix, however: geographic distance gives ρ = −0.32 with an interval spanning
-zero, the nearest pair is among the worst, and six directions are below chance with interval
-support, which extrapolation alone does not produce. Two predictors
+changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. Three
+controls locate the unit that fails. A within-region half-split, applied with no refit through the
+same code path, returned 0.574 against a blocked reference of 0.797. Separation does not explain
+that: geographic distance gives ρ = −0.32 with an interval spanning zero, and the nearest pair is
+among the worst. Holding out an entire fire scar with a 2 km buffer and fitting on the rest of the
+same region returned 0.552, the value obtained 2,802 km away. **A model of this kind retains the
+fire it was fitted to**, and returns about 0.55 on a scar it has not seen at any separation this
+design can measure. Two predictors
 reverse their association between regions: elevation and the LST anomaly. Removing them cost −0.081
 of within-region skill, supported in every region and mostly due to elevation. It changed transfer
 by +0.014 [−0.017, +0.045]. Both figures are post-selection estimates. A local cost is measured. No

@@ -152,17 +152,18 @@ block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with e
 interval above zero and the result holding in both analysis populations. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
 run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
-model's 0.541, so the static predictor class is not the portable one either. And a within-region
-half-split, fitted on one contiguous half and applied to the other with no refit through the same
-code path, returns 0.574, with skill near chance from about 10 km outward. Most of the loss is
-therefore incurred **without leaving the region**, and **no additional loss attributable to region
-crossing is detectable on top of it**. That is a null rather than a positive attribution to
-distance: the within-region curve is at the chance floor before the cross-region separations begin,
-so the comparison could not have come out otherwise, and the half-split confounds separation with
-training-set composition. What separation demonstrably does *not* do is order the matrix. Geographic
-distance gives ρ = −0.32 with an interval spanning zero, the nearest pair is among the worst, and
-six directions are below chance with interval support, which extrapolation alone does not produce.
-The variation around the floor is what Contributions 2 and 3 address. Feature removal measures the local cost.
+model's 0.541, so the static predictor class is not the portable one either. Three further controls locate what
+actually fails. A within-region half-split, fitted on one contiguous half and applied to the other
+with no refit, returns 0.574 against a blocked-CV reference of 0.797 at the same 5 km blocking, so
+most of the loss is incurred **without leaving the region**. Separation does not explain it:
+geographic distance gives ρ = −0.32 with an interval spanning zero, and the two nearest directions
+are among the worst. And holding out an entire fire scar together with a 2 km buffer, then fitting
+on the rest of **the same region**, returns 0.552, which is what the model achieves 2,802 km away.
+**A model of this kind retains the fire it was fitted to.** It returns about 0.55 on a scar it has
+not seen, at any separation this design can measure, so the unit that fails to transfer is the fire
+event rather than the region or the distance. Six directions are nonetheless below chance with
+interval support, which no account of lost skill explains, and that residual is what Contributions 2
+and 3 address. Feature removal measures the local cost.
 Dropping the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region AUC, supported in every region. Roughly three quarters of that is elevation, a
 *baseline* terrain variable. Mean transfer changes by +0.014, whose interval also spans zero. Both

@@ -22,11 +22,23 @@ a negative control and is excluded from all modelling by the gate of Section 3.3
 
 Each region has two non-overlapping windows. The **predictor window** closes the day before the
 **label window** opens, so no predictor observation can post-date the first labelled burning. Window
-lengths are matched within a region and vary between them with the event: 56 to 60 days for
-predictors and 35 to 49 days for labels. A four-year baseline of window-symmetric composites
-precedes each predictor window and supplies the climatological reference for the anomaly channels.
-Region identifiers, bounding boxes, window dates and baseline years are registered in
-`core/regions.py` and are reproduced in Table 1.
+lengths vary between regions with the event: 57 to 61 days for predictors and 35 to 59 days for
+labels, counted inclusively. A four-year baseline of window-symmetric composites precedes each
+predictor window and supplies the climatological reference for the anomaly channels. Region
+identifiers, bounding boxes, window dates and baseline years are registered in `core/regions.py` and
+are reproduced here.
+
+**Table 1. Study regions, areas of interest and temporal windows.** Bounding boxes are in EPSG:4326,
+as registered. Window lengths in brackets are inclusive day counts. The baseline years are the four
+window-symmetric years preceding each predictor window.
+
+| Region | Bounding box (lon min, lat min, lon max, lat max) | Predictor window | Label window | Baseline years |
+|---|---|---|---|---|
+| Manavgat 2021 (Türkiye) | 31.05, 36.72, 31.85, 37.35 | 2021-06-01 to 2021-07-27 (56 d) | 2021-07-28 to 2021-08-31 (34 d) | 2017, 2018, 2019, 2020 |
+| Bejís 2022 (Spain) | -1.05, 39.68, -0.35, 40.15 | 2022-06-15 to 2022-08-14 (60 d) | 2022-08-15 to 2022-09-30 (46 d) | 2018, 2019, 2020, 2021 |
+| Muğla 2021 (Türkiye) | 27.1, 36.6, 28.9, 37.45 | 2021-06-01 to 2021-07-28 (57 d) | 2021-07-29 to 2021-09-15 (48 d) | 2017, 2018, 2019, 2020 |
+| North Evia 2021 (Greece) | 23.05, 38.55, 23.85, 39.15 | 2021-06-05 to 2021-08-02 (58 d) | 2021-08-03 to 2021-09-30 (58 d) | 2017, 2018, 2019, 2020 |
+| Montiferru 2021 (Italy) | 8.45, 40.05, 8.75, 40.27 | 2021-05-25 to 2021-07-23 (59 d) | 2021-07-24 to 2021-08-31 (38 d) | 2017, 2018, 2019, 2020 |
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
@@ -79,7 +91,7 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
   wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore
   never replaces or blends a valid observation. The gap-filled share is 0.11 % to 9.70 % by region. The
   downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived
-  surface re-enters a feature set from which Section 3.13 excludes coordinates; the companion paper
+  surface re-enters a feature set from which Section 3.14 excludes coordinates; the companion paper
   measures what the increment is worth without these two channels.
 
 ## 3.5 Cell aggregation, validity and analysis populations
@@ -180,7 +192,35 @@ footing. Note that the two features are selected by the same reversal analysis a
 result is then read, so both quantities are post-selection estimates and no correction for that
 selection is applied.
 
-## 3.13 Leakage control
+## 3.13 Controls on the transfer path
+
+Three controls establish what the transfer arms are measuring. All three use the transfer protocol of
+Section 3.8 unchanged: fit on the source cells, apply to the target cells, no refit, no
+recalibration, no threshold selection. All three were verified to reproduce the frozen cross-region
+AUCs exactly before being used.
+
+**Within-region half-split.** The modelled cells of a region are cut in two at the median of a grid
+axis, a model is fitted on one half and applied to the other. Both axes and both directions are run,
+giving four splits per region. A split is discarded when either half is single-class, which happens
+twice in one region. Per-split source and target positive counts are reported, because they are
+unequal and bear on the interpretation.
+
+**Distance stratification.** Because the cut is a straight line, a target cell's distance to the
+nearest training cell equals its distance to that line, so one fitted model per split yields an AUC
+at every separation. Target cells are binned at 0, 5, 10, 20, 40, 80 and 160 km, a bin is used when
+it holds at least 50 cells of both classes, and results are reported both unweighted over bins and
+weighted by burned cells, because the two disagree.
+
+**Leave-one-scar-out.** Burned connected components are found with 8-connectivity on the analysis
+grid. Every component of at least 50 cells is held out together with all cells within a buffer of it,
+a model is fitted on the remainder of the same region, and applied to the held-out area. Buffers of
+2, 5 and 10 km are run. This is the control that separates the fire event from separation distance,
+since a scar held out at 2 km inside its own region is close to its training data and yet wholly
+unseen.
+
+Appendix A reports all three in full, with per-split and per-scar tables.
+
+## 3.14 Leakage control
 
 An explicit forbidden-column set is enforced at every model fit. Coordinates (`lon`, `lat`, `row`,
 `col` and their normalised forms), every burn-date and label-provenance column, and the agreement
@@ -203,9 +243,9 @@ spatial-block sizes, the CORAL regularisation sweep and both feature sets. Where
 depends on one of those choices, the dependence is reported rather than resolved by choosing the
 favourable setting.
 
-## 3.14 Same-geography event-to-event comparison (Mugla 2021 versus 2022)
+## 3.15 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 
-Mugla admits a comparison in which place is held fixed and the event varies: a second fire burned
+Muğla admits a comparison in which place is held fixed and the event varies: a second fire burned
 inside the identical AOI, on the identical analysis grid, eleven months after the first. Signed
 univariate AUCs are computed for both arms under the same 10-cell spatial-block bootstrap used
 elsewhere. Season, year and population all differ between the arms, since the 2022 arm is defined by
