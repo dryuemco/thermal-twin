@@ -50,3 +50,49 @@ Recomputing every row on the common twelve directions reproduces the published v
 4.8 × 10⁻⁵ and leaves the ordering unchanged — the conditional rows still lead at +0.87 [+0.65, +0.88]
 and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
 `paper/diagnostics_common_subset.md`.
+
+## B2. The signed univariate associations the reversal claim rests on
+
+Section 4.6b drops two predictors because their signed association with burning reverses between
+regions with bootstrap support, and Contribution 3 names the reversal as the mechanism. This is the
+evidence for both. It was computed for the frozen analysis and is reproduced here because the claim
+is otherwise asserted rather than shown.
+
+**Table B2. Signed univariate AUC of each predictor against `burned`, by region.** Primary
+natural-vegetation population; 10-cell (~5 km) spatial-block bootstrap, 1000 replicates, seed 42.
+The AUC is never folded to max(AUC, 1 − AUC), so a value below 0.5 means lower values rank burned
+and is a direction rather than weakness. **Bold** marks a region whose own interval excludes 0.5.
+
+| Feature | Manavgat | Bejís | Muğla | Evia | Montiferru |
+|---|---|---|---|---|---|
+| `elevation_mean` | **0.374** [0.289, 0.471] | **0.643** [0.558, 0.729] | **0.611** [0.532, 0.690] | 0.541 [0.448, 0.626] | 0.584 [0.395, 0.762] |
+| `slope_mean` | 0.531 [0.423, 0.642] | 0.521 [0.439, 0.605] | **0.637** [0.582, 0.686] | 0.487 [0.418, 0.554] | **0.652** [0.506, 0.771] |
+| `ndvi_mean` | **0.636** [0.587, 0.676] | 0.559 [0.497, 0.619] | **0.662** [0.616, 0.704] | **0.639** [0.575, 0.701] | 0.586 [0.450, 0.704] |
+| `lst_anomaly_mean` | 0.482 [0.428, 0.530] | **0.418** [0.364, 0.480] | 0.485 [0.395, 0.566] | **0.640** [0.567, 0.710] | 0.395 [0.285, 0.535] |
+| `current_lst_mean` | 0.538 [0.452, 0.621] | 0.477 [0.401, 0.547] | **0.325** [0.271, 0.382] | **0.377** [0.301, 0.456] | 0.370 [0.248, 0.513] |
+| `current_tvdi_mean` | 0.552 [0.460, 0.641] | 0.517 [0.429, 0.595] | **0.336** [0.275, 0.398] | **0.362** [0.285, 0.442] | **0.356** [0.233, 0.499] |
+| `tvdi_difference_mean` | 0.449 [0.391, 0.505] | 0.512 [0.443, 0.583] | 0.490 [0.396, 0.575] | 0.519 [0.444, 0.589] | **0.378** [0.282, 0.497] |
+| `downscaled_lst_mean` | 0.552 [0.466, 0.637] | 0.484 [0.400, 0.560] | **0.307** [0.253, 0.366] | **0.377** [0.297, 0.459] | 0.365 [0.240, 0.511] |
+| `fused_lst_mean` | 0.540 [0.454, 0.622] | 0.481 [0.404, 0.551] | **0.325** [0.272, 0.383] | **0.376** [0.300, 0.456] | 0.370 [0.248, 0.513] |
+
+**What counts as a reversal.** A pair of regions is called a reversal only when their signed
+associations point to opposite sides of 0.5 **and each region's own interval excludes 0.5**. That is
+stricter than requiring the two regions' intervals to be disjoint, and the difference matters: for
+`current_lst_mean` between Manavgat and Muğla the two intervals are disjoint, but Manavgat's own
+interval, [0.452, 0.621], includes 0.5, so Manavgat has no established direction to reverse from.
+That pair is a point reversal, not a supported one.
+
+**Table B3. The cross-region reversals that meet the stricter criterion.** Difference intervals are
+from the same paired bootstrap.
+
+| Feature | Region A | AUC | Region B | AUC | Difference [95 % CI] |
+|---|---|---:|---|---:|---|
+| `elevation_mean` | Manavgat | 0.374 | Bejís | 0.643 | +0.269 [+0.138, +0.397] |
+| `elevation_mean` | Manavgat | 0.374 | Muğla | 0.611 | +0.235 [+0.102, +0.360] |
+| `lst_anomaly_mean` | Bejís | 0.418 | Evia | 0.640 | +0.221 [+0.123, +0.313] |
+
+Three pair-level reversals across **two** features, which is why Section 3.12 removes exactly those
+two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine
+features, and they are not counted. The conservative criterion costs the paper findings rather than
+manufacturing them: a difference interval on the pair, which is the instrument Section 4.8 uses,
+would support more reversals than the three listed here.
