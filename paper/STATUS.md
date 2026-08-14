@@ -79,7 +79,7 @@ introduced new defects. See `paper/REFEREE_ROUND_3.md`, "The round-2 regression 
   "checked rather than taken on trust" claim has been narrowed to match.
 - `build_tex.mjs` now strips horizontal rules (they were becoming em dashes, against the house
   style); `verify_tex.mjs` no longer counts whole-line LaTeX comments as unescaped percent signs.
-  12/12 source checks pass. **Still never compiled.**
+  12/12 source checks pass. Compiled clean 2026-08-14 (see the compile entry below).
 - `emrehan_mail_5.md` gained items 5 to 9 (Manavgat Step 7 MODIS contract, Bejís compositing A/B,
   per-region acquisition inventory, calendar-matched Muğla 2022, two QA one-liners).
 
@@ -201,10 +201,36 @@ Muğla** and **none in Bejís** against Manavgat's 8.11 %, and tracks each AOI's
 sea rather than missing observation; and the §5.11(xv) "cheap query" is unanswerable, because both
 MCD64A1 rasters are clipped to the label window.
 
+**Updated 2026-08-14 (first LaTeX compile).** MiKTeX installed; **both documents now compile clean**,
+with no errors, no undefined references and no undefined citations. `manuscript.pdf` is 193 pages,
+`supplementary.pdf` is 5. The compile was treated as a debugging pass and found four defects no
+source check could see, all fixed in `build_tex.mjs`:
+- the Unicode table was applied to prose but not to code spans, so a true minus inside
+  `(current_median − baseline_mean)` stopped the run;
+- a verbatim block carried λ, a true minus and a middle dot, none of which can be escaped inside
+  verbatim, so that block is now ASCII in the Markdown and the builder folds and warns;
+- figure paths resolved from `paper/` while the compile runs in `paper/tex/`, so all eight figures
+  were missing;
+- `l` columns cannot wrap, so the widest table ran 763 pt past a 390 pt text width. Tables now pick
+  a font step from their estimated width and wrap prose columns through `tabularx`. The worst
+  overfull is down to 178 pt and the count above 50 pt from 78 to 19.
+
+Also fixed: `REFERENCES.bib` had three entries with `%` comments **inside** the braces, which BibTeX
+reads as field names, so it skipped those entries; the comments were moved above their entries.
+`lmodern` was added so the PDF carries scalable Type 1 fonts rather than the bitmap `ec` fonts
+METAFONT was generating. Identifiers may now break after underscores and slashes but never at a
+decimal point, which the number check caught when `500.0` came out as `500.` and `0`.
+
+**Two analyses remain genuinely blocked, both on Earth Engine**, which needs an interactive
+`earthengine authenticate` against project `b7-thermal-digital-twin`: the calendar-matched Muğla 2022
+arm (its registry record exists but no data was ever exported) and the compositing A/B extended to a
+second region (the counterfactual reads 140 Landsat scenes from `LANDSAT/LC08/C02/T1_L2`; only the
+composited raster is in the export, not the per-scene inputs).
+
 **One-line state:** round 3 is fully discharged and the submission package is assembled
 (`COVER_LETTER.md` drafted, highlights re-checked at ≤85 characters, abstract 329 words). What
 remains is outside this round: round 2's deferred length reduction (~31k words, 19 main-text tables),
-the **first LaTeX compile**, which no machine here can do, the optional front-matter facts
+the optional front-matter facts
 (department, ORCIDs, funding project title), and the two reproducibility blockers that sit with the
 pipeline author (`emrehan_mail_5.md`, still unsent).
 
@@ -370,8 +396,8 @@ Mechanical only — no analysis, no new numbers, no open judgement calls.
 1. **Assembly round.** *(2026-08-13: the mechanical half is done — `paper/tex/` now holds a
    generated `manuscript.tex` + `supplementary.tex` in Elsevier `elsarticle` format, built from
    the Markdown by `build_tex.mjs` and checked by `verify_tex.mjs`, 12/12 source checks passing.
-   **Never compiled — no TeX on this machine.** Remaining: affiliation, keyword confirmation,
-   Table 2, and a first compile.)* Merge the section files into one document; renumber the lettered
+   **Compiled clean 2026-08-14 with MiKTeX.** Remaining: affiliation, keyword confirmation,
+   and Table 2.)* Merge the section files into one document; renumber the lettered
    R-tables (R1–R10) into the final sequence alongside Tables 3–6; drop the DRAFT-NOTES comment
    blocks; apply the journal template. Main-text figure numbering is already final and consistent
    across `figure_captions.tex`, §4 and §5. **Added 2026-08-13:** `S1_few_shot_recovery.md` must
