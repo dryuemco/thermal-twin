@@ -26,7 +26,7 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in 04_results near md line 119
 - TABLE WITHOUT CAPTION in 04_results near md line 361
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 74
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 77
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 76
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 92

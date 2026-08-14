@@ -184,8 +184,8 @@
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=190mm]{figures/fig7_feature_drop.pdf}
-  \caption{\textbf{Removing the direction-reversing features is a zero-sum
-  trade-off.} Mean within-region ROC-AUC across the five regions (horizontal)
+  \caption{\textbf{Removing the direction-reversing features costs locally and
+  returns nothing measurable on transfer.} Mean within-region ROC-AUC across the five regions (horizontal)
   against mean transfer ROC-AUC across the 20 ordered directions (vertical),
   for four feature configurations: the full thermal set, the set without the
   LST anomaly, without elevation, and without both. Each configuration has its
@@ -194,10 +194,10 @@
   (0.541 $\rightarrow$ 0.556) while within-region skill falls monotonically
   (0.888 $\rightarrow$ 0.807). Both monotonicities are verified when the
   figure is built, so the figure cannot silently contradict the claim. The
-  transfer gain is 0.014 AUC and the within-region cost 0.081 AUC, about six
-  times larger: what is removed is locally informative and non-portable, and
-  removing it buys portability by giving up skill rather than by finding
-  transferable signal.}
+  within-region cost is 0.081 AUC and is supported in every region. The change
+  in transfer is $+$0.014 AUC on an interval that spans zero, so no exchange
+  between the two is demonstrated: a local cost is measured and no compensating
+  transfer gain is.}
   \label{fig:feature-drop}
 \end{figure}
 
