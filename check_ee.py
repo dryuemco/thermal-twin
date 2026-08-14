@@ -1,16 +1,20 @@
-"""
+r"""
 Earth Engine readiness check.
 
 Run after `earthengine authenticate`. Reports, in order, exactly which step is
 missing, so there is no guessing about what to fix next.
 
-    .\.venv-step10\Scripts\python.exe check_ee.py
+    .venv-step10\Scripts\python.exe check_ee.py
+    .venv-step10\Scripts\python.exe check_ee.py my-project-id
+
+With no argument it tests the project id hardcoded in core/config.py, which is
+the pipeline author's. Pass your own id to test that instead.
 """
 import sys
 from pathlib import Path
 
 CRED = Path.home() / ".config" / "earthengine" / "credentials"
-PROJECT = "b7-thermal-digital-twin"   # core/config.py:7, hardcoded there
+PROJECT = sys.argv[1] if len(sys.argv) > 1 else "b7-thermal-digital-twin"
 
 print("=" * 68)
 print("Earth Engine readiness")
