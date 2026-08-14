@@ -180,3 +180,23 @@ targets. A held-out scar with its 2 km collar runs at 34 to 87 % burned prevalen
 region runs at 3.8 to 28.7 %. The scar arm therefore asks for discrimination against the nearest and
 most similar negatives only, while a transfer arm includes the whole easy far field. Section 4.3
 states the consequence: the last three rows of the ladder are not distinguishable by this design.
+
+**Table A3. The foreign-region arm, decomposed by source.** Each held-out scar area is scored with a
+model fitted on each of the other four regions. Row D of Table 5 is the mean of these.
+
+| Target region | Scar | Mean over sources | Min | Max | Spread |
+|---|---:|---:|---:|---:|---:|
+| Bejís 2022 | 1 | 0.589 | 0.521 | 0.631 | 0.110 |
+| North Evia 2021 | 1 | 0.590 | 0.374 | 0.704 | 0.329 |
+| Manavgat 2021 | 1 | 0.468 | 0.407 | 0.563 | 0.156 |
+| Montiferru 2021 | 1 | 0.504 | 0.457 | 0.546 | 0.089 |
+| Montiferru 2021 | 5 | 0.490 | 0.399 | 0.656 | 0.257 |
+| Muğla 2021 | 1 | 0.518 | 0.425 | 0.608 | 0.183 |
+| Muğla 2021 | 6 | 0.568 | 0.533 | 0.597 | 0.064 |
+| Muğla 2021 | 8 | 0.632 | 0.570 | 0.724 | 0.155 |
+| Muğla 2021 | 10 | 0.671 | 0.579 | 0.716 | 0.137 |
+
+Over all 36 combinations the mean is 0.559, the range 0.374 to 0.724, and ten fall below chance. The
+mean spread across the four sources for a single scar is 0.164. Averaging over sources is what makes
+row D comparable with row C, which is fitted on one region; it is not a claim that the choice of
+foreign source is immaterial, and Section 4.3 states the distinction.
