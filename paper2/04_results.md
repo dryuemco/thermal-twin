@@ -16,7 +16,12 @@ reference pixel is a step in degrees, 30 / 111,319.49 = 0.00026949°, so the cel
 cell's 0.250 km², so the analysis cell is 17 to 20 % smaller than the cell it approximates.
 
 The derivation is checkable rather than nominal: dividing each AOI's span by 0.0045814° and rounding
-outward reproduces every frozen cell count in the cohort exactly.
+outward reproduces every frozen cell count in the cohort exactly (Table 1).
+
+**Table 1. The analysis cell's true ground dimensions, per region.** Columns and rows are derived by
+dividing each AOI's span by the cell step of 0.0045814° and rounding outward; the frozen cell count
+is the one recorded in the pipeline's own outputs, and the two agree exactly in every region. The
+north-south edge is about 510 m everywhere; only the east-west edge varies, with latitude.
 
 | Region | Derived columns × rows | Frozen cell count | East-west edge |
 |---|---|---:|---:|
@@ -42,7 +47,13 @@ the export script on 2026-07-23, after three regions had already been exported. 
 outputs marks the difference; it is visible only by comparing metadata across regions.
 
 The size and shape of what that costs were measured by recomputing each unscreened region's
-predictor-window mean with and without the rule.
+predictor-window mean with and without the rule (Table 2).
+
+**Table 2. Cost of the quality-screening rule in the three regions that were exported without it.**
+Each region's predictor-window mean was recomputed with the `QC_Day` bit rule and the
+three-observation minimum applied, and differenced against the frozen unscreened mean. The final
+column is what matters: a shift correlated with elevation is not an offset a downscaling model
+would absorb.
 
 | Region | Mean shift | SD of shift | Pixels below the 3-observation minimum | Correlation of the shift with elevation |
 |---|---:|---:|---:|---:|
@@ -71,7 +82,13 @@ median counts every calendar date once. The pipeline offers both, and an audit c
 support boundaries, where a positive value means the date-balanced chain lowers the discontinuity.
 
 For Manavgat the intervention helps at every boundary type, which is what motivated it. Extending
-the audit to three more regions turns that into a rule.
+the audit to three more regions turns that into a rule (Table 3).
+
+**Table 3. Whether the compositing choice can act, read from the scene inventory alone.** Scenes per
+distinct acquisition date is counted before anything is fitted. Where it is 1.0 the two compositing
+chains produce identical rasters and there are no same-day boundaries to compare, so the verdict is
+not "no evidence" but "no effect is possible". The verdict column reports the boundary-discontinuity
+audit only for the two regions where the intervention can act.
 
 | Region | WRS tiles in the window | Scenes | Distinct dates | Scenes per date | Same-day boundaries | Verdict |
 |---|---|---:|---:|---:|---:|---|

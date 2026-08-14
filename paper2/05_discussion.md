@@ -3,7 +3,14 @@
 ## 5.1 The budget assembled
 
 Eight axes, measured on one cohort with everything else fixed, do not carry equal weight. Ordering
-them by how much they move a reported association gives a shape worth having in front of a reader.
+them by how much they move a reported association gives a shape worth having in front of a reader
+(Table 4).
+
+**Table 4. The budget assembled: eight axes ordered by how much they move a reported association.**
+Every effect is measured on the same cohort with everything else held fixed, so the rows are
+comparable with each other and with the within-region effect these models report (+0.056 to +0.153
+ROC-AUC, interval about ±0.010 wide at 1 km blocking). The final column marks the axes whose
+relevance a reader can settle from their own inputs before fitting anything.
 
 | Axis | Effect on the reported association | Predictable in advance? |
 |---|---|---|

@@ -16,7 +16,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOT = path.resolve('paper');
+// PAPER_ROOT lets the companion manuscript reuse this converter unchanged. When
+// it is absent the root is 'paper', so Paper 1's output is byte-identical to
+// what it was before this was parameterised, which was verified by diff.
+const ROOT = path.resolve(process.env.PAPER_ROOT || 'paper');
 const OUT = path.join(ROOT, 'tex');
 const report = [];
 const note = (cat, msg) => report.push({ cat, msg });
@@ -118,8 +121,12 @@ function applyUnicode(s) {
 // Figure labels, in figure-number order, read from figure_captions.tex so the
 // two files cannot drift apart. "Fig. 3" in the prose resolves to the third
 // \label in that file.
-const FIGLABELS = [...fs.readFileSync(path.join(ROOT, 'figure_captions.tex'), 'utf8')
-  .matchAll(/\\label\{(fig:[^}]+)\}/g)].map(m => m[1]);
+// A manuscript with no figures yet simply has no captions file; that is not an
+// error, it just means no "Fig. N" reference can resolve.
+const CAPTIONS = path.join(ROOT, 'figure_captions.tex');
+const FIGLABELS = !fs.existsSync(CAPTIONS) ? []
+  : [...fs.readFileSync(CAPTIONS, 'utf8')
+      .matchAll(/\\label\{(fig:[^}]+)\}/g)].map(m => m[1]);
 
 let FOOTNOTES = new Map();
 const FOOTNOTE_REF_RE = /\[\^([^\]]+)\]/g;
@@ -299,7 +306,10 @@ function convertTable(lines, vault, caption, label) {
   // 20 rather than 28: a ten-column table whose widest header is 27 characters
   // still ran 318pt past the margin at \scriptsize, because an l column cannot
   // wrap a header no matter how small the type gets.
-  const WRAP_AT = 20;
+  // Overridable per manuscript: the companion paper has a seven-column table
+  // whose 19-character verdict column falls just under this and then ran 27pt
+  // past the margin, an l column being unable to wrap however small the type.
+  const WRAP_AT = FM.wrapAt || 20;
   const rawWidth = widest.reduce((a, b) => a + b, 0) + 2.5 * ncol;
   const wrapping = widest.map(w => w > WRAP_AT);
   const useTabularx = wrapping.some(Boolean);
@@ -528,22 +538,55 @@ function convertBody(md, opts = {}) {
 // ---------------------------------------------------------------- assembly --
 
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
+// Optional parts. Paper 1 has all of them; the companion manuscript has no
+// figures, highlights or supplement yet, and their absence is not an error.
+const has = f => fs.existsSync(path.join(ROOT, f));
+const readOpt = (f, fallback = '') => (has(f) ? read(f) : fallback);
+
+// Per-manuscript front matter. Absent, the values below are Paper 1's, so its
+// output does not change.
+const FM = has('frontmatter.json') ? JSON.parse(read('frontmatter.json')) : {};
+const TITLE = FM.title || `Local skill, unstable portability: sign reversal in pre-fire thermal
+predictors across Mediterranean wildfire regions, and the diagnostics that do
+not order it`;
+const JOURNAL = FM.journal || 'Ecological Informatics';
+
+// The three blocks below differ between the two manuscripts and would be a
+// false statement if one paper's version were emitted under the other's title.
+// The defaults are Paper 1's exact wording, so its output is unchanged; the
+// companion supplies its own in frontmatter.json.
+const KEYWORDS = FM.keywords
+  ? FM.keywords.join(' \\sep ')
+  : `wildfire \\sep model transferability \\sep area of applicability \\sep
+land surface temperature \\sep domain adaptation \\sep concept shift`;
+const CREDIT = FM.credit ||
+`\\textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis,
+Investigation, Writing -- original draft, Writing -- review and editing,
+Supervision. \\textbf{Emrehan Metin:} Software, Data curation, Investigation,
+Validation, Writing -- review and editing.`;
+const DATAAVAIL = FM.dataAvailability ||
+`All satellite inputs are public and are obtained through Google Earth Engine.
+The processing pipeline, its configuration and the frozen numeric outputs are
+publicly available; the repository, the commit of record and the licence are
+given in the data and code availability statement of the Methods, together with
+the three components that fall outside that release. No digital object
+identifier is minted and no archival deposit exists.`;
 
 const abstractMd = read('00_abstract.md');
 const sections = ['01_introduction', '02_related_work', '03_methods',
                   '04_results', '05_discussion', '06_conclusions'];
 
-collectTableLabels([...sections, 'S1_few_shot_recovery']);
+collectTableLabels([...sections, ...(has('S1_few_shot_recovery.md') ? ['S1_few_shot_recovery'] : [])]);
 
 const abstractTex = convertBody(abstractMd, { abstract: true }).trim();
 const bodyTex = sections.map(f => convertBody(read(f + '.md'), { src: f })).join('\n\n');
 
 // Highlights (Elsevier wants them as a separate item, but keep them in the file).
-const highlights = read('highlights.md').split(/\r?\n/)
+const highlights = readOpt('highlights.md', '').split(/\r?\n/)
   .filter(l => /^\s*[-*]\s+/.test(l))
   .map(l => '  \\item ' + l.replace(/^\s*[-*]\s+/, '').trim());
 
-const figureCaptions = read('figure_captions.tex');
+const figureCaptions = readOpt('figure_captions.tex', '');
 
 const preamble = `% =============================================================================
 % manuscript.tex — Ecological Informatics (Elsevier), elsarticle class
@@ -580,7 +623,7 @@ const preamble = `% ============================================================
 \\usepackage{lineno}
 \\modulolinenumbers[5]
 
-\\journal{Ecological Informatics}
+\\journal{${JOURNAL}}
 
 \\begin{document}
 
@@ -601,9 +644,7 @@ const preamble = `% ============================================================
 %% "do not order" is kept verbatim because it is the only claim Section 5.4
 %% defends, the diagnostics having been shown not to order transfer here rather
 %% than shown incapable of ordering it anywhere.
-\\title{Local skill, unstable portability: sign reversal in pre-fire thermal
-predictors across Mediterranean wildfire regions, and the diagnostics that do
-not order it}
+\\title{${TITLE}}
 
 %% Author block. Affiliation and corresponding address supplied by the authors
 %% 2026-08-14. Still optional and not supplied: department or faculty within the
@@ -620,13 +661,12 @@ not order it}
 ${abstractTex}
 \\end{abstract}
 
-\\begin{highlights}
+${highlights.length ? `\\begin{highlights}
 ${highlights.join('\n')}
-\\end{highlights}
+\\end{highlights}` : '%% No highlights file yet.'}
 
 \\begin{keyword}
-wildfire \\sep model transferability \\sep area of applicability \\sep
-land surface temperature \\sep domain adaptation \\sep concept shift
+${KEYWORDS}
 \\end{keyword}
 
 \\end{frontmatter}
@@ -643,10 +683,7 @@ const postamble = `
 
 \\section*{CRediT authorship contribution statement}
 
-\\textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis,
-Investigation, Writing -- original draft, Writing -- review and editing,
-Supervision. \\textbf{Emrehan Metin:} Software, Data curation, Investigation,
-Validation, Writing -- review and editing.
+${CREDIT}
 % NEEDS AUTHOR INPUT: confirm this split with the co-author before submission.
 
 \\section*{Declaration of competing interest}
@@ -665,12 +702,7 @@ Projects (BAP) unit of \\c{C}ukurova University.
 
 \\section*{Data availability}
 
-All satellite inputs are public and are obtained through Google Earth Engine.
-The processing pipeline, its configuration and the frozen numeric outputs are
-publicly available; the repository, the commit of record and the licence are
-given in the data and code availability statement of the Methods, together with
-the three components that fall outside that release. No digital object
-identifier is minted and no archival deposit exists.
+${DATAAVAIL}
 
 % ---------------------------------------------------------------- figures --
 % Captions are maintained in ../figure_captions.tex and included verbatim.
@@ -684,7 +716,10 @@ ${figureCaptions}
 
 fs.writeFileSync(path.join(OUT, 'manuscript.tex'), preamble + bodyTex + postamble, 'utf8');
 
-// Supplementary.
+// Supplementary. Only Paper 1 has one; the companion manuscript has no S-file,
+// and a missing supplement is not an error.
+const HAS_SUP = has('S1_few_shot_recovery.md');
+if (HAS_SUP) {
 const supTex = convertBody(read('S1_few_shot_recovery.md'), { src: 'S1_few_shot_recovery' });
 fs.writeFileSync(path.join(OUT, 'supplementary.tex'), `% GENERATED by paper/tex/build_tex.mjs — do not edit by hand.
 \\documentclass[preprint,12pt]{elsarticle}
@@ -704,6 +739,7 @@ ${supTex}
 \\bibliography{../REFERENCES}
 \\end{document}
 `, 'utf8');
+}
 
 // Report.
 const byCat = {};
@@ -718,5 +754,6 @@ for (const cat of Object.keys(byCat).sort()) {
 }
 fs.writeFileSync(path.join(OUT, 'build_report.md'), rep, 'utf8');
 
-console.log('wrote manuscript.tex, supplementary.tex, build_report.md');
+console.log('wrote manuscript.tex, '
+  + (HAS_SUP ? 'supplementary.tex, ' : '') + 'build_report.md');
 console.log('report categories:', Object.entries(byCat).map(([k, v]) => `${k}=${v.length}`).join(' '));

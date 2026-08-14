@@ -1,0 +1,32 @@
+{
+  "_comment": [
+    "Front matter for the companion manuscript. Read by paper/tex/build_tex.mjs",
+    "when it is invoked with PAPER_ROOT=paper2. Every field here overrides a",
+    "Paper 1 default that would be a false statement under this paper's title:",
+    "the keywords, the CRediT split and the data-availability sentence all",
+    "describe different work. Fields NOT listed here fall back to Paper 1's",
+    "wording, which is correct for the author block, the competing-interest",
+    "declaration and the funding statement, since both papers come out of the",
+    "same two authors and the same BAP project 17506."
+  ],
+
+  "title": "Decided before the model: a preprocessing uncertainty budget for satellite fire-susceptibility modelling across five Mediterranean regions",
+
+  "journal": "Environmental Modelling and Software",
+
+  "_wrapAt": "Table 3's verdict column is 19 characters wide, one under the default threshold of 20, so it stayed an unwrappable l column and ran 27pt past the margin. 18 lets it wrap. Paper 1 keeps the default.",
+  "wrapAt": 18,
+
+  "keywords": [
+    "preprocessing uncertainty",
+    "reproducibility",
+    "sensitivity analysis",
+    "remote sensing pipelines",
+    "wildfire susceptibility",
+    "data provenance"
+  ],
+
+  "credit": "\\textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis, Investigation, Writing -- original draft, Writing -- review and editing, Supervision. \\textbf{Emrehan Metin:} Software, Data curation, Investigation, Validation, Writing -- review and editing.",
+
+  "dataAvailability": "All satellite inputs are public and are obtained through Google Earth Engine. The pipeline whose decisions are audited here, its configuration, the export metadata from which the provenance splits in Section 4.2 were read, and the frozen numeric outputs of every axis in Section 4 are publicly available; the repository, the commit of record and the licence are given in the data and code availability statement of the Methods. The scene inventories behind Section 4.3 and the pooled land-pixel edge fit behind Section 4.4 are reproducible from the released export scripts. No digital object identifier is minted and no archival deposit exists."
+}
