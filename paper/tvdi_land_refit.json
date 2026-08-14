@@ -1,0 +1,271 @@
+{
+  "validation": {
+    "bejis_2022": {
+      "max_abs_wet": 7.105427357601002e-15,
+      "max_abs_dry": 7.105427357601002e-15,
+      "max_abs_pixel_count": 0,
+      "cell_aggregate_max_abs_diff": 1.5592080082615922e-07
+    },
+    "montiferru_2021": {
+      "max_abs_wet": 3.552713678800501e-15,
+      "max_abs_dry": 7.105427357601002e-15,
+      "max_abs_pixel_count": 0,
+      "cell_aggregate_max_abs_diff": 1.3954499189505754e-07
+    },
+    "manavgat_2021": {
+      "max_abs_wet": 3.552713678800501e-15,
+      "max_abs_dry": 7.105427357601002e-15,
+      "max_abs_pixel_count": 0,
+      "cell_aggregate_max_abs_diff": 1.7592651213593768e-07
+    },
+    "mugla_2021": {
+      "max_abs_wet": 3.552713678800501e-15,
+      "max_abs_dry": 7.105427357601002e-15,
+      "max_abs_pixel_count": 0,
+      "cell_aggregate_max_abs_diff": 1.6250108414439524e-07
+    },
+    "evia_2021_extended": {
+      "max_abs_wet": 3.552713678800501e-15,
+      "max_abs_dry": 7.105427357601002e-15,
+      "max_abs_pixel_count": 0,
+      "cell_aggregate_max_abs_diff": 1.4086495647713804e-07
+    }
+  },
+  "pooled_edges": {
+    "wet": [
+      30.494281768798828,
+      30.76218605041504,
+      29.438112258911133,
+      27.791242599487305,
+      28.280019760131836,
+      28.898681640625,
+      29.79249382019043,
+      30.25221824645996,
+      30.129169464111328,
+      29.879961013793945,
+      29.633556365966797,
+      29.3190975189209,
+      28.878173828125,
+      28.191150665283203,
+      27.319557189941406,
+      26.430871963500977,
+      25.37470245361328,
+      25.34735870361328,
+      26.33482551574707,
+      NaN
+    ],
+    "dry": [
+      49.45670700073242,
+      49.36578369140625,
+      49.8446159362793,
+      50.712486267089844,
+      50.09040451049805,
+      49.451236724853516,
+      48.75566864013672,
+      47.817420959472656,
+      46.800559997558594,
+      45.75977325439453,
+      44.69847869873047,
+      43.650856018066406,
+      42.565635681152344,
+      41.56586456298828,
+      40.759212493896484,
+      40.03459167480469,
+      39.29288101196289,
+      38.33285903930664,
+      40.69084930419922,
+      NaN
+    ],
+    "pixel_count": [
+      10017,
+      56641,
+      107592,
+      338508,
+      889638,
+      1453004,
+      1900628,
+      2221580,
+      2470421,
+      2652810,
+      2810237,
+      2969886,
+      3011457,
+      2591287,
+      1650117,
+      761613,
+      286230,
+      55388,
+      146,
+      0
+    ],
+    "status": [
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "ok",
+      "insufficient_pixels"
+    ]
+  },
+  "signed_auc": {
+    "manavgat_2021": {
+      "scene_frozen": {
+        "point": 0.5520208992479892,
+        "ci_low": 0.4602480293883392,
+        "ci_high": 0.6410618349429631,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 237,
+        "verdict": "interval_includes_chance"
+      },
+      "scene_land": {
+        "point": 0.5581760936947108,
+        "ci_low": 0.4654955143327096,
+        "ci_high": 0.645823688276775,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 237,
+        "verdict": "interval_includes_chance"
+      },
+      "pooled_land": {
+        "point": 0.5654540964196733,
+        "ci_low": 0.4692252469042254,
+        "ci_high": 0.6561266111037949,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 237,
+        "verdict": "interval_includes_chance"
+      }
+    },
+    "bejis_2022": {
+      "scene_frozen": {
+        "point": 0.5172782323463782,
+        "ci_low": 0.4290091381060554,
+        "ci_high": 0.595208856020078,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 176,
+        "verdict": "interval_includes_chance"
+      },
+      "scene_land": {
+        "point": 0.5190435656673982,
+        "ci_low": 0.4310479223810326,
+        "ci_high": 0.5970672551120779,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 176,
+        "verdict": "interval_includes_chance"
+      },
+      "pooled_land": {
+        "point": 0.502883493195516,
+        "ci_low": 0.41573417561663284,
+        "ci_high": 0.5784982883983618,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 176,
+        "verdict": "interval_includes_chance"
+      }
+    },
+    "mugla_2021": {
+      "scene_frozen": {
+        "point": 0.3357699119089857,
+        "ci_low": 0.2756393419131363,
+        "ci_high": 0.4011244696897628,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 576,
+        "verdict": "bootstrap_supported_lower_values_rank_burned"
+      },
+      "scene_land": {
+        "point": 0.35130194063050385,
+        "ci_low": 0.2882555264656832,
+        "ci_high": 0.4240070374677661,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 576,
+        "verdict": "bootstrap_supported_lower_values_rank_burned"
+      },
+      "pooled_land": {
+        "point": 0.3411162779154683,
+        "ci_low": 0.27994160759378844,
+        "ci_high": 0.40809044398282135,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 576,
+        "verdict": "bootstrap_supported_lower_values_rank_burned"
+      }
+    },
+    "evia_2021_extended": {
+      "scene_frozen": {
+        "point": 0.3618882658736982,
+        "ci_low": 0.2798981011067888,
+        "ci_high": 0.43957510869092786,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 155,
+        "verdict": "bootstrap_supported_lower_values_rank_burned"
+      },
+      "scene_land": {
+        "point": 0.37899345691618075,
+        "ci_low": 0.29849570103514844,
+        "ci_high": 0.4579184996894163,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 155,
+        "verdict": "bootstrap_supported_lower_values_rank_burned"
+      },
+      "pooled_land": {
+        "point": 0.37819948571905837,
+        "ci_low": 0.2969326566995886,
+        "ci_high": 0.4553949280617078,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 155,
+        "verdict": "bootstrap_supported_lower_values_rank_burned"
+      }
+    },
+    "montiferru_2021": {
+      "scene_frozen": {
+        "point": 0.3555286181577596,
+        "ci_low": 0.23316713048455487,
+        "ci_high": 0.4990539748344443,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 35,
+        "verdict": "bootstrap_supported_lower_values_rank_burned"
+      },
+      "scene_land": {
+        "point": 0.3533031984047303,
+        "ci_low": 0.2285818963642347,
+        "ci_high": 0.5003923093524102,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 35,
+        "verdict": "interval_includes_chance"
+      },
+      "pooled_land": {
+        "point": 0.3555036342353763,
+        "ci_low": 0.23204687233351742,
+        "ci_high": 0.5003221474492131,
+        "valid_replicates": 1000,
+        "invalid_replicates": 0,
+        "n_blocks": 35,
+        "verdict": "interval_includes_chance"
+      }
+    }
+  }
+}

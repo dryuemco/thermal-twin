@@ -43,9 +43,10 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (1)
+## review (2)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Citation convention.** Citations are given as `[@BibKey]`, resolving against > `paper/REFERENCES.bib`. **E
+- TABLE WITHOUT CAPTION in 04_results near md line 942
 
 ## stripped (12)
 
