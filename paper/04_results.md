@@ -786,11 +786,12 @@ That table reports what each subgroup adds. The complementary question is what t
 inputs include `lon`, `lat`, `row` and `col`, and `fused_lst` inherits that on its gap-filled share.
 This is the one route by which a coordinate-derived surface re-enters a feature set from which
 Section 3.13 excludes coordinates, so the increment ought not to depend on it. It does not. Dropping
-both channels and re-running the comparison with the pipeline's own Step 8B leaves ΔAUC at +0.063
-(Manavgat), +0.046 (Bejís), +0.097 (Muğla), +0.145 (Evia) and +0.105 (Montiferru), which is 94 %,
-82 %, 84 %, 94 % and 103 % of the full-block value. The six-channel arm of the same harness
-reproduces the frozen metrics with a maximum absolute difference of exactly zero in all five
-regions, so the comparison is not confounded by the re-run. Source:
+both channels and re-running the comparison with the pipeline's own Step 8B and Step 8C leaves ΔAUC
+at +0.063 [+0.051, +0.074] (Manavgat), +0.046 [+0.038, +0.055] (Bejís), +0.097 [+0.088, +0.107]
+(Muğla), +0.145 [+0.133, +0.157] (Evia) and +0.105 [+0.082, +0.128] (Montiferru). That is 94 %,
+82 %, 84 %, 94 % and 103 % of the full-block value, with every interval excluding zero. The
+six-channel arm of the same harness reproduces the frozen metrics with a maximum absolute difference
+of exactly zero in all five regions, so the comparison is not confounded by the re-run. Source:
 `paper/observational_sensitivities.md`.
 
 **(i) Landsat compositing.** The current-period LST composite is a median over the clear

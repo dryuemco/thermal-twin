@@ -626,7 +626,7 @@ bootstrap-supported in all five regions; Bejís moves the most, from +0.056 to +
 four by at most 0.008 (Section 4.7m). And dropping the two derived channels, which carry a
 coordinate-derived component from the downscaler's own inputs (summed importance 0.035 to 0.123) and
 are the one route by which coordinates re-enter a feature set from which Section 3.13 excludes them,
-retains 82 % to 103 % of the increment (Section 4.7h). What remains true is the redundancy itself:
+retains 82 % to 103 % of the increment, with every interval still excluding zero (Section 4.7h). What remains true is the redundancy itself:
 the block is six predictors but not six independent measurements. (xiii) **The MODIS input behind the two derived
 channels is quality-screened in two regions and unscreened in three.** Evia and Montiferru apply a
 `QC_Day` mask, a three-observation minimum and an explicit nodata sentinel. Manavgat, Bejís and
