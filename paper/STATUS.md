@@ -178,6 +178,29 @@ PASS; `check_style.mjs` 0 dashes.
   population is 57.7 % and 38.9 % seawater in two regions, is now stated in §4.7f. The land-only edge
   refit remains un-run and is stated as such.
 
+**Updated 2026-08-14 (the pipeline now runs here).** `.venv-step10` was rebuilt and **verified**:
+`step8b` re-run unmodified at `48b56e7` reproduces the archived metrics bit for bit (Manavgat 142
+fields, max diff 6.9e-18; Montiferru 168 fields, max diff exactly 0). Recipe in `ENVIRONMENT.md`.
+Note the trap: `requirements-lock.txt` pins NumPy 2.5.1 / pandas 3.0.3, which is **not** the
+environment that produced the paper's numbers (2.4.4 / 3.0.2, from `reproduction_check_5region.json`).
+
+**Every analysis the manuscript recorded as "not run" has since been run** (commit `82c18b8`), each
+by driving the pipeline's own code and reproducing a frozen counterpart first. Reports:
+`paper/tvdi_land_refit.md`, `paper/observational_sensitivities.md`.
+- **TVDI land-only refit and pooled common edge** (§4.7k, Table R11): sea moves the index in
+  proportion to sea fraction but changes no region's direction, and a common edge across all five
+  regions leaves the reversal intact. The referee's strongest competing explanation fails.
+- **High-agreement cells** (§4.7l, Table R12): the elevation reversal holds at every threshold.
+- **Increment without the two coordinate-bearing channels** (§4.7h): 82 % to 103 % retained.
+- **Low gap-fill** (§4.7m): support everywhere; Bejís moves most, +0.056 to +0.043.
+- **CORAL λ = 1** (§3.11, §4.7d): no direction crosses chance; the largest move is an improvement,
+  against what §3.11 predicted. Grid spread widens to 0.019 overall, 0.016 thermal.
+
+Two corrections fell out, both against the paper's convenience: MODIS zero-fill is **38.29 % in
+Muğla** and **none in Bejís** against Manavgat's 8.11 %, and tracks each AOI's water share, so it is
+sea rather than missing observation; and the §5.11(xv) "cheap query" is unanswerable, because both
+MCD64A1 rasters are clipped to the label window.
+
 **One-line state:** round 3 is fully discharged and the submission package is assembled
 (`COVER_LETTER.md` drafted, highlights re-checked at ≤85 characters, abstract 329 words). What
 remains is outside this round: round 2's deferred length reduction (~31k words, 19 main-text tables),
