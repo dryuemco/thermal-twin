@@ -221,11 +221,25 @@ reads as field names, so it skipped those entries; the comments were moved above
 METAFONT was generating. Identifiers may now break after underscores and slashes but never at a
 decimal point, which the number check caught when `500.0` came out as `500.` and `0`.
 
-**Two analyses remain genuinely blocked, both on Earth Engine**, which needs an interactive
-`earthengine authenticate` against project `b7-thermal-digital-twin`: the calendar-matched Muğla 2022
-arm (its registry record exists but no data was ever exported) and the compositing A/B extended to a
-second region (the counterfactual reads 140 Landsat scenes from `LANDSAT/LC08/C02/T1_L2`; only the
-composited raster is in the export, not the per-scene inputs).
+**Updated 2026-08-14 (Earth Engine obtained).** YEC registered Çukurova University for noncommercial
+use and created project **`thermaltwin`**; the hardcoded `b7-thermal-digital-twin` in
+`core/config.py:7` is the pipeline author's and is not accessible. The project is injected by
+wrapping `ee.Initialize`, so `repo/` is untouched. `geemap` had to be added for the export paths.
+
+**The calendar-matched Muğla 2022 arm is not a missing analysis, it is an impossible one**, and this
+section previously called it the most valuable follow-up the paper could name. The two Muğla events
+are 42 days apart in seasonal phase (median burn day-of-year 215 in 2021, 173 in 2022, read from each
+experiment's frozen label raster), and neither year contains a second event at the other's phase.
+Holding the calendar fixed at the 2021 window leaves **9 burned cells** against a gate minimum of 30;
+the whole of 2022 in that AOI is 358 burned pixels against 3,206 in 2021. §5.2, §5.11(ii) and the
+outstanding-analyses paragraph now state this as a limit of the fire record. Full working:
+`paper/mugla_calendar_arm.md`.
+
+*One methodological trap recorded there because it nearly changed the answer:* MCD64A1 is a monthly
+composite stamped at the first of the month, so filtering the collection by the analysis window's own
+dates drops the composite of the month the window opens in. The first probe did that and undercounted
+the June 2022 event eightfold; it was caught only because the implied reconstruction ratio came out at
+8.1 cells per pixel against 1.19 for the year before.
 
 **One-line state:** round 3 is fully discharged and the submission package is assembled
 (`COVER_LETTER.md` drafted, highlights re-checked at ≤85 characters, abstract 329 words). What
