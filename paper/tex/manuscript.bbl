@@ -1,0 +1,553 @@
+\begin{thebibliography}{48}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Alkan~Ak{\i}nc{\i} and Ak{\i}nc{\i}(2023)}]{AlkanAkinci2023}
+\bibinfo{author}{Alkan~Ak{\i}nc{\i}, H.}, \bibinfo{author}{Ak{\i}nc{\i}, H.},
+  \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Machine learning based forest fire susceptibility
+  assessment of {Manavgat} district ({Antalya}), {Turkey}}.
+\newblock \bibinfo{journal}{Earth Science Informatics} \bibinfo{volume}{16},
+  \bibinfo{pages}{397--414}.
+\newblock \DOIprefix\doi{10.1007/s12145-023-00953-5}.
+%Type = Article
+\bibitem[{Archibald et~al.(2013)Archibald, Lehmann, G{\'o}mez-Dans and
+  Bradstock}]{Archibald2013}
+\bibinfo{author}{Archibald, S.}, \bibinfo{author}{Lehmann, C.E.R.},
+  \bibinfo{author}{G{\'o}mez-Dans, J.L.}, \bibinfo{author}{Bradstock, R.A.},
+  \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Defining pyromes and global syndromes of fire
+  regimes}.
+\newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
+  \bibinfo{volume}{110}, \bibinfo{pages}{6442--6447}.
+\newblock \DOIprefix\doi{10.1073/pnas.1211466110}.
+%Type = Article
+\bibitem[{Boschetti et~al.(2019)Boschetti, Roy, Giglio, Huang, Zubkova and
+  Humber}]{Boschetti2019}
+\bibinfo{author}{Boschetti, L.}, \bibinfo{author}{Roy, D.P.},
+  \bibinfo{author}{Giglio, L.}, \bibinfo{author}{Huang, H.},
+  \bibinfo{author}{Zubkova, M.}, \bibinfo{author}{Humber, M.L.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Global validation of the {Collection} 6 {MODIS}
+  burned area product}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment}
+  \bibinfo{volume}{235}, \bibinfo{pages}{111490}.
+\newblock \DOIprefix\doi{10.1016/j.rse.2019.111490}.
+%Type = Article
+\bibitem[{Breiman(2001)}]{Breiman2001}
+\bibinfo{author}{Breiman, L.}, \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{Random forests}.
+\newblock \bibinfo{journal}{Machine Learning} \bibinfo{volume}{45},
+  \bibinfo{pages}{5--32}.
+\newblock \DOIprefix\doi{10.1023/A:1010933404324}.
+%Type = Article
+\bibitem[{de~Bruin et~al.(2022)de~Bruin, Brus, Heuvelink, van
+  Ebbenhorst~Tengbergen and Wadoux}]{deBruin2022}
+\bibinfo{author}{de~Bruin, S.}, \bibinfo{author}{Brus, D.J.},
+  \bibinfo{author}{Heuvelink, G.B.M.}, \bibinfo{author}{van
+  Ebbenhorst~Tengbergen, T.}, \bibinfo{author}{Wadoux, A.M.J.C.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Dealing with clustered samples for assessing map
+  accuracy by cross-validation}.
+\newblock \bibinfo{journal}{Ecological Informatics} \bibinfo{volume}{69},
+  \bibinfo{pages}{101665}.
+\newblock \DOIprefix\doi{10.1016/j.ecoinf.2022.101665}.
+%Type = Article
+\bibitem[{Chuvieco et~al.(2004)Chuvieco, Cocero, Ria{\~n}o, Martin,
+  Mart{\'i}nez-Vega, de~la Riva and P{\'e}rez}]{Chuvieco2004}
+\bibinfo{author}{Chuvieco, E.}, \bibinfo{author}{Cocero, D.},
+  \bibinfo{author}{Ria{\~n}o, D.}, \bibinfo{author}{Martin, P.},
+  \bibinfo{author}{Mart{\'i}nez-Vega, J.}, \bibinfo{author}{de~la Riva, J.},
+  \bibinfo{author}{P{\'e}rez, F.}, \bibinfo{year}{2004}.
+\newblock \bibinfo{title}{Combining {NDVI} and surface temperature for the
+  estimation of live fuel moisture content in forest fire danger rating}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment}
+  \bibinfo{volume}{92}, \bibinfo{pages}{322--331}.
+\newblock \DOIprefix\doi{10.1016/j.rse.2004.01.019}.
+%Type = Article
+\bibitem[{Cook et~al.(2014)Cook, Schott, Mandel and Raqueno}]{Cook2014}
+\bibinfo{author}{Cook, M.}, \bibinfo{author}{Schott, J.R.},
+  \bibinfo{author}{Mandel, J.}, \bibinfo{author}{Raqueno, N.},
+  \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Development of an operational calibration methodology
+  for the {Landsat} thermal data archive and initial testing of the atmospheric
+  compensation component of a land surface temperature ({LST}) product from the
+  archive}.
+\newblock \bibinfo{journal}{Remote Sensing} \bibinfo{volume}{6},
+  \bibinfo{pages}{11244--11266}.
+\newblock \DOIprefix\doi{10.3390/rs61111244}.
+%Type = Article
+\bibitem[{Dimarco et~al.(2026)Dimarco, Faraji, Wahbi, Maatouk, Boulaassal,
+  Yazidi~Aalaoui and El~Kharki}]{Dimarco2026}
+\bibinfo{author}{Dimarco, N.A.}, \bibinfo{author}{Faraji, I.},
+  \bibinfo{author}{Wahbi, M.}, \bibinfo{author}{Maatouk, M.},
+  \bibinfo{author}{Boulaassal, H.}, \bibinfo{author}{Yazidi~Aalaoui, O.},
+  \bibinfo{author}{El~Kharki, O.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Generalizing human-driven wildfire ignition models
+  across {Mediterranean} regions using harmonized remote-sensing and
+  machine-learning data}.
+\newblock \bibinfo{journal}{Geomatics} \bibinfo{volume}{6},
+  \bibinfo{pages}{13}.
+\newblock \DOIprefix\doi{10.3390/geomatics6010013}.
+%Type = Article
+\bibitem[{Gelabert et~al.(2025)Gelabert, Jim{\'e}nez-Ruano, Ochoa, Alcasena,
+  Sj{\"o}str{\"o}m, Marrs, Ribeiro, Palaiologou, Bentu~Mart{\'i}nez, Chuvieco,
+  Vega-Garc{\'i}a and Rodrigues}]{Gelabert2025}
+\bibinfo{author}{Gelabert, P.J.}, \bibinfo{author}{Jim{\'e}nez-Ruano, A.},
+  \bibinfo{author}{Ochoa, C.}, \bibinfo{author}{Alcasena, F.},
+  \bibinfo{author}{Sj{\"o}str{\"o}m, J.}, \bibinfo{author}{Marrs, C.},
+  \bibinfo{author}{Ribeiro, L.M.}, \bibinfo{author}{Palaiologou, P.},
+  \bibinfo{author}{Bentu~Mart{\'i}nez, C.}, \bibinfo{author}{Chuvieco, E.},
+  \bibinfo{author}{Vega-Garc{\'i}a, C.}, \bibinfo{author}{Rodrigues, M.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Assessing human-caused wildfire ignition likelihood
+  across {Europe}}.
+\newblock \bibinfo{journal}{Natural Hazards and Earth System Sciences}
+  \bibinfo{volume}{25}, \bibinfo{pages}{4713--4729}.
+\newblock \DOIprefix\doi{10.5194/nhess-25-4713-2025}.
+%Type = Article
+\bibitem[{Giglio et~al.(2018)Giglio, Boschetti, Roy, Humber and
+  Justice}]{Giglio2018}
+\bibinfo{author}{Giglio, L.}, \bibinfo{author}{Boschetti, L.},
+  \bibinfo{author}{Roy, D.P.}, \bibinfo{author}{Humber, M.L.},
+  \bibinfo{author}{Justice, C.O.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{The {Collection} 6 {MODIS} burned area mapping
+  algorithm and product}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment}
+  \bibinfo{volume}{217}, \bibinfo{pages}{72--85}.
+\newblock \DOIprefix\doi{10.1016/j.rse.2018.08.005}.
+%Type = Article
+\bibitem[{Gorelick et~al.(2017)Gorelick, Hancher, Dixon, Ilyushchenko, Thau and
+  Moore}]{Gorelick2017}
+\bibinfo{author}{Gorelick, N.}, \bibinfo{author}{Hancher, M.},
+  \bibinfo{author}{Dixon, M.}, \bibinfo{author}{Ilyushchenko, S.},
+  \bibinfo{author}{Thau, D.}, \bibinfo{author}{Moore, R.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{{Google} {Earth} {Engine}: Planetary-scale geospatial
+  analysis for everyone}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment}
+  \bibinfo{volume}{202}, \bibinfo{pages}{18--27}.
+\newblock \DOIprefix\doi{10.1016/j.rse.2017.06.031}.
+%Type = Article
+\bibitem[{Huang et~al.(2026)Huang, Liu, Chen, Tan, Deng, Wang, Chlus, Shen and
+  Townsend}]{Huang2026}
+\bibinfo{author}{Huang, Y.}, \bibinfo{author}{Liu, N.}, \bibinfo{author}{Chen,
+  W.}, \bibinfo{author}{Tan, W.}, \bibinfo{author}{Deng, Y.},
+  \bibinfo{author}{Wang, Z.}, \bibinfo{author}{Chlus, A.},
+  \bibinfo{author}{Shen, J.}, \bibinfo{author}{Townsend, P.A.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Enhancing transferability of foliar trait retrieval
+  models: A comparative analysis of transfer learning strategies and domain
+  shift characterization}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment}
+  \bibinfo{volume}{337}, \bibinfo{pages}{115336}.
+\newblock \DOIprefix\doi{10.1016/j.rse.2026.115336}.
+%Type = Article
+\bibitem[{Iban and Aksu(2024)}]{Iban2024}
+\bibinfo{author}{Iban, M.C.}, \bibinfo{author}{Aksu, O.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{SHAP}-driven explainable artificial intelligence
+  framework for wildfire susceptibility mapping using {MODIS} active fire
+  pixels: An in-depth interpretation of contributing factors in {Izmir},
+  {T\"{u}rkiye}}.
+\newblock \bibinfo{journal}{Remote Sensing} \bibinfo{volume}{16},
+  \bibinfo{pages}{2842}.
+\newblock \DOIprefix\doi{10.3390/rs16152842}.
+%Type = Article
+\bibitem[{Iban and Sekertekin(2022)}]{Iban2022}
+\bibinfo{author}{Iban, M.C.}, \bibinfo{author}{Sekertekin, A.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Machine learning based wildfire susceptibility
+  mapping using remotely sensed fire data and {GIS}: A case study of {Adana}
+  and {Mersin} provinces, {Turkey}}.
+\newblock \bibinfo{journal}{Ecological Informatics} \bibinfo{volume}{69},
+  \bibinfo{pages}{101647}.
+\newblock \DOIprefix\doi{10.1016/j.ecoinf.2022.101647}.
+%Type = Article
+\bibitem[{Jodhani et~al.(2026)Jodhani, Bhatiya, Sirvi, Chanda, Thakkar and
+  Rathnayake}]{Jodhani2026}
+\bibinfo{author}{Jodhani, K.}, \bibinfo{author}{Bhatiya, L.},
+  \bibinfo{author}{Sirvi, L.}, \bibinfo{author}{Chanda, A.},
+  \bibinfo{author}{Thakkar, S.}, \bibinfo{author}{Rathnayake, U.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Artificial intelligence and remote sensing frameworks
+  for wildfire monitoring and risk analysis across multiple ecosystems: A
+  review}.
+\newblock \bibinfo{journal}{AIMS Environmental Science} \bibinfo{volume}{13},
+  \bibinfo{pages}{56--98}.
+\newblock \DOIprefix\doi{10.3934/environsci.2026004}.
+%Type = Inproceedings
+\bibitem[{Kondylatos et~al.(2023)Kondylatos, Prapas, Camps-Valls and
+  Papoutsis}]{Kondylatos2023}
+\bibinfo{author}{Kondylatos, S.}, \bibinfo{author}{Prapas, I.},
+  \bibinfo{author}{Camps-Valls, G.}, \bibinfo{author}{Papoutsis, I.},
+  \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{{Mesogeos}: A multi-purpose dataset for data-driven
+  wildfire modeling in the {Mediterranean}}, in: \bibinfo{booktitle}{Advances
+  in Neural Information Processing Systems 36 (NeurIPS 2023) Datasets and
+  Benchmarks Track}, pp. \bibinfo{pages}{50661--50676}.
+\newblock \DOIprefix\doi{10.52202/075280-2204}.
+%Type = Misc
+\bibitem[{Liu and Mostafavi(2025)}]{Liu2025}
+\bibinfo{author}{Liu, C.}, \bibinfo{author}{Mostafavi, A.},
+  \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{{WildfireGenome}: Interpretable machine learning
+  reveals local drivers of wildfire risk and their cross-county variation}.
+\newblock \bibinfo{howpublished}{arXiv preprint arXiv:2511.11589}.
+\newblock \DOIprefix\doi{10.48550/arXiv.2511.11589},
+  \href{http://arxiv.org/abs/2511.11589}{{\tt arXiv:2511.11589}}.
+%Type = Article
+\bibitem[{Ludwig et~al.(2023)Ludwig, Moreno-Martinez, H{\"o}lzel, Pebesma and
+  Meyer}]{Ludwig2023}
+\bibinfo{author}{Ludwig, M.}, \bibinfo{author}{Moreno-Martinez, A.},
+  \bibinfo{author}{H{\"o}lzel, N.}, \bibinfo{author}{Pebesma, E.},
+  \bibinfo{author}{Meyer, H.}, \bibinfo{year}{2023}.
+\newblock \bibinfo{title}{Assessing and improving the transferability of
+  current global spatial prediction models}.
+\newblock \bibinfo{journal}{Global Ecology and Biogeography}
+  \bibinfo{volume}{32}, \bibinfo{pages}{356--368}.
+\newblock \DOIprefix\doi{10.1111/geb.13635}.
+%Type = Article
+\bibitem[{Maffei et~al.(2018)Maffei, Alfieri and Menenti}]{Maffei2018}
+\bibinfo{author}{Maffei, C.}, \bibinfo{author}{Alfieri, S.M.},
+  \bibinfo{author}{Menenti, M.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Relating spatiotemporal patterns of forest fires
+  burned area and duration to diurnal land surface temperature anomalies}.
+\newblock \bibinfo{journal}{Remote Sensing} \bibinfo{volume}{10},
+  \bibinfo{pages}{1777}.
+\newblock \DOIprefix\doi{10.3390/rs10111777}.
+%Type = Article
+\bibitem[{Maffei et~al.(2021)Maffei, Lindenbergh and Menenti}]{Maffei2021}
+\bibinfo{author}{Maffei, C.}, \bibinfo{author}{Lindenbergh, R.},
+  \bibinfo{author}{Menenti, M.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Combining multi-spectral and thermal remote sensing
+  to predict forest fire characteristics}.
+\newblock \bibinfo{journal}{ISPRS Journal of Photogrammetry and Remote Sensing}
+  \bibinfo{volume}{181}, \bibinfo{pages}{400--412}.
+\newblock \DOIprefix\doi{10.1016/j.isprsjprs.2021.09.016}.
+%Type = Article
+\bibitem[{Maffei and Menenti(2019)}]{MaffeiMenenti2019}
+\bibinfo{author}{Maffei, C.}, \bibinfo{author}{Menenti, M.},
+  \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Predicting forest fires burned area and rate of
+  spread from pre-fire multispectral satellite measurements}.
+\newblock \bibinfo{journal}{ISPRS Journal of Photogrammetry and Remote Sensing}
+  \bibinfo{volume}{158}, \bibinfo{pages}{263--278}.
+\newblock \DOIprefix\doi{10.1016/j.isprsjprs.2019.10.013}.
+%Type = Article
+\bibitem[{Malakar et~al.(2018)Malakar, Hulley, Hook, Laraby, Cook and
+  Schott}]{Malakar2018}
+\bibinfo{author}{Malakar, N.K.}, \bibinfo{author}{Hulley, G.C.},
+  \bibinfo{author}{Hook, S.J.}, \bibinfo{author}{Laraby, K.},
+  \bibinfo{author}{Cook, M.}, \bibinfo{author}{Schott, J.R.},
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{An operational land surface temperature product for
+  {Landsat} thermal data: Methodology and validation}.
+\newblock \bibinfo{journal}{IEEE Transactions on Geoscience and Remote Sensing}
+  \bibinfo{volume}{56}, \bibinfo{pages}{5717--5735}.
+\newblock \DOIprefix\doi{10.1109/TGRS.2018.2824828}.
+%Type = Article
+\bibitem[{Marino et~al.(2024)Marino, Y{\'a}{\~n}ez, Guijarro, Madrigal, Senra,
+  Rodr{\'i}guez and Tom{\'e}}]{Marino2024}
+\bibinfo{author}{Marino, E.}, \bibinfo{author}{Y{\'a}{\~n}ez, L.},
+  \bibinfo{author}{Guijarro, M.}, \bibinfo{author}{Madrigal, J.},
+  \bibinfo{author}{Senra, F.}, \bibinfo{author}{Rodr{\'i}guez, S.},
+  \bibinfo{author}{Tom{\'e}, J.L.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{Transferability of empirical models derived from
+  satellite imagery for live fuel moisture content estimation and fire risk
+  prediction}.
+\newblock \bibinfo{journal}{Fire} \bibinfo{volume}{7}, \bibinfo{pages}{276}.
+\newblock \DOIprefix\doi{10.3390/fire7080276}.
+%Type = Article
+\bibitem[{Meyer and Pebesma(2021)}]{Meyer2021}
+\bibinfo{author}{Meyer, H.}, \bibinfo{author}{Pebesma, E.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Predicting into unknown space? {Estimating} the area
+  of applicability of spatial prediction models}.
+\newblock \bibinfo{journal}{Methods in Ecology and Evolution}
+  \bibinfo{volume}{12}, \bibinfo{pages}{1620--1633}.
+\newblock \DOIprefix\doi{10.1111/2041-210X.13650}.
+%Type = Article
+\bibitem[{Meyer and Pebesma(2022)}]{Meyer2022}
+\bibinfo{author}{Meyer, H.}, \bibinfo{author}{Pebesma, E.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Machine learning-based global maps of ecological
+  variables and the challenge of assessing them}.
+\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{13},
+  \bibinfo{pages}{2208}.
+\newblock \DOIprefix\doi{10.1038/s41467-022-29838-9}.
+%Type = Article
+\bibitem[{Meyer et~al.(2018)Meyer, Reudenbach, Hengl, Katurji and
+  Nauss}]{Meyer2018}
+\bibinfo{author}{Meyer, H.}, \bibinfo{author}{Reudenbach, C.},
+  \bibinfo{author}{Hengl, T.}, \bibinfo{author}{Katurji, M.},
+  \bibinfo{author}{Nauss, T.}, \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Improving performance of spatio-temporal machine
+  learning models using forward feature selection and target-oriented
+  validation}.
+\newblock \bibinfo{journal}{Environmental Modelling \& Software}
+  \bibinfo{volume}{101}, \bibinfo{pages}{1--9}.
+\newblock \DOIprefix\doi{10.1016/j.envsoft.2017.12.001}.
+%Type = Article
+\bibitem[{Mil{\`a} et~al.(2022)Mil{\`a}, Mateu, Pebesma and Meyer}]{Mila2022}
+\bibinfo{author}{Mil{\`a}, C.}, \bibinfo{author}{Mateu, J.},
+  \bibinfo{author}{Pebesma, E.}, \bibinfo{author}{Meyer, H.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Nearest neighbour distance matching leave-one-out
+  cross-validation for map validation}.
+\newblock \bibinfo{journal}{Methods in Ecology and Evolution}
+  \bibinfo{volume}{13}, \bibinfo{pages}{1304--1316}.
+\newblock \DOIprefix\doi{10.1111/2041-210X.13851}.
+%Type = Article
+\bibitem[{Moreno-Torres et~al.(2012)Moreno-Torres, Raeder, Alaiz-Rodr{\'i}guez,
+  Chawla and Herrera}]{MorenoTorres2012}
+\bibinfo{author}{Moreno-Torres, J.G.}, \bibinfo{author}{Raeder, T.},
+  \bibinfo{author}{Alaiz-Rodr{\'i}guez, R.}, \bibinfo{author}{Chawla, N.V.},
+  \bibinfo{author}{Herrera, F.}, \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{A unifying view on dataset shift in classification}.
+\newblock \bibinfo{journal}{Pattern Recognition} \bibinfo{volume}{45},
+  \bibinfo{pages}{521--530}.
+\newblock \DOIprefix\doi{10.1016/j.patcog.2011.06.019}.
+%Type = Article
+\bibitem[{Mu{\~n}oz-Sabater et~al.(2021)Mu{\~n}oz-Sabater, Dutra,
+  Agust{\'i}-Panareda, Albergel, Arduini, Balsamo, Boussetta, Choulga,
+  Harrigan, Hersbach, Martens, Miralles, Piles, Rodr{\'i}guez-Fern{\'a}ndez,
+  Zsoter, Buontempo and Th{\'e}paut}]{MunozSabater2021}
+\bibinfo{author}{Mu{\~n}oz-Sabater, J.}, \bibinfo{author}{Dutra, E.},
+  \bibinfo{author}{Agust{\'i}-Panareda, A.}, \bibinfo{author}{Albergel, C.},
+  \bibinfo{author}{Arduini, G.}, \bibinfo{author}{Balsamo, G.},
+  \bibinfo{author}{Boussetta, S.}, \bibinfo{author}{Choulga, M.},
+  \bibinfo{author}{Harrigan, S.}, \bibinfo{author}{Hersbach, H.},
+  \bibinfo{author}{Martens, B.}, \bibinfo{author}{Miralles, D.G.},
+  \bibinfo{author}{Piles, M.}, \bibinfo{author}{Rodr{\'i}guez-Fern{\'a}ndez,
+  N.J.}, \bibinfo{author}{Zsoter, E.}, \bibinfo{author}{Buontempo, C.},
+  \bibinfo{author}{Th{\'e}paut, J.N.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{{ERA5-Land}: a state-of-the-art global reanalysis
+  dataset for land applications}.
+\newblock \bibinfo{journal}{Earth System Science Data} \bibinfo{volume}{13},
+  \bibinfo{pages}{4349--4383}.
+\newblock \DOIprefix\doi{10.5194/essd-13-4349-2021}.
+%Type = Article
+\bibitem[{Pausas and Keeley(2021)}]{Pausas2021}
+\bibinfo{author}{Pausas, J.G.}, \bibinfo{author}{Keeley, J.E.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Wildfires and global change}.
+\newblock \bibinfo{journal}{Frontiers in Ecology and the Environment}
+  \bibinfo{volume}{19}, \bibinfo{pages}{387--395}.
+\newblock \DOIprefix\doi{10.1002/fee.2359}.
+%Type = Article
+\bibitem[{Persello and Bruzzone(2012)}]{Persello2012}
+\bibinfo{author}{Persello, C.}, \bibinfo{author}{Bruzzone, L.},
+  \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Active learning for domain adaptation in the
+  supervised classification of remote sensing images}.
+\newblock \bibinfo{journal}{IEEE Transactions on Geoscience and Remote Sensing}
+  \bibinfo{volume}{50}, \bibinfo{pages}{4468--4483}.
+\newblock \DOIprefix\doi{10.1109/TGRS.2012.2192740}.
+%Type = Article
+\bibitem[{Ploton et~al.(2020)Ploton, Mortier, R{\'e}jou-M{\'e}chain, Barbier,
+  Picard, Rossi, Dormann, Cornu, Viennois, Bayol, Lyapustin, Gourlet-Fleury and
+  P{\'e}lissier}]{Ploton2020}
+\bibinfo{author}{Ploton, P.}, \bibinfo{author}{Mortier, F.},
+  \bibinfo{author}{R{\'e}jou-M{\'e}chain, M.}, \bibinfo{author}{Barbier, N.},
+  \bibinfo{author}{Picard, N.}, \bibinfo{author}{Rossi, V.},
+  \bibinfo{author}{Dormann, C.}, \bibinfo{author}{Cornu, G.},
+  \bibinfo{author}{Viennois, G.}, \bibinfo{author}{Bayol, N.},
+  \bibinfo{author}{Lyapustin, A.}, \bibinfo{author}{Gourlet-Fleury, S.},
+  \bibinfo{author}{P{\'e}lissier, R.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Spatial validation reveals poor predictive
+  performance of large-scale ecological mapping models}.
+\newblock \bibinfo{journal}{Nature Communications} \bibinfo{volume}{11},
+  \bibinfo{pages}{4540}.
+\newblock \DOIprefix\doi{10.1038/s41467-020-18321-y}.
+%Type = Article
+\bibitem[{Podschwit et~al.(2022)Podschwit, Jolly, Alvarado, Verma, Ponce,
+  Markos, Aliaga-Nestares and Rodriguez-Zimmermann}]{Podschwit2022}
+\bibinfo{author}{Podschwit, H.}, \bibinfo{author}{Jolly, W.},
+  \bibinfo{author}{Alvarado, E.}, \bibinfo{author}{Verma, S.},
+  \bibinfo{author}{Ponce, B.}, \bibinfo{author}{Markos, A.},
+  \bibinfo{author}{Aliaga-Nestares, V.}, \bibinfo{author}{Rodriguez-Zimmermann,
+  D.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Reliability of cross-regional applications of global
+  fire danger models: A {Peruvian} case study}.
+\newblock \bibinfo{journal}{Fire Ecology} \bibinfo{volume}{18},
+  \bibinfo{pages}{25}.
+\newblock \DOIprefix\doi{10.1186/s42408-022-00150-7}.
+%Type = Article
+\bibitem[{Roberts et~al.(2017)Roberts, Bahn, Ciuti, Boyce, Elith,
+  Guillera-Arroita, Hauenstein, Lahoz-Monfort, Schr{\"o}der, Thuiller, Warton,
+  Wintle, Hartig and Dormann}]{Roberts2017}
+\bibinfo{author}{Roberts, D.R.}, \bibinfo{author}{Bahn, V.},
+  \bibinfo{author}{Ciuti, S.}, \bibinfo{author}{Boyce, M.S.},
+  \bibinfo{author}{Elith, J.}, \bibinfo{author}{Guillera-Arroita, G.},
+  \bibinfo{author}{Hauenstein, S.}, \bibinfo{author}{Lahoz-Monfort, J.J.},
+  \bibinfo{author}{Schr{\"o}der, B.}, \bibinfo{author}{Thuiller, W.},
+  \bibinfo{author}{Warton, D.I.}, \bibinfo{author}{Wintle, B.A.},
+  \bibinfo{author}{Hartig, F.}, \bibinfo{author}{Dormann, C.F.},
+  \bibinfo{year}{2017}.
+\newblock \bibinfo{title}{Cross-validation strategies for data with temporal,
+  spatial, hierarchical, or phylogenetic structure}.
+\newblock \bibinfo{journal}{Ecography} \bibinfo{volume}{40},
+  \bibinfo{pages}{913--929}.
+\newblock \DOIprefix\doi{10.1111/ecog.02881}.
+%Type = Article
+\bibitem[{Rousseau and Betts(2022)}]{Rousseau2022}
+\bibinfo{author}{Rousseau, J.S.}, \bibinfo{author}{Betts, M.G.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Factors influencing transferability in species
+  distribution models}.
+\newblock \bibinfo{journal}{Ecography} \bibinfo{volume}{2022},
+  \bibinfo{pages}{e06060}.
+\newblock \DOIprefix\doi{10.1111/ecog.06060}.
+%Type = Article
+\bibitem[{Sandholt et~al.(2002)Sandholt, Rasmussen and Andersen}]{Sandholt2002}
+\bibinfo{author}{Sandholt, I.}, \bibinfo{author}{Rasmussen, K.},
+  \bibinfo{author}{Andersen, J.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{A simple interpretation of the surface
+  temperature/vegetation index space for assessment of surface moisture
+  status}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment}
+  \bibinfo{volume}{79}, \bibinfo{pages}{213--224}.
+\newblock \DOIprefix\doi{10.1016/S0034-4257(01)00274-7}.
+%Type = Article
+\bibitem[{Schoener(1968)}]{Schoener1968}
+\bibinfo{author}{Schoener, T.W.}, \bibinfo{year}{1968}.
+\newblock \bibinfo{title}{The {Anolis} lizards of {Bimini}: Resource
+  partitioning in a complex fauna}.
+\newblock \bibinfo{journal}{Ecology} \bibinfo{volume}{49},
+  \bibinfo{pages}{704--726}.
+\newblock \DOIprefix\doi{10.2307/1935534}.
+%Type = Inproceedings
+\bibitem[{Sun et~al.(2016)Sun, Feng and Saenko}]{Sun2016}
+\bibinfo{author}{Sun, B.}, \bibinfo{author}{Feng, J.}, \bibinfo{author}{Saenko,
+  K.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Return of frustratingly easy domain adaptation}, in:
+  \bibinfo{booktitle}{Proceedings of the Thirtieth {AAAI} Conference on
+  Artificial Intelligence ({AAAI}-16)}, \bibinfo{publisher}{AAAI Press},
+  \bibinfo{address}{Phoenix, Arizona, USA}. pp. \bibinfo{pages}{2058--2065}.
+\newblock \DOIprefix\doi{10.1609/aaai.v30i1.10306}.
+%Type = Article
+\bibitem[{Tuia et~al.(2016)Tuia, Persello and Bruzzone}]{Tuia2016}
+\bibinfo{author}{Tuia, D.}, \bibinfo{author}{Persello, C.},
+  \bibinfo{author}{Bruzzone, L.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Domain adaptation for the classification of remote
+  sensing data: An overview of recent advances}.
+\newblock \bibinfo{journal}{IEEE Geoscience and Remote Sensing Magazine}
+  \bibinfo{volume}{4}, \bibinfo{pages}{41--57}.
+\newblock \DOIprefix\doi{10.1109/MGRS.2016.2548504}.
+%Type = Article
+\bibitem[{Valavi et~al.(2019)Valavi, Elith, Lahoz-Monfort and
+  Guillera-Arroita}]{Valavi2019}
+\bibinfo{author}{Valavi, R.}, \bibinfo{author}{Elith, J.},
+  \bibinfo{author}{Lahoz-Monfort, J.J.}, \bibinfo{author}{Guillera-Arroita,
+  G.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{{blockCV}: An {R} package for generating spatially or
+  environmentally separated folds for k-fold cross-validation of species
+  distribution models}.
+\newblock \bibinfo{journal}{Methods in Ecology and Evolution}
+  \bibinfo{volume}{10}, \bibinfo{pages}{225--232}.
+\newblock \DOIprefix\doi{10.1111/2041-210X.13107}.
+%Type = Article
+\bibitem[{Vesk et~al.(2021)Vesk, Morris, Neal, Mokany and Pollock}]{Vesk2021}
+\bibinfo{author}{Vesk, P.A.}, \bibinfo{author}{Morris, W.K.},
+  \bibinfo{author}{Neal, W.C.}, \bibinfo{author}{Mokany, K.},
+  \bibinfo{author}{Pollock, L.J.}, \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Transferability of trait-based species distribution
+  models}.
+\newblock \bibinfo{journal}{Ecography} \bibinfo{volume}{44},
+  \bibinfo{pages}{134--147}.
+\newblock \DOIprefix\doi{10.1111/ecog.05179}.
+%Type = Article
+\bibitem[{Vibhandik et~al.(2026)Vibhandik, Sawant, Joshi and
+  Bidwe}]{Vibhandik2026}
+\bibinfo{author}{Vibhandik, P.}, \bibinfo{author}{Sawant, S.},
+  \bibinfo{author}{Joshi, A.}, \bibinfo{author}{Bidwe, R.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{A systematic literature review on forest fire
+  susceptibility mapping using geo-spatial technology and future research
+  directions}.
+\newblock \bibinfo{journal}{Discover Artificial Intelligence}
+  \bibinfo{volume}{6}, \bibinfo{pages}{921}.
+\newblock \DOIprefix\doi{10.1007/s44163-026-00921-0}.
+%Type = Article
+\bibitem[{Wadoux et~al.(2021)Wadoux, Heuvelink, de~Bruin and Brus}]{Wadoux2021}
+\bibinfo{author}{Wadoux, A.M.J.C.}, \bibinfo{author}{Heuvelink, G.B.M.},
+  \bibinfo{author}{de~Bruin, S.}, \bibinfo{author}{Brus, D.J.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Spatial cross-validation is not the right way to
+  evaluate map accuracy}.
+\newblock \bibinfo{journal}{Ecological Modelling} \bibinfo{volume}{457},
+  \bibinfo{pages}{109692}.
+\newblock \DOIprefix\doi{10.1016/j.ecolmodel.2021.109692}.
+%Type = Article
+\bibitem[{Warren et~al.(2008)Warren, Glor and Turelli}]{Warren2008}
+\bibinfo{author}{Warren, D.L.}, \bibinfo{author}{Glor, R.E.},
+  \bibinfo{author}{Turelli, M.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Environmental niche equivalency versus conservatism:
+  Quantitative approaches to niche evolution}.
+\newblock \bibinfo{journal}{Evolution} \bibinfo{volume}{62},
+  \bibinfo{pages}{2868--2883}.
+\newblock \DOIprefix\doi{10.1111/j.1558-5646.2008.00482.x}.
+%Type = Misc
+\bibitem[{Xu et~al.(2026)Xu, Dai, Chang, Wang and Dong}]{Xu2026}
+\bibinfo{author}{Xu, Y.}, \bibinfo{author}{Dai, Y.}, \bibinfo{author}{Chang,
+  L.}, \bibinfo{author}{Wang, Q.}, \bibinfo{author}{Dong, Y.},
+  \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Does your wildfire prediction model actually work, or
+  just score well?}
+\newblock \bibinfo{howpublished}{arXiv preprint arXiv:2605.18911}.
+\newblock \DOIprefix\doi{10.48550/arXiv.2605.18911},
+  \href{http://arxiv.org/abs/2605.18911}{{\tt arXiv:2605.18911}}.
+%Type = Article
+\bibitem[{Yates et~al.(2018)Yates, Bouchet, Caley, Mengersen, Randin, Parnell
+  et~al.}]{Yates2018}
+\bibinfo{author}{Yates, K.L.}, \bibinfo{author}{Bouchet, P.J.},
+  \bibinfo{author}{Caley, M.J.}, \bibinfo{author}{Mengersen, K.},
+  \bibinfo{author}{Randin, C.F.}, \bibinfo{author}{Parnell, S.}, et~al.,
+  \bibinfo{year}{2018}.
+\newblock \bibinfo{title}{Outstanding challenges in the transferability of
+  ecological models}.
+\newblock \bibinfo{journal}{Trends in Ecology \& Evolution}
+  \bibinfo{volume}{33}, \bibinfo{pages}{790--802}.
+\newblock \DOIprefix\doi{10.1016/j.tree.2018.08.001}.
+%Type = Article
+\bibitem[{Yebra et~al.(2013)Yebra, Dennison, Chuvieco, Ria{\~n}o, Zylstra,
+  Hunt, Danson, Qi and Jurdao}]{Yebra2013}
+\bibinfo{author}{Yebra, M.}, \bibinfo{author}{Dennison, P.E.},
+  \bibinfo{author}{Chuvieco, E.}, \bibinfo{author}{Ria{\~n}o, D.},
+  \bibinfo{author}{Zylstra, P.}, \bibinfo{author}{Hunt, E.R.},
+  \bibinfo{author}{Danson, F.M.}, \bibinfo{author}{Qi, Y.},
+  \bibinfo{author}{Jurdao, S.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{A global review of remote sensing of live fuel
+  moisture content for fire danger assessment: Moving towards operational
+  products}.
+\newblock \bibinfo{journal}{Remote Sensing of Environment}
+  \bibinfo{volume}{136}, \bibinfo{pages}{455--468}.
+\newblock \DOIprefix\doi{10.1016/j.rse.2013.05.029}.
+%Type = Misc
+\bibitem[{Zanaga et~al.(2022)Zanaga, Van De~Kerchove, Daems, De~Keersmaecker,
+  Brockmann, Kirches, Wevers, Cartus, Santoro, Fritz, Lesiv, Herold,
+  Tsendbazar, Xu, Ramoino and Arino}]{Zanaga2022}
+\bibinfo{author}{Zanaga, D.}, \bibinfo{author}{Van De~Kerchove, R.},
+  \bibinfo{author}{Daems, D.}, \bibinfo{author}{De~Keersmaecker, W.},
+  \bibinfo{author}{Brockmann, C.}, \bibinfo{author}{Kirches, G.},
+  \bibinfo{author}{Wevers, J.}, \bibinfo{author}{Cartus, O.},
+  \bibinfo{author}{Santoro, M.}, \bibinfo{author}{Fritz, S.},
+  \bibinfo{author}{Lesiv, M.}, \bibinfo{author}{Herold, M.},
+  \bibinfo{author}{Tsendbazar, N.E.}, \bibinfo{author}{Xu, P.},
+  \bibinfo{author}{Ramoino, F.}, \bibinfo{author}{Arino, O.},
+  \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{{ESA} {WorldCover} 10 m 2021 v200}.
+\newblock \bibinfo{howpublished}{Zenodo}.
+\newblock \DOIprefix\doi{10.5281/zenodo.7254221}.
+
+\end{thebibliography}

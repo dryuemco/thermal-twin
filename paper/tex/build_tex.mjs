@@ -45,7 +45,31 @@ const UNICODE = [
   ['\u2019', "'"], ['\u2018', "'"], ['\u201c', '``'], ['\u201d', "''"],
   ['\u2032', "$'$"],
   ['\u2010', '-'], ['\u2011', '-'],
+  // Added 2026-08-14, after the first real compile. pdflatex with T1 refuses
+  // these outright; a true minus inside a code span was the first hard failure.
+  ['\u03a3', '$\\Sigma$'],
+  ['\u03c3', '$\\sigma$'],
+  ['\u03c4', '$\\tau$'],
+  ['\u03bc', '$\\mu$'],
+  ['\u03b1', '$\\alpha$'],
+  ['\u03b2', '$\\beta$'],
+  ['\u00b7', '$\\cdot$'],
+  ['\u2227', '$\\wedge$'],
+  ['\u2228', '$\\vee$'],
+  ['\u221a', '$\\surd$'],
+  ['\u00bd', '$\\frac{1}{2}$'],
+  ['\u00a7', '\\S{}'],
 ];
+
+// Verbatim bodies are read byte by byte by pdflatex, so a non-ASCII character
+// in one cannot be escaped or wrapped. These are the safe ASCII foldings; the
+// builder warns about anything not listed here rather than emitting it.
+const VERBATIM_ASCII = {
+  '−': '-', '–': '-', '—': '--', '·': '*', '×': 'x', '≈': '~', '≤': '<=', '≥': '>=',
+  '±': '+/-', '°': ' deg', 'λ': 'lambda', 'μ': 'mu', 'σ': 'sigma', 'Σ': 'sum',
+  'ρ': 'rho', 'τ': 'tau', 'Δ': 'delta', '→': '->', '↔': '<->', '’': "'", '‘': "'",
+  '“': '"', '”': '"', '…': '...',
+};
 
 // Superscript / subscript digits used in exponents such as 10^-7.
 const SUPS = { '\u2070':'0','\u00b9':'1','\u00b2':'2','\u00b3':'3','\u2074':'4','\u2075':'5',
@@ -66,11 +90,29 @@ function foldScripts(s, vault) {
 }
 
 function escapeLatex(s) {
-  return s
-    .replace(/\\/g, '\\textbackslash{}')
+  // The backslash is parked behind a sentinel first. Replacing it inline with
+  // \textbackslash{} put braces into the string that the very next rule then
+  // escaped, so a literal backslash came out as \textbackslash\{\}.
+  const BS = 'BS';
+  let out = s
+    .replace(/\\/g, BS)
     .replace(/([&%#$_])/g, '\\$1')
     .replace(/\{/g, '\\{').replace(/\}/g, '\\}')
     .replace(/\^/g, '\\textasciicircum{}');
+  // Code spans and other verbatim-ish text take this path instead of inline(),
+  // so without this they emitted raw Unicode. That is what stopped the first
+  // compile: `(current_median − baseline_mean)` carries a true minus.
+  out = applyUnicode(out);
+  return out.split(BS).join('\\textbackslash{}');
+}
+
+// Combining macron (U+0304) after a letter, as in the D-bar of Schoener's
+// overlap. Handled before the table of single characters, because it modifies
+// the character in front of it.
+function applyUnicode(s) {
+  let out = s.replace(/([A-Za-z])̄/g, '$\\bar{$1}$');
+  for (const [from, to] of UNICODE) out = out.split(from).join(to);
+  return out;
 }
 
 // Figure labels, in figure-number order, read from figure_captions.tex so the
@@ -116,8 +158,20 @@ function inline(src, vault) {
   let s = src;
 
   // 1. Code spans -> \texttt{}, vaulted (they contain _ and { legitimately).
+  //    Typewriter text does not hyphenate, so an identifier like
+  //    burnable_tree_shrub_grass is one unbreakable box and runs straight out
+  //    of a narrow table column. A break opportunity is offered after each
+  //    underscore, slash and dot. \allowbreak adds no character and no hyphen,
+  //    so the identifier is still copied out of the PDF verbatim.
   s = s.replace(/`([^`]+)`/g, (_, code) =>
-    vault.put('\\texttt{' + escapeLatex(code).replace(/-/g, '\\babelhyphen{nobreak}-'.replace('\\babelhyphen{nobreak}-', '-')) + '}'));
+    vault.put('\\texttt{'
+      + escapeLatex(code)
+          .replace(/(\\_|\/)/g, '$1\\allowbreak{}')
+          // A dot between digits is a decimal point and must not be broken:
+          // breaking `500.0` split the number in two and the number check
+          // caught it. Only dots in identifiers get a break opportunity.
+          .replace(/(?<!\d)\.(?!\d)/g, '.\\allowbreak{}')
+      + '}'));
 
   // 1b. Footnote references -> footnote command, with the note body converted
   //     through the same inline pipeline so its citations and symbols survive.
@@ -192,6 +246,7 @@ function inline(src, vault) {
   s = s.replace(/~(?=\d)/g, vault.put('$\\sim$'));
 
   // 7. Unicode, superscripts, then escape whatever is left.
+  s = s.replace(/([A-Za-z])̄/g, (_, c) => vault.put('$\\bar{' + c + '}$'));
   for (const [from, to] of UNICODE) s = s.split(from).join(vault.put(to));
   s = foldScripts(s, vault);
 
@@ -228,14 +283,57 @@ function convertTable(lines, vault, caption, label) {
   const align = rows[sep].map(c => (c.startsWith(':') && c.endsWith(':')) ? 'c' : c.endsWith(':') ? 'r' : 'l');
   while (align.length < ncol) align.push('l');
 
+  // Column widths. An l column never wraps, so a table whose cells carry prose
+  // runs off the page: the first compile produced 137 overfull boxes, the worst
+  // 763pt on a text width of about 390pt. Columns that hold long text become
+  // wrapping X columns in a tabularx sized to the line; short numeric columns
+  // keep their natural alignment so the numbers still line up.
+  const widest = Array.from({ length: ncol }, (_, i) =>
+    Math.max(...rows.filter((_, k) => k !== sep).map(r => (r[i] || '').length)));
+  // Two different problems need two different answers. A table with one or two
+  // prose columns needs those columns to wrap. A table with ten numeric columns
+  // needs a smaller font: wrapping there would shred the headers. The estimate
+  // is in characters; LINE_CHARS is what one \small line holds in this layout,
+  // and each column costs about 2.5 characters of \tabcolsep padding.
+  const LINE_CHARS = 88;
+  // 20 rather than 28: a ten-column table whose widest header is 27 characters
+  // still ran 318pt past the margin at \scriptsize, because an l column cannot
+  // wrap a header no matter how small the type gets.
+  const WRAP_AT = 20;
+  const rawWidth = widest.reduce((a, b) => a + b, 0) + 2.5 * ncol;
+  const wrapping = widest.map(w => w > WRAP_AT);
+  const useTabularx = wrapping.some(Boolean);
+  // Font step chosen from the width that remains after wrapping is accounted
+  // for; a wrapped column no longer contributes its full natural width.
+  const effWidth = widest.reduce((a, w, i) => a + (wrapping[i] ? Math.min(w, WRAP_AT) : w), 0)
+    + 2.5 * ncol;
+  const size = effWidth <= LINE_CHARS ? '\\small'
+    : effWidth <= LINE_CHARS * 1.25 ? '\\footnotesize'
+    : '\\scriptsize';
+  if (size !== '\\small' || useTabularx) {
+    note('table', `${caption.slice(0, 44)}: ${ncol} cols, est. width ${Math.round(rawWidth)} chars `
+      + `-> ${size.replace(/\\/, '')}${useTabularx ? ', ' + wrapping.filter(Boolean).length + ' wrapping' : ''}`);
+  }
+  const spec = align.map((a, i) => {
+    if (!wrapping[i]) return a;
+    const pre = a === 'r' ? '\\raggedleft' : a === 'c' ? '\\centering' : '\\raggedright';
+    return `>{${pre}\\arraybackslash}X`;
+  }).join('');
+  if (useTabularx) {
+    note('table', `${caption.slice(0, 48)}: ${wrapping.filter(Boolean).length} of ${ncol} `
+      + `columns wrap (widest cell ${Math.max(...widest)} chars)`);
+  }
+
   const cell = c => escapeOutsideVault(inline(c, vault));
   const out = [];
   out.push('\\begin{table}[htbp]');
   out.push('  \\centering');
-  out.push('  \\small');
+  out.push('  ' + size);
   out.push('  \\caption{' + caption + '}');
   if (label) out.push('  \\label{' + label + '}');
-  out.push('  \\begin{tabular}{' + align.join('') + '}');
+  out.push(useTabularx
+    ? '  \\begin{tabularx}{\\linewidth}{' + spec + '}'
+    : '  \\begin{tabular}{' + align.join('') + '}');
   out.push('    \\hline');
   for (const h of head) out.push('    ' + h.map(cell).join(' & ') + ' \\\\');
   out.push('    \\hline');
@@ -244,7 +342,7 @@ function convertTable(lines, vault, caption, label) {
     out.push('    ' + padded.map(cell).join(' & ') + ' \\\\');
   }
   out.push('    \\hline');
-  out.push('  \\end{tabular}');
+  out.push(useTabularx ? '  \\end{tabularx}' : '  \\end{tabular}');
   out.push('\\end{table}');
   return out.join('\n');
 }
@@ -285,8 +383,17 @@ function convertBody(md, opts = {}) {
       i++;
       while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
       i++; // closing fence
+      // pdflatex reads a verbatim body byte by byte, so no escape or macro can
+      // rescue a non-ASCII character in here. Fold what can be folded, and fail
+      // loudly on the rest rather than emitting a file that will not compile.
+      const folded = buf.map(l => l.replace(/[^\x00-\x7F]/g, ch => VERBATIM_ASCII[ch] ?? ch));
+      const bad = folded.join('\n').match(/[^\x00-\x7F]/g);
+      if (bad) {
+        note('verbatim', `NON-ASCII left in a code block: ${[...new Set(bad)].join(' ')} `
+          + '(pdflatex cannot set these inside verbatim; rewrite the block in the Markdown)');
+      }
       note('verbatim', `code block of ${buf.length} line(s) -> verbatim`);
-      out.push('', '\\begin{verbatim}', ...buf, '\\end{verbatim}');
+      out.push('', '\\begin{verbatim}', ...folded, '\\end{verbatim}');
       continue;
     }
 
@@ -448,14 +555,22 @@ const preamble = `% ============================================================
 % Build:  pdflatex manuscript && bibtex manuscript && pdflatex manuscript x2
 % Needs:  elsarticle.cls and elsarticle-harv.bst (TeX Live / MiKTeX / Overleaf)
 %
-% NOT COMPILED. The machine this was generated on has no TeX installation, so
-% this file has never been run through LaTeX. Treat the first compile as a
-% debugging pass, not a formality. See build_report.md.
+% COMPILED. First compiled 2026-08-14 with MiKTeX 25.12 (pdfTeX), clean: no
+% errors, no undefined references, no undefined citations. The first compile was
+% a debugging pass and found four real defects, all fixed in this generator: a
+% true minus inside a code span (the Unicode table was applied to prose but not
+% to code spans), non-ASCII inside a verbatim block, figure paths resolved from
+% the wrong directory, and l-columns that cannot wrap, which ran the widest
+% table 763pt past the margin. See build_report.md.
 % =============================================================================
 \\documentclass[preprint,review,12pt]{elsarticle}
 
 \\usepackage[utf8]{inputenc}
 \\usepackage[T1]{fontenc}
+\\usepackage{lmodern}
+\\usepackage{textcomp}
+\\usepackage{tabularx}
+\\graphicspath{{../}{../figures/}{./}{./figures/}}
 \\usepackage{graphicx}
 \\usepackage{amsmath}
 \\usepackage{booktabs}
@@ -570,6 +685,10 @@ fs.writeFileSync(path.join(OUT, 'supplementary.tex'), `% GENERATED by paper/tex/
 \\documentclass[preprint,12pt]{elsarticle}
 \\usepackage[utf8]{inputenc}
 \\usepackage[T1]{fontenc}
+\\usepackage{lmodern}
+\\usepackage{textcomp}
+\\usepackage{tabularx}
+\\graphicspath{{../}{../figures/}{./}{./figures/}}
 \\usepackage{graphicx}\\usepackage{amsmath}\\usepackage{booktabs}\\usepackage{array}
 \\renewcommand{\\thetable}{S\\arabic{table}}
 \\renewcommand{\\thefigure}{S\\arabic{figure}}

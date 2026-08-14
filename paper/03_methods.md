@@ -587,9 +587,9 @@ covariance is aligned to the target covariance by the standard CORAL whitening-r
 (`step10_shared.py:186 to 220`):
 
 ```
-C_s = cov(X_s^z) + λI ,   C_t = cov(X_t^z) + λI
-A   = C_s^(−1/2) · C_t^(1/2)
-X_s* = X_s^z · A
+C_s = cov(X_s^z) + lambda*I ,   C_t = cov(X_t^z) + lambda*I
+A    = C_s^(-1/2) * C_t^(1/2)
+X_s* = X_s^z * A
 ```
 
 with covariances computed at `ddof = 0` and matrix powers obtained by symmetric eigendecomposition
