@@ -1,4 +1,4 @@
-# Propagating the MOD11A1 quality screening through the downstream chain (Manavgat)
+# Propagating the MOD11A1 quality screening through the downstream chain
 
 **What this is.** The companion paper reports that the coarse thermal input is quality-screened in
 two of five regions and unscreened in three, that the split follows export date rather than design,
@@ -7,7 +7,8 @@ and that the induced change at the input is not a uniform offset but correlates 
 the axis was "measured at the input and not propagated through the downstream chain, which would
 require rebuilding three regions' derived products."
 
-This note propagates it, for Manavgat, and converts the bounded axis into a measured one.
+This note propagates it, for Manavgat and then for Muğla, and converts the bounded axis into a
+measured one for two of the three unscreened regions.
 
 It matters beyond bookkeeping. An elevation-correlated preprocessing artefact, in the one region
 whose elevation-burning association anchors the transfer paper's reversal mechanism, is a live
@@ -95,9 +96,18 @@ into the modelled associations.
 
 **Not closed.** Three things.
 
-1. **One region.** Muğla and Bejís are the other unscreened regions. Muğla is worth running: its
-   input-level correlation with elevation is +0.443 and its zero-fill share is 38.3 %. Bejís is the
-   least informative of the three, its correlation being −0.041.
+1. ~~**One region.**~~ **Muğla has now been run and agrees.** Its population is unchanged at 41,730
+   cells and 2,911 burned, with 70 positive-carrying 5 km blocks in both arms. The screening again
+   propagates substantially, changing `downscaled_lst_mean` on **46,356 of 73,098 cells** by a mean
+   of 0.428 °C and a maximum of **20.97 °C**, larger in every respect than in Manavgat. The modelled
+   associations again do not follow: elevation stays at 0.611 [0.529, 0.692] in both arms, the
+   largest movement in any signed association is **−0.0079** in `downscaled_lst_mean` itself, and no
+   feature changes side of the chance line. Muğla was the more informative of the two remaining
+   regions, having a zero-fill share of 38.3 % against Manavgat's 8.1 %, and it dilutes the effect
+   even further, because its observed Landsat coverage is 99.39 % so fusion falls back on the
+   modelled surface across only 0.57 points rather than Manavgat's 2.14. **Bejís remains unrun**,
+   and it is the least informative of the three, its input-level correlation with elevation being
+   −0.041.
 2. **Transfer was not recomputed.** The claim above is about signed associations and the
    within-region increment. Since the two arms' feature matrices differ in one channel by a mean of
    0.365 °C, and that channel's association moves by +0.0003, a material change in transfer is

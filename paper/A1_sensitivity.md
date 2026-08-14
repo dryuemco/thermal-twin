@@ -48,11 +48,17 @@ surface across only 2.14 points of coverage. Details are in
 
 **(f) Normalised against absolute dryness channels.** Section 1.2 argues that an internally
 normalised index should be less exposed to absolute-temperature offsets between regions than raw
-land surface temperature. The thermal block contains both kinds, which allows the argument to be
-tested directly as a feature-set contrast. It is also the natural place to look for a constructive
-result, because the two channels that do **not** reverse sign between regions are exactly the
-normalised ones, `lst_anomaly_mean` and `tvdi_difference_mean`, while the four absolute channels are
-the ones that do.
+land surface temperature. The thermal block contains both kinds, so the argument can be tested
+directly as a feature-set contrast.
+
+One thing should be said before the result, because it makes the outcome less surprising than it
+might otherwise appear. The normalised channels are the two that hold their direction in the
+same-geography two-event comparison of Section 4.8, where the absolute channels move. That is a
+statement about one region across two fires. **Across regions it does not hold**: `lst_anomaly_mean`
+is itself one of the two bootstrap-supported reversing predictors, reversing between Bejís and Evia,
+which is why Section 4.6b drops it alongside elevation. Being internally normalised protects a
+channel against the offset between two seasons in one place. It does not, on this evidence, protect
+it against a change of place.
 
 Three feature sets were run over all twenty directions and all five within-region folds, with the
 classifier, population, folds and bootstrap held fixed. The harness aborts unless its reference
