@@ -59,19 +59,23 @@ study region and paired with a historical record of burned area. A supervised cl
 fitted, most often a random forest [@Breiman2001]. The resulting susceptibility surface is published
 with a cross-validated AUC in the 0.85 to 0.95 range.
 
-This paper is about a cost that the pattern does not price. Predictors that describe the *state* of
-a surface in a particular season are more informative about that season than predictors that
-describe a place. They are also less portable, as we argue and then show. The relationship they
-carry is reparameterised locally. It exists everywhere, but it points in different directions in
-different places. The claim advanced here is a trade-off and not a dismissal: **dynamic state
-predictors buy local skill at the cost of portability**. Two measurements carry that claim. The
-dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region and contributes nothing
-distinguishable from zero between them, with an unstable sign. Removing the reversing predictors
-costs −0.081 of within-region skill with interval support in every region, while changing mean
-transfer by +0.014, an estimate whose own interval spans zero. Whether the block helps or harms on
-transfer is a property of the source-target pair, not of the block.
+This paper is about a property that the pattern does not report. Predictors that describe the
+*state* of a surface in a particular season are more informative about that season than predictors
+that describe a place. They are also, as we show, not portable: the relationship they carry is
+reparameterised locally, existing everywhere but pointing in different directions in different
+places. The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region and contributes
++0.004 between them, an estimate whose interval spans zero, with a sign that is a property of the
+source-target pair rather than of the block.
 
-## 1.1 Portability goes unmeasured, so the trade-off goes unpriced
+The obvious reading of that pair of numbers is a trade-off, and our own earlier framing took it. The
+data do not support it. The static baseline transfers at a mean of 0.537 against the thermal model's
+0.541, so the predictor class that ought to travel does not travel either, and removing the
+reversing predictors returns +0.014 of transfer on an interval that also spans zero. Two nulls on
+the portability axis are not an exchange. What is measured is a local gain that does not export, and
+a local cost when the reversing predictors are removed, with no compensating transfer gain on either
+arm.
+
+## 1.1 Portability goes unmeasured
 
 A susceptibility model's reported skill is almost always an estimate of *within-region* performance.
 Held-out folds come from the same study area and season, often from the same fire event, and where
@@ -139,54 +143,48 @@ sides on the same pairs.
 ## 1.4 Contributions
 
 Three findings carry this paper. Each is stated at the strength its interval supports, and the
-nearest prior work is named inside the claim rather than omitted.
+nearest prior work is named inside the claim.
 
-**Contribution 1. Local skill and portability, measured separately and per direction.** For every
-ordered region pair, the change in transfer skill from adding the dynamic pre-fire thermal block to
-a matched baseline is set against the within-region increment the same block delivers. The block is
-worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with every bootstrap interval above
-zero and the result holding in both analysis populations. Across the twenty ordered transfer
-directions it contributes +0.004, an estimate whose interval spans zero under all four
-between-direction resampling units we computed, and its sign is unstable: paired deltas run from
-−0.148 to +0.132, twelve positive and eight negative. The control that bounds the interpretation is
-the baseline arm: it transfers at a mean of 0.537 against the thermal model's 0.541, so the static
-predictor class is not the portable one here either, and what the matrix shows is that **nothing in
-this feature space travels** rather than that dynamic state is uniquely fragile. Feature removal
-measures the local cost directly. Dropping the two reversing predictors, elevation and the LST
-anomaly, costs −0.081 of mean within-region AUC, supported in every region and roughly three
-quarters of it attributable to elevation, which is a *baseline* terrain variable; it changes mean
-transfer by +0.014, whose interval spans zero. Both figures are post-selection, the two predictors
-having been chosen on the same reversal analysis (Section 4.6b). A local cost is measured and no
-compensating transfer gain is, which is weaker than an exchange and is stated as such. The within-region half is not itself novel, since comparable results exist for these
-landscapes [@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is. Dimarco et al.
-[@Dimarco2026] transfer a predominantly spatially stationary predictor set successfully across a
-comparable Mediterranean design, and this is the complementary half of that picture rather than a
-contradiction of it.
+**Contribution 1. Local skill and portability, measured separately and per direction.** The thermal
+block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with every bootstrap
+interval above zero and the result holding in both analysis populations. Across the twenty ordered
+transfer directions it contributes +0.004, whose interval spans zero under all four
+between-direction resampling units we computed, with a sign that varies by pair: paired deltas run
+from −0.148 to +0.132, twelve positive and eight negative. The control that bounds the reading is
+the baseline arm, which transfers at a mean of 0.537 against the thermal model's 0.541. The static
+predictor class is not the portable one here either, so what the matrix shows is that **nothing in
+this feature space travels**, not that dynamic state is uniquely fragile. Feature removal measures
+the local cost: dropping the two reversing predictors, elevation and the LST anomaly, costs −0.081
+of mean within-region AUC, supported in every region and roughly three quarters of it attributable
+to elevation, a *baseline* terrain variable, and changes mean transfer by +0.014, whose interval
+also spans zero. Both are post-selection estimates (Section 4.6b). A local cost is measured; no
+compensating transfer gain is. The within-region half is not novel, comparable results existing for
+these landscapes [@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is. Dimarco
+et al. [@Dimarco2026] transfer a predominantly stationary predictor set successfully across a
+comparable Mediterranean design, though their response variable is ignition rather than burned area
+(Section 5.7).
 
 **Contribution 2. The loss is invisible to the diagnostics that could be run before deployment, and
-visible to one that cannot.** Twenty candidate transferability diagnostics from four families are
-evaluated against the observed transfer outcomes under one bootstrap framework.
-Area-of-applicability-style predictor-space dissimilarity [@Meyer2021; @Meyer2022; @Ludwig2023],
-climatic and geographic distance, learned domain separability, niche-overlap statistics and
-burn-pattern regime distances all fail to order the matrix; the domain classifier is at ceiling, with
-AUC ≥ 0.96 for every pair. Only two diagnostics have intervals excluding zero, and both measure
-conditional direction agreement, whether each predictor's signed association with burning points the
-same way in both regions (Spearman ρ = +0.84 and +0.81 over sixteen directions from eight region
-pairs). Both are computed on a data-selected subset of predictors, and their all-nine-feature
-counterparts span zero, so the result rests on that selection and is reported with it. Equalising
-the families onto a common twelve directions leaves the ordering unchanged, so it is not an artefact
-of the marginal rows carrying the smaller sample. Signed associations need
-burned labels on both sides, so this is a mechanism diagnosis rather than a pre-deployment screen,
-and the marginal family, which is the only one that can be run before deployment, is the one that
-fails. The same point survives without any ranking, at the point estimates: the pair with the highest
-burned-niche overlap in the matrix fails in both directions while the pair with the lowest transfers
-in both, so similarity is not sufficient for transfer. That contradicts an expectation the fire literature
-carries [@Dimarco2026; @Liu2025] and agrees with what species distribution modelling has found
-[@Vesk2021; @Rousseau2022]. Shift decomposition in applied remote sensing is not itself new
-[@Huang2026]; what is added here is the fire application and the head-to-head of marginal,
-niche-overlap and conditional diagnostics on the same pairs.
+visible to one that cannot.** Twenty candidate diagnostics from four families are evaluated against
+observed transfer under one bootstrap framework. Area-of-applicability-style predictor-space
+dissimilarity [@Meyer2021; @Meyer2022; @Ludwig2023], climatic and geographic distance, learned domain
+separability, niche-overlap statistics and burn-pattern regime distances were none of them shown to
+order the matrix; the domain classifier is at ceiling, with AUC ≥ 0.96 for every pair. Only two
+diagnostics have intervals excluding zero, and both measure conditional direction agreement, whether
+each predictor's signed association with burning points the same way in both regions (Spearman
+ρ = +0.84 and +0.81 over sixteen directions from eight pairs). Both are computed on a data-selected
+subset of predictors and their all-nine-feature counterparts span zero, so the result rests on that
+selection; equalising the families onto a common twelve directions leaves the ordering unchanged, so
+it is not an artefact of unequal samples. Signed associations need burned labels on both sides, so
+this is a mechanism diagnosis rather than a pre-deployment screen, and the marginal family, the only
+one runnable before deployment, is the one that fails. The same point survives without any ranking,
+at the point estimates: the pair with the highest burned-niche overlap fails in both directions while
+the lowest transfers in both. That contradicts an expectation the fire literature carries
+[@Dimarco2026; @Liu2025] and agrees with species distribution modelling [@Vesk2021; @Rousseau2022].
+Shift decomposition in applied remote sensing is not itself new [@Huang2026]; the fire application
+and the head-to-head of four diagnostic families on the same pairs are.
 
-**Contribution 3. The mechanism is a sign reversal, and it survives holding geography fixed.**
+**Contribution 3. The mechanism is a reversal of sign, and it survives holding geography fixed.**
 Predictors do not merely weaken across regions, they reverse the direction of their association with
 burning, which is why a distance in predictor space cannot see the failure. The sharpest reversal is
 elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla with disjoint
@@ -194,13 +192,13 @@ bootstrap intervals. The same reversal appears inside a single study area, betwe
 months apart on an identical grid, where season and population also differ but place does not
 (Section 4.8); that arm rests on one fire and eleven positive-carrying 5 km blocks, below the floor
 this design sets for itself, so it corroborates the mechanism rather than establishing it. Two
-consequences follow and are reported as supporting rather than leading results:
-label-free alignment by standardisation and covariance alignment [@Sun2016] does not repair transfer
-but compresses it towards chance in fourteen of twenty directions, which we believe is the first
-application of covariance alignment to fire susceptibility; and because the residual gap is
-conditional, the resource that closes it is target labels, whose price is measurable, thirty-two
-labelled 5 km blocks recovering 85 to 89 % of the target's own ceiling in three of six directions
-tested, 51 to 57 % in two more and 30 % in the sixth.
+consequences follow and are reported as supporting rather than leading results: label-free alignment
+by standardisation and covariance alignment [@Sun2016] does not repair transfer but compresses it
+towards chance in fourteen of twenty directions, which we believe is the first application of
+covariance alignment to fire susceptibility; and because the residual gap is conditional, the
+resource that closes it is target labels, whose price is measurable, thirty-two labelled 5 km blocks
+recovering 85 to 89 % of the target's matched ceiling in three of six directions tested, 51 to 57 %
+in two more and 30 % in the sixth.
 
 Alongside these, a leakage-audited, spatially blocked evaluation and transfer protocol is released
 with code, configuration and frozen outputs, so that most of this result can be re-run rather than

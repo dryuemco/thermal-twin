@@ -60,45 +60,36 @@ susceptibility, fire occurrence or burned-area prediction.
 
 ## 2.5 Cross-region generalisation of fire models
 
-Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] provide the
+Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] give the
 long-standing reference point that meteorologically derived danger indices do not port cleanly
-between fire environments. WildfireGenome [@Liu2025] performs a leave-one-county-out transfer matrix
-across seven ecologically diverse US counties and reports strong within-county performance with
-highly variable off-diagonal transfer, ecologically similar pairs transferring well and dissimilar
-pairs collapsing; its label, however, is a principal-component composite of federal hazard
-*indicators* rather than observed burned area, and it applies no adaptation and no shift
-decomposition. Xu et al. [@Xu2026] argue that wildfire transfer conclusions depend strongly on
-evaluation design and task formulation, a caution that applies here as much as anywhere, and which
-we address by fixing the analysis protocol in a project log before the diagnostics were computed and
-by reporting every sensitivity axis. That log is not a formal pre-registration and no independent
-timestamped registration exists; Section 3.11 states what was fixed and when. For infrastructure at
-this scale, Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a 1 km Mediterranean datacube built
-for data-driven wildfire modelling.
+between fire environments. WildfireGenome [@Liu2025] runs a leave-one-county-out matrix across seven
+US counties and reports strong within-county performance with highly variable off-diagonal transfer,
+similar pairs transferring well and dissimilar pairs collapsing; its label, however, is a
+principal-component composite of hazard *indicators* rather than observed burned area, and it applies
+no adaptation. Xu et al. [@Xu2026] argue that wildfire transfer conclusions depend strongly on
+evaluation design, a caution we address by fixing the protocol in a project log before the
+diagnostics were computed and by reporting every sensitivity axis; that log is not a formal
+pre-registration, and Section 3.11 states what was fixed and when. Kondylatos et al. [@Kondylatos2023]
+provide Mesogeos, a 1 km Mediterranean datacube for data-driven wildfire modelling.
 
 **The nearest neighbour, and the contrast the present paper draws.** Dimarco et al. [@Dimarco2026]
-is the closest Mediterranean analogue. They harmonise 500 m predictors across four Mediterranean
-countries, fit tree ensembles under five-fold spatial cross-validation with an 80/20 hold-out, and
-test transfer both leave-one-country-out and as a full 4 × 4 matrix. Every transfer exceeds AUC 0.80.
-Transfers between bioclimatically similar countries score higher, and transfers to Morocco are
-systematically lower, which they attribute to anthropogenic drivers, fire management practice and
-data reporting rather than to climate alone. They apply no domain adaptation.[^dimarco-lst]
+is the closest Mediterranean analogue: 500 m predictors harmonised across four countries, tree
+ensembles under spatial cross-validation, transfer tested both leave-one-country-out and as a full
+4 x 4 matrix, with every transfer exceeding AUC 0.80 and bioclimatically similar countries scoring
+higher. They apply no domain adaptation.[^dimarco-lst]
 
-The two studies share their essential design: Mediterranean regions, 500 m cells, MCD64A1-derived
-targets, tree ensembles, spatially aware validation and an explicit transfer matrix. Theirs covers
-four countries and twelve ordered pairs, ours five regions and twenty ordered directions. **What
-differs is the predictor class.** Their model rests on quantities that are attributes of a place:
-terrain slope, night-time lights, human modification, population density, and temperature, wind and
-humidity as long-term seasonal climatologies. Every one is spatially stationary. Ours rests on the
-state of a surface in one season. Their result and ours are therefore not in conflict; read together
-they suggest that the relationship between domain similarity and transfer success is
-**predictor-class dependent**, so that models built on stationary attributes track similarity while
-models built on dynamic state need not. We present that reading as a live disagreement rather than a
-settled result: Vesk et al. [@Vesk2021] and Rousseau and Betts [@Rousseau2022] align with it from
-species distribution modelling, while Dimarco et al. and WildfireGenome run against it.
+Much of the design is shared — Mediterranean regions, 500 m cells, MCD64A1-derived targets, tree
+ensembles, spatially aware validation, an explicit transfer matrix — and two things differ. **The
+predictor class**: their model rests on attributes of a place, all spatially stationary, ours on the
+state of a surface in one season. **The response variable**: theirs is human-driven ignition, ours is
+burned area, and those are different quantities with different dominant controls. Read together the
+two results suggest that the relationship between domain similarity and transfer success may be
+predictor-class dependent, with Vesk et al. [@Vesk2021] and Rousseau and Betts [@Rousseau2022]
+aligning from species distribution modelling while Dimarco et al. and WildfireGenome run against it.
+We present that as a live disagreement, and Section 5.7 states why our own data do not settle it.
 
 [^dimarco-lst]: Their Results text refers to "LST anomalies", which is inconsistent with their own
 Methods, where no land surface temperature or TVDI variable appears and the only temperature
 predictor is a static ERA5-Land seasonal climatology [@MunozSabater2021]. We follow their Methods,
 which we take to be authoritative, and note the discrepancy so that the comparison is transparent.
-Every statement about their work was checked against the full text, read 2026-08-08, not the
-abstract alone.
+Every statement about their work was checked against the full text, read 2026-08-08.

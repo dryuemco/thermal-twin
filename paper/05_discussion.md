@@ -16,9 +16,9 @@ baseline transfers no better, at a mean of 0.537 against 0.541, so the failure i
 matrix rather than of the dynamic block specifically. Removing the two reversing predictors,
 elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
 three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
-also spans zero. Second, of twenty candidate transferability diagnostics only two
-have intervals excluding zero and both are conditional, while every marginal measure fails,
-including the area-of-applicability family that is the only one runnable before deployment. Third,
+also spans zero. Second, of twenty candidate transferability diagnostics only two have intervals excluding zero and
+both are conditional, while no marginal measure was shown to order the matrix, including the
+area-of-applicability family that is the only one runnable before deployment. Third,
 the mechanism is a reversal in the sign of the predictor-burning association, and it persists inside
 one study area across two fires.
 
@@ -33,30 +33,28 @@ overstated: the contribution strengthens in Bejís (0.058 → 0.079 at 14 days) 
 holds everywhere is survival, not improvement. The transfer failure is therefore not evidence that
 the thermal signal is spurious. It is evidence that the fitted relationship is *local*.
 
-The natural objection is that different Mediterranean regions are simply different systems, with
-distinct fuels, terrain and fire histories, so that a predictor meaning one thing in one place and
-another elsewhere is not instability but a comparison of two different systems. The two Muğla events
-speak directly to that. Region, AOI, analysis grid, feature registry and processing chain are
-identical, and the static predictors are identical cell by cell, yet elevation's association with
-burning reverses with disjoint intervals, 0.611 [0.532, 0.690] in 2021 against 0.296 [0.230, 0.355]
-in 2022, a difference of −0.317 [−0.414, −0.220]. Holding geography fixed does not stabilise the
-direction of the relationship.
+The natural objection is that different Mediterranean regions are simply different systems, so that
+a predictor meaning one thing in one place and another elsewhere is not instability but a comparison
+of two different systems. The two Muğla events answer it directly: region, AOI, grid, feature
+registry and processing chain identical, static predictors identical cell by cell, and elevation's
+association with burning reversing from 0.611 [0.532, 0.690] to 0.296 [0.230, 0.355], a difference of
+−0.317 [−0.414, −0.220] (Section 4.8). Holding geography fixed does not stabilise the direction of
+the relationship.
 
-The mechanism there is physical rather than statistical. The 2021 season burned as a dispersed
-complex across the region's full relief; the 2022 event was a single compact scar confined to lower
-ground. Two caveats attach and neither is dismissed. Season and year are confounded, because the
-2022 event ignites about six weeks earlier, and **that confound cannot be resolved in this study
-area**: the two events sit 42 days apart in median burn day-of-year, neither year contains a second
-event at the other's phase, and a calendar-matched arm would carry nine burned cells against a gate
-minimum of thirty. Separating year from seasonal phase needs a region with two events at a matching
-phase in different years, and no region here has one. The design also does not hold the population
-fixed, since the 2022 arm is the 2021 arm with the 2021 scar removed, which Section 4.8 states in
-full. What survives both caveats is the narrower reading that *something* reverses the
-elevation-burning association with geography, grid and pipeline held fixed.
+Three caveats attach and none is dismissed. Season and year are confounded, and **that confound
+cannot be resolved in this study area**: the events sit 42 days apart in median burn day-of-year,
+neither year contains a second event at the other's phase, and a calendar-matched arm would carry
+nine burned cells against a gate minimum of thirty. The population is not held fixed either, the
+2022 arm being the 2021 arm with the 2021 scar removed. And the 2022 arm rests on one compact scar
+and eleven positive-carrying 5 km blocks. What survives all three is the narrower reading that
+*something* reverses the elevation-burning association with geography, grid and pipeline held fixed,
+which is why Section 4.8 is reported as corroboration rather than as the load-bearing evidence for
+the mechanism.
 
 The sharpest supported reversal belongs to elevation, a static predictor, so instability is a
 property of the predictor-to-burning mapping generally rather than of thermal channels specifically.
-The thermal block is where the trade-off is *costly*, not where instability is worst.
+This is the same conclusion the baseline transfer arm reaches from the other direction: the
+instability is not the thermal block's peculiarity.
 
 ## 5.3 Why the similarity-based diagnostics fail
 
@@ -91,7 +89,7 @@ family that fails here, and the information that would order transfer is the inf
 practitioner does not have when the decision is made. The honest statement is that these twenty
 candidates were **not shown to order transfer**, not that they are shown incapable of it.
 
-## 5.5 Interventions obey a conservation pattern
+## 5.5 What the two interventions do and do not show
 
 Both interventions show the same shape. Pooling four regions never beats the best single-source
 transfer for any target and stays 0.28 to 0.50 below the within-region ceiling, so aggregation does
@@ -112,28 +110,25 @@ that is "spent" on portability overstated what two nulls can support.
 A regime-structure explanation was stated in advance and the data confirmed the null. The
 regime-distance correlation has the wrong sign at the point estimate, the most regime-similar pair
 fails in both directions, and the most regime-different pair transfers above chance. One mundane
-explanation can be set aside: Muğla has by far the largest population, but cutting it to Manavgat's
-cell count, and separately to Manavgat's positive count as well, leaves its transfer behaviour
-inside the subsampling range in both roles. The error was in the hypothesised grouping, not in the
-data, and with ten pairs this cannot refute regime typology [@Archibald2013] in general.
+explanation can be set aside: cutting Muğla, by far the largest population, to Manavgat's cell count
+and separately to its positive count leaves Muğla's transfer behaviour inside the subsampling range
+in both roles. The error was in the hypothesised grouping, not in the data, and with ten pairs this
+cannot refute regime typology [@Archibald2013] in general.
 
 ## 5.7 The empirical contrast with Dimarco et al.
 
 Dimarco et al. [@Dimarco2026] transfer successfully across a comparable Mediterranean design and we
 do not, and the two results are not in conflict. Their predictors are attributes of a place, ours
-describe the state of a surface in one season. Read together they suggest that the relationship
-between domain similarity and transfer success is predictor-class dependent.
+describe the state of a surface in one season, which suggests that the relationship between domain
+similarity and transfer success is predictor-class dependent.
 
-That reading is one of at least two, and the alternative should be stated because we cannot separate
-them here. Their response variable is human-driven **ignition**; ours is burned **area**. Ignition
-likelihood is dominated by human access and activity, which are stable and near-universal drivers,
-whereas burned extent is dominated by spread — fire weather, fuel continuity, terrain. A
-predictor-class explanation and a response-variable explanation for the divergence are therefore
-confounded in this comparison. Our own data speak against a simple predictor-class reading in any
-case: the static baseline transfers at a mean of 0.537 here (Section 4.3), so within this cohort the
-place-attribute class does not travel either. We present that as a
-live disagreement, since species distribution modelling aligns with it and the fire literature does
-not, and it is a reading our data support without proving.
+That reading is one of at least two, and we cannot separate them here. Their response variable is
+human-driven **ignition**; ours is burned **area**. Ignition likelihood is dominated by human access
+and activity, stable and near-universal drivers, whereas burned extent is dominated by spread. A
+predictor-class explanation and a response-variable explanation are therefore confounded in this
+comparison. Our own data speak against a simple predictor-class reading in any case: the static
+baseline transfers at a mean of 0.537 here, so within this cohort the place-attribute class does not
+travel either.
 
 ## 5.8 Implications
 

@@ -18,22 +18,23 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (8)
+## review (9)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - TABLE 1 REFERENCED BUT NOT PRESENT — left as literal text _(x2)_
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 120
-- TABLE WITHOUT CAPTION in 04_results near md line 312
+- TABLE WITHOUT CAPTION in 04_results near md line 290
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 
 ## stripped (5)
 
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (16)
+## table (18)
 
 - Region summary (recap of Table 1; final numb: 10 cols, est. width 176 chars -> scriptsize, 3 wrapping
 - Region summary (recap of Table 1; final numberin: 3 of 10 columns wrap (widest cell 27 chars)
@@ -44,11 +45,13 @@ converter made is listed so it can be reviewed.
 - Cross-region transfer matrix, thermal model,: 4 cols, est. width 89 chars -> footnotesize
 - Transfer-gap decomposition (four-AOI set, 12: 6 cols, est. width 113 chars -> footnotesize, 3 wrapping
 - Transfer-gap decomposition (four-AOI set, 12 dir: 3 of 6 columns wrap (widest cell 29 chars)
-- All transferability diagnostics versus raw t: 6 cols, est. width 125 chars -> footnotesize, 3 wrapping
-- All transferability diagnostics versus raw therm: 3 of 6 columns wrap (widest cell 42 chars)
+- Transferability diagnostics versus raw therm: 4 cols, est. width 124 chars -> small, 2 wrapping
+- Transferability diagnostics versus raw thermal t: 2 of 4 columns wrap (widest cell 63 chars)
 - : 3 cols, est. width 70 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 23 chars)
 - Signed univariate feature-burned AUC, Muğla : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping
 - Signed univariate feature-burned AUC, Muğla 2021: 3 of 4 columns wrap (widest cell 24 chars)
+- : 6 cols, est. width 125 chars -> footnotesize, 3 wrapping
+- : 3 of 6 columns wrap (widest cell 42 chars)
 - Few-shot recovery of target ROC-AUC, thermal: 10 cols, est. width 100 chars -> footnotesize
 

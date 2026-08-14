@@ -8,13 +8,13 @@
 
 ## 4.1 Study regions and the admissibility gate
 
-All five candidate regions pass the burned-landcover gate as wildfire candidates, and the negative
+All five candidate regions pass the burned-landcover gate as wildfire candidates and the negative
 control fails it as intended. Kozan 2023 returns a natural-vegetation fraction of 0.017 against the
-0.50 threshold and the verdict *cropland-dominated control*, and is excluded from all modelling. The
-separation is not marginal: the five admitted regions carry natural-vegetation fractions of 0.723 to
-0.991, so the threshold falls in an empty interval rather than between neighbouring cases. This
-establishes that the gate discriminates burned area produced by natural-fuel combustion from burned
-area produced by post-harvest stubble burning, which MCD64A1 does not distinguish.
+0.50 threshold and is excluded from all modelling. The separation is not marginal: the five admitted
+regions carry fractions of 0.723 to 0.991, so the threshold falls in an empty interval rather than
+between neighbouring cases. That is consistent with the gate separating burned area produced by
+natural-fuel combustion from post-harvest stubble burning, which MCD64A1 does not distinguish,
+though one negative control cannot establish it.
 
 **Table R1. Region summary (recap of Table 1; final numbering at assembly).** Counts from each
 region's Step 8A dataset statistics; gate fractions from each region's burned-landcover gate output.
@@ -197,42 +197,21 @@ Twenty candidate diagnostics from four families were each rank-correlated with t
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
 pair-based bootstrap.
 
-**Table 6. All transferability diagnostics versus raw thermal transfer (20 ordered directions).**
-Spearman ρ with pair-based bootstrap 95% CIs. Exp. = expected sign. Rows with n = 12 exist only for
-the four-AOI subset. The supported-features conditional rows use the 16 directions (8 pairs) with at
-least one CI-supported feature.
+**Table 6. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
+raw transfer AUC with pair-based bootstrap 95 % CIs. The strongest member of each family in its
+expected direction is named. All twenty individual diagnostics are in Appendix B, Table B1.
 
-| Diagnostic | Family | Exp. | n dir | Spearman ρ [95% CI] | CI excludes 0 |
-|---|---|---|---|---|---|
-| **Agreement fraction, supported features** | **P(y\|x) conditional** | + | 16 | **+0.84 [+0.58, +0.88]** | **yes** |
-| **Cosine, supported features** | **P(y\|x) conditional** | + | 16 | **+0.81 [+0.33, +0.88]** | **yes** |
-| Cosine, all 9 features | P(y\|x) conditional | + | 20 | +0.50 [−0.17, +0.83] | no |
-| Vector Spearman, all 9 | P(y\|x) conditional | + | 20 | +0.27 [−0.36, +0.77] | no |
-| Agreement count, all 9 | P(y\|x) conditional | + | 20 | +0.18 [−0.40, +0.72] | no |
-| Schoener's D, 1-D mean | P(x\|y=1) niche | + | 20 | +0.24 [−0.45, +0.74] | no |
-| Warren's I, 1-D mean | P(x\|y=1) niche | + | 20 | +0.22 [−0.42, +0.73] | no |
-| Schoener's D, PCA-2D | P(x\|y=1) niche | + | 20 | +0.10 [−0.51, +0.68] | no |
-| Warren's I, PCA-2D | P(x\|y=1) niche | + | 20 | −0.07 [−0.66, +0.49] | no |
-| Mahalanobis, burned centroids | P(x\|y=1) niche | − | 20 | −0.23 [−0.75, +0.44] | no |
-| Domain-classifier AUC | P(x) marginal | − | 20 | −0.32 [−0.78, +0.33] | no |
-| Predictor-space mean dissimilarity | P(x) marginal | − | 12 | −0.10 [−0.54, +0.43] | no |
-| Predictor-space p95 dissimilarity | P(x) marginal | − | 12 | −0.08 [−0.59, +0.49] | no |
-| Fraction inside weighted AoA | P(x) marginal | + | 12 | +0.22 [−0.48, +0.59] | no |
-| Fraction inside unweighted support | P(x) marginal | + | 12 | +0.08 [−0.89, +0.63] | no |
-| Climatic distance | P(x) marginal | − | 12 | +0.06 [−0.76, +0.79] | no |
-| Geographic distance | geographic | − | 12 | −0.24 [−0.84, +0.73] | no |
-| Regime distance, log effective-N | P(y) structure | − | 20 | +0.29 [−0.38, +0.74] | no |
-| Regime distance, largest share | P(y) structure | − | 20 | +0.29 [−0.39, +0.72] | no |
-| Vector Spearman, supported (≥3 feats) | P(y\|x) conditional | + | 2 | not computable | — |
-
-*Table note (power): the effective sample is 10 unordered pairs (6 for the 12-direction rows; 8 for
-the supported-conditional rows). The two directions of a pair are not independent and every pair
-shares regions with three others. Intervals of width ±0.5 to 0.8 cannot rule out moderate true
-correlations; null rows are "not shown to order transfer", not "shown not to".*
+| Family | Diagnostics | Strongest member, in the expected direction | Any CI excluding 0 |
+|---|---:|---|---|
+| **P(y\|x) conditional** | 6 | **+0.84 [+0.58, +0.88]** agreement fraction, supported features | **yes, 2 of 6** |
+| P(x\|y=1) niche overlap | 5 | +0.24 [−0.45, +0.74] Schoener's D, 1-D mean | no |
+| P(x) marginal | 6 | −0.32 [−0.78, +0.33] domain-classifier AUC | no |
+| P(y) regime structure | 2 | +0.29 [−0.38, +0.74] log effective-N distance | no |
+| geographic | 1 | −0.24 [−0.84, +0.73] centroid geodesic distance | no |
 
 **Only two diagnostics have intervals excluding zero, and both are conditional.** The stronger is
 the sign-agreement fraction over interval-supported features, at ρ = +0.84 [+0.58, +0.88]; the
-cosine variant reaches +0.81. Every marginal measure fails, including area-of-applicability-style
+cosine variant reaches +0.81. No marginal measure was shown to order the matrix, including area-of-applicability-style
 dissimilarity in predictor space, climatic distance and geographic distance, and so do the
 niche-overlap and regime families. The learned domain classifier is at ceiling, separating source
 from target at AUC ≥ 0.96 for every pair, which makes it useless as an ordering instrument precisely
@@ -284,12 +263,11 @@ it. Established by coexisting counterexamples, it does not depend on the number 
 
 ## 4.6 Interventions: pooling and feature removal obey the same conservation
 
-**(a) Pooled multi-region training.** Training on the pooled populations of four regions and testing
-on the held-out fifth does not rescue transfer. At the point estimate the pooled thermal model never
-beats the best single-source pairwise transfer for any target, with shortfalls of 0.02 to 0.22, and
-it remains 0.28 to 0.50 AUC below the within-region ceiling. For two targets it falls below the
-pairwise mean and below chance, though only Bejís is below chance with interval support, at 0.417
-[0.369, 0.467].
+**(a) Pooled multi-region training.** Training on the pooled primary populations of the other four
+regions never beats the best single-source transfer for any target, and stays 0.28 to 0.50 AUC below
+the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though
+only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not
+manufacture the missing conditional information.
 
 **(b) Removing the direction-reversing features.** The two predictors whose signed association
 reverses between regions are **`elevation_mean` and `lst_anomaly_mean`**. Retraining without them
@@ -319,28 +297,17 @@ Two nulls on the portability axis do not constitute a price paid.
 
 ## 4.7 Sensitivity analyses
 
-**(a) Evia AOI and prevalence.** Repeating the raw transfer arms with the legacy, high-prevalence
-Evia box leaves every qualitative conclusion unchanged: thermal raw transfer AUCs move by at most a
-up to 0.07 — the largest is Evia→Bejís, 0.378 to 0.448 — and no direction changes side of the
-chance line.
-
-**(d) CORAL regularisation.** Over nine λ values from 0 to 10⁻¹ on four directions, CORAL transfer
-AUC moves by at most 0.014 within any direction and 0.008 within the thermal family, so no
-CORAL-dependent conclusion here is sensitive to λ in that range. The companion paper reports the
-canonical λ = 1, which the released sweep omits.
-
-**(g) Blocking scale.** Recomputing the transfer quantities at 10-cell (≈ 5 km) blocking from the
-frozen per-cell predictions widens the intervals and moves the verdict counts, from ten positive,
-seven negative and three uncertain at 1 km to six, four and ten at 5 km. Coarser blocking therefore
-removes support from six verdicts and adds none.
-
-The point estimates are unchanged, but that is an identity rather than a result and should not be
-offered as robustness: the blocking scale is the bootstrap *resampling unit*, and each point
-estimate is computed once over all target cells, so no choice of block size could have moved one.
-What the comparison does establish is the direction of the fragility — every verdict that changes,
-changes towards "no verdict" — and that no direction crosses the chance line under the widened
-intervals. The counts are the fragile part of this paper. The sign pattern is not thereby shown to
-be robust; it is simply not tested by this particular variation.
+Five design choices were varied with everything else held fixed: the Evia AOI and its prevalence,
+the CORAL regularisation constant, the blocking scale, the closure date of the predictor window, and
+the quality screening of the coarse thermal input. None changes a conclusion above. Two are worth
+carrying into the main text because they bound how the results should be read. Coarsening the blocks
+from 1 km to 5 km moves the verdict counts from ten positive, seven negative and three uncertain to
+six, four and ten, removing support from six verdicts and adding none; the point estimates are
+unchanged, but that is an identity, since the blocking scale is the resampling unit and cannot move
+an estimate computed once over all target cells. And rebuilding Manavgat's whole downstream chain
+from a quality-screened MODIS input, which changes the downscaled surface on 22,304 of 24,150 cells
+by up to 10.9 °C, moves no signed univariate association by more than +0.0003, closing the one
+processing-artefact candidate for that region's behaviour. Appendix A reports all five.
 
 ## 4.8 The same geography, a second fire: reversal with place held constant
 
@@ -399,16 +366,16 @@ reversal smaller rather than larger.
 
 Everything above measures a failure; this prices it. If the residual gap is conditional and
 label-free alignment cannot close it, the missing resource is target-conditional information, and
-the direct way to supply it is target labels. The frozen few-shot diagnostic answers how many for
-three regions in all six ordered directions, using one 10-cell (≈ 5 km) spatial block as the unit of
-labelling effort, budgets of 0 to 32 blocks drawn under a fixed tier order with seeds independent of
-any result, and ten repeats per budget. Recovery is read against a matched target-only ceiling of
-0.777 to 0.824 under the same folds and blocking.
+the direct way to supply it is target labels. A frozen few-shot diagnostic answers how many, for
+three regions across all six ordered directions, using one 10-cell (~5 km) spatial block as the unit
+of labelling effort and reading recovery against a matched target-only ceiling of 0.777 to 0.824.
 
-Thirty-two labelled blocks recover **85 to 89 % of the target's own ceiling in three of the six
-directions**, two of which started below chance and the third at 0.583; 51 to 57 % in two more,
-which are the directions where the conditional gap is widest; and 30 % in the sixth. That budget is
-7 to 20 % of the target's natural-vegetation population, so it is a real answer to "what do we do"
-and not a cheap one. At small budgets the same intervention damages the direction that already
-transfers best without any labels. Six directions in three regions cannot support a general label
-budget and none is offered.
+Thirty-two labelled blocks recover **85 to 89 % of that ceiling in three of the six directions**, two
+of which started below chance; 51 to 57 % in two more, the directions where the conditional gap is
+widest; and 30 % in the sixth. That budget is 7 to 20 % of the target's natural-vegetation
+population, roughly 800 km, so it is a real answer and not a cheap one. Two properties of the
+measurement bound it and are stated in the supplement rather than buried: at the top budget the
+selection pool is nearly exhausted, so the narrow upper-budget intervals reflect saturation rather
+than precision, and the labelled blocks are drawn from the event being predicted, which is not a
+resource available before that event burns. The protocol, the full curve and the limits are in
+Supplement S1.

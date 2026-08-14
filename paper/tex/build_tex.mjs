@@ -573,13 +573,22 @@ the three components that fall outside that release. No digital object
 identifier is minted and no archival deposit exists.`;
 
 const abstractMd = read('00_abstract.md');
-const sections = ['01_introduction', '02_related_work', '03_methods',
-                  '04_results', '05_discussion', '06_conclusions'];
+// Appendices are ordinary sections to the converter; LaTeX is told where the
+// body ends by the \appendix marker inserted between the two groups below.
+const BODY = ['01_introduction', '02_related_work', '03_methods',
+              '04_results', '05_discussion', '06_conclusions'];
+const APPENDICES = ['A1_sensitivity', 'A2_diagnostics', 'A3_protocol']
+  .filter(f => has(f + '.md'));
+const sections = [...BODY, ...APPENDICES];
 
 collectTableLabels([...sections, ...(has('S1_few_shot_recovery.md') ? ['S1_few_shot_recovery'] : [])]);
 
 const abstractTex = convertBody(abstractMd, { abstract: true }).trim();
-const bodyTex = sections.map(f => convertBody(read(f + '.md'), { src: f })).join('\n\n');
+const bodyTex = [
+  ...BODY.map(f => convertBody(read(f + '.md'), { src: f })),
+  ...(APPENDICES.length ? ['\\appendix'] : []),
+  ...APPENDICES.map(f => convertBody(read(f + '.md'), { src: f })),
+].join('\n\n');
 
 // Highlights (Elsevier wants them as a separate item, but keep them in the file).
 const highlights = readOpt('highlights.md', '').split(/\r?\n/)
