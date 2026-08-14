@@ -194,10 +194,10 @@ selection is applied.
 
 ## 3.13 Controls on the transfer path
 
-Three controls establish what the transfer arms are measuring. All three use the transfer protocol of
+Four evaluations establish what the transfer arms are measuring. All use the transfer protocol of
 Section 3.8 unchanged: fit on the source cells, apply to the target cells, no refit, no
-recalibration, no threshold selection. All three were verified to reproduce the frozen cross-region
-AUCs exactly before being used.
+recalibration, no threshold selection. All were verified to reproduce the frozen cross-region AUCs
+exactly before being used.
 
 **Within-region half-split.** The modelled cells of a region are cut in two at the median of a grid
 axis, a model is fitted on one half and applied to the other. Both axes and both directions are run,
@@ -205,20 +205,21 @@ giving four splits per region. A split is discarded when either half is single-c
 twice in one region. Per-split source and target positive counts are reported, because they are
 unequal and bear on the interpretation.
 
-**Distance stratification.** Because the cut is a straight line, a target cell's distance to the
-nearest training cell equals its distance to that line, so one fitted model per split yields an AUC
-at every separation. Target cells are binned at 0, 5, 10, 20, 40, 80 and 160 km, a bin is used when
-it holds at least 50 cells of both classes, and results are reported both unweighted over bins and
-weighted by burned cells, because the two disagree.
+**Foreign-region evaluation.** Each held-out scar area is additionally scored with a model fitted on
+each of the other four regions in turn, and those four results averaged, so that a same-region model
+and a foreign one are compared on identical cells. This is the arm that separates the effect of
+withholding the fire from the effect of separation distance.
 
 **Leave-one-scar-out.** Burned connected components are found with 8-connectivity on the analysis
 grid. Every component of at least 50 cells is held out together with all cells within a buffer of it,
 a model is fitted on the remainder of the same region, and applied to the held-out area. Buffers of
-2, 5 and 10 km are run. This is the control that separates the fire event from separation distance,
-since a scar held out at 2 km inside its own region is close to its training data and yet wholly
-unseen.
+2, 5 and 10 km are run. A scar held out at 2 km inside its own region is close to its
+training data and yet wholly unseen, which is what makes the comparison with the foreign-region arm
+informative.
 
-Appendix A(h) reports all four in full, with per-split and per-scar tables.
+Appendix A(h) reports all four in full, with per-split and per-scar tables. Intervals for the
+four-row ladder are Student *t* over the eight held-out scars, which is that arm's resampling unit,
+rather than the spatial-block bootstrap of Section 3.7 used everywhere else in this paper.
 
 ## 3.14 Leakage control
 

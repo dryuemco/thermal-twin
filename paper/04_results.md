@@ -135,10 +135,15 @@ every negative in it is fire-adjacent, so it is a harder discrimination problem 
 
 | Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
 |---|---|---|---:|---|
-| A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.782 | [0.752, 0.811] |
-| B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.627 | [0.566, 0.688] |
-| C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.510, 0.593] |
-| D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.559 | [0.514, 0.604] |
+| A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.782 | [0.746, 0.818] |
+| B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.634 | [0.562, 0.706] |
+| C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.503, 0.601] |
+| D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.555 | [0.502, 0.608] |
+
+All four rows are means over the **same eight scars**, and the intervals are Student *t* over those
+eight, which is the resampling unit for this arm rather than the spatial-block bootstrap used
+elsewhere in the paper. Eight is a small number and the intervals are wide accordingly. Four of the
+eight scars are in Muğla, so they are not fully independent.
 
 **Most of the apparent collapse is the evaluation area, not the fire.** A and B use the same model
 and differ only in which cells it is scored on, and that alone accounts for 0.155 of the 0.230 fall
@@ -146,11 +151,18 @@ from A to C, about two thirds. Any comparison of a scar-level result against a r
 reference inherits that, and the region-level reference is what a paper of this kind normally
 reports.
 
-**Withholding the fire costs little, and moving 2,800 km costs nothing measurable.** B minus C, the
-fire-specific residual on identical cells, is **+0.082 [+0.005, +0.159]**. C minus D, the effect of
-replacing a same-region model with one fitted between 306 and 2,802 km away, is **−0.003
-[−0.063, +0.056]**. The second is the cleanest result here: on the same cells, a model fitted in
-another country does as well as one fitted in the same region with the scar withheld.
+**Neither withholding the fire nor moving 2,800 km has a measurable cost.** B minus C, the
+fire-specific residual on identical cells, is **+0.082 [−0.011, +0.175]**, which spans zero. C minus
+D, the effect of replacing a same-region model with one fitted between 306 and 2,802 km away, is
+**−0.003 [−0.075, +0.069]**, which also spans zero and is an order of magnitude smaller. The second
+is the cleaner result: on the same cells, a model fitted in another country does as well as one
+fitted in the same region with the scar withheld, and it survives restriction to Muğla, the only
+region where holding out one scar still leaves the source model properly trained, at 0.579 against
+0.597.
+
+The first difference should not be over-read. With eight scars this design cannot establish a
+fire-specific residual, only bound it: it is at most about 0.18, against the 0.148 that separates
+row A from row B on the same model.
 
 What this establishes is that the failure is a property of **contiguous spatial holdout**. It is not
 a property of separation distance and not of crossing a region boundary. What it does not establish
@@ -312,7 +324,7 @@ an artefact of unequal samples.
 ## 4.5 The contrast pair: similarity is not sufficient
 
 The clearest single view of Table 6 needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
-country and the same fire year. They are 307 km apart by the centroid geodesic distance this paper
+country and the same fire year. They are 306 km apart by the centroid geodesic distance this paper
 uses as a diagnostic, and their nearest boundaries are 191 km apart. Their burned cells occupy the
 most similar environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77
 to 0.89. Yet five of nine feature-response directions point opposite ways. Elevation is one of them,

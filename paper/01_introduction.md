@@ -83,9 +83,10 @@ folds are drawn at random over cells, spatial autocorrelation inflates the estim
 problem is documented across ecological modelling [@Roberts2017; @Ploton2020] and is addressed by
 spatially blocked cross-validation [@Valavi2019; @Meyer2018]. Blocking removes the inflation that
 random folds produce, and it is the right correction for what it corrects. It does not make the
-estimate honest about a fire the model has not seen. Section 4.3 shows the size of that gap: blocked
-cross-validation at 5 km returns a mean of 0.797, and the same models applied to a burn scar held out
-of their own region return 0.552.
+estimate honest about a fire the model has not seen. Section 4.3 measures that on identical cells: a
+model with the held-out burn scar in its training data scores 0.634 on that scar's area, and
+withholding the scar gives 0.552. Part of the apparent gap between a region-level figure and either
+of those is the evaluation area rather than the model.
 
 Because only that side of the ledger is reported, portability is never entered at all. A predictor
 block is adopted on the strength of the increment it delivers inside its training footprint, and
@@ -158,8 +159,8 @@ run from −0.148 to +0.132, twelve positive and eight negative. Two controls bo
 model's 0.541, so the static predictor class is not the portable one either. Three evaluations scored on **identical cells**
 locate where the skill goes. A model with the held-out burn scar in its training data returns 0.627
 on that scar's area; withholding the scar returns 0.552; and a model fitted 306 to 2,802 km away
-returns 0.559. The fire-specific residual is +0.082 [+0.005, +0.159]; the effect of the 2,800 km is
-**−0.003 [−0.063, +0.056]**. **The failure is a property of contiguous spatial holdout**, not of
+returns 0.559. The fire-specific residual is +0.082 [−0.011, +0.175]; the effect of the 2,800 km is
+**−0.003 [−0.075, +0.069]**. **The failure is a property of contiguous spatial holdout**, not of
 separation distance and not of crossing a region boundary. It is not shown to be a property of the
 fire event either, because the held-out patch is defined by the labels and its identity cannot be
 separated from its location. Two thirds of the apparent fall from the region-wide 0.782 is the

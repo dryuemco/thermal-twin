@@ -14,8 +14,8 @@ support at 1 km and 5 km blocking, and contributes +0.004 [−0.028, +0.036] acr
 transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
 baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is not a property of
 the dynamic block specifically. Nor is it attributable to region crossing. On identical
-cells, withholding the burn scar from training costs +0.082 [+0.005, +0.159] and moving the training
-data 306 to 2,802 km away costs −0.003 [−0.063, +0.056]. The failure is a property of contiguous
+cells, withholding the burn scar from training costs +0.082 [−0.011, +0.175] and moving the training
+data 306 to 2,802 km away costs −0.003 [−0.075, +0.069]. The failure is a property of contiguous
 spatial holdout. The six below-chance directions are a separate matter, since no account of
 merely lost skill produces a reliably reversed ranking. Removing the two reversing predictors,
 elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
@@ -150,10 +150,13 @@ rest. That is a real answer and not a cheap one, being 7 to 20 % of the target's
 population, and at small budgets the same intervention damages the direction that already transfers
 best.
 
-For method development, the results point away from better unsupervised alignment. Two label-free
-methods applied carefully moved fourteen of twenty directions towards chance, and every direction
-they improved involves the smallest region. A sign reversal is not a distribution mismatch, and no
-realignment of inputs can repair it.
+For method development, the results bound what unsupervised alignment can be asked to do. Two
+label-free methods applied carefully moved fourteen of twenty directions towards chance, and every
+direction they improved involves the smallest region. But their mean, 0.556, is at the reference a
+model can reach on an unseen scar at all (Section 4.3), so they are not failing far below an
+achievable target; they are regressing the matrix onto it, which costs the directions that already
+worked. What alignment cannot do is exceed that reference, and a sign reversal is not a distribution
+mismatch that realigning inputs would repair.
 
 ## 5.9 Limitations
 

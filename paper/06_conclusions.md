@@ -47,7 +47,7 @@ thermal model's 0.541, so the static predictor class is not portable here either
 where it goes: 0.627 with the held-out burn scar in the training data, 0.552 with it withheld, and
 0.559 for a model fitted 306 to 2,802 km away. The honest summary is therefore not that these
 predictors fail to cross regions. **The failure is a property of contiguous spatial holdout**: the
-fire-specific residual is +0.082 [+0.005, +0.159] and the 2,800 km costs −0.003 [−0.063, +0.056].
+fire-specific residual is +0.082 [−0.011, +0.175] and the 2,800 km costs −0.003 [−0.075, +0.069].
 Two thirds of the apparent collapse from a region-wide 0.782 is the evaluation area itself, which is
 34 to 87 per cent burned against 3.8 to 28.7 for a region. Six directions are nonetheless anti-predictive with
 interval support, which no account of merely lost skill explains. The one-event-per-region design
@@ -69,9 +69,10 @@ anti-predictive directions, is not explained by separation and is where the inst
 
 None of the similarity diagnostics tested here ordered the transfer matrix: predictor-space distance,
 domain separability, niche overlap and regime structure all failed. On ten effective pairs those null
-results mean not shown to order transfer, rather than shown not to. Label-blind adaptation compresses
-transfer towards chance instead of repairing it, and pooled multi-region training does not escape
-it.
+results mean not shown to order transfer, rather than shown not to. Label-blind adaptation compresses transfer towards
+chance rather than repairing it, though its mean sits at the reference a model can reach on an
+unseen scar, so it is regressing the matrix onto that level rather than failing beneath it. Pooled
+multi-region training does not escape it either.
 
 The practical implication is a change in what is checked before a dynamic-state fire model is
 transferred. The question is not whether the target region lies inside the source's environmental

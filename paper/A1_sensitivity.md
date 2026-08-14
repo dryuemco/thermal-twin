@@ -176,7 +176,7 @@ source model properly trained. Its four arms mean 0.579; the four arms in the ot
 | mugla 2021 | 8 | 2,363 | 548 | 954 | 0.542 |
 
 The evaluation populations of the two arms are not comparable with each other or with the transfer
-targets. A held-out scar with its 2 km collar runs at 43 to 87 % burned prevalence; a whole target
+targets. A held-out scar with its 2 km collar runs at 34 to 87 % burned prevalence; a whole target
 region runs at 3.8 to 28.7 %. The scar arm therefore asks for discrimination against the nearest and
 most similar negatives only, while a transfer arm includes the whole easy far field. Section 4.3
 states the consequence: the last three rows of the ladder are not distinguishable by this design.
