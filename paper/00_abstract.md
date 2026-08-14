@@ -58,6 +58,12 @@
 > sentence. Do not cut the interval on +0.004, the fourteen-of-twenty count, or the population clause
 > in the two-event sentence.
 >
+> **Rewritten 2026-08-14 for the three-finding structure.** 319 words. Each finding now carries its
+> own signposted paragraph, which is what the cut manuscript is organised around. **If the limit turns
+> out to be 250, cut in this order:** the niche-overlap sufficiency clause, then the recovery figures
+> in the closing sentence, then "with an unstable sign". Do not cut the interval on +0.004, the
+> feature-removal exchange, or the disjoint-intervals clause in the third finding.
+>
 > **Word limit not verified.** Both the Elsevier and ScienceDirect guide-for-authors pages return
 > HTTP 403 to automated fetching. A web search reports 400 words for *Ecological Informatics*, but
 > that was not corroborated by a second source and is not quoted from the guide itself. 250 is
@@ -65,33 +71,31 @@
 > alike. **Check the guide before submission**; if 400 is confirmed, there is room to restore the
 > per-region robustness detail and the domain-classifier ceiling.
 
-Pre-fire thermal dryness, measured by land surface temperature, its anomalies and dryness indices,
-separates a fire year from a normal year. Models built on it are rarely tested outside their
-training region.
+Pre-fire thermal dryness separates a fire year from a normal year, and models built on it are rarely
+tested outside the region they were fitted in. Five Mediterranean wildfire regions were analysed on
+about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six pre-fire thermal
+predictors to a terrain, fuel and greenness baseline.
 
-Five Mediterranean wildfire regions were analysed on about 500 m cells, with MCD64A1 labels and
-spatially blocked validation. Six pre-fire thermal predictors were added to a static and near-static
-terrain, fuel and greenness baseline. Within every region, ROC-AUC rose by +0.06 to +0.15, and the
-gain survived coarser blocks and an earlier predictor window.
+**The block buys local skill and spends portability.** Within-region ROC-AUC rose by +0.056 to
++0.153 in every region. Across twenty ordered transfer directions the same block contributed +0.004,
+an estimate whose interval spans zero, with an unstable sign. Removing the two reversing predictors
+cost −0.081 of within-region skill, supported in every region, and bought +0.014 of transfer whose
+interval also spans zero: the debit is measured and the credit is not.
 
-The same predictors were then transferred between regions. Their mean contribution over twenty
-ordered directions was +0.004, with an interval spanning zero. Removing the two reversing predictors
-cost −0.081 of within-region skill, supported in every region, and changed mean transfer by +0.014,
-whose pair-clustered interval spans zero. The debit is measured and the credit is not.
+**The loss is invisible to the diagnostics available before deployment.** Of twenty candidate
+transferability diagnostics rank-correlated against observed transfer, only two had intervals
+excluding zero and both were conditional, the stronger being agreement in the sign of each
+predictor's association (Spearman ρ = 0.84 over eight pairs). Every marginal measure failed,
+including predictor-space dissimilarity, and the pair with the highest burned-niche overlap failed
+in both directions while the lowest transferred in both. Signed associations need labels on both
+sides, so the family that works is the one a practitioner does not have.
 
-The failure is conditional. Inside one study area, two fires eleven months apart reversed the
-elevation-burning link, with disjoint bootstrap intervals. Season, year and population all differ
-there, so place alone is what the design holds fixed.
+**The mechanism is a sign reversal.** Predictors do not weaken across regions, they reverse the
+direction of their association with burning, which is why a distance cannot see the failure. The
+reversal persists inside one study area, between two fires eleven months apart on an identical grid,
+with disjoint bootstrap intervals.
 
-Twenty candidate diagnostics were rank-correlated against observed transfer. Only two had bootstrap
-intervals excluding zero, both conditional, the stronger being agreement in the sign of each
-predictor's association (Spearman ρ = 0.84 over eight pairs). No marginal, niche-overlap or regime
-measure ordered the matrix; at the point estimate the highest-overlap pair failed both ways and the
-lowest transferred both ways. Label-blind adaptation by standardisation and CORAL pushed transfer
-towards chance in fourteen of the twenty directions. Niche and regime measures need labels in both
-regions too, so only the marginal family can run before deployment, and it fails.
-
-Transfer skill therefore has to be measured, not inferred from similarity. What carries the
-information is conditional, so the price is target labels, not better unsupervised alignment:
-thirty-two labelled target blocks recovered 85 to 89 % of the ceiling in three of six directions
-and 30 to 57 % in the rest.
+Label-free alignment pushed fourteen of twenty directions towards chance rather than repairing them.
+Transfer skill has to be measured rather than inferred from similarity, and the price is target
+labels: thirty-two labelled 5 km blocks recovered 85 to 89 % of the target's ceiling in three of six
+directions.

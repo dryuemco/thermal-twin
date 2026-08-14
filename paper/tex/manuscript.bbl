@@ -1,4 +1,4 @@
-\begin{thebibliography}{48}
+\begin{thebibliography}{45}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -75,18 +75,6 @@
   \bibinfo{volume}{92}, \bibinfo{pages}{322--331}.
 \newblock \DOIprefix\doi{10.1016/j.rse.2004.01.019}.
 %Type = Article
-\bibitem[{Cook et~al.(2014)Cook, Schott, Mandel and Raqueno}]{Cook2014}
-\bibinfo{author}{Cook, M.}, \bibinfo{author}{Schott, J.R.},
-  \bibinfo{author}{Mandel, J.}, \bibinfo{author}{Raqueno, N.},
-  \bibinfo{year}{2014}.
-\newblock \bibinfo{title}{Development of an operational calibration methodology
-  for the {Landsat} thermal data archive and initial testing of the atmospheric
-  compensation component of a land surface temperature ({LST}) product from the
-  archive}.
-\newblock \bibinfo{journal}{Remote Sensing} \bibinfo{volume}{6},
-  \bibinfo{pages}{11244--11266}.
-\newblock \DOIprefix\doi{10.3390/rs61111244}.
-%Type = Article
 \bibitem[{Dimarco et~al.(2026)Dimarco, Faraji, Wahbi, Maatouk, Boulaassal,
   Yazidi~Aalaoui and El~Kharki}]{Dimarco2026}
 \bibinfo{author}{Dimarco, N.A.}, \bibinfo{author}{Faraji, I.},
@@ -152,16 +140,6 @@
 \newblock \bibinfo{journal}{Remote Sensing of Environment}
   \bibinfo{volume}{337}, \bibinfo{pages}{115336}.
 \newblock \DOIprefix\doi{10.1016/j.rse.2026.115336}.
-%Type = Article
-\bibitem[{Iban and Aksu(2024)}]{Iban2024}
-\bibinfo{author}{Iban, M.C.}, \bibinfo{author}{Aksu, O.}, \bibinfo{year}{2024}.
-\newblock \bibinfo{title}{{SHAP}-driven explainable artificial intelligence
-  framework for wildfire susceptibility mapping using {MODIS} active fire
-  pixels: An in-depth interpretation of contributing factors in {Izmir},
-  {T\"{u}rkiye}}.
-\newblock \bibinfo{journal}{Remote Sensing} \bibinfo{volume}{16},
-  \bibinfo{pages}{2842}.
-\newblock \DOIprefix\doi{10.3390/rs16152842}.
 %Type = Article
 \bibitem[{Iban and Sekertekin(2022)}]{Iban2022}
 \bibinfo{author}{Iban, M.C.}, \bibinfo{author}{Sekertekin, A.},
@@ -243,18 +221,6 @@
 \newblock \bibinfo{journal}{ISPRS Journal of Photogrammetry and Remote Sensing}
   \bibinfo{volume}{158}, \bibinfo{pages}{263--278}.
 \newblock \DOIprefix\doi{10.1016/j.isprsjprs.2019.10.013}.
-%Type = Article
-\bibitem[{Malakar et~al.(2018)Malakar, Hulley, Hook, Laraby, Cook and
-  Schott}]{Malakar2018}
-\bibinfo{author}{Malakar, N.K.}, \bibinfo{author}{Hulley, G.C.},
-  \bibinfo{author}{Hook, S.J.}, \bibinfo{author}{Laraby, K.},
-  \bibinfo{author}{Cook, M.}, \bibinfo{author}{Schott, J.R.},
-  \bibinfo{year}{2018}.
-\newblock \bibinfo{title}{An operational land surface temperature product for
-  {Landsat} thermal data: Methodology and validation}.
-\newblock \bibinfo{journal}{IEEE Transactions on Geoscience and Remote Sensing}
-  \bibinfo{volume}{56}, \bibinfo{pages}{5717--5735}.
-\newblock \DOIprefix\doi{10.1109/TGRS.2018.2824828}.
 %Type = Article
 \bibitem[{Marino et~al.(2024)Marino, Y{\'a}{\~n}ez, Guijarro, Madrigal, Senra,
   Rodr{\'i}guez and Tom{\'e}}]{Marino2024}

@@ -596,9 +596,14 @@ const preamble = `% ============================================================
 %% between them" is contradicted by the paper's own matrix, and candidate 2 was
 %% not used because "transferability cost" asserts a debit measured only by the
 %% feature-removal ablation. Change here if that decision is revisited.
-\\title{Local skill, unstable portability: marginal diagnostics do not order the
-cross-region transfer of pre-fire thermal dryness in Mediterranean wildfire
-regions}
+%% Retitled 2026-08-14 in the split, to carry the three findings the paper was
+%% cut to. "Sign reversal" names the mechanism, which the old title left out;
+%% "do not order" is kept verbatim because it is the only claim Section 5.4
+%% defends, the diagnostics having been shown not to order transfer here rather
+%% than shown incapable of ordering it anywhere.
+\\title{Local skill, unstable portability: sign reversal in pre-fire thermal
+predictors across Mediterranean wildfire regions, and the diagnostics that do
+not order it}
 
 %% Author block. Affiliation and corresponding address supplied by the authors
 %% 2026-08-14. Still optional and not supplied: department or faculty within the
