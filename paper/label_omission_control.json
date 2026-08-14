@@ -1,0 +1,431 @@
+{
+  "group_comparison": {
+    "manavgat_2021": {
+      "firms_detection_cells_in_aoi": 1161,
+      "burned": {
+        "n": 784,
+        "elevation_median": 512.3355865478516,
+        "slope_median": 18.84978675842285,
+        "ndvi_median": 0.5660929977893829
+      },
+      "firms_only": {
+        "n": 887,
+        "elevation_median": 257.54559326171875,
+        "slope_median": 15.558871269226074,
+        "ndvi_median": 0.5072342157363892
+      },
+      "neither": {
+        "n": 18840,
+        "elevation_median": 941.2977905273438,
+        "slope_median": 18.790555000305176,
+        "ndvi_median": 0.5134319067001343
+      },
+      "firms_hit_rate_on_burned": 0.2614795918367347
+    },
+    "bejis_2022": {
+      "firms_detection_cells_in_aoi": 412,
+      "burned": {
+        "n": 1100,
+        "elevation_median": 935.1695251464844,
+        "slope_median": 14.238033771514893,
+        "ndvi_median": 0.5040808022022247
+      },
+      "firms_only": {
+        "n": 147,
+        "elevation_median": 876.93115234375,
+        "slope_median": 12.860965728759766,
+        "ndvi_median": 0.4846410453319549
+      },
+      "neither": {
+        "n": 13943,
+        "elevation_median": 784.5155639648438,
+        "slope_median": 13.632246971130373,
+        "ndvi_median": 0.4853098392486572
+      },
+      "firms_hit_rate_on_burned": 0.23727272727272727
+    },
+    "mugla_2021": {
+      "firms_detection_cells_in_aoi": 1512,
+      "burned": {
+        "n": 2911,
+        "elevation_median": 563.0870361328125,
+        "slope_median": 19.04078865051269,
+        "ndvi_median": 0.5792964100837708
+      },
+      "firms_only": {
+        "n": 629,
+        "elevation_median": 524.44482421875,
+        "slope_median": 15.515596389770508,
+        "ndvi_median": 0.5044721961021423
+      },
+      "neither": {
+        "n": 38190,
+        "elevation_median": 424.99786376953125,
+        "slope_median": 15.423015117645264,
+        "ndvi_median": 0.512142688035965
+      },
+      "firms_hit_rate_on_burned": 0.2593610443146685
+    },
+    "evia_2021_extended": {
+      "firms_detection_cells_in_aoi": 897,
+      "burned": {
+        "n": 2664,
+        "elevation_median": 262.8730926513672,
+        "slope_median": 15.05971908569336,
+        "ndvi_median": 0.6234641373157501
+      },
+      "firms_only": {
+        "n": 141,
+        "elevation_median": 135.68568420410156,
+        "slope_median": 14.450556755065918,
+        "ndvi_median": 0.5829326510429382
+      },
+      "neither": {
+        "n": 6493,
+        "elevation_median": 231.17076110839844,
+        "slope_median": 15.698097229003906,
+        "ndvi_median": 0.559325098991394
+      },
+      "firms_hit_rate_on_burned": 0.23986486486486486
+    },
+    "montiferru_2021": {
+      "firms_detection_cells_in_aoi": 331,
+      "burned": {
+        "n": 539,
+        "elevation_median": 424.2523193359375,
+        "slope_median": 9.148451805114746,
+        "ndvi_median": 0.6181037425994873
+      },
+      "firms_only": {
+        "n": 137,
+        "elevation_median": 419.1310424804688,
+        "slope_median": 8.985367774963379,
+        "ndvi_median": 0.5920035243034363
+      },
+      "neither": {
+        "n": 1868,
+        "elevation_median": 352.364501953125,
+        "slope_median": 5.741538047790527,
+        "ndvi_median": 0.5623501241207123
+      },
+      "firms_hit_rate_on_burned": 0.23376623376623376
+    }
+  },
+  "relabelling_sensitivity": {
+    "manavgat_2021": {
+      "n_relabelled": 887,
+      "elevation_mean": {
+        "as_labelled": {
+          "point": 0.3741075566689392,
+          "ci_low": 0.2890796631009303,
+          "ci_high": 0.4711534398242251,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.30810562918577306,
+          "ci_low": 0.24851094878207303,
+          "ci_high": 0.3655699192395429,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        }
+      },
+      "current_lst_mean": {
+        "as_labelled": {
+          "point": 0.5382779853437282,
+          "ci_low": 0.451762272301704,
+          "ci_high": 0.620503038933485,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance"
+        },
+        "firms_as_burned": {
+          "point": 0.6130865022506977,
+          "ci_low": 0.5611297511804128,
+          "ci_high": 0.669520994701974,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_higher_values_rank_burned"
+        }
+      },
+      "current_tvdi_mean": {
+        "as_labelled": {
+          "point": 0.5520208992479892,
+          "ci_low": 0.4602480293883392,
+          "ci_high": 0.6410618349429631,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "interval_includes_chance"
+        },
+        "firms_as_burned": {
+          "point": 0.6220586538896632,
+          "ci_low": 0.5667339910132903,
+          "ci_high": 0.681392625768324,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 237,
+          "verdict": "bootstrap_supported_higher_values_rank_burned"
+        }
+      }
+    },
+    "bejis_2022": {
+      "n_relabelled": 147,
+      "elevation_mean": {
+        "as_labelled": {
+          "point": 0.6432824053164721,
+          "ci_low": 0.5583150457861116,
+          "ci_high": 0.7290055219147464,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_higher_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.6388365714665638,
+          "ci_low": 0.5538356338361906,
+          "ci_high": 0.7248449369910993,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "bootstrap_supported_higher_values_rank_burned"
+        }
+      },
+      "current_lst_mean": {
+        "as_labelled": {
+          "point": 0.4767477506934929,
+          "ci_low": 0.4011532923534439,
+          "ci_high": 0.5474889652503846,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance"
+        },
+        "firms_as_burned": {
+          "point": 0.483043734972223,
+          "ci_low": 0.4132747933820539,
+          "ci_high": 0.5516722622028307,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance"
+        }
+      },
+      "current_tvdi_mean": {
+        "as_labelled": {
+          "point": 0.5172782323463782,
+          "ci_low": 0.4290091381060554,
+          "ci_high": 0.595208856020078,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance"
+        },
+        "firms_as_burned": {
+          "point": 0.5182853704552888,
+          "ci_low": 0.43094314353066443,
+          "ci_high": 0.5952326649828323,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 176,
+          "verdict": "interval_includes_chance"
+        }
+      }
+    },
+    "mugla_2021": {
+      "n_relabelled": 629,
+      "elevation_mean": {
+        "as_labelled": {
+          "point": 0.6114025048859929,
+          "ci_low": 0.5305636631901508,
+          "ci_high": 0.694677117119909,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.6017894211665431,
+          "ci_low": 0.5286288264686984,
+          "ci_high": 0.6762505633166245,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_higher_values_rank_burned"
+        }
+      },
+      "current_lst_mean": {
+        "as_labelled": {
+          "point": 0.324818209196232,
+          "ci_low": 0.27071668561718487,
+          "ci_high": 0.38100408862762186,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.3549571747391278,
+          "ci_low": 0.30584037593884306,
+          "ci_high": 0.4069487086026381,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        }
+      },
+      "current_tvdi_mean": {
+        "as_labelled": {
+          "point": 0.3357699119089857,
+          "ci_low": 0.2756393419131363,
+          "ci_high": 0.4011244696897628,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.3627865088886059,
+          "ci_low": 0.30848573514881583,
+          "ci_high": 0.4207126728377002,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 576,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        }
+      }
+    },
+    "evia_2021_extended": {
+      "n_relabelled": 141,
+      "elevation_mean": {
+        "as_labelled": {
+          "point": 0.540559580910425,
+          "ci_low": 0.4578843107141271,
+          "ci_high": 0.6322444453383133,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance"
+        },
+        "firms_as_burned": {
+          "point": 0.5299295580349385,
+          "ci_low": 0.4483054587908646,
+          "ci_high": 0.6180554078564028,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "interval_includes_chance"
+        }
+      },
+      "current_lst_mean": {
+        "as_labelled": {
+          "point": 0.376519076673484,
+          "ci_low": 0.30031163656554394,
+          "ci_high": 0.4536407042461406,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.3821971630542304,
+          "ci_low": 0.3074636193919839,
+          "ci_high": 0.4572355614209473,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        }
+      },
+      "current_tvdi_mean": {
+        "as_labelled": {
+          "point": 0.3618882658736982,
+          "ci_low": 0.2798981011067888,
+          "ci_high": 0.43957510869092786,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.368533787697517,
+          "ci_low": 0.29094150228706067,
+          "ci_high": 0.4450679183260253,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 155,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        }
+      }
+    },
+    "montiferru_2021": {
+      "n_relabelled": 137,
+      "elevation_mean": {
+        "as_labelled": {
+          "point": 0.5837706290859123,
+          "ci_low": 0.3953155499799928,
+          "ci_high": 0.7623088314675833,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance"
+        },
+        "firms_as_burned": {
+          "point": 0.5713527742229768,
+          "ci_low": 0.4092742817400774,
+          "ci_high": 0.7282642194349168,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance"
+        }
+      },
+      "current_lst_mean": {
+        "as_labelled": {
+          "point": 0.3704643770906685,
+          "ci_low": 0.24782684782865552,
+          "ci_high": 0.5129602234841383,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance"
+        },
+        "firms_as_burned": {
+          "point": 0.3801220810156735,
+          "ci_low": 0.27137077583056374,
+          "ci_high": 0.5014793503822359,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "interval_includes_chance"
+        }
+      },
+      "current_tvdi_mean": {
+        "as_labelled": {
+          "point": 0.3555286181577596,
+          "ci_low": 0.23316713048455487,
+          "ci_high": 0.4990539748344443,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        },
+        "firms_as_burned": {
+          "point": 0.36264460296744927,
+          "ci_low": 0.25002520720597593,
+          "ci_high": 0.483182511192509,
+          "valid_replicates": 1000,
+          "invalid_replicates": 0,
+          "n_blocks": 35,
+          "verdict": "bootstrap_supported_lower_values_rank_burned"
+        }
+      }
+    }
+  }
+}

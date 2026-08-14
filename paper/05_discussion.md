@@ -669,8 +669,16 @@ core cells, which makes differential fringe contamination a competing explanatio
 a terrain variable. **That explanation has since been tested and does not hold:** restricting to
 burned cells whose sub-pixel dates agree at 0.75 and at 0.90 leaves the elevation reversal intact at
 every threshold, with Manavgat entirely below 0.5 and Bejís and Muğla entirely above it, and Manavgat
-moving further from chance as thin-evidence cells are dropped (Section 4.7l). What remains untested
-is the interaction at the product level: MCD64A1's omission at 500 m in fragmented Mediterranean terrain is itself
+moving further from chance as thin-evidence cells are dropped (Section 4.7l). **The product-level
+version of the same worry has also been tested.** A second burned-area product cannot be used here,
+because ESA CCI FireCCI51 stops at December 2020 and every fire in this study is 2021 or 2022, so
+that part of the limitation stands. But FIRMS active-fire detections do cover the period and are
+independent of the burned-area algorithm, and relabelling every cell that FIRMS saw and MCD64A1 did
+not as burned, which deliberately over-corrects, leaves every feature in every region on its own side
+of 0.5. Manavgat's elevation moves from 0.374 to 0.308 and its two thermal channels from 0.538 to
+0.613 and 0.552 to 0.622, all further from chance, so the correction sharpens the disagreement with
+Muğla and Evia rather than dissolving it (`paper/label_omission_control.md`). What remains untested
+is the rest of the product-level interaction: MCD64A1's omission at 500 m in fragmented Mediterranean terrain is itself
 correlated with patch size, terrain and land-cover fragmentation, which are the baseline predictors;
 no second label product was used as a control. (xv) **Two safeguards did not run everywhere.** The
 pre-label burn exclusion ran for Muğla, Evia and Montiferru, is recorded as not run for Manavgat, and
