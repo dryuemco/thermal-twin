@@ -10,10 +10,13 @@ high-prevalence Evia box. Every qualitative conclusion is unchanged. Thermal raw
 by up to 0.07, the largest being Evia to Bejís at 0.378 to 0.448, and no direction changes side of
 the chance line.
 
-**(b) CORAL regularisation.** Over nine λ values from 0 to 10⁻¹ on four directions, CORAL transfer
-AUC moves by at most 0.014 within any direction and 0.008 within the thermal family, so no
-CORAL-dependent conclusion here is sensitive to λ in that range. The companion paper reports the
-canonical λ = 1, which the released sweep omits.
+**(b) CORAL regularisation, including the canonical λ = 1.** Over nine λ values from 0 to 10⁻¹ on
+four directions, CORAL transfer AUC moves by at most 0.014 within any direction and 0.008 within the
+thermal family. The canonical λ = 1 of the cited method lies outside that sweep and was computed
+separately on the same four directions. It changes the thermal mean from 0.519 to 0.522, a shift of
++0.003 with a per-direction range of −0.005 to +0.016, and **no direction crosses the chance line**.
+The λ = 1 values are 0.510, 0.444, 0.559 and 0.575 against 0.508, 0.445, 0.564 and 0.559 at λ = 0.1.
+No CORAL-dependent conclusion in this paper is sensitive to λ over the full range from 0 to 1.
 
 **(c) Blocking scale.** Recomputing the transfer quantities at 10-cell (≈ 5 km) blocking from the
 frozen per-cell predictions widens the intervals and moves the verdict counts, from ten positive,

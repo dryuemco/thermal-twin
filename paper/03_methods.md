@@ -9,7 +9,7 @@
 
 ## 3.1 Study regions and temporal windows
 
-Five Mediterranean wildfire regions are analysed: Manavgat 2021 and Muğla 2021 in Türkiye, Bejís
+Five Mediterranean wildfire regions are analysed (Fig. 1): Manavgat 2021 and Muğla 2021 in Türkiye, Bejís
 2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. Each is a place-based
 rectangular area of interest in EPSG:4326, defined from place coverage rather than from a fire
 perimeter, and not tuned on burned prevalence, gate outcome or any model metric. One AOI choice was
@@ -65,7 +65,7 @@ Appendix C.1.
 ## 3.4 Predictor variables
 
 Ten predictors are used, four baseline and six thermal, all summarised per cell over the predictor
-window. All optical and thermal predictors come from Landsat 8 Collection 2 Level-2
+window, through the chain shown in Fig. 2. All optical and thermal predictors come from Landsat 8 Collection 2 Level-2
 (`LANDSAT/LC08/C02/T1_L2`), quality-screened per pixel from the `QA_PIXEL` band with the water bit
 deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A1`.
 
@@ -150,7 +150,7 @@ source. Neither variant sees a target label, and both are verified label-blind a
 
 λ sensitivity was assessed over nine values from 0 to 10⁻¹ on four directions in both feature
 families, moving transfer AUC by at most 0.014 in any direction and 0.008 within the thermal family.
-The canonical λ = 1 lies outside the released sweep; the companion paper reports it.
+The canonical λ = 1 lies outside the released sweep and is reported separately in Appendix A(b).
 
 ## 3.10 Transfer-gap decomposition and the concept-shift diagnostic
 

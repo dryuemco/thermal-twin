@@ -38,7 +38,7 @@ prevalence from 0.676 to 0.287. The effect of that choice on transfer is reporte
 
 Adding the six thermal predictors to the baseline raises spatially blocked out-of-fold ROC-AUC in
 every region. The increment's bootstrap interval excludes zero in all five regions at 1 km and at
-5 km blocking. Those are the two scales this design supports as intervals. At 10 km the point
+5 km blocking (Fig. 3). Those are the two scales this design supports as intervals. At 10 km the point
 estimates hold, from +0.048 to +0.154. They rest on 6 to 33 positive-carrying blocks, so they are
 reported as indicative rather than as intervals. The table note gives the reason.
 
@@ -85,7 +85,7 @@ measured against it.
 ## 4.3 Cross-region transfer, and what label-free adaptation does to it
 
 **Raw transfer is heterogeneous and includes anti-predictive directions.** Raw target AUC spans
-0.326 to 0.686. Twelve of 20 directions are above chance with CI support. Six are *below* chance
+0.326 to 0.686 (Fig. 4). Twelve of 20 directions are above chance with CI support. Six are *below* chance
 with CI support: both directions of Manavgat to Bejís and of Manavgat to Muğla, plus Bejís to Evia
 and Evia to Bejís. Two intervals span 0.5. Even the best raw transfer, Evia to Manavgat at 0.686,
 stays far below that target's own within-region thermal performance of 0.870. Across all directions
@@ -241,7 +241,7 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 | Muğla→Evia | 0.912 | 0.653 | 0.563 (CORAL) | −0.35 [−0.43, −0.27] | **negative recovery** |
 | Bejís→Muğla | 0.859 | 0.618 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
 
-**Against the right reference, adaptation is not failing.** The three controls above give an
+**Against the right reference, adaptation is not failing** (Fig. 5)**.** The three controls above give an
 achievable reference for a model applied to a fire it has not seen: 0.574 for the half-split, 0.552
 for the leave-one-scar-out. The best label-free adaptation averages **0.556** across the twenty
 directions, against 0.541 raw. It is therefore at that reference, not far below it. What it does is
@@ -311,7 +311,7 @@ an artefact of unequal samples.
 
 ## 4.5 The contrast pair: similarity is not sufficient
 
-The clearest single view of Table 6 needs no ranking at all. Manavgat and Muğla lie in the same
+The clearest single view of Table 6 needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
 country and the same fire year. They are 307 km apart by the centroid geodesic distance this paper
 uses as a diagnostic, and their nearest boundaries are 191 km apart. Their burned cells occupy the
 most similar environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77
@@ -331,7 +331,7 @@ available.
 
 ## 4.6 Interventions: pooling and feature removal
 
-**(a) Pooled multi-region training.** At the point estimate, training on the pooled primary
+**(a) Pooled multi-region training** (Fig. 6)**.** At the point estimate, training on the pooled primary
 populations of the other four regions never beats the best single-source transfer for any target,
 with shortfalls of 0.02 to 0.22, and it stays 0.28 to 0.50 AUC below the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though
 only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not recover what single-source
@@ -360,7 +360,8 @@ on which the −0.081 and the +0.014 are then estimated. No correction for that 
 | drop `lst_anomaly_mean` | 0.875 | 0.544 |
 | drop both | 0.807 | 0.556 |
 
-What this measures is a local cost with no compensating transfer gain. It does not measure an
+Figure 7 shows the four configurations together. What this measures is a local cost with no
+compensating transfer gain. It does not measure an
 exchange, because the transfer side is a null on both arms. The thermal block's own contribution to
 transfer is +0.004, with an interval spanning zero (Section 4.3). Removing the reversing predictors
 returns +0.014, with an interval spanning zero. Two nulls on the portability axis are not a price
