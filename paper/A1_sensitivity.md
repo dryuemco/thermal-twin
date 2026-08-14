@@ -125,3 +125,58 @@ this paper reports is therefore not an artefact of a coordinate-smoothed surface
 
 This arm was computed independently here and reproduces the companion paper's figure for the same
 quantity, 82 % to 103 %, from a separately written harness.
+
+## A(h). The four evaluations of Section 4.3, in full
+
+Section 4.3 reports four evaluations of the same models as a ladder. The per-split and per-scar
+detail is here, so that the ladder can be checked without leaving the manuscript.
+
+**Table A1. Within-region half-split, every split.** Source and target positive counts are given
+because they are unequal, which is the principal limit on this arm: a straight cut does not produce
+two exchangeable halves. Two splits are unusable because one half of Manavgat contains no burned
+cells.
+
+| Region | Axis | Direction | Source positives | Target positives | Thermal AUC | Baseline AUC |
+|---|---|---|---:|---:|---:|---:|
+| manavgat 2021 | east-west | low to high | 700 | 84 | 0.695 | 0.661 |
+| manavgat 2021 | east-west | high to low | 84 | 700 | 0.557 | 0.580 |
+| manavgat 2021 | north-south | low to high | 0 | 784 | — | — |
+| manavgat 2021 | north-south | high to low | 784 | 0 | — | — |
+| bejis 2022 | east-west | low to high | 640 | 460 | 0.750 | 0.784 |
+| bejis 2022 | east-west | high to low | 460 | 640 | 0.578 | 0.560 |
+| bejis 2022 | north-south | low to high | 357 | 743 | 0.713 | 0.662 |
+| bejis 2022 | north-south | high to low | 743 | 357 | 0.603 | 0.613 |
+| mugla 2021 | east-west | low to high | 1,449 | 1,462 | 0.448 | 0.378 |
+| mugla 2021 | east-west | high to low | 1,462 | 1,449 | 0.636 | 0.628 |
+| mugla 2021 | north-south | low to high | 774 | 2,137 | 0.533 | 0.503 |
+| mugla 2021 | north-south | high to low | 2,137 | 774 | 0.294 | 0.549 |
+| evia 2021 extended | east-west | low to high | 2,052 | 612 | 0.589 | 0.506 |
+| evia 2021 extended | east-west | high to low | 612 | 2,052 | 0.645 | 0.482 |
+| evia 2021 extended | north-south | low to high | 2,564 | 100 | 0.649 | 0.513 |
+| evia 2021 extended | north-south | high to low | 100 | 2,564 | 0.533 | 0.495 |
+| montiferru 2021 | east-west | low to high | 410 | 129 | 0.475 | 0.461 |
+| montiferru 2021 | east-west | high to low | 129 | 410 | 0.507 | 0.513 |
+| montiferru 2021 | north-south | low to high | 438 | 101 | 0.583 | 0.511 |
+| montiferru 2021 | north-south | high to low | 101 | 438 | 0.536 | 0.447 |
+
+**Table A2. Leave-one-scar-out at a 2 km buffer, every scar.** Only Muğla contains more than one
+burned component of at least 50 cells, so it is the only region where holding one out leaves the
+source model properly trained. Its four arms mean 0.579; the four arms in the other regions mean
+0.525, and the pooled figure of 0.552 averages the two.
+
+| Region | Component | Source positives left | Target positives | Target cells | AUC |
+|---|---:|---:|---:|---:|---:|
+| evia 2021 extended | 1 | 11 | 2,653 | 3,059 | 0.465 |
+| manavgat 2021 | 1 | 88 | 696 | 1,135 | 0.592 |
+| montiferru 2021 | 1 | 97 | 442 | 758 | 0.584 |
+| montiferru 2021 | 5 | 472 | 67 | 195 | 0.458 |
+| mugla 2021 | 6 | 1,997 | 914 | 1,266 | 0.595 |
+| mugla 2021 | 1 | 2,173 | 738 | 1,244 | 0.561 |
+| mugla 2021 | 10 | 2,272 | 639 | 940 | 0.617 |
+| mugla 2021 | 8 | 2,363 | 548 | 954 | 0.542 |
+
+The evaluation populations of the two arms are not comparable with each other or with the transfer
+targets. A held-out scar with its 2 km collar runs at 43 to 87 % burned prevalence; a whole target
+region runs at 3.8 to 28.7 %. The scar arm therefore asks for discrimination against the nearest and
+most similar negatives only, while a transfer arm includes the whole easy far field. Section 4.3
+states the consequence: the last three rows of the ladder are not distinguishable by this design.

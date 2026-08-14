@@ -218,7 +218,7 @@ a model is fitted on the remainder of the same region, and applied to the held-o
 since a scar held out at 2 km inside its own region is close to its training data and yet wholly
 unseen.
 
-Appendix A reports all three in full, with per-split and per-scar tables.
+Appendix A(h) reports all four in full, with per-split and per-scar tables.
 
 ## 3.14 Leakage control
 

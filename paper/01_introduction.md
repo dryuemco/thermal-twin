@@ -155,18 +155,18 @@ block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with e
 interval above zero and the result holding in both analysis populations. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
 run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
-model's 0.541, so the static predictor class is not the portable one either. Three further controls locate what
-actually fails. A within-region half-split, fitted on one contiguous half and applied to the other
-with no refit, returns 0.574 against a blocked-CV reference of 0.797 at the same 5 km blocking, so
-most of the loss is incurred **without leaving the region**. Separation does not explain it:
-geographic distance gives ρ = −0.32 with an interval spanning zero, and the two nearest directions
-are among the worst. And holding out an entire fire scar together with a 2 km buffer, then fitting
-on the rest of **the same region**, returns 0.552, which is what the model achieves 2,802 km away.
-**A model of this kind retains the fire it was fitted to.** It returns about 0.55 on a scar it has
-not seen, at any separation this design can measure, so the unit that fails to transfer is the fire
-event rather than the region or the distance. Six directions are nonetheless below chance with
-interval support, which no account of lost skill explains, and that residual is what Contributions 2
-and 3 address. Feature removal measures the local cost.
+model's 0.541, so the static predictor class is not the portable one either. Four evaluations of the same models,
+differing in one respect at a time, locate where the skill goes: blocked cross-validation at 5 km
+returns 0.797; a within-region half-split on the **same fire** returns 0.574; a fire held out inside
+its own region returns 0.552; and cross-region transfer returns 0.541. **The fall of 0.223 happens
+with the fire held constant**, and withholding the fire and then crossing a region boundary add 0.022
+and 0.011 on top. What separates the first two is whether the held-out cells are interleaved with
+training cells or lie on one side of a cut. The last three are not distinguishable by this design:
+the scar control rests on eight arms with no interval, only one region supports it cleanly, and its
+evaluation populations are not comparable with whole-region targets. Separation does not order the
+matrix either, at ρ = −0.32 with an interval spanning zero. Six directions are nonetheless below
+chance with interval support, which no account of merely lost skill explains, and that residual is
+what Contributions 2 and 3 address. Feature removal measures the local cost.
 Dropping the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region AUC, supported in every region. Roughly three quarters of that is elevation, a
 *baseline* terrain variable. Mean transfer changes by +0.014, whose interval also spans zero. Both

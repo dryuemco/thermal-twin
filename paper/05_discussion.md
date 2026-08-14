@@ -13,11 +13,11 @@ within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean reg
 support at 1 km and 5 km blocking, and contributes +0.004 [−0.028, +0.036] across twenty ordered
 transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
 baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is not a property of
-the dynamic block specifically. Nor is it attributable to region crossing or to
-separation. A within-region half-split returns 0.574, and holding out a whole fire scar with a 2 km
-buffer inside its own region returns 0.552, which is the value obtained 2,802 km away. What fails to
-transfer is the fire event. The six below-chance directions are a separate matter, since no account
-of lost skill produces a reliably reversed ranking. Removing the two reversing predictors,
+the dynamic block specifically. Nor is most of it attributable to region crossing.
+Four evaluations differing in one respect at a time give 0.797, 0.574, 0.552 and 0.541, so 0.223 of
+the fall occurs with the fire held constant and only 0.033 is added by withholding the fire and then
+changing the region. The six below-chance directions are a separate matter, since no account of
+merely lost skill produces a reliably reversed ranking. Removing the two reversing predictors,
 elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
 three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
 also spans zero. Second, of twenty candidate transferability diagnostics only two have intervals excluding zero and
@@ -31,9 +31,8 @@ one study area across two fires.
 A distinction has to be drawn before this section can say anything useful. The within-region
 increment and the transfer failure are measured at different separations, and Section 4.3 shows that
 most of the difference between them is already present inside a single region. What follows
-therefore reads the increment as local in a specific sense: it holds where the model has already seen
-part of the fire it is being asked about, and it is largely gone on a fire it has not seen, whether
-that fire is 2 km away or 2,800. What that does not explain is why the directions differ from each
+therefore reads the increment as local in a specific sense: it holds where the held-out cells are interleaved with
+training cells, and most of it is gone once they are not, before the fire or the region changes. What that does not explain is why the directions differ from each
 other, and in particular why six of them are anti-predictive.
 
 The within-region increment is not an artefact to be explained away. It replicates in five

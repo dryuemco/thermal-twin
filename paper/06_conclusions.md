@@ -43,15 +43,16 @@ harmed with interval support, with the rest carrying no verdict. The block is al
 at the chance line.
 
 Two controls fix the meaning of all this. The baseline arm transfers at a mean of 0.537 against the
-thermal model's 0.541, so the static predictor class is not portable here either. And three controls locate what fails. A
-within-region half-split returns 0.574 against a blocked reference of 0.797; separation does not
-order the matrix, at ρ = −0.32 with an interval spanning zero; and holding out an entire fire scar
-with a 2 km buffer, fitting on the rest of the same region, returns 0.552, the value the model
-achieves 2,802 km away. The honest summary is therefore not that these predictors fail to cross
-regions, nor that skill decays with distance. **A model of this kind retains the fire it was fitted
-to**, and returns about 0.55 on a fire it has not seen at any separation we can measure. The unit
-that fails to transfer is the fire event. Six directions are nonetheless anti-predictive with
-interval support, which no account of merely lost skill explains.
+thermal model's 0.541, so the static predictor class is not portable here either. And four evaluations differing in one respect
+at a time locate where it goes: 0.797 under blocked cross-validation, 0.574 on a half-split of the
+**same fire**, 0.552 on a fire held out inside its own region, and 0.541 across regions. The honest
+summary is therefore not that these predictors fail to cross regions. **Almost all of the loss, 0.223
+of 0.256, occurs with the fire held constant**, as soon as the held-out cells stop being interleaved
+with training cells; withholding the fire and then changing the region add 0.022 and 0.011. Those
+last three are not distinguishable by this design, which rests on eight scar arms with no interval
+and one region that supports the control cleanly. Six directions are nonetheless anti-predictive with
+interval support, which no account of merely lost skill explains. The one-event-per-region design
+also means that a fire cannot be separated here from the season and meteorology that produced it.
 
 Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region skill, with interval support in every region and roughly three quarters of it
