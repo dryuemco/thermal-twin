@@ -371,7 +371,7 @@ to say target labels. Applied label-free, the same removal degrades the five ali
 consistent lesson is the one the adaptation literature reached once the conditional component was
 recognised as binding [@Tuia2016; @Persello2012]: a small number of target labels is the resource
 that label-free machinery cannot substitute for. A supervised few-shot recalibration analysis exists
-in the project diagnostics. Its headline is now in the main text at Section 4.10, its design and
+in the project diagnostics. Its headline is now in the main text at Section 4.9, its design and
 limits in Supplementary S1, and Section 5.10 uses it to say what the failure documented here costs
 to repair.
 
@@ -484,7 +484,7 @@ transfer where twenty other candidates did not, so it is the screen to run, with
 Section 5.4 attached. Second, do not spend effort on label-free alignment. Two standard methods,
 applied carefully, moved 14 of the 20 directions towards chance rather than towards skill, and every
 direction they improved involves Montiferru, the smallest region in the set. Third, price the labels
-instead. Section 4.10 gives the shape of that price for three regions: thirty-two labelled 5 km
+instead. Section 4.9 gives the shape of that price for three regions: thirty-two labelled 5 km
 blocks recovered 85 to 89 % of the target's own ceiling in three of six directions, two of them from
 starting points below chance. That is a real answer to "what do we do", and it is not a cheap one.
 The same budget is 7 to 20 % of the target's natural-vegetation population, it recovers only 51 to
@@ -497,7 +497,7 @@ cannot afford the labels should not deploy the model.
 For method development, the results point to two resources. The first is labels, as above: the
 conditional diagnostic requires a labelled probe in the target, the interventions of Section 4.6
 show that knowing where the reversals are is what converts the diagnosis into an action, and Section
-4.10 shows what buying that knowledge costs. Only target labels provide it. The second is predictors normalised physically rather than statistically:
+4.9 shows what buying that knowledge costs. Only target labels provide it. The second is predictors normalised physically rather than statistically:
 TVDI's scene-internal normalisation and the climatological anomaly referencing both failed to
 guarantee stable direction, suggesting that portability requires variables whose mapping to
 fire-relevant state (for example, actual fuel moisture rather than its thermal proxy [@Yebra2013;

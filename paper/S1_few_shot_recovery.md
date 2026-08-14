@@ -29,7 +29,7 @@ transfers above chance raw is Bejís to Muğla, and it is the direction that bot
 least. The natural constructive question is therefore what a *small number of target labels* buys,
 since that is the resource label-free machinery cannot substitute for.
 
-The headline of this analysis is in the main text at §4.10. The full design, the per-budget table
+The headline of this analysis is in the main text at §4.9. The full design, the per-budget table
 and the limits are here, for two reasons. It covers three of the five regions, so it cannot carry a
 claim at the paper's stated scope; and it requires labelled target cells, so it is not an
 alternative transfer protocol but a quantification of the price of the failure the main text

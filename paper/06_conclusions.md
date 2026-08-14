@@ -63,7 +63,7 @@ regime diagnostics. Only the marginal family can be computed before any target l
 is the family that failed. How large the probe has to be is not established here, so no label budget
 is claimed. A signed association with a usable interval may
 need fewer labels than a refitted model, but that was not tested. What is clear is that the
-supervised recalibration that label-free alignment cannot deliver is not cheap. Section 4.10 prices
+supervised recalibration that label-free alignment cannot deliver is not cheap. Section 4.9 prices
 it for three regions: thirty-two labelled 5 km blocks recovered 85 to 89 % of the target ceiling in
 three of six directions, 51 to 57 % in two more and 30 % in the sixth, and at its top budget the
 labelled set already holds most of one target region's burned cells. Where no target labels exist, the transfer performance of such
