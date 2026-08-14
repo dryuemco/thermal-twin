@@ -39,7 +39,9 @@ introduce pessimistic bias of their own [@Wadoux2021; @Mila2022; @deBruin2022]. 
 spatial blocking throughout and reports every result at three block sizes, so that a reader can see
 which verdicts depend on the choice.
 
-Blocking makes a within-region estimate honest but says nothing about another region. For that, the
+Blocking corrects the inflation that random folds produce within a region. It does not
+speak to performance on a fire the model has not seen, which Section 4.3 measures and finds to be a
+larger gap than the blocking correction itself. For that, the
 field's instrument is the area of applicability and related predictor-space dissimilarity measures
 [@Meyer2021; @Meyer2022; @Ludwig2023], which ask whether a target's predictor values fall inside the
 training data's envelope. Species distribution modelling has examined transferability far more
@@ -60,9 +62,8 @@ susceptibility, fire occurrence or burned-area prediction.
 
 ## 2.5 Cross-region generalisation of fire models
 
-Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] give the
-long-standing reference point that meteorologically derived danger indices do not port cleanly
-between fire environments. WildfireGenome [@Liu2025] runs a leave-one-county-out matrix across seven
+Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] report, in a Peruvian case
+study, that meteorologically derived danger indices do not port cleanly between fire environments. WildfireGenome [@Liu2025] runs a leave-one-county-out matrix across seven
 US counties and reports strong within-county performance with highly variable off-diagonal transfer,
 similar pairs transferring well and dissimilar pairs collapsing; its label, however, is a
 principal-component composite of hazard *indicators* rather than observed burned area, and it applies

@@ -81,8 +81,11 @@ A susceptibility model's reported skill is almost always an estimate of *within-
 Held-out folds come from the same study area and season, often from the same fire event, and where
 folds are drawn at random over cells, spatial autocorrelation inflates the estimate further. The
 problem is documented across ecological modelling [@Roberts2017; @Ploton2020] and is addressed by
-spatially blocked cross-validation [@Valavi2019; @Meyer2018]. Blocking makes the within-region
-estimate honest. It says nothing about whether the fitted relationship holds elsewhere.
+spatially blocked cross-validation [@Valavi2019; @Meyer2018]. Blocking removes the inflation that
+random folds produce, and it is the right correction for what it corrects. It does not make the
+estimate honest about a fire the model has not seen. Section 4.3 shows the size of that gap: blocked
+cross-validation at 5 km returns a mean of 0.797, and the same models applied to a burn scar held out
+of their own region return 0.552.
 
 Because only that side of the ledger is reported, portability is never entered at all. A predictor
 block is adopted on the strength of the increment it delivers inside its training footprint, and

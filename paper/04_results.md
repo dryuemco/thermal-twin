@@ -443,7 +443,7 @@ reversal smaller rather than larger.
 
 Everything above measures a failure; this prices it. Label-free alignment does not close the residual
 gap, so the missing resource is information about the target that alignment cannot synthesise, and
-the direct way to supply it is target labels. A frozen few-shot diagnostic answers how many, for
+the direct way to supply it is target labels. A frozen labelled-budget diagnostic answers how many, for
 three regions across all six ordered directions, using one 10-cell (~5 km) spatial block as the unit
 of labelling effort and reading recovery against a matched target-only ceiling of 0.777 to 0.824.
 
