@@ -100,7 +100,8 @@ only +0.022 [−0.032, +0.077] when a whole burn scar is withheld. Across twenty
 block contributed +0.004 [−0.028, +0.036]. That is not distinguishable from zero, and its sign
 changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. Three evaluations on **identical
 cells** locate the failure. A model that has the held-out burn scar in its training data scores
-0.634; withholding that scar gives 0.552; and a model fitted 306 to 2,802 km away gives 0.555. The
+0.634; withholding that scar gives 0.552; and a model fitted 306 to 2,802 km away gives 0.555, though that last is a mean over four foreign
+models whose individual results run from 0.374 to 0.724. The
 fire-specific residual is +0.082 [−0.011, +0.175] and the effect of the 2,800 km is **−0.003
 [−0.075, +0.069]**. The failure is therefore a property of contiguous spatial holdout, not of
 separation distance and not of crossing a region boundary. Two thirds of the apparent collapse from

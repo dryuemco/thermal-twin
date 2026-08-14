@@ -171,6 +171,15 @@ fitted in the same region with the scar withheld, and it survives restriction to
 region where holding out one scar still leaves the source model properly trained, at 0.579 against
 0.597.
 
+**Row D is a mean over four foreign models, and the spread behind it is large.** Decomposing it gives
+36 scar-by-source combinations running from 0.374 to 0.724, with **ten of the 36 below chance** and a
+mean spread of 0.164 across the four sources for a given scar, reaching 0.329 for one. The pooled
+0.555 is therefore not a statement that any foreign model does as well as a same-region one. It is a
+statement that the *average* foreign model does, and the variation it averages over is the
+pair-specific sign instability that Sections 4.4 to 4.8 are about. Both facts belong together: a
+region boundary costs nothing on average, and which side of that average a particular pair lands on
+is not predictable from anything measured here.
+
 The first difference should not be over-read, and one confound has to be stated. Holding out a
 region's only large scar also removes most of its positives: the source model retains 11 positives
 in Evia, 88 in Manavgat and 97 in Montiferru, against about 2,000 in Muğla, which has four separate

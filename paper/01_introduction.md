@@ -173,7 +173,8 @@ run from −0.148 to +0.132, twelve positive and eight negative. Two controls bo
 model's 0.541, so the static predictor class is not the portable one either. Three evaluations scored on **identical cells**
 locate where the skill goes. A model with the held-out burn scar in its training data returns 0.634
 on that scar's area; withholding the scar returns 0.552; and a model fitted 306 to 2,802 km away
-returns 0.555. The fire-specific residual is +0.082 [−0.011, +0.175]; the effect of the 2,800 km is
+returns 0.555, a mean over four foreign models whose individual results run from 0.374 to 0.724. The
+fire-specific residual is +0.082 [−0.011, +0.175]; the effect of the 2,800 km is
 **−0.003 [−0.075, +0.069]**. **The failure is a property of contiguous spatial holdout**, not of
 separation distance and not of crossing a region boundary. It is not shown to be a property of the
 fire event either, because the held-out patch is defined by the labels and its identity cannot be
