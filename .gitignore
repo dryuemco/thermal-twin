@@ -66,3 +66,10 @@ drive_new
 # heavy row-level output, not cited anywhere. The file is still hashed in the
 # raw directory's SHA256SUMS.txt so its provenance is recorded.
 cross_region_transfer_predictions.csv
+
+# LaTeX build products (the PDF is a deliverable, the rest is noise)
+paper/tex/*.aux
+paper/tex/*.log
+paper/tex/*.out
+paper/tex/*.blg
+paper/tex/*.spl

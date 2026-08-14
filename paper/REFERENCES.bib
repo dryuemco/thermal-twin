@@ -89,6 +89,8 @@
 % DOI suffix pads it to 00921); the DOI alone is sufficient for Elsevier styles.
 % Updated 2026-08-13: article number re-read from Crossref as 921 and now given
 % in `pages`, so the entry is complete for styles that print an article number.
+% Springer "Discover" journals use article numbers, not page ranges.
+% Article number 921, confirmed in Crossref 2026-08-13.
 @article{Vibhandik2026,
   author  = {Vibhandik, Priyanka and Sawant, Suraj and Joshi, Amit and
              Bidwe, Ranjeet},
@@ -98,8 +100,6 @@
   journal = {Discover Artificial Intelligence},
   volume  = {6},
   number  = {1},
-  % Springer "Discover" journals use article numbers, not page ranges.
-  % Article number 921, confirmed in Crossref 2026-08-13.
   pages   = {921},
   year    = {2026},
   doi     = {10.1007/s44163-026-00921-0},
@@ -504,6 +504,8 @@
   doi     = {10.3390/fire7080276},
 }
 
+% DOI ADDED 2026-08-13. NeurIPS proceedings are now Crossref-registered
+% under the 10.52202 prefix; the record confirms these exact page numbers.
 @inproceedings{Kondylatos2023,
   author    = {Kondylatos, Spyridon and Prapas, Ioannis and
                Camps-Valls, Gustau and Papoutsis, Ioannis},
@@ -514,8 +516,6 @@
   volume    = {36},
   pages     = {50661--50676},
   year      = {2023},
-  % DOI ADDED 2026-08-13. NeurIPS proceedings are now Crossref-registered
-  % under the 10.52202 prefix; the record confirms these exact page numbers.
   doi       = {10.52202/075280-2204},
 }
 
@@ -655,6 +655,9 @@
   doi     = {10.1109/TGRS.2018.2824828},
 }
 
+% DOI CORRECTED 2026-08-13: was 10.3390/rs6111244, which 404s in Crossref
+% (one digit short). MDPI pattern is rs{volume}{issue}{firstpage} =
+% rs + 6 + 11 + 11244. Correct DOI verified against Crossref.
 @article{Cook2014,
   author  = {Cook, Monica and Schott, John R. and Mandel, John and
              Raqueno, Nina},
@@ -667,9 +670,6 @@
   number  = {11},
   pages   = {11244--11266},
   year    = {2014},
-  % DOI CORRECTED 2026-08-13: was 10.3390/rs6111244, which 404s in Crossref
-  % (one digit short). MDPI pattern is rs{volume}{issue}{firstpage} =
-  % rs + 6 + 11 + 11244. Correct DOI verified against Crossref.
   doi     = {10.3390/rs61111244},
 }
 

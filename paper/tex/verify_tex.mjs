@@ -148,7 +148,10 @@ if (/`/.test(body)) leftovers.push('raw backtick');
 check('no Markdown syntax survives into the LaTeX', leftovers.length === 0, leftovers.join(', '));
 
 console.log(`\n${fail === 0 ? 'ALL CHECKS PASSED' : fail + ' CHECK(S) FAILED'}`);
-console.log('NOTE: these are source checks. No TeX installation is available here,');
-console.log('so the file has never been compiled. A clean run above does not mean');
-console.log('it typesets — only that the port did not corrupt the content.');
+console.log('NOTE: these are source checks. They say the port did not corrupt the');
+console.log('content; they do not say the file typesets. Run the compile as well:');
+console.log('  pdflatex manuscript && bibtex manuscript && pdflatex manuscript x2');
+console.log('MiKTeX is installed on this machine (see ENVIRONMENT.md). As of');
+console.log('2026-08-14 both documents compile with no errors and no undefined');
+console.log('references or citations.');
 process.exit(fail === 0 ? 0 : 1);
