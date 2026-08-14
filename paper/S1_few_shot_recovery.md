@@ -48,7 +48,7 @@ baseline set as secondary, and the canonical random forest (300 trees, `min_samp
 `class_weight = "balanced"`, `random_state = 42`).
 
 **Labelled budget.** The unit of labelling effort is a 10-cell (≈ 5 km) spatial block, assigned
-before population filtering, identical to the large-block machinery of §3.8. The configuration
+before population filtering, identical to the large-block machinery of §3.7. The configuration
 records why the canonical 2-cell block is not used here: at ≈ 1 km a block holds a median of about
 four cells, which is neither a plausible unit of survey effort nor separable from the evaluation
 blocks adjacent to it. Budgets are 0, 1, 2, 4, 8, 16 and 32 blocks. Budget 0 is the raw transfer
@@ -140,7 +140,7 @@ These are stated so the analysis is not read as more than it is.
    quantity, and the top budget is not a small budget for these AOIs: 880 of Bejís's 1,100 burned
    cells are inside it.
 5. **The ceiling is the 10-cell-block target-only value**, not the ≈ 1 km within-region headline of
-   Table 3, and is correspondingly lower (0.777 to 0.824 against 0.87 to 0.94). Recovery fractions are
+   Table 3, and is correspondingly lower (0.777 to 0.824 against 0.859 to 0.918). Recovery fractions are
    only interpretable against this matched-blocking ceiling.
 6. **Ceiling reproduction verified for all three targets.** Manavgat, Bejís and Muğla all reproduce
    the frozen large-block artefacts exactly, at an absolute difference of 0.0 against a 10⁻⁹

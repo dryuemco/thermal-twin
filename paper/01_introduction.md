@@ -84,9 +84,9 @@ problem is documented across ecological modelling [@Roberts2017; @Ploton2020] an
 spatially blocked cross-validation [@Valavi2019; @Meyer2018]. Blocking makes the within-region
 estimate honest. It says nothing about whether the fitted relationship holds elsewhere.
 
-Because only that side of the ledger is reported, the trade-off is structurally invisible. A
-predictor block is adopted on the strength of the increment it delivers inside its training
-footprint, and the portability it consumes is never entered as a debit, even though any regional
+Because only that side of the ledger is reported, portability is never entered at all. A predictor
+block is adopted on the strength of the increment it delivers inside its training footprint, and
+whether that increment survives a change of region is not asked, even though any regional
 product built from locally trained models implicitly promises generalisation beyond that footprint.
 For fire specifically the transfer question is asked far less often than in adjacent fields.
 Meteorological fire-danger indices are known not to port cleanly between fire environments
@@ -149,7 +149,7 @@ nearest prior work is named inside the claim.
 
 **Contribution 1. Local skill and portability, measured separately and per direction.** The thermal
 block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with every bootstrap
-interval above zero and the result holding in both analysis populations. Across the twenty ordered transfer directions it contributes +0.004. That interval spans zero under
+interval above zero and the result holding in both analysis populations. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
 run from −0.148 to +0.132, twelve positive and eight negative. The baseline arm bounds the reading.
 It transfers at a mean of 0.537, against the thermal model's 0.541. The static predictor class is

@@ -25,9 +25,9 @@ converter made is listed so it can be reviewed.
 - TABLE 1 REFERENCED BUT NOT PRESENT — left as literal text _(x2)_
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 119
-- TABLE WITHOUT CAPTION in 04_results near md line 289
+- TABLE WITHOUT CAPTION in 04_results near md line 291
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 67
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 74
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 
 ## stripped (5)
@@ -46,8 +46,8 @@ converter made is listed so it can be reviewed.
 - Cross-region transfer matrix, thermal model,: 4 cols, est. width 89 chars -> footnotesize
 - Transfer-gap decomposition (four-AOI set, 12: 6 cols, est. width 113 chars -> footnotesize, 3 wrapping
 - Transfer-gap decomposition (four-AOI set, 12 dir: 3 of 6 columns wrap (widest cell 29 chars)
-- Transferability diagnostics versus raw therm: 4 cols, est. width 124 chars -> small, 2 wrapping
-- Transferability diagnostics versus raw thermal t: 2 of 4 columns wrap (widest cell 63 chars)
+- Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
+- Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
 - : 3 cols, est. width 70 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 23 chars)
 - Signed univariate feature-burned AUC, Muğla : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping

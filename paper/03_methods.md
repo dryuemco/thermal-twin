@@ -163,7 +163,7 @@ families are marginal predictor-space measures P(x), including area-of-applicabi
 climatic and geographic distance and a learned domain classifier; burned-niche overlap P(x|y=1);
 burn-pattern regime distance P(y); and conditional direction agreement P(y|x). No family-wise error
 control is claimed, and the number of variants computed within each family is reported with the
-result. Appendix C.1 gives the full specification of each diagnostic and of the bootstrap.
+result. Appendix C.2 gives the full specification of each diagnostic and of the bootstrap.
 
 ## 3.12 Interventions
 
@@ -209,5 +209,5 @@ Mugla admits a comparison in which place is held fixed and the event varies: a s
 inside the identical AOI, on the identical analysis grid, eleven months after the first. Signed
 univariate AUCs are computed for both arms under the same 10-cell spatial-block bootstrap used
 elsewhere. Season, year and population all differ between the arms, since the 2022 arm is defined by
-removing the 2021 scar, and Section 4.8 reports what that costs. Appendix C.2 gives the window
+removing the 2021 scar, and Section 4.8 reports what that costs. Appendix C.3 gives the window
 dates, the population construction and the asymmetry audit.

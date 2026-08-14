@@ -43,7 +43,7 @@ estimates hold, from +0.048 to +0.154. They rest on 6 to 33 positive-carrying bl
 reported as indicative rather than as intervals. The table note gives the reason.
 
 **Table 3. Within-region baseline versus thermal performance and block-size robustness.** Primary
-(TSG) population; spatially blocked 5-fold CV (Section 3.8); paired spatial-block bootstrap, 1000
+(TSG) population; spatially blocked 5-fold CV (Section 3.7); paired spatial-block bootstrap, 1000
 replicates. Block sizes 2/10/20 cells ≈ 1/5/10 km.
 
 | Region | Block (≈ scale) | Baseline AUC | Thermal AUC | ΔAUC | ΔAUC 95% CI |
@@ -79,8 +79,8 @@ is the coarsest blocking this design supports properly, because every region the
 positive-carrying blocks. The increment holds at that scale in all five regions. Source: `paper/referee2_numbers.md`, block C, counted from the frozen per-cell
 prediction tables.
 
-This is the first half of the trade-off. It is not itself novel, and it is reported because the
-second half is measured against it.
+This within-region result is not itself novel. It is reported because the transfer arms below are
+measured against it.
 
 ## 4.3 Cross-region transfer, and what label-free adaptation does to it
 
@@ -158,7 +158,7 @@ references of 0.859 to 0.918. Adaptation raises the failing directions and degra
 that already transferred. Taking the better of the two adaptations per direction, 14 of the 20 end
 closer to chance than they began and 6 end further from it; five of those six involve Montiferru,
 the smallest and last-added region, and move upward, while the sixth is Manavgat→Muğla moving
-downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (x) in
+downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (ix) in
 Section 5.9, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
 
 **Table 5. Transfer-gap decomposition (four-AOI set, 12 directions).** Within = target's
@@ -175,7 +175,7 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 | Bejís→Manavgat | 0.870 | 0.444 | 0.555 (CORAL) | +0.26 [+0.18, +0.34] | recovery above chance |
 | Muğla→Manavgat | 0.870 | 0.401 | 0.560 (CORAL) | +0.34 [+0.28, +0.40] | recovery above chance |
 | Bejís→Evia | 0.912 | 0.383 | 0.532 (z-score) | +0.28 [+0.23, +0.32] | recovery above chance |
-| Evia→Bejís | 0.918 | 0.448 | 0.550 (z-score) | +0.22 [+0.16, +0.27] | recovery above chance |
+| Evia→Bejís | 0.918 | 0.448 | 0.549 (z-score) | +0.22 [+0.16, +0.27] | recovery above chance |
 | Manavgat→Muğla | 0.859 | 0.470 | 0.443 (CORAL) | −0.07 [−0.12, −0.03] | **negative recovery** |
 | Muğla→Bejís | 0.918 | 0.583 | 0.560 (CORAL) | −0.07 [−0.16, +0.01] | **negative recovery** |
 | Manavgat→Evia | 0.912 | 0.613 | 0.542 (z-score) | −0.23 [−0.32, −0.14] | **negative recovery** |
@@ -197,16 +197,18 @@ quantity, the raw thermal transfer AUC over the twenty ordered directions, under
 pair-based bootstrap.
 
 **Table 6. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
-raw transfer AUC with pair-based bootstrap 95 % CIs. The strongest member of each family in its
-expected direction is named. All twenty individual diagnostics are in Appendix B, Table B1.
+raw transfer AUC with pair-based bootstrap 95 % CIs. Exp. is the sign expected if the diagnostic
+orders transfer. The member named is the one with the largest absolute correlation in its family,
+which is not always in the expected direction. All twenty individual diagnostics are in Appendix B,
+Table B1.
 
-| Family | Diagnostics | Strongest member, in the expected direction | Any CI excluding 0 |
-|---|---:|---|---|
-| **P(y\|x) conditional** | 6 | **+0.84 [+0.58, +0.88]** agreement fraction, supported features | **yes, 2 of 6** |
-| P(x\|y=1) niche overlap | 5 | +0.24 [−0.45, +0.74] Schoener's D, 1-D mean | no |
-| P(x) marginal | 6 | −0.32 [−0.78, +0.33] domain-classifier AUC | no |
-| P(y) regime structure | 2 | +0.29 [−0.38, +0.74] log effective-N distance | no |
-| geographic | 1 | −0.24 [−0.84, +0.73] centroid geodesic distance | no |
+| Family | Diagnostics | Exp. | Largest correlation in family | Sign as expected | Any CI excluding 0 |
+|---|---:|:---:|---|:---:|---|
+| **P(y\|x) conditional** | 6 | + | **+0.84 [+0.58, +0.88]** agreement fraction, supported features | yes | **yes, 2 of 6** |
+| P(x\|y=1) niche overlap | 5 | + | +0.24 [−0.45, +0.74] Schoener's D, 1-D mean | yes | no |
+| P(x) marginal | 6 | − | −0.32 [−0.78, +0.33] domain-classifier AUC | yes | no |
+| P(y) regime structure | 2 | − | +0.29 [−0.38, +0.74] log effective-N distance | **no** | no |
+| geographic | 1 | − | −0.24 [−0.84, +0.73] centroid geodesic distance | yes | no |
 
 **Only two diagnostics have intervals excluding zero, and both are conditional.** The stronger is
 the sign-agreement fraction over interval-supported features, at ρ = +0.84 [+0.58, +0.88]. The
@@ -262,14 +264,14 @@ available.
 
 ## 4.6 Interventions: pooling and feature removal
 
-**(a) Pooled multi-region training.** Training on the pooled primary populations of the other four
-regions never beats the best single-source transfer for any target, and stays 0.28 to 0.50 AUC below
-the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though
+**(a) Pooled multi-region training.** At the point estimate, training on the pooled primary
+populations of the other four regions never beats the best single-source transfer for any target,
+with shortfalls of 0.02 to 0.22, and it stays 0.28 to 0.50 AUC below the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though
 only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not
 manufacture the missing conditional information.
 
 **(b) Removing the direction-reversing features.** The two predictors whose signed association
-reverses between regions are **`elevation_mean` and `lst_anomaly_mean`**. Retraining without them
+reverses between regions **with bootstrap support** are **`elevation_mean` and `lst_anomaly_mean`**. Retraining without them
 costs **−0.081** of mean within-region AUC, supported in every region (per-region deltas −0.060,
 −0.130, −0.074, −0.063, −0.079, every interval entirely below zero), and changes mean transfer by
 **+0.014 [−0.017, +0.045]**, which spans zero.
@@ -296,20 +298,20 @@ paid.
 
 ## 4.7 Sensitivity analyses
 
-Five design choices were varied with everything else held fixed. They are the Evia AOI and its
+Six design choices were varied with everything else held fixed. They are the Evia AOI and its
 prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor
 window, and the quality screening of the coarse thermal input. None changes a conclusion above. Two
 bound how the results should be read, so they are carried into the main text here.
 
 Coarsening the blocks from 1 km to 5 km moves the verdict counts from ten positive, seven negative
-and three uncertain to six, four and ten. Support is removed from six verdicts and added to none.
+and three uncertain to six, four and ten. Support is removed from seven verdicts and added to none.
 The point estimates are unchanged, but that is an identity rather than a result. The blocking scale
 is the resampling unit, and it cannot move an estimate computed once over all target cells.
 
 Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes
 the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
 moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
-behaviour. Appendix A reports all five arms.
+behaviour. Appendix A reports all six arms, including one that tests a claim of Section 1.2 and does not uphold it.
 
 ## 4.8 The same geography, a second fire: reversal with place held constant
 
@@ -376,9 +378,13 @@ of labelling effort and reading recovery against a matched target-only ceiling o
 Thirty-two labelled blocks recover **85 to 89 % of that ceiling in three of the six directions**, two
 of which started below chance; 51 to 57 % in two more, the directions where the conditional gap is
 widest; and 30 % in the sixth. That budget is 7 to 20 % of the target's natural-vegetation
-population, roughly 800 km, so it is a real answer and not a cheap one. Two properties of the
+population, about 800 km², so it is a real answer and not a cheap one. Two properties of the
 measurement bound it and are stated in the supplement rather than buried: at the top budget the
 selection pool is nearly exhausted, so the narrow upper-budget intervals reflect saturation rather
 than precision, and the labelled blocks are drawn from the event being predicted, which is not a
 resource available before that event burns. The protocol, the full curve and the limits are in
 Supplement S1.
+
+Two limits belong with the number. At small budgets the same intervention damages the direction that
+already transfers best without any labels. And six directions in three regions cannot support a
+general label budget, so none is offered.

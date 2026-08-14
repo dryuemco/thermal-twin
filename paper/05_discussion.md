@@ -17,8 +17,8 @@ matrix rather than of the dynamic block specifically. Removing the two reversing
 elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
 three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
 also spans zero. Second, of twenty candidate transferability diagnostics only two have intervals excluding zero and
-both are conditional, while no marginal measure was shown to order the matrix, including the
-area-of-applicability family that is the only one runnable before deployment. Third,
+both are conditional, while no marginal measure was shown to order the matrix. The marginal family,
+which includes area-of-applicability dissimilarity, is the only one runnable before deployment. Third,
 the mechanism is a reversal in the sign of the predictor-burning association, and it persists inside
 one study area across two fires.
 
@@ -149,8 +149,8 @@ realignment of inputs can repair it.
 The transfer failure is a finding, not a limitation. The limitations are the boundaries on how far
 it generalises.
 
-(i) **No meteorological covariates** enter the models, so we cannot say how the trade-off behaves
-for a mixed thermal-plus-weather predictor set.
+(i) **No meteorological covariates** enter the models, so we cannot say how local skill and
+portability behave for a mixed thermal-plus-weather predictor set.
 
 (ii) **Temporal transfer is measured for one region only**, and even there year and seasonal phase
 are confounded, a confound that cannot be resolved in this study area for the reason given in
@@ -179,14 +179,15 @@ successes and the failures of Section 4.4 should be read at that power.
 
 (viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
 diagnosis bites hardest and where feature removal recovers most. Two candidates have now been tested
-and neither survives. Its predictor window was not meteorologically extreme. The second candidate was the quality-screening difference in its coarse thermal input. It was the
+and neither survives. The first was its meteorology: the predictor window was not extreme. The second
+was the quality-screening difference in its coarse thermal input. It was the
 more worrying of the two, because the change it induces correlates with elevation at +0.615. It does
 not propagate. The region's entire downstream chain was rebuilt from a quality-screened MODIS input.
 That changes the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed
 univariate association moves by more than +0.0003. Elevation's stays at 0.374 [0.290, 0.472] in both
 arms, and the population is unchanged. The result is structural rather than fortunate. Elevation is
 a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived surface across
-only 2.14 points of coverage. With one fire
+only 2.14 percentage points of coverage. With one fire
 season per region the remaining candidates are not separable in this design.
 
 (ix) **The interval-support counts are less stable than the point estimates behind them.** Several
