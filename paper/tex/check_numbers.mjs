@@ -23,7 +23,9 @@ const ri = argv.indexOf('--ref');
 if (ri >= 0) { ref = argv[ri + 1]; argv.splice(ri, 2); }
 if (!argv.length) { console.error('give at least one file stem, e.g. 06_conclusions'); process.exit(2); }
 
-const ROOT = path.resolve('paper');
+// PAPER_ROOT so the companion manuscript is verified by the same checks.
+// Absent, the root is 'paper' and Paper 1's verdict is unchanged.
+const ROOT = path.resolve(process.env.PAPER_ROOT || 'paper');
 
 // Prose = manuscript content the style rules govern. Notes are not content.
 const prose = s => s

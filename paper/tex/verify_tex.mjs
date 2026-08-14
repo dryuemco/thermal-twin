@@ -11,7 +11,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ROOT = path.resolve('paper');
+// PAPER_ROOT so the companion manuscript is verified by the same checks.
+// Absent, the root is 'paper' and Paper 1's verdict is unchanged.
+const ROOT = path.resolve(process.env.PAPER_ROOT || 'paper');
 const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 const SECTIONS = ['01_introduction', '02_related_work', '03_methods',
                   '04_results', '05_discussion', '06_conclusions'];
@@ -82,7 +84,12 @@ check('the LaTeX invents no number the Markdown lacks', extra.length === 0,
 
 // ------------------------------------------------- 2. dangling references --
 const labels = new Set([...tex.matchAll(/\\label\{([^}]+)\}/g)].map(m => m[1]));
-for (const m of read('figure_captions.tex').matchAll(/\\label\{([^}]+)\}/g)) labels.add(m[1]);
+// A manuscript with no figures yet has no captions file. That is not a
+// failure; it only means no fig: label can be contributed from outside.
+const CAPFILE = path.join(ROOT, 'figure_captions.tex');
+if (fs.existsSync(CAPFILE)) {
+  for (const m of fs.readFileSync(CAPFILE, 'utf8').matchAll(/\\label\{([^}]+)\}/g)) labels.add(m[1]);
+}
 const refs = [...tex.matchAll(/\\ref\{([^}]+)\}/g)].map(m => m[1]);
 const dangling = [...new Set(refs.filter(r => !labels.has(r)))];
 check('no \\ref points at a missing \\label', dangling.length === 0, dangling.join(', '));
