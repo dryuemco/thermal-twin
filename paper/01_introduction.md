@@ -155,16 +155,17 @@ block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions, with e
 interval above zero and the result holding in both analysis populations. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
 run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
-model's 0.541, so the static predictor class is not the portable one either. Four evaluations of the same models,
-differing in one respect at a time, locate where the skill goes: blocked cross-validation at 5 km
-returns 0.797; a within-region half-split on the **same fire** returns 0.574; a fire held out inside
-its own region returns 0.552; and cross-region transfer returns 0.541. **The fall of 0.223 happens
-with the fire held constant**, and withholding the fire and then crossing a region boundary add 0.022
-and 0.011 on top. What separates the first two is whether the held-out cells are interleaved with
-training cells or lie on one side of a cut. The last three are not distinguishable by this design:
-the scar control rests on eight arms with no interval, only one region supports it cleanly, and its
-evaluation populations are not comparable with whole-region targets. Separation does not order the
-matrix either, at ρ = −0.32 with an interval spanning zero. Six directions are nonetheless below
+model's 0.541, so the static predictor class is not the portable one either. Three evaluations scored on **identical cells**
+locate where the skill goes. A model with the held-out burn scar in its training data returns 0.627
+on that scar's area; withholding the scar returns 0.552; and a model fitted 306 to 2,802 km away
+returns 0.559. The fire-specific residual is +0.082 [+0.005, +0.159]; the effect of the 2,800 km is
+**−0.003 [−0.063, +0.056]**. **The failure is a property of contiguous spatial holdout**, not of
+separation distance and not of crossing a region boundary. It is not shown to be a property of the
+fire event either, because the held-out patch is defined by the labels and its identity cannot be
+separated from its location. Two thirds of the apparent fall from the region-wide 0.782 is the
+evaluation area, which is 34 to 87 % burned against 3.8 to 28.7 % for a region, so a scar-level
+result compared against a region-level reference overstates the collapse. Separation does not order
+the matrix either, at ρ = −0.32 with an interval spanning zero. Six directions are nonetheless below
 chance with interval support, which no account of merely lost skill explains, and that residual is
 what Contributions 2 and 3 address. Feature removal measures the local cost.
 Dropping the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean

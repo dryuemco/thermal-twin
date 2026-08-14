@@ -43,14 +43,13 @@ harmed with interval support, with the rest carrying no verdict. The block is al
 at the chance line.
 
 Two controls fix the meaning of all this. The baseline arm transfers at a mean of 0.537 against the
-thermal model's 0.541, so the static predictor class is not portable here either. And four evaluations differing in one respect
-at a time locate where it goes: 0.797 under blocked cross-validation, 0.574 on a half-split of the
-**same fire**, 0.552 on a fire held out inside its own region, and 0.541 across regions. The honest
-summary is therefore not that these predictors fail to cross regions. **Almost all of the loss, 0.223
-of 0.256, occurs with the fire held constant**, as soon as the held-out cells stop being interleaved
-with training cells; withholding the fire and then changing the region add 0.022 and 0.011. Those
-last three are not distinguishable by this design, which rests on eight scar arms with no interval
-and one region that supports the control cleanly. Six directions are nonetheless anti-predictive with
+thermal model's 0.541, so the static predictor class is not portable here either. And three evaluations on identical cells locate
+where it goes: 0.627 with the held-out burn scar in the training data, 0.552 with it withheld, and
+0.559 for a model fitted 306 to 2,802 km away. The honest summary is therefore not that these
+predictors fail to cross regions. **The failure is a property of contiguous spatial holdout**: the
+fire-specific residual is +0.082 [+0.005, +0.159] and the 2,800 km costs −0.003 [−0.063, +0.056].
+Two thirds of the apparent collapse from a region-wide 0.782 is the evaluation area itself, which is
+34 to 87 per cent burned against 3.8 to 28.7 for a region. Six directions are nonetheless anti-predictive with
 interval support, which no account of merely lost skill explains. The one-event-per-region design
 also means that a fire cannot be separated here from the season and meteorology that produced it.
 

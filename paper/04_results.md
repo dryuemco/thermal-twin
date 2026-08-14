@@ -124,48 +124,52 @@ Montiferru in turn gives +0.0148, +0.0021, +0.0065, **−0.0081** and +0.0060. *
 reverses the sign of the headline.** None of these four units propagates within-direction sampling
 variability. They resample between directions only.
 
-**Where the skill is lost, measured as a ladder.** Four evaluations of the same models differ in one
-respect at a time, and reporting them in order is more informative than any single contrast. Each
-uses the transfer protocol unchanged: fit, then apply with no refit, no recalibration and no
-threshold selection. The reference arm of each reproduces the frozen exports to 0.000000.
+**Where the skill is lost, on a matched comparison.** Four evaluations are reported. The last three
+are scored on **identical cells**, so they differ only in what the model was trained on, and the
+first is included to show why an unmatched comparison misleads. Each uses the transfer protocol
+unchanged: fit, then apply with no refit, no recalibration and no threshold selection.
 
-| Evaluation | Fire | Held-out cells | Mean AUC | Step |
-|---|---|---|---:|---:|
-| Blocked cross-validation, 5 km blocks | same | interleaved with training | 0.797 | |
-| Within-region half-split | **same** | one contiguous half | 0.574 | −0.223 |
-| Leave-one-scar-out, 2 km buffer | unseen | one scar inside the region | 0.552 | −0.022 |
-| Cross-region transfer | unseen | another region, 306 to 2,802 km | 0.541 | −0.011 |
+The held-out unit is a burned connected component of at least 50 cells together with all cells
+within 2 km of it. That area is 34 to 87 % burned, against 3.8 to 28.7 % for a whole region, and
+every negative in it is fire-adjacent, so it is a harder discrimination problem than a region.
 
-**Almost all of the loss occurs with the fire held constant.** The half-split trains on half of the
-very scar it is then scored on, and still falls 0.223 from the blocked reference. Withholding the
-whole fire costs a further 0.022, and moving to another region a further 0.011. What separates the
-first two rows is not fire identity, region or distance: it is whether the held-out cells are
-surrounded by training cells or lie on one side of a cut.
+| Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
+|---|---|---|---:|---|
+| A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.782 | [0.752, 0.811] |
+| B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.627 | [0.566, 0.688] |
+| C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.510, 0.593] |
+| D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.559 | [0.514, 0.604] |
 
-**The last three rows are not distinguishable.** The scar control rests on eight arms with no
-interval, and only Muğla, which contains four separate scars, leaves the source model properly
-trained when one is held out; its four arms mean 0.579 against 0.525 for the four arms in regions
-where holding out the single scar leaves 88, 11, 97 and 472 training positives. The evaluation
-populations also differ: a held-out scar with its collar runs at 43 to 87 % burned prevalence, while
-a whole target region runs at 3.8 to 28.7 %, so the two tasks are not the same discrimination
-problem. What this design supports is therefore a null. **A fire held out inside its own region
-cannot be distinguished from a region 2,800 km away**, and both sit close to where the model already
-is once the held-out cells stop being interleaved with training cells.
+**Most of the apparent collapse is the evaluation area, not the fire.** A and B use the same model
+and differ only in which cells it is scored on, and that alone accounts for 0.155 of the 0.230 fall
+from A to C, about two thirds. Any comparison of a scar-level result against a region-level
+reference inherits that, and the region-level reference is what a paper of this kind normally
+reports.
 
-Separation does not order the matrix either. Across the twenty directions, the Spearman correlation
-between centroid separation and transfer AUC is −0.32 with an interval spanning zero, and the two
-nearest directions, Manavgat and Muğla at 306 km, are among the worst at 0.470 and 0.401. This is a
-different quantity from Table 6's geographic-distance row, which is computed on the twelve-direction
-subset and gives −0.24; both span zero. The mean of 0.541 is over all twenty directions, spanning
-306 to 2,802 km, and is not the value at any one separation: the 2,802 km pair returns 0.326 and
-0.444.
+**Withholding the fire costs little, and moving 2,800 km costs nothing measurable.** B minus C, the
+fire-specific residual on identical cells, is **+0.082 [+0.005, +0.159]**. C minus D, the effect of
+replacing a same-region model with one fitted between 306 and 2,802 km away, is **−0.003
+[−0.063, +0.056]**. The second is the cleanest result here: on the same cells, a model fitted in
+another country does as well as one fitted in the same region with the scar withheld.
 
-Binning the half-split target cells by separation gives 0.692, 0.519, 0.499, 0.445, 0.541 and 0.421
-from 0 to 5 km out to 80 to 160 km, on 4,504, 3,369, 3,740, 2,215, 1,357 and 27 burned cells;
-weighting by burned cells gives 0.674, 0.574, 0.494, 0.495, 0.555 and 0.421. The first four bands
-fall monotonically in both weightings and the last two rest on one region each, so the profile is
-consistent with a decline that is already near its floor by 10 to 20 km, but it cannot carry a
-saturation distance.
+What this establishes is that the failure is a property of **contiguous spatial holdout**. It is not
+a property of separation distance and not of crossing a region boundary. What it does not establish
+is the fire event as the unit, because the held-out patch is defined by the labels, so its identity
+cannot be separated from its location. Two further observations point the same way: a model trained
+on the other half of the same fire is no better at matched sample size, and the within-region
+half-split, which does see half of the target scar, returns 0.574 against leave-one-scar-out's 0.552
+with overlapping intervals.
+
+Separation does not order the twenty-direction matrix either. The Spearman correlation between
+centroid separation and transfer AUC is −0.32 with an interval spanning zero, and the two nearest
+directions, Manavgat and Muğla at 306 km, are among the worst at 0.470 and 0.401. This is a
+different quantity from Table 6's geographic-distance row, computed on the twelve-direction subset,
+which gives −0.24; both span zero. The transfer mean of 0.541 is over all twenty directions and is
+not the value at any one separation: the 2,802 km pair returns 0.326 and 0.444.
+
+**The result is robust to how the held-out patch is defined**, at 0.543 to 0.565 across minimum
+component sizes from 25 to 200 cells and under both 4- and 8-connectivity, and flat across buffers
+of 2, 5 and 10 km.
 
 **The increment behaves the same way.** Contribution 1 is about the paired thermal-minus-baseline
 difference. At the half-split separation it is **+0.027** on average, positive in 13 of 18 splits and
@@ -174,8 +178,8 @@ running from −0.255 to +0.164, between the within-region +0.056 to +0.153 and 
 
 **Six directions are below chance with interval support**, the sharpest at 0.326 [0.305, 0.349]. No
 account of merely lost skill produces a reliably reversed ranking, so those six need a mechanism
-acting on the direction of the relationship. That is the subject of Sections 4.4 to 4.8. Detail on
-all four evaluations is in Appendix A(h).
+acting on the direction of the relationship. That is the subject of Sections 4.4 to 4.8. Per-split
+and per-scar detail is in Appendix A(h).
 
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
 spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise z-scoring (λ =

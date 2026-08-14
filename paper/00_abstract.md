@@ -97,13 +97,14 @@ thermal predictors were added to a terrain, fuel and greenness baseline.
 **The local skill does not travel, and almost all of it is lost before the region changes.**
 Within-region ROC-AUC rose by +0.056 to +0.153 in every region. Across twenty ordered transfer directions the same
 block contributed +0.004 [−0.028, +0.036]. That is not distinguishable from zero, and its sign
-changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. Four evaluations
-differing in one respect at a time give 0.797 for blocked cross-validation, 0.574 for a
-within-region half-split on the same fire, 0.552 for a fire held out inside its own region, and
-0.541 across regions. **The fall of 0.223 occurs with the fire held constant**, and withholding the
-fire and then changing the region add 0.022 and 0.011. Separation does not order the matrix either,
-at ρ = −0.32 with an interval spanning zero, the nearest pair being among the worst. A fire held out
-inside its own region cannot be distinguished from a region 2,800 km away. Two predictors
+changes from pair to pair. The static baseline transferred no better, at 0.537 against 0.541. Three evaluations on **identical
+cells** locate the failure. A model that has the held-out burn scar in its training data scores
+0.627; withholding that scar gives 0.552; and a model fitted 306 to 2,802 km away gives 0.559. The
+fire-specific residual is +0.082 [+0.005, +0.159] and the effect of the 2,800 km is **−0.003
+[−0.063, +0.056]**. The failure is therefore a property of contiguous spatial holdout, not of
+separation distance and not of crossing a region boundary. Two thirds of the apparent collapse from
+a region-wide 0.782 is the evaluation area itself, which is 34 to 87 % burned with every negative
+fire-adjacent. Two predictors
 reverse their association between regions: elevation and the LST anomaly. Removing them cost −0.081
 of within-region skill, supported in every region and mostly due to elevation. It changed transfer
 by +0.014 [−0.017, +0.045]. Both figures are post-selection estimates. A local cost is measured. No

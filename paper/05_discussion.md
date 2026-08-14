@@ -13,10 +13,10 @@ within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean reg
 support at 1 km and 5 km blocking, and contributes +0.004 [−0.028, +0.036] across twenty ordered
 transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
 baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is not a property of
-the dynamic block specifically. Nor is most of it attributable to region crossing.
-Four evaluations differing in one respect at a time give 0.797, 0.574, 0.552 and 0.541, so 0.223 of
-the fall occurs with the fire held constant and only 0.033 is added by withholding the fire and then
-changing the region. The six below-chance directions are a separate matter, since no account of
+the dynamic block specifically. Nor is it attributable to region crossing. On identical
+cells, withholding the burn scar from training costs +0.082 [+0.005, +0.159] and moving the training
+data 306 to 2,802 km away costs −0.003 [−0.063, +0.056]. The failure is a property of contiguous
+spatial holdout. The six below-chance directions are a separate matter, since no account of
 merely lost skill produces a reliably reversed ranking. Removing the two reversing predictors,
 elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
 three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
