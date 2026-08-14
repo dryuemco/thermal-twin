@@ -402,65 +402,6 @@ would behave alike. With ten pairs this cannot refute regime typology as an expl
 shift in general, but our data offer it no support in its distance-based form, and the candidate
 explanation floated in Section 2.5 should be read accordingly.
 
-## 5.7 The meteorological-extremity explanation, tested and not supported
-
-Manavgat is the region whose behaviour most resists the account given above. It supplies the
-reversal partner in the sharpest contrast pair (Section 5.2), it is where feature removal buys
-almost all of its transfer gain (+0.025 mean delta over Manavgat-involved directions against −0.009
-elsewhere, Section 5.5), and it is the target of the worst negative recovery under adaptation
-(Evia→Manavgat, −0.86 of the gap). The most natural post hoc explanation is meteorological: that
-Manavgat 2021 was an exceptionally extreme fire season, so that its thermal predictors were driven
-by a regional weather anomaly the other regions did not share, and the resulting mapping from
-dryness to burning was correspondingly idiosyncratic.
-
-We tested that explanation and it was not supported. The ERA5-Land regional diagnostic (Sections
-3.17, 4.9) characterises each region's predictor window against its own 2017 to 2020 climatology,
-and Manavgat is not the meteorologically extreme member of the set. Its predictor-window temperature
-sits 0.06 °C *below* its climatological mean, while the other four regions run 0.31 to 1.11 °C warm.
-It is the only region at or below its own baseline, and the departure is small enough that the
-honest reading is simply that Manavgat burned under climatologically ordinary temperatures. Its
-humidity deficit of 3.24 % is mid-range among the five, its wind departure of +0.07 m s⁻¹ is the
-second smallest, and its precipitation total is within 1.4 mm of climatology, the smallest
-precipitation departure in the set. On none of the four variables is Manavgat the extreme member; on
-two it is the least anomalous. Whatever makes its transfer behaviour atypical, regional
-meteorological extremity in the predictor window is not it.
-
-We report this as a failed prediction rather than as a result, and it carries the same status as the
-stated regime null of Section 5.6: an expectation on record, tested, and not borne out. The two
-failures are informative in the same limited way. They remove candidate explanations without
-supplying one.
-
-The reader may reasonably ask why meteorology, once measured, is not simply added to the diagnostic
-set of Section 4.4 as a further measure of region similarity. It is not added because the candidate
-set was fixed before any diagnostic-versus-transfer correlation was computed. Twenty variants across
-four families were specified, and only two of them, both conditional, ordered the transfer matrix.
-Appending another measure after seeing the rest fail would be a search over the diagnostic space,
-and any correlation it returned on ten pairs would be uninterpretable. The measurement is reported
-for what it is, namely a descriptive
-characterisation of the regions and a test of one specific explanation. It is kept out of the
-ordering analysis by construction.
-
-Two cautions attach to the reading of Section 4.9, and they are the reason it reports physical units
-rather than standardised ones. The first concerns the climatology. It spans four years, and the
-standard deviations it yields differ between regions by factors of 2.7 to 6.0 in the predictor
-windows, so a standardised anomaly measures a different physical departure in each region and
-invites a cross-region comparison that the quantity cannot support (Section 3.17). The failure mode
-is concrete rather than theoretical. Bejís's label-window temperature reaches 5.7 standardised units
-on a physical anomaly of +0.83 °C. Its four reference years, 19.64, 19.95, 19.94 and 19.91 °C, agree
-to within a third of a degree and yield a climatological SD of 0.147 °C. Muğla's predictor-window
-wind speed reaches 5.3 units on +0.34 m s⁻¹ over an SD of 0.065 m s⁻¹. That these are artefacts of a
-near-degenerate denominator rather than genuine extremes is settled by comparison: Evia's label
-window closes on the same calendar day as Bejís's and is twelve days longer, so any
-seasonal-composition explanation would apply to it at least as strongly, yet its comparable +0.67 °C
-anomaly yields 1.9 standardised units against an SD of 0.351 °C. The physical anomalies of the two
-regions are similar; only their denominators differ.
-
-The second caution is that the label window is not fire weather: it opens on the ignition date and
-runs 35 to 59 days into the autumn rains, so it describes conditions during and after the fire
-rather than those that preceded it. Only predictor-window values are used anywhere in this paper,
-and the label-window figures quoted immediately above serve solely to demonstrate the instability of
-the standardised scale.
-
 ## 5.8 The pre-fire signal is not an early-fire artefact
 
 The most direct threat to everything above is the possibility that the "pre-fire" thermal composite

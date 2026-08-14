@@ -1,4 +1,11 @@
-# The compositing intervention does not replicate in a second region
+# The compositing intervention acts only where the AOI is imaged twice on one day
+
+> **Extended 2026-08-14 to four regions.** What began as a second-region check became a mechanism.
+> The section below is the original Bejís comparison; the four-region picture and the mechanism are
+> at the end, under "What decides whether the intervention has anything to act on". Muğla is still
+> running at the time of writing and will make five.
+
+
 
 Section 5.11(xi) records that the Landsat compositing tolerance of about ±0.02 AUC "was audited for
 one region only; the other four are unaudited on this axis". With Earth Engine access obtained on
@@ -67,3 +74,40 @@ implication that the other four regions would show the same spread.
 `drive_new/diagnostics/landsat_composite_counterfactual/manavgat_2021/`. Canonical comparators for
 Bejís were staged into the pipeline's own gitignored `outputs/` tree from `drive_new/`; nothing under
 version control was modified and `repo/` remained clean throughout.
+
+---
+
+## What decides whether the intervention has anything to act on
+
+Extending the audit to Evia and Montiferru turns the Bejís result from an inconsistency into a
+mechanism. The date-balanced reducer exists to stop a scene-weighted median from counting the same
+calendar date more than once. Whether that ever happens is a property of how the AOI sits on the WRS
+grid, and it can be read off the scene inventory before any model is fitted.
+
+| Region | WRS tiles in the current window | Scenes | Distinct dates | Scenes per date | Same-day edges | Overall verdict |
+|---|---|---:|---:|---:|---:|---|
+| Manavgat 2021 | 177/34, 177/35, 178/34, 178/35 | 14 | 7 | **2.0** | 172 | **supported reduction** |
+| Bejís 2022 | 198/32, 198/33, 199/32, 199/33 | 16 | 8 | **2.0** | 79 | uncertain |
+| North Evia 2021 (ext.) | 183/33, 184/33 | 8 | 8 | 1.0 | **0** | no effect |
+| Montiferru 2021 | 193/32 | 4 | 4 | 1.0 | **0** | no effect |
+
+The dividing line is not the number of Landsat paths. Evia spans two paths, as Manavgat and Bejís do,
+and shows nothing at all: its two paths image it on different days, so no date is ever duplicated.
+What Manavgat and Bejís have in common is that their AOIs span two WRS **rows**, so a single overpass
+delivers two scenes bearing the same date, which is exactly what the scene-weighted reducer
+double-counts. Where that does not happen, the two compositing chains produce identical rasters and
+every boundary estimate is exactly zero, with `insufficient_evidence` for the same-day boundary
+because there are no such boundaries to compare.
+
+Among the two regions where the intervention can act, only Manavgat shows a consistent benefit. The
+difference there is balance: Manavgat draws 3, 3, 4 and 4 scenes from its four tiles, so support is
+uneven between the overlap and the single-tile zones, while Bejís draws 4, 4, 4 and 4.
+
+**The practical consequence is a rule that costs nothing to apply.** Whether a compositing choice can
+move a fire-susceptibility result at all is decided by the scene inventory, and reporting scenes per
+distinct date alongside the composite would tell a reader immediately whether the choice matters in
+that study area. In this cohort it matters in two regions of five, and produces a consistent
+improvement in one.
+
+The canonical reproduction gate passes for every region audited here, so each comparison is anchored
+to the frozen production chain rather than to a re-derivation.
