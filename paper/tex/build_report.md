@@ -24,14 +24,14 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 120
-- TABLE WITHOUT CAPTION in 04_results near md line 220
-- TABLE WITHOUT CAPTION in 04_results near md line 414
+- TABLE WITHOUT CAPTION in 04_results near md line 229
+- TABLE WITHOUT CAPTION in 04_results near md line 423
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 77
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 119
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 160
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 176
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 197
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 199
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 76
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 92

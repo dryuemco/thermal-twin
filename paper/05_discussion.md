@@ -8,7 +8,7 @@
 
 ## 5.1 Principal findings
 
-Three results carry this paper. First, the pre-fire thermal block raises spatially blocked
+Four results carry this paper. First, the pre-fire thermal block raises spatially blocked
 within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean regions, with bootstrap
 support at 1 km and 5 km blocking, and contributes +0.004 [−0.028, +0.036] across twenty ordered
 transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
@@ -149,7 +149,7 @@ travel either.
 
 For practice, this paper supports one concrete change in what is reported. Alongside a spatially
 blocked within-region figure, report skill on a held-out burn scar and its surroundings, or on a
-held-out fire event. On these five regions the two differ by about 0.15 ROC-AUC on the same model,
+held-out fire event. On these five regions the two differ by about 0.14 ROC-AUC on the same model,
 which is the size of the effect such papers usually claim, so a blocked figure alone should be read
 as an upper bound. Transfer skill likewise has to be *measured* rather than inferred from similarity,
 and the pre-deployment diagnostics currently used for that inference did not order it here. Where a model

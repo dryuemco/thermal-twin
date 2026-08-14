@@ -38,7 +38,7 @@
 > 8. **Blocking-scale pass 2026-08-13** (`paper/transfer_ci_blocksize.md`, Results §4.7g and Table
 >    R13). Two support claims here were 2-cell (~1 km) counts quoted as exact. (i) Contribution 1's
 >    "improving ten with bootstrap support and degrading seven" now leads with what is invariant, the
->    sign instability and the −0.148 to +0.132 span at twelve positive and eight negative, then gives
+>    sign instability and the −0.148 to +0.133 span at twelve positive and eight negative, then gives
 >    both blockings and names the fragility of the 1 km split. (ii) Contribution 3's "bootstrap
 >    intervals entirely below chance" for Manavgat and Muğla held only at 1 km; at 5 km only
 >    Muğla→Manavgat is supported. Bejís and Montiferru, the low-overlap pair, carries no verdict at
@@ -154,7 +154,7 @@ nearest prior work is named inside the claim.
 
 **Contribution 1. A region-wide validation figure is not what the model achieves where the fire is.**
 On one model in one region, moving the evaluation from the whole region to the burn scar and its
-2 km collar costs **0.148 ROC-AUC**, from 0.782 to 0.634. That is the size of the increment this
+2 km collar costs **0.143 ROC-AUC**, from 0.776 to 0.634. That is the size of the increment this
 literature ordinarily reports, and it is a property of the evaluation geometry rather than of the
 model, the region or the distance to anything. Withholding the scar from training costs a further
 +0.082 [−0.011, +0.175], and replacing the same-region model with one fitted 306 to 2,802 km away
@@ -169,18 +169,19 @@ interval above zero and the result holding in both analysis populations. That in
 substantially a property of interleaved holdout: withholding a whole burn scar leaves +0.022
 [−0.032, +0.077], and across regions +0.004. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
-run from −0.148 to +0.132, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
+run from −0.148 to +0.133, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
 model's 0.541, so the static predictor class is not the portable one either. Three evaluations scored on **identical cells**
 locate where the skill goes. A model with the held-out burn scar in its training data returns 0.634
 on that scar's area; withholding the scar returns 0.552; and a model fitted 306 to 2,802 km away
 returns 0.555, a mean over four foreign models whose individual results run from 0.374 to 0.724. The
 fire-specific residual is +0.082 [−0.011, +0.175]; the effect of the 2,800 km is
-**−0.003 [−0.075, +0.069]**. **The failure is a property of contiguous spatial holdout**, not of
-separation distance and not of crossing a region boundary. It is not shown to be a property of the
+**−0.003 [−0.075, +0.069]**. Neither difference is detectable, and rows C and D both sit close to
+chance, so neither the fire's identity nor the region boundary is shown to cost anything once the
+evaluation geometry is fixed. What is measurable is the geometry itself. It is not shown to be a property of the
 fire event either, because the held-out patch is defined by the labels and its identity cannot be
-separated from its location. Two thirds of the apparent fall from the region-wide 0.782 is the
-evaluation area, which is 34 to 87 % burned against 3.8 to 28.7 % for a region, so a scar-level
-result compared against a region-level reference overstates the collapse. Separation does not order
+separated from its location. Two thirds of the apparent fall from the region-wide 0.776 is the
+evaluation area. Its negatives are all fire-adjacent, and therefore the hardest in the region, so a
+scar-level result compared against a region-level reference overstates the collapse. Separation does not order
 the matrix either, at ρ = −0.32 with an interval spanning zero. Six directions are nonetheless below
 chance with interval support, which no account of merely lost skill explains, and that residual is
 what Contributions 2 and 3 address. Feature removal measures the local cost.

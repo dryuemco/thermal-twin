@@ -20,7 +20,7 @@
 >
 > **Blocking-scale pass 2026-08-13** (`paper/transfer_ci_blocksize.md`, Results §4.7g and Table
 > R13). "Seven directions are harmed with bootstrap support" was the 2-cell (~1 km) count. It now
-> leads with the blocking-invariant statement, the sign change and the −0.148 to +0.132 span at
+> leads with the blocking-invariant statement, the sign change and the −0.148 to +0.133 span at
 > twelve positive and eight negative, and gives the conservative 5 km verdicts of six helped, four
 > harmed and ten with no verdict. The envelope-overlap contrast in the practical-implication
 > paragraph gained "at the point estimate", because the low-overlap pair carries no interval verdict
@@ -37,7 +37,7 @@ before the first labelled burning.
 That skill is local. Paired per direction, the same predictor block adds nothing distinguishable
 from zero to cross-region transfer. The mean is +0.004 over twenty directions and its interval spans
 zero under all four between-direction resampling units we computed. Its contribution changes sign
-from one direction to another. The paired deltas run from −0.148 to +0.132, twelve positive and eight
+from one direction to another. The paired deltas run from −0.148 to +0.133, twelve positive and eight
 negative. At the conservative 5 km blocking, five to six directions are helped and three to four are
 harmed with interval support, with the rest carrying no verdict. The block is also the swing factor
 at the chance line.
@@ -46,9 +46,10 @@ Two controls fix the meaning of all this. The baseline arm transfers at a mean o
 thermal model's 0.541, so the static predictor class is not portable here either. And three evaluations on identical cells locate
 where it goes: 0.634 with the held-out burn scar in the training data, 0.552 with it withheld, and
 0.555 for a model fitted 306 to 2,802 km away. The honest summary is therefore not that these
-predictors fail to cross regions. **The failure is a property of contiguous spatial holdout**: the
-fire-specific residual is +0.082 [−0.011, +0.175] and the 2,800 km costs −0.003 [−0.075, +0.069].
-Two thirds of the apparent collapse from a region-wide 0.782 is the evaluation area itself, which is
+predictors fail to cross regions. What is measurable is the evaluation geometry. The
+fire-specific residual is +0.082 [−0.011, +0.175] and the 2,800 km costs −0.003 [−0.075, +0.069];
+both span zero, and both arms sit close to chance, so neither is shown to cost anything.
+Two thirds of the apparent collapse from a region-wide 0.776 is the evaluation area itself, which is
 34 to 87 per cent burned against 3.8 to 28.7 for a region. Six directions are nonetheless anti-predictive with
 interval support, which no account of merely lost skill explains. The one-event-per-region design
 also means that a fire cannot be separated here from the season and meteorology that produced it.

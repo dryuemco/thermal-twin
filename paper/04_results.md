@@ -131,8 +131,12 @@ first is included to show why an unmatched comparison misleads. Each uses the tr
 unchanged: fit, then apply with no refit, no recalibration and no threshold selection.
 
 The held-out unit is a burned connected component of at least 50 cells together with all cells
-within 2 km of it. That area is 34 to 87 % burned, against 3.8 to 28.7 % for a whole region, and
-every negative in it is fire-adjacent, so it is a harder discrimination problem than a region.
+within 2 km of it. What makes that a harder discrimination problem than a whole region is not its
+burned fraction, since ROC-AUC does not depend on class balance for fixed class-conditional
+distributions. It is the composition of the negative pool: every negative in a scar collar is
+fire-adjacent, sharing the terrain, land cover and synoptic conditions of the positives, whereas a
+region's negatives include the whole easy far field. The burned fraction, 34 to 87 % against 3.8 to
+28.7 % for a region, is a symptom of that construction rather than its cause.
 
 **Table 5. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
 Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make
@@ -140,12 +144,15 @@ the mismatch visible. Means and Student *t* intervals are over the eight held-ou
 
 | Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
 |---|---|---|---:|---|
-| A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.782 | [0.746, 0.818] |
+| A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.776 | [0.738, 0.814] |
 | B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.634 | [0.562, 0.706] |
 | C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.503, 0.601] |
 | D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.555 | [0.502, 0.608] |
 
-All four rows are means over the **same eight scars**, and the intervals are Student *t* over those
+All four rows are means over the **same eight scars**. A ninth burned component, Bejís, is excluded
+throughout: it is that region's only component of any size, so holding it out leaves no usable
+source model and there is no row C for it. Rows A, B and D are reported here on the eight so that
+the differences are paired. and the intervals are Student *t* over those
 eight, which is the resampling unit for this arm rather than the spatial-block bootstrap used
 elsewhere in the paper. Eight is a small number and the intervals are wide accordingly. Four of the
 eight scars are in Muğla and two in Montiferru, so they are not independent; row A in particular is
@@ -153,9 +160,9 @@ a region-level quantity repeated across the scars of a region, and its interval 
 and should not be read as coverage. The two differences are computed per scar and paired, which is
 what they are reported for.
 
-**The same model, scored two ways on the same region, differs by 0.148 AUC.** Rows A and B are one
+**The same model, scored two ways on the same region, differs by 0.143 AUC.** Rows A and B are one
 model. The only change is which cells it is scored on: the whole region, or the burn scar and its
-2 km collar. That change alone costs 0.148 of the 0.230 fall from A to C, about two thirds, and it
+2 km collar. That change alone costs 0.143 of the 0.225 fall from A to C, about two thirds, and it
 is the size of the entire increment this literature usually reports. A region-wide blocked figure is
 therefore an upper bound on what the same model achieves where the fire actually is, and the
 difference is not small enough to ignore. Any comparison of a scar-level result against a region-level
@@ -186,11 +193,13 @@ in Evia, 88 in Manavgat and 97 in Montiferru, against about 2,000 in Muğla, whi
 scars. Those four starved arms average 0.525 and the four Muğla arms 0.579, so row C mixes "the fire
 was withheld" with "almost all the positives were withheld". Restricted to Muğla, C is 0.579 and D
 is 0.597, and the C to D comparison still shows nothing. With eight scars, half of them starved, this
-design cannot establish a fire-specific residual, only bound it at about 0.18 against the 0.148 that
+design cannot establish a fire-specific residual, only bound it at about 0.18 against the 0.143 that
 separates row A from row B on the same model.
 
-What this establishes is that the failure is a property of **contiguous spatial holdout**. It is not
-a property of separation distance and not of crossing a region boundary. What it does not establish
+What this establishes is bounded rather than positive. Rows C and D both sit close to chance, so a
+comparison between them has little dynamic range, and neither the fire's identity nor the region
+boundary is shown to cost anything on this evaluation. What is measurable is the change of
+evaluation geometry between rows A and B. What it does not establish
 is the fire event as the unit, because the held-out patch is defined by the labels, so its identity
 cannot be separated from its location. Two further observations point the same way: a model trained
 on the other half of the same fire is no better at matched sample size, and the within-region

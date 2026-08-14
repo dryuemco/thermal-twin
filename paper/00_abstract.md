@@ -103,10 +103,10 @@ cells** locate the failure. A model that has the held-out burn scar in its train
 0.634; withholding that scar gives 0.552; and a model fitted 306 to 2,802 km away gives 0.555, though that last is a mean over four foreign
 models whose individual results run from 0.374 to 0.724. The
 fire-specific residual is +0.082 [−0.011, +0.175] and the effect of the 2,800 km is **−0.003
-[−0.075, +0.069]**. The failure is therefore a property of contiguous spatial holdout, not of
-separation distance and not of crossing a region boundary. Two thirds of the apparent collapse from
-a region-wide 0.782 is the evaluation area itself, which is 34 to 87 % burned with every negative
-fire-adjacent. Two predictors
+[−0.075, +0.069]**. Neither withholding the fire nor crossing the region boundary produced a detectable
+difference, and both rows sit close to chance, so neither can be attributed a cost here. Two thirds of the apparent collapse from
+a region-wide 0.776 is the evaluation area itself, whose negatives are all fire-adjacent and
+therefore the hardest in the region. Two predictors
 reverse their association between regions: elevation and the LST anomaly. Removing them cost −0.081
 of within-region skill, supported in every region and mostly due to elevation. It changed transfer
 by +0.014 [−0.017, +0.045]. Both figures are post-selection estimates. A local cost is measured. No
