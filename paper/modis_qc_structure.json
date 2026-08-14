@@ -1,0 +1,20 @@
+{
+  "manavgat_2021": {
+    "mean_difference_c": 1.1725326768715383,
+    "sd_difference_c": 0.603674421563811,
+    "sd_over_abs_mean": 0.5148465654488101,
+    "correlation_with_elevation": 0.6145845628744744
+  },
+  "bejis_2022": {
+    "mean_difference_c": 0.46545072636812107,
+    "sd_difference_c": 0.8860126716807898,
+    "sd_over_abs_mean": 1.9035584681418025,
+    "correlation_with_elevation": -0.04100643921012887
+  },
+  "mugla_2021": {
+    "mean_difference_c": 0.6726377985976042,
+    "sd_difference_c": 0.5003189525985241,
+    "sd_over_abs_mean": 0.7438162910880848,
+    "correlation_with_elevation": 0.44331050951108814
+  }
+}
