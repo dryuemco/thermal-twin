@@ -153,7 +153,7 @@ so it is an observation rather than an established general property.
 Two constraints limit how far this carries, and the first is heavier than it first appears. The
 design is same-geography event-to-event and not clean temporal transfer. The 2022 fire ignites about
 five weeks earlier in the season, so year and seasonal phase are confounded and the difference
-cannot be attributed to elapsed time (Section 3.16.4). What the design does isolate is geography,
+cannot be attributed to elapsed time (Section 3.14). What the design does isolate is geography,
 which is precisely the variable the objection rests on. But seasonal phase is not a neutral nuisance
 here. The 2022 predictor window closes on 20 June and the 2021 window on 28 July, so a late-spring
 composite is being compared with a high-summer one, and in this landscape high ground in late spring
@@ -219,7 +219,7 @@ which is the sign of the conditional association.
 They are not, however, all label-free, and the contrast is often drawn too broadly. Only the
 marginal P(x) family is computable before any target label exists. Burned-niche overlap is defined
 on the burned cells of both regions and fire-regime structure on the target's burned map, so both
-consume the target's labels exactly as the conditional index does (Section 3.14.4). This makes the
+consume the target's labels exactly as the conditional index does (Section 3.11). This makes the
 comparison sharper. Niche overlap and the conditional index are built from the same labelled
 information about where fire happened, and only the one that reads the *direction* of each
 predictor's association orders the transfer matrix. Describing burned cells is not the same as
@@ -306,7 +306,7 @@ general law.
 Multiplicity is not controlled, and no control is claimed. Twenty variants were correlated against
 one target quantity, nineteen of them computable, on an effective sample of ten unordered pairs. Two
 intervals excluded zero. No family-wise error correction is applied and none is offered (Section
-3.14.1). Two mitigations are genuine, and neither substitutes for an error rate. The families and
+3.11). Two mitigations are genuine, and neither substitutes for an error rate. The families and
 their variants were listed in advance rather than searched over. The conditional-versus-marginal
 contrast was a directional expectation stated before computation. The restriction to CI-supported
 features was pre-specified in the same way, and that matters, because the unrestricted versions did
@@ -383,7 +383,7 @@ differently. The expectation that fire-regime distance would *not* predict trans
 before the regime correlation was run and before the Evia-extended results were computed. It is an
 entry in the project's analysis log rather than a formal pre-registration. No independent timestamped
 public registration exists, and the record entered version control on the day the diagnostics were
-computed (Section 3.14.1). The expectation was stated in advance, and that is the whole of the claim
+computed (Section 3.11). The expectation was stated in advance, and that is the whole of the claim
 made for it. The data confirmed the null. They did so in a way
 that exposes the intuition behind the hypothesis as wrong, and that is reported plainly rather than
 as vindication. The regime-distance point estimate has the wrong sign (ρ = +0.29). The most
@@ -479,7 +479,7 @@ What should a practitioner do instead? The results support three concrete answer
 the one this paper adds. First, screen with the right instrument. A marginal applicability check
 answers "is this target inside the training distribution?" and that question was not the binding one
 here: Manavgat to Muğla sits at 0.875 weighted applicability and transfers at 0.470, below chance.
-Where labels exist on both sides, the signed-association comparison of Section 3.14.4 tracked
+Where labels exist on both sides, the signed-association comparison of Section 3.11 tracked
 transfer where twenty other candidates did not, so it is the screen to run, with the caveats of
 Section 5.4 attached. Second, do not spend effort on label-free alignment. Two standard methods,
 applied carefully, moved 14 of the 20 directions towards chance rather than towards skill, and every
@@ -514,7 +514,7 @@ ERA5-Land diagnostic reported in the companion paper characterises the regions b
 does not close this gap, and its own four-year climatology limits how firmly its anomalies can be
 read. (ii) Temporal transfer is measured for one region only, Muğla, and even there year and
 seasonal phase are confounded by the 2022 event's six-week-earlier ignition, so the design is
-same-geography event-to-event rather than clean temporal transfer (Section 3.16.4). That confound
+same-geography event-to-event rather than clean temporal transfer (Section 3.14). That confound
 is not merely unaddressed: it cannot be addressed here. The two events differ by 42 days in median
 burn day-of-year, and neither year contains a second event at the other's phase, so a
 calendar-matched arm would carry nine burned cells against a gate minimum of thirty (Section 5.2 and
@@ -528,7 +528,7 @@ numbers, so they are not comparable to the 20 between-region directions and the 
 has a structural competing explanation this design cannot exclude. Those two arms are additionally
 the only transfer directions in this paper computed by us rather than read from the pipeline
 author's frozen export, albeit with his unmodified code and the same pinned environment (Section
-3.16.4). No other region has a second event. (iii) All labels derive from a single
+3.14). No other region has a second event. (iii) All labels derive from a single
 burned-area product, MCD64A1 [@Giglio2018], whose omission and commission characteristics
 [@Boschetti2019] bound every model evaluated here. (iv) The analysis cells approximate, but are not
 co-registered with, the native MODIS sinusoidal grid (Section 3.2). They are also not square on the
@@ -634,7 +634,7 @@ no second label product was used as a control. (xv) **Two safeguards did not run
 pre-label burn exclusion ran for Muğla, Evia and Montiferru, is recorded as not run for Manavgat, and
 has no recorded status for Bejís (Section 3.2). Prior-year burning is screened for no region in the
 five-region cohort; the only historical-burn exclusion in the study removes the 2021 Muğla scar from
-the 2022 event-relative experiment of Section 3.16.4. **The exposure this leaves has now been
+the 2022 event-relative experiment of Section 3.14. **The exposure this leaves has now been
 measured, and it is small.** It could not be measured from the archive, because both the working and
 the raw MCD64A1 rasters there are clipped to each region's label window and carry zero positive
 sub-pixels in any predictor window. Counting instead against the unclipped product gives, for burned
@@ -725,7 +725,7 @@ outstanding.
        intended; the §3.17 occurrence is the substantive data citation and should survive any
        de-duplication pass. The [^dimarco-lst] footnote's later "static ERA5-Land seasonal
        climatology" is a back-reference and deliberately carries no citation.
-    7. §5.2 / 04 §4.8 / 03 §3.16.4 — Muğla two-event block added 2026-08-11 from raw files
+    7. §5.2 / 04 §4.8 / 03 §3.14 — Muğla two-event block added 2026-08-11 from raw files
        (paper/mugla_temporal_raw/, paper/step9g_raw/, hashes in each SHA256SUMS.txt). Every
        number was read from source and independently matched the values supplied in the task
        brief. Open items:
@@ -737,7 +737,7 @@ outstanding.
            and 0.670 [0.654,0.685]) but the thermal delta FLIPS SIGN with interval support
            (-0.082 [-0.127,-0.040] vs +0.089 [+0.072,+0.104]). Written into §4.8 Table R9 and
            the §5.2 addition. PROVENANCE: these are the only transfer directions in the paper
-           not produced by the pipeline author; §3.16.4 says so explicitly and records
+           not produced by the pipeline author; §3.14 says so explicitly and records
            git_commit: null. Do not let this drop out at assembly.
        (b) FRAMING — the registry itself (core/regions.py, mugla_2022_event_relative) records
            transfer_framing = "same_geography_event_to_event" and warns explicitly that year and
@@ -754,7 +754,7 @@ outstanding.
            contrasts (Manavgat-Muğla, Muğla 2021-2022), so it is an observation at n = 2, not a
            general claim. Check the wording still reads as calibrated.
        (e) Four pair directories in the step9g export carry "_superseded_pre_manavgat_repair";
-           they are recorded as superseded in §3.16.4 and were not read.
+           they are recorded as superseded in §3.14 and were not read.
 
 (b) Interpretation beyond the literal statements of 04 (flag for coordinator review):
     0. §5.7 — 04 §4.9 is now filled from source, so the section no longer runs ahead of its
@@ -827,7 +827,7 @@ outstanding.
       in §5.5 (compression, 7/12 negative recovery).
     - 02 §2.5: regime typology "offered as candidate explanation, not tested" → closed honestly
       in §5.6 (stated null confirmed; grouping intuition wrong). Wording aligned 2026-08-13 to
-      03 §3.14.1: analysis-log entry, not a formal pre-registration.
+      03 §3.11: analysis-log entry, not a formal pre-registration.
     - 02 §2.5 / OUTLINE §1.5: the Dimarco contrast → §5.9, now with four bounding differences
       (the fourth added 2026-08-13: our own baseline's transfer performance).
     STILL OPEN (not closable in Discussion):
@@ -909,13 +909,13 @@ it). No number entered that is not in those reports, with the two exceptions not
        pairs, the two supported-conditional rows still the only ones excluding zero at
        +0.87 [+0.65, +0.88] and +0.85 [+0.43, +0.88], all 18 others spanning zero), with the
        coarseness caveat the source insists on (three distinct values, still needs target
-       labels). Sources: diagnostics_common_subset.md §2 and §4; 03 §3.14.1 for the multiplicity
+       labels). Sources: diagnostics_common_subset.md §2 and §4; 03 §3.11 for the multiplicity
        and provenance wording. The +0.50 value is the published cosine_9 row of
        paper/all_diagnostics_vs_transfer.csv (0.5042 [-0.1668, +0.8253], n = 20); it is not in
        the three referee reports and was verified against that file directly.
     6. §5.4 Bejís/Montiferru exclusion promoted from a clause to the paragraph's opening claim,
        and tied explicitly to §5.3's headline contrast.
-    7. §5.6 title and wording aligned to 03 §3.14.1: "stated" rather than "pre-registered", an
+    7. §5.6 title and wording aligned to 03 §3.11: "stated" rather than "pre-registered", an
        analysis-log entry, no independent timestamped registration, records entered version
        control on the computation date. Substance unchanged. §5.7's back-reference updated.
     8. §5.7 opening count corrected: "Eight measures were specified and eight failed" was a

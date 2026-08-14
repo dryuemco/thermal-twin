@@ -129,7 +129,7 @@ These are stated so the analysis is not read as more than it is.
    here is a label-free method and nothing here weakens the paper's negative result about
    label-free alignment. It prices that result.
 3. **No joint analysis with the conditional index.** Whether the labelled budget needed to reach a
-   given recovery fraction is predicted by the conditional sign-agreement index of §3.14.4 was not
+   given recovery fraction is predicted by the conditional sign-agreement index of §3.11 was not
    computed. With six directions it would in any case be a description rather than a test.
 4. **The interval is a selection interval, and it narrows for a reason that is not precision.**
    Bejís holds only 15 blocks containing both classes and 19 containing any burned cell; Manavgat

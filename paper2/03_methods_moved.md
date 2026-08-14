@@ -396,3 +396,169 @@ rather than those that preceded it. Only predictor-window values are used anywhe
 and the label-window figures quoted immediately above serve solely to demonstrate the instability of
 the standardised scale.
 
+
+---
+
+<!-- from paper/03_methods.md -->
+
+**Sea water enters the edge fit, and the extent of the resulting problem was measured rather than
+assumed.** Because the water bit is preserved and the AOIs are not clipped to the coastline, sea
+pixels take part in the percentile fit. Two of the five AOIs are largely marine: water-dominant
+cells are 57.6 % of Evia's grid and 38.9 % of Muğla's, against 0.1 % for the one inland AOI, Bejís.
+The frozen per-bin edge diagnostics show the consequence directly. In Evia the three lowest NDVI
+bins carry dry edges of 28.8 to 29.9 °C, which is Aegean sea-surface temperature and not a land dry
+edge, whereas Bejís's lowest bins sit near 49 °C. That contamination is confined to the bins the sea
+occupies. From NDVI bin 4 upward Evia's dry edge runs from 44 to 47.5 °C, in the same range as
+Bejís's 41 to 49 °C, and neither the wet nor the dry edge orders across the five regions by sea
+fraction: in the vegetated bins the lowest wet edge belongs to Montiferru, at 7.4 % water, and the
+highest to Bejís, at 0.1 %.
+
+The question that matters is whether the modelled population occupies the contaminated bins, and it
+does not. Not one cell of the primary natural-vegetation population in any region has a mean NDVI
+below 0.15, and 0.01 % or less lies below 0.20; the 5th percentile of that population's NDVI is
+0.376 in Evia and 0.290 to 0.383 elsewhere. Nor is there evidence of the saturation such a
+mis-normalisation would produce: the share of primary-population cells at the upper clamp is 0.5 %
+in Evia, 0.5 % in Muğla and 0.4 % in Manavgat, against 0.1 % in Bejís, with the distribution well
+spread in every region. That check is made on 500 m cell means, so it bounds rather than excludes the
+effect on individual 30 m pixels, and it does not license the all-valid population, where sea cells
+are present in bulk (Section 4.7f).
+
+---
+
+<!-- from paper/03_methods.md -->
+
+**The clean test was then run.** The edges were refitted on land pixels alone, and a third set was
+fitted once over the pooled land pixels of all five regions, which is the common-edge index promised
+below. Both re-runs import the pipeline's own binning, percentile and clamp functions, so the only
+difference between arms is which pixels enter the percentile. The all-pixel arm reproduces every
+frozen edge to floating-point noise with exactly equal bin pixel counts, and its cell-aggregated
+index reproduces the frozen `current_tvdi_mean` column to 1.8×10⁻⁷, which is float32 storage
+precision. Section 4.7k reports the outcome: sea in the edge fit does move the index, by an amount
+that scales with each AOI's sea fraction, and it does not change any region's direction.
+
+---
+
+<!-- from paper/03_methods.md -->
+
+**A second and much larger exclusion applies to the 2022 arm alone, and it defines that arm's
+population.** The registry sets `exclude_historical_burns` for `mugla_2022_event_relative` only, with
+`mugla_2021` as the source and a frozen expected count of 3,073. The mask is every cell with
+`burned = 1` in the 2021 canonical Step 8A artefact, without any further restriction by land cover,
+eligibility or modelling validity. Applied to the 2022 arm it removes 3,073 cells, of which 2,941
+belong to the primary natural-vegetation population. The primary population therefore falls from
+41,730 rows in the 2021 arm to 38,790 in the 2022 arm, a drop of 7.0 %, and the removed cells are
+the 2021 scar itself: 2,911 of the 2,941 are 2021 burned cells, with a median elevation of 563 m and
+a maximum of 1,975 m. The design intent is to stop the previous year's burn scar, which carries an
+altered surface, from entering the following year's analysis. The consequence for how these two
+transfer directions may be read is set out in Section 4.8, and it is the reason they are reported
+separately from the 20-direction matrix rather than inside it.
+
+Two frozen diagnostics are read for this pair, both produced by the machinery already described and
+neither refitting any model. Burned-pattern structure (component counts, effective component count,
+component-size and elevation distributions, land-cover mix) follows Section 3.14.5, computed on the
+primary population; outputs in `paper/mugla_temporal_raw/` with hashes in that directory's
+`SHA256SUMS.txt`. Signed univariate direction reversal follows Section 3.12: for each of the nine
+numeric features, the raw ROC-AUC of the feature against `burned` in each experiment, never folded
+to max(AUC, 1 − AUC), so that a value below 0.5 is read as a direction rather than as weakness. Land
+cover is excluded from the AUC analysis because its integer class codes carry no meaningful scalar
+order, and is reported descriptively instead. Uncertainty is a spatial-block bootstrap on 10-cell (≈
+5 km) blocks assigned before filtering, 1,000 replicates, seed 42, 2.5/97.5 percentile intervals. A
+reversal counts as bootstrap-supported only when both experiments' intervals exclude 0.5 on opposite
+sides. Outputs in `paper/step9g_raw/` with hashes alongside. Four pair directories in that export
+carry a `_superseded_pre_manavgat_repair` suffix and are superseded. They are retained for the
+record and are not read here.
+
+Unlike every other transfer direction in this paper, the two arms of this pair were not present in
+the frozen export delivered to us, which contained no `mugla_2021__mugla_2022_event_relative`
+directory, so they were computed for this analysis. They were produced by running the project's own
+unmodified `src/step9b_run_cross_region_transfer.py` and
+`src/step9c_cross_region_block_bootstrap.py` at commit `48b56e7`. That is the same code and the same
+protocol as Section 3.10 and Section 3.9, with `random_state = 42`, the primary RF configuration,
+and the 1,000-replicate spatial-block bootstrap on `spatial_block_id`. The frozen Step 8A modelling
+datasets of both experiments were the only inputs, hashed as read
+(`paper/mugla_transfer_raw/SHA256SUMS.txt`). Because `repo/` is treated as read-only and the
+pipeline resolves its paths from its own location, the run used a shadow project root containing a
+copy of `core/`, `src/` and `scripts/` plus those two inputs, so nothing was written into the
+pipeline repository or into the frozen output archive. The environment was Python 3.12.3 with
+scikit-learn 1.9.0, pandas 3.0.5 and NumPy 2.5.2, matching the version to which every other transfer
+number in this paper is fixed (Section 4.7e). One consequence is stated rather than hidden: the
+metrics file records `git_commit: null`, because the shadow root is not itself a git repository.
+
+---
+
+<!-- from paper/03_methods.md -->
+
+**Reproducibility.** All randomness uses seed 42, covering model `random_state`, cross-validation
+shuffling and bootstrap generators alike. The bootstrap uses 1000 replicates throughout. The
+transfer and adaptation analysis is executed in a dedicated Python environment separate from the
+upstream pipeline environment; because random-forest fits are not bit-identical across scikit-learn
+versions, the analysis includes an explicit reproduction check in which the within-region models are
+refitted in the new environment and compared against the frozen upstream outputs, and the
+independently implemented adaptation is compared against the pipeline's own implementation. All
+numbers reported in this paper were produced under, or verified against, scikit-learn 1.9.0: two
+frozen transfer probes reproduce to four decimal places under 1.9.0 but move by +0.021 and +0.026
+AUC under 1.7.2 with byte-identical data, pipeline and seed, so cross-region point estimates carry
+an implementation tolerance of roughly ±0.02 to 0.03 unless the exact library version is fixed.
+Within-region AUCs reproduce to ~4 decimals across versions (`paper/sklearn_version_sensitivity.md`;
+probe script `paper/pairwise_check.py`).
+
+The reproduction check was executed on the final five-region set by the pipeline author, and its
+record is archived with this manuscript (`paper/reproduction_check/reproduction_check_5region.json`,
+SHA-256 `7f7e41f5…09c8be`; commit `48b56e7`, Python 3.12.3, scikit-learn 1.9.0, pandas 3.0.2, NumPy
+2.4.4, primary population `burnable_tree_shrub_grass`). Two families of comparison were re-executed
+against the frozen outputs. The within-region arm refitted `step8b`'s baseline and thermal models on
+the frozen Step 8A parquet of each of the five experiments and compared ROC-AUC and PR-AUC. All
+twenty comparisons were produced, with a **maximum absolute difference of exactly 0**. The transfer
+arm regenerated the label-blind CORAL predictions and re-evaluated them for all twenty directed
+region pairs, again in both model families and both metrics. That is eighty comparisons over twenty
+directions, none missing, with a **maximum absolute ROC-AUC difference of 1.6×10⁻⁷** (largest case
+Montiferru→Manavgat, thermal: 0.6060780 against 0.6060778); sixty-nine of the eighty comparisons
+were bit-identical and the remaining eleven differed by 1.6×10⁻⁷ or less.
+
+That check was run by the pipeline author, and the script behind it is not in the released
+repository, so a reader cannot re-execute it (Section 5.11 states this). We therefore repeated part
+of it independently, using only code a reader does have. The environment was rebuilt from scratch on
+a different operating system, Windows 11 rather than Linux, pinning the three libraries that govern
+the fits to the versions the check records (NumPy 2.4.4, pandas 3.0.2, scikit-learn 1.9.0) on Python
+3.12.10, and `src/step8b_train_baseline_vs_thermal_model.py` was executed unmodified at commit
+`48b56e7` against the frozen Step 8A parquet of two regions. Every numeric field of the resulting
+`step8b_model_comparison_metrics.json` was compared against the archived one: 142 fields for Manavgat
+with a maximum absolute difference of 6.9×10⁻¹⁸, in a Brier score, and 168 fields for Montiferru with
+a maximum absolute difference of **exactly 0**. No field differed by more than 10⁻⁹, and every
+reported ROC-AUC agreed to sixteen significant digits, including the Table 3 values for Manavgat
+(baseline 0.8027358197042693, thermal 0.8696419777927898). The within-region results of this paper
+are therefore reproducible from the released code and the archived data alone, on different hardware
+and a different operating system, once the library versions are fixed. This does not extend to the
+transfer arm, whose reproduction-check script remains unavailable.
+
+The tolerance against which these differences are judged is not a criterion chosen for this report.
+It is the repository's own pre-existing Step 10C fail-fast reproduction criterion, an absolute
+difference of ≤ 1×10⁻⁶ defined in `src/step10c_paired_evaluation_bootstrap.py`. It is applied
+unchanged, and the check record states this explicitly. Both arms fall inside it, the within-region
+arm by exact equality. The reported `PASS` is a technical-completion status covering cohort
+resolution, comparison coverage and input-hash agreement. The achieved numerical differences are
+reported separately, as above, rather than folded into that status.
+
+What this check does and does not establish should be stated plainly. Because it re-executes the
+pipeline in the same library environment that produced the frozen outputs, the exact-zero
+within-region agreement demonstrates determinism and the absence of undeclared state, meaning that
+the recorded numbers are regenerable from the recorded inputs, hashes included. It does not
+demonstrate robustness to a change of environment. The residual 10⁻⁷-scale differences in the
+transfer arm arise from re-derived rather than re-read intermediate quantities, not from a different
+library stack. Cross-version behaviour is established separately and is far coarser: the ±0.02 to
+0.03 implementation tolerance quoted above, from the 1.9.0-against-1.7.2 probes. The two statements
+are complementary and neither substitutes for the other.
+
+Two further properties of the record are stated for completeness. First, the five-region cohort was
+resolved by three independent routes. These are the experiment registry restricted to canonical
+records (those carrying no `superseded_by` key, which drops the legacy Evia AOI
+and the superseded Muğla calendar-shift record) and with non-cohort roles removed, the ERA5-Land
+diagnostic's `DEFAULT_EXPERIMENTS` constant, and the frozen multi-AOI synthesis manifest. All three
+return the same ordered set (`routes_agree: true`). The two deliberate exclusions by role are Kozan
+2023 as `negative_control` and the second Muğla event as `temporal_transfer_wildfire` (Sections 3.1,
+3.3, 3.16.4). The roles and the supersession links are as recorded in `core/regions.py`. Second, two
+unordered region pairs carry duplicate Step 10 namespaces on disk under reversed directory orderings
+with distinct analysis identifiers (Bejís-Muğla and Manavgat-Muğla). The reference artefact was
+selected by the frozen synthesis manifest rather than by directory listing, and the check record
+names both the paths present and the one used for each pair. No file belonging to the upstream
+pipeline or to previously frozen outputs was modified by this analysis.

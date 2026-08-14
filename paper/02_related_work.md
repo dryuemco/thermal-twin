@@ -71,7 +71,7 @@ decomposition. Xu et al. [@Xu2026] argue that wildfire transfer conclusions depe
 evaluation design and task formulation, a caution that applies here as much as anywhere, and which
 we address by fixing the analysis protocol in a project log before the diagnostics were computed and
 by reporting every sensitivity axis. That log is not a formal pre-registration and no independent
-timestamped registration exists; Section 3.14.1 states what was fixed and when. For infrastructure at
+timestamped registration exists; Section 3.11 states what was fixed and when. For infrastructure at
 this scale, Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a 1 km Mediterranean datacube built
 for data-driven wildfire modelling.
 

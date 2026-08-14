@@ -323,7 +323,7 @@ Twenty candidate diagnostics from four families were each rank-correlated with t
 quantity. The families are marginal predictor-distribution measures P(x), burned-niche overlap
 measures P(x|y=1), fire-regime (label-pattern) structure P(y), and conditional feature-response
 direction P(y|x). Each was rank-correlated with the same target quantity, the raw thermal transfer
-AUC over the 20 ordered directions, under a common pair-based bootstrap (Section 3.14.1). Table 6
+AUC over the 20 ordered directions, under a common pair-based bootstrap (Section 3.11). Table 6
 gives the complete set.
 
 **Table 6. All transferability diagnostics versus raw thermal transfer (20 ordered directions).**
@@ -372,10 +372,10 @@ depends on the difference.*
 Of the 20 variants, exactly two have bootstrap intervals excluding zero, and both belong to the
 conditional family: the sign-agreement fraction over CI-supported features (ρ = +0.84 [+0.58,
 +0.88]) and the cosine similarity of supported signed-AUC vectors (ρ = +0.81 [+0.33, +0.88])
-(Section 3.14.4). These indices are computed from signed feature-response directions in *both*
+(Section 3.11). These indices are computed from signed feature-response directions in *both*
 regions and therefore require burned labels (or a labelled probe) in the target. So do two of the
 three families that fail. Burned-niche overlap is defined on the burned cells of both regions
-(Section 3.14.3) and fire-regime structure on the target's burned map (Section 3.14.5), so both
+(Section 3.11) and fire-regime structure on the target's burned map (Section 3.11), so both
 consume the target's labels exactly as the conditional index does. Only the marginal P(x) family,
 which includes the area-of-applicability rows, the domain classifier and the climatic and geographic
 distances, is computable before any target label exists. That makes the comparison sharper rather
@@ -402,12 +402,12 @@ interval spanning zero (Table 6), so the restriction is what separates a positiv
 one. The finding stands as a mechanism diagnosis. It does not stand as a validated instrument.
 Source: `paper/referee2_numbers.md`, block B.
 
-The remaining families all fail to order the matrix. The domain classifier (Section 3.14.2) is at
+The remaining families all fail to order the matrix. The domain classifier (Section 3.11) is at
 ceiling for every pair (AUC 0.962 to 0.9999), so marginal shift is essentially total everywhere. A
 marginal instrument at ceiling cannot discriminate outcomes ranging from 0.33 to 0.69. The canonical
 SDM niche-overlap instruments (Schoener's D, Warren's I, Mahalanobis distance between burned-cell
-distributions; Section 3.14.3) span ρ −0.23 to +0.24 with all intervals crossing zero. Fire-regime
-structure (Section 3.14.5) has the *wrong-signed* point estimate (ρ +0.29): the most regime-similar
+distributions; Section 3.11) span ρ −0.23 to +0.24 with all intervals crossing zero. Fire-regime
+structure (Section 3.11) has the *wrong-signed* point estimate (ρ +0.29): the most regime-similar
 pair (Bejís-Evia, effective component count 1.0000 vs 1.0083) fails in both directions while the
 most regime-different pair (Bejís-Muğla) transfers above chance. At pair level, niche overlap and
 sign agreement are empirically distinct (ρ between them −0.36 to +0.45, all CIs spanning zero), and
@@ -531,7 +531,7 @@ Two interventions test whether the diagnosis of Sections 4.3 to 4.5 yields a rem
 same pattern: what transfer gains, the within-region model or the direction-aligned pairs pay for.
 
 **(a) Pooled multi-region training (leave-one-region-out).** Training on the pooled TSG populations
-of four regions and testing on the held-out fifth (Section 3.15.1) does not rescue transfer (Table
+of four regions and testing on the held-out fifth (Section 3.12) does not rescue transfer (Table
 R3).
 
 **Table R3. LORO pooled training, thermal feature set, target ROC-AUC (final numbering at
@@ -563,7 +563,7 @@ vs 0.469; Muğla 0.562 vs 0.552); for Montiferru the two are within 0.006 (0.596
 is ahead for Evia (0.637 vs 0.597) and Bejís (0.417 vs 0.389).
 
 **(b) Dropping the direction-reversing features.** Retraining without the two features with
-CI-supported reversals (`elevation_mean`; `lst_anomaly_mean`; Section 3.15.2) trades within-region
+CI-supported reversals (`elevation_mean`; `lst_anomaly_mean`; Section 3.12) trades within-region
 skill for a near-zero mean transfer gain (Table R4).
 
 **Table R4. Feature-removal trade-off (final numbering at assembly).** Means over 5 regions (within,
@@ -695,13 +695,13 @@ and Evia→Montiferru at 10-cell on the delta, and Evia→Bejís at 10-cell on t
 ## 4.8 The same geography, a second fire: direction reversal with place held constant
 
 Every result above compares different places. Muğla admits a stricter test, because a second fire
-event occurred inside the identical AOI on the identical analysis grid (Section 3.16.4): the 2021
+event occurred inside the identical AOI on the identical analysis grid (Section 3.14): the 2021
 event, with its 58-day predictor window closing on 28 July, and the 2022 event, whose matched 58-day
 window closes on 20 June. Region, bounding box, cell definition, feature registry and processing
 chain are the same. What the design holds fixed is place; what it does not hold fixed is the
 population. The comparison is therefore same-geography event-to-event, not clean temporal transfer.
 The 2022 fire ignites about five weeks earlier in the season, so year and seasonal phase are
-confounded (Section 3.16.4). Geography, the explanation most often offered for between-region
+confounded (Section 3.14). Geography, the explanation most often offered for between-region
 instability, is held fixed by construction.
 
 **Two structural properties of this pair must be read alongside its numbers, because they have no
@@ -729,13 +729,13 @@ guarantee is `A08_cohort_is_the_frozen_five`, which compares the executed cohort
 `A07_mugla_2022_absent_from_default_analysis` is narrower than its name suggests: it tests literal
 membership of the string `mugla_2022` and would not by itself catch the `mugla_2022_event_relative`
 entry analysed here. Both pass on the executed diagnostic output, but the guarantee rests on A08
-(Section 3.16.4).
+(Section 3.14).
 
 The two events are structurally very different fires. Table R7 reports the burned-pattern comparison
 on the primary population.
 
 **Table R7. Burned-pattern structure of the two Muğla events.** Primary population
-(`burnable_tree_shrub_grass` ∧ `valid_for_modeling`), 8-connectivity components (Section 3.14.5).
+(`burnable_tree_shrub_grass` ∧ `valid_for_modeling`), 8-connectivity components (Section 3.11).
 Read from `paper/mugla_temporal_raw/.../multi_aoi_burned_pattern_comparison.csv`.
 
 | Quantity | Muğla 2021 | Muğla 2022 |
@@ -764,7 +764,7 @@ univariate AUCs.
 
 **Table R8. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
-replicates, seed 42 (Section 3.16.4). Analysis population 41,730 rows / 2,911 burned (2021) and
+replicates, seed 42 (Section 3.14). Analysis population 41,730 rows / 2,911 burned (2021) and
 38,790 rows / 331 burned (2022). Read from
 `paper/step9g_raw/.../mugla_2021__mugla_2022_event_relative/step9g_direction_reversal_table.csv`.
 
@@ -804,13 +804,13 @@ six at the 1 km blocking of Table 4 (Sections 4.3, 4.7g). Holding geography fixe
 collapse.
 
 **Table R9. Transfer between the two Muğla events.** Primary population, thermal and baseline
-models, target ROC-AUC with 5 km spatial-block bootstrap 95 % CIs (Section 3.16.4). Within-region
+models, target ROC-AUC with 5 km spatial-block bootstrap 95 % CIs (Section 3.14). Within-region
 references are each target's own frozen value at 2-cell blocking (Table 3 for 2021; the 2022 figure
 is its Step 8C point estimate, ΔAUC +0.078 [+0.061, +0.097]). The baseline and thermal columns are
 point estimates on the full target. The ΔAUC column is the bootstrap mean reported alongside its
 interval, so it differs from the difference of the two point estimates in the third decimal (point
 ΔAUC −0.083 and +0.088 respectively). Both arms of this pair were reproduced independently by the
-pipeline author to ≤1×10⁻⁷ (Section 3.16.4).
+pipeline author to ≤1×10⁻⁷ (Section 3.14).
 
 | Direction | Baseline | Thermal | ΔAUC (thermal − baseline) | Target's within-region thermal | Gap |
 |---|---|---|---|---|---|
@@ -882,7 +882,7 @@ concept gap is widest, and at small budgets it is not free.
 
 (a) CLOSED 2026-08-13. The [PENDING] added 2026-08-11 in §4.8 read: "the Muğla 2021 ↔ 2022
     transfer AUCs do not exist yet (no such pair in drive_new/cross_region/)". They were then
-    computed for this analysis (§3.16.4) and now appear in Table R9. On 2026-08-13 the pipeline
+    computed for this analysis (§3.14) and now appear in Table R9. On 2026-08-13 the pipeline
     author supplied his OWN earlier run of the same two arms (produced 2026-08-09, commit
     a07ea33, pandas 3.0.2 / numpy 2.4.4 against our pandas 3.0.5 / numpy 2.5.2, same
     scikit-learn 1.9.0, same input hashes): every point metric and bootstrap bound agrees to
@@ -895,7 +895,7 @@ concept gap is widest, and at small budgets it is not free.
     paper/era5_raw/. Those three sources are outside the facts_results.md extraction and were
     each read from source and hash-verified; see 05_discussion DRAFT NOTES (a)5 and (a)7.
 
-(b) METHODS GAPS — ALL 11 RESOLVED 2026-08-08: described in 03_methods §3.14.1–.5, §3.15.1–.2,
+(b) METHODS GAPS — ALL 11 RESOLVED 2026-08-08: described in 03_methods §3.11–.5, §3.15.1–.2,
     §3.16.1–.3 and the §3.1 Table 1 update; inline [METHODS GAP] markers in this file replaced
     with the real section references. Mapping in 03_methods' METHODS ROUND NOTES comment.
     Original list retained below for the record:
@@ -1024,7 +1024,7 @@ ADDENDUM (2026-08-13, internal referee round, Results). Eleven items. Sources: t
        tuple equality against DEFAULT_EXPERIMENTS), not A07, which tests literal membership of
        the string "mugla_2022" and cannot catch "mugla_2022_event_relative". Verified in
        repo/scripts/validate_era5_land_regional_diagnostic.py lines 318-326 at 48b56e7. §4.8 now
-       matches §3.16.4, which already had it right.
+       matches §3.14, which already had it right.
     9. §4.6a hedged: Manavgat's LORO raw 0.469 [0.412, 0.529] spans 0.5 and is now marked as a
        point estimate; only Bejís (0.417 [0.369, 0.467]) is below chance with support. The
        z-scored Bejís fold 0.472 [0.428, 0.516] likewise spans 0.5 and is now stated as such. The
