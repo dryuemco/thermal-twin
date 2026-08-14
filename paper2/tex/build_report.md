@@ -13,8 +13,8 @@ converter made is listed so it can be reviewed.
 - The analysis cell's true ground dimensions, per : 1 of 4 columns wrap (widest cell 22 chars)
 - Cost of the quality-screening rule in the th: 5 cols, est. width 124 chars -> small, 2 wrapping
 - Cost of the quality-screening rule in the three : 2 of 5 columns wrap (widest cell 39 chars)
-- Whether the compositing choice can act, read: 7 cols, est. width 140 chars -> scriptsize, 3 wrapping
-- Whether the compositing choice can act, read fro: 3 of 7 columns wrap (widest cell 30 chars)
-- The budget assembled: eight axes ordered by : 3 cols, est. width 143 chars -> small, 3 wrapping
-- The budget assembled: eight axes ordered by how : 3 of 3 columns wrap (widest cell 62 chars)
+- Whether the compositing choice can act, read: 9 cols, est. width 149 chars -> scriptsize, 2 wrapping
+- Whether the compositing choice can act, read fro: 2 of 9 columns wrap (widest cell 38 chars)
+- The budget assembled: eight axes ordered by : 3 cols, est. width 173 chars -> small, 3 wrapping
+- The budget assembled: eight axes ordered by how : 3 of 3 columns wrap (widest cell 80 chars)
 

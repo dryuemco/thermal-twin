@@ -62,10 +62,28 @@ would absorb.
 | Bejís 2022 | +0.47 °C | 0.89 | 3.6 % | −0.041 |
 
 Coverage is barely affected. What matters is that **the change is not a uniform offset**, which a
-downscaling model fitted to Landsat would largely absorb: in two of the three regions it correlates
+downscaling model fitted to Landsat would largely absorb. In two of the three regions it correlates
 with elevation, at +0.615 in the region whose elevation-burning association is the one that reverses
-in the companion paper. This does not establish that the screening split explains that behaviour; it
-establishes that the candidate has a mechanism and is strongest where the anomaly is.
+in the companion paper. The candidate therefore has a mechanism, and it is strongest where the
+anomaly is.
+
+**It does not survive propagation.** The measurement above stops at the input, so Manavgat's entire
+downstream chain was rebuilt from a quality-screened MODIS input and compared against an unscreened
+arm rebuilt the same way. Both arms were rebuilt here rather than compared against the frozen
+numbers, so that the contrast isolates the screening rather than mixing it with rebuild drift; the
+unscreened arm reproduces the published increment, at [+0.055, +0.079] against [+0.055, +0.078].
+
+The screening propagates substantially. It changes the downscaled surface on **22,304 of 24,150
+cells**, by a mean of 0.365 °C and a maximum of 10.9 °C. The modelled associations do not follow. No
+signed univariate association moves by more than **+0.0003**, elevation's stays at 0.374
+[0.290, 0.472] in both arms, and the population and the within-region increment are unchanged.
+
+The reason is structural rather than fortunate. Elevation is a DEM variable that screening a thermal
+product cannot touch, and here the screening did not change which cells are valid either. The
+thermal channels that carry the signal are Landsat-derived, and fusion falls back on the
+MODIS-derived surface across only 2.14 points of coverage, so even a 10.9 °C change is diluted to
++0.0003 in the association. The elevation correlation at the input is real. It does not reach the
+model. Details are in `paper/modis_qc_downstream_propagation.md`.
 
 **Zero-fill.** The same three unscreened regions declare no nodata value, so cells with nothing to
 report are written as exact 0.0 °C. Counting them: 518 of 6,390 pixels in Manavgat (8.11 %),
@@ -82,37 +100,47 @@ median counts every calendar date once. The pipeline offers both, and an audit c
 support boundaries, where a positive value means the date-balanced chain lowers the discontinuity.
 
 For Manavgat the intervention helps at every boundary type, which is what motivated it. Extending
-the audit to three more regions turns that into a rule (Table 3).
+the audit to the other four regions turns that into a rule (Table 3).
 
 **Table 3. Whether the compositing choice can act, read from the scene inventory alone.** Scenes per
 distinct acquisition date is counted before anything is fitted. Where it is 1.0 the two compositing
 chains produce identical rasters and there are no same-day boundaries to compare, so the verdict is
 not "no evidence" but "no effect is possible". The verdict column reports the boundary-discontinuity
-audit only for the two regions where the intervention can act.
+audit only for the three regions where the intervention can act.
 
-| Region | WRS tiles in the window | Scenes | Distinct dates | Scenes per date | Same-day boundaries | Verdict |
-|---|---|---:|---:|---:|---:|---|
-| Manavgat 2021 | 177/34, 177/35, 178/34, 178/35 | 14 | 7 | **2.0** | 172 | **supported reduction** |
-| Bejís 2022 | 198/32, 198/33, 199/32, 199/33 | 16 | 8 | **2.0** | 79 | uncertain |
-| North Evia 2021 | 183/33, 184/33 | 8 | 8 | 1.0 | **0** | no effect |
-| Montiferru 2021 | 193/32 | 4 | 4 | 1.0 | **0** | no effect |
+| Region | WRS tiles in the window | Paths | Rows | Scenes | Dates | Scenes per date | Same-day edges | Verdict |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| Manavgat 2021 | 177/34, 177/35, 178/34, 178/35 | 2 | **2** | 14 | 7 | **2.0** | 172 | **supported reduction** |
+| Muğla 2021 | 179/34, 179/35, 180/34, 180/35, 181/34 | 3 | **2** | 18 | 11 | **1.6** | 473 | uncertain |
+| Bejís 2022 | 198/32, 198/33, 199/32, 199/33 | 2 | **2** | 16 | 8 | **2.0** | 79 | uncertain |
+| North Evia 2021 | 183/33, 184/33 | 2 | 1 | 8 | 8 | 1.0 | **0** | no effect |
+| Montiferru 2021 | 193/32 | 1 | 1 | 4 | 4 | 1.0 | **0** | no effect |
 
-Where scenes per date is 1.0 the two chains produce **identical rasters** and every boundary estimate
-is exactly zero, with no same-day boundaries existing to compare. The dividing line is not the number
-of Landsat paths an AOI spans: Evia spans two, as Manavgat and Bejís do, and shows nothing, because
-its two paths image it on different days. What Manavgat and Bejís share is spanning two WRS **rows**,
-so a single overpass delivers two scenes bearing the same date, which is exactly what a
-scene-weighted median double-counts.
+Where scenes per date is 1.0 the two chains produce **identical rasters**. Every boundary estimate is
+exactly zero, and no same-day boundaries exist to compare.
 
-Among the two regions where the intervention can act, only Manavgat improves consistently; Bejís
-improves at the boundary the intervention targets, +0.378 [+0.278, +0.483], and gets **worse** at
-unique-date-count edges, −0.067 [−0.095, −0.041], for an overall verdict of uncertain. The downstream
-ROC-AUC comparison is admissible only for Manavgat, where three defensible chains on an identical
-cohort give increments of +0.045, +0.064 and +0.084, a tolerance of about ±0.02.
+The dividing line is not the number of Landsat paths an AOI spans. Evia spans two paths and shows
+nothing, because those two paths image it on different days. Muğla spans **three**, more than any
+other region here, and it does show an effect. What the three responding regions share is spanning
+two WRS **rows**. A single overpass then delivers two scenes bearing the same date, which is exactly
+what a scene-weighted median double-counts. Row span, not path span, is the readable predictor.
+
+Three regions can respond, and only Manavgat improves consistently. Bejís improves at the boundary
+the intervention targets, at +0.378 [+0.278, +0.483], and gets **worse** at unique-date-count edges,
+at −0.067 [−0.095, −0.041]. Muğla shows the same shape and the largest single reduction in the
+cohort: +0.195 [+0.172, +0.221] at the same-day multiplicity edge, against −0.031 [−0.046, −0.016] at
+unique-date-count edges. Both carry an overall verdict of uncertain.
+
+The downstream ROC-AUC comparison is admissible only for Manavgat, where three defensible chains on
+an identical cohort give increments of +0.045, +0.064 and +0.084, a tolerance of about ±0.02. For the
+other four regions the released tool declines that comparison, either because the seam verdict is
+uncertain or because the canonical reproduction could not be resolved.
 
 **The rule.** Scenes per distinct acquisition date, counted from the scene inventory before anything
 is fitted, tells a reader whether this decision can move their result at all. In this cohort it can
-in two regions of four, and does consistently in one.
+in **three regions of five**, and does consistently in one. The count is itself predictable from the
+AOI's WRS geometry: every region spanning two rows has more than one scene per date, and every region
+spanning one row has exactly one.
 
 ## 4.4 Index normalisation: sea inside a scene-fitted dryness index
 

@@ -72,9 +72,9 @@ Satellite fire-susceptibility models are published with a cross-validated skill 
 
 This paper attaches those numbers. One pipeline, five Mediterranean wildfire regions, one label product and one classifier are held fixed while eight preprocessing decisions are varied in turn, so that their effects are comparable with each other and with the +0.056 to +0.153 ROC-AUC effect the models themselves report.
 
-Two decisions turn out to be predictable in advance at no cost. Whether the choice of compositing chain can move a result at all is decided by scenes per distinct acquisition date, which is 2.0 in two regions and 1.0 in two others; where it is 1.0 the two chains produce identical rasters and every boundary estimate is exactly zero. Whether sea contaminates a scene-fitted dryness index is decided by the area's water fraction and by where the modelled population sits in the index's binning variable; here the contamination is real, with dry edges of 28.8 to 29.9 \textdegree{}C in a marine area against 49 \textdegree{}C inland, and does not reach the modelled population.
+Two decisions turn out to be predictable in advance at no cost. Whether the choice of compositing chain can move a result at all is decided by scenes per distinct acquisition date. It is above one in three of five regions and exactly 1.0 in the other two, and where it is 1.0 the two chains produce identical rasters and every boundary estimate is exactly zero. The count follows the area's WRS geometry: every region spanning two rows exceeds one scene per date, and every region spanning one row does not. Whether sea contaminates a scene-fitted dryness index is decided by the area's water fraction and by where the modelled population sits in the index's binning variable; here the contamination is real, with dry edges of 28.8 to 29.9 \textdegree{}C in a marine area against 49 \textdegree{}C inland, and does not reach the modelled population.
 
-Two provenance splits leave no trace in the outputs. The coarse thermal input is quality-screened in two regions and unscreened in three, split by export date rather than by design, and the induced change is not a uniform offset but correlates with elevation at +0.615 in one region. The same three regions encode sea as exactly 0.0 \textdegree{}C, at 8.1 \% and 38.3 \% of pixels in two of them and not at all in the third.
+Two provenance splits leave no trace in the outputs. The coarse thermal input is quality-screened in two regions and unscreened in three, split by export date rather than by design. The induced change is not a uniform offset: it correlates with elevation at +0.615 in one region. Propagating that region's screening through the whole downstream chain changes 92 \% of its downscaled cells, by up to 10.9 \textdegree{}C, and moves no reported association by more than +0.0003. The same three regions encode sea as exactly 0.0 \textdegree{}C, at 8.1 \% and 38.3 \% of pixels in two of them and not at all in the third.
 
 The analysis cell is also not the cell it is called: built by aggregating a fixed count of reference pixels in a geographic coordinate system, it is 510 m north to south and 390 to 407 m east to west, 17 to 20 \% smaller in area than the cell it approximates, so spatial blocking is weaker in longitude than every block-size label suggests.
 
@@ -231,7 +231,13 @@ The size and shape of what that costs were measured by recomputing each unscreen
   \end{tabularx}
 \end{table}
 
-Coverage is barely affected. What matters is that \textbf{the change is not a uniform offset}, which a downscaling model fitted to Landsat would largely absorb: in two of the three regions it correlates with elevation, at +0.615 in the region whose elevation-burning association is the one that reverses in the companion paper. This does not establish that the screening split explains that behaviour; it establishes that the candidate has a mechanism and is strongest where the anomaly is.
+Coverage is barely affected. What matters is that \textbf{the change is not a uniform offset}, which a downscaling model fitted to Landsat would largely absorb. In two of the three regions it correlates with elevation, at +0.615 in the region whose elevation-burning association is the one that reverses in the companion paper. The candidate therefore has a mechanism, and it is strongest where the anomaly is.
+
+\textbf{It does not survive propagation.} The measurement above stops at the input, so Manavgat's entire downstream chain was rebuilt from a quality-screened MODIS input and compared against an unscreened arm rebuilt the same way. Both arms were rebuilt here rather than compared against the frozen numbers, so that the contrast isolates the screening rather than mixing it with rebuild drift; the unscreened arm reproduces the published increment, at [+0.055, +0.079] against [+0.055, +0.078].
+
+The screening propagates substantially. It changes the downscaled surface on \textbf{22,304 of 24,150 cells}, by a mean of 0.365 \textdegree{}C and a maximum of 10.9 \textdegree{}C. The modelled associations do not follow. No signed univariate association moves by more than \textbf{+0.0003}, elevation's stays at 0.374 [0.290, 0.472] in both arms, and the population and the within-region increment are unchanged.
+
+The reason is structural rather than fortunate. Elevation is a DEM variable that screening a thermal product cannot touch, and here the screening did not change which cells are valid either. The thermal channels that carry the signal are Landsat-derived, and fusion falls back on the MODIS-derived surface across only 2.14 points of coverage, so even a 10.9 \textdegree{}C change is diluted to +0.0003 in the association. The elevation correlation at the input is real. It does not reach the model. Details are in \texttt{paper/\allowbreak{}modis\_\allowbreak{}qc\_\allowbreak{}downstream\_\allowbreak{}propagation.\allowbreak{}md}.
 
 \textbf{Zero-fill.} The same three unscreened regions declare no nodata value, so cells with nothing to report are written as exact 0.0 \textdegree{}C. Counting them: 518 of 6,390 pixels in Manavgat (8.11 \%), \textbf{7,347 of 19,190 in Muğla (38.29 \%)} and \textbf{none at all in Bejís}. Both non-zero fractions exceed the pipeline's own 5 \% suspicious-zero guard. What the zeros are is settled by the counts, which track each AOI's water-dominant cell share almost exactly, 8.3 \% and 38.9 \% against 0.1 \% for the one inland AOI: \textbf{the zero-fill is sea encoded as a physical temperature}, not missing observation.
 
@@ -239,30 +245,35 @@ Coverage is barely affected. What matters is that \textbf{the change is not a un
 
 A current-period composite is a median over the clear acquisitions in the window, and how those acquisitions are weighted is a choice. A scene-weighted median counts every scene; a date-balanced median counts every calendar date once. The pipeline offers both, and an audit compares them at support boundaries, where a positive value means the date-balanced chain lowers the discontinuity.
 
-For Manavgat the intervention helps at every boundary type, which is what motivated it. Extending the audit to three more regions turns that into a rule (Table~\ref{tab:3}).
+For Manavgat the intervention helps at every boundary type, which is what motivated it. Extending the audit to the other four regions turns that into a rule (Table~\ref{tab:3}).
 
 \begin{table}[htbp]
   \centering
   \scriptsize
-  \caption{Whether the compositing choice can act, read from the scene inventory alone. Scenes per distinct acquisition date is counted before anything is fitted. Where it is 1.0 the two compositing chains produce identical rasters and there are no same-day boundaries to compare, so the verdict is not "no evidence" but "no effect is possible". The verdict column reports the boundary-discontinuity audit only for the two regions where the intervention can act.}
+  \caption{Whether the compositing choice can act, read from the scene inventory alone. Scenes per distinct acquisition date is counted before anything is fitted. Where it is 1.0 the two compositing chains produce identical rasters and there are no same-day boundaries to compare, so the verdict is not "no evidence" but "no effect is possible". The verdict column reports the boundary-discontinuity audit only for the three regions where the intervention can act.}
   \label{tab:3}
-  \begin{tabularx}{\linewidth}{l>{\raggedright\arraybackslash}Xrrr>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+  \begin{tabularx}{\linewidth}{l>{\raggedright\arraybackslash}Xrrrrrr>{\raggedright\arraybackslash}X}
     \hline
-    Region & WRS tiles in the window & Scenes & Distinct dates & Scenes per date & Same-day boundaries & Verdict \\
+    Region & WRS tiles in the window & Paths & Rows & Scenes & Dates & Scenes per date & Same-day edges & Verdict \\
     \hline
-    Manavgat 2021 & 177/34, 177/35, 178/34, 178/35 & 14 & 7 & \textbf{2.0} & 172 & \textbf{supported reduction} \\
-    Bejís 2022 & 198/32, 198/33, 199/32, 199/33 & 16 & 8 & \textbf{2.0} & 79 & uncertain \\
-    North Evia 2021 & 183/33, 184/33 & 8 & 8 & 1.0 & \textbf{0} & no effect \\
-    Montiferru 2021 & 193/32 & 4 & 4 & 1.0 & \textbf{0} & no effect \\
+    Manavgat 2021 & 177/34, 177/35, 178/34, 178/35 & 2 & \textbf{2} & 14 & 7 & \textbf{2.0} & 172 & \textbf{supported reduction} \\
+    Muğla 2021 & 179/34, 179/35, 180/34, 180/35, 181/34 & 3 & \textbf{2} & 18 & 11 & \textbf{1.6} & 473 & uncertain \\
+    Bejís 2022 & 198/32, 198/33, 199/32, 199/33 & 2 & \textbf{2} & 16 & 8 & \textbf{2.0} & 79 & uncertain \\
+    North Evia 2021 & 183/33, 184/33 & 2 & 1 & 8 & 8 & 1.0 & \textbf{0} & no effect \\
+    Montiferru 2021 & 193/32 & 1 & 1 & 4 & 4 & 1.0 & \textbf{0} & no effect \\
     \hline
   \end{tabularx}
 \end{table}
 
-Where scenes per date is 1.0 the two chains produce \textbf{identical rasters} and every boundary estimate is exactly zero, with no same-day boundaries existing to compare. The dividing line is not the number of Landsat paths an AOI spans: Evia spans two, as Manavgat and Bejís do, and shows nothing, because its two paths image it on different days. What Manavgat and Bejís share is spanning two WRS \textbf{rows}, so a single overpass delivers two scenes bearing the same date, which is exactly what a scene-weighted median double-counts.
+Where scenes per date is 1.0 the two chains produce \textbf{identical rasters}. Every boundary estimate is exactly zero, and no same-day boundaries exist to compare.
 
-Among the two regions where the intervention can act, only Manavgat improves consistently; Bejís improves at the boundary the intervention targets, +0.378 [+0.278, +0.483], and gets \textbf{worse} at unique-date-count edges, $-$0.067 [$-$0.095, $-$0.041], for an overall verdict of uncertain. The downstream ROC-AUC comparison is admissible only for Manavgat, where three defensible chains on an identical cohort give increments of +0.045, +0.064 and +0.084, a tolerance of about $\pm$0.02.
+The dividing line is not the number of Landsat paths an AOI spans. Evia spans two paths and shows nothing, because those two paths image it on different days. Muğla spans \textbf{three}, more than any other region here, and it does show an effect. What the three responding regions share is spanning two WRS \textbf{rows}. A single overpass then delivers two scenes bearing the same date, which is exactly what a scene-weighted median double-counts. Row span, not path span, is the readable predictor.
 
-\textbf{The rule.} Scenes per distinct acquisition date, counted from the scene inventory before anything is fitted, tells a reader whether this decision can move their result at all. In this cohort it can in two regions of four, and does consistently in one.
+Three regions can respond, and only Manavgat improves consistently. Bejís improves at the boundary the intervention targets, at +0.378 [+0.278, +0.483], and gets \textbf{worse} at unique-date-count edges, at $-$0.067 [$-$0.095, $-$0.041]. Muğla shows the same shape and the largest single reduction in the cohort: +0.195 [+0.172, +0.221] at the same-day multiplicity edge, against $-$0.031 [$-$0.046, $-$0.016] at unique-date-count edges. Both carry an overall verdict of uncertain.
+
+The downstream ROC-AUC comparison is admissible only for Manavgat, where three defensible chains on an identical cohort give increments of +0.045, +0.064 and +0.084, a tolerance of about $\pm$0.02. For the other four regions the released tool declines that comparison, either because the seam verdict is uncertain or because the canonical reproduction could not be resolved.
+
+\textbf{The rule.} Scenes per distinct acquisition date, counted from the scene inventory before anything is fitted, tells a reader whether this decision can move their result at all. In this cohort it can in \textbf{three regions of five}, and does consistently in one. The count is itself predictable from the AOI's WRS geometry: every region spanning two rows has more than one scene per date, and every region spanning one row has exactly one.
 
 \subsection{Index normalisation: sea inside a scene-fitted dryness index}\label{sec:4.4}
 
@@ -325,13 +336,14 @@ Eight axes, measured on one cohort with everything else fixed, do not carry equa
     Index normalisation (sea) & +0.002 to +0.017 on a signed association; no direction changes & \textbf{yes}, from water fraction and index range \\
     Population size and positives & +0.018 on a within-region increment; none on transfer & yes, from population counts \\
     Gap-filled cells & up to $-$0.013 on an increment; support retained & yes, from the gap-fill share \\
+    Quality screening (one region propagated) & below +0.0003 on a signed association, despite changing 92 \% of downscaled cells & no, it must be run \\
     Label omission & moves the sharpest association \emph{away} from chance & partly \\
     Coordinate-bearing channels & 0 to 18 \% of an increment & yes, from feature-importance records \\
     \hline
   \end{tabularx}
 \end{table}
 
-Two axes are missing from that table because their effect could not be measured, only bounded: the quality-screening split, which would need the whole downstream chain rebuilt for three regions, and the cell geometry, which is not a variation at all but a description of what the grid is.
+One axis is missing from that table because it is not a variation at all: the cell geometry, which is a description of what the grid is. The quality-screening split has now been propagated for one of the three unscreened regions, and its downstream effect on the reported association is \textbf{below +0.0003} despite changing 92 \% of that region's downscaled cells. It is left out of the table because one region does not fix a range, not because it is unmeasured.
 
 \subsection{What should be reported}\label{sec:5.2}
 
@@ -350,7 +362,7 @@ The practical output of a budget is a reporting list. Six items cost nothing to 
 
 The magnitudes are this cohort's. Two things are not.
 
-The \textbf{rules} of Section~\ref{sec:4.3} and \ref{sec:4.4} are statements about inputs. Any user can count scenes per date and any user can compare their modelled population's index range against the bins where water sits. Both answer "can this decision matter here" before any computation, and in this cohort both answered no for half the regions.
+The \textbf{rules} of Section~\ref{sec:4.3} and \ref{sec:4.4} are statements about inputs. Any user can count scenes per date and any user can compare their modelled population's index range against the bins where water sits. Both answer "can this decision matter here" before any computation. In this cohort the compositing rule answered no for two regions of five, and the index rule answered no wherever the modelled population sits away from the water-contaminated bins.
 
 The \textbf{failure modes} of Section~\ref{sec:4.2} are structural. A quality rule added to an export script partway through a project will split any cohort by export date, and nothing downstream records it. A nodata convention that writes zeros will encode sea as a physical temperature in any coastal AOI. Neither depends on this code being unusual; both depend only on the ordinary way such projects accumulate.
 
@@ -358,7 +370,7 @@ What does not generalise is the direction of any specific effect. We report, for
 
 \subsection{Relation to the companion paper}\label{sec:5.4}
 
-Every axis that bears on the companion paper's findings was tested against them, and in every case the finding survived: the sign reversal that carries that paper holds under land-only index edges, under a pooled common edge, under both label-agreement thresholds, under an over-corrected omission relabelling, and under population and positive-count matching. Two axes could not be pushed that far. The quality-screening split remains an untested candidate for one region's unexplained behaviour, with a measured mechanism and the right sign; and the cell geometry means that paper's blocking argument is weaker in longitude than its labels imply.
+Every axis that bears on the companion paper's findings was tested against them, and in every case the finding survived: the sign reversal that carries that paper holds under land-only index edges, under a pooled common edge, under both label-agreement thresholds, under an over-corrected omission relabelling, and under population and positive-count matching. Two axes could not be pushed that far. The quality-screening split was a candidate for one region's unexplained behaviour, with a measured mechanism and the right sign, and propagating it through the whole chain removes it: no signed association moves by more than +0.0003. That closes a competing explanation for the companion paper without supplying an alternative. The cell geometry, meanwhile, means that paper's blocking argument is weaker in longitude than its labels imply.
 
 That is the honest relationship between the two papers. This one does not rescue the other, and it was not run to. It reports what the observations are made of, and where that touches a claim, it says whether the claim holds.
 
@@ -366,13 +378,13 @@ That is the honest relationship between the two papers. This one does not rescue
 
 (i) \textbf{One pipeline.} Every magnitude here is measured on one implementation over one cohort. The rules and the failure modes are offered as general; the numbers are not.
 
-(ii) \textbf{Five regions, and not a sample of anything.} They were selected for the companion paper's question, not to span a preprocessing design space, so the axes are exercised over whatever range those five happen to provide. The compositing axis, for instance, has two regions on each side of its dividing line, which is enough to establish the rule and not enough to characterise its distribution.
+(ii) \textbf{Five regions, and not a sample of anything.} They were selected for the companion paper's question, not to span a preprocessing design space, so the axes are exercised over whatever range those five happen to provide. The compositing axis, for instance, has three regions on one side of its dividing line and two on the other, which is enough to establish the rule and not enough to characterise its distribution.
 
-(iii) \textbf{Two axes bounded rather than measured.} The quality-screening split was measured at the input and not propagated through the downstream chain, which would require rebuilding three regions' derived products. The cell geometry is a description, not a variation: we cannot report what a truly square cell would have given.
+(iii) \textbf{The screening axis is measured in one region of three.} Manavgat's chain was rebuilt end to end; Muğla and Bejís were not, so the axis has one region's downstream evidence rather than three. Muğla is the more informative of the two that remain, since its zero-fill share is 38.3 \% against Manavgat's 8.1 \%. The cell geometry remains a description rather than a variation: we cannot report what a truly square cell would have given.
 
 (iv) \textbf{The independent fire observation is a different quantity.} Active-fire detections are not a burned-area product, the relabelling built from them is deliberately crude, and no claim is made that the relabelled cells burned. It probes the omission mechanism; it does not measure omission.
 
-(v) \textbf{The compositing comparison is upstream of performance for three regions.} Where the seam verdict is uncertain or the intervention is inert, the released tool declines the downstream ROC-AUC comparison by design, so the $\pm$0.02 tolerance has one region's evidence behind it and the rule has four regions' evidence behind it.
+(v) \textbf{The compositing comparison is upstream of performance for four regions.} Where the seam verdict is uncertain or the intervention is inert, the released tool declines the downstream ROC-AUC comparison by design. The $\pm$0.02 tolerance therefore has one region's evidence behind it, while the rule that predicts whether the decision can act has all five.
 
 
 

@@ -1,0 +1,618 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.14)  14 AUG 2026 23:06
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./manuscript.tex
+(manuscript.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/elsarticle\elsarticle
+.cls
+Document Class: elsarticle 2026/01/09, 3.5: Elsevier Ltd
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2025-12-24 L3 programming layer (loader) 
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
+dftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count275
+))
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpa
+rse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count276
+)
+\@bls=\dimen148
+ (C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count277
+\c@section=\count278
+\c@subsection=\count279
+\c@subsubsection=\count280
+\c@paragraph=\count281
+\c@subparagraph=\count282
+\c@figure=\count283
+\c@table=\count284
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen149
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics
+.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.d
+ef
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+)
+\c@tnote=\count285
+\c@fnote=\count286
+\c@cnote=\count287
+\c@ead=\count288
+\c@elsarticle@author=\count289
+\@eadauthor=\toks18
+\c@affn=\count290
+\absbox=\box53
+\elsarticlehighlightsbox=\box54
+\elsarticlegrabsbox=\box55
+\keybox=\box56
+\Columnwidth=\dimen152
+\space@left=\dimen153
+\els@boxa=\box57
+\els@boxb=\box58
+\leftMargin=\dimen154
+\@enLab=\toks19
+\@sep=\skip51
+\@@sep=\skip52
+ (manuscript.spl)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip53
+\bibsep=\skip54
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count291
+)
+\splwrite=\write3
+\openout3 = `manuscript.spl'.
+
+\appnamewidth=\dimen155
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks20
+\inpenc@posthook=\toks21
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen156
+\ar@mcellbox=\box59
+\extrarowheight=\dimen157
+\NC@list=\toks22
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box60
+)
+\TX@col@width=\dimen158
+\TX@old@table=\dimen159
+\TX@old@col=\dimen160
+\TX@target=\dimen161
+\TX@delta=\dimen162
+\TX@cols=\count292
+\TX@ftn=\toks23
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip57
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen163
+))
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen164
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count293
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count294
+\leftroot@=\count295
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count296
+\DOTSCASE@=\count297
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box61
+\strutbox@=\box62
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen165
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count298
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count299
+\dotsspace@=\muskip17
+\c@parentequation=\count300
+\dspbrk@lvl=\count301
+\tag@help=\toks25
+\row@=\count302
+\column@=\count303
+\maxfields@=\count304
+\andhelp@=\toks26
+\eqnshift@=\dimen166
+\alignsep@=\dimen167
+\tagshift@=\dimen168
+\tagwidth@=\dimen169
+\totwidth@=\dimen170
+\lineht@=\dimen171
+\@envbody=\toks27
+\multlinegap=\skip58
+\multlinetaggap=\skip59
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen172
+\lightrulewidth=\dimen173
+\cmidrulewidth=\dimen174
+\belowrulesep=\dimen175
+\belowbottomsep=\dimen176
+\aboverulesep=\dimen177
+\abovetopsep=\dimen178
+\cmidrulesep=\dimen179
+\cmidrulekern=\dimen180
+\defaultaddspace=\dimen181
+\@cmidla=\count305
+\@cmidlb=\count306
+\@aboverulesep=\dimen182
+\@belowrulesep=\dimen183
+\@thisruleclass=\count307
+\@lastruleclass=\count308
+\@thisrulewidth=\dimen184
+) (C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip60
+\LTright=\skip61
+\LTpre=\skip62
+\LTpost=\skip63
+\LTchunksize=\count309
+\LTcapwidth=\dimen185
+\LT@head=\box63
+\LT@firsthead=\box64
+\LT@foot=\box65
+\LT@lastfoot=\box66
+\LT@gbox=\box67
+\LT@cols=\count310
+\LT@rows=\count311
+\c@LT@tables=\count312
+\c@LT@chunks=\count313
+\LT@p@ftn=\toks29
+) (C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2026/03/08 line numbers on paragraphs v5.9
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.s
+ty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.s
+ty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+\linenopenalty=\count314
+\output=\toks30
+\linenoprevgraf=\count315
+\linenumbersep=\dimen186
+\linenumberwidth=\dimen187
+\c@linenumber=\count316
+\c@pagewiselinenumber=\count317
+\c@LN@truepage=\count318
+\c@internallinenumber=\count319
+\c@internallinenumbers=\count320
+\quotelinenumbersep=\dimen188
+\bframerule=\dimen189
+\bframesep=\dimen190
+\bframebox=\box68
+\@LN@amsmath@ams@eqpen=\count321
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 38
+.
+ (C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+(manuscript.aux)
+\openout1 = `manuscript.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
+mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count322
+\scratchdimen=\dimen191
+\scratchbox=\box69
+\nofMPsegments=\count323
+\nofMParguments=\count324
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen192
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
+\everyMPtoPDFconversion=\toks32
+)
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
+-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys
+.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+5.
+ (C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
+1.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
+1.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+81.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+81.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 81.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 81.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 81.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 90.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 90.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 90.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
+0.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+[1
+
+
+{C:/Users/CORSAIR/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/CO
+RSAIR/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/CORS
+AIR/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [2{C:/User
+s/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 9
+4.
+
+(C:\Users\CORSAIR\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+[3] [4] [5] [6] [7] [8] [9] [10{C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/
+fonts/enc/dvips/lm/lm-rm.enc}] [11] [12] [13]
+Overfull \hbox (10.82887pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 WRS 
+ []
+
+
+Overfull \hbox (6.28452pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 tiles 
+ []
+
+
+Overfull \hbox (2.93153pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 the 
+ []
+
+
+Overfull \hbox (7.18137pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 win- 
+ []
+
+
+Overfull \hbox (6.00076pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 dow|  
+ []
+
+
+Overfull \hbox (18.04185pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 Verdict|  
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 177/34, 
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 177/35, 
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 178/34, 
+ []
+
+
+Overfull \hbox (16.62553pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 178/35|  
+ []
+
+
+Overfull \hbox (34.29143pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/bx/n/8 supported 
+ []
+
+
+Overfull \hbox (2.9312pt too wide) in paragraph at lines 265--265
+\T1/lmr/bx/n/8 re- 
+ []
+
+
+Overfull \hbox (9.6367pt too wide) in paragraph at lines 265--265
+\T1/lmr/bx/n/8 duc- 
+ []
+
+
+Overfull \hbox (8.00328pt too wide) in paragraph at lines 265--265
+\T1/lmr/bx/n/8 tion|  
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 179/34, 
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 179/35, 
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 180/34, 
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 180/35, 
+ []
+
+
+Overfull \hbox (16.62553pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 181/34|  
+ []
+
+
+Overfull \hbox (26.07787pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 uncertain|  
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 198/32, 
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 198/33, 
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 199/32, 
+ []
+
+
+Overfull \hbox (16.62553pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 199/33|  
+ []
+
+
+Overfull \hbox (26.07787pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 uncertain|  
+ []
+
+
+Overfull \hbox (18.9867pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 183/33, 
+ []
+
+
+Overfull \hbox (16.62553pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 184/33|  
+ []
+
+
+Overfull \hbox (4.58444pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 fect|  
+ []
+
+
+Overfull \hbox (16.62553pt too wide) in paragraph at lines 265--265
+[]|\T1/lmr/m/n/8 193/32|  
+ []
+
+
+Overfull \hbox (4.58444pt too wide) in paragraph at lines 265--265
+\T1/lmr/m/n/8 fect|  
+ []
+
+[14] [15] [16] [17] [18]
+Overfull \hbox (16.42358pt too wide) in paragraph at lines 302--303
+[]\T1/lmr/bx/n/12 Coordinate-bearing chan-nels. \T1/lmr/m/n/12 Two de-rived cha
+n-nels in-herit a coordinate-
+ []
+
+[19]
+
+LaTeX Warning: Float too large for page by 174.53328pt on input line 344.
+
+[20] [21] [22] [23] [24] [25] [26] (manuscript.bbl [27] [28] [29]) [30]
+(manuscript.aux)
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 4864 strings out of 467871
+ 75902 string characters out of 5417408
+ 487698 words of memory out of 5000000
+ 33639 multiletter control sequences out of 15000+600000
+ 706187 words of font info for 84 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 72i,12n,79p,1008b,408s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.
+pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx1
+2.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmb
+x8.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lm
+r10.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+mr12.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
+lmr17.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
+/lmr8.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
+/lmri10.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+lm/lmri12.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/lm/lmri7.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/lm/lmss8.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/lm/lmsy10.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmsy7.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/lm/lmsy8.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/lm/lmtt10.pfb><C:/Users/CORSAIR/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/lm/lmtt12.pfb>
+Output written on manuscript.pdf (30 pages, 414438 bytes).
+PDF statistics:
+ 191 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

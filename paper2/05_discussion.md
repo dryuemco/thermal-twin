@@ -20,12 +20,15 @@ relevance a reader can settle from their own inputs before fitting anything.
 | Index normalisation (sea) | +0.002 to +0.017 on a signed association; no direction changes | **yes**, from water fraction and index range |
 | Population size and positives | +0.018 on a within-region increment; none on transfer | yes, from population counts |
 | Gap-filled cells | up to −0.013 on an increment; support retained | yes, from the gap-fill share |
+| Quality screening (one region propagated) | below +0.0003 on a signed association, despite changing 92 % of downscaled cells | no, it must be run |
 | Label omission | moves the sharpest association *away* from chance | partly |
 | Coordinate-bearing channels | 0 to 18 % of an increment | yes, from feature-importance records |
 
-Two axes are missing from that table because their effect could not be measured, only bounded: the
-quality-screening split, which would need the whole downstream chain rebuilt for three regions, and
-the cell geometry, which is not a variation at all but a description of what the grid is.
+One axis is missing from that table because it is not a variation at all: the cell geometry, which
+is a description of what the grid is. The quality-screening split has now been propagated for one of
+the three unscreened regions, and its downstream effect on the reported association is **below
++0.0003** despite changing 92 % of that region's downscaled cells. It is left out of the table
+because one region does not fix a range, not because it is unmeasured.
 
 ## 5.2 What should be reported
 
@@ -51,8 +54,9 @@ The magnitudes are this cohort's. Two things are not.
 
 The **rules** of Section 4.3 and 4.4 are statements about inputs. Any user can count scenes per date
 and any user can compare their modelled population's index range against the bins where water sits.
-Both answer "can this decision matter here" before any computation, and in this cohort both answered
-no for half the regions.
+Both answer "can this decision matter here" before any computation. In this cohort the compositing
+rule answered no for two regions of five, and the index rule answered no wherever the modelled
+population sits away from the water-contaminated bins.
 
 The **failure modes** of Section 4.2 are structural. A quality rule added to an export script partway
 through a project will split any cohort by export date, and nothing downstream records it. A nodata
@@ -69,9 +73,11 @@ Every axis that bears on the companion paper's findings was tested against them,
 the finding survived: the sign reversal that carries that paper holds under land-only index edges,
 under a pooled common edge, under both label-agreement thresholds, under an over-corrected omission
 relabelling, and under population and positive-count matching. Two axes could not be pushed that far.
-The quality-screening split remains an untested candidate for one region's unexplained behaviour,
-with a measured mechanism and the right sign; and the cell geometry means that paper's blocking
-argument is weaker in longitude than its labels imply.
+The quality-screening split was a candidate for one region's unexplained behaviour, with a measured
+mechanism and the right sign, and propagating it through the whole chain removes it: no signed
+association moves by more than +0.0003. That closes a competing explanation for the companion paper
+without supplying an alternative. The cell geometry, meanwhile, means that paper's blocking argument
+is weaker in longitude than its labels imply.
 
 That is the honest relationship between the two papers. This one does not rescue the other, and it
 was not run to. It reports what the observations are made of, and where that touches a claim, it says
@@ -84,19 +90,21 @@ rules and the failure modes are offered as general; the numbers are not.
 
 (ii) **Five regions, and not a sample of anything.** They were selected for the companion paper's
 question, not to span a preprocessing design space, so the axes are exercised over whatever range
-those five happen to provide. The compositing axis, for instance, has two regions on each side of its
-dividing line, which is enough to establish the rule and not enough to characterise its distribution.
+those five happen to provide. The compositing axis, for instance, has three regions on one side of its
+dividing line and two on the other, which is enough to establish the rule and not enough to
+characterise its distribution.
 
-(iii) **Two axes bounded rather than measured.** The quality-screening split was measured at the
-input and not propagated through the downstream chain, which would require rebuilding three regions'
-derived products. The cell geometry is a description, not a variation: we cannot report what a truly
-square cell would have given.
+(iii) **The screening axis is measured in one region of three.** Manavgat's chain was rebuilt end to
+end; Muğla and Bejís were not, so the axis has one region's downstream evidence rather than three.
+Muğla is the more informative of the two that remain, since its zero-fill share is 38.3 % against
+Manavgat's 8.1 %. The cell geometry remains a description rather than a variation: we cannot report
+what a truly square cell would have given.
 
 (iv) **The independent fire observation is a different quantity.** Active-fire detections are not a
 burned-area product, the relabelling built from them is deliberately crude, and no claim is made
 that the relabelled cells burned. It probes the omission mechanism; it does not measure omission.
 
-(v) **The compositing comparison is upstream of performance for three regions.** Where the seam
+(v) **The compositing comparison is upstream of performance for four regions.** Where the seam
 verdict is uncertain or the intervention is inert, the released tool declines the downstream ROC-AUC
-comparison by design, so the ±0.02 tolerance has one region's evidence behind it and the rule has
-four regions' evidence behind it.
+comparison by design. The ±0.02 tolerance therefore has one region's evidence behind it, while the
+rule that predicts whether the decision can act has all five.

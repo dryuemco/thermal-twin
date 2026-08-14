@@ -10,18 +10,21 @@ that their effects are comparable with each other and with the +0.056 to +0.153 
 models themselves report.
 
 Two decisions turn out to be predictable in advance at no cost. Whether the choice of compositing
-chain can move a result at all is decided by scenes per distinct acquisition date, which is 2.0 in
-two regions and 1.0 in two others; where it is 1.0 the two chains produce identical rasters and every
-boundary estimate is exactly zero. Whether sea contaminates a scene-fitted dryness index is decided
+chain can move a result at all is decided by scenes per distinct acquisition date. It is above one in
+three of five regions and exactly 1.0 in the other two, and where it is 1.0 the two chains produce
+identical rasters and every boundary estimate is exactly zero. The count follows the area's WRS
+geometry: every region spanning two rows exceeds one scene per date, and every region spanning one
+row does not. Whether sea contaminates a scene-fitted dryness index is decided
 by the area's water fraction and by where the modelled population sits in the index's binning
 variable; here the contamination is real, with dry edges of 28.8 to 29.9 °C in a marine area against
 49 °C inland, and does not reach the modelled population.
 
 Two provenance splits leave no trace in the outputs. The coarse thermal input is quality-screened in
-two regions and unscreened in three, split by export date rather than by design, and the induced
-change is not a uniform offset but correlates with elevation at +0.615 in one region. The same three
-regions encode sea as exactly 0.0 °C, at 8.1 % and 38.3 % of pixels in two of them and not at all in
-the third.
+two regions and unscreened in three, split by export date rather than by design. The induced change
+is not a uniform offset: it correlates with elevation at +0.615 in one region. Propagating that
+region's screening through the whole downstream chain changes 92 % of its downscaled cells, by up to
+10.9 °C, and moves no reported association by more than +0.0003. The same three regions encode sea as
+exactly 0.0 °C, at 8.1 % and 38.3 % of pixels in two of them and not at all in the third.
 
 The analysis cell is also not the cell it is called: built by aggregating a fixed count of reference
 pixels in a geographic coordinate system, it is 510 m north to south and 390 to 407 m east to west,
