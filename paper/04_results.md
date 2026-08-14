@@ -817,7 +817,26 @@ non-inferiority claim is made for them. The conclusion drawn here is correspondi
 within-region increment carries a compositing tolerance of roughly ±0.02 AUC, which is the same
 order as the scikit-learn tolerance of (e) and wider than the 2-cell interval of Table 3.** It does
 not approach the increment itself, which stays bootstrap-supported and positive under all three
-chains. It has been audited in one region, and the other four are unaudited on this axis.
+chains.
+
+**The audit was then extended to a second region, and the intervention behind that tolerance does not
+replicate.** Bejís was chosen because it carries the highest gap-filled share of the five and is
+therefore the most exposed to how the composite is built. Its diagnostic reference chain reproduces
+the frozen canonical products first: eight of nine semantic checks pass and six are exact, the two
+derived ones differing by 2.7×10⁻⁵ and 2.2×10⁻⁵, which is float32 recomputation noise. On the seam
+comparison itself, where a positive value means date-balanced compositing lowers the discontinuity,
+Manavgat improves at all four boundary types (+0.125 scene-count, +0.095 unique-date-count, +0.597
+same-day-multiplicity, +0.004 path/row, every one interval-supported). Bejís improves only at the
+boundary the intervention directly targets, same-day multiplicity, at +0.378 [+0.278, +0.483]; its
+unique-date-count edges get **worse** with interval support at −0.067 [−0.095, −0.041]; and its
+scene-count and path/row boundaries are indistinguishable from no effect. The overall verdict for
+Bejís is therefore *uncertain* against *supported reduction* for Manavgat, and the released A/B tool
+declines to run the downstream comparison on that basis, since there is no established net seam
+improvement to propagate. The difference is not the number of Landsat paths, which is two in both
+(177 and 178 against 198 and 199), but their balance: Manavgat draws 3, 3, 4 and 4 scenes from its
+four path/row tiles while Bejís draws 4, 4, 4 and 4. **The ±0.02 tolerance should therefore be read
+as specific to Manavgat rather than as a cohort-wide figure**, and the remaining three regions stay
+unaudited on this axis. Source: `paper/compositing_second_region.md`.
 
 **(j) Muğla's population size.** Muğla contributes the largest analysis population of the five
 regions, 41,730 cells against Manavgat's 20,511, and it is also the region with the second largest

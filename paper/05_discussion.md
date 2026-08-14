@@ -625,8 +625,13 @@ increment carries a compositing tolerance.** Three defensible Landsat compositin
 identical Manavgat cohort with an identical baseline, give increments of +0.045, +0.064 and +0.084
 (Section 4.7i). The tolerance is about ±0.02 AUC, comparable to the cross-version tolerance of (vii)
 and wider than the 1 km interval of Table 3. It never approaches the increment itself, which stays
-supported under all three chains, and it was audited for one region only; the other four are
-unaudited on this axis. The same dependence explains the window-closure behaviour of Section 5.8.
+supported under all three chains. A second region has since been audited and the tolerance does not
+generalise: in Bejís the date-balanced intervention improves only the boundary type it targets and
+makes unique-date-count edges worse with interval support, so the seam verdict is *uncertain* against
+*supported reduction* in Manavgat, and no downstream ΔAUC comparison is admissible there (Section
+4.7i). The ±0.02 figure is therefore Manavgat-specific rather than a cohort-wide tolerance, and three
+regions remain unaudited on this axis. The same dependence explains the window-closure behaviour of
+Section 5.8.
 (xii) **The thermal block is six predictors but not six independent measurements.** `fused_lst`
 equals observed LST outside a gap-filled share of 0.11 % to 9.70 %, `downscaled_lst` is a fitted
 surface whose dominant input is the MODIS context layer in two regions, NDVI in two and slope in
@@ -661,20 +666,25 @@ threshold is imposed, so the proportion of cells labelled on thin evidence
 scales with each scar's perimeter-to-area ratio, which differs sharply across these regions
 (effective component counts 1.0 to 4.05). Fringe cells also differ systematically in terrain from
 core cells, which makes differential fringe contamination a competing explanation for a reversal in
-a terrain variable. The `burn_date_pixel_agreement_fraction` column needed to test this is recorded
-and hard-excluded from the features, and the sensitivity restricting to high-agreement cells was not
-run. At the product level, MCD64A1's omission at 500 m in fragmented Mediterranean terrain is itself
+a terrain variable. **That explanation has since been tested and does not hold:** restricting to
+burned cells whose sub-pixel dates agree at 0.75 and at 0.90 leaves the elevation reversal intact at
+every threshold, with Manavgat entirely below 0.5 and Bejís and Muğla entirely above it, and Manavgat
+moving further from chance as thin-evidence cells are dropped (Section 4.7l). What remains untested
+is the interaction at the product level: MCD64A1's omission at 500 m in fragmented Mediterranean terrain is itself
 correlated with patch size, terrain and land-cover fragmentation, which are the baseline predictors;
 no second label product was used as a control. (xv) **Two safeguards did not run everywhere.** The
 pre-label burn exclusion ran for Muğla, Evia and Montiferru, is recorded as not run for Manavgat, and
 has no recorded status for Bejís (Section 3.2). Prior-year burning is screened for no region in the
 five-region cohort; the only historical-burn exclusion in the study removes the 2021 Muğla scar from
-the 2022 event-relative experiment of Section 3.16.4. The exposure this leaves cannot be quantified
-from the archive, and an earlier version of this paper wrongly described doing so as a cheap query.
-It is not: both the working and the raw MCD64A1 rasters in the export are clipped to each region's
-label window, with zero positive sub-pixels anywhere in any predictor window, so a pre-label
-detection leaves no trace to count. Measuring the exposure needs MCD64A1 re-exported unclipped,
-which is an upstream re-run. In the same vein, the per-region acquisition inventory behind the composites exists for
+the 2022 event-relative experiment of Section 3.16.4. **The exposure this leaves has now been
+measured, and it is small.** It could not be measured from the archive, because both the working and
+the raw MCD64A1 rasters there are clipped to each region's label window and carry zero positive
+sub-pixels in any predictor window. Counting instead against the unclipped product gives, for burned
+MCD64A1 pixels falling inside each region's own predictor window, **zero for Manavgat** and **28 for
+Bejís**, the two regions where the safeguard did not run or has no recorded status. For scale, the
+same count is 19 for Muğla, 4 for Evia and 26 for Montiferru, where the exclusion did run, and Muğla's
+recorded removal was 49 cells. So the safeguard's absence costs Manavgat nothing at all, and leaves
+Bejís about 28 cells of its 15,190, under 0.2 %, sitting in the analysis labelled unburned. In the same vein, the per-region acquisition inventory behind the composites exists for
 Manavgat alone.
 
 Four analyses were named in an earlier version of this section as the ones that would close most of

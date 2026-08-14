@@ -1,0 +1,16 @@
+product,boundary_type,status,unit_type,n_units,n_pairs,point_estimate,interval_low,interval_high
+current_lst,scene_count_edge,uncertain,raster_support_block,270,243386,0.003910193117643321,-0.022878624842805433,0.03263612711987531
+current_lst,unique_date_count_edge,supported_increase,raster_support_block,265,216485,-0.06736411563760428,-0.09468477461862633,-0.04140720800401465
+current_lst,same_day_multiplicity_edge,supported_reduction,raster_support_block,79,42987,0.3782149906847519,0.2782848299004858,0.4828998064812846
+current_lst,export_tile_boundary,unavailable,export_tile_partition_segment,,,,,
+current_lst,source_scene_path_row,uncertain,provenance_boundary_id,71,17435,-0.0011166623167229957,-0.0038019242639351436,0.0013475280540797177
+current_minus_baseline,scene_count_edge,uncertain,raster_support_block,270,188593,0.005103658123026168,-0.031527361256329954,0.04484764525498102
+current_minus_baseline,unique_date_count_edge,supported_increase,raster_support_block,265,161772,-0.10207141858488016,-0.13975914639638665,-0.0646836298482953
+current_minus_baseline,same_day_multiplicity_edge,supported_reduction,raster_support_block,78,42261,0.4133811102732383,0.3100373255911206,0.5251467897576638
+current_minus_baseline,export_tile_boundary,unavailable,export_tile_partition_segment,,,,,
+current_minus_baseline,source_scene_path_row,uncertain,provenance_boundary_id,71,16869,-0.0017303332471771214,-0.005324698053254916,0.0019719550773552785
+anomaly_zscore,scene_count_edge,uncertain,raster_support_block,268,126493,0.015652437695919088,-0.0017332457908121213,0.0329893055636327
+anomaly_zscore,unique_date_count_edge,supported_increase,raster_support_block,263,111475,-0.02537365843258401,-0.04119519755824105,-0.01206023259441786
+anomaly_zscore,same_day_multiplicity_edge,supported_reduction,raster_support_block,77,22036,0.23193879456552824,0.1635998877442195,0.29359744941015786
+anomaly_zscore,export_tile_boundary,unavailable,export_tile_partition_segment,,,,,
+anomaly_zscore,source_scene_path_row,uncertain,provenance_boundary_id,68,13015,0.0006480603654701814,-0.0017800920133060167,0.003110025044819484
