@@ -9,9 +9,13 @@
 ## 3.1 Study regions and temporal windows
 
 Five Mediterranean-basin wildfire regions are analysed. Each is defined as a place-based rectangular
-area of interest (AOI) in EPSG:4326, fixed **before** any burned-area label was inspected. The AOIs
-are deliberately *not* clipped to fire perimeters, so that unburned cells surrounding each fire
-constitute the negative class rather than being excluded by construction.
+area of interest (AOI) in EPSG:4326. Each AOI is defined from place coverage rather than from a fire
+perimeter, and none is tuned on burned prevalence, on the gate outcome or on any model metric. One
+AOI choice was label-informed and is stated as such: the North Evia box was extended after the
+legacy box was found to carry an atypically high burned prevalence, the extended geometry was then
+defined from place anchors, and the legacy variant is retained as a sensitivity (Sections 3.16.1 and
+4.1). The AOIs are deliberately *not* clipped to fire perimeters, so that unburned cells surrounding
+each fire constitute the negative class rather than being excluded by construction.
 
 For each region the analysis is organised around two non-overlapping time windows. The **predictor
 window** is the pre-fire period from which every dynamic predictor is composited. It ends the day
@@ -74,10 +78,28 @@ observation across a block of 30 m pixels sharing its value. The analysis grid i
 *reconstructed* rather than native: the 30 m reference grid is partitioned into non-overlapping
 square blocks of `round(500 / 30) = 17 × 17` pixels (`step8a_prepare_500m_modeling_dataset.py:914 to
 917`, using `STEP8A_MCD64A1_NATIVE_CELL_SIZE_M = 500.0` and `STEP8A_REFERENCE_PIXEL_SIZE_M = 30.0`,
-`core/config.py:538 to 539`), giving a nominal cell edge of 510 m. This is an approximation of the
-true MODIS sinusoidal cell: it is anchored to the Landsat/EPSG:4326 reference grid rather than to
-the MODIS tile grid, and blocks at the AOI margin are truncated and therefore contain fewer than 289
-constituent pixels. This is stated explicitly because it is a real, and reported, limitation of the
+`core/config.py:538 to 539`), giving a nominal cell edge of 510 m.
+
+**That cell is square in degrees but not on the ground, and this is stated here because the paper's
+central robustness argument is about spatial scale.** Every predictor raster is exported at
+`scale: 30` in `EPSG:4326` (each region's `predictor_export_metadata.json`), so the reference pixel
+is a step in degrees, 30 / 111,319.49 = 0.00026949°, and the analysis cell is 17 times that,
+0.0045814°, in both axes. On the ground the cell is about 510 m north to south everywhere, but only
+407 m east to west at Manavgat and Muğla, 397 m at Evia, 391 m at Bejís and 390 m at Montiferru.
+Cell area is 0.199 to 0.208 km² against the MODIS cell's 0.250 km², so the analysis cell is about
+17 % to 20 % smaller. The derivation is checkable rather than nominal: dividing each AOI's span by
+0.0045814° and rounding outward reproduces every frozen cell count exactly, at 175 × 138 = 24,150
+for Manavgat, 153 × 103 = 15,759 for Bejís, 393 × 186 = 73,098 for Muğla, 175 × 131 = 22,925 for
+Evia and 66 × 49 = 3,234 for Montiferru. Two consequences follow. Every block-size label in this
+paper is the north-south dimension: a 10-cell block is about 5.1 km by 3.9 to 4.1 km and a 20-cell
+block about 10.2 km by 7.8 to 8.1 km, so spatial blocking is systematically weaker in longitude than
+the labels suggest. And because the cell is smaller than a MODIS cell and not aligned with it, a
+typical cell draws on more than one MODIS cell, which dilates the labelled burned footprint relative
+to MCD64A1 and is the quantitative form of the label-geometry concern in Section 5.11(xiv).
+
+The reconstruction is an approximation of the true MODIS sinusoidal cell in two further respects: it
+is anchored to the Landsat/EPSG:4326 reference grid rather than to the MODIS tile grid, and blocks
+at the AOI margin are truncated and therefore contain fewer than 289 constituent pixels. This is stated explicitly because it is a real, and reported, limitation of the
 label geometry rather than an incidental implementation detail. Each cell is identified by its
 integer block indices `row_500m = row_offset // 17`, `col_500m = col_offset // 17` (`step8a:920 to
 936`). These indices are used to construct spatial cross-validation blocks and are never used as
@@ -96,10 +118,15 @@ exist, their modal day-of-year is taken as the cell's representative burn date, 
 favour of the smaller value. For the burned/unburned decision that means the conservative direction
 (`step8a:939 to 951`). The representative day-of-year is then converted to a calendar date and
 tested against the region's label window: if it falls inside the window the cell is labelled burned,
-otherwise the cell is retained as **unburned** and flagged `out_of_window_burndate` (`step8a:1204 to
-1248`). The fraction of positive sub-pixels agreeing with the modal date is recorded as a diagnostic
-(`burn_date_pixel_agreement_fraction`) but no agreement threshold is imposed. A single in-window
-positive sub-pixel is sufficient to label the cell burned.
+otherwise the cell is retained as **unburned** and flagged `out_of_window_burndate` (`step8a:1217 to
+1261`). The fraction of positive sub-pixels agreeing with the modal date is recorded as a diagnostic
+(`burn_date_pixel_agreement_fraction`) but no agreement threshold is imposed. Only the modal date is
+tested, so the rule is not an "any positive sub-pixel" rule in general: a block whose positive
+sub-pixels were, say, one in-window and two out-of-window would be labelled unburned. In this
+dataset the two rules coincide, because the exported label raster carries no out-of-window positives
+at all. Every region's `label_raster_diagnostics` records `count_positive` equal to
+`count_in_label_doy_range` exactly. So for this export, and only because of that clipping, a single
+in-window positive sub-pixel is sufficient to label the cell burned.
 
 The label never affects a cell's eligibility for modelling (Section 3.5). Unburned cells,
 all-no-data blocks and out-of-window cells all remain in the dataset as the negative class.
@@ -107,8 +134,8 @@ all-no-data blocks and out-of-window cells all remain in the dataset as the nega
 **Pre-label burn exclusion.** Optionally, cells that already show a burn detection in the interval
 between the start of the predictor window and the start of the label window are excluded from the
 analysis universe entirely, so that a predictor window cannot be contaminated by an earlier fire
-within the same season (`step8a:2592 to 2605`, using the exclusion manifest produced by the gate
-step). Excluded cells are marked `analysis_eligible = False`; their raw labels are preserved for
+within the same season (`step8a:967 to 1025` reads the exclusion manifest produced by the gate step,
+`step8a:3059 to 3072` resolves it for the run, and `step8a:1179 to 1188` applies it per cell). Excluded cells are marked `analysis_eligible = False`; their raw labels are preserved for
 audit but they never enter modelling.
 
 This safeguard is optional in the pipeline and it did not run everywhere, which the reader needs in
@@ -120,9 +147,12 @@ window in those two regions, and that count has not been produced; it is listed 
 Section 5.11. Two further limits belong here. The exported label raster is clipped to the label
 window in every region, so a pre-label detection is not recoverable from the label raster itself and
 the reported count of zero out-of-window burn dates is a property of the export rather than an
-empirical finding. Burning in earlier years is not screened at all except for the Muğla pair, where
-the historical-exclusion module was configured, so a cell that burned in a previous year enters the
-analysis with a baseline climatology computed partly over its own post-fire state.
+empirical finding. Burning in earlier years is not screened for any region in the five-region
+cohort, so a cell that burned in a previous year enters the analysis with a baseline climatology
+computed partly over its own post-fire state. The historical-exclusion module is opted into exactly
+once in the registry, for the `mugla_2022_event_relative` experiment of Section 3.16.4, where it
+removes the 2021 scar. Muğla 2021 is the source of that mask rather than a beneficiary of it, and
+the 2022 event-relative experiment is not one of the five regions of Table 1.
 
 ## 3.3 Burned-landcover admissibility gate
 
@@ -135,7 +165,7 @@ its cells are identical to the modelling cells.
 For each burned cell the modal ESA WorldCover class is taken. Regional fractions are then formed
 with the total burned-cell count as denominator: a natural-vegetation fraction (tree cover 10 +
 shrubland 20 + grassland 30) and a cropland fraction (class 40). The verdict rule is applied in
-order (`step6b:172 to 211`):
+order (`step6b:198 to 219`):
 
 1. fewer than `STEP6_BURNED_LANDCOVER_GATE_MIN_POSITIVES = 30` burned cells → *insufficient burned
    positives*;
@@ -191,13 +221,13 @@ denominator or values outside [−1, 1] are masked (`core/config.py:89 to 103`).
 composite is a per-pixel **median**.
 
 **Land surface temperature (Landsat).** The Landsat Level-2 surface temperature band is scaled by
-0.00341802 with an offset of 149.0 K and converted to degrees Celsius. The predictor-window
+0.00341802 with an offset of 149.0 K (`core/config.py:86 to 87`) and converted to degrees Celsius. The predictor-window
 composite is again a per-pixel median (`current_lst`, in °C). This raster also serves as the 30 m
 reference grid.
 
 **LST anomaly.** A z-score of the current-window LST median against the baseline-years distribution
 for the same calendar window: `(current_median − baseline_mean) / baseline_std`
-(`step5_preprocess_timeseries.py:837 to 847`). The anomaly is set to no-data where the baseline
+(`step5_preprocess_timeseries.py:899 to 905`). The anomaly is set to no-data where the baseline
 standard deviation is below `STEP5_MIN_BASELINE_STD_CELSIUS = 1.0` °C, where fewer than
 `STEP5_MIN_CURRENT_VALID_COUNT = 2` current observations exist, or where fewer than
 `STEP5_MIN_BASELINE_VALID_COUNT = 3` baseline observations exist. The result is dimensionless.
@@ -223,6 +253,29 @@ version of the index, fitted once across the pooled regions, was not computed, a
 scene-fitted edges as a competing explanation for the TVDI reversals rather than as a controlled-for
 factor.
 
+**Sea water enters the edge fit, and the extent of the resulting problem was measured rather than
+assumed.** Because the water bit is preserved and the AOIs are not clipped to the coastline, sea
+pixels take part in the percentile fit. Two of the five AOIs are largely marine: water-dominant
+cells are 57.6 % of Evia's grid and 38.9 % of Muğla's, against 0.1 % for the one inland AOI, Bejís.
+The frozen per-bin edge diagnostics show the consequence directly. In Evia the three lowest NDVI
+bins carry dry edges of 28.8 to 29.9 °C, which is Aegean sea-surface temperature and not a land dry
+edge, whereas Bejís's lowest bins sit near 49 °C. That contamination is confined to the bins the sea
+occupies. From NDVI bin 4 upward Evia's dry edge runs from 44 to 47.5 °C, in the same range as
+Bejís's 41 to 49 °C, and neither the wet nor the dry edge orders across the five regions by sea
+fraction: in the vegetated bins the lowest wet edge belongs to Montiferru, at 7.4 % water, and the
+highest to Bejís, at 0.1 %.
+
+The question that matters is whether the modelled population occupies the contaminated bins, and it
+does not. Not one cell of the primary natural-vegetation population in any region has a mean NDVI
+below 0.15, and 0.01 % or less lies below 0.20; the 5th percentile of that population's NDVI is
+0.376 in Evia and 0.290 to 0.383 elsewhere. Nor is there evidence of the saturation such a
+mis-normalisation would produce: the share of primary-population cells at the upper clamp is 0.5 %
+in Evia, 0.5 % in Muğla and 0.4 % in Manavgat, against 0.1 % in Bejís, with the distribution well
+spread in every region. Two limits on this check should be stated. It is made on 500 m cell means,
+so it bounds rather than excludes the effect on individual 30 m pixels, and it does not license the
+all-valid population, where sea cells are present in bulk (Section 4.7f). Refitting the edges on
+land-only pixels remains the clean test and was not run here.
+
 **Downscaled and fused LST.** To mitigate Landsat's sparse thermal revisit, a MODIS→Landsat
 downscaling model is trained on the predictor window and applied to the full 30 m grid (`step7c`,
 `step7d`), yielding `downscaled_lst` in °C, clipped to configured physical bounds. The downscaling
@@ -246,14 +299,29 @@ is not label leakage, but Section 3.13 excludes coordinates from the fire model 
 route by which a coordinate-derived surface re-enters it. The dominant input also differs by region:
 the MODIS context layer in Manavgat (0.525) and Evia (0.593), NDVI in Bejís (0.482) and Montiferru
 (0.666), and slope in Muğla (0.777), where the channel is largely a re-expression of a baseline
-predictor. Third, **the MODIS input is not the same quantity in every region.** Four regions use
-single-season predictor-window MODIS summary layers, matched to their own window. Manavgat uses a
-four-year summer-mean MODIS context layer, which its own metadata describes as a spatial
-downscaling and context-calibration prototype rather than a current observation. Manavgat is the
-anchor region and the region whose transfer behaviour Section 5.11 reports as unexplained, so this
-difference is recorded there as a candidate explanation that has not been tested. The same Manavgat
-run also records an unresolved MODIS nodata condition, in which sea and no-observation cells are
-encoded as exact 0.0 °C rather than as nodata, in a coastal AOI.
+predictor. Third, **the MODIS input is screened to two different standards across the cohort.** All
+five regions use single-season predictor-window MODIS summary layers, each matched to its own
+window, as recorded in every region's `data/modis/modis_metadata.json`. What differs is quality
+control. Evia and Montiferru apply a `QC_Day` bit rule and require at least three valid daily
+observations per pixel, and they write an explicit nodata sentinel of −9999. Manavgat, Bejís and
+Muğla apply no quality mask and declare no nodata value, so no-observation and sea cells are
+encoded as exact 0.0 °C. The screening was added to the export script on 2026-07-23, after the
+first three regions had already been exported, so the cohort is split by export date rather than by
+design. The zero-fill is quantified for Manavgat only, at 518 of 6,390 pixels (8.1 %), which is
+above the pipeline's own 5 % suspicious-zero guard; the Bejís and Muğla fractions are not measured
+here, and their zero-fill is inferred from the same nodata signature. This matters because
+`downscaled_lst` and `fused_lst` rest on these layers, and Section 4.7h reports how much of the
+thermal increment those two channels carry. Section 5.11 records it as an untested candidate
+explanation.
+
+A note on provenance, because the frozen export contradicts itself here. Manavgat's Step 7C and 7D
+metadata describe the same raster as a four-year summer-mean context layer. That string is a stale
+literal: at the pinned commit it is emitted only for the Kozan negative control, and the conditional
+that restricts it was committed on 2026-07-10, one day after Manavgat's Step 7C ran. Manavgat is the
+only region carrying it, and the region's own `modis_metadata.json`, written by the exporting run
+three hours earlier, states the single-season predictor window and says in as many words that the
+layer is not a multi-year baseline. The `modis_metadata.json` record is the one taken as
+authoritative here.
 
 **Terrain.** Elevation (m a.s.l.) and slope (degrees, from `ee.Terrain.slope`) are derived from the
 Copernicus DEM GLO-30 (ESA, 30 m global digital surface model;
@@ -297,7 +365,7 @@ since requiring a valid burn date would collapse the dataset to burned-like cell
 **Analysis population.** The **primary** population is natural vegetation: cells that are
 `valid_for_modeling` and satisfy `burnable_tree_shrub_grass`, defined as a combined tree + shrubland
 + grassland **area fraction ≥ `STEP8A_BURNABLE_FRACTION_THRESHOLD` = 0.50** within the cell
-(`step8a:1326 to 1329`). Cropland is explicitly excluded from every burnable mask and only ever
+(`step8a:1339 to 1342`). Cropland is explicitly excluded from every burnable mask and only ever
 reported as its own fraction. Restricting to natural vegetation removes the confound in which
 agricultural stubble burning and bare-surface thermal contrast could be mistaken for wildfire skill;
 it is the scientifically defensible population for the transfer question, and, as the analysis
@@ -966,7 +1034,21 @@ verifiable in the released code rather than resting on the text of this paper. T
 exclusion of Section 3.2 ran for both arms of this pair: cells that burned inside an experiment's
 own predictor window are removed from its analysis universe rather than counted as unburned. That is
 the same safeguard used for Evia and Montiferru, and it is a stricter treatment than the two regions
-where it did not run (Manavgat, and Bejís where no status is recorded).
+where it did not run (Manavgat, and Bejís where no status is recorded). It removed 49 cells from the
+2021 arm and none from the 2022 arm.
+
+**A second and much larger exclusion applies to the 2022 arm alone, and it defines that arm's
+population.** The registry sets `exclude_historical_burns` for `mugla_2022_event_relative` only, with
+`mugla_2021` as the source and a frozen expected count of 3,073. The mask is every cell with
+`burned = 1` in the 2021 canonical Step 8A artefact, without any further restriction by land cover,
+eligibility or modelling validity. Applied to the 2022 arm it removes 3,073 cells, of which 2,941
+belong to the primary natural-vegetation population. The primary population therefore falls from
+41,730 rows in the 2021 arm to 38,790 in the 2022 arm, a drop of 7.0 %, and the removed cells are
+the 2021 scar itself: 2,911 of the 2,941 are 2021 burned cells, with a median elevation of 563 m and
+a maximum of 1,975 m. The design intent is to stop the previous year's burn scar, which carries an
+altered surface, from entering the following year's analysis. The consequence for how these two
+transfer directions may be read is set out in Section 4.8, and it is the reason they are reported
+separately from the 20-direction matrix rather than inside it.
 
 Two frozen diagnostics are read for this pair, both produced by the machinery already described and
 neither refitting any model. Burned-pattern structure (component counts, effective component count,

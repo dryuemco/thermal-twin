@@ -97,10 +97,29 @@ açıkça yazıp iddiayı daralttım.
 L9 o dönemde operasyoneldi ve açık gözlem sayısını kabaca ikiye katlardı. İkisi de makalede
 şu an olduğu gibi (yani L8-only, QA_PIXEL-only) yazılı; sadece gerekçeyi bilmek istiyorum.
 
+**10. Tek koşu isteği: TVDI kenarlarını kara-maskeli yeniden fit eder misin?** Üçüncü hakem turunda
+AOI'lerin içinde deniz olduğu ortaya çıktı: su-baskın hücreler Evia'nın %57,6'sı, Muğla'nın %38,9'u,
+Bejís'in %0,1'i. `step5c_tvdi.py` kenarları tüm sahne üzerinde NDVI kutusu başına 2./98. persentil
+olarak fit ettiği için deniz de fit'e giriyor, ve Evia'nın en düşük üç NDVI kutusundaki "kuru kenar"
+28,8–29,9 °C, yani Ege deniz yüzeyi sıcaklığı; Bejís'te aynı kutular 49 °C civarı.
+
+**Buradan panik çıkmıyor, kontrol ettim:** birincil (doğal vejetasyon) popülasyonun hiçbir hücresi
+NDVI 0,15'in altında değil (Evia'da 5. persentil 0,376), üst sınırda doygunlaşma yok (Evia %0,5,
+Bejís %0,1), ve vejetasyonlu kutularda kenarlar su payına göre sıralanmıyor — en düşük ıslak kenar
+%7,4 sulu Montiferru'da, en yüksek %0,1 sulu Bejís'te. Yani deniz kirlenmesi modellenen popülasyona
+ulaşmıyor ve makalede böyle yazdım.
+
+Yine de temiz test senin tarafında: kenarları **yalnız kara sınıflarıyla** (10/20/30/40/60, ya da su
+bitini maskeleyerek) yeniden fit edip TVDI kanallarının işaretli univariate AUC'lerini yeniden
+hesaplayabilir misin? Benim yaptığım 500 m hücre-ortalaması üzerinden bir üst sınır; 30 m pikselde
+kesin cevabı ancak refit verir. §5.11'de zaten söz verilmiş olan ortak-kenar TVDI ile aynı emek
+mertebesinde ve ondan daha keskin bir test.
+
 ---
 
 Özetle: 1, 2 ve 4 depo/provenance temizliği; 3 tamamen isteğe bağlı bir ek koşu; 5–9 ikinci
-hakem turundan, çoğu tek satırlık teyit, sadece 6 ve 8 gerçek koşu gerektiriyor.
+hakem turundan, çoğu tek satırlık teyit, sadece 6 ve 8 gerçek koşu gerektiriyor; 10 üçüncü turdan
+ve tek gerçek koşu isteği.
 Methods envanterini hâlâ bekliyorum, acelesi yok.
 
 Teşekkürler,

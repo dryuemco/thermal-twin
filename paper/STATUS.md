@@ -119,10 +119,71 @@ eight held exactly; see the ✅ marks in the dossier):
 
 `build_tex.mjs` re-run; `verify_tex.mjs` 12/12 PASS, `check_style.mjs` 0 dashes.
 
-**One-line state:** the seven verified round-3 corrections are in; what remains is the rest of round
-3 (Tier 0.5 the Muğla two-event population, 0.6 the Manavgat MODIS retraction, 0.2 the ~10 km
-blocking claim, 0.10 the non-square cell, and the sea-in-TVDI-edges re-run), then round 2's deferred
-length reduction, the first LaTeX compile, and the optional front-matter facts.
+**Updated 2026-08-14 (round 3 applied in full, submission pass).** Every remaining Tier 0 item was
+re-derived from the frozen artefacts first, then applied. Two referee claims did **not** survive that
+re-derivation and were not applied as written; both are recorded below. The abstract, highlights and
+Fig. 3 / Fig. 5 captions were re-scoped to match. `build_tex.mjs` re-run; `verify_tex.mjs` 12/12
+PASS; `check_style.mjs` 0 dashes.
+
+- **0.6 Manavgat MODIS — retracted, with a stronger evidence base than the dossier had.** Verified:
+  the four-year string is emitted only under `is_kozan` at `48b56e7`; the conditional arrived in
+  `7b1c8ac` (2026-07-10T12:26:05+03:00), one day *after* Manavgat's Step 7C ran (2026-07-09T15:28:31);
+  Manavgat's own `modis_metadata.json`, written three hours earlier, gives the single-season
+  predictor window and the words "NOT a multi-year baseline". **New:** all five regions used
+  single-season predictor-window layers, and Manavgat is the only region carrying the stale string,
+  in Step 7C *and* Step 7D. §3.4's "the MODIS input is not the same quantity in every region" was
+  therefore false too. Replaced with the real heterogeneity (Tier 2.2, verified): QC screening and
+  nodata encoding split 2 versus 3, by export date, not by design.
+- **0.5 Muğla two-event — applied; every per-cell number reproduced exactly.** 41,730 → 38,790 TSG;
+  the arms share 38,789 of 38,790 cells; `elevation_mean`, `slope_mean` and `landcover_dominant` are
+  byte-identical across all 73,098 cells; all 2,911 target positives are outside the 2022 source
+  population and 38,789 of 38,819 negatives inside it, giving membership AUC 0.9996; all 331 of the
+  2022 positives were in the 2021 training set. "Only the event differs" and "only the fire differs"
+  are gone; §3.16.4 now names the exclusion and its elevation composition; §4.8 and §5.11(ii) carry
+  the non-comparability.
+- **0.2 ~10 km blocking — re-scoped everywhere** (§4.2, §1 C5, §5.1, §5.2, §6, Fig. 3 caption).
+  Support is claimed at 1 km and 5 km only; 10 km is stated as indicative, with the 12/6/33/15/6
+  positive-carrying block counts re-derived. Fig. 3 needs no rebuild: "all fifteen" lived only in the
+  script's provenance string and stdout, never on the canvas.
+- **0.3 / 0.4 — applied, but the dossier's own replacement text was wrong by one.** Recomputing all
+  twenty directions from Table 4 (spot-checked against `step10_metrics.csv`) gives **six** directions
+  ending further from chance, not five: the five upward Montiferru cases *and* Manavgat→Muğla moving
+  downward, 0.470 → 0.443, which the dossier names in its prose and then omits from its fix. The
+  paper now states 14 of 20 compressed, names all six exceptions, and flags that Bejís→Manavgat is
+  counted as compressed on a margin of 0.001.
+- **0.10 non-square cell — applied and independently confirmed.** 17 × (30 / 111,319.49) =
+  0.0045814°; 510 m north-south, 390 to 407 m east-west; area 0.199 to 0.208 km² against 0.250. The
+  derivation reproduces **all five** frozen cell counts exactly (175×138, 153×103, 393×186, 175×131,
+  66×49). Both consequences are now stated: blocking is weaker in longitude, and the burned footprint
+  is dilated relative to MCD64A1.
+- **0.8 / 0.9 / 0.11 — applied.** The label rule is the mode of positive DOY values and coincides
+  with "any positive" only because `count_positive == count_in_label_doy_range` in all five exports.
+  `exclude_historical_burns` appears exactly once in the registry, so prior-year burning is screened
+  for **no** study region. The Evia AOI supersession was label-informed and §3.1 now says so.
+- **0.15 line citations — regenerated.** Six were wrong and are fixed (`step8a:1217-1261`,
+  `step8a:967-1025`/`3059-3072`/`1179-1188`, `step8a:1339-1342`, `step6b:198-219`,
+  `step5:899-905`, plus `core/config.py:86-87` added for the LST scale/offset). **The dossier was
+  wrong on two counts here:** `core/config.py:89 to 103` is correct as cited, because the sentence
+  cites it for the NDVI reflectance scale/offset (lines 91 to 92) and the NDVI validity bounds (line
+  103), not for `LANDSAT_SCALE`; and the blanket "every step8a range is one line low" does not hold,
+  the others resolve correctly.
+- **Tier 2.1 sea in the TVDI edges — resolved without the raster re-run, against the dossier's
+  conclusion.** Re-derived: water-dominant cells are 57.6 % of Evia's grid, 38.9 % of Muğla's, 0.1 %
+  of Bejís's, and Evia's three lowest NDVI bins do carry sea-surface dry edges of 28.8 to 29.9 °C.
+  But the modelled population does not occupy those bins: **no** primary-population cell in any region
+  has mean NDVI below 0.15 (5th percentile 0.376 in Evia), there is no clamp saturation (0.5 % of
+  Evia cells at the upper clamp against 0.1 % in Bejís), and in the vegetated bins the edges do not
+  order by sea fraction at all, the lowest wet edge belonging to Montiferru at 7.4 % water and the
+  highest to Bejís at 0.1 %. The half of the finding that *does* hold, that the secondary all-valid
+  population is 57.7 % and 38.9 % seawater in two regions, is now stated in §4.7f. The land-only edge
+  refit remains un-run and is stated as such.
+
+**One-line state:** round 3 is fully discharged and the submission package is assembled
+(`COVER_LETTER.md` drafted, highlights re-checked at ≤85 characters, abstract 329 words). What
+remains is outside this round: round 2's deferred length reduction (~31k words, 19 main-text tables),
+the **first LaTeX compile**, which no machine here can do, the optional front-matter facts
+(department, ORCIDs, funding project title), and the two reproducibility blockers that sit with the
+pipeline author (`emrehan_mail_5.md`, still unsent).
 
 ## 1. Manuscript sections
 

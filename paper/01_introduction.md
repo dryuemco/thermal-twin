@@ -231,9 +231,9 @@ standardisation and covariance alignment [@Sun2016] are tested as label-blind re
 directions. Adaptation compresses the transfer matrix towards chance. It recovers at most 34 % of
 the deficit where transfer fails, and it produces *negative* recovery in seven of twelve decomposed
 directions. Of the twelve directions that already transferred above chance, nine are degraded and
-three are raised, all three with Montiferru as their source; inside the twelve decomposed directions
-there is no exception. The worst case is a degradation of −0.86 of the
-gap. We found no prior application of covariance alignment to fire susceptibility, fire occurrence
+three are raised, all three with Montiferru as their source. Inside the four-AOI decomposition, which
+contains no Montiferru direction, all six of the above-chance directions are degraded without
+exception. The worst case is a degradation of −0.86 of the gap. We found no prior application of covariance alignment to fire susceptibility, fire occurrence
 or burned-area prediction. This is a negative result reported with a mechanism, not an absence.
 
 **Contribution 3. Similarity is not sufficient for transfer, whether geographic, climatic or
@@ -273,8 +273,10 @@ conditional diagnostics on the same pairs.
 **Contribution 5. Within-region replication of the thermal increment.** The increment is replicated
 across five independent Mediterranean regions under spatially blocked cross-validation. ΔAUC runs
 from +0.056 to +0.153, every bootstrap interval lies above zero, and the result holds in both
-analysis populations. It survives spatial blocks up to ~10 km and a predictor window closed up to 14
-days earlier. The finding is not itself novel, since comparable within-region results exist for
+analysis populations. It survives spatial blocks coarsened to ~5 km, the coarsest scale at which
+this design supports an interval, and a predictor window closed up to 14 days earlier. At ~10 km the
+point estimates hold but the intervals rest on too few positive-carrying blocks to be read as
+intervals (Section 4.2). The finding is not itself novel, since comparable within-region results exist for
 these landscapes [@AlkanAkinci2023; @Iban2022]. It is included as the evidence for the first half of
 Contribution 1. Two properties of the increment that are not usually reported are given with it: a
 single subgroup of the block recovers 71 % to 99 % of it in every region, so the six thermal

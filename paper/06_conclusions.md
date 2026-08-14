@@ -30,7 +30,8 @@ Pre-fire thermal dryness adds a real and repeatable increment to burned-area dis
 five Mediterranean regions, ROC-AUC was raised by +0.06 to +0.15 over a static and near-static
 terrain, fuel and greenness baseline. That baseline's only time-varying member is the
 vegetation-index composite. The gain
-survived spatial blocking at about 10 km. It also survived a predictor window closed up to two weeks
+survived spatial blocking at about 5 km, the coarsest scale this design supports as an interval. It
+also survived a predictor window closed up to two weeks
 before the first labelled burning.
 
 That skill is local. Paired per direction, the same predictor block adds nothing distinguishable

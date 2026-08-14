@@ -76,8 +76,11 @@ Section 4.7a.
 ## 4.2 Within-region: the thermal increment replicates in five regions
 
 In every region, adding the six thermal predictors to the baseline increases spatially
-blocked out-of-fold ROC-AUC, and the increment's bootstrap interval excludes zero at every block
-size tested (Table 3; [Fig. 3]).
+blocked out-of-fold ROC-AUC. The increment's bootstrap interval excludes zero in all five regions at
+1 km and at 5 km blocking, which are the two scales this design supports as intervals. At 10 km the
+point estimates hold, from +0.048 to +0.154, but they rest on 6 to 33 positive-carrying blocks and
+are reported as indicative rather than as intervals, for the reason given in the table note (Table
+3; [Fig. 3]).
 
 **Table 3. Within-region baseline versus thermal performance and block-size robustness.** Primary
 (TSG) population; spatially blocked 5-fold CV (Section 3.8); paired spatial-block bootstrap, 1000
@@ -304,9 +307,15 @@ directions show *negative* recovery, meaning that adaptation moves the score awa
 within-region reference, in the worst case (Evia→Manavgat) recovering −0.86 of the gap. In six of
 the seven, raw transfer was already above chance and adaptation destroyed that advantage; in the
 seventh (Manavgat→Muğla), raw transfer was below chance (0.470) and adaptation lowered it further
-(0.443). Label-blind adaptation therefore does not act as a repair mechanism: it compresses all
-directions toward chance, closing a minority of the deficit where transfer fails and destroying
-performance where transfer works.
+(0.443). Label-blind adaptation therefore does not act as a repair mechanism: it compresses the
+matrix toward chance, closing a minority of the deficit where transfer fails and destroying
+performance where transfer works. The compression is the general effect and not a universal one.
+Taking the better of the two adaptations per direction, 14 of the 20 end closer to chance than they
+began and 6 end further from it. Five of those six involve Montiferru and move upward
+(Montiferru→Manavgat, Montiferru→Bejís, Montiferru→Evia, Manavgat→Montiferru, Muğla→Montiferru); the
+sixth is Manavgat→Muğla, which moves downward from 0.470 to 0.443. The 14 to 6 split should be read
+at the precision of limitation (x) in Section 5.11: Bejís→Manavgat is counted as compressed on a
+margin of 0.001, since it moves from 0.444 to 0.555.
 
 ## 4.4 Transferability diagnostics: only conditional similarity orders transfer
 
@@ -676,7 +685,16 @@ natural-vegetation population for the three high-increment regions: ΔAUC 0.059 
 0.075 [0.057, 0.094] (Montiferru), against TSG values of 0.067, 0.056, 0.116, 0.153 and 0.101
 respectively. Absolute AUCs are higher in the mixed population (baseline 0.827 to 0.910), consistent
 with land-cover composition contributing separable but non-thermal discrimination; the within-region
-conclusion does not depend on the population choice.
+conclusion does not depend on the population choice. The nature of that extra discrimination should
+be stated plainly, because it is not a subtle land-cover effect in two of the five regions. The AOIs
+are place-based rectangles and are not clipped to the coastline, and sea cells satisfy
+`valid_for_modeling`, since elevation, slope and the vegetation index are all finite over water and
+permanent water is a valid land-cover class. Counted over the frozen datasets, water-dominant cells
+are 57.7 % of Evia's all-valid population and 38.9 % of Muğla's, against 8.3 % (Manavgat), 7.4 %
+(Montiferru) and 0.1 % (Bejís). In those two regions most of the extra separability of the all-valid
+population is therefore land against sea rather than any fire-relevant contrast. This is one of the
+two reasons the natural-vegetation population is primary here, and it is why the all-valid arm is
+reported only as a sensitivity.
 
 **(g) Blocking scale of the transfer intervals.** Table 4 and Table R6 report 2-cell (~1 km) blocks,
 while Section 3.12 argues that 2-cell blocking ignores short-range spatial autocorrelation and gives
@@ -785,10 +803,30 @@ Every result above compares different places. Muğla admits a stricter test, bec
 event occurred inside the identical AOI on the identical analysis grid (Section 3.16.4): the 2021
 event, with its 58-day predictor window closing on 28 July, and the 2022 event, whose matched 58-day
 window closes on 20 June. Region, bounding box, cell definition, feature registry and processing
-chain are the same; only the event differs. The comparison is therefore same-geography
-event-to-event, not clean temporal transfer. The 2022 fire ignites about five weeks earlier in the
-season, so year and seasonal phase are confounded (Section 3.16.4). Geography, the explanation most
-often offered for between-region instability, is held fixed by construction. The second Muğla event
+chain are the same. What the design holds fixed is place; what it does not hold fixed is the
+population. The comparison is therefore same-geography event-to-event, not clean temporal transfer.
+The 2022 fire ignites about five weeks earlier in the season, so year and seasonal phase are
+confounded (Section 3.16.4). Geography, the explanation most often offered for between-region
+instability, is held fixed by construction.
+
+**Two structural properties of this pair must be read alongside its numbers, because they have no
+analogue anywhere in the 20-direction matrix.** First, the two arms are not disjoint samples. The
+2022 population is the 2021 population with the 2021 scar removed, so the two share 38,789 of the
+2022 arm's 38,790 cells, and `elevation_mean`, `slope_mean` and `landcover_dominant` are identical
+to the digit across all 73,098 grid cells of the AOI: only NDVI and the six thermal channels carry
+new information between the arms. Second, the removal is the target's own positive class. All 2,911
+burned cells of the 2021 primary population are excluded from the 2022 arm, so in the 2022 to 2021
+direction not one target positive is present in the source training population while 38,789 of the
+38,819 target negatives are. Membership of the source training set alone separates the 2021 target's
+classes at ROC-AUC 0.9996. In the opposite direction all 331 of the 2022 positives were in the 2021
+training population, labelled unburned. The 30 target negatives outside the source population are
+the only internal control available, and they are too few to bound the effect. We therefore cannot
+demonstrate what this asymmetry does to the two numbers below, only that a transfer direction with
+this structure is not comparable to the 20 between-region directions, where source and target share
+no cells. The elevation reversal is the finding; the structural asymmetry is a competing explanation
+for it that this design cannot exclude. It is worth noting which way the known part of the bias
+runs: the removed cells are high (median 563 m, maximum 1,975 m) and unburned in 2022, so removing
+them raises the 2022 elevation AUC and makes the reversal smaller, not larger. The second Muğla event
 is deliberately kept out of the 20-direction matrix of Section 4.3, and that exclusion is enforced
 and tested in the released code rather than merely asserted here. The check that carries the
 guarantee is `A08_cohort_is_the_frozen_five`, which compares the executed cohort against the frozen

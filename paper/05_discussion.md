@@ -13,7 +13,7 @@
 Across five Mediterranean fire regions, six pre-fire thermal predictors were added to a static and
 near-static baseline of terrain, fuel and greenness, whose only time-varying member is the
 vegetation-index composite. Spatially blocked within-region ROC-AUC was raised by +0.056 to +0.153,
-with bootstrap support at every block size up to ~10 km (Section 4.2). The same models were then
+with bootstrap support at ~1 km and ~5 km blocking in all five regions (Section 4.2). The same models were then
 applied across regions without target labels. Transfer AUCs ran from 0.326 to 0.686, and even the
 best direction fell 0.184 short of its target's within-region reference (Section 4.3).
 
@@ -57,7 +57,8 @@ and that cost is invisible to the diagnostics the field currently uses to antici
 ## 5.2 Why the thermal increment is real but local
 
 The within-region increment is not an artefact to be explained away. It replicates in five
-independent regions. It survives coarsening of the spatial blocks to ~10 km. It persists in the
+independent regions. It survives coarsening of the spatial blocks to ~5 km with its interval intact,
+and its point estimate holds at ~10 km. It persists in the
 secondary all-valid population. It also strengthens rather than weakens when the predictor window is
 closed earlier (Section 4.7c). The transfer failure is therefore not evidence that the thermal
 signal is spurious. It is evidence that the fitted relationship is *local*.
@@ -92,8 +93,14 @@ by an order of magnitude in area and widely in relief. Two regions can therefore
 sign of the TVDI-burning association without any difference in the underlying dryness-to-burning
 relationship, purely because the index is anchored to different populations in the two places. We
 did not compute a common-edge TVDI fitted once across the pooled regions, which is the analysis that
-would separate the two explanations, and it is listed in Section 5.11. Until it exists, the honest
-reading is narrower than the general one: statistical self-normalisation against locally fitted
+would separate the two explanations, and it is listed in Section 5.11. One version of this concern
+can be dismissed on the evidence. Sea water takes part in the edge fit and dominates two of the
+AOIs, so the edges of the lowest NDVI bins in Evia are sea-surface temperature rather than a land
+dry edge. That contamination does not reach the modelled population, which occupies no NDVI bin
+below 0.15 in any region and shows no sign of clamp saturation, and in the vegetated bins the edges
+do not order by sea fraction at all (Section 3.4). The scene-dependence that remains is the ordinary
+one, driven by each AOI's own relief and dryness range. Until the common-edge index exists, the
+honest reading is narrower than the general one: statistical self-normalisation against locally fitted
 reference values does not guarantee a stable direction of association, and the TVDI reversal is
 consistent both with concept shift and with the index's own scene dependence. The reversals in the
 absolute LST channels, which carry no such normalisation, and the elevation reversal, which involves
@@ -111,9 +118,11 @@ distinct fuels, terrain and fire histories. On that reading, a predictor that me
 region and another thing in the other is not evidence of instability. It is evidence that two
 different systems were compared.
 
-The two Muğla events answer this directly (Section 4.8). Region, AOI, analysis grid, feature
-registry and processing chain are identical, and only the fire differs. Elevation's association with
-burning nevertheless reverses with bootstrap support. It is 0.611 [0.532, 0.690] in 2021, where
+The two Muğla events speak directly to this (Section 4.8). Region, AOI, analysis grid, feature
+registry and processing chain are identical, and the static predictors are identical cell by cell.
+The design holds place fixed; it does not hold the population fixed, because the 2022 arm is defined
+by removing the 2021 scar, and that qualification is developed in Section 4.8 and in Section
+5.11(ii). Elevation's association with burning nevertheless reverses with bootstrap support. It is 0.611 [0.532, 0.690] in 2021, where
 higher ground burned preferentially, against 0.296 [0.230, 0.355] in 2022, where lower ground did.
 The intervals are disjoint and the difference is −0.317 [−0.414, −0.220]. Holding geography fixed
 does not stabilise the direction of the relationship.
@@ -516,8 +525,8 @@ here: Manavgat to Muğla sits at 0.875 weighted applicability and transfers at 0
 Where labels exist on both sides, the signed-association comparison of Section 3.14.4 tracked
 transfer where twenty other candidates did not, so it is the screen to run, with the caveats of
 Section 5.4 attached. Second, do not spend effort on label-free alignment. Two standard methods,
-applied carefully, moved every direction towards chance rather than towards skill, and the one
-family of directions they improved is the smallest region in the set. Third, price the labels
+applied carefully, moved 14 of the 20 directions towards chance rather than towards skill, and every
+direction they improved involves Montiferru, the smallest region in the set. Third, price the labels
 instead. Section 4.10 gives the shape of that price for three regions: thirty-two labelled 5 km
 blocks recovered 85 to 89 % of the target's own ceiling in three of six directions, two of them from
 starting points below chance. That is a real answer to "what do we do", and it is not a cheap one.
@@ -549,13 +558,24 @@ does not close this gap, and its own four-year climatology limits how firmly its
 read. (ii) Temporal transfer is measured for one region only, Muğla, and even there year and
 seasonal phase are confounded by the 2022 event's roughly five-week-earlier ignition, so the design
 is same-geography event-to-event rather than clean temporal transfer (Section 3.16.4). Its 331
-burned cells also leave the thermal direction reversals unresolved at interval level. Those two arms
-are additionally the only transfer directions in this paper computed by us rather than read from the
-pipeline author's frozen export, albeit with his unmodified code and the same pinned environment
-(Section 3.16.4). No other region has a second event. (iii) All labels derive from a single
+burned cells also leave the thermal direction reversals unresolved at interval level. The pair holds
+place fixed but not population: the 2022 arm is the 2021 arm with the 2021 scar removed, so the two
+share 38,789 of 38,790 cells and three identical static predictors, and in the 2022 to 2021
+direction every target positive lies outside the source training population while almost every
+target negative lies inside it (Section 4.8). We cannot bound what that does to the two reported
+numbers, so they are not comparable to the 20 between-region directions and the elevation reversal
+has a structural competing explanation this design cannot exclude. Those two arms are additionally
+the only transfer directions in this paper computed by us rather than read from the pipeline
+author's frozen export, albeit with his unmodified code and the same pinned environment (Section
+3.16.4). No other region has a second event. (iii) All labels derive from a single
 burned-area product, MCD64A1 [@Giglio2018], whose omission and commission characteristics
-[@Boschetti2019] bound every model evaluated here. (iv) The ~510 m analysis cells approximate, but
-are not co-registered with, the native MODIS sinusoidal grid (Section 3.2). (v) Even after the AOI
+[@Boschetti2019] bound every model evaluated here. (iv) The analysis cells approximate, but are not
+co-registered with, the native MODIS sinusoidal grid (Section 3.2). They are also not square on the
+ground: about 510 m north to south but 390 to 407 m east to west, giving 0.199 to 0.208 km² against
+a MODIS cell's 0.250 km². Two things follow. The block sizes quoted throughout as about 1, 5 and
+10 km are the north-south dimension, so blocking is weaker in longitude by roughly a fifth. And the
+smaller, offset cell dilates the labelled burned footprint relative to MCD64A1, which compounds
+(xiv). (v) Even after the AOI
 extension, Evia's TSG prevalence (0.287) remains the highest of the five regions. It is four to
 seven times that of Manavgat, Bejís and Muğla (0.038 to 0.072), though only modestly above
 Montiferru, whose modelled-population prevalence is 0.212. Prevalence sensitivity was checked for
@@ -596,15 +616,22 @@ concept shift. Two related items are unresolved: a performance sensitivity restr
 a low gap-filled fraction was not run, and it matters most for Bejís at 9.70 %; and the two derived
 channels carry a coordinate-derived component from the downscaler's own inputs (summed importance
 0.035 to 0.123), which is not label leakage but is the one route by which coordinates re-enter a
-feature set from which Section 3.13 excludes them. (xiii) **Manavgat's downscaling input is not the
-same quantity as the other four regions'.** It is a four-year summer-mean MODIS context layer where
-the others use single-season predictor-window layers matched to their own windows, and the same run
-records an unresolved nodata condition encoding sea cells as 0.0 °C in a coastal AOI (Section 3.4).
-Manavgat is the anchor region and the subject of the unexplained behaviour in (ix), so this is a
-candidate explanation that we have not been able to test, since rebuilding Step 7 on the common
-contract is upstream of this analysis. (xiv) **Label noise is spatially structured and its
-interaction with the predictors is untested.** A single in-window positive sub-pixel labels a cell
-burned and no agreement threshold is imposed, so the proportion of cells labelled on thin evidence
+feature set from which Section 3.13 excludes them. (xiii) **The MODIS input behind the two derived
+channels is quality-screened in two regions and unscreened in three.** Evia and Montiferru apply a
+`QC_Day` mask, a three-observation minimum and an explicit nodata sentinel. Manavgat, Bejís and
+Muğla apply none of these, so sea and no-observation cells enter as exact 0.0 °C, measured at 8.1 %
+of pixels in Manavgat and not measured in the other two (Section 3.4). The split follows export
+date, not design, so it is confounded with nothing in the study and with everything about when each
+region was run. Three of the five regions are on the unscreened path, Manavgat among them, and
+Manavgat is the subject of the unexplained behaviour in (ix). This is a candidate explanation that
+we have not been able to test, since rebuilding Step 7 on one common contract is upstream of this
+analysis. An earlier version of this paper attributed the anomaly instead to Manavgat using a
+four-year summer-mean MODIS layer. That was read from a stale metadata string and is withdrawn;
+all five regions used single-season predictor-window layers (Section 3.4). (xiv) **Label noise is spatially structured and its
+interaction with the predictors is untested.** The cell's representative burn date is the mode of its
+positive sub-pixel dates, and because the exported raster holds no out-of-window positives, a single
+in-window positive sub-pixel labels a cell burned in this dataset (Section 3.2). No agreement
+threshold is imposed, so the proportion of cells labelled on thin evidence
 scales with each scar's perimeter-to-area ratio, which differs sharply across these regions
 (effective component counts 1.0 to 4.05). Fringe cells also differ systematically in terrain from
 core cells, which makes differential fringe contamination a competing explanation for a reversal in
@@ -614,9 +641,10 @@ run. At the product level, MCD64A1's omission at 500 m in fragmented Mediterrane
 correlated with patch size, terrain and land-cover fragmentation, which are the baseline predictors;
 no second label product was used as a control. (xv) **Two safeguards did not run everywhere.** The
 pre-label burn exclusion ran for Muğla, Evia and Montiferru, is recorded as not run for Manavgat, and
-has no recorded status for Bejís (Section 3.2). Prior-year burning is screened only for the Muğla
-pair. The exposure this leaves has not been quantified, and doing so is a cheap query rather than a
-re-run. In the same vein, the per-region acquisition inventory behind the composites exists for
+has no recorded status for Bejís (Section 3.2). Prior-year burning is screened for no region in the
+five-region cohort; the only historical-burn exclusion in the study removes the 2021 Muğla scar from
+the 2022 event-relative experiment of Section 3.16.4. The exposure this leaves has not been
+quantified, and doing so is a cheap query rather than a re-run. In the same vein, the per-region acquisition inventory behind the composites exists for
 Manavgat alone.
 
 Four analyses would close most of the above and none of them is exotic: the compositing A/B extended
