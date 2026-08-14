@@ -13,8 +13,7 @@ area of interest (AOI) in EPSG:4326. Each AOI is defined from place coverage rat
 perimeter, and none is tuned on burned prevalence, on the gate outcome or on any model metric. One
 AOI choice was label-informed and is stated as such: the North Evia box was extended after the
 legacy box was found to carry an atypically high burned prevalence, the extended geometry was then
-defined from place anchors, and the legacy variant is retained as a sensitivity (Sections 3.16.1 and
-4.1). The AOIs are deliberately *not* clipped to fire perimeters, so that unburned cells surrounding
+defined from place anchors, and the legacy variant is retained as a sensitivity (Section 4.1). The AOIs are deliberately *not* clipped to fire perimeters, so that unburned cells surrounding
 each fire constitute the negative class rather than being excluded by construction.
 
 For each region the analysis is organised around two non-overlapping time windows. The **predictor
@@ -49,7 +48,7 @@ constants, and their declared corners agree with the previously grid-derived val
 
 North Evia is analysed on an **extended** 0.80° × 0.60° AOI. The legacy 0.40° × 0.40° box (23.12,
 38.68, 23.52, 39.08; `repo/core/regions.py:67`) shares identical predictor and label windows and is
-retained **only** as a sensitivity variant (Section 3.16.1).
+retained **only** as a sensitivity variant (Section 4.7a).
 
 Sample sizes, burned-cell counts and prevalences per region are reported in Table 1b, read from each
 region's frozen Step 8A dataset statistics (`step8a_dataset_stats.json`) for all five regions.
@@ -785,7 +784,7 @@ are complementary and neither substitutes for the other.
 
 Two further properties of the record are stated for completeness. First, the five-region cohort was
 resolved by three independent routes. These are the experiment registry restricted to canonical
-records (those carrying no `superseded_by` key, which drops the legacy Evia AOI of Section 3.16.1
+records (those carrying no `superseded_by` key, which drops the legacy Evia AOI
 and the superseded Muğla calendar-shift record) and with non-cohort roles removed, the ERA5-Land
 diagnostic's `DEFAULT_EXPERIMENTS` constant, and the frozen multi-AOI synthesis manifest. All three
 return the same ordered set (`routes_agree: true`). The two deliberate exclusions by role are Kozan
@@ -822,7 +821,7 @@ artefact is archived with this paper and its 100 recorded values were independen
 the 20 frozen artefacts they reference, but a reader cannot regenerate it from the repository.
 Third, **the commit recorded for the few-shot export (`19d825b`) is not reachable** in the published
 history, although the module it names, `src/few_shot_recovery.py`, is present at `48b56e7` and
-predates the run. A fourth, smaller discrepancy is recorded in Section 3.17: the ERA5-Land
+predates the run. A fourth, smaller discrepancy belongs to the companion paper: the ERA5-Land
 diagnostic's manifest names a commit at which the diagnostic source does not yet exist, so that
 production run was made from an uncommitted working tree.
 
@@ -1024,7 +1023,7 @@ different reach. `A08_cohort_is_the_frozen_five` requires the executed cohort to
 this experiment. `A07_mugla_2022_absent_from_default_analysis` is narrower than its name suggests:
 it tests literal membership of the string `mugla_2022`, which is the registry's superseded
 calendar-shift record, and would not by itself catch the `mugla_2022_event_relative` entry analysed
-here. Both checks pass on the executed output (Section 3.17), but the guarantee for this experiment
+here. Both checks pass on the executed output, but the guarantee for this experiment
 rests on A08. The decision to keep this pair out of the 20-direction transfer matrix is therefore
 verifiable in the released code rather than resting on the text of this paper. The pre-label burn
 exclusion of Section 3.2 ran for both arms of this pair: cells that burned inside an experiment's

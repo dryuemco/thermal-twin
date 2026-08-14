@@ -606,7 +606,7 @@ five aligned directions.
 
 **(a) Evia AOI and prevalence.** Repeating the raw transfer arms with the legacy (small, prevalence
 0.361; TSG prevalence 0.676) versus extended (prevalence 0.122; TSG prevalence 0.287) Evia AOI
-(Section 3.16.1) leaves every qualitative conclusion unchanged: thermal raw transfer AUCs move by at
+leaves every qualitative conclusion unchanged: thermal raw transfer AUCs move by at
 most 0.070 (Evia→Bejís 0.378 → 0.448) and no direction changes side of chance (Manavgat→Evia 0.662 →
 0.613; Evia→Manavgat 0.670 → 0.686; Bejís→Evia 0.397 → 0.383; Muğla→Evia 0.630 → 0.653; Evia→Muğla
 0.572 → 0.577). The 2.4-fold change in target prevalence does not create or destroy any CI-supported
@@ -729,7 +729,7 @@ guarantee is `A08_cohort_is_the_frozen_five`, which compares the executed cohort
 `A07_mugla_2022_absent_from_default_analysis` is narrower than its name suggests: it tests literal
 membership of the string `mugla_2022` and would not by itself catch the `mugla_2022_event_relative`
 entry analysed here. Both pass on the executed diagnostic output, but the guarantee rests on A08
-(Sections 3.16.4, 3.17).
+(Section 3.16.4).
 
 The two events are structurally very different fires. Table R7 reports the burned-pattern comparison
 on the primary population.

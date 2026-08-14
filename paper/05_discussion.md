@@ -510,7 +510,7 @@ calibration loop will need labelled feedback, not unsupervised alignment.
 The transfer failure is a finding, not a limitation. The limitations are the boundaries on how far
 it generalises. (i) No meteorological covariates (wind, humidity, precipitation) enter the models,
 so we cannot say how the trade-off behaves for a mixed thermal-plus-weather predictor set. The
-ERA5-Land diagnostic of Sections 3.17 and 4.9 characterises the regions but is not a predictor and
+ERA5-Land diagnostic reported in the companion paper characterises the regions but is not a predictor and
 does not close this gap, and its own four-year climatology limits how firmly its anomalies can be
 read. (ii) Temporal transfer is measured for one region only, Muğla, and even there year and
 seasonal phase are confounded by the 2022 event's six-week-earlier ignition, so the design is
@@ -550,7 +550,7 @@ rest on an effective sample of ten region pairs. Both the successes and the fail
 should be read at that power. (ix) Manavgat's atypical transfer behaviour remains unexplained. It is
 the region where the conditional diagnosis bites hardest and where feature removal recovers most.
 The one explanation we were able to test, that its predictor window was meteorologically extreme, is
-not supported (Section 5.7). We can say what does not account for it, but we cannot say what does.
+not supported, as the companion paper reports. We can say what does not account for it, but we cannot say what does.
 With one fire season per region, the candidates that remain are not separable in this design: fuel
 structure, ignition and suppression history, and terrain-driven fire behaviour. (x) The
 interval-support counts are less stable than the point estimates behind them. Several verdicts sit
