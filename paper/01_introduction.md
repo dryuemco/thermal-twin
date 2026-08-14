@@ -187,8 +187,9 @@ and the head-to-head of four diagnostic families on the same pairs are.
 **Contribution 3. The mechanism is a reversal of sign, and it survives holding geography fixed.**
 Predictors do not merely weaken across regions, they reverse the direction of their association with
 burning, which is why a distance in predictor space cannot see the failure. The sharpest reversal is
-elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla with disjoint
-bootstrap intervals. The same reversal appears inside a single study area, between two fires eleven
+elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla, with each
+region's own interval excluding chance and the paired difference excluding zero (Appendix B,
+Table B3). The same reversal appears inside a single study area, between two fires eleven
 months apart on an identical grid, where season and population also differ but place does not
 (Section 4.8). That arm rests on one fire and eleven positive-carrying 5 km blocks, below the floor
 this design sets for itself, so it corroborates the mechanism rather than establishing it.

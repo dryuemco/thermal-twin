@@ -132,7 +132,7 @@ Three findings carry this paper. Each is stated at the strength its interval sup
 
 \textbf{Contribution 2. The loss is invisible to the diagnostics that could be run before deployment, and visible to one that cannot.} Twenty candidate diagnostics from four families are evaluated against observed transfer under one bootstrap framework. Area-of-applicability-style predictor-space dissimilarity \citep{Meyer2021,Meyer2022,Ludwig2023}, climatic and geographic distance, learned domain separability, niche-overlap statistics and burn-pattern regime distances were none of them shown to order the matrix; the domain classifier is at ceiling, with AUC $\ge$ 0.96 for every pair. Only two diagnostics have intervals excluding zero. Both measure conditional direction agreement, that is, whether each predictor's signed association with burning points the same way in both regions (Spearman $\rho$ = +0.84 and +0.81 over sixteen directions from eight pairs). Both are computed on a data-selected subset of predictors, and their all-nine-feature counterparts span zero, so the result rests on that selection. Equalising the families onto a common twelve directions leaves the ordering unchanged, so it is not an artefact of unequal samples. Signed associations need burned labels on both sides, so this is a mechanism diagnosis rather than a pre-deployment screen, and the marginal family, the only one runnable before deployment, is the one that fails. The same point survives without any ranking, at the point estimates: the pair with the highest burned-niche overlap fails in both directions while the lowest transfers in both. That contradicts an expectation the fire literature carries \citep{Dimarco2026,Liu2025} and agrees with species distribution modelling \citep{Vesk2021,Rousseau2022}. Shift decomposition in applied remote sensing is not itself new \citep{Huang2026}; the fire application and the head-to-head of four diagnostic families on the same pairs are.
 
-\textbf{Contribution 3. The mechanism is a reversal of sign, and it survives holding geography fixed.} Predictors do not merely weaken across regions, they reverse the direction of their association with burning, which is why a distance in predictor space cannot see the failure. The sharpest reversal is elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla with disjoint bootstrap intervals. The same reversal appears inside a single study area, between two fires eleven months apart on an identical grid, where season and population also differ but place does not (Section~\ref{sec:4.8}). That arm rests on one fire and eleven positive-carrying 5 km blocks, below the floor this design sets for itself, so it corroborates the mechanism rather than establishing it.
+\textbf{Contribution 3. The mechanism is a reversal of sign, and it survives holding geography fixed.} Predictors do not merely weaken across regions, they reverse the direction of their association with burning, which is why a distance in predictor space cannot see the failure. The sharpest reversal is elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla, with each region's own interval excluding chance and the paired difference excluding zero (Appendix B, Table B3). The same reversal appears inside a single study area, between two fires eleven months apart on an identical grid, where season and population also differ but place does not (Section~\ref{sec:4.8}). That arm rests on one fire and eleven positive-carrying 5 km blocks, below the floor this design sets for itself, so it corroborates the mechanism rather than establishing it.
 
 Two consequences follow. Both are reported as supporting results, not leading ones. First, label-free alignment by standardisation and covariance alignment \citep{Sun2016} does not repair transfer. It compresses transfer towards chance in fourteen of twenty directions. We believe this is the first application of covariance alignment to fire susceptibility. Second, the residual gap is conditional, so the resource that closes it is target labels. That price is measurable. Thirty-two labelled 5 km blocks recover 85 to 89 \% of the target's matched ceiling in three of six directions, 51 to 57 \% in two more, and 30 \% in the sixth.
 
@@ -456,7 +456,7 @@ Bejís and Montiferru sit at the opposite extreme. Their burned envelopes barely
 
 \textbf{(a) Pooled multi-region training.} At the point estimate, training on the pooled primary populations of the other four regions never beats the best single-source transfer for any target, with shortfalls of 0.02 to 0.22, and it stays 0.28 to 0.50 AUC below the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not manufacture the missing conditional information.
 
-\textbf{(b) Removing the direction-reversing features.} The two predictors whose signed association reverses between regions \textbf{with bootstrap support} are \textbf{\texttt{elevation\_\allowbreak{}mean} and \texttt{lst\_\allowbreak{}anomaly\_\allowbreak{}mean}}. Retraining without them costs \textbf{$-$0.081} of mean within-region AUC, supported in every region (per-region deltas $-$0.060, $-$0.130, $-$0.074, $-$0.063, $-$0.079, every interval entirely below zero), and changes mean transfer by \textbf{+0.014 [$-$0.017, +0.045]}, which spans zero.
+\textbf{(b) Removing the direction-reversing features.} The two predictors whose signed association reverses between regions \textbf{with bootstrap support} are \textbf{\texttt{elevation\_\allowbreak{}mean} and \texttt{lst\_\allowbreak{}anomaly\_\allowbreak{}mean}}. The per-region signed associations and the three pair-level reversals that meet that criterion are in Appendix B, Tables B2 and B3. Retraining without them costs \textbf{$-$0.081} of mean within-region AUC, supported in every region (per-region deltas $-$0.060, $-$0.130, $-$0.074, $-$0.063, $-$0.079, every interval entirely below zero), and changes mean transfer by \textbf{+0.014 [$-$0.017, +0.045]}, which spans zero.
 
 Two qualifications belong with those numbers rather than after them. First, the debit is not the thermal block's. Dropping elevation alone accounts for $-$0.061 of it, from 0.888 to 0.827. Dropping the LST anomaly alone accounts for $-$0.013, from 0.888 to 0.875. Roughly three quarters of the cost is therefore the removal of a \textbf{baseline} terrain variable, not of a thermal channel. Second, both figures are post-selection. The two predictors were chosen because they reverse, using the same data on which the $-$0.081 and the +0.014 are then estimated. No correction for that selection is applied.
 
@@ -711,6 +711,54 @@ Section~\ref{sec:4.4} summarises this table by family. The full ranking is given
 \textbf{Reading the two rows that clear zero.} Both are supported-feature variants, where the predictor subset is chosen by whether two regions' bootstrap intervals happen to be disjoint. That is a data-dependent selection made on the same data, uncorrected. Their all-nine-feature counterparts are in the table and both span zero. The result lives in the selection step, and Section~\ref{sec:4.4} says so.
 
 \textbf{Equal-sample check.} The families sit on unequal samples: marginal, applicability, climatic and geographic rows on twelve directions, the supported-conditional rows on sixteen, the rest on twenty. Recomputing every row on the common twelve directions reproduces the published values to 4.8 $\times$ 10$^{-5}$ and leaves the ordering unchanged --- the conditional rows still lead at +0.87 [+0.65, +0.88] and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source: \texttt{paper/\allowbreak{}diagnostics\_\allowbreak{}common\_\allowbreak{}subset.\allowbreak{}md}.
+
+\subsection{B2. The signed univariate associations the reversal claim rests on}
+
+Section~\ref{sec:4.6}b drops two predictors because their signed association with burning reverses between regions with bootstrap support, and Contribution 3 names the reversal as the mechanism. This is the evidence for both. It was computed for the frozen analysis and is reproduced here because the claim is otherwise asserted rather than shown.
+
+\textbf{Table B2. Signed univariate AUC of each predictor against \texttt{burned}, by region.} Primary natural-vegetation population; 10-cell ($\sim$5 km) spatial-block bootstrap, 1000 replicates, seed 42. The AUC is never folded to max(AUC, 1 $-$ AUC), so a value below 0.5 means lower values rank burned and is a direction rather than weakness. \textbf{Bold} marks a region whose own interval excludes 0.5.
+
+\begin{table}[htbp]
+  \centering
+  \scriptsize
+  \caption{}
+  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+    \hline
+    Feature & Manavgat & Bejís & Muğla & Evia & Montiferru \\
+    \hline
+    \texttt{elevation\_\allowbreak{}mean} & \textbf{0.374} [0.289, 0.471] & \textbf{0.643} [0.558, 0.729] & \textbf{0.611} [0.532, 0.690] & 0.541 [0.448, 0.626] & 0.584 [0.395, 0.762] \\
+    \texttt{slope\_\allowbreak{}mean} & 0.531 [0.423, 0.642] & 0.521 [0.439, 0.605] & \textbf{0.637} [0.582, 0.686] & 0.487 [0.418, 0.554] & \textbf{0.652} [0.506, 0.771] \\
+    \texttt{ndvi\_\allowbreak{}mean} & \textbf{0.636} [0.587, 0.676] & 0.559 [0.497, 0.619] & \textbf{0.662} [0.616, 0.704] & \textbf{0.639} [0.575, 0.701] & 0.586 [0.450, 0.704] \\
+    \texttt{lst\_\allowbreak{}anomaly\_\allowbreak{}mean} & 0.482 [0.428, 0.530] & \textbf{0.418} [0.364, 0.480] & 0.485 [0.395, 0.566] & \textbf{0.640} [0.567, 0.710] & 0.395 [0.285, 0.535] \\
+    \texttt{current\_\allowbreak{}lst\_\allowbreak{}mean} & 0.538 [0.452, 0.621] & 0.477 [0.401, 0.547] & \textbf{0.325} [0.271, 0.382] & \textbf{0.377} [0.301, 0.456] & 0.370 [0.248, 0.513] \\
+    \texttt{current\_\allowbreak{}tvdi\_\allowbreak{}mean} & 0.552 [0.460, 0.641] & 0.517 [0.429, 0.595] & \textbf{0.336} [0.275, 0.398] & \textbf{0.362} [0.285, 0.442] & \textbf{0.356} [0.233, 0.499] \\
+    \texttt{tvdi\_\allowbreak{}difference\_\allowbreak{}mean} & 0.449 [0.391, 0.505] & 0.512 [0.443, 0.583] & 0.490 [0.396, 0.575] & 0.519 [0.444, 0.589] & \textbf{0.378} [0.282, 0.497] \\
+    \texttt{downscaled\_\allowbreak{}lst\_\allowbreak{}mean} & 0.552 [0.466, 0.637] & 0.484 [0.400, 0.560] & \textbf{0.307} [0.253, 0.366] & \textbf{0.377} [0.297, 0.459] & 0.365 [0.240, 0.511] \\
+    \texttt{fused\_\allowbreak{}lst\_\allowbreak{}mean} & 0.540 [0.454, 0.622] & 0.481 [0.404, 0.551] & \textbf{0.325} [0.272, 0.383] & \textbf{0.376} [0.300, 0.456] & 0.370 [0.248, 0.513] \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\textbf{What counts as a reversal.} A pair of regions is called a reversal only when their signed associations point to opposite sides of 0.5 \textbf{and each region's own interval excludes 0.5}. That is stricter than requiring the two regions' intervals to be disjoint, and the difference matters: for \texttt{current\_\allowbreak{}lst\_\allowbreak{}mean} between Manavgat and Muğla the two intervals are disjoint, but Manavgat's own interval, [0.452, 0.621], includes 0.5, so Manavgat has no established direction to reverse from. That pair is a point reversal, not a supported one.
+
+\textbf{Table B3. The cross-region reversals that meet the stricter criterion.} Difference intervals are from the same paired bootstrap.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{}
+  \begin{tabularx}{\linewidth}{llrlr>{\raggedright\arraybackslash}X}
+    \hline
+    Feature & Region A & AUC & Region B & AUC & Difference [95 \% CI] \\
+    \hline
+    \texttt{elevation\_\allowbreak{}mean} & Manavgat & 0.374 & Bejís & 0.643 & +0.269 [+0.138, +0.397] \\
+    \texttt{elevation\_\allowbreak{}mean} & Manavgat & 0.374 & Muğla & 0.611 & +0.235 [+0.102, +0.360] \\
+    \texttt{lst\_\allowbreak{}anomaly\_\allowbreak{}mean} & Bejís & 0.418 & Evia & 0.640 & +0.221 [+0.123, +0.313] \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+Three pair-level reversals across \textbf{two} features, which is why Section~\ref{sec:3.12} removes exactly those two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine features, and they are not counted. The conservative criterion costs the paper findings rather than manufacturing them: a difference interval on the pair, which is the instrument Section~\ref{sec:4.8} uses, would support more reversals than the three listed here.
 
 
 

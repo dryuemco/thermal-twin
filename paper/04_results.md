@@ -271,7 +271,9 @@ only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggr
 manufacture the missing conditional information.
 
 **(b) Removing the direction-reversing features.** The two predictors whose signed association
-reverses between regions **with bootstrap support** are **`elevation_mean` and `lst_anomaly_mean`**. Retraining without them
+reverses between regions **with bootstrap support** are **`elevation_mean` and `lst_anomaly_mean`**.
+The per-region signed associations and the three pair-level reversals that meet that criterion are in
+Appendix B, Tables B2 and B3. Retraining without them
 costs **−0.081** of mean within-region AUC, supported in every region (per-region deltas −0.060,
 −0.130, −0.074, −0.063, −0.079, every interval entirely below zero), and changes mean transfer by
 **+0.014 [−0.017, +0.045]**, which spans zero.
