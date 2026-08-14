@@ -221,7 +221,7 @@ Ten predictors are used, four baseline and six thermal, all summarised per cell 
   \item \textbf{Current LST}, the predictor-window median of Landsat surface temperature in \textdegree{}C.
   \item \textbf{LST anomaly}, a z-score of the current-window LST median against the four baseline years, set to no-data where the baseline standard deviation is below 1.0 \textdegree{}C or observations are too few.
   \item \textbf{TVDI} and \textbf{TVDI difference}. The Temperature-Vegetation Dryness Index \citep{Sandholt2002} is computed in the LST-NDVI feature space, with wet and dry edges taken as the 2nd and 98th LST percentiles within each of twenty NDVI bins and the index clamped to [0, 1]. The edges are percentiles of the LST values a given scene contains, so they are fitted per AOI and per window, and a TVDI of 0.5 denotes a different physical moisture state in each region. The companion paper reports what that scene dependence does and does not explain. \textbf{TVDI difference} is the raw anomaly of that index against the same four window-symmetric baseline years used for the LST anomaly: \texttt{tvdi\_\allowbreak{}difference = current\_\allowbreak{}tvdi $-$ mean(baseline\_\allowbreak{}tvdi)}, in index units rather than standard deviations, which is why it is reported alongside the z-scored channel rather than in place of it.
-  \item \textbf{Downscaled LST} and \textbf{fused LST}. A MODIS-to-Landsat downscaling model is trained on the predictor window and applied to the full 30 m grid. The fused product equals observed Landsat LST wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore never replaces or blends a valid observation. The gap-filled share is 0.11 \% to 9.70 \% by region. The downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived surface re-enters a feature set from which Section~\ref{sec:3.14} excludes coordinates; the companion paper measures what the increment is worth without these two channels.
+  \item \textbf{Downscaled LST} and \textbf{fused LST}. A MODIS-to-Landsat downscaling model is trained on the predictor window and applied to the full 30 m grid. The fused product equals observed Landsat LST wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore never replaces or blends a valid observation. The gap-filled share is 0.11 \% to 9.70 \% by region. The downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived surface re-enters a feature set from which Section~\ref{sec:3.14} excludes coordinates. Appendix A(g) reports the increment without these two channels.
 \end{itemize}
 
 \subsection{Cell aggregation, validity and analysis populations}\label{sec:3.5}
@@ -528,11 +528,11 @@ Fig.~\ref{fig:feature-drop} shows the four configurations together. What this me
 
 \subsection{Sensitivity analyses}\label{sec:4.7}
 
-Six design choices were varied with everything else held fixed. They are the Evia AOI and its prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor window, the quality screening of the coarse thermal input, and the contrast between the normalised and the absolute dryness channels. None changes a conclusion above. Two bound how the results should be read, so they are carried into the main text here.
+Seven design choices were varied with everything else held fixed. They are the Evia AOI and its prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor window, the quality screening of the coarse thermal input, the contrast between the normalised and the absolute dryness channels, and the removal of the coordinate-informed channels. None changes a conclusion above. Two bound how the results should be read, so they are carried into the main text here.
 
 Coarsening the blocks from 1 km to 5 km moves the verdict counts from ten positive, seven negative and three uncertain to six, four and ten. Support is removed from seven verdicts and added to none. The point estimates are unchanged, but that is an identity rather than a result. The blocking scale is the resampling unit, and it cannot move an estimate computed once over all target cells.
 
-Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 \textdegree{}C. No signed univariate association moves by more than +0.0003. This closes the one processing-artefact candidate for that region's behaviour. Appendix A reports all six arms, including one that tests a claim of Section~\ref{sec:1.2} and does not uphold it.
+Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 \textdegree{}C. No signed univariate association moves by more than +0.0003. This closes the one processing-artefact candidate for that region's behaviour. Appendix A reports all seven arms, including one that tests a claim of Section~\ref{sec:1.2} and does not uphold it.
 
 \subsection{The same geography, a second fire: reversal with place held constant}\label{sec:4.8}
 
@@ -719,6 +719,32 @@ Within region the two sub-blocks are indistinguishable, at 0.8551 and 0.8564, an
 This arm strengthens the negative finding rather than softening it. Four differently constituted feature sets were tried. None clears a mean of 0.548 across regions, and all differ sharply within them. The baseline arm also gives an independent confirmation of the control reported in Section~\ref{sec:4.3}: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches the 0.537 read from the frozen per-direction export. Details are in \texttt{paper/\allowbreak{}anomaly\_\allowbreak{}only\_\allowbreak{}transfer.\allowbreak{}md}.
 
 The comparison is between two sub-blocks of one thermal set on one cohort. It does not test normalised dryness indices in general, and it does not test a normalisation fitted against a pooled multi-region reference rather than each region's own baseline years.
+
+\textbf{(g) The coordinate-informed channels.} \texttt{downscaled\_\allowbreak{}lst\_\allowbreak{}mean} and \texttt{fused\_\allowbreak{}lst\_\allowbreak{}mean} come from a per-region downscaling model whose own inputs include coordinates, which Section~\ref{sec:3.14} names as the one route by which a coordinate-derived surface re-enters a feature set that excludes coordinates. A coordinate-smoothed surface is by construction locally informative and non-portable, so if the within-region increment depended on it, that increment would be this paper's own result in miniature rather than a finding about thermal dryness. The arm was therefore run here rather than deferred.
+
+Both channels were dropped and everything refitted, over all twenty directions and all five within-region folds. The reference configuration reproduces the frozen exports exactly, at 0.000000 against both the transfer and the within-region references.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{}
+  \begin{tabularx}{\linewidth}{lr>{\raggedleft\arraybackslash}Xr}
+    \hline
+    Region & Increment, full set & Increment without the two channels & Retained \\
+    \hline
+    Manavgat 2021 & +0.067 & +0.063 & 94 \% \\
+    Bejís 2022 & +0.056 & +0.046 & 82 \% \\
+    Muğla 2021 & +0.116 & +0.097 & 84 \% \\
+    North Evia 2021 & +0.153 & +0.145 & 94 \% \\
+    Montiferru 2021 & +0.101 & +0.105 & 103 \% \\
+    \textbf{Mean} & \textbf{+0.099} & \textbf{+0.091} & \textbf{92 \%} \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\textbf{The increment does not depend on them.} It stays positive in every region and retains 82 \% to 103 \% of its size, rising slightly in one region. Mean transfer is likewise unchanged, at 0.545 without the two channels against 0.541 with them and 0.537 for the baseline alone. The local skill this paper reports is therefore not an artefact of a coordinate-smoothed surface.
+
+This arm was computed independently here and reproduces the companion paper's figure for the same quantity, 82 \% to 103 \%, from a separately written harness.
 
 
 
