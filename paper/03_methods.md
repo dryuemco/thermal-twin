@@ -720,6 +720,22 @@ directions, none missing, with a **maximum absolute ROC-AUC difference of 1.6×1
 Montiferru→Manavgat, thermal: 0.6060780 against 0.6060778); sixty-nine of the eighty comparisons
 were bit-identical and the remaining eleven differed by 1.6×10⁻⁷ or less.
 
+That check was run by the pipeline author, and the script behind it is not in the released
+repository, so a reader cannot re-execute it (Section 5.11 states this). We therefore repeated part
+of it independently, using only code a reader does have. The environment was rebuilt from scratch on
+a different operating system, Windows 11 rather than Linux, pinning the three libraries that govern
+the fits to the versions the check records (NumPy 2.4.4, pandas 3.0.2, scikit-learn 1.9.0) on Python
+3.12.10, and `src/step8b_train_baseline_vs_thermal_model.py` was executed unmodified at commit
+`48b56e7` against the frozen Step 8A parquet of two regions. Every numeric field of the resulting
+`step8b_model_comparison_metrics.json` was compared against the archived one: 142 fields for Manavgat
+with a maximum absolute difference of 6.9×10⁻¹⁸, in a Brier score, and 168 fields for Montiferru with
+a maximum absolute difference of **exactly 0**. No field differed by more than 10⁻⁹, and every
+reported ROC-AUC agreed to sixteen significant digits, including the Table 3 values for Manavgat
+(baseline 0.8027358197042693, thermal 0.8696419777927898). The within-region results of this paper
+are therefore reproducible from the released code and the archived data alone, on different hardware
+and a different operating system, once the library versions are fixed. This does not extend to the
+transfer arm, whose reproduction-check script remains unavailable.
+
 The tolerance against which these differences are judged is not a criterion chosen for this report.
 It is the repository's own pre-existing Step 10C fail-fast reproduction criterion, an absolute
 difference of ≤ 1×10⁻⁶ defined in `src/step10c_paired_evaluation_bootstrap.py`. It is applied

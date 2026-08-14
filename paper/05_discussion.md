@@ -380,7 +380,12 @@ regime-similar pair in the set is Bejís and Evia-extended, with effective burne
 1.0000 and 1.0083, which is as close to identical regime structure as the data allow. That pair
 fails in both directions with interval support, though the Evia to Bejís interval reaches the chance
 line at the conservative blocking. The most regime-different pair, Bejís-Muğla,
-transfers above chance. The error was in the hypothesised grouping, not in the data. It was the
+transfers above chance. One mundane explanation for Muğla's part in that result can be set aside:
+Muğla has by far the largest analysis population, but cutting it to Manavgat's cell count over
+twenty stratified repeats leaves its transfer behaviour where it was, in both roles and in seven of
+the eight direction-and-family combinations (Section 4.7j). What the size matching does move is
+Muğla's absolute within-region AUC, by roughly 0.01 to 0.02, and the thermal increment survives it.
+The error was in the hypothesised grouping, not in the data. It was the
 assumption that Bejís's single-compact-burn structure placed it in a regime class whose members
 would behave alike. With ten pairs this cannot refute regime typology as an explanation of concept
 shift in general, but our data offer it no support in its distance-based form, and the candidate

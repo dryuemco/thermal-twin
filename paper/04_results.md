@@ -797,6 +797,36 @@ order as the scikit-learn tolerance of (e) and wider than the 2-cell interval of
 not approach the increment itself, which stays bootstrap-supported and positive under all three
 chains. It has been audited in one region, and the other four are unaudited on this axis.
 
+**(j) Muğla's population size.** Muğla contributes the largest analysis population of the five
+regions, 41,730 cells against Manavgat's 20,511, and it is also the region with the second largest
+within-region increment and the one that takes part in the transfer directions that work. Whether
+that is the region or simply its data volume is a question the design can answer, so it was
+answered rather than argued. The Muğla modelling population was cut to exactly Manavgat's cell
+count over 20 deterministic repeats, stratified by 10-cell block and label so that prevalence is
+preserved (0.0698 full against 0.0701 subsampled) and every block of the full population is
+retained, which isolates cell count from spatial extent. The full-Muğla block-to-fold mapping is
+inherited unchanged, so the folds are not re-drawn.
+
+Muğla's role in transfer does not depend on its size. With Muğla as the source, three of the four
+direction-and-family combinations put the full-population value inside the subsampling range
+(Muğla→Manavgat thermal 0.401 against a range of 0.378 to 0.404; Muğla→Bejís thermal 0.583 against
+0.548 to 0.608). With Muğla as the target all four lie inside, and tightly (Bejís→Muğla thermal
+0.618 against 0.613 to 0.625). The one value outside its range is the baseline family of
+Muğla→Bejís, where the full-population 0.451 sits *below* the subsampled range of 0.465 to 0.556,
+so shrinking Muğla would if anything improve that arm rather than explain its failure.
+
+What size does affect is absolute within-region skill, modestly and in the expected direction. The
+full-population reference lies above the subsampling range for both families, baseline 0.698
+against 0.678 to 0.698 and thermal 0.777 against 0.747 to 0.772. **The increment survives the
+matching**: it is +0.079 at full size and +0.071 at the median size-matched repeat. So Muğla's
+larger population inflates its absolute AUC by roughly 0.01 to 0.02 and leaves both the increment
+and the transfer behaviour substantially intact. Two limits belong with this. The repeats vary only
+in which cells fill each stratum, so the range describes within-stratum selection variability and is
+narrower than any sampling distribution; and the positive count is not equalised to Manavgat's, only
+the prevalence, so a residual positive-count difference is not separated here. No bootstrap was run
+and no probability statement is made. Source: `mugla_subsampling` in the frozen diagnostics export,
+recomputed here from its 20 per-repeat records.
+
 ## 4.8 The same geography, a second fire: direction reversal with place held constant
 
 Every result above compares different places. Muğla admits a stricter test, because a second fire
