@@ -109,28 +109,27 @@
 > cells", without which the collar result reads as cherry-picking; "none was shown to order
 > transfer" rather than "none orders"; and the baseline control 0.537 against 0.541, which is what
 > shows the failure is not a peculiarity of the dynamic block.
+> **Cut to 250 words, 2026-08-15.** The abstract had drifted to 408, which fails a 250-word limit
+> outright and is marginally over the 400 a single uncorroborated source reports. Cut in the order
+> recorded above, and then further, because that order accounts for about sixty words and one
+> hundred and fifty-eight had to go. Dropped beyond the documented order, in the order they went:
+> the clause comparing 0.143 to the increments this literature reports; the two prevalence-control
+> figures, keeping the attribution they support; the 1 km within-region range, keeping the 5 km one
+> the paper otherwise defends; the dryness-direction sentence, which is stated in §1.4, §4.4 and §6;
+> the equalised baseline figure 0.593 against 0.616, keeping the as-drawn control pair; and the two
+> diagnostics' failure modes with rho +0.81 to −0.06. **All five protected items survive**: both
+> intervals, "drops no burned cells", "none was shown to order transfer" rather than "none orders",
+> and the baseline control 0.537 against 0.541. Every retained number was re-checked against §4.
 
-Pre-fire thermal dryness separates a fire year from a normal year, but models built on it are rarely
-tested outside the region where they were fitted. Five Mediterranean wildfire regions were analysed
-on about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six thermal
-predictors to a terrain, fuel and greenness baseline. The first result is about **evaluation
-geometry**: holding the model, its predictors and its fitting fixed and changing only which cells are
-scored, moving from the whole region to the burn scar and its 2 km collar costs **0.143 ROC-AUC
-[+0.077, +0.208]**, which is the size of the predictor-block increments this literature reports as findings.
-A control isolates the cause as the composition of the negative pool rather than class balance:
-matching prevalence costs −0.000 [−0.003, +0.002] while substituting fire-adjacent negatives costs +0.155
-[+0.093, +0.217] over nine held-out scars. Applied between regions the same effect withdrew five of our own claims.
-The five study areas enclose very unequal far fields, and restricting each to a 10 km collar, which removes
-only far-field negatives, lifts mean transfer from 0.541 to 0.616 and leaves no between-region sign reversal supported
-under our own criterion, though the LST anomaly still differs between regions on a difference
-interval. The agreed direction is the opposite of the one dryness physics predicts: at the point estimates
-hotter pre-fire surfaces burned less in every region, and on mutual adjustment temperature survives where greenness
-does not, so the absolute channels behave here as static land-surface descriptors. Local skill
-nonetheless does not travel. The thermal block adds +0.056 to +0.153 within regions at 1 km blocking, +0.045 to +0.148 at 5 km, but +0.022 [−0.032, +0.077] when a whole burn scar is withheld and +0.004 [−0.028,
-+0.036] across twenty transfer directions, with a sign that varies by pair; the static baseline
-transfers no better, at 0.537 against 0.541 as drawn and 0.593 against 0.616 equalised; and
-equalised transfer of 0.616 sits against a matched
-within-region reference of 0.772, a shortfall of 0.155. Of twenty
-candidate diagnostics from five families, none was shown to order transfer: seventeen were not shown to order it on the
-frames as drawn, one was not computable, and the two that appeared to require target labels and stop ordering transfer once the frames are
-equalised, one losing its variance entirely and the other its correlation (rho +0.81 to −0.06). Transfer skill has to be measured, not inferred from similarity.
+Pre-fire thermal dryness separates a fire year from a normal one, but such models are rarely tested outside
+the region where they were fitted. Six thermal predictors were added to a terrain, fuel and
+greenness baseline in five Mediterranean regions, with MCD64A1 labels and spatially blocked validation. The first result is **evaluation geometry**: with model, predictors and fitting held fixed, scoring on the burn scar and its 2 km collar rather than region-wide costs **0.143 ROC-AUC [+0.077, +0.208]**. A control isolates the cause as the negative pool's composition, not class balance. Applied between regions the same effect withdrew five of our own claims: the study
+areas enclose very unequal far fields, and equalising them to a 10 km collar, which drops no
+burned cells, lifts mean transfer from 0.541 to 0.616 and leaves no between-region sign reversal
+supported under our own criterion, though the LST anomaly still differs on a difference interval. Local skill nonetheless does not travel. The thermal block adds
++0.045 to +0.148 within regions at 5 km blocking, but +0.022 [−0.032, +0.077] when a whole burn scar
+is withheld and +0.004 [−0.028, +0.036] across twenty transfer directions, with a sign that varies
+by pair. The static baseline transfers no better, at 0.537 against 0.541, and equalised transfer sits 0.155 below a
+matched within-region reference. Of twenty candidate diagnostics from five families, none was shown to order
+transfer, and the two that appeared to need target labels. Transfer skill has to be
+measured, not inferred from similarity.
