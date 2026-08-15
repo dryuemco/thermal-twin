@@ -104,7 +104,7 @@ would support more reversals than the three listed here.
 ROC-AUC is reported throughout the main text for comparability with the susceptibility literature.
 A susceptibility surface is used as a ranked area budget, so precision-recall is the operational
 quantity, and at target prevalences of 3.8 to 28.7 % the two can differ sharply. Read from the same
-frozen step9b exports as Table 7.
+frozen step9b exports as Table 6.
 
 **Table B4. Thermal transfer, PR-AUC against the no-skill baseline.** The baseline is the target's
 burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random
@@ -149,9 +149,9 @@ its structural asymmetries have no analogue in the twenty-direction matrix.
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
 replicates, seed 42 (Section 3.15). Analysis population 41,730 rows / 2,911 burned (2021) and
 38,790 rows / 331 burned (2022). **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for the
-2022 arm.** Table 3's note sets sixteen as the floor this design supports at that blocking, so the
+2022 arm.** Table 2's note sets sixteen as the floor this design supports at that blocking, so the
 2022 intervals here fall below the paper's own standard and are read as indicative, exactly as the
-20-cell row of Table 3 is. The 2022 arm is additionally a single compact scar, so its eleven blocks
+20-cell row of Table 2 is. The 2022 arm is additionally a single compact scar, so its eleven blocks
 are contiguous. Read from
 `paper/step9g_raw/.../mugla_2021__mugla_2022_event_relative/step9g_direction_reversal_table.csv`.
 

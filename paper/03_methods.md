@@ -29,17 +29,8 @@ predictor window and supplies the climatological reference for the anomaly chann
 identifiers, bounding boxes, window dates and baseline years are registered in `core/regions.py` and
 are reproduced here.
 
-**Table 1. Study regions, areas of interest and temporal windows.** Bounding boxes are in EPSG:4326,
-as registered. Window lengths in brackets are inclusive day counts. The baseline years are the four
-window-symmetric years preceding each predictor window.
-
-| Region | Bounding box (lon min, lat min, lon max, lat max) | Predictor window | Label window | Baseline years |
-|---|---|---|---|---|
-| Manavgat 2021 (Türkiye) | 31.05, 36.72, 31.85, 37.35 | 2021-06-01 to 2021-07-27 (57 d) | 2021-07-28 to 2021-08-31 (35 d) | 2017, 2018, 2019, 2020 |
-| Bejís 2022 (Spain) | -1.05, 39.68, -0.35, 40.15 | 2022-06-15 to 2022-08-14 (61 d) | 2022-08-15 to 2022-09-30 (47 d) | 2018, 2019, 2020, 2021 |
-| Muğla 2021 (Türkiye) | 27.1, 36.6, 28.9, 37.45 | 2021-06-01 to 2021-07-28 (58 d) | 2021-07-29 to 2021-09-15 (49 d) | 2017, 2018, 2019, 2020 |
-| North Evia 2021 (Greece) | 23.05, 38.55, 23.85, 39.15 | 2021-06-05 to 2021-08-02 (59 d) | 2021-08-03 to 2021-09-30 (59 d) | 2017, 2018, 2019, 2020 |
-| Montiferru 2021 (Italy) | 8.45, 40.05, 8.75, 40.27 | 2021-05-25 to 2021-07-23 (60 d) | 2021-07-24 to 2021-08-31 (39 d) | 2017, 2018, 2019, 2020 |
+Region identifiers, bounding boxes, window dates and baseline years are registered in
+`core/regions.py` and reproduced in Appendix C, Table C1.
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
@@ -65,35 +56,16 @@ Appendix C.1.
 
 ## 3.4 Predictor variables
 
-Ten predictors are used, four baseline and six thermal, all summarised per cell over the predictor
-window, through the chain shown in Fig. 2. All optical and thermal predictors come from Landsat 8 Collection 2 Level-2
-(`LANDSAT/LC08/C02/T1_L2`), quality-screened per pixel from the `QA_PIXEL` band with the water bit
-deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A1`.
-
-- **NDVI**, the predictor-window median of Landsat surface reflectance, is the baseline's one
-  time-varying member.
-- **Elevation** and **slope** come from the Copernicus DEM GLO-30.
-- **Land cover** is ESA WorldCover v200 [@Zanaga2022], entering as the dominant class code.
-- **Current LST**, the predictor-window median of Landsat surface temperature in °C.
-- **LST anomaly**, a z-score of the current-window LST median against the four baseline years,
-  set to no-data where the baseline standard deviation is below 1.0 °C or observations are too few.
-- **TVDI** and **TVDI difference**. The Temperature-Vegetation Dryness Index [@Sandholt2002] is
-  computed in the LST-NDVI feature space, with wet and dry edges taken as the 2nd and 98th LST
-  percentiles within each of twenty NDVI bins and the index clamped to [0, 1]. The edges are
-  percentiles of the LST values a given scene contains, so they are fitted per AOI and per window,
-  and a TVDI of 0.5 denotes a different physical moisture state in each region. The companion paper
-  reports what that scene dependence does and does not explain. **TVDI difference** is the raw
-  anomaly of that index against the same four window-symmetric baseline years used for the LST
-  anomaly: `tvdi_difference = current_tvdi − mean(baseline_tvdi)`, in index units rather than
-  standard deviations, which is why it is reported alongside the z-scored channel rather than in
-  place of it.
-- **Downscaled LST** and **fused LST**. A MODIS-to-Landsat downscaling model is trained on the
-  predictor window and applied to the full 30 m grid. The fused product equals observed Landsat LST
-  wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore
-  never replaces or blends a valid observation. The gap-filled share is 0.11 % to 9.70 % by region. The
-  downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived
-  surface re-enters a feature set from which Section 3.14 excludes coordinates. Appendix A(g)
-  reports the increment without these two channels.
+Two feature sets are used. The **baseline** is terrain, fuel and greenness: elevation, slope,
+dominant land cover and a predictor-window median vegetation-index composite, all static or
+near-static over the timescale at which fire danger varies. The **thermal** set adds six pre-fire
+channels: current land surface temperature, its anomaly against a four-year window-symmetric
+baseline at the same cell, the Temperature-Vegetation Dryness Index and its difference against that
+baseline, and two coordinate-informed products, a downscaled and a fused surface temperature. The
+two internally differenced channels are the ones constructed to isolate the dynamic anomaly. TVDI's
+wet and dry edges are percentiles of the values a given area and window happen to contain, so it is
+not portable as a physical quantity independently of any concept shift; Section 5.9 carries the
+consequence. Provenance, compositing and the downscaler are in Appendix C.
 
 ## 3.5 Cell aggregation, validity and analysis populations
 
