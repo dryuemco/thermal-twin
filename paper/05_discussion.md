@@ -33,7 +33,7 @@ a predictor meaning one thing in one place and another elsewhere is a comparison
 rather than instability. **We designed the two-Muğla-events arm to answer that objection and it does
 not answer it.** On the frames as drawn it looked decisive: region, grid, feature registry and
 processing chain identical, static predictors identical cell by cell, and elevation's association
-reversing between the two fires. Section 4.9 shows the arm is instead the most extreme frame
+reversing between the two fires. Section 4.10 shows the arm is instead the most extreme frame
 artefact in the cohort — 93.2 % of the 2022 arm's cells lie beyond 10 km of any burned cell against
 55.3 % for 2021 — and under the collar the 2022 figure moves to the same side of 0.5 as the 2021
 arm's near-unchanged value, with an interval covering chance.
@@ -63,7 +63,7 @@ conditional. A target region can sit well inside the training envelope while the
 between those predictors and burning points the other way. Manavgat to Muğla is exactly that case, with 0.875 of
 target cells inside the weighted area of applicability and transfer among the weakest in the matrix. On the frames as drawn that pair is below chance in both directions; on the equalised frame it is
 0.551 and 0.510, above chance but still among the weakest in the matrix, while the least similar
-pair reaches 0.669 and 0.624 (Section 4.6). The point does not need anti-prediction: high overlap does not buy
+pair reaches 0.669 and 0.624 (Section 4.7). The point does not need anti-prediction: high overlap does not buy
 transfer.
 
 The same holds for the niche-overlap and regime families. At the point estimates, the pair with the
@@ -84,14 +84,14 @@ feature subset is chosen on the same data, its all-nine-feature counterparts spa
 is that signed associations need burned labels in both regions, so it is a mechanism diagnosis
 rather than a pre-deployment screen.
 
-A fifth limit removes it altogether. The index is built from signed associations that Section 4.10
+A fifth limit removes it altogether. The index is built from signed associations that Section 4.4
 shows to be artefacts of the evaluation frames, and recomputing it on an equalised frame leaves it
 unanimous and variance-free, while the second variant that cleared zero loses its correlation
 entirely, from ρ = +0.81 to −0.06. So the practical conclusion is not "use this index instead", and
 it is not even "the index works but needs labels". It is that **none of the twenty candidates was
 shown to order transfer**, and the two that appeared to were reading how the study rectangles were
 drawn. That
-is a worse position for a practitioner than Section 4.5 alone suggests, and it is the honest one. As
+is a worse position for a practitioner than Section 4.6 alone suggests, and it is the honest one. As
 always these are nulls on ten effective pairs: not shown to order transfer, rather than shown
 incapable of it.
 
@@ -161,7 +161,7 @@ the six they moved upward involve Montiferru, the smallest region; the sixth, Ma
 moves downward. The committed-in-advance CORAL arm reaches a mean of 0.552, and taking whichever of
 the two methods scores better per direction reaches 0.556 — but that selection uses the target
 labels the protocol forbids, so it is an oracle upper bound rather than an achievable result
-(Section 4.4). Even the oracle only reaches the reference a
+(Section 4.5). Even the oracle only reaches the reference a
 model can reach on an unseen scar at all (Section 4.3), so they are not failing far below an
 achievable target; they are regressing the matrix onto it, which costs the directions that already
 worked. What alignment cannot do is exceed that reference, and a sign reversal is not a distribution
@@ -198,13 +198,13 @@ across scikit-learn versions. All reported numbers are fixed to one verified ver
 reproduction elsewhere requires the archived environment.
 
 (vii) **The diagnostic correlations rest on an effective sample of ten region pairs.** Both the
-successes and the failures of Section 4.5 should be read at that power.
+successes and the failures of Section 4.6 should be read at that power.
 
 (viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
 diagnosis bites hardest and where feature removal recovers most. Three candidates have now been tested and none survives: its meteorology, which was not extreme;
 the quality screening of its coarse thermal input, which propagates widely but moves no signed
-association by more than +0.0003 (Section 4.8, Appendix A(e)); and the evaluation frame, which
-explains its elevation figure but not its transfer behaviour (Section 4.10). With one fire season per
+association by more than +0.0003 (Section 4.9, Appendix A(e)); and the evaluation frame, which
+explains its elevation figure but not its transfer behaviour (Section 4.4). With one fire season per
 region the remaining candidates are not separable in this design.
 
 (ix) **The interval-support counts are less stable than the point estimates behind them.** Several
@@ -214,7 +214,7 @@ estimates and the sign pattern are stable; the counts are not. Every sentence in
 leans on an exact count of supported directions should be read at that precision.
 (x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it.**
 Each region is a rectangle drawn around a fire, and the share of modelled cells lying beyond 10 km of
-any burned cell ranges from 2 % in Montiferru to 63 % in Bejís. Section 4.10 shows this is not
+any burned cell ranges from 2 % in Montiferru to 63 % in Bejís. Section 4.4 shows this is not
 cosmetic: equalising the frame to a 10 km collar removes both supported elevation reversals, makes
 all five regions agree in sign on elevation, LST and TVDI, lifts mean transfer from 0.540 to 0.617
 and reduces the below-chance directions from six to one. We report the equalised arm alongside the

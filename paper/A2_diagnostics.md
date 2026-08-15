@@ -1,6 +1,6 @@
 # Appendix B. All twenty transferability diagnostics
 
-Section 4.5 summarises this table by family. The full ranking is given here because the negative
+Section 4.6 summarises this table by family. The full ranking is given here because the negative
 result is the point: a reader should be able to see every candidate that was tried, not only the
 families' best members, and to check that no diagnostic was dropped after it failed.
 
@@ -42,7 +42,7 @@ meaningful value, and reporting that is more honest than dropping the variant.
 **Reading the two rows that clear zero.** Both are supported-feature variants, where the predictor
 subset is chosen by whether two regions' bootstrap intervals happen to be disjoint. That is a
 data-dependent selection made on the same data, uncorrected. Their all-nine-feature counterparts are
-in the table and both span zero. The result lives in the selection step, and Section 4.5 says so.
+in the table and both span zero. The result lives in the selection step, and Section 4.6 says so.
 
 **Equal-sample check.** The families sit on unequal samples: marginal, applicability, climatic and
 geographic rows on twelve directions, the supported-conditional rows on sixteen, the rest on twenty.
@@ -53,8 +53,8 @@ and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
 
 ## B2. The signed univariate associations the reversal claim rests on
 
-Section 4.7b drops two predictors because their signed association with burning reverses between
-regions with bootstrap support on the frames as drawn. Section 4.10 shows that both supported
+Section 4.8b drops two predictors because their signed association with burning reverses between
+regions with bootstrap support on the frames as drawn. Section 4.4 shows that both supported
 elevation reversals disappear once the frames are equalised, so this table is the evidence for the
 feature-removal arm and for the narrowed mechanism claim inside Contribution 1, not for a general reversal
 mechanism. It was computed for the frozen analysis and is reproduced here because the claim
@@ -96,7 +96,7 @@ from the same paired bootstrap.
 Three pair-level reversals across **two** features, which is why Section 3.12 removes exactly those
 two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine
 features, and they are not counted. The conservative criterion costs the paper findings rather than
-manufacturing them: a difference interval on the pair, which is the instrument Section 4.9 uses,
+manufacturing them: a difference interval on the pair, which is the instrument Section 4.10 uses,
 would support more reversals than the three listed here.
 
 ## B4. The transfer matrix in precision-recall terms
@@ -136,12 +136,12 @@ ranking. Ordered by lift.
 
 Six directions fall below their own no-skill baseline, and only one exceeds twice it. The six are the
 same six that are below chance on ROC-AUC, which is what a reversed ranking predicts in either
-metric. Section 4.10 shows that this count is largely a property of the evaluation frames rather than
+metric. Section 4.4 shows that this count is largely a property of the evaluation frames rather than
 of a reversed predictor-burning relationship.
 
 ## B5. The same-geography event pair, in full
 
-Section 4.9 reports this arm and Section 4.10 withdraws its reversal as a frame artefact. The
+Section 4.10 reports this arm and Section 4.4 withdraws its reversal as a frame artefact. The
 per-feature values are kept here because the arm is what motivated the frame test, and because
 its structural asymmetries have no analogue in the twenty-direction matrix.
 

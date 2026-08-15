@@ -72,11 +72,11 @@ directly as a feature-set contrast.
 
 One thing should be said before the result, because it makes the outcome less surprising than it
 might otherwise appear. The normalised channels are the two that hold their direction in the
-same-geography two-event comparison of Section 4.9, where the absolute channels move. That is a
+same-geography two-event comparison of Section 4.10, where the absolute channels move. That is a
 statement about one region across two fires. **Across regions it does not hold**: `lst_anomaly_mean`
 is itself one of the two predictors whose reversal is bootstrap-supported on the frames as drawn,
-reversing between Bejís and Evia (Section 4.10 withdraws that support under an equalised frame),
-which is why Section 4.7b drops it alongside elevation. Being internally normalised protects a
+reversing between Bejís and Evia (Section 4.4 withdraws that support under an equalised frame),
+which is why Section 4.8b drops it alongside elevation. Being internally normalised protects a
 channel against the offset between two seasons in one place. It does not, on this evidence, protect
 it against a change of place.
 
@@ -105,7 +105,7 @@ stability does not become transferable skill.
 This arm strengthens the negative finding rather than softening it. Four differently constituted
 feature sets were tried. None clears a mean of 0.548 across regions, and all differ sharply within
 them. The baseline arm also gives an independent confirmation of the control reported in
-Section 4.4: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches
+Section 4.5: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches
 the 0.537 read from the frozen per-direction export. Details are in
 `paper/anomaly_only_transfer.md`.
 
@@ -272,10 +272,10 @@ evaluation-area effect is entirely the negative pool.
 
 ## A(j). The transfer-gap decomposition, in full
 
-Section 4.4 states the two figures this table carries — at most 34 % of the gap recovered in the
+Section 4.5 states the two figures this table carries — at most 34 % of the gap recovered in the
 directions that started below chance, and seven directions with negative recovery. The table is
 kept here rather than in the body because Section 4.3 shows the within-region reference in its
-denominator is not matched to a transfer evaluation, and Section 4.10 shows its raw column is
+denominator is not matched to a transfer evaluation, and Section 4.4 shows its raw column is
 frame-dependent, so the fractions should be read as within-protocol quantities.
 
 **Table A5. Transfer-gap decomposition (four-AOI set, 12 directions).** Within = target's
@@ -303,7 +303,7 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 
 ## A(k). The thermal sign, stratified
 
-Section 4.10 reports that all five regions agree on a negative association between pre-fire surface
+Section 4.4 reports that all five regions agree on a negative association between pre-fire surface
 temperature and burning, and that neither of the two obvious confounders explains it. The
 per-region values are here. Signed AUC against `burned` within the 10 km collar; stratified columns
 pool within-stratum concordance over deciles of the named variable, weighting each stratum by its
@@ -328,7 +328,7 @@ reverses in two regions once temperature is held, while LST reverses in none onc
 
 ## A(l). The LST anomaly under the difference instrument
 
-Section 4.10 reports that no reversal meets this paper's strict criterion once evaluation frames are
+Section 4.4 reports that no reversal meets this paper's strict criterion once evaluation frames are
 equalised, and that the LST anomaly nonetheless differs between regions on the weaker instrument
 Table B3's note commits the paper to. These are the four pairs that have opposite-sided point
 estimates and a difference interval excluding zero, all on `lst_anomaly_mean`. Signed AUC within the
