@@ -33,6 +33,15 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{url}
+%% The review option double-spaces everything, captions included. A 267-word
+%% caption then stands 160 mm tall, which together with the figure exceeds the
+%% 193 mm text block, and the folio prints through the caption text. LaTeX
+%% reports no overfull box for it, because the float is allowed to be tall.
+%% Captions are set at normal leading, as journals set them.
+\usepackage{setspace}
+\usepackage{etoolbox}
+\AtBeginEnvironment{figure}{\singlespacing}
+\AtBeginEnvironment{table}{\singlespacing}
 \usepackage{lineno}
 \modulolinenumbers[5]
 
@@ -166,7 +175,7 @@ Five Mediterranean wildfire regions are analysed (Fig.~\ref{fig:study-map}): Man
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig1_study_map.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig1_study_map.pdf}}
   \caption{\textbf{Study regions and the gate negative control.} Locations of
   the five wildfire regions analysed in this study (blue, circular markers):
   Manavgat 2021 and Mu\u{g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North
@@ -267,7 +276,7 @@ Adding the six thermal predictors to the baseline raises spatially blocked out-o
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig3_within_robustness.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig3_within_robustness.pdf}}
   \caption{\textbf{The thermal increment replicates in all five regions and
   survives coarser spatial blocking.} Natural-vegetation primary population;
   random forest with the primary weighted configuration; all intervals are
@@ -821,7 +830,7 @@ Appendix A(n) states both results; the four feature-set configurations, the per-
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig6_loro.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig6_loro.pdf}}
   \caption{\textbf{Pooling every other region never beats the best single
   source.} Leave-one-region-out evaluation: for each held-out target region
   (rows), a model trained on the pooled remaining four regions (filled orange
@@ -861,7 +870,7 @@ Fig.~\ref{fig:feature-drop} shows the four configurations together. What this me
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig7_feature_drop.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig7_feature_drop.pdf}}
   \caption{\textbf{Removing the direction-reversing features costs locally and
   returns nothing measurable on transfer.} Mean within-region ROC-AUC across the five regions (horizontal)
   against mean transfer ROC-AUC across the 20 ordered directions (vertical),
@@ -944,7 +953,7 @@ The clearest single view needs no ranking at all (Fig.~\ref{fig:contrast-pairs})
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig8_contrast_pairs.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig8_contrast_pairs.pdf}}
   \caption{\textbf{Burned-niche overlap does not determine transfer: the
   contrast pair.} Per-feature signed univariate AUC, the probability that a
   predictor takes a higher value on a burned cell than on an unburned one,
@@ -1102,7 +1111,7 @@ Section~\ref{sec:4.5} states these results; the paragraphs it condensed are here
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig4_transfer_matrix.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig4_transfer_matrix.pdf}}
   \caption{\textbf{Cross-region transfer, and what label-blind adaptation does
   to it.} Thermal transfer ROC-AUC for all 20 ordered source--target
   directions among the five regions, natural-vegetation primary population.
@@ -1146,7 +1155,7 @@ The per-direction decomposition is in Appendix A(j), Table A5; two figures from 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig5_adaptation.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig5_adaptation.pdf}}
   \caption{\textbf{Label-blind adaptation regresses transfer onto the level a
   model reaches on an unseen scar, rather than recovering it.} All 12 ordered directions among the
   four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u{g}la,
@@ -1542,7 +1551,7 @@ Ten predictors are used, four baseline and six thermal, all summarised per cell 
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig2_schematic.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig2_schematic.pdf}}
   \caption{\textbf{Processing pipeline and evaluation programme.} Flow from
   source products (left) to the transfer and diagnostic programme (right);
   every box carries the Methods subsection that specifies it. The five source

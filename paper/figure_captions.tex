@@ -11,8 +11,14 @@
 % needs the full column width for its 12 direction labels. Lettered sub-numbers
 % are reserved for panels of one figure, so they are not used here.
 %
-% All figures: double column (190 mm), body 9 pt, minimum 8 pt, vector
-% (PDF + SVG). Every numeric value in these captions is asserted against the
+% All figures are drawn for a double-column 190 mm measure, body 9 pt, minimum
+% 8 pt, vector (PDF + SVG). They are INCLUDED at \linewidth, not at 190 mm: the
+% submission compiles single column under the preprint/review options, where the
+% text block is about 137 mm, so a fixed 190 mm ran roughly 26 mm past each
+% margin and clipped the right-hand panel. LaTeX reports no overfull box for
+% this, because a centred \includegraphics wider than the line simply protrudes,
+% so it is invisible to the log and to every source check.
+% Every numeric value in these captions is asserted against the
 % frozen analysis outputs at figure build time.
 % =============================================================================
 
@@ -20,7 +26,7 @@
 % ---------------------------------------------------------------- Figure 1 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig1_study_map.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig1_study_map.pdf}}
   \caption{\textbf{Study regions and the gate negative control.} Locations of
   the five wildfire regions analysed in this study (blue, circular markers):
   Manavgat 2021 and Mu\u{g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North
@@ -43,7 +49,7 @@
 % ---------------------------------------------------------------- Figure 2 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig2_schematic.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig2_schematic.pdf}}
   \caption{\textbf{Processing pipeline and evaluation programme.} Flow from
   source products (left) to the transfer and diagnostic programme (right);
   every box carries the Methods subsection that specifies it. The five source
@@ -71,7 +77,7 @@
 % ---------------------------------------------------------------- Figure 3 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig3_within_robustness.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig3_within_robustness.pdf}}
   \caption{\textbf{The thermal increment replicates in all five regions and
   survives coarser spatial blocking.} Natural-vegetation primary population;
   random forest with the primary weighted configuration; all intervals are
@@ -104,7 +110,7 @@
 % ---------------------------------------------------------------- Figure 4 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig4_transfer_matrix.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig4_transfer_matrix.pdf}}
   \caption{\textbf{Cross-region transfer, and what label-blind adaptation does
   to it.} Thermal transfer ROC-AUC for all 20 ordered source--target
   directions among the five regions, natural-vegetation primary population.
@@ -134,7 +140,7 @@
 % ---------------------------------------------------------------- Figure 5 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig5_adaptation.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig5_adaptation.pdf}}
   \caption{\textbf{Label-blind adaptation regresses transfer onto the level a
   model reaches on an unseen scar, rather than recovering it.} All 12 ordered directions among the
   four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u{g}la,
@@ -161,7 +167,7 @@
 % ---------------------------------------------------------------- Figure 6 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig6_loro.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig6_loro.pdf}}
   \caption{\textbf{Pooling every other region never beats the best single
   source.} Leave-one-region-out evaluation: for each held-out target region
   (rows), a model trained on the pooled remaining four regions (filled orange
@@ -183,7 +189,7 @@
 % ---------------------------------------------------------------- Figure 7 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig7_feature_drop.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig7_feature_drop.pdf}}
   \caption{\textbf{Removing the direction-reversing features costs locally and
   returns nothing measurable on transfer.} Mean within-region ROC-AUC across the five regions (horizontal)
   against mean transfer ROC-AUC across the 20 ordered directions (vertical),
@@ -205,7 +211,7 @@
 % ---------------------------------------------------------------- Figure 8 --
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=190mm]{figures/fig8_contrast_pairs.pdf}
+  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig8_contrast_pairs.pdf}}
   \caption{\textbf{Burned-niche overlap does not determine transfer: the
   contrast pair.} Per-feature signed univariate AUC, the probability that a
   predictor takes a higher value on a burned cell than on an unburned one,
