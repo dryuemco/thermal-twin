@@ -563,6 +563,10 @@ claim. This section reports that test. Source: `aoi_frame_auc.csv`, `aoi_frame_t
 **The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
 fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose.
 
+**Table 10. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
+population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell.
+Source `aoi_frame_auc.csv`; recomputable by `paper/code/verify_aoi_frame.py`.
+
 | Region | cells | burned | median distance to burned | share beyond 10 km |
 |---|---:|---:|---:|---:|
 | Manavgat | 20,511 | 784 | 13.4 km | **60.1 %** |
@@ -578,6 +582,12 @@ the burned cells themselves, in Taurus terrain that no plausible spread model wo
 
 **Under an equalised frame the sign reversals of Section 4.5 do not survive.** Restricting every
 region to cells within 10 km of any burned cell drops **no positives**, only far-field negatives.
+
+**Table 11. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
+intervals that decide the reversal question are given in the text below and in
+`collar_frame_bootstrap.csv` (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to
+max(AUC, 1 − AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned
+cells in any region.
 
 | Signed univariate AUC | Manavgat | Bejís | Muğla | Evia | Montiferru | straddles 0.5 |
 |---|---:|---:|---:|---:|---:|---|
@@ -626,6 +636,10 @@ out of exactly the signed AUCs this section has just shown to be frame artefacts
 correlated against transfer measured on the same unequal frames. Recomputing both sides under the
 10 km collar (`diagnostics_collar_frame.csv`, `paper/code/verify_diag_collar.py`):
 
+**Table 12. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
+ρ against target ROC-AUC over the ordered directions in which the diagnostic is defined. Source
+`diagnostics_collar_frame.csv`; recomputable by `paper/code/verify_diag_collar.py`.
+
 | Diagnostic | Full frame | 10 km collar |
 |---|---|---|
 | Sign-agreement fraction over supported features | ρ = +0.86 (p = 0.0001, n = 14), values {0, 0.5, 1} | **1.0 in all 18 defined directions, variance exactly 0 — degenerate** |
@@ -662,20 +676,26 @@ without licensing a claim that any survived.
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
-| Source frame | Target frame | Mean target AUC | Above chance | Below chance | Paired thermal delta |
-|---|---|---:|---:|---:|---:|
-| full | full (**Table 4**) | 0.540 | 14 of 20 | **6** | +0.003 |
-| full | 10 km | 0.575 | 17 of 20 | 3 | +0.002 |
-| 10 km | full | 0.571 | 17 of 20 | 3 | +0.014 |
-| **10 km** | **10 km** | **0.617** | **19 of 20** | **1** | **+0.023** |
-| 5 km | 5 km | 0.608 | 18 of 20 | 2 | +0.014 |
+**Table 9. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
+population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
+the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on the target as Table 4,
+1000 replicates, seed 42. Per-direction bounds are in `aoi_frame_transfer.csv`.
+
+| Source frame | Target frame | Mean target AUC | Above chance | Below chance | Supported above / below | Paired thermal delta |
+|---|---|---:|---:|---:|---:|---:|
+| full | full (**Table 4**) | 0.540 | 14 of 20 | **6** | 9 / **4** | +0.003 |
+| full | 10 km | 0.575 | 17 of 20 | 3 | 11 / 1 | +0.002 |
+| 10 km | full | 0.571 | 17 of 20 | 3 | 11 / 3 | +0.014 |
+| **10 km** | **10 km** | **0.617** | **19 of 20** | **1** | **15 / 1** | **+0.023** |
+| 5 km | 5 km | 0.608 | 18 of 20 | 2 | 12 / 0 | +0.014 |
 
 The reference arm reproduces the frozen matrix, at 0.540 against Table 4's 0.541 and 14 of 20
 exactly, so this is measuring the same quantity. The above- and below-chance counts in this table
-are point counts. Under the same 10-cell block bootstrap used for Table 4, the full frame gives nine
-directions above chance and four below with interval support, and the collar frame fourteen above
-and one below, so the headline movement is six to one at the point estimate and **four to one with
-interval support** (`aoi_frame_transfer.csv`). The largest movers are Bejís to Evia, 0.383 to
+are point counts. Under the same 10-cell block bootstrap used for Table 4, at 1000
+replicates, the full frame gives nine directions above chance and four below with interval support,
+and the collar frame fifteen above and one below, so the headline movement is six to one at the
+point estimate and **four to one with interval support** (`aoi_frame_transfer.csv`, which carries
+the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to
 0.602, and Bejís to Manavgat, 0.440 to 0.601.
 
 **What this does and does not change.** Three claims do not survive and are withdrawn here rather
