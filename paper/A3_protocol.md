@@ -132,3 +132,56 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
   downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived
   surface re-enters a feature set from which Section 3.14 excludes coordinates. Appendix A(g)
   reports the increment without these two channels.
+
+## C.4 Limitations, in full
+
+Section 5.9 states each limitation; the elaborations are here.
+
+(i) **No meteorological covariates** enter the models, so we cannot say how local skill and
+portability behave for a mixed thermal-plus-weather predictor set.
+
+(ii) **The same-geography comparison covers one region only**, and even there year and seasonal phase
+are confounded, a confound that cannot be resolved in this study area for the reason given in
+Section 5.2. Its 331 burned cells also leave the thermal reversals unresolved at interval level, and
+the pair holds place fixed but not population. Those two arms are additionally the only transfer
+directions here computed by us rather than read from the pipeline author's frozen export, with his
+unmodified code and the same pinned environment.
+
+(iii) **All labels derive from a single burned-area product**, MCD64A1 [@Giglio2018], whose omission
+and commission characteristics [@Boschetti2019] bound every model evaluated here. No second
+burned-area product covers 2021 and 2022 at this resolution; the companion paper reports what an
+independent active-fire observation says about the omission concern.
+
+(iv) **Evia remains the most imbalance-atypical population** even after the AOI extension, at a TSG
+prevalence of 0.287 against 0.038 to 0.072 in three of the others.
+
+(v) **Each region contributes one fire season**, so regional concept shift is confounded with event
+meteorology, and distinguishing them requires multi-year labels.
+
+(vi) **Cross-region point estimates carry an implementation tolerance** of roughly ±0.02 to 0.03
+across scikit-learn versions. All reported numbers are fixed to one verified version, but exact
+reproduction elsewhere requires the archived environment.
+
+(vii) **The diagnostic correlations rest on an effective sample of ten region pairs.** Both the
+successes and the failures of Section 4.6 should be read at that power.
+
+(viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
+diagnosis bites hardest and where feature removal recovers most. Three candidates have now been tested and none survives: its meteorology, which was not extreme;
+the quality screening of its coarse thermal input, which propagates widely but moves no signed
+association by more than +0.0003 (Section 4.9, Appendix A(e)); and the evaluation frame, which
+explains its elevation figure but not its transfer behaviour (Section 4.4). With one fire season per
+region the remaining candidates are not separable in this design.
+
+(ix) **The interval-support counts are less stable than the point estimates behind them.** Several
+verdicts sit within a thousandth of their reference value, and at 1 km blocking the published split
+of ten positive, seven negative and three uncertain turns on a lower bound of −0.00045. The point
+estimates and the sign pattern are stable; the counts are not. Every sentence in this paper that
+leans on an exact count of supported directions should be read at that precision.
+(x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it**
+(Section 4.4). We report the equalised arm alongside the frame-as-drawn arm rather than replacing one
+with the other, because the collar radius is itself a choice and 5 km and 10 km do not agree exactly
+(0.608 against 0.617). The deeper limitation is that the frames were fixed upstream of this work, in
+`repo/`, so we can restrict them but not extend them; a region whose rectangle is already fire-scale,
+Montiferru, cannot be given a far field for symmetry. Any future cohort should fix the frame by an
+explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
+main design lesson of this paper.

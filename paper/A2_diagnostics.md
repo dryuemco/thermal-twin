@@ -104,7 +104,7 @@ would support more reversals than the three listed here.
 ROC-AUC is reported throughout the main text for comparability with the susceptibility literature.
 A susceptibility surface is used as a ranked area budget, so precision-recall is the operational
 quantity, and at target prevalences of 3.8 to 28.7 % the two can differ sharply. Read from the same
-frozen step9b exports as Table 6.
+frozen step9b exports as Table B9.
 
 **Table B4. Thermal transfer, PR-AUC against the no-skill baseline.** The baseline is the target's
 burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random
@@ -149,9 +149,9 @@ its structural asymmetries have no analogue in the twenty-direction matrix.
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
 replicates, seed 42 (Section 3.15). Analysis population 41,730 rows / 2,911 burned (2021) and
 38,790 rows / 331 burned (2022). **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for the
-2022 arm.** Table 2's note sets sixteen as the floor this design supports at that blocking, so the
+2022 arm.** Table 1's note sets sixteen as the floor this design supports at that blocking, so the
 2022 intervals here fall below the paper's own standard and are read as indicative, exactly as the
-20-cell row of Table 2 is. The 2022 arm is additionally a single compact scar, so its eleven blocks
+20-cell row of Table 1 is. The 2022 arm is additionally a single compact scar, so its eleven blocks
 are contiguous. Read from
 `paper/step9g_raw/.../mugla_2021__mugla_2022_event_relative/step9g_direction_reversal_table.csv`.
 
@@ -197,3 +197,58 @@ cells in any region.
 | current LST, 10 km collar | 0.386 | 0.405 | 0.332 | 0.286 | 0.376 | no |
 | current TVDI, full frame | **0.552** | 0.517 | 0.336 | 0.362 | 0.356 | **yes** |
 | current TVDI, 10 km collar | 0.392 | 0.454 | 0.342 | 0.250 | 0.361 | no |
+
+**Table B8. Region summary: populations and gate outcomes.** Counts from each
+region's Step 8A dataset statistics; gate fractions from each region's burned-landcover gate output.
+TSG = the primary natural-vegetation population. The TSG columns use the canonical modelled
+population, `burnable_tree_shrub_grass` **and** `valid_for_modeling == True`, which is the
+population every model in this paper was fitted and scored on.
+
+| Region | Total cells | Valid cells | Burned | Prevalence (all valid) | TSG cells | Burned in TSG | TSG prevalence | Burned natural-veg fraction | Gate verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| Manavgat 2021 | 24,150 | 24,087 | 796 | 0.033 | 20,511 | 784 | 0.038 | 0.984 | pass |
+| Bejís 2022 | 15,759 | 15,759 | 1,103 | 0.070 | 15,190 | 1,100 | 0.072 | 0.991 | pass |
+| Muğla 2021 | 73,098 | 73,045 | 3,026 | 0.041 | 41,730 | 2,911 | 0.070 | 0.958 | pass |
+| North Evia 2021 (extended) | 22,925 | 22,906 | 2,788 | 0.122 | 9,298 | 2,664 | 0.287 | 0.945 | pass |
+| Montiferru 2021 | 3,234 | 3,173 | 697 | 0.220 | 2,544 | 539 | 0.212 | 0.723 | pass |
+
+**Table B9. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
+spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise z-scoring (λ =
+10⁻⁵).
+
+| Direction | Raw | Region-wise z-score | CORAL |
+|---|---|---|---|
+| Manavgat→Bejís | 0.326 [0.305, 0.349] | 0.477 [0.451, 0.502] | 0.511 [0.484, 0.534] |
+| Bejís→Manavgat | 0.444 [0.408, 0.480] | 0.457 [0.420, 0.497] | 0.555 [0.528, 0.583] |
+| Manavgat→Muğla | 0.470 [0.451, 0.488] | 0.431 [0.411, 0.449] | 0.443 [0.423, 0.461] |
+| Muğla→Manavgat | 0.401 [0.378, 0.426] | 0.559 [0.531, 0.587] | 0.560 [0.535, 0.587] |
+| Manavgat→Evia | 0.613 [0.593, 0.631] | 0.542 [0.520, 0.565] | 0.539 [0.518, 0.561] |
+| Evia→Manavgat | 0.686 [0.653, 0.716] | 0.516 [0.489, 0.544] | 0.527 [0.500, 0.553] |
+| Bejís→Muğla | 0.618 [0.601, 0.635] | 0.518 [0.501, 0.535] | 0.507 [0.489, 0.524] |
+| Muğla→Bejís | 0.583 [0.561, 0.607] | 0.535 [0.512, 0.557] | 0.560 [0.538, 0.581] |
+| Bejís→Evia | 0.383 [0.363, 0.402] | 0.532 [0.509, 0.551] | 0.499 [0.479, 0.518] |
+| Evia→Bejís | 0.448 [0.426, 0.470] | 0.549 [0.524, 0.575] | 0.549 [0.525, 0.573] |
+| Muğla→Evia | 0.653 [0.636, 0.671] | 0.561 [0.543, 0.580] | 0.563 [0.545, 0.582] |
+| Evia→Muğla | 0.577 [0.560, 0.593] | 0.501 [0.485, 0.518] | 0.530 [0.515, 0.546] |
+| Montiferru→Manavgat | 0.567 [0.539, 0.594] | 0.573 [0.538, 0.609] | 0.606 [0.574, 0.639] |
+| Manavgat→Montiferru | 0.533 [0.488, 0.580] | 0.586 [0.540, 0.629] | 0.592 [0.550, 0.631] |
+| Montiferru→Bejís | 0.548 [0.521, 0.578] | 0.574 [0.552, 0.596] | 0.569 [0.548, 0.591] |
+| Bejís→Montiferru | 0.594 [0.560, 0.631] | 0.550 [0.500, 0.601] | 0.574 [0.530, 0.621] |
+| Montiferru→Muğla | 0.619 [0.604, 0.634] | 0.576 [0.562, 0.589] | 0.565 [0.550, 0.579] |
+| Muğla→Montiferru | 0.531 [0.495, 0.568] | 0.587 [0.549, 0.624] | 0.584 [0.547, 0.623] |
+| Montiferru→Evia | 0.586 [0.565, 0.606] | 0.630 [0.611, 0.649] | 0.624 [0.605, 0.641] |
+| Evia→Montiferru | 0.647 [0.608, 0.682] | 0.568 [0.528, 0.609] | 0.581 [0.539, 0.623] |
+
+**Table B10. The most and least environmentally similar pairs, on both frames.** Schoener's *D* is
+computed over burned cells only and is therefore collar-invariant. Transfer values are the two
+ordered directions of each pair; ranks are out of the twenty directions on the equalised frame.
+As-drawn transfer is read from Table B9, collar transfer from `aoi_frame_transfer.csv`.
+
+| | Manavgat–Muğla | Bejís–Montiferru |
+|---|---|---|
+| Schoener's *D*, mean 1-D | **0.826** (highest) | **0.479** (lowest) |
+| per-feature *D* | 0.77 to 0.89 | 0.23 to 0.77 |
+| transfer, frames as drawn | 0.470, 0.401 | 0.594, 0.548 |
+| transfer, 10 km collar | 0.551, 0.510 | 0.669, 0.624 |
+| rank of 20 on the collar | 5th, 2nd from bottom | 15th, 11th |
+| target cells inside the AoA | 0.875, 0.531 | — |
