@@ -28,11 +28,11 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 188
-- TABLE WITHOUT CAPTION in 04_results near md line 254
-- TABLE WITHOUT CAPTION in 04_results near md line 465
-- TABLE WITHOUT CAPTION in 04_results near md line 677
-- TABLE WITHOUT CAPTION in 04_results near md line 751
-- TABLE WITHOUT CAPTION in 04_results near md line 780
+- TABLE WITHOUT CAPTION in 04_results near md line 346
+- TABLE WITHOUT CAPTION in 04_results near md line 420
+- TABLE WITHOUT CAPTION in 04_results near md line 489
+- TABLE WITHOUT CAPTION in 04_results near md line 698
+- TABLE WITHOUT CAPTION in 04_results near md line 778
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -68,13 +68,6 @@ converter made is listed so it can be reviewed.
 - : 3 cols, est. width 88 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 36 chars)
 - no caption; emitted unnumbered so it does not consume a table number _(x21)_
-- : 3 cols, est. width 89 chars -> small, 2 wrapping
-- : 2 of 3 columns wrap (widest cell 45 chars)
-- Cross-region transfer matrix, thermal model,: 4 cols, est. width 89 chars -> footnotesize
-- Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
-- Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
-- : 3 cols, est. width 70 chars -> small, 2 wrapping
-- : 2 of 3 columns wrap (widest cell 23 chars)
 - Evaluation-frame geometry of the five study : 5 cols, est. width 78 chars -> small, 1 wrapping
 - Evaluation-frame geometry of the five study regi: 1 of 5 columns wrap (widest cell 25 chars)
 - Signed univariate AUC, frame as drawn agains: 7 cols, est. width 97 chars -> small, 1 wrapping
@@ -87,6 +80,13 @@ converter made is listed so it can be reviewed.
 - Cross-region transfer under equalised evaluation: 1 of 7 columns wrap (widest cell 23 chars)
 - : 4 cols, est. width 75 chars -> small, 1 wrapping
 - : 1 of 4 columns wrap (widest cell 29 chars)
+- : 3 cols, est. width 89 chars -> small, 2 wrapping
+- : 2 of 3 columns wrap (widest cell 45 chars)
+- Cross-region transfer matrix, thermal model,: 4 cols, est. width 89 chars -> footnotesize
+- Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
+- Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
+- : 3 cols, est. width 70 chars -> small, 2 wrapping
+- : 2 of 3 columns wrap (widest cell 23 chars)
 - : 3 cols, est. width 57 chars -> small, 1 wrapping
 - : 1 of 3 columns wrap (widest cell 30 chars)
 - : 4 cols, est. width 98 chars -> small, 2 wrapping

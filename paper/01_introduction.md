@@ -17,7 +17,7 @@ This paper is about a property that the pattern does not report. Predictors that
 that describe a place. They are also, as we show, not portable, and a large part of this paper is
 about how much harder that is to establish than it looks: the reading we first reached, that the
 relationship is reparameterised locally and points in different directions in different places, does
-not survive a correction to how the study regions were evaluated (Section 4.10). The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
+not survive a correction to how the study regions were evaluated (Section 4.4). The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
 cross-validation, +0.022 when a whole burn scar is withheld, and contributes
 +0.004 between them, an estimate whose interval spans zero, with a sign that is a property of the
 source-target pair rather than of the block.
@@ -66,7 +66,7 @@ internally normalised channels transfer no better than the four absolute ones (A
 The physics linking moisture stress to combustion is universal, so portability should be most
 expected for this class, which is what makes it diagnostic: a loss here cannot be dismissed as a
 peculiarity of a locally defined covariate. That expectation is the motivation for the design, not a
-finding of it, and Section 4.10 reports that the signed associations run the other way — a hotter
+finding of it, and Section 4.4 reports that the signed associations run the other way — a hotter
 pre-fire surface is associated with *less* burning in all five regions, and on mutual adjustment
 temperature survives where greenness does not, so on this cohort the absolute channels behave as
 static land-surface descriptors rather than as a dryness index. We keep the framing because it is
@@ -103,7 +103,7 @@ under a controlled design, and its consequences for a live result. Holding the m
 and the fitting fixed and changing only which cells are scored costs **0.143 ROC-AUC**, which is the size of the predictor-block increments this literature publishes as findings. A control isolates the cause
 as the composition of the negative pool rather than class balance (Section 4.3).
 
-Applied between regions, the same effect withdraws five claims we had made (Section 4.10). The five
+Applied between regions, the same effect withdraws five claims we had made (Section 4.4). The five
 study areas enclose very unequal far fields; equalising them to a 10 km collar, which removes only far-field negatives, lifts mean transfer, reduces the below-chance directions, and leaves no sign reversal
 supported under this paper's own criterion — including the two-fire arm inside one study area that
 we had exempted, wrongly, on the ground that its geography was fixed. The agreed direction is also
@@ -115,13 +115,13 @@ behave here as static land-surface descriptors. The practical consequence is a r
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
 thermal block is worth a substantial within-region increment in every one of five regions under
 blocked cross-validation, with every bootstrap interval above zero, and it remains positive in all
-five when the evaluation frame is equalised (Section 4.10). Much of that is a property of
+five when the evaluation frame is equalised (Section 4.4). Much of that is a property of
 interleaved holdout: withholding a whole burn scar leaves an increment whose interval spans zero.
 Across twenty ordered transfer directions its paired contribution also spans zero, with a sign that
 is a property of the pair rather than of the block, and dropping one region reverses the mean. Two
 controls bound the reading. The static baseline transfers no better than the dynamic one on either frame, so the failure is not
 the thermal block's peculiarity; and on matched frames and matched blocking the
-equalised transfer still falls **0.155** short of the within-region reference (Section 4.10). The
+equalised transfer still falls **0.155** short of the within-region reference (Section 4.4). The
 within-region half is not novel, comparable results existing for these landscapes
 [@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is. Dimarco et al.
 [@Dimarco2026] transfer a predominantly stationary predictor set successfully across a comparable
@@ -137,7 +137,7 @@ is at ceiling and therefore carries no ordering information at all. Two conditio
 order it, but both need burned labels on both sides, both rest on a data-selected feature subset
 whose all-nine counterparts span zero, and **Contribution 1 removes even those**: recomputed on comparable frames one becomes unanimous with
 no variance left to correlate and the other loses its correlation entirely, from ρ = +0.81 to −0.06
-(Section 4.10).
+(Section 4.4).
 The point survives without any ranking, at the point estimates: the pair with the highest
 burned-niche overlap is among the weakest in the matrix while the lowest transfers above chance in
 both directions. That contradicts
