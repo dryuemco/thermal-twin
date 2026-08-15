@@ -1,12 +1,12 @@
 # Appendix C. Limitations
 
-Section 5.8 states the four limitations that bind the conclusions; all eleven are here. The rest of
+Section 5.7 states the four limitations that bind the conclusions; all ten are here. The rest of
 this appendix, which specifies the protocol, is released with the supplementary appendices rather
 than printed here.
 
 ## C.5 Limitations, in full
 
-Section 5.8 states the four that bind the conclusions; all eleven are here.
+Section 5.7 states the four that bind the conclusions; all ten are here.
 
 (i) **No meteorological covariates** enter the models, so we cannot say how local skill and
 portability behave for a mixed thermal-plus-weather predictor set.
@@ -36,22 +36,19 @@ meteorology, and distinguishing them requires multi-year labels.
 across scikit-learn versions. All reported numbers are fixed to one verified version, but exact
 reproduction elsewhere requires the archived environment.
 
-(vii) **The diagnostic correlations rest on an effective sample of ten region pairs.** Both the
-successes and the failures of Section 4.6 should be read at that power.
-
-(viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
+(vii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
 diagnosis bites hardest and where feature removal recovers most. Three candidates have now been tested and none survives: its meteorology, which was not extreme;
 the quality screening of its coarse thermal input, which propagates widely but moves no signed
 association by more than +0.0003 (Appendix A(v), Appendix A(e)); and the evaluation frame, which
 explains its elevation figure but not its transfer behaviour (Section 4.4). With one fire season per
 region the remaining candidates are not separable in this design.
 
-(ix) **The interval-support counts are less stable than the point estimates behind them.** Several
+(viii) **The interval-support counts are less stable than the point estimates behind them.** Several
 verdicts sit within a thousandth of their reference value, and at 1 km blocking the published split
 of ten positive, seven negative and three uncertain turns on a lower bound of −0.00045. The point
 estimates and the sign pattern are stable; the counts are not. Every sentence in this paper that
 leans on an exact count of supported directions should be read at that precision.
-(x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it**
+(ix) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it**
 (Section 4.4). We report the equalised arm alongside the frame-as-drawn arm rather than replacing one
 with the other, because the collar radius is itself a choice and 5 km and 10 km do not agree exactly
 (0.608 against 0.616). The deeper limitation is that the frames were fixed upstream of this work, in
@@ -60,7 +57,7 @@ Montiferru, cannot be given a far field for symmetry. Any future cohort should f
 explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
 main design lesson of this paper.
 
-(xi) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
+(x) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
 configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows the transfer result is not an artefact of that
 choice: three further estimators, including a penalised linear one, all land between 0.510 and 0.556
 and all place fourteen of twenty directions above chance. Those are point estimates without

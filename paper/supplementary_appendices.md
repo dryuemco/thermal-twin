@@ -4,7 +4,7 @@ These are the appendices of *Evaluation geometry and the limits of cross-region 
 thermal wildfire prediction*, released with the paper rather than printed in it.
 
 **What is here.** Appendix A, the sensitivity arms and the elaborations of the Results sections, and
-the parts of Appendix C that specify the protocol. Everything the paper cites as `Appendix A(x)`,
+the parts of Appendix C that specify the protocol. Everything the paper cites as `Appendix A(ix)`,
 `Appendix C.1`, `C.2`, `C.3`, `C.4`, `C.6` or `C.7` is in this document, under the same names, so a
 pointer in the paper resolves here unchanged.
 
@@ -138,7 +138,7 @@ normalised dryness indices in general, and it does not test a normalisation fitt
 multi-region reference rather than each region's own baseline years.
 
 **(g) The coordinate-informed channels.** `downscaled_lst_mean` and `fused_lst_mean` come from a
-per-region downscaling model whose own inputs include coordinates, which Section 3.14 names as the
+per-region downscaling model whose own inputs include coordinates, which Section 3.13 names as the
 one route by which a coordinate-derived surface re-enters a feature set that excludes coordinates. A
 coordinate-smoothed surface is by construction locally informative and non-portable, so if the
 within-region increment depended on it, that increment would be this paper's own result in
@@ -549,7 +549,7 @@ of nine directions reverse" count of Appendix A(s) counts features, not independ
 **in effective dimensions it is closer to two**.
 
 Two scope statements belong with the table. The full-frame values here are not numerically the
-published ones — ρ = +0.86 over fourteen directions against the +0.84 over sixteen in Section 4.6 —
+published ones — ρ = +0.86 over fourteen directions against the +0.84 over sixteen in Appendix D —
 because the support test is itself bootstrap-dependent and at this setting three region pairs carry
 no jointly supported feature rather than two; the argument rests on before-and-after under identical
 settings, not on the published figure. And **only these diagnostics were recomputed on the collar**:
@@ -843,7 +843,7 @@ as a dryness index, and the two internally differenced channels carry no consist
 direction at all. Compositing depth was not tested and remains an open alternative. Per-region
 values are in Appendix A(k); Section 5.2 states the consequence for the motivation of Section 1.2.
 
-**The same test determines what the diagnostics of Section 4.6 can establish.** The only two
+**The same test determines what the diagnostics of Appendix D can establish.** The only two
 candidates there with intervals excluding zero measure agreement in the sign of each predictor's
 association between source and target, counted over features interval-supported in both. Those are
 built out of exactly the signed AUCs this section has shown to be frame artefacts, and in Section
@@ -868,7 +868,7 @@ transfer**. The eighteen marginal, niche and regime candidates do not order it o
 drawn, and the two conditional variants that do stop doing so once the frames are comparable,
 because what they were reading is how the study rectangles were drawn. The practitioner's position
 is therefore worse than the as-drawn analysis suggests, not better: there is no screen, and the
-apparent exception is an artefact. Section 4.6 reports its numbers as computed under the
+apparent exception is an artefact. Appendix D reports its numbers as computed under the
 pre-registered protocol, which is what a reader following that protocol would obtain.
 
 **The same-geography arm of Appendix A(m) does not survive either, and it is the most extreme case in
@@ -902,7 +902,7 @@ does not. Bejís, Evia and Montiferru were not touched. Every arm of Section 4.4
 with Muğla read from the surviving frozen copy and the other four regions as they stand, which is
 the configuration Tables 1 and B9 were computed under. The correction moves forty of the hundred per-direction transfer values by
 up to 0.022, the largest being Muğla to Montiferru at 0.509 → 0.531. It leaves every headline
-quantity of Table 4 unchanged to within 0.0012, the largest being the full-to-10 km paired delta at
+quantity of Table 3 unchanged to within 0.0012, the largest being the full-to-10 km paired delta at
 +0.0021 against +0.0033: the equalised mean 0.6163 against 0.6166, its paired
 delta +0.0231 against +0.0234, and the above-chance counts identical in four rows of five, the 5 km
 row moving from 18 to 19 as one direction crosses 0.5. The signed-AUC results are unaffected in
@@ -910,7 +910,7 @@ substance — only Muğla's two channels move, by at most 0.008, and the same tw
 on each frame. Sources `aoi_frame_transfer_frozen_mugla.csv`, `aoi_frame_auc_frozen_mugla.csv`,
 `frozen_mugla_recheck.json`; code `code/frozen_mugla_verify_aoi_transfer.py`.
 
-**The transfer matrix moves as well.** Restricting source and target to the same collar gives Table 4 of the body (Section 4.4), which is
+**The transfer matrix moves as well.** Restricting source and target to the same collar gives Table 3 of the body (Section 4.4), which is
 not repeated here.
 
 The reference arm reproduces the frozen matrix, at 0.541 against Table B9's 0.541 and 14 of 20
@@ -919,7 +919,7 @@ restated on this frame**: the static baseline transfers at 0.593 against the the
 a paired difference of +0.023 rather than the +0.004 of the frame as drawn. The control still holds
 in kind — the static predictor class is not the portable one either — but the gap between them is
 about six times larger once frames are comparable, and Sections 1, 5 and 6 quote only the as-drawn
-pair. Table 4's above- and below-chance counts are point counts. Under the same 10-cell block bootstrap used for Table B9, at 1000
+pair. Table 3's above- and below-chance counts are point counts. Under the same 10-cell block bootstrap used for Table B9, at 1000
 replicates, the full frame gives nine directions above chance and four below with interval support,
 and the collar frame fifteen above and one below, so the headline movement is six to one at the
 point estimate and **four to one with interval support** (`aoi_frame_transfer.csv`, which carries
@@ -930,7 +930,7 @@ the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to
 follow are properties of the frames rather than of the predictor-burning relationship, and are
 identified as such where they appear: the count of six anti-predictive directions, which becomes
 one; the sign reversal of elevation, LST and TVDI as a mechanism; the sign-agreement diagnostic of
-Section 4.6; the same-geography arm of Appendix A(m); and the paired thermal contribution, which is
+Appendix D; the same-geography arm of Appendix A(m); and the paired thermal contribution, which is
 +0.004 as drawn and +0.023 equalised. What the correction leaves standing is the central negative
 result, and its size must be stated on a matched comparison. Setting the equalised transfer mean of
 0.616 against a within-region reference of about 0.87 would compare a 10 km-collar number with a
@@ -953,10 +953,10 @@ comparison implies**, and it shrinks as the frame approaches the fire —
 which is where a susceptibility surface is actually used.
 
 This is Section 4.3's effect acting between regions rather than within one, on frames whose
-fire-adjacent share ranges from 37 % to 98 %. Appendix C.5(x) records the frame as a limitation of
+fire-adjacent share ranges from 37 % to 98 %. Appendix C.5(ix) records the frame as a limitation of
 this cohort rather than of the method.
 
-## A(x). The transfer matrix and adaptation, elaborated
+## A(ix). The transfer matrix and adaptation, elaborated
 
 Section 4.5 states these results; the paragraphs it condensed are here.
 
@@ -1006,7 +1006,7 @@ little the mean is anchored: **dropping Evia alone reverses its sign.**
 equalising them leaves **one**, Manavgat to Bejís at 0.417 [0.349, 0.488], supported at the 10 km
 collar though its interval covers chance at 5 km. That direction still needs a mechanism acting on
 the direction of the relationship, because no account of merely lost skill produces a reliably
-reversed ranking, and Section 4.6 pursues it. Everything below this point is computed on the
+reversed ranking, and Appendix D pursues it. Everything below this point is computed on the
 frames as drawn and should be read against Section 4.4. Per-split and per-scar detail is in Appendix
 A(i); per-direction values for all twenty directions, raw and under both adaptations, are in
 Appendix B, Table B9.
@@ -1018,7 +1018,7 @@ references of 0.859 to 0.918. Adaptation raises the failing directions and degra
 that already transferred. Taking the better of the two adaptations per direction, 14 of the 20 end
 closer to chance than they began and 6 end further from it; five of those six involve Montiferru,
 the smallest and last-added region, and move upward, while the sixth is Manavgat→Muğla moving
-downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (ix) in
+downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (viii) in
 Appendix C.5, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
 
 The per-direction decomposition is in Appendix A(j), Table A5; two figures from it matter here and
@@ -1047,13 +1047,13 @@ destroyed that advantage. Label-free alignment therefore does not act as a repai
 
 ## A(y). The diagnostics, elaborated
 
-Section 4.6 states these results; the paragraphs it condensed are here.
+Appendix D states these results; the paragraphs it condensed are here.
 
 Twenty candidate diagnostics from five families were each rank-correlated with the same target
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
 pair-based bootstrap.
 
-Table 5 of the body (Section 4.6) groups them by family and is not repeated here.
+The by-family grouping is in the diagnostics material released with these appendices.
 
 Geographic separation does not order the matrix on either construction: over all twenty directions
 the Spearman correlation between centroid separation and transfer is −0.32, and on the
@@ -1238,7 +1238,7 @@ window are removed from its analysis universe rather than counted as unburned, w
 Evia and Montiferru, is recorded as not run for Manavgat and has no recorded status for Bejís.
 Burning in earlier years is screened for no region in the five-region cohort; the only historical
 exclusion in the study removes the 2021 Muğla scar from the 2022 event-relative experiment of
-Section 3.15.
+Section 3.14.
 
 Before any modelling each region passes a gate that answers one question: of the cells labelled
 burned, what fraction is dominated by natural vegetation? A region is admitted as a wildfire
@@ -1252,7 +1252,7 @@ MCD64A1 does not distinguish. Verdicts are reported in Section 4.1.
 
 Twenty candidate diagnostics from five families are each rank-correlated against the same target
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
-pair-based bootstrap. The families are marginal predictor-distribution measures P(x), burned-niche
+pair-based bootstrap. The families are marginal predictor-distribution measures P(ix), burned-niche
 overlap P(x|y=1), fire-regime label-pattern structure P(y), and conditional feature-response
 direction P(y|x).
 
@@ -1335,7 +1335,7 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
   wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore
   never replaces or blends a valid observation. The gap-filled share is 0.11 % to 9.70 % by region. The
   downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived
-  surface re-enters a feature set from which Section 3.14 excludes coordinates. Appendix A(g)
+  surface re-enters a feature set from which Section 3.13 excludes coordinates. Appendix A(g)
   reports the increment without these two channels.
 
 ## C.6 Leakage control and reproducibility, in full
@@ -1378,3 +1378,298 @@ That is stricter than requiring the two regions' intervals to be disjoint: a fea
 are disjoint but one of which straddles 0.5 has not been shown to point anywhere in that region, so
 it is recorded as a point reversal only. Appendix B states the rule again beside the counts, and
 `conditional_similarity_transfer.json` carries it as machine-readable metadata.
+
+---
+
+# Appendix D. Transferability diagnostics: the result withdrawn from the paper
+
+**Status.** This was Contribution 3 of an earlier version: twenty candidate diagnostics from five
+families, each rank-correlated with observed transfer, none shown to order it. It is released here
+rather than printed because it rests on an effective sample of **eight region pairs** — the two
+Montiferru pairs carry no jointly supported feature — and a null on eight pairs cannot carry a claim
+at the scope the paper otherwise keeps. The paper now makes two claims, on evaluation geometry and
+on portability, and says what it can support.
+
+**What is not withdrawn.** The one part of this work the paper still needs is in Section 4.4 there:
+the frame correction dissolves the diagnostic that had ordered transfer best, which is evidence for
+the paper's first contribution rather than for this one. That passage stays in the paper.
+
+**What would make it publishable.** The design is sound and the arithmetic was checked to the
+individual permutation: the exact one-sided p of 0.0060 is 240 of the 8! = 40,320 relabellings, and
+no outcome of that diagnostic could have cleared family-wise correction at 0.05/19. What it needs is
+regions. At ten regions the pair count rises from eight to forty-five, and the same analysis would
+carry a claim.
+
+The material below is reproduced as it stood in the paper, with its section numbers as they were.
+
+### From 01_introduction.md
+## 1.3 Why the loss is invisible to the diagnostics in use
+
+The field's instrument for anticipating transfer failure is predictor-space dissimilarity — the area
+of applicability and its relatives [@Meyer2021; @Meyer2022; @Ludwig2023] — which asks whether a target's
+predictor values fall inside the training envelope. That is a question about the marginal
+distribution of the predictors, and it cannot see a change in the *relationship* between predictors
+and response, because detecting one requires the labels being withheld. If the failure is
+conditional rather than marginal, those diagnostics look in the wrong place; Appendix D tests
+whether they do.
+
+### From 01_introduction.md
+**Contribution 3. The shortfall cannot be anticipated by any diagnostic we could run.** Of twenty candidates from
+five families, eighteen were not shown to order the matrix on the frames as drawn. Two conditional
+variants did, but both need burned labels on both sides, both rest on a data-selected feature subset
+whose all-nine counterparts span zero, and **Contribution 1 removes even those** (Section 4.4). The
+point survives without any ranking: at the point estimates the pair with the highest burned-niche
+overlap is among the weakest in the matrix while the lowest transfers above chance in both
+directions, contradicting an expectation the fire literature carries [@Dimarco2026; @Liu2025] and
+agreeing with species distribution modelling [@Vesk2021; @Rousseau2022].
+
+### From 02_related_work.md
+Random cross-validation over spatially autocorrelated cells inflates skill estimates [@Roberts2017;
+@Ploton2020], and spatially blocked designs are the standard remedy [@Valavi2019; @Meyer2018],
+though they have themselves been argued to introduce pessimistic bias [@Wadoux2021; @Mila2022;
+@deBruin2022]. This paper blocks throughout and reports every result at three block sizes, so a
+reader can see which verdicts depend on the choice.
+
+Blocking corrects the inflation random folds produce within a region. It does not speak to
+performance on a fire the model has not seen, which Section 4.3 measures on identical cells. For
+that, the field's instrument is the area of applicability and related predictor-space dissimilarity
+measures [@Meyer2021; @Meyer2022; @Ludwig2023], which ask whether a target's predictor values fall inside the
+training data's envelope. Species distribution modelling has examined transferability far more
+systematically than fire has [@Yates2018], and two studies there report that geographic and
+environmental similarity do not reliably predict transfer success [@Vesk2021; @Rousseau2022];
+transferability of satellite-derived empirical models is an active question in fire remote sensing
+itself [@Marino2024].
+
+### From 03_methods.md
+## 3.11 Transferability diagnostics versus transfer
+
+Twenty candidate diagnostics from five families are computed for every region pair and
+rank-correlated (Spearman) against observed raw transfer AUC, under one bootstrap that resamples
+unordered region pairs with both of their ordered directions travelling together. The families are
+marginal predictor-space measures P(ix), including area-of-applicability dissimilarity, climatic and
+geographic distance and a learned domain classifier; burned-niche overlap P(x|y=1), measured by
+Schoener's D [@Schoener1968] and Warren's I [@Warren2008]; regime distance
+P(y); and conditional direction agreement P(y|x). **No family-wise error control is claimed**, and
+the number of variants per family is reported with the result. Appendix C.2 gives the full
+specification.
+
+### From 04_results.md
+**The same test determines what the diagnostics of Appendix D can establish.** Both candidates
+there with intervals excluding zero measure agreement in the sign of each predictor's association
+between source and target — built from exactly the signed AUCs shown above to be frame artefacts,
+and correlated against transfer on the same unequal frames. Recomputing both sides under the
+collar:
+
+**Table 3. The diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman ρ
+against target ROC-AUC over the ordered directions in which each is defined. The first two rows are
+the two variants that cleared zero in Table B1; the third is the all-feature cosine, which did not
+and is shown for contrast. Both sides are recomputed here under one bootstrap setting, 1000
+replicates, seed 42. Source `diagnostics_collar_frame.csv` and `collar_increment_and_cosine.csv`.
+
+| Diagnostic | Full frame | 10 km collar |
+|---|---|---|
+| Sign-agreement fraction, supported features | ρ = +0.86 (p = 0.0001, n = 14) | **1.0 in all 18 directions, variance exactly 0 — degenerate** |
+| Cosine, supported features | ρ = +0.81 (p = 0.0005, n = 14) | **ρ = −0.06 (p = 0.82, n = 18)**, variance 0.00014 |
+| Cosine, all nine features | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
+
+The two fail differently and both fail: the agreement fraction has no variance left once every pair
+agrees, and the supported cosine keeps a trace of variance but stops tracking transfer. The
+disagreements they were reading were the far fields. **Only these two were recomputed, so the other
+eighteen are unknown against the equalised transfer vector rather than shown to be null**
+(Appendix A(o)). This settles what Contribution 3 can claim: **no diagnostic tested here has been
+shown to order transfer**, and the two that appeared to were reading how the rectangles were drawn.
+
+### From 04_results.md
+## 4.6 Transferability diagnostics: what appears to order transfer, and why it does not
+
+Twenty candidate diagnostics from five families were each rank-correlated with raw thermal transfer
+over the twenty ordered directions, under one common pair-based bootstrap.
+
+**Table 5. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
+raw transfer AUC with pair-based bootstrap 95 % CIs. Exp. is the sign expected if the diagnostic
+orders transfer. The member named is the one with the largest absolute correlation in its family,
+which is not always in the expected direction. All twenty individual diagnostics are in Appendix B,
+Table B1.
+
+| Family | Diagnostics | Exp. | Largest correlation in family | Sign as expected | Any CI excluding 0 |
+|---|---:|:---:|---|:---:|---|
+| **P(y\|x) conditional** | 6 | + | **+0.84 [+0.58, +0.88]** agreement fraction, supported features | yes | **yes, 2 of 6** |
+| P(x\|y=1) niche overlap | 5 | + | +0.24 [−0.45, +0.74] Schoener's D, 1-D mean | yes | no |
+| P(ix) marginal | 6 | − | −0.32 [−0.78, +0.33] domain-classifier AUC | yes | no |
+| P(y) regime structure | 2 | − | +0.29 [−0.38, +0.74] log effective-N distance | **no** | no |
+| geographic | 1 | − | −0.24 [−0.84, +0.73] centroid geodesic distance | yes | no |
+
+**Only two diagnostics have intervals excluding zero, and both are conditional**: the sign-agreement
+fraction over interval-supported features at ρ = +0.84 [+0.58, +0.88], and its cosine variant at
++0.81. No marginal measure was shown to order the matrix, including area-of-applicability
+dissimilarity, climatic distance and geographic distance, and neither were the niche-overlap and
+regime families. The learned domain classifier is at ceiling, separating source from target at
+AUC ≥ 0.96 for every pair, so it always succeeds and carries no ordering information. Geographic
+separation is a single diagnostic here, centroid distance over the twelve directions for which the
+pipeline author's export defines it, at ρ = −0.24 [−0.84, +0.73]: in the expected direction and
+spanning zero.
+
+Four limits are stated with the result. **Size**: the index's tie structure caps the achievable
+Spearman at +0.861, so the observed +0.840 sits on that ceiling, and its exact one-sided permutation
+p of 0.0060 — 240 of the 8! = 40,320 relabellings of the **eight** pairs on which the index is
+defined — is the smallest that structure can produce, against a Bonferroni threshold of
+0.05/19 = 0.0026. **No outcome of this diagnostic could have cleared family-wise correction.**
+**Labels**: signed associations need burned labels in both regions, so the family that appears to
+work is not available before deployment while the family that fails is. **Selection**, the sharpest:
+the two rows that clear zero are the *supported-feature* variants, whose subset is chosen by whether
+two regions' bootstrap intervals happen to be disjoint — a data-dependent selection on the same data,
+with no correction; their unselected counterparts over all nine features are ρ = +0.50 [−0.17, +0.83]
+and +0.18 [−0.40, +0.72], both spanning zero, so **the result lives in the selection step**.
+**Frame**, established in Section 4.4, removes it entirely. Recomputing every row on the common
+twelve directions reproduces the published values to 4.8 × 10⁻⁵ and leaves the ordering unchanged, so
+it is not an artefact of unequal samples (Appendix B). Everything here is what the original protocol
+yields; the conclusion that survives is that **no diagnostic tested here was shown to order transfer
+once the frames are comparable**.
+
+### From 04_results.md
+; and the contrast pair shows the most burned-niche overlap sitting with the weakest
+transfer (Fig. 8)
+
+### From 05_discussion.md
+## 5.3 Why the diagnostics fail, and what the conditional one is not
+
+A diagnostic built on distance in predictor space asks whether the target's predictor values look
+like the training data's, which is not the question that matters when the failure is conditional: a
+target region can sit well inside the training envelope while the relationship between those
+predictors and burning points the other way. Manavgat to Muğla is exactly that case,
+with 0.875 of target cells inside the full-frame area of applicability and transfer among the weakest
+in the matrix **on either frame**, while the least similar pair transfers better (Appendix A(s)).
+High overlap does not buy transfer. **The qualifier is not decorative**: at the 5 km blocking this
+paper otherwise defends neither contrasted direction carries a verdict, so this is a statement about
+point estimates. The domain classifier is at ceiling for every pair, so separability carries no
+ordering information either.
+
+The two conditional variants that did clear zero are not a remedy. Appendix D states four limits
+with them: a tie-structure ceiling and a family-wise threshold **no outcome could have cleared**, a
+label requirement that makes it a mechanism diagnosis rather than a screen, a feature subset selected
+on the same data, and the frame, which removes the result altogether — the index is built from signed
+associations Section 4.4 shows to be frame artefacts. So the practical conclusion is not "use this index
+instead", nor even "it works but needs labels": **none of the twenty candidates was shown to order
+transfer**, and the two that appeared to were reading how the rectangles were drawn — nulls on ten
+effective pairs, not shown to order transfer rather than shown incapable of it.
+
+### The two diagnostic tables, released with Appendix D
+
+Table B1 and Table B10 were in the paper's Appendix B while the diagnostics result was; they
+belong with it. The other eight B tables stay in the paper.
+
+**Table B1. All transferability diagnostics versus raw thermal transfer (20 ordered directions).**
+Spearman ρ with pair-based bootstrap 95 % CIs. Exp. = expected sign. Rows with n = 12 exist only for
+the four-AOI subset, because those diagnostics were never produced for Montiferru. The
+supported-features conditional rows use the 16 directions (8 pairs) with at least one CI-supported
+feature.
+
+| Diagnostic | Family | Exp. | n dir | Spearman ρ [95% CI] | CI excludes 0 |
+|---|---|---|---|---|---|
+| **Agreement fraction, supported features** | **P(y\|x) conditional** | + | 16 | **+0.84 [+0.58, +0.88]** | **yes** |
+| **Cosine, supported features** | **P(y\|x) conditional** | + | 16 | **+0.81 [+0.33, +0.88]** | **yes** |
+| Cosine, all 9 features | P(y\|x) conditional | + | 20 | +0.50 [−0.17, +0.83] | no |
+| Vector Spearman, all 9 | P(y\|x) conditional | + | 20 | +0.27 [−0.36, +0.77] | no |
+| Agreement count, all 9 | P(y\|x) conditional | + | 20 | +0.18 [−0.40, +0.72] | no |
+| Schoener's D, 1-D mean | P(x\|y=1) niche | + | 20 | +0.24 [−0.45, +0.74] | no |
+| Warren's I, 1-D mean | P(x\|y=1) niche | + | 20 | +0.22 [−0.42, +0.73] | no |
+| Schoener's D, PCA-2D | P(x\|y=1) niche | + | 20 | +0.10 [−0.51, +0.68] | no |
+| Warren's I, PCA-2D | P(x\|y=1) niche | + | 20 | −0.07 [−0.66, +0.49] | no |
+| Mahalanobis, burned centroids | P(x\|y=1) niche | − | 20 | −0.23 [−0.75, +0.44] | no |
+| Domain-classifier AUC | P(ix) marginal | − | 20 | −0.32 [−0.78, +0.33] | no |
+| Predictor-space mean dissimilarity | P(ix) marginal | − | 12 | −0.10 [−0.54, +0.43] | no |
+| Predictor-space p95 dissimilarity | P(ix) marginal | − | 12 | −0.08 [−0.59, +0.49] | no |
+| Fraction inside weighted AoA | P(ix) marginal | + | 12 | +0.22 [−0.48, +0.59] | no |
+| Fraction inside unweighted support | P(ix) marginal | + | 12 | +0.08 [−0.89, +0.63] | no |
+| Climatic distance | P(ix) marginal | − | 12 | +0.06 [−0.76, +0.79] | no |
+| Geographic distance | geographic | − | 12 | −0.24 [−0.84, +0.73] | no |
+| Regime distance, log effective-N | P(y) structure | − | 20 | +0.29 [−0.38, +0.74] | no |
+| Regime distance, largest share | P(y) structure | − | 20 | +0.29 [−0.39, +0.72] | no |
+| Vector Spearman, supported (≥3 feats) | P(y\|x) conditional | + | 2 | not computable | — |
+
+*Table note.* A null row means the diagnostic was **not shown to order transfer** on this design, not
+that it was shown incapable of ordering it. With ten effective region pairs the power is low, and the
+intervals are wide enough to admit moderate true correlations in either direction. The last row is
+retained rather than deleted because it was computed: on two directions the statistic has no
+meaningful value, and reporting that is more honest than dropping the variant.
+
+**Reading the two rows that clear zero.** Both are supported-feature variants, where the predictor
+subset is chosen by whether two regions' bootstrap intervals happen to be disjoint. That is a
+data-dependent selection made on the same data, uncorrected. Their all-nine-feature counterparts are
+in the table and both span zero. The result lives in the selection step, and Section 4.6 says so.
+
+**Equal-sample check.** The families sit on unequal samples: marginal, applicability, climatic and
+geographic rows on twelve directions, the supported-conditional rows on sixteen, the rest on twenty.
+Recomputing every row on the common twelve directions reproduces the published values to
+4.8 × 10⁻⁵ and leaves the ordering unchanged — the conditional rows still lead at +0.87 [+0.65, +0.88]
+and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
+`paper/diagnostics_common_subset.md`.
+
+## B2. The signed univariate associations the reversal claim rests on
+
+Appendix A(n) drops two predictors because their signed association with burning reverses between
+regions with bootstrap support on the frames as drawn. Section 4.4 shows that both supported
+elevation reversals disappear once the frames are equalised, so this table is the evidence for the
+feature-removal arm and for the narrowed mechanism claim inside Contribution 1, not for a general reversal
+mechanism. It was computed for the frozen analysis and is reproduced here because the claim
+is otherwise asserted rather than shown.
+
+**Table B10. The most and least environmentally similar pairs, on both frames.** Schoener's *D* is
+computed over burned cells only and is therefore collar-invariant. Transfer values are the two
+ordered directions of each pair; ranks are out of the twenty directions on the equalised frame.
+As-drawn transfer is read from Table B9, collar transfer from `aoi_frame_transfer.csv`.
+
+| | Manavgat–Muğla | Bejís–Montiferru |
+|---|---|---|
+| Schoener's *D*, mean 1-D | **0.826** (highest) | **0.479** (lowest) |
+| per-feature *D* | 0.77 to 0.89 | 0.23 to 0.77 |
+| transfer, frames as drawn | 0.470, 0.401 | 0.594, 0.548 |
+| transfer, 10 km collar | 0.551, 0.510 | 0.669, 0.624 |
+| rank of 20 on the collar, from the bottom | 5th, 2nd | 15th, 11th |
+| target cells inside the AoA | 0.875, 0.531 | — |
+
+### The contrast-pair figure
+
+This figure illustrated the diagnostics result and goes with it. Its source is
+`paper/figures/fig8_contrast_pairs.py` and the vector output is
+`paper/figures/fig8_contrast_pairs.pdf`. The caption as it stood:
+
+```latex
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig8_contrast_pairs.pdf}}
+  \caption{\textbf{Burned-niche overlap does not determine transfer: the
+  contrast pair.} Per-feature signed univariate AUC, the probability that a
+  predictor takes a higher value on a burned cell than on an unburned one,
+  for the two most informative region pairs, natural-vegetation primary
+  population. Arrows run from chance (0.5) to the observed value, so their
+  direction is the sign of the association and their length its strength;
+  whiskers are 95\% spatial-block ($\approx$5\,km) bootstrap intervals.
+  Within each pair the two regions are distinguished by colour, by line style
+  (solid for the first region named, dashed for the second) and by vertical
+  offset; line style is included because the two hues differ by only 2.30:1 in
+  relative luminance and would nearly merge in greyscale.
+  \textbf{A filled arrowhead means that region's 95\% interval excludes 0.5, so
+  the direction is statistically supported; an open arrowhead means the
+  interval contains 0.5 and the direction is not supported.} Rows shaded grey
+  are features whose sign disagrees between the two regions. Grey side bars are
+  the per-feature Schoener's $D$ overlap.
+  \textbf{(a)} Manavgat--Mu\u{g}la, the pair with the \emph{highest} burned-niche
+  overlap ($\bar{D}=0.83$), transfers below chance in both directions
+  on the frames as drawn (0.470 and 0.401); under the equalised frame of
+  Section~\ref{sec:4.4} it is 0.551 and 0.510, above chance but still among the
+  weakest in the matrix. \textbf{(b)} Bej\'is--Montiferru, the pair with the
+  \emph{lowest} overlap ($\bar{D}=0.48$), transfers above chance in both
+  directions (0.594 as drawn, 0.669 equalised, and 0.548 against 0.624). High
+  niche overlap is therefore not sufficient for transfer, which is an ordinal
+  claim on either frame. The arrowhead fill also exposes the coverage limit of the
+  supported-agreement index, which is defined only on features whose direction
+  is supported in \emph{both} regions: there are two such features in (a)
+  (NDVI and elevation) and \textbf{none in (b)}, where the two regions'
+  supported sets are disjoint and Montiferru's intervals are wide. Pair (b)
+  therefore drops out of the supported-index sample entirely. The index is
+  undefined exactly on the pair that most challenges the overlap explanation,
+  which is a limitation of the index and not evidence for it.}
+  \label{fig:contrast-pairs}
+\end{figure}
+```

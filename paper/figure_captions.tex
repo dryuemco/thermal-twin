@@ -22,7 +22,6 @@
 % frozen analysis outputs at figure build time.
 % =============================================================================
 
-
 % ---------------------------------------------------------------- Figure 1 --
 \begin{figure}[htbp]
   \centering
@@ -44,7 +43,6 @@
   $5\times10^{-3}$ degrees.}
   \label{fig:study-map}
 \end{figure}
-
 
 % ---------------------------------------------------------------- Figure 2 --
 \begin{figure}[htbp]
@@ -72,7 +70,6 @@
   Methods heading list when the figure is built.}
   \label{fig:pipeline}
 \end{figure}
-
 
 % ---------------------------------------------------------------- Figure 3 --
 \begin{figure}[htbp]
@@ -106,7 +103,6 @@
   \label{fig:within-robustness}
 \end{figure}
 
-
 % ---------------------------------------------------------------- Figure 4 --
 \begin{figure}[htbp]
   \centering
@@ -136,7 +132,6 @@
   \label{fig:transfer-matrix}
 \end{figure}
 
-
 % ---------------------------------------------------------------- Figure 5 --
 \begin{figure}[htbp]
   \centering
@@ -163,7 +158,6 @@
   \label{fig:adaptation}
 \end{figure}
 
-
 % ---------------------------------------------------------------- Figure 6 --
 \begin{figure}[htbp]
   \centering
@@ -184,7 +178,6 @@
   remains far below the within-region ceiling.}
   \label{fig:loro}
 \end{figure}
-
 
 % ---------------------------------------------------------------- Figure 7 --
 \begin{figure}[htbp]
@@ -207,42 +200,5 @@
   \label{fig:feature-drop}
 \end{figure}
 
-
 % ---------------------------------------------------------------- Figure 8 --
-\begin{figure}[htbp]
-  \centering
-  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig8_contrast_pairs.pdf}}
-  \caption{\textbf{Burned-niche overlap does not determine transfer: the
-  contrast pair.} Per-feature signed univariate AUC, the probability that a
-  predictor takes a higher value on a burned cell than on an unburned one,
-  for the two most informative region pairs, natural-vegetation primary
-  population. Arrows run from chance (0.5) to the observed value, so their
-  direction is the sign of the association and their length its strength;
-  whiskers are 95\% spatial-block ($\approx$5\,km) bootstrap intervals.
-  Within each pair the two regions are distinguished by colour, by line style
-  (solid for the first region named, dashed for the second) and by vertical
-  offset; line style is included because the two hues differ by only 2.30:1 in
-  relative luminance and would nearly merge in greyscale.
-  \textbf{A filled arrowhead means that region's 95\% interval excludes 0.5, so
-  the direction is statistically supported; an open arrowhead means the
-  interval contains 0.5 and the direction is not supported.} Rows shaded grey
-  are features whose sign disagrees between the two regions. Grey side bars are
-  the per-feature Schoener's $D$ overlap.
-  \textbf{(a)} Manavgat--Mu\u{g}la, the pair with the \emph{highest} burned-niche
-  overlap ($\bar{D}=0.83$), transfers below chance in both directions
-  on the frames as drawn (0.470 and 0.401); under the equalised frame of
-  Section~\ref{sec:4.4} it is 0.551 and 0.510, above chance but still among the
-  weakest in the matrix. \textbf{(b)} Bej\'is--Montiferru, the pair with the
-  \emph{lowest} overlap ($\bar{D}=0.48$), transfers above chance in both
-  directions (0.594 as drawn, 0.669 equalised, and 0.548 against 0.624). High
-  niche overlap is therefore not sufficient for transfer, which is an ordinal
-  claim on either frame. The arrowhead fill also exposes the coverage limit of the
-  supported-agreement index, which is defined only on features whose direction
-  is supported in \emph{both} regions: there are two such features in (a)
-  (NDVI and elevation) and \textbf{none in (b)}, where the two regions'
-  supported sets are disjoint and Montiferru's intervals are wide. Pair (b)
-  therefore drops out of the supported-index sample entirely. The index is
-  undefined exactly on the pair that most challenges the overlap explanation,
-  which is a limitation of the index and not evidence for it.}
-  \label{fig:contrast-pairs}
-\end{figure}
+

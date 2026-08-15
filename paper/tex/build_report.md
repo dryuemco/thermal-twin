@@ -21,46 +21,38 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (326 chars)
 
-## review (15)
+## review (13)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 48
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 35
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 51
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 92
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 108
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 149
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 183
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 199
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 214
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 228
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 255
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 269
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 126
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 142
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 157
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 171
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 198
 
 ## stripped (5)
 
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (40)
+## table (30)
 
 - Within-region baseline versus thermal perfor: 6 cols, est. width 97 chars -> footnotesize, 1 wrapping
 - Within-region baseline versus thermal performanc: 1 of 6 columns wrap (widest cell 22 chars)
 - The four evaluations, scored on identical ce: 5 cols, est. width 115 chars -> footnotesize, 2 wrapping
 - The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
-- The diagnostics that ordered transfer, recom: 3 cols, est. width 142 chars -> small, 3 wrapping
-- The diagnostics that ordered transfer, recompute: 3 of 3 columns wrap (widest cell 61 chars)
 - Cross-region transfer under equalised evalua: X columns would get 3 chars each (min 12) - set as plain tabular and scaled to fit instead
 - Cross-region transfer under equalised evalua: 7 cols, est. width 131 chars -> scriptsize
-- Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
-- Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
-- : 6 cols, est. width 125 chars -> footnotesize, 3 wrapping
-- : 3 of 6 columns wrap (widest cell 42 chars)
-- no caption; emitted unnumbered so it does not consume a table number _(x10)_
 - : 6 cols, est. width 157 chars -> scriptsize, 6 wrapping
 - : 6 of 6 columns wrap (widest cell 24 chars)
+- no caption; emitted unnumbered so it does not consume a table number _(x8)_
 - : 6 cols, est. width 82 chars -> small, 1 wrapping
 - : 1 of 6 columns wrap (widest cell 23 chars)
 - : 5 cols, est. width 69 chars -> small, 1 wrapping
@@ -74,7 +66,5 @@ converter made is listed so it can be reviewed.
 - : X columns would get 3 chars each (min 12) - set as plain tabular and scaled to fit instead
 - : 10 cols, est. width 176 chars -> scriptsize
 - : 4 cols, est. width 89 chars -> footnotesize
-- : 3 cols, est. width 86 chars -> small, 1 wrapping
-- : 1 of 3 columns wrap (widest cell 41 chars)
 - Few-shot recovery of target ROC-AUC, thermal: 10 cols, est. width 100 chars -> footnotesize
 

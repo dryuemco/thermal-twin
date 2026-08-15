@@ -12,67 +12,10 @@ that appears nowhere else; every number in them also sits in a frozen artefact n
 The lettering of this appendix is kept for that reason: renaming would have broken 148 references
 between the paper, the supplementary appendices and the supplementary material.
 
-# Appendix B. All twenty transferability diagnostics
+# Appendix B. Supporting tables
 
-Section 4.6 summarises this table by family. The full ranking is given here because the negative
-result is the point: a reader should be able to see every candidate that was tried, not only the
-families' best members, and to check that no diagnostic was dropped after it failed.
-
-**Table B1. All transferability diagnostics versus raw thermal transfer (20 ordered directions).**
-Spearman ρ with pair-based bootstrap 95 % CIs. Exp. = expected sign. Rows with n = 12 exist only for
-the four-AOI subset, because those diagnostics were never produced for Montiferru. The
-supported-features conditional rows use the 16 directions (8 pairs) with at least one CI-supported
-feature.
-
-| Diagnostic | Family | Exp. | n dir | Spearman ρ [95% CI] | CI excludes 0 |
-|---|---|---|---|---|---|
-| **Agreement fraction, supported features** | **P(y\|x) conditional** | + | 16 | **+0.84 [+0.58, +0.88]** | **yes** |
-| **Cosine, supported features** | **P(y\|x) conditional** | + | 16 | **+0.81 [+0.33, +0.88]** | **yes** |
-| Cosine, all 9 features | P(y\|x) conditional | + | 20 | +0.50 [−0.17, +0.83] | no |
-| Vector Spearman, all 9 | P(y\|x) conditional | + | 20 | +0.27 [−0.36, +0.77] | no |
-| Agreement count, all 9 | P(y\|x) conditional | + | 20 | +0.18 [−0.40, +0.72] | no |
-| Schoener's D, 1-D mean | P(x\|y=1) niche | + | 20 | +0.24 [−0.45, +0.74] | no |
-| Warren's I, 1-D mean | P(x\|y=1) niche | + | 20 | +0.22 [−0.42, +0.73] | no |
-| Schoener's D, PCA-2D | P(x\|y=1) niche | + | 20 | +0.10 [−0.51, +0.68] | no |
-| Warren's I, PCA-2D | P(x\|y=1) niche | + | 20 | −0.07 [−0.66, +0.49] | no |
-| Mahalanobis, burned centroids | P(x\|y=1) niche | − | 20 | −0.23 [−0.75, +0.44] | no |
-| Domain-classifier AUC | P(x) marginal | − | 20 | −0.32 [−0.78, +0.33] | no |
-| Predictor-space mean dissimilarity | P(x) marginal | − | 12 | −0.10 [−0.54, +0.43] | no |
-| Predictor-space p95 dissimilarity | P(x) marginal | − | 12 | −0.08 [−0.59, +0.49] | no |
-| Fraction inside weighted AoA | P(x) marginal | + | 12 | +0.22 [−0.48, +0.59] | no |
-| Fraction inside unweighted support | P(x) marginal | + | 12 | +0.08 [−0.89, +0.63] | no |
-| Climatic distance | P(x) marginal | − | 12 | +0.06 [−0.76, +0.79] | no |
-| Geographic distance | geographic | − | 12 | −0.24 [−0.84, +0.73] | no |
-| Regime distance, log effective-N | P(y) structure | − | 20 | +0.29 [−0.38, +0.74] | no |
-| Regime distance, largest share | P(y) structure | − | 20 | +0.29 [−0.39, +0.72] | no |
-| Vector Spearman, supported (≥3 feats) | P(y\|x) conditional | + | 2 | not computable | — |
-
-*Table note.* A null row means the diagnostic was **not shown to order transfer** on this design, not
-that it was shown incapable of ordering it. With ten effective region pairs the power is low, and the
-intervals are wide enough to admit moderate true correlations in either direction. The last row is
-retained rather than deleted because it was computed: on two directions the statistic has no
-meaningful value, and reporting that is more honest than dropping the variant.
-
-**Reading the two rows that clear zero.** Both are supported-feature variants, where the predictor
-subset is chosen by whether two regions' bootstrap intervals happen to be disjoint. That is a
-data-dependent selection made on the same data, uncorrected. Their all-nine-feature counterparts are
-in the table and both span zero. The result lives in the selection step, and Section 4.6 says so.
-
-**Equal-sample check.** The families sit on unequal samples: marginal, applicability, climatic and
-geographic rows on twelve directions, the supported-conditional rows on sixteen, the rest on twenty.
-Recomputing every row on the common twelve directions reproduces the published values to
-4.8 × 10⁻⁵ and leaves the ordering unchanged — the conditional rows still lead at +0.87 [+0.65, +0.88]
-and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
-`paper/diagnostics_common_subset.md`.
-
-## B2. The signed univariate associations the reversal claim rests on
-
-Appendix A(n) drops two predictors because their signed association with burning reverses between
-regions with bootstrap support on the frames as drawn. Section 4.4 shows that both supported
-elevation reversals disappear once the frames are equalised, so this table is the evidence for the
-feature-removal arm and for the narrowed mechanism claim inside Contribution 1, not for a general reversal
-mechanism. It was computed for the frozen analysis and is reproduced here because the claim
-is otherwise asserted rather than shown.
+These are the per-region and per-direction numbers the Results sections quote, given in full so that
+every claim can be checked against the values it rests on rather than against a summary of them.
 
 **Table B2. Signed univariate AUC of each predictor against `burned`, by region.** Primary
 natural-vegetation population; 10-cell (~5 km) spatial-block bootstrap, 1000 replicates, seed 42.
@@ -107,7 +50,7 @@ from the same paired bootstrap.
 | `elevation_mean` | Manavgat | 0.374 | Muğla | 0.611 | +0.235 [+0.102, +0.360] |
 | `lst_anomaly_mean` | Bejís | 0.418 | Evia | 0.640 | +0.221 [+0.123, +0.313] |
 
-Three pair-level reversals across **two** features, which is why Section 3.12 removes exactly those
+Three pair-level reversals across **two** features, which is why Section 3.11 removes exactly those
 two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine
 features, and they are not counted. The conservative criterion costs the paper findings rather than
 manufacturing them: a difference interval on the pair, which is the instrument Appendix A(m) uses,
@@ -162,7 +105,7 @@ its structural asymmetries have no analogue in the twenty-direction matrix.
 
 **Table B5. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
 `burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
-replicates, seed 42 (Section 3.15). Analysis population 41,730 rows / 2,911 burned (2021) and
+replicates, seed 42 (Section 3.14). Analysis population 41,730 rows / 2,911 burned (2021) and
 38,790 rows / 331 burned (2022). **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for the
 2022 arm.** Table 1's note sets sixteen as the floor this design supports at that blocking, so the
 2022 intervals here fall below the paper's own standard and are read as indicative, exactly as the
@@ -254,16 +197,3 @@ spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region
 | Montiferru→Evia | 0.586 [0.565, 0.606] | 0.630 [0.611, 0.649] | 0.624 [0.605, 0.641] |
 | Evia→Montiferru | 0.647 [0.608, 0.682] | 0.568 [0.528, 0.609] | 0.581 [0.539, 0.623] |
 
-**Table B10. The most and least environmentally similar pairs, on both frames.** Schoener's *D* is
-computed over burned cells only and is therefore collar-invariant. Transfer values are the two
-ordered directions of each pair; ranks are out of the twenty directions on the equalised frame.
-As-drawn transfer is read from Table B9, collar transfer from `aoi_frame_transfer.csv`.
-
-| | Manavgat–Muğla | Bejís–Montiferru |
-|---|---|---|
-| Schoener's *D*, mean 1-D | **0.826** (highest) | **0.479** (lowest) |
-| per-feature *D* | 0.77 to 0.89 | 0.23 to 0.77 |
-| transfer, frames as drawn | 0.470, 0.401 | 0.594, 0.548 |
-| transfer, 10 km collar | 0.551, 0.510 | 0.669, 0.624 |
-| rank of 20 on the collar, from the bottom | 5th, 2nd | 15th, 11th |
-| target cells inside the AoA | 0.875, 0.531 | — |
