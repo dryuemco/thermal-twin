@@ -21,7 +21,7 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (23)
+## review (19)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Length, 2026-08-15 (two passes).** The running count in these notes had gone stale: successive > rounds ad
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
@@ -30,10 +30,6 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in 04_results near md line 138
 - TABLE WITHOUT CAPTION in 04_results near md line 257
 - TABLE WITHOUT CAPTION in 04_results near md line 470
-- TABLE WITHOUT CAPTION in 04_results near md line 572
-- TABLE WITHOUT CAPTION in 04_results near md line 589
-- TABLE WITHOUT CAPTION in 04_results near md line 632
-- TABLE WITHOUT CAPTION in 04_results near md line 671
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -52,7 +48,7 @@ converter made is listed so it can be reviewed.
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (48)
+## table (49)
 
 - Study regions, areas of interest and tempora: 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
 - Study regions, areas of interest and temporal wi: 5 of 5 columns wrap (widest cell 49 chars)
@@ -75,13 +71,14 @@ converter made is listed so it can be reviewed.
 - : 2 of 3 columns wrap (widest cell 23 chars)
 - Signed univariate feature-burned AUC, Muğla : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping
 - Signed univariate feature-burned AUC, Muğla 2021: 3 of 4 columns wrap (widest cell 24 chars)
-- : 5 cols, est. width 78 chars -> small, 1 wrapping
-- : 1 of 5 columns wrap (widest cell 25 chars)
-- : 7 cols, est. width 97 chars -> small, 1 wrapping
-- : 1 of 7 columns wrap (widest cell 32 chars)
-- : 3 cols, est. width 174 chars -> small, 3 wrapping
-- : 3 of 3 columns wrap (widest cell 69 chars)
-- : 6 cols, est. width 104 chars -> footnotesize
+- Evaluation-frame geometry of the five study : 5 cols, est. width 78 chars -> small, 1 wrapping
+- Evaluation-frame geometry of the five study regi: 1 of 5 columns wrap (widest cell 25 chars)
+- Signed univariate AUC, frame as drawn agains: 7 cols, est. width 97 chars -> small, 1 wrapping
+- Signed univariate AUC, frame as drawn against a : 1 of 7 columns wrap (widest cell 32 chars)
+- The two diagnostics that ordered transfer, r: 3 cols, est. width 174 chars -> small, 3 wrapping
+- The two diagnostics that ordered transfer, recom: 3 of 3 columns wrap (widest cell 69 chars)
+- Cross-region transfer under equalised evalua: 7 cols, est. width 130 chars -> scriptsize, 1 wrapping
+- Cross-region transfer under equalised evaluation: 1 of 7 columns wrap (widest cell 23 chars)
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
 - : 2 of 4 columns wrap (widest cell 33 chars)
 - : 6 cols, est. width 128 chars -> footnotesize, 1 wrapping

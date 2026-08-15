@@ -622,7 +622,8 @@ Section~\ref{sec:4.3} established that swapping a region's negatives for fire-ad
 \begin{table}[htbp]
   \centering
   \small
-  \caption{}
+  \caption{Evaluation-frame geometry of the five study regions. Primary natural-vegetation population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell. Source \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}auc.\allowbreak{}csv}; recomputable by \texttt{paper/\allowbreak{}code/\allowbreak{}verify\_\allowbreak{}aoi\_\allowbreak{}frame.\allowbreak{}py}.}
+  \label{tab:10}
   \begin{tabularx}{\linewidth}{lrr>{\raggedleft\arraybackslash}Xr}
     \hline
     Region & cells & burned & median distance to burned & share beyond 10 km \\
@@ -643,7 +644,8 @@ Montiferru's frame is fire-scale; Manavgat's and Bejís's are roughly three-fift
 \begin{table}[htbp]
   \centering
   \small
-  \caption{}
+  \caption{Signed univariate AUC, frame as drawn against a 10 km collar. Point estimates; the intervals that decide the reversal question are given in the text below and in \texttt{collar\_\allowbreak{}frame\_\allowbreak{}bootstrap.\allowbreak{}csv} (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to max(AUC, 1 $-$ AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned cells in any region.}
+  \label{tab:11}
   \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrrrrl}
     \hline
     Signed univariate AUC & Manavgat & Bejís & Muğla & Evia & Montiferru & straddles 0.5 \\
@@ -667,7 +669,8 @@ On the equalised frame all five regions agree in sign on elevation, on LST and o
 \begin{table}[htbp]
   \centering
   \small
-  \caption{}
+  \caption{The two diagnostics that ordered transfer, recomputed on an equalised frame. Spearman $\rho$ against target ROC-AUC over the ordered directions in which the diagnostic is defined. Source \texttt{diagnostics\_\allowbreak{}collar\_\allowbreak{}frame.\allowbreak{}csv}; recomputable by \texttt{paper/\allowbreak{}code/\allowbreak{}verify\_\allowbreak{}diag\_\allowbreak{}collar.\allowbreak{}py}.}
+  \label{tab:12}
   \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
     \hline
     Diagnostic & Full frame & 10 km collar \\
@@ -688,22 +691,23 @@ Three further points bound how many independent reversals could have been counte
 
 \begin{table}[htbp]
   \centering
-  \footnotesize
-  \caption{}
-  \begin{tabular}{llrrrr}
+  \scriptsize
+  \caption{Cross-region transfer under equalised evaluation frames. Primary natural-vegetation population, thermal model, twenty ordered directions per row. Above/below chance are point counts; the supported counts use the same 10-cell ($\approx$5 km) spatial-block bootstrap on the target as Table~\ref{tab:4}, 1000 replicates, seed 42. Per-direction bounds are in \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}.}
+  \label{tab:9}
+  \begin{tabularx}{\linewidth}{llrrr>{\raggedleft\arraybackslash}Xr}
     \hline
-    Source frame & Target frame & Mean target AUC & Above chance & Below chance & Paired thermal delta \\
+    Source frame & Target frame & Mean target AUC & Above chance & Below chance & Supported above / below & Paired thermal delta \\
     \hline
-    full & full (\textbf{Table~\ref{tab:4}}) & 0.540 & 14 of 20 & \textbf{6} & +0.003 \\
-    full & 10 km & 0.575 & 17 of 20 & 3 & +0.002 \\
-    10 km & full & 0.571 & 17 of 20 & 3 & +0.014 \\
-    \textbf{10 km} & \textbf{10 km} & \textbf{0.617} & \textbf{19 of 20} & \textbf{1} & \textbf{+0.023} \\
-    5 km & 5 km & 0.608 & 18 of 20 & 2 & +0.014 \\
+    full & full (\textbf{Table~\ref{tab:4}}) & 0.540 & 14 of 20 & \textbf{6} & 9 / \textbf{4} & +0.003 \\
+    full & 10 km & 0.575 & 17 of 20 & 3 & 11 / 1 & +0.002 \\
+    10 km & full & 0.571 & 17 of 20 & 3 & 11 / 3 & +0.014 \\
+    \textbf{10 km} & \textbf{10 km} & \textbf{0.617} & \textbf{19 of 20} & \textbf{1} & \textbf{15 / 1} & \textbf{+0.023} \\
+    5 km & 5 km & 0.608 & 18 of 20 & 2 & 12 / 0 & +0.014 \\
     \hline
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
-The reference arm reproduces the frozen matrix, at 0.540 against Table~\ref{tab:4}'s 0.541 and 14 of 20 exactly, so this is measuring the same quantity. The above- and below-chance counts in this table are point counts. Under the same 10-cell block bootstrap used for Table~\ref{tab:4}, the full frame gives nine directions above chance and four below with interval support, and the collar frame fourteen above and one below, so the headline movement is six to one at the point estimate and \textbf{four to one with interval support} (\texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}). The largest movers are Bejís to Evia, 0.383 to 0.602, and Bejís to Manavgat, 0.440 to 0.601.
+The reference arm reproduces the frozen matrix, at 0.540 against Table~\ref{tab:4}'s 0.541 and 14 of 20 exactly, so this is measuring the same quantity. The above- and below-chance counts in this table are point counts. Under the same 10-cell block bootstrap used for Table~\ref{tab:4}, at 1000 replicates, the full frame gives nine directions above chance and four below with interval support, and the collar frame fifteen above and one below, so the headline movement is six to one at the point estimate and \textbf{four to one with interval support} (\texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}, which carries the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to 0.602, and Bejís to Manavgat, 0.440 to 0.601.
 
 \textbf{What this does and does not change.} Three claims do not survive and are withdrawn here rather than defended. The count of six anti-predictive directions becomes one. The sign reversal of elevation, LST and TVDI as the mechanism of the residual is a property of the frames, not of the predictor-burning relationship. And the paired thermal contribution is not stable at +0.004: it rises to +0.023 once frames are equalised, so the claim that the block contributes nothing between regions is frame-dependent too. What survives is the central negative result, and it survives with room to spare: equalised transfer of 0.617 against within-region skill of about 0.87 leaves most of the gap intact. Section~\ref{sec:5.9} records the frame as a limitation of the cohort rather than of the method, since equalising it is cheap and we recommend it.
 
