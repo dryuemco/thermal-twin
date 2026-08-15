@@ -29,10 +29,10 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 138
 - TABLE WITHOUT CAPTION in 04_results near md line 257
-- TABLE WITHOUT CAPTION in 04_results near md line 451
-- TABLE WITHOUT CAPTION in 04_results near md line 553
-- TABLE WITHOUT CAPTION in 04_results near md line 570
-- TABLE WITHOUT CAPTION in 04_results near md line 591
+- TABLE WITHOUT CAPTION in 04_results near md line 459
+- TABLE WITHOUT CAPTION in 04_results near md line 561
+- TABLE WITHOUT CAPTION in 04_results near md line 578
+- TABLE WITHOUT CAPTION in 04_results near md line 599
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 92
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 127
@@ -42,9 +42,9 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 240
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 266
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 76
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 92
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 133
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 135
 
 ## stripped (5)
 

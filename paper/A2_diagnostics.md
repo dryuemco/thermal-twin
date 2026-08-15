@@ -54,8 +54,10 @@ and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
 ## B2. The signed univariate associations the reversal claim rests on
 
 Section 4.6b drops two predictors because their signed association with burning reverses between
-regions with bootstrap support, and Contribution 4 names the reversal as the mechanism. This is the
-evidence for both. It was computed for the frozen analysis and is reproduced here because the claim
+regions with bootstrap support on the frames as drawn. Section 4.9 shows that both supported
+elevation reversals disappear once the frames are equalised, so this table is the evidence for the
+feature-removal arm and for the narrowed claim of Contribution 4, not for a general reversal
+mechanism. It was computed for the frozen analysis and is reproduced here because the claim
 is otherwise asserted rather than shown.
 
 **Table B2. Signed univariate AUC of each predictor against `burned`, by region.** Primary
@@ -133,5 +135,6 @@ ranking. Ordered by lift.
 | **Mean** | **0.541** | **0.156** | **0.136** | **1.16** |
 
 Six directions fall below their own no-skill baseline, and only one exceeds twice it. The six are the
-same six that are below chance on ROC-AUC, which is what a sign reversal predicts: a model that ranks
-in the wrong direction ranks worse than random in either metric.
+same six that are below chance on ROC-AUC, which is what a reversed ranking predicts in either
+metric. Section 4.9 shows that this count is largely a property of the evaluation frames rather than
+of a reversed predictor-burning relationship.

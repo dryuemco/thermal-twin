@@ -50,8 +50,9 @@ predictors fail to cross regions. What is measurable is the evaluation geometry.
 fire-specific residual is +0.082 [−0.011, +0.175] and the 2,800 km costs −0.003 [−0.075, +0.069];
 both span zero, and both arms sit close to chance, so neither is shown to cost anything.
 Two thirds of the apparent collapse from a region-wide 0.776 is the evaluation area itself, which is
-34 to 87 per cent burned against 3.8 to 28.7 for a region. Six directions are nonetheless anti-predictive with
-interval support, which no account of merely lost skill explains. The one-event-per-region design
+34 to 87 per cent burned against 3.8 to 28.7 for a region. Six directions are anti-predictive with interval support on the
+frames as drawn, but that count is itself mostly a frame artefact: equalising the frames leaves one,
+and lifts mean transfer from 0.540 to 0.617. The one-event-per-region design
 also means that a fire cannot be separated here from the season and meteorology that produced it.
 
 Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean

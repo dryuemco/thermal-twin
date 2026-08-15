@@ -194,9 +194,10 @@ area's changes nothing, at −0.000 [−0.003, +0.002]; scoring the same predict
 costs +0.155 [+0.093, +0.217]. The cause is that a scar collar's negatives are all fire-adjacent,
 and therefore the hardest in the region, so a scar-level result compared against a region-level
 reference overstates the collapse. Separation does not order
-the matrix either, at ρ = −0.32 with an interval spanning zero. Six directions are nonetheless below
-chance with interval support, which no account of merely lost skill explains, and that residual is
-what Contributions 2 and 3 address. Feature removal measures the local cost.
+the matrix either, at ρ = −0.32 with an interval spanning zero. On the frames as drawn six directions are below
+chance with interval support, which no account of merely lost skill would explain; Contribution 4
+shows that this count falls to one once the frames are equalised, so the residual that Contributions
+2 and 3 address is smaller than it first appears and is a shortfall rather than a reversal. Feature removal measures the local cost.
 Dropping the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
 within-region AUC, supported in every region. Roughly three quarters of that is elevation, a
 *baseline* terrain variable. Mean transfer changes by +0.014, whose interval also spans zero. Both

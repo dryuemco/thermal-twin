@@ -264,9 +264,13 @@ therefore substantially a property of interleaved holdout.** It is not shown to 
 fire, and eight scars cannot show that; what this design establishes is that it is not established
 there.
 
-**Six directions are below chance with interval support**, the sharpest at 0.326 [0.305, 0.349]. No
-account of merely lost skill produces a reliably reversed ranking, so those six need a mechanism
-acting on the direction of the relationship. That is the subject of Sections 4.4 to 4.8. Per-split
+**On the frames as drawn, six directions are below chance with interval support**, the sharpest at
+0.326 [0.305, 0.349]. No account of merely lost skill produces a reliably reversed ranking, so on
+this evidence those six would need a mechanism acting on the direction of the relationship, and
+Sections 4.4 to 4.8 pursue one. **Section 4.9 then shows that most of this count is an artefact of
+the evaluation frames: equalising them leaves one direction below chance, not six.** The reader
+should carry that forward through the intervening sections, whose reversal evidence is computed on
+the frames as drawn. Per-split
 and per-scar detail is in Appendix A(i).
 
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
@@ -406,9 +410,13 @@ The clearest single view of Table 7 needs no ranking at all (Fig. 8). Manavgat a
 country and the same fire year. They are 306 km apart by the centroid geodesic distance this paper
 uses as a diagnostic, and their nearest boundaries are 191 km apart. Their burned cells occupy the
 most similar environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77
-to 0.89. Yet five of nine feature-response directions point opposite ways. Elevation is one of them,
-at a signed AUC of 0.374 [0.289, 0.471] in Manavgat against 0.611 [0.532, 0.690] in Muğla, with
-disjoint intervals. All four absolute thermal channels are among the others. Transfer is below
+to 0.89. Yet on the frames as drawn five of nine feature-response directions point opposite ways. Elevation
+is one of them, at a signed AUC of 0.374 [0.289, 0.471] in Manavgat against 0.611 [0.532, 0.690] in
+Muğla, with disjoint intervals, and all four absolute thermal channels are among the others.
+**Section 4.9 withdraws that reading**: this is the pair whose Manavgat arm is 60 % far field, and
+under a 10 km collar the elevation figure moves to 0.561 against 0.606, on the same side of 0.5. The
+contrast that survives is the transfer result itself, not the reversal count that was offered to
+explain it. Transfer is below
 chance in both directions at the point estimate, at 0.470 and 0.401. Both directions also sit inside
 the nominal area of applicability, at 0.875 and 0.531 of target cells.
 

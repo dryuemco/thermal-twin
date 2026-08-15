@@ -8,7 +8,7 @@
 
 ## 5.1 Principal findings
 
-Four results carry this paper. First, the pre-fire thermal block raises spatially blocked
+Three results carry this paper. First, the pre-fire thermal block raises spatially blocked
 within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean regions at 1 km
 blocking, and by +0.045 to +0.148 at 5 km, with bootstrap support at both, and contributes +0.004 [−0.028, +0.036] across twenty ordered
 transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
@@ -26,8 +26,10 @@ three quarters attributable to elevation, and changes transfer by +0.014 [−0.0
 also spans zero. Second, of twenty candidate transferability diagnostics only two have intervals excluding zero and
 both are conditional, while no marginal measure was shown to order the matrix. The marginal family,
 which includes area-of-applicability dissimilarity, is the only one runnable before deployment. Third,
-the mechanism is a reversal in the sign of the predictor-burning association, and it persists inside
-one study area across two fires.
+the sign reversal that would have explained the residual does not survive an equalised evaluation
+frame: all five regions agree in sign on elevation, LST and TVDI once the far field is removed, and
+only the LST anomaly still reverses (Section 4.9). A reversal does persist inside one study area
+across two fires, where the frame is fixed by construction, but on elevation alone.
 
 ## 5.2 Why the thermal increment is real but local
 
