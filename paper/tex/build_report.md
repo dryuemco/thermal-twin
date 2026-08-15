@@ -21,15 +21,16 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (19)
+## review (20)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 202
-- TABLE WITHOUT CAPTION in 04_results near md line 267
-- TABLE WITHOUT CAPTION in 04_results near md line 478
+- TABLE WITHOUT CAPTION in 04_results near md line 268
+- TABLE WITHOUT CAPTION in 04_results near md line 479
+- TABLE WITHOUT CAPTION in 04_results near md line 710
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -48,7 +49,7 @@ converter made is listed so it can be reviewed.
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (49)
+## table (66)
 
 - Study regions, areas of interest and tempora: 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
 - Study regions, areas of interest and temporal wi: 5 of 5 columns wrap (widest cell 49 chars)
@@ -60,6 +61,7 @@ converter made is listed so it can be reviewed.
 - The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
 - : 3 cols, est. width 88 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 36 chars)
+- no caption; emitted unnumbered so it does not consume a table number _(x15)_
 - : 3 cols, est. width 89 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 45 chars)
 - Cross-region transfer matrix, thermal model,: 4 cols, est. width 89 chars -> footnotesize
@@ -77,6 +79,8 @@ converter made is listed so it can be reviewed.
 - Signed univariate AUC, frame as drawn against a : 1 of 7 columns wrap (widest cell 32 chars)
 - The two diagnostics that ordered transfer, r: 3 cols, est. width 174 chars -> small, 3 wrapping
 - The two diagnostics that ordered transfer, recom: 3 of 3 columns wrap (widest cell 69 chars)
+- : 4 cols, est. width 107 chars -> small, 2 wrapping
+- : 2 of 4 columns wrap (widest cell 39 chars)
 - Cross-region transfer under equalised evalua: 7 cols, est. width 130 chars -> scriptsize, 1 wrapping
 - Cross-region transfer under equalised evaluation: 1 of 7 columns wrap (widest cell 23 chars)
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
