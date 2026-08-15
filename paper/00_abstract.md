@@ -131,5 +131,5 @@ nonetheless does not travel. The thermal block adds +0.056 to +0.153 within regi
 transfers no better, at 0.537 against 0.541; and equalised transfer of 0.617 sits against a matched
 within-region reference of 0.772, a shortfall of 0.155. Of twenty
 candidate diagnostics from five families, none was shown to order transfer: eighteen failed on the
-frames as drawn, and the two that succeeded require target labels and become degenerate once the
-frames are equalised. Transfer skill has to be measured, not inferred from similarity.
+frames as drawn, and the two that succeeded require target labels and stop ordering transfer once the frames are
+equalised, one losing its variance entirely and the other its correlation (rho +0.81 to −0.06). Transfer skill has to be measured, not inferred from similarity.

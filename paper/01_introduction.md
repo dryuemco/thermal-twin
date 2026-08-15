@@ -162,7 +162,8 @@ behave here as static land-surface descriptors. The practical consequence is a r
 
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
 thermal block is worth a substantial within-region increment in every one of five regions under
-blocked cross-validation, with every bootstrap interval above zero. Much of that is a property of
+blocked cross-validation, with every bootstrap interval above zero, and it remains positive in all
+five when the evaluation frame is equalised (Section 4.10). Much of that is a property of
 interleaved holdout: withholding a whole burn scar leaves an increment whose interval spans zero.
 Across twenty ordered transfer directions its paired contribution also spans zero, with a sign that
 is a property of the pair rather than of the block, and dropping one region reverses the mean. Two
@@ -182,8 +183,9 @@ geographic distance, learned domain separability, niche-overlap statistics and b
 distances. Eighteen were not shown to order the matrix on the frames as drawn; the domain classifier
 is at ceiling and therefore carries no ordering information at all. Two conditional variants did
 order it, but both need burned labels on both sides, both rest on a data-selected feature subset
-whose all-nine counterparts span zero, and **Contribution 1 removes even those**: recomputed on
-comparable frames the winning index is unanimous, with no variance left to correlate (Section 4.10).
+whose all-nine counterparts span zero, and **Contribution 1 removes even those**: recomputed on comparable frames one becomes unanimous with
+no variance left to correlate and the other loses its correlation entirely, from ρ = +0.81 to −0.06
+(Section 4.10).
 The point survives without any ranking, at the point estimates: the pair with the highest
 burned-niche overlap is among the weakest in the matrix while the lowest transfers above chance in
 both directions. That contradicts

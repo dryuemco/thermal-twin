@@ -31,9 +31,9 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in 04_results near md line 254
 - TABLE WITHOUT CAPTION in 04_results near md line 465
 - TABLE WITHOUT CAPTION in 04_results near md line 600
-- TABLE WITHOUT CAPTION in 04_results near md line 684
-- TABLE WITHOUT CAPTION in 04_results near md line 743
-- TABLE WITHOUT CAPTION in 04_results near md line 771
+- TABLE WITHOUT CAPTION in 04_results near md line 693
+- TABLE WITHOUT CAPTION in 04_results near md line 762
+- TABLE WITHOUT CAPTION in 04_results near md line 793
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128

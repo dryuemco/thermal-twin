@@ -645,6 +645,15 @@ correlated against transfer measured on the same unequal frames. Recomputing bot
 | Sign-agreement fraction over supported features | ρ = +0.86 (p = 0.0001, n = 14), values {0, 0.5, 1} | **1.0 in all 18 defined directions, variance exactly 0 — degenerate** |
 | Cosine similarity over all nine signed AUCs | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
 
+The second variant that cleared zero in Table B1, the cosine restricted to the same supported
+subset, was not in an earlier version of this test; it is included now and it behaves differently.
+It does **not** become exactly degenerate: unanimous signs fix the directions but not the magnitudes,
+so it retains a trace of variance (0.00014 against 0.82 on the frame as drawn) across eighteen
+defined directions. What it loses is the correlation. Its Spearman against transfer falls from
+**+0.81 (p = 0.0005)** to **−0.06 (p = 0.82)**. Both variants therefore stop ordering transfer on
+comparable frames, one because it has no variance left and one because what variance it has no
+longer tracks anything.
+
 Two scope statements belong with this table. First, **both sides are recomputed here under one
 bootstrap setting**, so the comparison is internally consistent, but the full-frame value is not
 numerically the published one: it is ρ = +0.86 over fourteen directions against the ρ = +0.84 over
@@ -657,8 +666,8 @@ differs substantially from the as-drawn one, so their correlations against it ar
 than shown to be null.
 
 Once the frames are equalised every region pair agrees in sign on every jointly supported feature,
-so the diagnostic has no variance left and its correlation with transfer is undefined rather than
-weak. This is not a marginal shift: the number of features supported in both regions *rises* from
+so the agreement fraction has no variance left and its correlation with transfer is undefined rather
+than weak. This is not a marginal shift: the number of features supported in both regions *rises* from
 1.20 to 3.40 per direction, so the diagnostic is better determined and unanimous. The disagreements
 it was reading were the far fields.
 
@@ -697,6 +706,16 @@ within the collar `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to
 channels are close to one axis and the two differenced channels correlate at 0.64 to 0.94: the "five
 of nine directions reverse" count of Section 4.6 counts features, not independent quantities, and
 **in effective dimensions it is closer to two**.
+
+**The within-region increment survives the same correction, and is reported here because Section 4.2
+establishes it on the frames this section calls incomparable.** Running the baseline arm on the
+collar as well (`collar_increment_and_cosine.csv`, `paper/code/verify_collar_increment.py`), the
+thermal increment at 5 km blocking is +0.041, +0.030, +0.091, +0.134 and +0.090 across the five
+regions, **positive in all five**, with a mean of +0.077 against +0.086 on the frame as drawn. It
+does erode as the frame tightens further: at a 5 km collar the mean halves to +0.041, still positive
+in all five. These are point estimates; the intervals in Table 2 are computed on the frame as drawn.
+The paper's one surviving predictor-level positive claim therefore holds on the frame it argues is
+the correct one.
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
@@ -742,8 +761,11 @@ reference on the same frame and at the 5 km blocking this design defends
 | 10 km collar | **0.772** | **0.617** | **0.155** |
 | 5 km collar | 0.737 | 0.608 | 0.129 |
 
-The shortfall survives on every matched row, which is what matters, but it is **0.155 at the collar,
-not the 0.25 the unmatched comparison implies**, and it shrinks as the frame approaches the fire —
+Paired by target region, the collar shortfall is **+0.155 [+0.094, +0.217]** (Student *t* over the
+five target regions; per-region +0.086 Montiferru, +0.127 Manavgat, +0.161 Muğla, +0.196 Bejís,
++0.206 Evia), which reproduces the point estimate above and excludes zero. The shortfall therefore
+survives on every matched row, but it is **0.155 at the collar, not the 0.25 the unmatched
+comparison implies**, and it shrinks as the frame approaches the fire —
 which is where a susceptibility surface is actually used.
 
 This is Section 4.3's result turned on our own matrix: we had measured that the composition of the

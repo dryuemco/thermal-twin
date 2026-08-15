@@ -51,7 +51,7 @@ within-region reference, the paired cross-region contribution spans zero with a 
 pair, and the static baseline transfers no better than the dynamic one, so this is not a peculiarity
 of thermal predictors. The shortfall also cannot be anticipated: none of twenty diagnostics from
 five families was shown to order the matrix, and the two that appeared to do so require target
-labels on both sides and lose their variance entirely once the frames are comparable. Label-free alignment compresses most directions
+labels on both sides and stop ordering transfer once the frames are comparable. Label-free alignment compresses most directions
 towards chance rather than repairing them, and supervised recalibration works but is not cheap.
 
 Two limits should be read with all of this. The agreed thermal direction is the opposite of the one

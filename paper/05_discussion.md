@@ -87,9 +87,11 @@ rather than a pre-deployment screen.
 
 A fifth limit removes it altogether. The index is built from signed associations that Section 4.10
 shows to be artefacts of the evaluation frames, and recomputing it on an equalised frame leaves it
-unanimous and variance-free. So the practical conclusion is not "use this index instead", and it is
-not even "the index works but needs labels". It is that **none of the twenty candidates was shown to
-order transfer**, and the one that appeared to was reading how the study rectangles were drawn. That
+unanimous and variance-free, while the second variant that cleared zero loses its correlation
+entirely, from ρ = +0.81 to −0.06. So the practical conclusion is not "use this index instead", and
+it is not even "the index works but needs labels". It is that **none of the twenty candidates was
+shown to order transfer**, and the two that appeared to were reading how the study rectangles were
+drawn. That
 is a worse position for a practitioner than Section 4.5 alone suggests, and it is the honest one. As
 always these are nulls on ten effective pairs: not shown to order transfer, rather than shown
 incapable of it.
