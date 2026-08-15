@@ -283,7 +283,7 @@ within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered
 − raw)/(within − raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru
 directions are not part of this decomposition (per-pair absolute decompositions exist without
 fraction CIs). The status column asks whether the *adapted* value clears chance and uses the 2-cell
-adapted intervals of Table 9. The adapted arms were not recomputed at the coarser blocking of
+adapted intervals of Table 7. The adapted arms were not recomputed at the coarser blocking of
 Appendix A(c), which covers the raw arm and the paired delta only.
 
 | Direction | Within | Raw | Best adapted (method) | Recovered fraction [CI] | Status |
