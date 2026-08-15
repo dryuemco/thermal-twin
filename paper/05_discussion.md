@@ -8,28 +8,21 @@
 
 ## 5.1 Principal findings
 
-Three results carry this paper. First, the pre-fire thermal block raises spatially blocked
-within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean regions at 1 km
-blocking, and by +0.045 to +0.148 at 5 km, with bootstrap support at both, and contributes +0.004 [−0.028, +0.036] across twenty ordered
-transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
-baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is not a property of
-the dynamic block specifically. Nor is it shown to be attributable to region crossing. On identical
-cells, withholding the burn scar from training costs +0.082 [−0.011, +0.175] and moving the training
-data 306 to 2,802 km away costs −0.003 [−0.075, +0.069]. Both span zero, and both arms sit close to
-chance, so the comparison has little dynamic range: what this establishes is a bound, not a positive
-attribution. The fire-specific residual is bounded at about +0.18 and the region-crossing effect at
-about ±0.07. Neither is shown to cost anything, and it would be an error to read the second as
-evidence that region crossing is free. The six below-chance directions are a separate matter, since no account of
-merely lost skill produces a reliably reversed ranking. Removing the two reversing predictors,
-elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
-three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
-also spans zero. Second, of twenty candidate transferability diagnostics only two have intervals excluding zero and
-both are conditional, while no marginal measure was shown to order the matrix. The marginal family,
-which includes area-of-applicability dissimilarity, is the only one runnable before deployment. Third,
-the sign reversal that would have explained the residual does not survive an equalised evaluation
-frame: all five regions agree in sign on elevation, LST and TVDI once the far field is removed, and
-only the LST anomaly still reverses (Section 4.9). A reversal does persist inside one study area
-across two fires, where the frame is fixed by construction, but on elevation alone.
+Three results carry this paper, each established in Section 4 and not re-tabulated here.
+
+First, where a model is scored decides what it appears to know. Changing only the evaluation cells
+costs 0.143 ROC-AUC, the cause is the composition of the negative pool rather than prevalence, and
+applying the same correction between regions withdraws three claims we had made from the frames as
+drawn, including the sign reversal we had offered as the mechanism of the transfer residual
+(Section 4.9).
+
+Second, the thermal block's local skill does not travel, and the frame correction does not rescue
+it: equalised transfer sits at 0.617 against within-region skill near 0.87, and the static baseline
+travels no better than the dynamic one, so this is not a peculiarity of thermal predictors.
+
+Third, no diagnostic that can be run before deployment was shown to order the transfer matrix. The
+only two that do require burned labels in the target region, which is the resource a practitioner
+lacks, and they rest on a data-selected subset of predictors.
 
 ## 5.2 Why the thermal increment is real but local
 
@@ -216,16 +209,11 @@ reproduction elsewhere requires the archived environment.
 successes and the failures of Section 4.4 should be read at that power.
 
 (viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
-diagnosis bites hardest and where feature removal recovers most. Two candidates have now been tested
-and neither survives. The first was its meteorology: the predictor window was not extreme. The second
-was the quality-screening difference in its coarse thermal input. It was the
-more worrying of the two, because the change it induces correlates with elevation at +0.615. It does
-not propagate. The region's entire downstream chain was rebuilt from a quality-screened MODIS input.
-That changes the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed
-univariate association moves by more than +0.0003. Elevation's is identical in both arms, at 0.374, and the population is unchanged. The result is structural rather than fortunate. Elevation is
-a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived surface across
-only 2.14 percentage points of coverage. With one fire
-season per region the remaining candidates are not separable in this design.
+diagnosis bites hardest and where feature removal recovers most. Three candidates have now been tested and none survives: its meteorology, which was not extreme;
+the quality screening of its coarse thermal input, which propagates widely but moves no signed
+association by more than +0.0003 (Section 4.7, Appendix A(e)); and the evaluation frame, which
+explains its elevation figure but not its transfer behaviour (Section 4.9). With one fire season per
+region the remaining candidates are not separable in this design.
 
 (ix) **The interval-support counts are less stable than the point estimates behind them.** Several
 verdicts sit within a thousandth of their reference value, and at 1 km blocking the published split
@@ -246,16 +234,10 @@ Any future cohort should fix the frame by an explicit accessible-area rule [@Bar
 predictor is computed, and we treat that as the main design lesson of this paper.
 
 (xi) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
-configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows
-the transfer result is not an artefact of that choice: a depth-6 forest, a leaf-200 forest and a
-penalised logistic regression transfer at 0.556, 0.550 and 0.510 against the canonical 0.541, and
-all four place exactly fourteen of twenty directions above chance. Those four values are point
-estimates over the twenty directions and carry no intervals, so the ordering among them, including
-the observation that the linear model transfers worst, is not claimed as a result; what the arm
-supports is the weaker and sufficient statement that all four land in a narrow band well below
-within-region skill. Regularisation costs within-region skill, 0.888 down to 0.741,
-without buying portability, and it drives the thermal block's cross-region contribution negative.
-Other model families were not tried, and a fundamentally different inductive bias might behave
-differently, but within this family the negative result is a property of the predictors rather than
-of an unregularised estimator.
+configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows the transfer result is not an artefact of that
+choice: three further estimators, including a penalised linear one, all land between 0.510 and 0.556
+and all place fourteen of twenty directions above chance. Those are point estimates without
+intervals, so the ordering among them is not claimed as a result. Other model families were not
+tried, and a different inductive bias might behave differently, but within this family the negative
+result is a property of the predictors rather than of an unregularised estimator.
 

@@ -26,76 +26,52 @@
 > paragraph gained "at the point estimate", because the low-overlap pair carries no interval verdict
 > at 5 km. The swing-factor sentence is unchanged, since it rests on point estimates.
 
-Pre-fire thermal dryness adds a real and repeatable increment to burned-area discrimination. Across
-five Mediterranean regions, ROC-AUC was raised by +0.06 to +0.15 over a static and near-static
-terrain, fuel and greenness baseline. That baseline's only time-varying member is the
-vegetation-index composite. The gain
-survived spatial blocking at about 5 km, the coarsest scale this design supports as an interval. It
-also survived a predictor window closed up to two weeks
-before the first labelled burning.
+Where a fire model is scored decides what it appears to know. Holding the model, its predictors and
+its fitting fixed and changing only which cells are scored, moving from a whole study region to the
+burn scar and its 2 km collar costs **0.143 ROC-AUC [+0.077, +0.208]**. A control isolates the cause:
+matching prevalence changes nothing, at −0.000 [−0.003, +0.002], while scoring the same predictions
+on the scar area costs +0.155 [+0.093, +0.217]. It is the composition of the negative pool, not
+class balance. The effect is larger than the predictor-block increments this literature publishes as
+findings, so a region-wide validation figure should be read as an upper bound on what a model
+achieves where fire actually occurs, and reported as one.
 
-That skill is local. Paired per direction, the same predictor block adds nothing distinguishable
-from zero to cross-region transfer. The mean is +0.004 over twenty directions and its interval spans
-zero under all four between-direction resampling units we computed. Its contribution changes sign
-from one direction to another. The paired deltas run from −0.148 to +0.133, twelve positive and eight
-negative. At the conservative 5 km blocking, five to six directions are helped and three to four are
-harmed with interval support, with the rest carrying no verdict. The block is also the swing factor
-at the chance line.
+That correction is not only other people's problem. Applied to our own five-region matrix it
+withdraws three of our claims. The study areas enclose very different far fields, from 2 % to 63 %
+of cells beyond 10 km of any fire, and that far field is higher ground. Equalising them to a 10 km
+collar, which drops no burned cells, lifts mean transfer from 0.540 to 0.617, reduces the directions
+below chance from six to one, and makes all five regions agree in sign on elevation, LST and TVDI.
+The sign reversal we had offered as the mechanism of the transfer residual is therefore mostly a
+property of how five rectangles were drawn. Under our own criterion no reversal then remains
+bootstrap-supported. The sign the five regions agree on is also not the one the dryness framing
+predicts: hotter pre-fire surfaces burned less everywhere, surviving stratification within elevation
+and greenness, so on this cohort the thermal block behaves as a proxy for fuel availability.
 
-Two controls fix the meaning of all this. The baseline arm transfers at a mean of 0.537 against the
-thermal model's 0.541, so the static predictor class is not portable here either. And three evaluations on identical cells locate
-where it goes: 0.634 with the held-out burn scar in the training data, 0.552 with it withheld, and
-0.555 for a model fitted 306 to 2,802 km away. The honest summary is therefore not that these
-predictors fail to cross regions. What is measurable is the evaluation geometry. The
-fire-specific residual is +0.082 [−0.011, +0.175] and the 2,800 km costs −0.003 [−0.075, +0.069];
-both span zero, and both arms sit close to chance, so neither is shown to cost anything.
-Two thirds of the apparent collapse from a region-wide 0.776 is the evaluation area itself, which is
-34 to 87 per cent burned against 3.8 to 28.7 for a region. Six directions are anti-predictive with interval support on the
-frames as drawn, but that count is itself mostly a frame artefact: equalising the frames leaves one,
-and lifts mean transfer from 0.540 to 0.617. The one-event-per-region design
-also means that a fire cannot be separated here from the season and meteorology that produced it.
+What survives the correction is the central result. Pre-fire thermal dryness adds a real and
+repeatable within-region increment, +0.06 to +0.15 ROC-AUC over a static and near-static baseline in
+all five regions, surviving spatial blocking at about 5 km and a predictor window closed up to two
+weeks before the first labelled burning. It does not travel. Equalised transfer of 0.617 against
+within-region skill near 0.87 leaves most of the gap intact; the paired cross-region contribution is
++0.004 [−0.028, +0.036] with a sign that varies by pair; and the static baseline transfers at 0.537
+against the thermal model's 0.541, so this is not a peculiarity of dynamic predictors. Removing the
+two reversing predictors costs −0.081 of within-region skill, three quarters of it elevation, and
+changes transfer by +0.014, whose interval spans zero: a local cost is measured, no compensating
+transfer gain is, and no exchange between them is demonstrated.
 
-Removing the two reversing predictors, elevation and the LST anomaly, costs −0.081 of mean
-within-region skill, with interval support in every region and roughly three quarters of it
-attributable to elevation, a baseline terrain variable; it changes mean transfer by +0.014, an
-estimate whose interval spans zero. A local cost is measured. No compensating transfer gain is, on
-either arm, so no exchange between the two is demonstrated.
+The shortfall cannot be anticipated. None of the twenty diagnostics tested ordered the matrix on the
+marginal, niche or regime families, and on ten effective pairs those nulls mean not shown to order
+transfer rather than shown not to. The two that do carry intervals excluding zero measure signed
+direction agreement, rest on a data-selected subset of predictors, and require burned labels on both
+sides — which is the resource a practitioner deploying to a new region does not have. Label-free
+alignment compresses fourteen of twenty directions towards chance rather than repairing them, and
+pooled multi-region training does not escape it either. Supervised recalibration works but is not
+cheap: thirty-two labelled 5 km blocks recover 85 to 89 % of the target's matched ceiling in three
+of six directions, and at the top budget the labelled set already holds most of one region's burned
+cells.
 
-The relationship itself is also unstable, and that is a separate finding. The direction of the link
-between dryness and burning changes from one region to another, with bootstrap support for two
-predictors. This is measured on univariate associations and does not depend on any fitted model, so
-the distance result above neither establishes it nor removes it. What the two together rule out is
-the comfortable reading in which regional concept shift explains the whole transfer matrix. Most of
-its *level* is reached without leaving a region. What varies around that level, including six
-anti-predictive directions, is not explained by separation and is where the instability matters.
-
-None of the similarity diagnostics tested here ordered the transfer matrix: predictor-space distance,
-domain separability, niche overlap and regime structure all failed. On ten effective pairs those null
-results mean not shown to order transfer, rather than shown not to. Label-blind adaptation compresses transfer towards
-chance rather than repairing it, though its mean sits at the reference a model can reach on an
-unseen scar, so it is regressing the matrix onto that level rather than failing beneath it. Pooled
-multi-region training does not escape it either.
-
-The practical implication is a change in what is checked before a dynamic-state fire model is
-transferred. The question is not whether the target region lies inside the source's environmental
-envelope. In our matrix, the pair with the highest envelope overlap failed in both directions, and
-the pair with the lowest overlap transferred in both. Both statements are made at the point
-estimate. The question is whether the signed feature-response directions agree.
-
-That check requires a labelled probe in the target region, and so, on inspection, do the niche and
-regime diagnostics. Only the marginal family can be computed before any target label exists, and it
-is the family that failed. How large the probe has to be is not established here, so no label budget
-is claimed. A signed association with a usable interval may
-need fewer labels than a refitted model, but that was not tested. What is clear is that the
-supervised recalibration that label-free alignment cannot deliver is not cheap. Section 4.10 prices
-it for three regions: thirty-two labelled 5 km blocks recovered 85 to 89 % of the target's matched ceiling in
-three of six directions, 51 to 57 % in two more and 30 % in the sixth, and at its top budget the
-labelled set already holds most of one target region's burned cells. Where no target labels exist, the transfer performance of such
-models should be treated as unknown rather than inferred from similarity.
-
-For model builders, local skill and portability should be reported separately rather than assumed to
-travel together. A predictor block worth a large within-region increment may contribute nothing
-distinguishable from zero across regions, with a sign that varies by pair, and reporting only
-within-region validation hides that completely. Three extensions are left for future work: temporal transfer,
+Two practical consequences follow. Report local skill and portability separately, since a predictor
+block worth a large within-region increment may contribute nothing distinguishable from zero across
+regions. And fix the evaluation frame by an explicit accessible-area rule before any predictor is
+computed, because a frame chosen for convenience can manufacture both a transfer failure and a
+mechanism to explain it. Three extensions are left for future work: temporal transfer,
 meteorological covariates, and physically normalised dryness variables. Each is a step towards the
 self-calibrating thermal monitoring system that motivated this study.

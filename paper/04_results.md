@@ -578,8 +578,36 @@ region to cells within 10 km of any burned cell drops **no positives**, only far
 | current TVDI, 10 km collar | 0.392 | 0.454 | 0.342 | 0.250 | 0.361 | no |
 
 On the equalised frame all five regions agree in sign on elevation, on LST and on TVDI, and both
-bootstrap-supported elevation reversals of Table B3 disappear. **One reversal survives**:
-`lst_anomaly_mean` still straddles 0.5 under the collar, at 0.392 in Bejís against 0.584 in Evia.
+bootstrap-supported elevation reversals of Table B3 disappear. Applying this paper's own criterion
+from Section 3.10, which requires each region's own 10-cell block-bootstrap interval to exclude 0.5,
+**no reversal remains bootstrap-supported in the collar frame** (`collar_frame_bootstrap.csv`). The
+closest is `lst_anomaly_mean`, at 0.392 [0.324, 0.460] in Bejís against 0.584 [**0.497**, 0.669] in
+Evia: the point estimates fall on opposite sides but Evia's interval includes 0.5 by 0.003, so this
+is a point reversal, not a supported one. We state it that way rather than quoting the point
+estimates alone, because the alternative would be to apply a looser standard to the arm that
+supersedes Table B3 than to Table B3 itself. Elevation under the collar is above 0.5 in all five
+regions but individually supported in only two, Muğla at 0.606 [0.525, 0.685] and Evia at 0.648
+[0.550, 0.740].
+
+**The sign the five regions agree on is not the one the dryness framing predicts.** For LST the
+common direction is *below* 0.5 in every region, at 0.386, 0.405, 0.332, 0.286 and 0.376: a hotter
+pre-fire surface is associated with **less** burning, not more, and the same holds for TVDI. This is
+not a lapse-rate artefact. Pooling concordance within elevation deciles leaves LST at 0.402, 0.509,
+0.363, 0.327 and 0.392, still below 0.5 in four of five regions, and within NDVI deciles at 0.440,
+0.486, 0.404, 0.279 and 0.368, below 0.5 in all five, despite r(LST, NDVI) reaching −0.92. The
+likely reading is that fuel availability dominates surface dryness at this scale in this cohort:
+NDVI itself is the strongest single predictor under the collar, at 0.582 to 0.663 with intervals
+excluding 0.5 in four of five regions, so greener and therefore more fuel-rich cells burn more,
+while the hottest cells are the sparse, rocky ones with little to burn. Section 1.2 motivates the
+thermal block from moisture-stress physics; that motivation is not what the signed associations
+show, and Section 5.2 states the consequence.
+
+Three further points bound how many independent reversals could have been counted. Within the
+collar, `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00 and
+`downscaled_lst_mean` at 0.97 to 0.99, and `current_tvdi_mean` at 0.87 to 0.98. The four absolute
+channels are close to one axis, and the two anomaly channels correlate at 0.64 to 0.94, so the "five
+of nine directions reverse" count of Section 4.5 is a count of features, not of independent
+quantities; in effective dimensions it is closer to two.
 That is coherent rather than fortunate. The absolute thermal channels are strongly collinear with
 elevation, at r = −0.695, −0.125, −0.404, −0.511 and −0.507 for current LST across the five regions,
 and −0.722 to −0.298 for TVDI; the anomaly, which is differenced against each cell's own baseline
