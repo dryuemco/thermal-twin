@@ -102,9 +102,14 @@ computed on nine scars and report 0.782 and 0.627 against this table's 0.776 and
 intervals are Student *t* over the eight scars, which is this arm's resampling unit rather than the
 spatial-block bootstrap used elsewhere. Eight is small and the intervals are wide accordingly; four
 of the eight scars are in Muğla and two in Montiferru, so they are not independent, and **row A in
-particular is a region-level quantity repeated across the scars of a region, so its interval is
-pseudo-replicated and should not be read as coverage**. The two differences are computed per scar
-and paired.
+particular is a region-level quantity repeated identically across the scars of a region — the four
+Muğla scars all carry 0.777 and the two Montiferru scars 0.720 — so its interval is pseudo-replicated
+and should not be read as coverage**. That repetition propagates into A − B and A − C, which are the
+differences quoted below. Clustering by region instead of by scar gives A − B = +0.155 [+0.082,
++0.228] and A − C = +0.251 [+0.093, +0.409] on four regions: both still exclude zero, but the A − C
+interval is 2.3 times wider, so **the scar-level intervals on these two differences overstate
+precision** and the clustered ones should be read as the honest width. The two differences are
+computed per scar and paired.
 
 **The same model, scored two ways on the same region, differs by 0.143 AUC.** Rows A and B are one
 model and one set of out-of-fold predictions; the only change is which cells they are scored on.
@@ -126,8 +131,10 @@ identity cannot be separated from its location. Row D averages four foreign mode
 spread, 32 combinations running 0.374 to 0.724 with ten below chance, so the pooled 0.555 says the
 *average* foreign model matches a same-region one, not that any particular one does. Sweeping the
 two parameters that define the held-out patch — minimum component size over 25 to 200 cells and
-connectivity over the 4- and 8-neighbourhoods — moves the row-C mean only between 0.545 and 0.566,
-and it is flat across buffers of 2, 5 and 10 km.
+connectivity over the 4- and 8-neighbourhoods — moves the row-C mean only between 0.545 and 0.566.
+Across buffers the mean is 0.552 at 2 km, 0.540 at 5 km and 0.553 at 10 km, the last over seven
+scars rather than eight because one Montiferru component has no 10 km row, so the three are close
+but the 10 km figure is not strictly comparable.
 
 **The increment declines with the holdout, and is not established once the fire is withheld.**
 Contribution 1 is about the paired thermal-minus-baseline difference, so the same evaluations were
@@ -165,7 +172,11 @@ involving Evia, with three caveats that keep it weak: nine of ninety differences
 about 4.5 expected under the null with no multiplicity correction, the nine features are effectively
 two to three dimensions, and Evia's support status turns on 0.003. **The honest statement is that no
 reversal meets the strict criterion under the collar, and that the LST anomaly differs between
-regions on the weaker one** (Appendix A(l)).
+regions on the weaker one** (Appendix A(l)). One scope limit belongs with it: the interval criterion
+was evaluated at the 10 km collar only. At the point estimate the two radii agree exactly — at both
+5 km and 10 km the same two features straddle 0.5 and the other seven agree in sign across all five
+regions, against eight of nine straddling on the frame as drawn — so the conclusion is not selected
+by the radius, but the strict criterion has been run at one of them (`aoi_frame_auc.csv`).
 
 **The sign they now agree on is not the one the dryness framing predicts**: everywhere a hotter
 pre-fire surface is associated with **less** burning, and on mutual adjustment the surviving channel
@@ -206,8 +217,12 @@ drawn.
 **Two further arms move with the frame.** The same-geography arm of Appendix A(m) is the most
 extreme case in the cohort — a fixed study area is not a fixed evaluation frame, and its 2022 arm has
 93.2 % of cells beyond 10 km of any burned cell against 55.3 % for 2021 — so under the collar its
-two arms fall on the same side of 0.5. **No bootstrap-supported sign reversal survives anywhere in
-this paper once frames are equalised.** The within-region increment, by contrast, **survives**,
+two arms fall on the same side of 0.5 **on elevation**, the feature whose reversal we had reported.
+On the other six the collar does not remove this arm's reversal, it moves it: `current_lst_mean` and
+`current_tvdi_mean` are not reversals as drawn and **are** supported reversals under the collar
+(Appendix A(o)). The correct statement is therefore narrower than the one we first drew — between
+regions no bootstrap-supported reversal survives equalisation, but within this two-fire arm one is
+withdrawn and two appear, all three on eleven positive-carrying blocks against a floor of sixteen. The within-region increment, by contrast, **survives**,
 positive in all five regions at a mean of +0.077 against +0.086 as drawn (Appendix A(o)).
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
@@ -228,7 +243,8 @@ the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on t
 The reference arm reproduces the frozen matrix, at 0.540 against Table B9's 0.541 and 14 of 20
 exactly. **The baseline control must be restated on this frame**: the static baseline transfers at
 0.593 against 0.617, a paired difference of +0.023 rather than +0.003 — the control holds in kind,
-but the gap is eight times larger once frames are comparable. The table's counts are point counts;
+but the gap is eight times larger once frames are comparable, or five times at the 5 km collar,
+which is the less favourable of the two radii on every column of Table 4. The table's counts are point counts;
 under the same 10-cell bootstrap the movement is six below chance to one at the point estimate and
 **four to one with interval support**.
 
@@ -240,8 +256,10 @@ the paired thermal contribution, +0.004 as drawn against +0.023 equalised. What 
 central negative result, and its size must be stated on a matched comparison: setting 0.617 against
 a within-region reference of about 0.87 would compare a collar number with a full-rectangle one at
 1 km blocking. Recomputed on the same frame at 5 km blocking that reference is 0.772, so the
-shortfall is **+0.155 [+0.094, +0.217]** paired by target region — real, and 0.155 rather than the
-0.25 an unmatched comparison implies, and shrinking as the frame approaches the fire. Section 5.8(x)
+shortfall is **+0.155 [+0.094, +0.217]**, a Student *t* interval over the five target regions and
+not the spatial-block bootstrap used elsewhere — numerically almost identical to Section 4.3's
+negative-pool effect over nine scars, which is a different quantity on a different unit — real, and 0.155 rather than the
+0.25 an unmatched comparison implies, and shrinking as the frame approaches the fire. Appendix C.5(x)
 records the frame as a limitation of this cohort rather than of the method.
 
 ## 4.5 Cross-region transfer, and what label-free adaptation does to it
@@ -254,8 +272,12 @@ the pre-registered protocol yields; per-direction values, raw and under both ada
 Appendix B, Table B9, and the supporting arms in Appendix A(x).
 
 **Raw transfer is heterogeneous and includes anti-predictive directions.** Target AUC spans 0.326 to
-0.686. Twelve of twenty directions are above chance with interval support and six are below, of
-which only Manavgat to Bejis survives frame equalisation. Even the best raw transfer, 0.686, sits
+0.686. The support counts depend on the blocking scale and both are reported: at 2-cell (≈1 km) blocking
+twelve of twenty directions are above chance with interval support and six below, and at the 10-cell
+(≈5 km) blocking this design defends (Section 4.2) nine are above and four below with seven
+uncertain — the counts Table 4 uses. Of the below-chance directions only Manavgat to Bejís survives
+frame equalisation. One direction's 5 km verdict and one paired delta verdict at 1 km are not stable
+across bootstrap seeds (`transfer_ci_blocksize.csv`). Even the best raw transfer, 0.686, sits
 far below that target's own within-region 0.870, and the raw deficit against the within-region
 reference runs 0.184 to 0.592 — a reference Section 4.3 shows is not matched to a transfer
 evaluation.
@@ -320,13 +342,16 @@ fraction over interval-supported features at ρ = +0.84 [+0.58, +0.88], and its 
 dissimilarity, climatic distance and geographic distance, and neither were the niche-overlap and
 regime families. The learned domain classifier is at ceiling, separating source from target at
 AUC ≥ 0.96 for every pair, so it always succeeds and carries no ordering information. Geographic
-separation does not order the matrix on either construction, at ρ = −0.32 over twenty directions and
-−0.24 on the twelve-direction subset, both spanning zero.
+separation is a single diagnostic here, centroid distance over the twelve directions for which the
+pipeline author's export defines it, at ρ = −0.24 [−0.84, +0.73]: in the expected direction and
+spanning zero.
 
 Four limits are stated with the result. **Size**: the index's tie structure caps the achievable
 Spearman at +0.861, so the observed +0.840 sits on that ceiling, and its exact one-sided permutation
-p of 0.0060 is the smallest that structure can produce against a Bonferroni threshold of 0.0026 —
-**no outcome of this diagnostic could have cleared family-wise correction on ten effective pairs**.
+p of 0.0060 — 240 of the 8! = 40,320 relabellings of the **eight** pairs on which the index is
+defined, the two Montiferru pairs having no jointly supported feature — is the smallest that
+structure can produce, against a Bonferroni threshold of 0.05/19 = 0.0026 for the nineteen computed
+variants. **No outcome of this diagnostic could have cleared family-wise correction.**
 **Labels**: signed associations need burned labels in both regions, so the family that appears to
 work is not available before deployment while the family that fails is. **Selection**, the sharpest:
 the two rows that clear zero are the *supported-feature* variants, whose subset is chosen by whether
@@ -344,8 +369,8 @@ to order transfer once the frames are comparable**.
 Six further arms bear on the findings above without changing them and are reported in Appendix A:
 the contrast pair (A(s)), the two interventions (A(n)), the sensitivity summary (A(v)), the
 same-geography two-event arm (A(m)), the distance curve (A(t)) and the label-budget curve (A(u)).
-Each is stated there with its own limits; the two whose conclusions bear directly on Sections 5.5
-and 5.8 are the interventions, where a local cost of −0.081 is measured against a transfer return of
+Each is stated there with its own limits; the two whose conclusions bear directly on Sections 5.4
+and 5.7 are the interventions, where a local cost of −0.081 is measured against a transfer return of
 +0.014 [−0.017, +0.045] whose interval spans zero, and the label budget, where thirty-two labelled
 5 km blocks recover 85 to 89 % of the target's matched ceiling in three of six directions and 30 to
 57 % in the rest — 7 to 20 % of the target's population, and drawn from the event being predicted,

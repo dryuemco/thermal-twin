@@ -68,7 +68,7 @@ Because only that side of the ledger is reported, portability is never entered: 
 adopted on the increment it delivers inside its training footprint, and whether that increment
 survives a change of region is not asked, even though any regional product built from locally
 trained models implicitly promises generalisation beyond it. Meteorological fire-danger indices are
-known not to port cleanly [@Podschwit2022], and the two studies that test model transfer
+known not to port cleanly in a Peruvian case study [@Podschwit2022], and the two studies that test model transfer
 systematically [@Dimarco2026; @Liu2025] both report that it largely succeeds between similar
 regions — and both transfer models whose dominant predictors are *spatially stationary*. Whether a
 dynamic, season-specific class behaves the same way is the question this paper puts.
@@ -81,8 +81,10 @@ poorly why one summer burned and the preceding one did not; what changes is the 
 surface, to which satellite thermal observation gives partial access (Section 2.2). The physics
 linking moisture stress to combustion is universal, so portability should be most expected here,
 which is what makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally
-defined covariate. That expectation motivates the design and is not a finding of it — Section 4.4
-reports the associations running the other way.
+defined covariate. The expectation is sharpest for the internally normalised channels, which should
+be least exposed to absolute-temperature offsets between regions; **they transfer no better than the
+absolute ones** (Appendix A(f)). The expectation motivates the design and is not a finding of it —
+Section 4.4 reports the associations running the other way.
 
 ## 1.3 Why the loss is invisible to the diagnostics in use
 

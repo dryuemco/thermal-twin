@@ -121,7 +121,7 @@ A control isolates the cause as the composition of the negative pool rather than
 matching prevalence costs −0.000 [−0.003, +0.002] while substituting fire-adjacent negatives costs +0.155
 [+0.093, +0.217] over nine held-out scars. Applied between regions the same effect withdrew five of our own claims.
 The five study areas enclose very unequal far fields, and restricting each to a 10 km collar, which removes
-only far-field negatives, lifts mean transfer from 0.540 to 0.617 and leaves no sign reversal supported
+only far-field negatives, lifts mean transfer from 0.540 to 0.617 and leaves no between-region sign reversal supported
 under our own criterion, though the LST anomaly still differs between regions on a difference
 interval. The agreed direction is the opposite of the one dryness physics predicts: at the point estimates
 hotter pre-fire surfaces burned less in every region, and on mutual adjustment temperature survives where greenness

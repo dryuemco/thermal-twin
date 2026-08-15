@@ -37,9 +37,11 @@ as one.
 That correction is not only other people's problem. Applied to our own five-region matrix it
 withdraws five of our claims. The study areas enclose very unequal far fields, and equalising them
 to a 10 km collar lifts mean transfer from 0.540 to 0.617, reduces the
-directions below chance, and leaves no sign reversal supported under our own criterion — including
-the one arm that held place fixed, two fires in the same study area eleven months apart, which we
-had wrongly exempted because its geography was constant while its evaluation frame was not. What had
+directions below chance, and leaves no sign reversal supported between regions under our own
+criterion — including the one arm that held place fixed, two fires in the same study area eleven
+months apart, which we had wrongly exempted because its geography was constant while its evaluation
+frame was not. Within that arm equalisation moves the reversal rather than removing it, withdrawing
+the elevation one and raising two thermal ones, all on a positive-block count below our own floor. What had
 looked like a reversed predictor-burning relationship was mostly a statement about how five
 rectangles were drawn.
 

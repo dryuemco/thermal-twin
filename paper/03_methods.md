@@ -17,7 +17,7 @@ negative class, and not tuned on burned prevalence, gate outcome or any model me
 choice was label-informed and is stated as such**: the North Evia box was extended after the legacy
 box was found to carry an atypically high burned prevalence, the extended geometry then being defined
 from place anchors, with the legacy variant kept as a sensitivity arm (Appendix A). Section 4.4 shows
-that this framing decision is consequential and Section 5.8(x) treats it as the design lesson of the
+that this framing decision is consequential and Appendix C.5(x) treats it as the design lesson of the
 paper. A sixth region, Kozan 2023, is carried as a negative control and excluded by the gate of
 Section 3.3.
 
@@ -73,8 +73,9 @@ Cell-level values are means over the ~510 m cell, computed from valid 30 m pixel
 valid fraction recorded. A cell is `valid_for_modeling` when it meets a 30 % valid-pixel floor and no
 thermal channel is missing. Two populations are then defined. The **primary** population is natural
 vegetation, cells whose combined tree, shrub and grass fraction reaches 0.50, which excludes
-cropland from every burnable mask. The **secondary** population is all valid cells, reported
-throughout as a sensitivity. Every headline result is given for both.
+cropland from every burnable mask. The **secondary** population is all valid cells. The frozen
+export carries it for the within-region arm in Manavgat and Bejís, where it is reported as a
+sensitivity in Appendix A(v); the transfer matrix is defined on the primary population only.
 
 ## 3.6 Feature sets and classifier
 
@@ -188,10 +189,14 @@ on the interpretation, are in Appendix A(i).
 An explicit forbidden-column set is enforced at every model fit as an assertion rather than a
 convention: coordinates and their normalised forms, every burn-date and label-provenance column, and
 the agreement fraction are excluded from all feature sets. The natural-vegetation mask defines the
-population and is never a predictor. All randomness uses seed 42 and the bootstrap 1000 replicates.
+population and is never a predictor. All randomness uses seed 42 and the bootstrap 1000
+replicates, with one qualification: the five diagnostic bootstraps behind Table 5 and Table B1 use
+per-measure offsets from that seed rather than the seed itself, so that independent measures do not
+share a resampling draw. Two of the twenty transfer verdicts are not stable across seeds and are
+identified in Section 4.5.
 Because the transfer analysis runs in an environment separate from the upstream pipeline's, every
 within-region model was refitted and compared against the frozen upstream output: the within-region
-comparisons agree exactly and the twenty transfer directions to within 1.6×10⁻⁷. Section 5.8(vi)
+comparisons agree exactly and the twenty transfer directions to within 1.6×10⁻⁷. Appendix C.5(vi)
 states the implementation tolerance that applies if the library version is not pinned. Every
 headline result is repeated across two populations, three block sizes, the CORAL sweep, both feature
 sets and four classifier capacities, and where a conclusion depends on one of those choices the

@@ -135,14 +135,17 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
 
 ## C.5 Limitations, in full
 
-Section 5.8 states each limitation; the elaborations are here.
+Section 5.8 states the four that bind the conclusions; all eleven are here.
 
 (i) **No meteorological covariates** enter the models, so we cannot say how local skill and
 portability behave for a mixed thermal-plus-weather predictor set.
 
 (ii) **The same-geography comparison covers one region only**, and even there year and seasonal phase
-are confounded, a confound that cannot be resolved in this study area for the reason given in
-Section 5.2. Its 331 burned cells also leave the thermal reversals unresolved at interval level, and
+are confounded. That confound cannot be resolved in this study area, and the reason is specific: the
+two events sit 42 days apart in median burn day-of-year, neither year contains a second event at the
+other's phase, and a calendar-matched arm would carry nine burned cells against this design's gate
+minimum of thirty. The positive-block count for the 2022 arm is separately below the floor this
+design sets itself, at eleven against sixteen (Appendix A(m)). Its 331 burned cells also leave the thermal reversals unresolved at interval level, and
 the pair holds place fixed but not population. Those two arms are additionally the only transfer
 directions here computed by us rather than read from the pipeline author's frozen export, with his
 unmodified code and the same pinned environment.
@@ -208,7 +211,7 @@ Every within-region model was therefore refitted there and compared against the 
 output, and the independently implemented adaptation was compared against the pipeline's own. The
 within-region comparisons agree exactly and the twenty transfer directions to within
 1.6×10⁻⁷. All numbers here were produced under scikit-learn 1.9.0 or verified against it; the
-implementation tolerance that applies if the version is not fixed is stated in Section 5.8(vi), and
+implementation tolerance that applies if the version is not fixed is stated in Appendix C.5(vi), and
 the companion paper reports the version sensitivity and the reproduction check in full.
 
 **Sensitivity analyses.** Every headline result is repeated across two analysis populations, three

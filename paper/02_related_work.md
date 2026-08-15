@@ -22,7 +22,7 @@ internally normalised measure, which is why it is often expected to travel bette
 temperature. That pre-fire thermal state carries information about subsequent fire is established
 [@Maffei2018; @MaffeiMenenti2019; @Maffei2021], and Gelabert et al. [@Gelabert2025] found dead fine
 fuel moisture and its anomalies the most influential predictor of human-caused ignition likelihood
-across Europe. What has not been tested is whether a classifier built on this class survives strict,
+across Europe, testing generalisation by pooled fitting with per-site evaluation. What has not been tested is whether a classifier built on this class survives strict,
 label-free application to a region it never saw.
 
 ## 2.3 Spatial validation and transferability
@@ -55,7 +55,8 @@ susceptibility, fire occurrence or burned-area prediction.
 
 ## 2.5 Cross-region generalisation of fire models
 
-Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] report that
+Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] report, in a
+Peruvian case study, that
 meteorologically derived danger indices do not port cleanly between fire environments. WildfireGenome
 [@Liu2025] runs a leave-one-county-out matrix across seven US counties and reports strong
 within-county performance with highly variable off-diagonal transfer, similar pairs transferring well

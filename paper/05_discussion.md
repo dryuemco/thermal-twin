@@ -20,8 +20,10 @@ The within-region increment and the transfer failure are measured at different s
 Section 4.3 shows most of the difference between them is already present inside a single region. The
 increment is local in a specific sense: it holds where held-out cells are interleaved with training
 cells and most of it is gone once they are not, before the fire or the region changes. It is not an
-artefact to be explained away, surviving every robustness arm of Section 4.2, but it is established
-under interleaved validation and not beyond it.
+artefact to be explained away, surviving every sensitivity arm of Appendix A(a)–(h), but it is
+established under interleaved validation and not beyond it. Even there the window-closure arm is
+region-specific and **weakens monotonically in Evia**, so what holds everywhere is survival, not
+improvement.
 
 The natural objection is that Mediterranean regions are simply different systems, so a predictor
 meaning one thing in one place and another elsewhere is a comparison of two systems rather than
@@ -42,19 +44,20 @@ dynamic block, so whatever the shortfall is, it is not the thermal block's pecul
 A diagnostic built on distance in predictor space asks whether the target's predictor values look
 like the training data's, which is not the question that matters when the failure is conditional: a
 target region can sit well inside the training envelope while the relationship between those
-predictors and burning points the other way. Manavgat to Muğla is exactly
-that case, with 0.875 of target cells inside the weighted area of applicability and transfer among
-the weakest in the matrix, while the least similar pair transfers better (Appendix A(s)). High
+predictors and burning points the other way. Manavgat to Muğla is exactly that
+case, with 0.875 of target cells inside the full-frame area of applicability and transfer among the
+weakest in the matrix **on either frame**, while the least similar pair transfers better
+(Appendix A(s)). High
 overlap does not buy transfer. **The qualifier is not decorative**: at the 5 km blocking this paper
 otherwise defends neither contrasted direction carries a verdict, so this is a statement about point
 estimates and is made as one. The domain classifier is at ceiling for every pair, so
 separability carries no ordering information.
 
 The two conditional variants that did clear zero are not a remedy. Section 4.6 states four limits
-with them: a tie-structure ceiling, a family-wise threshold **no outcome could have cleared**, a
-feature subset selected on the same data, and a label requirement making it a mechanism diagnosis
-rather than a screen. A fifth removes it altogether, since the index is built
-from signed associations Section 4.4 shows to be frame artefacts. So the practical
+with them: a tie-structure ceiling and a family-wise threshold **no outcome could have cleared**, a
+label requirement that makes it a mechanism diagnosis rather than a screen, a feature subset selected
+on the same data, and the frame, which removes the result altogether — the index is built from signed
+associations Section 4.4 shows to be frame artefacts. So the practical
 conclusion is not "use this index instead", nor even "it works but needs labels": **none of the
 twenty candidates was shown to order transfer**, and the two that appeared to were reading how the
 rectangles were drawn. As always these are nulls on ten effective pairs: not shown to order
@@ -65,13 +68,13 @@ transfer, rather than shown incapable of it.
 Both interventions show the same shape. Pooling four regions never beats the best single-source
 transfer for any target and stays well below the within-region ceiling (Appendix A(n)), so
 aggregation does not manufacture the missing conditional information. Removing the reversing
-predictors costs −0.081 of within-region skill with interval support in every region, and changes
-mean transfer by +0.014 [−0.017, +0.045], not distinguishable from zero.
+predictors costs −0.081 of within-region skill with interval support in every region, and returns
++0.014 [−0.017, +0.045] in mean transfer.
 
 That pair of numbers is easy to read as an exchange, and it is not one. Both arms are null on the
-portability axis — the thermal block's own contribution to transfer is +0.004 and removal returns
-+0.014, both intervals spanning zero — so what the interventions measure is a local cost and no
-compensating transfer gain. That is not a conservation law, and it is not a rate at which local
+portability axis — the thermal block's own contribution is +0.004, removal returns +0.014, both
+intervals spanning zero — so what the interventions measure is a local cost and no compensating
+gain. That is not a conservation law, and it is not a rate at which local
 skill can be sold for portability. No such rate is estimated here.
 
 ## 5.5 The regime hypothesis, reported as it happened
@@ -101,7 +104,8 @@ travel either.
 ## 5.7 Implications
 
 In precision-recall terms, which is how a susceptibility surface is used, transferred models average a PR-AUC of 0.156 against a no-skill
-baseline of 0.136 (Section 4.5). Whatever the ROC figures suggest, a model moved to a region it was
+baseline of 0.136 **on the frames as drawn**, six of twenty falling below their own baseline
+(Section 4.5). Whatever the ROC figures suggest, a model moved to a region it was
 not fitted in does not usefully rank burned cells there.
 
 The paper supports one concrete change in reporting: alongside a spatially blocked within-region
