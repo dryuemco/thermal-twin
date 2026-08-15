@@ -1,7 +1,7 @@
 # 2. Related work
 
 > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now
-> written to serve the three findings of Section 1.4 and nothing else. No citation was dropped that
+> written to serve the four contributions of Section 1.4 and nothing else. No citation was dropped that
 > a surviving claim depends on, and the Dimarco contrast, which Contribution 1 rests on, is kept
 > whole. The removed material, chiefly the wider fire-susceptibility and thermal-dryness surveys,
 > supports the companion paper.
@@ -71,6 +71,23 @@ evaluation design, a caution we address by fixing the protocol in a project log 
 diagnostics were computed and by reporting every sensitivity axis; that log is not a formal
 pre-registration, and Section 3.11 states what was fixed and when. Kondylatos et al. [@Kondylatos2023]
 provide Mesogeos, a 1 km Mediterranean datacube for data-driven wildfire modelling.
+
+**Evaluation extent and AUC.** Species distribution modelling settled long ago that the area a model
+is evaluated over is not a neutral choice. Lobo et al. [@Lobo2008] make it the fifth and, by their own
+ranking, most important reason to distrust AUC as a comparative measure: the extent of the modelled
+area governs how many easy absences enter the calculation, and therefore the score. VanDerWal et al.
+[@VanDerWal2009] show the same lever on the calibration side, that how far background points are
+drawn from known presences changes the fitted model and its apparent accuracy, and Barve et al.
+[@Barve2011] give the argument its general form as the accessible area. This literature is
+qualitative about magnitude, because magnitude is problem-specific: it establishes that the effect
+exists, is directional, and can be large, without fixing a number for any given application. Two
+things follow for the present paper. First, our Contribution 1 is a measurement inside that
+framework rather than a new phenomenon, and Section 1 states it that way. Second, the wildfire
+literature has largely not imported the lesson: region-wide validation figures are reported as
+though they described performance at the fire, and we know of no wildfire study that holds the model
+fixed and varies only the evaluation cells. The number we obtain, 0.143 ROC-AUC, is larger than the
+predictor-block increments this literature reports, which is why we treat it as a reporting problem
+in Section 5.8 rather than a caveat.
 
 **The nearest neighbour, and the contrast the present paper draws.** Dimarco et al. [@Dimarco2026]
 is the closest Mediterranean analogue: 500 m predictors harmonised across four countries, tree

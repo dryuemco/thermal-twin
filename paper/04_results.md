@@ -1,7 +1,7 @@
 # 4. Results
 
 > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now
-> reports the three findings of Section 1.4 and the evidence they rest on, in six tables. The
+> reports the four contributions of Section 1.4 and the evidence they rest on, in six tables. The
 > sensitivity analyses of the observational layer moved to the companion paper; the remaining
 > supporting tables move to the supplement. Every table below is carried verbatim from the
 > pre-split text, so no number was retyped.
@@ -117,7 +117,12 @@ is that the transfer failure below is not specific to the dynamic block. A basel
 travel, plus pre-fire thermal state, gives a model that does not travel.
 
 **The thermal block's paired contribution to transfer, with its interval.** The two matrices were
-differenced direction by direction. The mean is **+0.004**. The directions are not independent,
+differenced direction by direction. The mean is **+0.004**, but the mean is not the informative
+statistic here. The individual paired contributions span **−0.148 to +0.133**, with **twelve
+positive and eight negative** (`baseline_vs_thermal_transfer.csv`). The spread is thirty times the
+mean, and the sign is not a property of the block but of the pair it is asked to cross: the same six
+predictors that add +0.133 in one direction subtract 0.148 in another. A mean near zero here records
+cancellation, not consistent absence of effect. The directions are not independent,
 because each region appears in eight of the twenty. The interval therefore depends on what is
 treated as the resampling unit. All four units the design permits give the same answer:
 

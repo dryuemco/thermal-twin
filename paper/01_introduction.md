@@ -152,11 +152,19 @@ sides on the same pairs.
 Four findings carry this paper. Each is stated at the strength its interval supports, and the
 nearest prior work is named inside the claim.
 
-**Contribution 1. A region-wide validation figure is not what the model achieves where the fire is.**
-On one model in one region, moving the evaluation from the whole region to the burn scar and its
-2 km collar costs **0.143 ROC-AUC**, from 0.776 to 0.634. That is the size of the increment this
-literature ordinarily reports, and it is a property of the evaluation geometry rather than of the
-model, the region or the distance to anything. Withholding the scar from training costs a further
+**Contribution 1. A region-wide validation figure is not what the model achieves where the fire is,
+and we measure the gap.** That the extent over which a model is evaluated inflates AUC is not a new
+observation. It is the fifth and, in those authors' own ranking, most important of the
+objections raised by Lobo et al. [@Lobo2008], it is why VanDerWal et al. [@VanDerWal2009] ask how
+far background data should stray from what is known, and it is the accessible-area argument of Barve
+et al. [@Barve2011]. Those papers establish the effect and its
+direction. What this paper adds is a magnitude on the wildfire problem, under a controlled
+comparison the earlier work did not run: on one model in one region, moving the evaluation from the
+whole region to the burn scar and its 2 km collar costs **0.143 ROC-AUC**, from 0.776 to 0.634, with
+the model, the predictors and the fitting held fixed and only the evaluation cells changed. That is
+the size of the increment this literature ordinarily reports as a modelling result, so the effect is
+not a second-order correction here; it is larger than the quantity being reported. It is a property
+of the evaluation geometry rather than of the model, the region or the distance to anything. Withholding the scar from training costs a further
 +0.082 [−0.011, +0.175], and replacing the same-region model with one fitted 306 to 2,802 km away
 costs −0.003 [−0.075, +0.069]; both span zero, so neither the fire's identity nor the region
 boundary is shown to matter once the evaluation geometry is fixed. The practical consequence is a

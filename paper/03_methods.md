@@ -1,7 +1,7 @@
 # 3. Data and methods
 
 > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a
-> reader replicate the three findings of Section 1.4 and to carry every number Section 4 cites, and
+> reader replicate the four contributions of Section 1.4 and to carry every number Section 4 cites, and
 > nothing else. The observational layer beneath it, meaning predictor provenance, compositing,
 > quality screening, index normalisation, label omission and the version and reproduction audits, is
 > the subject of the companion paper and is summarised here only where a Paper 1 claim depends on it.
