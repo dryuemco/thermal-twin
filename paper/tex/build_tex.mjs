@@ -704,6 +704,15 @@ const preamble = `% ============================================================
 \\usepackage{longtable}
 \\usepackage{array}
 \\usepackage{url}
+%% The review option double-spaces everything, captions included. A 267-word
+%% caption then stands 160 mm tall, which together with the figure exceeds the
+%% 193 mm text block, and the folio prints through the caption text. LaTeX
+%% reports no overfull box for it, because the float is allowed to be tall.
+%% Captions are set at normal leading, as journals set them.
+\\usepackage{setspace}
+\\usepackage{etoolbox}
+\\AtBeginEnvironment{figure}{\\singlespacing}
+\\AtBeginEnvironment{table}{\\singlespacing}
 \\usepackage{lineno}
 \\modulolinenumbers[5]
 
