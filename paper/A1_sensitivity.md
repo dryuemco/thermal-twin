@@ -859,10 +859,13 @@ overwritten by a quality-screening rebuild after the frozen tables were computed
 scripts had read a version of that one region differing from Tables 1 and B9 in
 `downscaled_lst_mean` and `fused_lst_mean`. The two files agree on every other column; the proof
 that the difference is the data and not the fitting is that both give a within-region baseline of
-0.6980 at 10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773. Every arm
-of Section 4.4 was re-run with Muğla read from the frozen export and the other four regions
-unchanged; those four reproduce their published within-region rows exactly, so the defect is
-confined to one region. The correction moves forty of the hundred per-direction transfer values by
+0.6980 at 10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773. Two regions' files carry the rebuild's
+timestamp, Manavgat's and Muğla's, so both were replaced; the distinction that matters is whether
+the replacement agrees with what was published. Manavgat's does, reproducing its Table 1 row to the
+printed precision at 0.748 and 0.797, as does the rebuild's own reported increment interval. Muğla's
+does not. Bejís, Evia and Montiferru were not touched. Every arm of Section 4.4 was therefore re-run
+with Muğla read from the surviving frozen copy and the other four regions as they stand, which is
+the configuration Tables 1 and B9 were computed under. The correction moves forty of the hundred per-direction transfer values by
 up to 0.022, the largest being Muğla to Montiferru at 0.509 → 0.531. It leaves every headline
 quantity of Table 4 unchanged to within 0.0011: the equalised mean 0.6163 against 0.6166, its paired
 delta +0.0231 against +0.0234, and the above-chance counts identical in four rows of five, the 5 km

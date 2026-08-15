@@ -42,8 +42,8 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 493
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 546
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 658
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 907
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1139
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 910
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1142
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
