@@ -9,16 +9,17 @@
 
 ## 3.1 Study regions and temporal windows
 
-Five Mediterranean wildfire regions are analysed (Fig. 1): Manavgat 2021 and Muğla 2021 in Türkiye, Bejís
-2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. Each is a place-based
-rectangular area of interest in EPSG:4326, defined from place coverage rather than from a fire
-perimeter, and not tuned on burned prevalence, gate outcome or any model metric. One AOI choice was
-label-informed and is stated as such. The North Evia box was extended after the legacy box was found
-to carry an atypically high burned prevalence. The extended geometry was then defined from place
-anchors, and the legacy variant is kept as a sensitivity arm (Appendix A). The AOIs are deliberately
-not clipped to fire perimeters, so that unburned cells around each fire form the negative class
-rather than being excluded by construction. A sixth region, Kozan 2023, is carried as
-a negative control and is excluded from all modelling by the gate of Section 3.3.
+Five Mediterranean wildfire regions are analysed (Fig. 1): Manavgat 2021 and Muğla 2021 in Türkiye,
+Bejís 2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. Each is a
+place-based rectangular area of interest in EPSG:4326, defined from place coverage rather than from a
+fire perimeter, deliberately not clipped to it so that unburned cells around each fire form the
+negative class, and not tuned on burned prevalence, gate outcome or any model metric. **One AOI
+choice was label-informed and is stated as such**: the North Evia box was extended after the legacy
+box was found to carry an atypically high burned prevalence, the extended geometry then being defined
+from place anchors, with the legacy variant kept as a sensitivity arm (Appendix A). Section 4.4 shows
+that this framing decision is consequential and Section 5.9(x) treats it as the design lesson of the
+paper. A sixth region, Kozan 2023, is carried as a negative control and excluded by the gate of
+Section 3.3.
 
 Each region has two non-overlapping windows. The **predictor window** closes the day before the
 **label window** opens, so no predictor observation can post-date the first labelled burning. Window
@@ -156,11 +157,10 @@ The canonical λ = 1 lies outside the released sweep and is reported separately 
 
 For each direction the gap between the target's own within-region skill and the raw transfer result
 is split in two. One part is what the best label-free adaptation recovers, and the other is what it
-does not. The recovered fraction is defined as (adapted − raw) / (within − raw), signed and
-unclipped, and its interval comes from the same paired bootstrap. The recovered part bounds what
-covariate-level correction can achieve. The remainder is unrecovered by that correction; Section 4.3
-shows it should not be read as a conditional residual, because much of it is incurred inside a
-single region.
+does not. The recovered fraction is (adapted − raw) / (within − raw), signed and unclipped, with its interval
+from the same paired bootstrap; it bounds what covariate-level correction can achieve. Section 4.3
+shows the remainder should not be read as a conditional residual, because much of it is incurred
+inside a single region (Appendix A(j)).
 
 The mechanism is diagnosed by **signed univariate association**. For each numeric predictor the raw
 ROC-AUC of that predictor against `burned` is computed in each region and never folded to
@@ -233,9 +233,9 @@ implementation tolerance that applies if the version is not fixed is stated in S
 the companion paper reports the version sensitivity and the reproduction check in full.
 
 **Sensitivity analyses.** Every headline result is repeated across two analysis populations, three
-spatial-block sizes, the CORAL regularisation sweep and both feature sets. Where a conclusion
-depends on one of those choices, the dependence is reported rather than resolved by choosing the
-favourable setting.
+spatial-block sizes, the CORAL sweep, both feature sets and four classifier capacities; where a
+conclusion depends on one of those choices the dependence is reported rather than resolved by
+choosing the favourable setting (Appendix A).
 
 ## 3.15 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 

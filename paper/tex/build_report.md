@@ -21,18 +21,18 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (26)
+## review (28)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 188
-- TABLE WITHOUT CAPTION in 04_results near md line 344
-- TABLE WITHOUT CAPTION in 04_results near md line 417
-- TABLE WITHOUT CAPTION in 04_results near md line 493
-- TABLE WITHOUT CAPTION in 04_results near md line 702
-- TABLE WITHOUT CAPTION in 04_results near md line 782
+- TABLE WITHOUT CAPTION in 04_results near md line 315
+- TABLE WITHOUT CAPTION in 04_results near md line 388
+- TABLE WITHOUT CAPTION in 04_results near md line 464
+- TABLE WITHOUT CAPTION in 04_results near md line 673
+- TABLE WITHOUT CAPTION in 04_results near md line 753
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -49,13 +49,15 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 135
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 168
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 184
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 199
 
 ## stripped (5)
 
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (77)
+## table (79)
 
 - Study regions, areas of interest and tempora: 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
 - Study regions, areas of interest and temporal wi: 5 of 5 columns wrap (widest cell 49 chars)
@@ -67,11 +69,7 @@ converter made is listed so it can be reviewed.
 - The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
 - : 3 cols, est. width 88 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 36 chars)
-- no caption; emitted unnumbered so it does not consume a table number _(x21)_
-- Evaluation-frame geometry of the five study : 5 cols, est. width 78 chars -> small, 1 wrapping
-- Evaluation-frame geometry of the five study regi: 1 of 5 columns wrap (widest cell 25 chars)
-- Signed univariate AUC, frame as drawn agains: 7 cols, est. width 97 chars -> small, 1 wrapping
-- Signed univariate AUC, frame as drawn against a : 1 of 7 columns wrap (widest cell 32 chars)
+- no caption; emitted unnumbered so it does not consume a table number _(x23)_
 - The diagnostics that ordered transfer, recom: 3 cols, est. width 142 chars -> small, 3 wrapping
 - The diagnostics that ordered transfer, recompute: 3 of 3 columns wrap (widest cell 61 chars)
 - : 4 cols, est. width 107 chars -> small, 2 wrapping
@@ -112,5 +110,9 @@ converter made is listed so it can be reviewed.
 - : 1 of 5 columns wrap (widest cell 21 chars)
 - : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping
 - : 3 of 4 columns wrap (widest cell 24 chars)
+- : 5 cols, est. width 78 chars -> small, 1 wrapping
+- : 1 of 5 columns wrap (widest cell 25 chars)
+- : 7 cols, est. width 97 chars -> small, 1 wrapping
+- : 1 of 7 columns wrap (widest cell 32 chars)
 - Few-shot recovery of target ROC-AUC, thermal: 10 cols, est. width 100 chars -> footnotesize
 

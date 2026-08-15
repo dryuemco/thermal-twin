@@ -30,13 +30,11 @@ everywhere is survival, not improvement (Appendix A(d)).
 
 The natural objection is that different Mediterranean regions are simply different systems, so that
 a predictor meaning one thing in one place and another elsewhere is a comparison of two systems
-rather than instability. **We designed the two-Muğla-events arm to answer that objection and it does
-not answer it.** On the frames as drawn it looked decisive: region, grid, feature registry and
-processing chain identical, static predictors identical cell by cell, and elevation's association
-reversing between the two fires. Section 4.10 shows the arm is instead the most extreme frame
-artefact in the cohort — 93.2 % of the 2022 arm's cells lie beyond 10 km of any burned cell against
-55.3 % for 2021 — and under the collar the 2022 figure moves to the same side of 0.5 as the 2021
-arm's near-unchanged value, with an interval covering chance.
+rather than instability. **We designed the two-Muğla-events arm to answer that objection and it does not answer it.** On the
+frames as drawn it looked decisive — region, grid and processing chain identical, static predictors
+identical cell by cell, and elevation's association reversing between the two fires — but Sections
+4.4 and 4.10 show it is instead the most extreme frame artefact in the cohort, and under the collar
+the two arms fall on the same side of 0.5.
 
 The objection therefore stands unanswered, and three further confounds were never resolved in any
 case. Season and year are confounded, and **that confound cannot be resolved in this study area**:
@@ -211,18 +209,14 @@ verdicts sit within a thousandth of their reference value, and at 1 km blocking 
 of ten positive, seven negative and three uncertain turns on a lower bound of −0.00045. The point
 estimates and the sign pattern are stable; the counts are not. Every sentence in this paper that
 leans on an exact count of supported directions should be read at that precision.
-(x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it.**
-Each region is a rectangle drawn around a fire, and the share of modelled cells lying beyond 10 km of
-any burned cell ranges from 2 % in Montiferru to 63 % in Bejís. Section 4.4 shows this is not
-cosmetic: equalising the frame to a 10 km collar removes both supported elevation reversals, makes
-all five regions agree in sign on elevation, LST and TVDI, lifts mean transfer from 0.540 to 0.617
-and reduces the below-chance directions from six to one. We report the equalised arm alongside the
-frame-as-drawn arm rather than replacing one with the other, because the collar radius is itself a
-choice and 5 km and 10 km do not agree exactly (0.608 against 0.617). The deeper limitation is that
-the frames were fixed upstream of this work, in `repo/`, so we can restrict them but not extend them;
-a region whose rectangle is already fire-scale, Montiferru, cannot be given a far field for symmetry.
-Any future cohort should fix the frame by an explicit accessible-area rule [@Barve2011] before any
-predictor is computed, and we treat that as the main design lesson of this paper.
+(x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it**
+(Section 4.4). We report the equalised arm alongside the frame-as-drawn arm rather than replacing one
+with the other, because the collar radius is itself a choice and 5 km and 10 km do not agree exactly
+(0.608 against 0.617). The deeper limitation is that the frames were fixed upstream of this work, in
+`repo/`, so we can restrict them but not extend them; a region whose rectangle is already fire-scale,
+Montiferru, cannot be given a far field for symmetry. Any future cohort should fix the frame by an
+explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
+main design lesson of this paper.
 
 (xi) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
 configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows the transfer result is not an artefact of that

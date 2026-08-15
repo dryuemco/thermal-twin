@@ -104,7 +104,7 @@ would support more reversals than the three listed here.
 ROC-AUC is reported throughout the main text for comparability with the susceptibility literature.
 A susceptibility surface is used as a ranked area budget, so precision-recall is the operational
 quantity, and at target prevalences of 3.8 to 28.7 % the two can differ sharply. Read from the same
-frozen step9b exports as Table 9.
+frozen step9b exports as Table 7.
 
 **Table B4. Thermal transfer, PR-AUC against the no-skill baseline.** The baseline is the target's
 burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random
@@ -166,3 +166,34 @@ are contiguous. Read from
 | slope_mean | 0.637 [0.582, 0.686] | 0.558 [0.468, 0.634] | none |
 | lst_anomaly_mean | 0.485 [0.395, 0.566] | 0.380 [0.249, 0.502] | none |
 | tvdi_difference_mean | 0.490 [0.396, 0.575] | 0.397 [0.265, 0.514] | none |
+
+## B6. The evaluation frames, and the signed associations they produce
+
+Section 4.4 states these results; the per-region values are here.
+
+**Table B6. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
+population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell.
+Source `aoi_frame_auc.csv`; recomputable by `paper/code/verify_aoi_frame.py`.
+
+| Region | cells | burned | median distance to burned | share beyond 10 km |
+|---|---:|---:|---:|---:|
+| Manavgat | 20,511 | 784 | 13.4 km | **60.1 %** |
+| Bejís | 15,190 | 1,100 | 13.5 km | **63.1 %** |
+| Muğla | 41,730 | 2,911 | 11.3 km | 55.3 % |
+| Evia | 9,298 | 2,664 | 8.0 km | 43.7 % |
+| Montiferru | 2,544 | 539 | 2.7 km | **2.1 %** |
+
+**Table B7. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
+intervals that decide the reversal question are given in the text below and in
+`collar_frame_bootstrap.csv` (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to
+max(AUC, 1 − AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned
+cells in any region.
+
+| Signed univariate AUC | Manavgat | Bejís | Muğla | Evia | Montiferru | straddles 0.5 |
+|---|---:|---:|---:|---:|---:|---|
+| elevation, full frame (Table B2) | **0.374** | 0.643 | 0.611 | 0.541 | 0.584 | **yes** |
+| elevation, 10 km collar | 0.561 | 0.614 | 0.606 | 0.648 | 0.581 | no |
+| current LST, full frame | **0.538** | 0.477 | 0.325 | 0.377 | 0.370 | **yes** |
+| current LST, 10 km collar | 0.386 | 0.405 | 0.332 | 0.286 | 0.376 | no |
+| current TVDI, full frame | **0.552** | 0.517 | 0.336 | 0.362 | 0.356 | **yes** |
+| current TVDI, 10 km collar | 0.392 | 0.454 | 0.342 | 0.250 | 0.361 | no |
