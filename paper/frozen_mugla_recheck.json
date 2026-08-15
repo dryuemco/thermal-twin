@@ -1,0 +1,68 @@
+{
+ "what": "Section 4.4 recomputed with Mugla read from the frozen 2026-07-20 export instead of the overwritten canonical path; all other regions unchanged.",
+ "per_direction_rows_compared": 100,
+ "per_direction_rows_differing": 40,
+ "per_direction_max_abs_delta": 0.0221,
+ "table4": {
+  "full->full": {
+   "published": {
+    "mean": 0.54,
+    "above": 14,
+    "paired_delta": 0.0029
+   },
+   "frozen": {
+    "mean": 0.5409,
+    "above": 14,
+    "paired_delta": 0.0038
+   }
+  },
+  "full->10km": {
+   "published": {
+    "mean": 0.5753,
+    "above": 17,
+    "paired_delta": 0.0021
+   },
+   "frozen": {
+    "mean": 0.5764,
+    "above": 17,
+    "paired_delta": 0.0033
+   }
+  },
+  "10km->full": {
+   "published": {
+    "mean": 0.5707,
+    "above": 17,
+    "paired_delta": 0.0143
+   },
+   "frozen": {
+    "mean": 0.57,
+    "above": 17,
+    "paired_delta": 0.0136
+   }
+  },
+  "10km->10km": {
+   "published": {
+    "mean": 0.6166,
+    "above": 19,
+    "paired_delta": 0.0234
+   },
+   "frozen": {
+    "mean": 0.6163,
+    "above": 19,
+    "paired_delta": 0.0231
+   }
+  },
+  "5km->5km": {
+   "published": {
+    "mean": 0.6077,
+    "above": 18,
+    "paired_delta": 0.0141
+   },
+   "frozen": {
+    "mean": 0.6075,
+    "above": 19,
+    "paired_delta": 0.0138
+   }
+  }
+ }
+}

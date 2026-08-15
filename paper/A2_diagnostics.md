@@ -250,5 +250,5 @@ As-drawn transfer is read from Table B9, collar transfer from `aoi_frame_transfe
 | per-feature *D* | 0.77 to 0.89 | 0.23 to 0.77 |
 | transfer, frames as drawn | 0.470, 0.401 | 0.594, 0.548 |
 | transfer, 10 km collar | 0.551, 0.510 | 0.669, 0.624 |
-| rank of 20 on the collar | 5th, 2nd from bottom | 15th, 11th |
+| rank of 20 on the collar, from the bottom | 5th, 2nd | 15th, 11th |
 | target cells inside the AoA | 0.875, 0.531 | — |
