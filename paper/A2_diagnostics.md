@@ -141,7 +141,8 @@ of a reversed predictor-burning relationship.
 
 ## B5. The same-geography event pair, in full
 
-Appendix A(m) reports this arm and Section 4.4 withdraws its reversal as a frame artefact. The
+Appendix A(m) reports this arm and Section 4.4 withdraws its **elevation** reversal as a frame
+artefact; Appendix A(o) explains why the thermal channels of this arm carry no verdict either way. The
 per-feature values are kept here because the arm is what motivated the frame test, and because
 its structural asymmetries have no analogue in the twenty-direction matrix.
 
