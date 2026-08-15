@@ -170,7 +170,8 @@ whose all-nine counterparts span zero, and **Contribution 1 removes even those**
 frames one becomes unanimous with no variance left to correlate and the other loses its correlation
 entirely (Section 4.4). The point survives without any ranking: the pair with the highest
 burned-niche overlap is among the weakest in the matrix while the lowest transfers above chance in
-both directions, contradicting an expectation the fire literature carries [@Dimarco2026; @Liu2025]
+both directions — at the point estimates, neither direction carrying a verdict at 5 km blocking
+(Appendix A(s)) — contradicting an expectation the fire literature carries [@Dimarco2026; @Liu2025]
 and agreeing with species distribution modelling [@Vesk2021; @Rousseau2022].
 
 Two consequences follow, reported as supporting results. Label-free alignment by standardisation and

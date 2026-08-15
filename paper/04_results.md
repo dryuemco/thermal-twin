@@ -101,8 +101,11 @@ the mismatch visible. Means and Student *t* intervals are over the eight held-ou
 | D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.555 | [0.495, 0.616] |
 
 All four rows are means over the **same eight scars**. A ninth burned component, Bejís, is excluded
-throughout: it is that region's only component of any size, so holding it out leaves no usable
-source model and there is no row C for it. Rows A, B and D are reported here on the eight so that the differences are
+**from this table**: it is that region's only component of any size, so holding it out leaves no
+usable source model and there is no row C for it. It is *not* excluded from the arms that need no
+leave-one-scar-out model, so the prevalence control two paragraphs above and Tables A3 and A4 are
+computed on nine scars. That is why their means, 0.782 and 0.627, differ from this table's 0.776 and
+0.634. Rows A, B and D are reported here on the eight so that the differences are
 paired, and the intervals are Student *t* over those eight, which is the resampling unit for this arm rather than the spatial-block bootstrap used
 elsewhere in the paper. Eight is a small number and the intervals are wide accordingly. Four of the
 eight scars are in Muğla and two in Montiferru, so they are not independent; row A in particular is
@@ -187,8 +190,7 @@ there.
 ## 4.4 The same effect between regions, applied to our own matrix
 
 Section 4.3's effect applies with equal force between regions, and this section reports that test
-before the transfer matrix rather than after it, because it changes what Sections 4.5 and 4.7 can
-claim. It withdraws nothing in Section 4.3, which is what the test is built from. Sources:
+before the transfer matrix rather than after it, because it changes what Section 4.5 and Appendix A(s) can claim. It withdraws nothing in Section 4.3, which is what the test is built from. Sources:
 `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`, `collar_frame_bootstrap.csv`,
 `diagnostics_collar_frame.csv` and the code under `paper/code/`.
 
@@ -276,7 +278,7 @@ is therefore worse than the as-drawn analysis suggests, not better: there is no 
 apparent exception is an artefact. Section 4.6 reports its numbers as computed under the
 pre-registered protocol, which is what a reader following that protocol would obtain.
 
-**The same-geography arm of Appendix A(m2) does not survive either, and it is the most extreme case in
+**The same-geography arm of Appendix A(m) does not survive either, and it is the most extreme case in
 the cohort.** A fixed study area is not a fixed evaluation frame: its 2022 arm has 93.2 % of cells
 beyond 10 km of any burned cell against 55.3 % for 2021. Under the same collar the 2021 figure barely
 moves while the 2022 figure crosses to the same side of 0.5 with an interval covering chance, so
@@ -322,7 +324,7 @@ the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to
 follow are properties of the frames rather than of the predictor-burning relationship, and are
 identified as such where they appear: the count of six anti-predictive directions, which becomes
 one; the sign reversal of elevation, LST and TVDI as a mechanism; the sign-agreement diagnostic of
-Section 4.6; the same-geography arm of Appendix A(m2); and the paired thermal contribution, which is
+Section 4.6; the same-geography arm of Appendix A(m); and the paired thermal contribution, which is
 +0.004 as drawn and +0.023 equalised. What the correction leaves standing is the central negative
 result, and its size must be stated on a matched comparison. Setting the equalised transfer mean of
 0.617 against a within-region reference of about 0.87 would compare a 10 km-collar number with a

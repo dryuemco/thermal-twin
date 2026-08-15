@@ -24,7 +24,7 @@
 The main text establishes that label-free alignment does not close the residual transfer gap, and
 that the part of that gap not attributable to contiguous spatial holdout is conditional. CORAL and per-region standardisation
 recover a minority of the gap at best, and degrade most of the directions that transfer above chance
-without them (§4.5, Appendix A(n2), §5.5). Within the six directions covered here, the direction that
+without them (§4.5, Appendix A(n), §5.5). Within the six directions covered here, the direction that
 transfers above chance raw is Bejís to Muğla, and it is the direction that both interventions help
 least. The natural constructive question is therefore what a *small number of target labels* buys,
 since that is the resource label-free machinery cannot substitute for.

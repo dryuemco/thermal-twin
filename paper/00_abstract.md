@@ -97,7 +97,7 @@
 > null. (iii) **The title's operative term "evaluation geometry" now appears in the abstract**; it
 > previously appeared nowhere in it.
 >
-> **Now 309 words, down from 567 at the start of the day.** The limit remains unverified: the
+> **Now 397 words, down from 567 at the start of the day.** The limit remains unverified: the
 > Elsevier and ScienceDirect guide pages both return HTTP 403 to automated fetching, and a search
 > returns the journal guide without the abstract clause. A single uncorroborated source reports 400.
 > **Check the guide manually before submission.** If 250 is confirmed, cut in this order: the

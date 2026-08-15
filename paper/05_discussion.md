@@ -32,7 +32,7 @@ predictor meaning one thing in one place and another elsewhere is a comparison o
 than instability. **We designed the two-Muğla-events arm to answer that objection and it does not
 answer it.** On the frames as drawn it looked decisive — region, grid and processing chain
 identical, static predictors identical cell by cell, elevation's association reversing between the
-two fires — but Section 4.4 and Appendix A(m2) show it is the most extreme frame artefact in the cohort, and
+two fires — but Section 4.4 and Appendix A(m) show it is the most extreme frame artefact in the cohort, and
 under the collar the two arms fall on the same side of 0.5.
 
 The objection therefore stands unanswered, and three further confounds were never resolved in any
@@ -74,7 +74,8 @@ whether or not their transfer works, so separability carries no ordering informa
 
 ## 5.4 What the conditional diagnostic is, and what it is not
 
-The sign-agreement index was the paper's one diagnostic with an interval excluding zero, and Section 4.6 states three limits with the result: it sits essentially on its own tie-structure ceiling, it
+The sign-agreement index and its cosine variant were the paper's only two diagnostics with intervals
+excluding zero, and Section 4.6 states three limits with the result: it sits essentially on its own tie-structure ceiling, it
 could not have cleared family-wise correction on ten effective pairs whatever it returned, and its
 feature subset is chosen on the same data, its all-nine-feature counterparts spanning zero. A fourth
 is that signed associations need burned labels in both regions, so it is a mechanism diagnosis
@@ -94,7 +95,7 @@ incapable of it.
 ## 5.5 What the two interventions do and do not show
 
 Both interventions show the same shape. Pooling four regions never beats the best single-source
-transfer for any target and stays 0.28 to 0.50 below the within-region ceiling, so aggregation does
+transfer for any target and stays 0.28 to 0.50 below the within-region ceiling (Appendix A(n)), so aggregation does
 not manufacture the missing conditional information. Removing the reversing predictors costs −0.081
 of within-region skill with interval support in every region, and changes mean transfer by
 +0.014 [−0.017, +0.045], which is not distinguishable from zero.
