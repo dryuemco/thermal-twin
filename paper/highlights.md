@@ -3,6 +3,6 @@
 
 - Scoring the same model at the fire, not region-wide, costs 0.143 AUC
 - The cause is the negative pool, not prevalence: +0.155 against -0.000
-- Thermal predictors add +0.06 to +0.15 AUC within all five fire regions
-- Equalising the frame lifts transfer 0.540 to 0.617, six below chance to one
-- On comparable evaluation frames, none of 20 diagnostics orders transfer
+- Under blocked CV, thermal predictors add +0.06 to +0.15 AUC in five regions
+- Equalising the evaluation frame lifts mean transfer from 0.540 to 0.617
+- On comparable frames, none of 20 diagnostics is shown to order transfer

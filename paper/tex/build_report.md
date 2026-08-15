@@ -23,7 +23,7 @@ converter made is listed so it can be reviewed.
 
 ## review (19)
 
-- BLOCKQUOTE DROPPED — check it was not content: > **Length, 2026-08-15 (two passes).** The running count in these notes had gone stale: successive > rounds ad
+- BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
