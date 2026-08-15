@@ -1,8 +1,50 @@
 # Positioning — where this paper should aim
 
-**Status:** direction document. Written 2026-07-23, before the final Evia results. It fixes the
-**thesis, the contribution ranking and the target framing**; the section structure will be rebuilt
-in `OUTLINE.md` once Evia is resolved. Results and Discussion remain unwritten.
+**Status: SUPERSEDED IN PART, 2026-08-15. Read this header before acting on anything below.**
+Written 2026-07-23, before the final Evia results, before the baseline-only transfer arm, and before
+the identical-cells evaluation ladder. Sections 1, 3 and 4 (what to lead with, venue, related-work
+strategy) still hold. **Section 2's thesis and Section 4's contribution ranking do not, and must not
+be used to set the title, abstract or contribution order.**
+
+**Why the thesis is retracted.** Section 2 claims that dynamic state predictors buy local skill *at
+the cost of* portability, and Section 4 ranks the "local-skill / portability trade-off" as C1. A
+trade-off requires a measured cost on the transfer side. There is none. The paired
+static-versus-dynamic contrast that Section 2 nominates as the quantifying evidence
+(`baseline_vs_thermal_transfer.csv`, 20 directions) gives:
+
+| quantity | value |
+|---|---|
+| static baseline transfer mean | 0.5371 |
+| thermal transfer mean | 0.5414 |
+| paired difference, thermal minus baseline | **+0.0042**, interval spans zero |
+| directions where thermal transfers worse | 8 of 20 |
+
+The thermal block transfers *no worse* than the static baseline it was supposed to be trading
+against. Both are near chance. There is no exchange to report: the paper measures a local cost
+(−0.081 from removing the reversing predictors, supported in every region) and **no** compensating
+transfer gain (+0.014, spans zero). The abstract already states it that way. The trade-off framing
+survived in this document only because this document was not revisited.
+
+**A further reason not to headline the paired mean.** Its sign is not anchored. The
+leave-one-region-out jackknife gives +0.0148, +0.0021, +0.0065, **−0.0081**, +0.0060; dropping Evia
+alone reverses it. A mean that one region can flip should not be a title or highlight claim.
+
+**What the thesis should be instead.** The strongest result in the manuscript is the one this
+document never anticipated, because the analysis that produced it was run as a control: with the
+model, its predictors and its out-of-fold predictions held fixed and *only the evaluation cells
+changed*, moving from region-wide to the burn scar and its 2 km collar costs **0.143 ROC-AUC**
+(0.776 to 0.634). The mechanism is isolated, not asserted: prevalence-matching costs −0.0004
+[−0.0028, +0.0020] while swapping in fire-adjacent negatives costs **+0.1550 [+0.0930, +0.2169]**
+(`prevalence_control.json`, n = 9). It is the composition of the negative pool, not class balance.
+0.143 is larger than the predictor-block increments this literature publishes as findings, so it is
+not a caveat; it is a reporting problem. Everything else in the manuscript is a well-defended null.
+
+This supersession was written after an internal referee round raised it and after every number above
+was re-derived from the frozen artefacts. The replacement thesis, contribution order and title are
+being settled in that round; when they are, this document should be rewritten rather than patched.
+
+---
+
 
 ---
 
