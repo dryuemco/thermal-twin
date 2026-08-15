@@ -2,9 +2,11 @@
 
 > Elsevier / Ecological Informatics: 3–5 bullets, ≤85 characters each including spaces.
 > All drawn from Results (04); no new claims. Character counts verified programmatically.
+> Rewritten 2026-08-15: the previous set led with the +0.004 mean, whose sign the
+> leave-one-region-out jackknife flips, and never mentioned the evaluation-geometry result.
 
-- Pre-fire thermal predictors add +0.06 to +0.15 AUC within all five fire regions
-- The same block adds +0.004 AUC across 20 transfer directions, interval spans zero
-- Highest niche-overlap pair fails both ways; lowest transfers both ways (points)
-- Of 20 diagnostics, only conditional direction agreement tracks transfer (rho 0.84)
-- Label-blind adaptation compresses transfer toward chance; only target labels help
+- Scoring the same model at the fire, not region-wide, costs 0.143 AUC
+- The cause is the negative pool, not prevalence: +0.155 against -0.000
+- Thermal predictors add +0.06 to +0.15 AUC within all five fire regions
+- Equalising the frame lifts transfer 0.540 to 0.617, six below chance to one
+- Of 20 pre-deployment diagnostics, none that is label-free orders transfer
