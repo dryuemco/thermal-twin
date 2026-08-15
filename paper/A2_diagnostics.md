@@ -138,3 +138,31 @@ Six directions fall below their own no-skill baseline, and only one exceeds twic
 same six that are below chance on ROC-AUC, which is what a reversed ranking predicts in either
 metric. Section 4.10 shows that this count is largely a property of the evaluation frames rather than
 of a reversed predictor-burning relationship.
+
+## B5. The same-geography event pair, in full
+
+Section 4.9 reports this arm and Section 4.10 withdraws its reversal as a frame artefact. The
+per-feature values are kept here because the arm is what motivated the frame test, and because
+its structural asymmetries have no analogue in the twenty-direction matrix.
+
+**Table B5. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
+`burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
+replicates, seed 42 (Section 3.15). Analysis population 41,730 rows / 2,911 burned (2021) and
+38,790 rows / 331 burned (2022). **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for the
+2022 arm.** Table 3's note sets sixteen as the floor this design supports at that blocking, so the
+2022 intervals here fall below the paper's own standard and are read as indicative, exactly as the
+20-cell row of Table 3 is. The 2022 arm is additionally a single compact scar, so its eleven blocks
+are contiguous. Read from
+`paper/step9g_raw/.../mugla_2021__mugla_2022_event_relative/step9g_direction_reversal_table.csv`.
+
+| Feature | 2021 AUC [95 % CI] | 2022 AUC [95 % CI] | Reversal |
+|---|---|---|---|
+| **elevation_mean** | **0.611 [0.532, 0.690]** | **0.296 [0.230, 0.355]** | **bootstrap-supported** |
+| current_lst_mean | 0.325 [0.271, 0.382] | 0.515 [0.434, 0.580] | point only |
+| current_tvdi_mean | 0.336 [0.275, 0.398] | 0.594 [0.475, 0.674] | point only |
+| downscaled_lst_mean | 0.307 [0.253, 0.366] | 0.508 [0.435, 0.571] | point only |
+| fused_lst_mean | 0.325 [0.272, 0.383] | 0.519 [0.436, 0.583] | point only |
+| ndvi_mean | 0.662 [0.616, 0.704] | 0.707 [0.624, 0.777] | none |
+| slope_mean | 0.637 [0.582, 0.686] | 0.558 [0.468, 0.634] | none |
+| lst_anomaly_mean | 0.485 [0.395, 0.566] | 0.380 [0.249, 0.502] | none |
+| tvdi_difference_mean | 0.490 [0.396, 0.575] | 0.397 [0.265, 0.514] | none |
