@@ -69,8 +69,8 @@ converter made is listed so it can be reviewed.
 - The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
 - The diagnostics that ordered transfer, recom: 3 cols, est. width 142 chars -> small, 3 wrapping
 - The diagnostics that ordered transfer, recompute: 3 of 3 columns wrap (widest cell 61 chars)
-- Cross-region transfer under equalised evalua: 7 cols, est. width 131 chars -> scriptsize, 1 wrapping
-- Cross-region transfer under equalised evaluation: 1 of 7 columns wrap (widest cell 23 chars)
+- Cross-region transfer under equalised evalua: X columns would get 3 chars each (min 12) - set as plain tabular and scaled to fit instead
+- Cross-region transfer under equalised evalua: 7 cols, est. width 131 chars -> scriptsize
 - Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
 - Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
@@ -78,8 +78,8 @@ converter made is listed so it can be reviewed.
 - no caption; emitted unnumbered so it does not consume a table number _(x27)_
 - : 4 cols, est. width 86 chars -> small, 1 wrapping
 - : 1 of 4 columns wrap (widest cell 34 chars)
-- : 6 cols, est. width 128 chars -> footnotesize, 1 wrapping
-- : 1 of 6 columns wrap (widest cell 38 chars)
+- : X columns would get 7 chars each (min 12) - set as plain tabular and scaled to fit instead
+- : 6 cols, est. width 128 chars -> footnotesize
 - : 7 cols, est. width 113 chars -> scriptsize
 - : 6 cols, est. width 96 chars -> footnotesize, 1 wrapping
 - : 1 of 6 columns wrap (widest cell 21 chars) _(x2)_
@@ -89,8 +89,8 @@ converter made is listed so it can be reviewed.
 - : 7 cols, est. width 112 chars -> scriptsize
 - : 3 cols, est. width 70 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 23 chars)
-- : 7 cols, est. width 175 chars -> scriptsize, 3 wrapping
-- : 3 of 7 columns wrap (widest cell 33 chars)
+- : X columns would get 4 chars each (min 12) - set as plain tabular and scaled to fit instead
+- : 7 cols, est. width 175 chars -> scriptsize
 - : 3 cols, est. width 89 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 45 chars)
 - : 3 cols, est. width 57 chars -> small, 1 wrapping
@@ -113,8 +113,8 @@ converter made is listed so it can be reviewed.
 - : 1 of 5 columns wrap (widest cell 25 chars)
 - : 7 cols, est. width 97 chars -> small, 1 wrapping
 - : 1 of 7 columns wrap (widest cell 32 chars)
-- : 10 cols, est. width 176 chars -> scriptsize, 3 wrapping
-- : 3 of 10 columns wrap (widest cell 27 chars)
+- : X columns would get 3 chars each (min 12) - set as plain tabular and scaled to fit instead
+- : 10 cols, est. width 176 chars -> scriptsize
 - : 4 cols, est. width 89 chars -> footnotesize
 - : 3 cols, est. width 86 chars -> small, 1 wrapping
 - : 1 of 3 columns wrap (widest cell 41 chars)

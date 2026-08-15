@@ -332,7 +332,7 @@ function convertTable(lines, vault, caption, label) {
   const WRAP_AT = FM.wrapAt || 20;
   const rawWidth = widest.reduce((a, b) => a + b, 0) + 2.5 * ncol;
   const wrapping = widest.map(w => w > WRAP_AT);
-  const useTabularx = wrapping.some(Boolean);
+  let useTabularx = wrapping.some(Boolean);
   // Font step chosen from the width that remains after wrapping is accounted
   // for; a wrapped column no longer contributes its full natural width.
   const effWidth = widest.reduce((a, w, i) => a + (wrapping[i] ? Math.min(w, WRAP_AT) : w), 0)
@@ -340,6 +340,26 @@ function convertTable(lines, vault, caption, label) {
   const size = effWidth <= LINE_CHARS ? '\\small'
     : effWidth <= LINE_CHARS * 1.25 ? '\\footnotesize'
     : '\\scriptsize';
+
+  // tabularx gives the X columns whatever is left after the fixed columns take
+  // their natural width. Nothing here checked that anything WAS left. A table
+  // with one prose column and five long numeric headers left the X column at
+  // about zero: every word in it broke one character per line and the first two
+  // headers printed on top of each other. When the X columns would be starved,
+  // set the table as a plain tabular instead and let the resizebox below shrink
+  // it as a whole - uniformly smaller reads far better than one crushed column.
+  const MIN_X_CHARS = 12;
+  const capacity = LINE_CHARS * (size === '\\small' ? 1 : size === '\\footnotesize' ? 1.1 : 1.25);
+  const fixedWidth = widest.reduce((a, w, i) => a + (wrapping[i] ? 0 : w), 0) + 2.5 * ncol;
+  const nX = wrapping.filter(Boolean).length;
+  if (useTabularx) {
+    const perX = (capacity - fixedWidth) / nX;
+    if (perX < MIN_X_CHARS) {
+      note('table', `${caption.slice(0, 44)}: X columns would get ${Math.round(perX)} chars each `
+        + `(min ${MIN_X_CHARS}) - set as plain tabular and scaled to fit instead`);
+      useTabularx = false;
+    }
+  }
   if (size !== '\\small' || useTabularx) {
     note('table', `${caption.slice(0, 44)}: ${ncol} cols, est. width ${Math.round(rawWidth)} chars `
       + `-> ${size.replace(/\\/, '')}${useTabularx ? ', ' + wrapping.filter(Boolean).length + ' wrapping' : ''}`);
@@ -373,6 +393,15 @@ function convertTable(lines, vault, caption, label) {
     out.push('  \\caption{' + caption + '}');
     if (label) out.push('  \\label{' + label + '}');
   }
+  // A tabularx is bounded by \linewidth already. A plain tabular is as wide as
+  // its content, and the size chosen above comes from a character-count estimate
+  // that is sometimes optimistic: a six-column table ran about 33 mm past the
+  // right margin at \scriptsize. Wrap it so it shrinks only when it would
+  // otherwise overflow; a table that already fits is left at its natural size
+  // and its font matches the rest of the page.
+  if (!useTabularx) {
+    out.push('  \\resizebox{\\ifdim\\width>\\linewidth\\linewidth\\else\\width\\fi}{!}{%');
+  }
   out.push(useTabularx
     ? '  \\begin{tabularx}{\\linewidth}{' + spec + '}'
     : '  \\begin{tabular}{' + align.join('') + '}');
@@ -384,7 +413,7 @@ function convertTable(lines, vault, caption, label) {
     out.push('    ' + padded.map(cell).join(' & ') + ' \\\\');
   }
   out.push('    \\hline');
-  out.push(useTabularx ? '  \\end{tabularx}' : '  \\end{tabular}');
+  out.push(useTabularx ? '  \\end{tabularx}' : '  \\end{tabular}}');
   out.push(floating ? '\\end{table}' : '\\end{center}');
   return out.join('\n');
 }
@@ -709,6 +738,11 @@ const preamble = `% ============================================================
 %% 193 mm text block, and the folio prints through the caption text. LaTeX
 %% reports no overfull box for it, because the float is allowed to be tall.
 %% Captions are set at normal leading, as journals set them.
+%% Long 	exttt file names are broken at llowbreak points, but TeX was still
+%% choosing lines that ran up to 10 mm past the right margin rather than
+%% stretching the spaces, and was not reporting them as overfull. emergencystretch
+%% gives it a third pass in which a loose line is preferred to a protruding one.
+\\emergencystretch=3em
 \\usepackage{setspace}
 \\usepackage{etoolbox}
 \\AtBeginEnvironment{figure}{\\singlespacing}

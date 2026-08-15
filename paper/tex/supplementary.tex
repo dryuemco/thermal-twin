@@ -39,6 +39,7 @@ The headline of this analysis is in the main text at Appendix A(u). Its ceilings
   \footnotesize
   \caption{Few-shot recovery of target ROC-AUC, thermal model, natural-vegetation population. Raw = source-only transfer (budget 0); ceiling = target-only model at the same 10-cell blocking. Values are the mean over 10 block-selection repeats. Read from \texttt{recovery\_\allowbreak{}curve.\allowbreak{}csv}.}
   \label{tab:S1}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
   \begin{tabular}{llllllllll}
     \hline
     Direction & Raw & 1 blk & 2 blk & 4 blk & 8 blk & 16 blk & 32 blk & Ceiling & Recovered at 32 \\
@@ -50,7 +51,7 @@ The headline of this analysis is in the main text at Appendix A(u). Its ceilings
     Manavgat $\rightarrow$ Muğla & 0.470 & 0.483 & 0.495 & 0.510 & 0.539 & 0.589 & 0.627 & 0.777 & 51 \% \\
     Bejís $\rightarrow$ Muğla & 0.618 & 0.576 & 0.577 & 0.578 & 0.598 & 0.637 & 0.666 & 0.777 & 30 \% \\
     \hline
-  \end{tabular}
+  \end{tabular}}
 \end{table}
 
 Selection intervals are wide at the smallest budgets and narrow at the largest. For Bejís $\rightarrow$ Manavgat they run [0.392, 0.484] at one block against [0.733, 0.748] at 32. See the caution in S1.4 on why the upper-budget intervals are narrow.

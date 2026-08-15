@@ -38,6 +38,11 @@
 %% 193 mm text block, and the folio prints through the caption text. LaTeX
 %% reports no overfull box for it, because the float is allowed to be tall.
 %% Captions are set at normal leading, as journals set them.
+%% Long 	exttt file names are broken at llowbreak points, but TeX was still
+%% choosing lines that ran up to 10 mm past the right margin rather than
+%% stretching the spaces, and was not reporting them as overfull. emergencystretch
+%% gives it a third pass in which a loose line is preferred to a protruding one.
+\emergencystretch=3em
 \usepackage{setspace}
 \usepackage{etoolbox}
 \AtBeginEnvironment{figure}{\singlespacing}
@@ -175,7 +180,7 @@ Five Mediterranean wildfire regions are analysed (Fig.~\ref{fig:study-map}): Man
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig1_study_map.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig1_study_map.pdf}}
   \caption{\textbf{Study regions and the gate negative control.} Locations of
   the five wildfire regions analysed in this study (blue, circular markers):
   Manavgat 2021 and Mu\u{g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North
@@ -276,7 +281,7 @@ Adding the six thermal predictors to the baseline raises spatially blocked out-o
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig3_within_robustness.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig3_within_robustness.pdf}}
   \caption{\textbf{The thermal increment replicates in all five regions and
   survives coarser spatial blocking.} Natural-vegetation primary population;
   random forest with the primary weighted configuration; all intervals are
@@ -407,7 +412,8 @@ The two fail differently and both fail: the agreement fraction has no variance l
   \scriptsize
   \caption{Cross-region transfer under equalised evaluation frames. Primary natural-vegetation population, thermal model, twenty ordered directions per row. Above/below chance are point counts; the supported counts use a 10-cell ($\approx$5 km) spatial-block bootstrap on the target, 1000 replicates, seed 42; \textbf{Table B9 reports the same matrix under 2-cell ($\approx$1 km) blocking}, which is why its supported counts are the larger 12 and 6 (Section~\ref{sec:4.5}). Per-direction bounds are in \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer\_\allowbreak{}frozen\_\allowbreak{}mugla.\allowbreak{}csv}.}
   \label{tab:4}
-  \begin{tabularx}{\linewidth}{llrrr>{\raggedleft\arraybackslash}Xr}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{llrrrrr}
     \hline
     Source frame & Target frame & Mean target AUC & Above chance & Below chance & Supported above / below & Paired thermal delta \\
     \hline
@@ -417,7 +423,7 @@ The two fail differently and both fail: the agreement fraction has no variance l
     \textbf{10 km} & \textbf{10 km} & \textbf{0.616} & \textbf{19 of 20} & \textbf{1} & \textbf{15 / 1} & \textbf{+0.023} \\
     5 km & 5 km & 0.608 & 19 of 20 & 1 & 12 / 0 & +0.014 \\
     \hline
-  \end{tabularx}
+  \end{tabular}}
 \end{table}
 
 \textbf{A data-provenance defect in this arm was found and corrected}: one region's predictor file at the canonical path had come to differ from the one the frozen tables were computed on, so every arm here was re-run against the frozen export. It moves forty of a hundred per-direction values by up to 0.022 and leaves \textbf{every headline quantity above unchanged to within 0.0012}, with the signed AUCs of that region's two channels moving by at most 0.008 and no verdict changing (Appendix A(w)). The table reports the corrected values, and reproduces the frozen matrix at 0.541 against Table B9's 0.541 and 14 of 20 exactly. \textbf{The baseline control must be restated on this frame}: the static baseline transfers at 0.593 against 0.616, a paired difference of +0.023 rather than +0.004, so the control holds in kind but the gap is about six times larger once frames are comparable, and about four times at the 5 km collar.
@@ -618,7 +624,8 @@ This arm was computed independently here and reproduces the companion paper's fi
 
 \begin{center}
   \footnotesize
-  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrrrr}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{lrrrrr}
     \hline
     Estimator & Within-region AUC & Within increment & Transfer AUC & Transfer increment & Above chance \\
     \hline
@@ -627,7 +634,7 @@ This arm was computed independently here and reproduces the companion paper's fi
     Random forest, leaf 200 & 0.805 & +0.047 & \textbf{0.550} & $-$0.021 & 14 of 20 \\
     Penalised logistic regression & 0.741 & +0.045 & \textbf{0.510} & $-$0.024 & 14 of 20 \\
     \hline
-  \end{tabularx}
+  \end{tabular}}
 \end{center}
 
 \textbf{Regularisation does not rescue transfer.} All four estimators land between 0.510 and 0.556, all four put exactly fourteen of twenty directions above chance, and the linear model, the one built to extrapolate, transfers worst. Within-region skill falls as capacity is reduced, from 0.888 to 0.741, which is what regularisation is expected to cost; transfer does not rise to meet it. The thermal block's contribution to transfer is +0.004 under the canonical forest and \textbf{negative} under all three regularised alternatives, so the block does not become portable when the model is made simpler.
@@ -642,6 +649,7 @@ Section~\ref{sec:4.3} reports four evaluations of the same models as a ladder. T
 
 \begin{center}
   \scriptsize
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
   \begin{tabular}{lllrrrr}
     \hline
     Region & Axis & Direction & Source positives & Target positives & Thermal AUC & Baseline AUC \\
@@ -667,7 +675,7 @@ Section~\ref{sec:4.3} reports four evaluations of the same models as a ladder. T
     montiferru 2021 & north-south & low to high & 438 & 101 & 0.583 & 0.511 \\
     montiferru 2021 & north-south & high to low & 101 & 438 & 0.536 & 0.447 \\
     \hline
-  \end{tabular}
+  \end{tabular}}
 \end{center}
 
 \textbf{Table A2. Leave-one-scar-out at a 2 km buffer, every scar.} Muğla and Montiferru are the only regions containing more than one burned component of at least 50 cells. Muğla is the only region where holding one out still leaves the source model properly trained across every arm; Montiferru's two components are very unequal, so one of its arms retains 472 source positives and the other 97. Muğla's four arms mean 0.579; the four arms in the other regions mean 0.525, and the pooled figure of 0.552 averages the two.
@@ -696,6 +704,7 @@ The evaluation populations of the two arms are not comparable with each other or
 
 \begin{center}
   \small
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
   \begin{tabular}{lrrrrr}
     \hline
     Target region & Scar & Mean over sources & Min & Max & Spread \\
@@ -710,7 +719,7 @@ The evaluation populations of the two arms are not comparable with each other or
     Muğla 2021 & 8 & 0.632 & 0.570 & 0.724 & 0.155 \\
     Muğla 2021 & 10 & 0.671 & 0.579 & 0.716 & 0.137 \\
     \hline
-  \end{tabular}
+  \end{tabular}}
 \end{center}
 
 Over all 36 combinations here the mean is 0.559, the range 0.374 to 0.724, and ten fall below chance. Restricted to the 32 combinations behind row D the mean is 0.555 and the same ten fall below chance. The mean spread across the four sources for a single scar is 0.164 over the nine scars and 0.171 over the eight. Averaging over sources is what makes row D comparable with row C, which is fitted on one region; it is not a claim that the choice of foreign source is immaterial, and Section~\ref{sec:4.3} states the distinction.
@@ -773,6 +782,7 @@ Section~\ref{sec:4.4} reports that all five regions agree on a negative associat
 
 \begin{center}
   \scriptsize
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
   \begin{tabular}{lrrrrrr}
     \hline
     Region & LST raw & LST within elevation & LST within NDVI & LST within distance & NDVI raw & NDVI within LST \\
@@ -783,7 +793,7 @@ Section~\ref{sec:4.4} reports that all five regions agree on a negative associat
     Evia & 0.286 & 0.327 & 0.279 & 0.319 & 0.663 & \textbf{0.380} \\
     Montiferru & 0.376 & 0.392 & 0.368 & \textbf{0.485} & 0.582 & \textbf{0.405} \\
     \hline
-  \end{tabular}
+  \end{tabular}}
 \end{center}
 
 Three readings follow. The LST sign survives stratification within elevation in four of five regions and within greenness in all five, despite r(LST, NDVI) reaching $-$0.92, so it is neither a lapse-rate proxy nor an inverse-greenness proxy. Within distance to the nearest burned cell it crosses 0.5 in Manavgat, at 0.505, and is attenuated to near-null in Montiferru, at 0.485 from an unstratified 0.376 --- the two regions where the collar leaves the least residual gradient --- so in those two the agreed sign is largely a weaker version of the same spatial effect the collar was introduced to remove, entirely so in Manavgat. And the reciprocal adjustment runs one way only: NDVI reverses in two regions once temperature is held, while LST reverses in none once greenness is held.
@@ -796,6 +806,7 @@ Section~\ref{sec:4.4} reports that no reversal meets this paper's strict criteri
 
 \begin{center}
   \small
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
   \begin{tabular}{lrrrl}
     \hline
     Pair & AUC A & AUC B & Difference & 95 \% CI \\
@@ -805,7 +816,7 @@ Section~\ref{sec:4.4} reports that no reversal meets this paper's strict criteri
     Manavgat vs Evia & 0.462 & 0.584 & $-$0.122 & [$-$0.225, $-$0.020] \\
     Bejís vs Muğla & 0.392 & 0.507 & $-$0.115 & [$-$0.219, $-$0.002] \\
     \hline
-  \end{tabular}
+  \end{tabular}}
 \end{center}
 
 Nine of the ninety feature-by-pair differences clear zero, against about 4.5 expected at nominal 5 \% under the null, and no multiplicity correction is applied; four of the nine are this feature and three of those involve Evia. The nine features are effectively two to three dimensions (Section~\ref{sec:4.4}), so the ninety comparisons are not independent either. This is reported as a weaker result than a reversal, not as a restored one.
@@ -830,7 +841,7 @@ Appendix A(n) states both results; the four feature-set configurations, the per-
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig6_loro.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig6_loro.pdf}}
   \caption{\textbf{Pooling every other region never beats the best single
   source.} Leave-one-region-out evaluation: for each held-out target region
   (rows), a model trained on the pooled remaining four regions (filled orange
@@ -870,7 +881,7 @@ Fig.~\ref{fig:feature-drop} shows the four configurations together. What this me
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig7_feature_drop.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig7_feature_drop.pdf}}
   \caption{\textbf{Removing the direction-reversing features costs locally and
   returns nothing measurable on transfer.} Mean within-region ROC-AUC across the five regions (horizontal)
   against mean transfer ROC-AUC across the 20 ordered directions (vertical),
@@ -902,7 +913,8 @@ Section~\ref{sec:4.4} states both results; the per-region values, the reciprocal
 
 \begin{center}
   \scriptsize
-  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xll>{\raggedright\arraybackslash}Xll>{\raggedright\arraybackslash}X}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{lllllll}
     \hline
     Feature & 2021, full & 2022, full & full verdict & 2021, collar & 2022, collar & collar verdict \\
     \hline
@@ -910,7 +922,7 @@ Section~\ref{sec:4.4} states both results; the per-region values, the reciprocal
     slope\_mean & 0.637 [0.584, 0.689] & 0.559 [0.463, 0.643] & none & 0.635 [0.578, 0.692] & 0.457 [0.356, 0.548] & none \\
     the five state-dependent channels & --- & --- & --- & --- & --- & \textbf{not evaluable here} \\
     \hline
-  \end{tabularx}
+  \end{tabular}}
 \end{center}
 
 \textbf{On the two channels this arm can evaluate, the collar removes the reversal.} Elevation's 2022 arm crosses to the same side of 0.5 with an interval covering chance, while the 2021 arm is nearly frame-invariant, which isolates the effect to the 2022 arm's far field rather than to the collar. Slope reverses on neither frame.
@@ -953,7 +965,7 @@ The clearest single view needs no ranking at all (Fig.~\ref{fig:contrast-pairs})
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig8_contrast_pairs.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig8_contrast_pairs.pdf}}
   \caption{\textbf{Burned-niche overlap does not determine transfer: the
   contrast pair.} Per-feature signed univariate AUC, the probability that a
   predictor takes a higher value on a burned cell than on an unburned one,
@@ -1111,7 +1123,7 @@ Section~\ref{sec:4.5} states these results; the paragraphs it condensed are here
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig4_transfer_matrix.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig4_transfer_matrix.pdf}}
   \caption{\textbf{Cross-region transfer, and what label-blind adaptation does
   to it.} Thermal transfer ROC-AUC for all 20 ordered source--target
   directions among the five regions, natural-vegetation primary population.
@@ -1155,7 +1167,7 @@ The per-direction decomposition is in Appendix A(j), Table A5; two figures from 
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig5_adaptation.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig5_adaptation.pdf}}
   \caption{\textbf{Label-blind adaptation regresses transfer onto the level a
   model reaches on an unseen scar, rather than recovering it.} All 12 ordered directions among the
   four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u{g}la,
@@ -1431,7 +1443,8 @@ Section~\ref{sec:4.4} states these results; the per-region values are here.
 
 \begin{center}
   \scriptsize
-  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xlll>{\raggedright\arraybackslash}Xlll>{\raggedright\arraybackslash}Xl}
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+  \begin{tabular}{llllllllll}
     \hline
     Region & Total cells & Valid cells & Burned & Prevalence (all valid) & TSG cells & Burned in TSG & TSG prevalence & Burned natural-veg fraction & Gate verdict \\
     \hline
@@ -1441,13 +1454,14 @@ Section~\ref{sec:4.4} states these results; the per-region values are here.
     North Evia 2021 (extended) & 22,925 & 22,906 & 2,788 & 0.122 & 9,298 & 2,664 & 0.287 & 0.945 & pass \\
     Montiferru 2021 & 3,234 & 3,173 & 697 & 0.220 & 2,544 & 539 & 0.212 & 0.723 & pass \\
     \hline
-  \end{tabularx}
+  \end{tabular}}
 \end{center}
 
 \textbf{Table B9. Cross-region transfer matrix, thermal model, TSG population.} Target ROC-AUC with 2-cell spatial-block bootstrap 95\% CIs (1000 replicates). CORAL is applied after region-wise z-scoring ($\lambda$ = 10$^{-5}$).
 
 \begin{center}
   \footnotesize
+  \resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
   \begin{tabular}{llll}
     \hline
     Direction & Raw & Region-wise z-score & CORAL \\
@@ -1473,7 +1487,7 @@ Section~\ref{sec:4.4} states these results; the per-region values are here.
     Montiferru$\rightarrow$Evia & 0.586 [0.565, 0.606] & 0.630 [0.611, 0.649] & 0.624 [0.605, 0.641] \\
     Evia$\rightarrow$Montiferru & 0.647 [0.608, 0.682] & 0.568 [0.528, 0.609] & 0.581 [0.539, 0.623] \\
     \hline
-  \end{tabular}
+  \end{tabular}}
 \end{center}
 
 \textbf{Table B10. The most and least environmentally similar pairs, on both frames.} Schoener's \emph{D} is computed over burned cells only and is therefore collar-invariant. Transfer values are the two ordered directions of each pair; ranks are out of the twenty directions on the equalised frame. As-drawn transfer is read from Table B9, collar transfer from \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}.
@@ -1551,7 +1565,7 @@ Ten predictors are used, four baseline and six thermal, all summarised per cell 
 
 \begin{figure}[htbp]
   \centering
-  \makebox[\linewidth][c]{\includegraphics[width=175mm]{figures/fig2_schematic.pdf}}
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig2_schematic.pdf}}
   \caption{\textbf{Processing pipeline and evaluation programme.} Flow from
   source products (left) to the transfer and diagnostic programme (right);
   every box carries the Methods subsection that specifies it. The five source
