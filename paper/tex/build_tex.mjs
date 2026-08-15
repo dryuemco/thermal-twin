@@ -572,10 +572,10 @@ const KEYWORDS = FM.keywords
   : `wildfire \\sep model transferability \\sep area of applicability \\sep
 land surface temperature \\sep domain adaptation \\sep concept shift`;
 const CREDIT = FM.credit ||
-`\\textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis,
-Investigation, Writing -- original draft, Writing -- review and editing,
-Supervision. \\textbf{Emrehan Metin:} Software, Data curation, Investigation,
-Validation, Writing -- review and editing.`;
+`\\textbf{Emrehan Metin:} Software, Data curation, Investigation, Validation,
+Writing -- review and editing. \\textbf{Yunus Emre Cogurcu:} Conceptualization,
+Methodology, Formal analysis, Investigation, Writing -- original draft,
+Writing -- review and editing, Supervision.`;
 const abstractMd = read('00_abstract.md');
 // Appendices are ordinary sections to the converter; LaTeX is told where the
 // body ends by the \appendix marker inserted between the two groups below.
@@ -587,19 +587,62 @@ const sections = [...BODY, ...APPENDICES];
 
 collectTableLabels([...sections, ...(has('S1_few_shot_recovery.md') ? ['S1_few_shot_recovery'] : [])]);
 
+const figureCaptions = readOpt('figure_captions.tex', '');
+
+// Figures are placed where they are first referenced, not dumped at the end of
+// the file. Before this they all sat after \appendix, so the counter numbered
+// them C.1 to C.8 and a reader met "Fig. 1" on page 132. Split the caption file
+// into its figure environments, keyed by label.
+const FIGBLOCKS = (() => {
+  const out = new Map();
+  const re = /\\begin\{figure\}[\s\S]*?\\end\{figure\}/g;
+  let m;
+  while ((m = re.exec(figureCaptions)) !== null) {
+    const lab = /\\label\{(fig:[^}]*)\}/.exec(m[0]);
+    if (lab) out.set(lab[1], m[0]);
+  }
+  return out;
+})();
+
+// Insert each not-yet-placed figure after the paragraph that first references
+// it. Text carrying no reference to a given figure comes back unchanged, so a
+// later group gets its turn; whatever is still unplaced the caller reports.
+function placeFigures(tex, placed) {
+  for (const [lab, block] of FIGBLOCKS) {
+    if (placed.has(lab)) continue;
+    const at = tex.indexOf('\\ref{' + lab + '}');
+    if (at < 0) continue;
+    let end = tex.indexOf('\n\n', at);
+    if (end < 0) end = tex.length;
+    tex = tex.slice(0, end) + '\n\n' + block + tex.slice(end);
+    placed.add(lab);
+  }
+  return tex;
+}
+
 const abstractTex = convertBody(abstractMd, { abstract: true }).trim();
+const placedFigures = new Set();
 const bodyTex = [
-  ...BODY.map(f => convertBody(read(f + '.md'), { src: f })),
-  ...(APPENDICES.length ? ['\\appendix'] : []),
-  ...APPENDICES.map(f => convertBody(read(f + '.md'), { src: f })),
+  ...BODY.map(f => placeFigures(convertBody(read(f + '.md'), { src: f }), placedFigures)),
+  // \appendix relabels sections A, B, C and elsarticle already prints figures
+  // as \thesection.\arabic{figure}. It does not reset the counter, so the first
+  // appendix figure came out as A.3, carrying on from the body. Reset it here
+  // and make it reset again at every appendix section, so each appendix numbers
+  // its own figures from 1.
+  ...(APPENDICES.length ? ['\\appendix\n\\setcounter{figure}{0}\n' +
+      '\\makeatletter\\@addtoreset{figure}{section}\\makeatother'] : []),
+  ...APPENDICES.map(f => placeFigures(convertBody(read(f + '.md'), { src: f }), placedFigures)),
 ].join('\n\n');
+for (const lab of FIGBLOCKS.keys()) {
+  if (!placedFigures.has(lab)) {
+    note('review', 'FIGURE ' + lab + ' HAS A CAPTION BUT IS REFERENCED NOWHERE - not placed');
+  }
+}
 
 // Highlights (Elsevier wants them as a separate item, but keep them in the file).
 const highlights = readOpt('highlights.md', '').split(/\r?\n/)
   .filter(l => /^\s*[-*]\s+/.test(l))
   .map(l => '  \\item ' + l.replace(/^\s*[-*]\s+/, '').trim());
-
-const figureCaptions = readOpt('figure_captions.tex', '');
 
 const preamble = `% =============================================================================
 % manuscript.tex — Ecological Informatics (Elsevier), elsarticle class
@@ -660,11 +703,15 @@ const preamble = `% ============================================================
 \\title{${TITLE}}
 
 %% Author block. Affiliation and corresponding address supplied by the authors
-%% 2026-08-14. Still optional and not supplied: department or faculty within the
+%% 2026-08-14. Order changed 2026-08-15 on the authors' instruction: Emrehan
+%% Metin first, Yunus Emre Cogurcu second. Corresponding authorship was NOT
+%% moved with it and stays with Cogurcu, who supervises the work and whose
+%% address is the one on file; say so if that is not intended.
+%% Still optional and not supplied: department or faculty within the
 %% university, and ORCIDs.
+\\author[inst1]{Emrehan Metin}
 \\author[inst1]{Yunus Emre Cogurcu\\corref{cor1}}
 \\ead{ycogurcu@cu.edu.tr}
-\\author[inst1]{Emrehan Metin}
 \\cortext[cor1]{Corresponding author.}
 \\affiliation[inst1]{organization={\\c{C}ukurova University},
                     city={Adana},
@@ -741,8 +788,8 @@ regenerated from the released code and the frozen outputs.
 % uploaded.
 
 % ---------------------------------------------------------------- figures --
-% Captions are maintained in ../figure_captions.tex and included verbatim.
-${figureCaptions}
+% Figures are placed at their first reference, in the body and in the
+% appendices; captions are maintained in ../figure_captions.tex.
 
 \\bibliographystyle{elsarticle-harv}
 \\bibliography{../REFERENCES}
