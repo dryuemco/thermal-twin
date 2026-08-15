@@ -72,11 +72,11 @@ directly as a feature-set contrast.
 
 One thing should be said before the result, because it makes the outcome less surprising than it
 might otherwise appear. The normalised channels are the two that hold their direction in the
-same-geography two-event comparison of Section 4.8, where the absolute channels move. That is a
+same-geography two-event comparison of Section 4.9, where the absolute channels move. That is a
 statement about one region across two fires. **Across regions it does not hold**: `lst_anomaly_mean`
 is itself one of the two predictors whose reversal is bootstrap-supported on the frames as drawn,
-reversing between Bejís and Evia (Section 4.9 withdraws that support under an equalised frame),
-which is why Section 4.6b drops it alongside elevation. Being internally normalised protects a
+reversing between Bejís and Evia (Section 4.10 withdraws that support under an equalised frame),
+which is why Section 4.7b drops it alongside elevation. Being internally normalised protects a
 channel against the offset between two seasons in one place. It does not, on this evidence, protect
 it against a change of place.
 
@@ -105,7 +105,7 @@ stability does not become transferable skill.
 This arm strengthens the negative finding rather than softening it. Four differently constituted
 feature sets were tried. None clears a mean of 0.548 across regions, and all differ sharply within
 them. The baseline arm also gives an independent confirmation of the control reported in
-Section 4.3: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches
+Section 4.4: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches
 the 0.537 read from the frozen per-direction export. Details are in
 `paper/anomaly_only_transfer.md`.
 

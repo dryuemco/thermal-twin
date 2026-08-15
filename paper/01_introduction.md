@@ -17,7 +17,7 @@ This paper is about a property that the pattern does not report. Predictors that
 that describe a place. They are also, as we show, not portable, and a large part of this paper is
 about how much harder that is to establish than it looks: the reading we first reached, that the
 relationship is reparameterised locally and points in different directions in different places, does
-not survive a correction to how the study regions were evaluated (Section 4.9). The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
+not survive a correction to how the study regions were evaluated (Section 4.10). The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
 cross-validation, +0.022 when a whole burn scar is withheld, and contributes
 +0.004 between them, an estimate whose interval spans zero, with a sign that is a property of the
 source-target pair rather than of the block.
@@ -82,7 +82,7 @@ whether the predictive *skill* of a classifier trained on it in one fire region 
 label-free application to another. The physics linking moisture stress to combustion is universal, so
 portability should be most expected for this class, which is what makes it diagnostic: a loss here
 cannot be dismissed as a peculiarity of a locally defined covariate. That expectation is the
-motivation for the design, not a finding of it. Section 4.9 reports that the signed associations run
+motivation for the design, not a finding of it. Section 4.10 reports that the signed associations run
 the other way, a hotter pre-fire surface being associated with less burning in all five regions and
 surviving stratification within elevation and greenness, so on this cohort the block behaves as a
 proxy for fuel availability rather than as a moisture-stress index. We keep the framing because it
@@ -125,7 +125,7 @@ area's prevalence changes nothing, at −0.000 [−0.003, +0.002], while scoring
 the scar area costs +0.155 [+0.093, +0.217]. It is the composition of the negative pool, whose cells
 are all fire-adjacent and therefore the hardest in the region, not class balance.
 
-Applied between regions, the same effect withdraws three of our own claims (Section 4.9). The five
+Applied between regions, the same effect withdraws three of our own claims (Section 4.10). The five
 study areas enclose very different far fields, from 2 % of Montiferru's cells lying beyond 10 km of
 any fire to 63 % of Bejís's, and that far field is higher ground. Restricting every region to a
 10 km collar, **which drops no burned cells**, makes all five agree in sign on elevation, on LST and
@@ -137,9 +137,9 @@ closest is the LST anomaly between Bejís and Evia, a point reversal whose Evia 
 by 0.003. The sign the five regions now agree on is also not the one the dryness framing predicts:
 hotter pre-fire surfaces burned less in every region, and that survives stratification within
 elevation and greenness deciles, so on this cohort the block behaves as a proxy for fuel
-availability rather than as a moisture-stress index (Section 4.9). A reversal also appears
+availability rather than as a moisture-stress index (Section 4.10). A reversal also appears
 between two fires eleven months apart inside one study area, where the frame is fixed by
-construction (Section 4.8), but on elevation alone, on eleven positive-carrying blocks, and with one
+construction (Section 4.9), but on elevation alone, on eleven positive-carrying blocks, and with one
 fire per arm it is as consistent with event-to-event variation as with any regional property. The
 practical consequence is a reporting standard, stated in Section 5.8.
 
@@ -173,7 +173,7 @@ subset of predictors, and their all-nine-feature counterparts span zero. **Contr
 removes even that exception.** The sign-agreement statistic is built from the signed associations
 that the frame test shows to be artefacts, and recomputed on an equalised frame it is unanimous —
 1.0 in every direction, with no variance left to correlate — while the continuous alternative falls
-from ρ = +0.50 to +0.12 (Section 4.9). The honest finding is therefore stronger and worse for the
+from ρ = +0.50 to +0.12 (Section 4.10). The honest finding is therefore stronger and worse for the
 practitioner than it first appeared: **no diagnostic tested here, marginal or conditional, was shown
 to order transfer once the frames are comparable**, and the one that appeared to was reading how the
 study rectangles were drawn. The same point survives without any ranking, at the point estimates: the pair with the
