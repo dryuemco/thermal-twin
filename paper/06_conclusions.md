@@ -36,7 +36,7 @@ as one.
 
 That correction is not only other people's problem. Applied to our own five-region matrix it
 withdraws three of our claims. The study areas enclose very unequal far fields, and equalising them
-to a 10 km collar, which drops no burned cells, lifts mean transfer from 0.540 to 0.617, reduces the
+to a 10 km collar lifts mean transfer from 0.540 to 0.617, reduces the
 directions below chance, and leaves no sign reversal supported under our own criterion — including
 the one arm that held place fixed, two fires in the same study area eleven months apart, which we
 had wrongly exempted because its geography was constant while its evaluation frame was not. What had

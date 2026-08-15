@@ -263,7 +263,9 @@ variability. They resample between directions only.
 0.326 [0.305, 0.349]. No account of merely lost skill produces a reliably reversed ranking, so on
 this evidence those six would need a mechanism acting on the direction of the relationship, and
 Sections 4.5 to 4.9 pursue one. **Section 4.10 then shows that most of this count is an artefact of
-the evaluation frames: equalising them leaves one direction below chance, not six.** The reader
+the evaluation frames: equalising them leaves one direction below chance, not six — Manavgat to Bejís, at 0.417 [0.349,
+0.488], which is below chance with interval support on the frame as drawn and at every collar
+radius tested.** The reader
 should carry that forward through the intervening sections, whose reversal evidence is computed on
 the frames as drawn. Per-split
 and per-scar detail is in Appendix A(i).
@@ -552,8 +554,9 @@ far field is not a neutral addition. In Manavgat the median elevation of modelle
 472 m within 5 km of the fire to 955 m at 10 to 20 km and 1,273 m at 20 to 50 km, against 512 m for
 the burned cells themselves, in Taurus terrain that no plausible spread model would place at risk.
 
-**Under an equalised frame the sign reversals of Section 4.6 do not survive.** Restricting every
-region to cells within 10 km of any burned cell drops **no positives**, only far-field negatives.
+**Under an equalised frame the sign reversals of Section 4.6 do not survive.** Restricting every region to cells within 10 km of any burned cell removes only far-field negatives;
+every burned cell is at distance zero and is retained at any radius, so the protection against
+choosing a flattering radius is the sweep reported below, not the retention of positives.
 
 **Table 8. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
 intervals that decide the reversal question are given in the text below and in
@@ -719,8 +722,9 @@ point estimate and **four to one with interval support** (`aoi_frame_transfer.cs
 the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to
 0.602, and Bejís to Manavgat, 0.440 to 0.601.
 
-**What this does and does not change.** Three claims do not survive and are withdrawn here rather
-than defended. The count of six anti-predictive directions becomes one. The sign reversal of
+**What this does and does not change.** Five claims do not survive and are withdrawn here rather
+than defended, three of them in this paragraph and two established above: the sign-agreement
+diagnostic of Section 4.5, and the two-event arm of Section 4.9. The count of six anti-predictive directions becomes one. The sign reversal of
 elevation, LST and TVDI as the mechanism of the residual is a property of the frames, not of the
 predictor-burning relationship. And the paired thermal contribution is not stable at +0.004: it
 rises to +0.023 once frames are equalised, so the claim that the block contributes nothing between
@@ -747,7 +751,54 @@ negative pool moves ROC-AUC by more than the effects this literature reports, th
 five-region transfer matrix, and a mechanism, on frames whose fire-adjacent share ranges from 37 %
 to 98 %. Section 5.9(x) records the frame as a limitation of this cohort rather than of the method.
 
-## 4.11 What target labels cost: the recovery curve
+## 4.11 The length scale: distance, not the region boundary
+
+Sections 4.3 and 4.10 both point past the region boundary, and one further arm settles where the
+skill is actually lost. It was specified in advance: `positive_control.md` records the confound —
+that a cross-region comparison confounds regional difference with spatial extrapolation — and fixes
+the decision rule before the curve was run, that *if the cross-region points sit on the continuation
+of the within-region curve, the transfer failure needs no regional mechanism*. The curve was then
+run (`distance_curve.md`, `paper/code/distance_curve.py`): a model is fitted on one half of a region
+and applied to the other, and target cells are binned by their distance from the training cells.
+
+| Separation from training cells | Bins | Mean target AUC |
+|---|---:|---:|
+| 0 to 5 km | 18 | 0.692 |
+| 5 to 10 km | 16 | 0.519 |
+| 10 to 20 km | 11 | **0.499** |
+| 20 to 40 km | 6 | 0.445 |
+| 40 to 80 km | 3 | 0.541 |
+| **cross-region, 306 to 2,802 km** | 20 | **0.541** |
+
+**By 10 to 20 km inside a single region the model is already at chance, and crossing a national
+border a hundred times further away does not make it worse.** The twenty cross-region directions
+average 0.541, at or slightly above the within-region plateau, so the cross-region points sit on the
+continuation of the curve rather than below it. By the rule fixed in advance, the transfer failure
+needs no regional mechanism.
+
+This is the third independent arm to say so, and they agree: row C against row D in Section 4.3
+found that replacing a same-region model with one fitted 306 to 2,802 km away costs −0.003 [−0.075,
++0.069]; Section 4.10 found that equalising the evaluation frames removes most of the apparent
+regional signal; and the curve here supplies the length scale. **The honest statement of this
+paper's negative result is therefore not that these predictors fail to transfer between regions. It
+is that they do not generalise beyond about ten kilometres from the cells they were fitted on, and
+that a region boundary adds nothing measurable to that.** That is a more general claim, better
+supported, and more useful to a practitioner, who gets a length scale rather than a taxonomy.
+
+Four limits bound it and none is dismissed. The two distance ranges do not overlap — within-region
+separations span 2 to 86 km and cross-region separations start at 306 km — so this is an
+extrapolation of the within-region curve, made safer only by the curve having flattened before the
+gap begins. The far bins are thin, six at 20 to 40 km and three beyond, so their means should not be
+read closely and the apparent rise at 40 to 80 km is not evidence of anything. The near bins are
+inflated by exactly the autocorrelation blocked validation exists to remove, so **0.692 is an upper
+bound on near-field skill rather than an estimate of it**. And distance is not the only thing that
+changes with distance: this design separates distance from *crossing a study-area boundary*, which
+is the confound at issue, but not from the land cover, terrain and fire history that covary with it.
+
+Nothing here bears on the diagnostics result, which correlates diagnostics against observed transfer
+whatever produces it, nor on the univariate sign evidence, which involves no fitted model.
+
+## 4.12 What target labels cost: the recovery curve
 
 Everything above measures a failure; this prices it. Label-free alignment does not close the residual
 gap, so the missing resource is information about the target that alignment cannot synthesise, and

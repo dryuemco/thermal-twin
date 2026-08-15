@@ -29,7 +29,7 @@ transfers above chance raw is Bejís to Muğla, and it is the direction that bot
 least. The natural constructive question is therefore what a *small number of target labels* buys,
 since that is the resource label-free machinery cannot substitute for.
 
-The headline of this analysis is in the main text at §4.11. Its ceilings and denominators are
+The headline of this analysis is in the main text at §4.12. Its ceilings and denominators are
 computed on the frames as drawn, which §4.10 shows are not comparable across regions; the recovery
 fractions should be read as within-frame quantities. The full design, the per-budget table
 and the limits are here, for two reasons. It covers three of the five regions, so it cannot carry a

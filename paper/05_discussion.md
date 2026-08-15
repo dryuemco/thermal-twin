@@ -46,7 +46,11 @@ thirty. The population is not held fixed either, the 2022 arm being the 2021 arm
 removed. And the 2022 arm rests on eleven positive-carrying 5 km blocks against this design's own
 floor of sixteen. With one fire per region everywhere else, and the one arm that held place fixed now
 withdrawn, **this cohort provides no evidence that the transfer shortfall is regional rather than
-event-specific**, and Section 5.9(v) is a substantive limit rather than a formality.
+event-specific**, and Section 5.9(v) is a substantive limit rather than a formality. Section 4.11
+sharpens the point: within a single region the model is already at chance by 10 to 20 km from its
+training cells, and the twenty cross-region directions sit on the continuation of that curve rather
+than below it. The shortfall is therefore better described as spatial extrapolation than as region
+crossing, with the region boundary a limiting case rather than the cause.
 
 One conclusion does survive from the other direction. On the frames as drawn the sharpest supported
 reversal belonged to elevation, a *baseline* terrain variable, and the static baseline transfers no

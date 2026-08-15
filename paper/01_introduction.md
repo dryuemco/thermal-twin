@@ -152,8 +152,7 @@ the predictor-block increments this literature publishes as findings. A control 
 as the composition of the negative pool rather than class balance (Section 4.3).
 
 Applied between regions, the same effect withdraws three claims we had made (Section 4.10). The five
-study areas enclose very unequal far fields; equalising them to a 10 km collar, which drops no burned
-cells, lifts mean transfer, reduces the below-chance directions, and leaves no sign reversal
+study areas enclose very unequal far fields; equalising them to a 10 km collar, which removes only far-field negatives, lifts mean transfer, reduces the below-chance directions, and leaves no sign reversal
 supported under this paper's own criterion — including the two-fire arm inside one study area that
 we had exempted, wrongly, on the ground that its geography was fixed. The agreed direction is also
 not the one dryness physics predicts: hotter pre-fire surfaces burned less in every region, and on
@@ -195,7 +194,7 @@ Two consequences follow, reported as supporting results rather than leading ones
 alignment by standardisation and covariance alignment [@Sun2016] does not repair transfer; it
 compresses most directions towards chance, and we believe this is the first application of
 covariance alignment to fire susceptibility. And because the residual is conditional, the resource
-that closes it is target labels, whose price is measured in Section 4.11.
+that closes it is target labels, whose price is measured in Section 4.12.
 
 Alongside these, a leakage-audited, spatially blocked evaluation and transfer protocol is released
 with code, configuration and frozen outputs, so that most of this result can be re-run rather than
