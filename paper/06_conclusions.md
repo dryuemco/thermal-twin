@@ -43,14 +43,15 @@ below chance from six to one, and makes all five regions agree in sign on elevat
 The sign reversal we had offered as the mechanism of the transfer residual is therefore mostly a
 property of how five rectangles were drawn. Under our own criterion no reversal then remains
 bootstrap-supported. The sign the five regions agree on is also not the one the dryness framing
-predicts: hotter pre-fire surfaces burned less everywhere, surviving stratification within elevation
-and greenness, so on this cohort the thermal block behaves as a proxy for fuel availability.
+predicts: hotter pre-fire surfaces burned less everywhere, and holding greenness does not remove it
+while holding temperature reverses greenness in two regions, so on this cohort the absolute thermal
+channels behave as static land-surface descriptors rather than as a dryness index.
 
 What survives the correction is the central result. Pre-fire thermal dryness adds a real and
 repeatable within-region increment, +0.06 to +0.15 ROC-AUC over a static and near-static baseline in
 all five regions, surviving spatial blocking at about 5 km and a predictor window closed up to two
-weeks before the first labelled burning. It does not travel. Equalised transfer of 0.617 against
-within-region skill near 0.87 leaves most of the gap intact; the paired cross-region contribution is
+weeks before the first labelled burning. It does not travel. Equalised transfer of 0.617 against a matched
+within-region reference of 0.772 leaves a shortfall of 0.155; the paired cross-region contribution is
 +0.004 [−0.028, +0.036] with a sign that varies by pair; and the static baseline transfers at 0.537
 against the thermal model's 0.541, so this is not a peculiarity of dynamic predictors. Removing the
 two reversing predictors costs −0.081 of within-region skill, three quarters of it elevation, and

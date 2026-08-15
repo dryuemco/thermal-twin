@@ -433,9 +433,16 @@ Muğla, with disjoint intervals, and all four absolute thermal channels are amon
 **Section 4.10 withdraws that reading**: this is the pair whose Manavgat arm is 60 % far field, and
 under a 10 km collar the elevation figure moves to 0.561 against 0.606, on the same side of 0.5. The
 contrast that survives is the transfer result itself, not the reversal count that was offered to
-explain it. Transfer is below
-chance in both directions at the point estimate, at 0.470 and 0.401. Both directions also sit inside
-the nominal area of applicability, at 0.875 and 0.531 of target cells.
+explain it. Transfer is below chance in both directions at the point estimate on the frames as
+drawn, at 0.470 and 0.401, but **that half does not survive equalisation either**: under the 10 km
+collar the pair transfers at 0.551 and 0.510, both above chance (`aoi_frame_transfer.csv`). Both
+directions also sit inside the nominal area of applicability, at 0.875 and 0.531 of target cells,
+which is itself a full-frame quantity. **What survives is the ordinal contrast, and it survives
+cleanly**: on the equalised frame the most environmentally similar pair still transfers worst in the
+matrix, at 0.551 and 0.510, while the least similar pair reaches 0.669 and 0.624. Schoener's D is
+computed over burned cells only and is therefore collar-invariant, so the similarity ordering is
+unchanged. The claim this section supports is that high envelope overlap does not buy transfer, not
+that it produces anti-prediction.
 
 Bejís and Montiferru sit at the opposite extreme. Their burned envelopes barely overlap, and they
 carry the most dissimilar values on every overlap measure. They transfer above chance in both
@@ -632,7 +639,29 @@ at 0.509 [0.417, 0.597] in Muğla against 0.384 [0.288, 0.504] in Montiferru, an
 interval excludes 0.5. These are the two internally differenced channels, and an earlier draft of
 this section treated the first as uniquely informative because it carries no lapse-rate signal; that
 argument does not hold, because the second is equally decorrelated from elevation and behaves the
-same way. Both are point reversals, not supported ones. We state it that way rather than quoting the point
+same way. Both are point reversals under the strict criterion.
+
+**A weaker instrument does support the anomaly result, and we had given it away.** Table B3's own
+note commits this paper to a difference interval on the pair as the sharper test, and Section 4.10
+had not applied it. Bootstrapping the two regions independently under the collar and differencing
+(`matched_frame_gap.csv`), four pairs have opposite-sided point estimates **and** a difference
+interval excluding zero, all on `lst_anomaly_mean`:
+
+| Pair | AUC A | AUC B | Difference | 95 % CI |
+|---|---:|---:|---:|---|
+| Bejís vs Evia | 0.392 | 0.584 | −0.191 | [−0.295, −0.083] |
+| Evia vs Montiferru | 0.584 | 0.400 | +0.184 | [+0.012, +0.321] |
+| Manavgat vs Evia | 0.462 | 0.584 | −0.122 | [−0.225, −0.020] |
+| Bejís vs Muğla | 0.392 | 0.507 | −0.115 | [−0.219, −0.002] |
+
+Three of the four involve Evia, which is a coherent pattern rather than scatter, and the anomaly is
+the one channel the frame-and-terrain mechanism of this section cannot explain, being decorrelated
+from elevation at −0.195 to +0.256. Three caveats keep it weak and all three are stated rather than
+buried: nine of ninety feature-by-pair differences clear zero, against about 4.5 expected at nominal
+5 % under the null and with no multiplicity correction; the nine features are effectively two to
+three dimensions, as the collinearity paragraph below shows; and Evia's own interval-support status
+turns on 0.003. **The honest statement is that no reversal meets this paper's strict criterion under
+the collar, and that the LST anomaly differs between regions on the weaker difference instrument.** We state it that way rather than quoting the point
 estimates alone, because the alternative would be to apply a looser standard to the arm that
 supersedes Table B3 than to Table B3 itself. Elevation under the collar is above 0.5 in all five
 regions but individually supported in only two, Muğla at 0.606 [0.525, 0.685] and Evia at 0.648
@@ -644,13 +673,26 @@ pre-fire surface is associated with **less** burning, not more, and the same hol
 not a lapse-rate artefact. Pooling concordance within elevation deciles leaves LST at 0.402, 0.509,
 0.363, 0.327 and 0.392, still below 0.5 in four of five regions, and within NDVI deciles at 0.440,
 0.486, 0.404, 0.279 and 0.368, below 0.5 in all five, despite r(LST, NDVI) reaching −0.92. The
-likely reading is that fuel availability dominates surface dryness at this scale in this cohort:
-NDVI itself is the most consistently supported single predictor under the collar, at 0.582 to 0.663
-with intervals excluding 0.5 in four of five regions, more than any other feature, though in Muğla
-and Evia the absolute thermal channels are further from 0.5, so greener and therefore more fuel-rich cells burn more,
-while the hottest cells are the sparse, rocky ones with little to burn. Section 1.2 motivates the
-thermal block from moisture-stress physics; that motivation is not what the signed associations
-show, and Section 5.2 states the consequence.
+earlier version of this section read it as fuel availability dominating surface dryness, on the
+ground that NDVI is the most consistently supported single predictor under the collar (0.582 to
+0.663, supported in four of five regions). **The reciprocal test does not support that reading and
+we withdraw it.** Holding LST within deciles, NDVI's own signed association falls to 0.542, 0.574,
+0.547, **0.380** and **0.405**, reversing in Evia and Montiferru; holding NDVI, LST never reverses in
+any region. On mutual adjustment the surviving channel is LST, not NDVI, so greenness cannot be the
+mechanism through which the thermal sign acts.
+
+Two further results bound what the sign is. In two of five regions it is a residual spatial gradient:
+stratifying within deciles of distance to the nearest burned cell *inside* the collar moves Manavgat
+from 0.386 to 0.505 and Montiferru from 0.376 to 0.485, while Bejís, Muğla and Evia hold at 0.350,
+0.367 and 0.319. And interval support is not uniform — LST is supported in four of five regions and
+TVDI in only three, so "all five agree" is a statement about point estimates. The reading we can
+defend is that the absolute thermal channels behave here as **static land-surface descriptors**,
+correlated within the collar with greenness (−0.55 to −0.92), elevation (−0.46 to −0.68) and slope,
+rather than as a dryness index, and that the two internally differenced channels, the ones
+constructed to isolate the dynamic anomaly, carry no consistent cross-region direction at all.
+Compositing depth was not tested and remains an open alternative. Section 1.2 motivates the thermal
+block from moisture-stress physics; that motivation is not what the signed associations show, and
+Section 5.2 states the consequence.
 
 **The same test destroys the one diagnostic that appeared to work.** Section 4.5's only diagnostic
 with an interval excluding zero is the fraction of features whose signed association points the same
@@ -759,9 +801,24 @@ than defended. The count of six anti-predictive directions becomes one. The sign
 elevation, LST and TVDI as the mechanism of the residual is a property of the frames, not of the
 predictor-burning relationship. And the paired thermal contribution is not stable at +0.004: it
 rises to +0.023 once frames are equalised, so the claim that the block contributes nothing between
-regions is frame-dependent too. What survives is the central negative result, and it survives with
-room to spare: equalised transfer of 0.617 against within-region skill of about 0.87 leaves most of
-the gap intact. Section 5.9 records the frame as a limitation of the cohort rather than of the
+regions is frame-dependent too. What survives is the central negative result, but its size must be
+stated on a matched comparison and an earlier version of this section did not. Quoting the equalised
+transfer mean of 0.617 against a within-region reference of about 0.87 compares a 10 km-collar
+number with a full-rectangle one at 1 km blocking, which is the most generous reference in the
+paper and is the very figure Section 4.3 argues is an upper bound. Recomputing the within-region
+reference on the same frame and at the 5 km blocking this design defends
+(`matched_frame_gap.csv`, `paper/code/verify_matched_gap.py`):
+
+| Frame | Within-region (5 km blocking) | Mean transfer | Gap |
+|---|---:|---:|---:|
+| full rectangle | 0.798 | 0.540 | 0.258 |
+| 10 km collar | **0.772** | **0.617** | **0.155** |
+| 5 km collar | 0.737 | 0.608 | 0.129 |
+
+The shortfall survives on every matched row, which is what matters, but it is **0.155 at the collar,
+not the 0.25 the unmatched comparison implies**, and it shrinks as the frame approaches the fire —
+which is where a susceptibility surface is actually used. We report the matched figure and drop the
+"room to spare" reading. Section 5.9 records the frame as a limitation of the cohort rather than of the
 method, since equalising it is cheap and we recommend it.
 
 This is the paper's own Contribution 1 turned on the paper's own matrix. We had measured that the

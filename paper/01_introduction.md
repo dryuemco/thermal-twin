@@ -182,9 +182,9 @@ mechanism of the residual is therefore mostly a property of how five rectangles 
 this paper's own criterion **no reversal remains bootstrap-supported** in the equalised frame; the
 closest is the LST anomaly between Bejís and Evia, a point reversal whose Evia interval includes 0.5
 by 0.003. The sign the five regions now agree on is also not the one the dryness framing predicts:
-hotter pre-fire surfaces burned less in every region, and that survives stratification within
-elevation and greenness deciles, so on this cohort the block behaves as a proxy for fuel
-availability rather than as a moisture-stress index (Section 4.10). A reversal also appears between two fires
+hotter pre-fire surfaces burned less in every region, and on mutual adjustment it is temperature
+rather than greenness that survives, so on this cohort the absolute thermal channels behave as
+static land-surface descriptors rather than as a dryness index (Section 4.10). A reversal also appears between two fires
 eleven months apart inside one study area (Section 4.9), and we had exempted it because the study
 area is fixed. That exemption was wrong: the area is fixed but the evaluation frame is not, and the
 2022 arm carries the largest far field in the cohort at 93.2 % of its cells beyond 10 km of any

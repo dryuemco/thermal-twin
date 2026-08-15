@@ -39,21 +39,25 @@ the thermal signal is spurious. It is evidence that the fitted relationship is *
 
 The natural objection is that different Mediterranean regions are simply different systems, so that
 a predictor meaning one thing in one place and another elsewhere is not instability but a comparison
-of two different systems. The two Muğla events answer it directly: region, AOI, grid, feature
-registry and processing chain identical, static predictors identical cell by cell, and elevation's
-association with burning reversing from 0.611 [0.532, 0.690] to 0.296 [0.230, 0.355], a difference of
-−0.317 [−0.414, −0.220] (Section 4.9). Holding geography fixed does not stabilise the direction of
-the relationship.
+of two different systems. **We designed the two-Muğla-events arm to answer that objection and it does
+not answer it.** On the frames as drawn it looked decisive: region, AOI, grid, feature registry and
+processing chain identical, static predictors identical cell by cell, and elevation's association
+reversing from 0.611 [0.532, 0.690] to 0.296 [0.230, 0.355]. Section 4.9 shows the arm is instead the
+most extreme frame artefact in the cohort. The 2022 event is one compact scar inside the whole Muğla
+box, so 93.2 % of its cells lie beyond 10 km of any burned cell against 55.3 % for the 2021 arm, and
+under a 10 km collar the 2022 figure moves to 0.565, the same side of 0.5 as the 2021 arm's
+near-unchanged 0.606, with an interval covering chance.
 
-Three caveats attach and none is dismissed. Season and year are confounded, and **that confound
-cannot be resolved in this study area**: the events sit 42 days apart in median burn day-of-year,
-neither year contains a second event at the other's phase, and a calendar-matched arm would carry
-nine burned cells against a gate minimum of thirty. The population is not held fixed either, the
-2022 arm being the 2021 arm with the 2021 scar removed. And the 2022 arm rests on one compact scar
-and eleven positive-carrying 5 km blocks. What survives all three is the narrower reading that
-*something* reverses the elevation-burning association with geography, grid and pipeline held fixed,
-which is why Section 4.9 is reported as corroboration rather than as the load-bearing evidence for
-the mechanism.
+The objection therefore stands unanswered, and three further confounds were never resolved in any
+case. Season and year are confounded, and **that confound cannot be resolved in this study area**:
+the events sit 42 days apart in median burn day-of-year, neither year contains a second event at the
+other's phase, and a calendar-matched arm would carry nine burned cells against a gate minimum of
+thirty. The population is not held fixed either, the 2022 arm being the 2021 arm with the 2021 scar
+removed. And the 2022 arm rests on eleven positive-carrying 5 km blocks against this design's own
+floor of sixteen. With one fire per region everywhere else in the paper, and the one arm that held
+place fixed now withdrawn, **this cohort provides no evidence that the transfer shortfall is
+regional rather than event-specific**, and Section 5.9(v) should be read as the substantive limit it
+is rather than as a formality.
 
 On the frames as drawn the sharpest supported reversal belongs to elevation, a static predictor, so instability is a
 property of the predictor-to-burning mapping generally rather than of thermal channels specifically.
@@ -65,8 +69,12 @@ instability is not the thermal block's peculiarity.
 A diagnostic built on distance in predictor space asks one question: do the target's predictor
 values look like the training data's? That is not the question that matters when the failure is
 conditional. A target region can sit well inside the training envelope while the relationship
-between those predictors and burning points the other way. Manavgat to Muğla is exactly that case,
-with 0.875 of target cells inside the weighted area of applicability and transfer below chance.
+between those predictors and burning points the other way. Manavgat to Muğla is exactly that case, with 0.875 of
+target cells inside the weighted area of applicability and transfer the worst in the matrix. On the
+frames as drawn that pair is below chance in both directions; on the equalised frame it is 0.551 and
+0.510, above chance but still the weakest pair in the matrix while the least similar pair reaches
+0.669 and 0.624 (Section 4.6). The point does not need anti-prediction: high overlap does not buy
+transfer.
 
 The same holds for the niche-overlap and regime families. At the point estimates, the pair with the
 highest burned-niche overlap in the matrix fails in both directions while the pair with the lowest
