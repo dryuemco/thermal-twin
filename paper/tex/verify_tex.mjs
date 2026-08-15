@@ -151,9 +151,13 @@ check('table rows match their column specification', rowProblems.length === 0,
 // LaTeX comments are exempt: a line whose first non-space character is % is a
 // comment by construction and cannot swallow content. Everything else is
 // prose, where an unescaped % means the converter missed one.
+// A % as the last character of a line is LaTeX's line-continuation marker: it
+// suppresses the newline and the space it would produce, and swallows nothing
+// the reader would miss. The table wrapper emits one. Strip it before counting.
 const rawPct = body
   .split('\n')
   .filter((line) => !/^\s*%/.test(line))
+  .map((line) => line.replace(/%$/, ''))
   .reduce((n, line) => n + [...line.matchAll(/(?<!\\)%/g)].length, 0);
 check('no unescaped % in the body', rawPct === 0, `${rawPct} found`);
 
