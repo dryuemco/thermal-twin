@@ -39,11 +39,11 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 319
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 346
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 427
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 481
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 521
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 623
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 857
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1088
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 492
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 545
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 657
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 890
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1122
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
@@ -89,8 +89,8 @@ converter made is listed so it can be reviewed.
 - : 7 cols, est. width 112 chars -> scriptsize
 - : 3 cols, est. width 70 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 23 chars)
-- : 4 cols, est. width 107 chars -> small, 2 wrapping
-- : 2 of 4 columns wrap (widest cell 39 chars)
+- : 7 cols, est. width 162 chars -> scriptsize, 2 wrapping
+- : 2 of 7 columns wrap (widest cell 22 chars)
 - : 3 cols, est. width 89 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 45 chars)
 - : 3 cols, est. width 57 chars -> small, 1 wrapping
