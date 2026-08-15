@@ -167,8 +167,7 @@ establish a fire-specific residual, only bound it at about 0.18.**
 What this establishes is bounded rather than positive. Rows C and D both sit close to chance, so the
 comparison between them has little dynamic range, and neither the fire's identity nor the region
 boundary is shown to cost anything here. What is measurable is the change of evaluation geometry
-between rows A and B. **It is not shown to be zero on an unseen fire, and eight scars cannot show
-that; what this design establishes is that it is not established there.** Nor does it establish the
+between rows A and B. Nor does it establish the
 fire event as the unit, because the held-out patch is defined by the labels, so its identity cannot
 be separated from its location. The within-region half-split, which does see half of the target
 scar, returns 0.574 against leave-one-scar-out's 0.552, with overlapping intervals.
@@ -363,7 +362,7 @@ distance. The niche-overlap and regime families were not shown to order it eithe
 domain classifier is at ceiling, separating source from target at AUC ≥ 0.96 for every pair. It
 always succeeds, which is why it carries no ordering information.
 
-Two limits are stated with the result rather than after it. The first is size. The index's tie
+Four limits are stated with the result rather than after it. The first is size. The index's tie
 structure caps the achievable Spearman at +0.861, so the observed +0.840 sits essentially on that
 ceiling. Its exact one-sided permutation p is 0.0060, the smallest this tie structure can produce,
 against a Bonferroni threshold of 0.0026 over the nineteen computed variants. No outcome of this
@@ -371,15 +370,7 @@ diagnostic could have cleared family-wise correction on ten effective pairs. The
 labels. Signed associations need burned labels in both regions, so the family that appears to work
 is not available before deployment, while the family that fails is.
 
-**A fourth limit removes the result entirely, and is reported in Section 4.10.** The sign-agreement
-index is built from the signed associations that Section 4.10 shows to be artefacts of the evaluation
-frames, and it was correlated against transfer measured on those same frames. Recomputed on an
-equalised frame it is unanimous, taking the value 1.0 in every direction with no variance left to
-correlate, while the continuous cosine variant falls from ρ = +0.50 to +0.12. Everything in this
-section is therefore reported as what the original protocol yields, and the conclusion that survives
-is that **no diagnostic tested here was shown to order transfer once the frames are comparable**.
-
-A third limit is about selection, and it is the sharpest of the three. The two rows that clear zero
+The third limit is about selection, and it is the sharpest of the first three. The two rows that clear zero
 are the *supported-feature* variants. Their feature subset is chosen by whether two regions'
 bootstrap intervals happen to be disjoint. That is a data-dependent selection, made on the same
 data, with no correction. The unselected counterparts over all nine features are ρ = +0.50
@@ -394,6 +385,15 @@ about power rather than about diagnostics. Every row was therefore recomputed on
 directions. The published values reproduce to 4.8 × 10⁻⁵. The conditional rows still lead, at +0.87
 [+0.65, +0.88] and +0.85 [+0.43, +0.88], and every marginal row still spans zero. The ordering is not
 an artefact of unequal samples.
+
+**A fourth limit removes the result entirely, and is reported in Section 4.10.** The sign-agreement
+index is built from the signed associations that Section 4.10 shows to be artefacts of the evaluation
+frames, and it was correlated against transfer measured on those same frames. Recomputed on an
+equalised frame it is unanimous, taking the value 1.0 in every direction with no variance left to
+correlate, while the continuous cosine variant falls from ρ = +0.50 to +0.12. Everything in this
+section is therefore reported as what the original protocol yields, and the conclusion that survives
+is that **no diagnostic tested here was shown to order transfer once the frames are comparable**.
+
 
 ## 4.6 The contrast pair: similarity is not sufficient
 
@@ -411,9 +411,12 @@ explain it. Transfer is below chance in both directions at the point estimate on
 drawn, at 0.470 and 0.401, but **that half does not survive equalisation either**: under the 10 km
 collar the pair transfers at 0.551 and 0.510, both above chance (`aoi_frame_transfer.csv`). Both
 directions also sit inside the nominal area of applicability, at 0.875 and 0.531 of target cells,
-which is itself a full-frame quantity. **What survives is the ordinal contrast, and it survives
-cleanly**: on the equalised frame the most environmentally similar pair still transfers worst in the
-matrix, at 0.551 and 0.510, while the least similar pair reaches 0.669 and 0.624. Schoener's D is
+which is itself a full-frame quantity. **What survives is the ordinal contrast**: on the equalised frame the most environmentally similar
+pair is still among the weakest in the matrix, at 0.551 and 0.510, which rank fifth and second from
+the bottom of the twenty directions, while the least similar pair reaches 0.669 and 0.624, ranking
+fifteenth and eleventh. Neither is the extreme — the weakest direction is Manavgat to Bejís at 0.417
+and the strongest is Muğla to Evia at 0.727 — so the contrast is ordinal and not a claim about the
+endpoints. Schoener's D is
 computed over burned cells only and is therefore collar-invariant, so the similarity ordering is
 unchanged. The claim this section supports is that high envelope overlap does not buy transfer, not
 that it produces anti-prediction.
@@ -492,7 +495,7 @@ behaviour. Appendix A reports all eight arms, including one that tests a claim o
 This arm was designed to hold place fixed and vary only the fire, which would have separated
 regional concept shift from everything that differs between study areas. Muğla burned twice, in 2021
 and again eleven months later, on the same grid and through the same processing chain, and the 2022
-arm is the 2021 population with the 2021 scar removed: 73,098 rows / 2,911 burned for 2021 against
+arm is the 2021 population with the 2021 scar removed: 41,730 rows / 2,911 burned for 2021 against
 38,790 rows / 331 burned for 2022. **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for
 the 2022 arm**, and eleven is below the sixteen this design sets as its own floor, so the 2022
 intervals are read as indicative exactly as the 20-cell row of Table 3 is. Full per-feature values are in Appendix B, Table B5.
@@ -608,30 +611,20 @@ regions but individually supported in only two, Muğla at 0.606 [0.525, 0.685] a
 
 **The sign the five regions agree on is not the one the dryness framing predicts.** For LST the
 common direction is *below* 0.5 in every region, at 0.386, 0.405, 0.332, 0.286 and 0.376: a hotter
-pre-fire surface is associated with **less** burning, not more, and the same holds for TVDI. This is
-not a lapse-rate artefact. Pooling concordance within elevation deciles leaves LST at 0.402, 0.509,
-0.363, 0.327 and 0.392, still below 0.5 in four of five regions, and within NDVI deciles at 0.440,
-0.486, 0.404, 0.279 and 0.368, below 0.5 in all five, despite r(LST, NDVI) reaching −0.92. The
-earlier version of this section read it as fuel availability dominating surface dryness, on the
-ground that NDVI is the most consistently supported single predictor under the collar (0.582 to
-0.663, supported in four of five regions). **The reciprocal test does not support that reading and
-we withdraw it.** Holding LST within deciles, NDVI's own signed association falls to 0.542, 0.574,
-0.547, **0.380** and **0.405**, reversing in Evia and Montiferru; holding NDVI, LST never reverses in
-any region. On mutual adjustment the surviving channel is LST, not NDVI, so greenness cannot be the
-mechanism through which the thermal sign acts.
-
-Two further results bound what the sign is. In two of five regions it is a residual spatial gradient:
-stratifying within deciles of distance to the nearest burned cell *inside* the collar moves Manavgat
-from 0.386 to 0.505 and Montiferru from 0.376 to 0.485, while Bejís, Muğla and Evia hold at 0.350,
-0.367 and 0.319. And interval support is not uniform — LST is supported in four of five regions and
-TVDI in only three, so "all five agree" is a statement about point estimates. The reading we can
-defend is that the absolute thermal channels behave here as **static land-surface descriptors**,
-correlated within the collar with greenness (−0.55 to −0.92), elevation (−0.46 to −0.68) and slope,
-rather than as a dryness index, and that the two internally differenced channels, the ones
-constructed to isolate the dynamic anomaly, carry no consistent cross-region direction at all.
-Compositing depth was not tested and remains an open alternative. Section 1.2 motivates the thermal
-block from moisture-stress physics; that motivation is not what the signed associations show, and
-Section 5.2 states the consequence.
+pre-fire surface is associated with **less** burning, and the same holds for TVDI. It is not a
+lapse-rate artefact and it is not greenness acting through fuel load. On mutual adjustment the
+surviving channel is LST, not NDVI: holding NDVI, LST never reverses in any region, while holding
+LST, NDVI's own association reverses in Evia and Montiferru. An earlier version of this section read
+the sign as fuel availability dominating dryness and **we withdraw that reading**. Two caveats bound
+what the sign is: in Manavgat and Montiferru it is a residual spatial gradient that disappears when
+distance to the nearest burned cell is stratified within the collar, and interval support is not
+uniform, LST being supported in four of five regions and TVDI in three, so "all five agree" is a
+statement about point estimates. What we can defend is that the absolute thermal channels behave
+here as **static land-surface descriptors** rather than as a dryness index, and that the two
+internally differenced channels, the ones built to isolate the dynamic anomaly, carry no consistent
+cross-region direction at all. Compositing depth was not tested and remains an open alternative. The
+per-region stratifications are in Appendix A(k). Section 1.2 motivates the block from moisture-stress
+physics; that is not what the signed associations show, and Section 5.2 states the consequence.
 
 **The same test destroys the one diagnostic that appeared to work.** Section 4.5's only diagnostic
 with an interval excluding zero is the fraction of features whose signed association points the same

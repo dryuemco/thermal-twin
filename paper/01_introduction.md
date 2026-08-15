@@ -140,8 +140,8 @@ sides on the same pairs.
 
 ## 1.4 Contributions
 
-Three findings carry this paper, stated here as claims and established with their intervals in
-Section 4.
+Three findings carry this paper, stated here as claims and established in Section 4, which carries
+every interval.
 
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
@@ -186,7 +186,8 @@ order it, but both need burned labels on both sides, both rest on a data-selecte
 whose all-nine counterparts span zero, and **Contribution 1 removes even those**: recomputed on
 comparable frames the winning index is unanimous, with no variance left to correlate (Section 4.10).
 The point survives without any ranking, at the point estimates: the pair with the highest
-burned-niche overlap transfers worst in the matrix while the lowest transfers best. That contradicts
+burned-niche overlap is among the weakest in the matrix while the lowest transfers above chance in
+both directions. That contradicts
 an expectation the fire literature carries [@Dimarco2026; @Liu2025] and agrees with species
 distribution modelling [@Vesk2021; @Rousseau2022].
 

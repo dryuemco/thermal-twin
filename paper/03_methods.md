@@ -211,9 +211,9 @@ median of a grid axis, both axes and both directions, a split discarded when eit
 single-class); **leave-one-scar-out** (each burned component of at least 50 cells, dilated by a 2 km
 buffer, withheld from training and used as the target); a **foreign-region evaluation** of the same
 held-out scar areas; and the **same blocked model restricted** to those areas, which isolates the
-evaluation region from the training regime. Buffer variants, the minimum-component rule and the
-per-split and per-scar positive counts, which are unequal and bear on the interpretation, are in
-Appendix A(i).
+evaluation region from the training regime. Scars are dilated by buffers of 2, 5 and 10 km, with 2 km reported as primary; the
+minimum-component rule, and the per-split and per-scar positive counts, which are unequal and bear
+on the interpretation, are in Appendix A(i).
 
 ## 3.14 Leakage control
 

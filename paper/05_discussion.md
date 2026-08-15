@@ -58,10 +58,9 @@ A diagnostic built on distance in predictor space asks one question: do the targ
 values look like the training data's? That is not the question that matters when the failure is
 conditional. A target region can sit well inside the training envelope while the relationship
 between those predictors and burning points the other way. Manavgat to Muğla is exactly that case, with 0.875 of
-target cells inside the weighted area of applicability and transfer the worst in the matrix. On the
-frames as drawn that pair is below chance in both directions; on the equalised frame it is 0.551 and
-0.510, above chance but still the weakest pair in the matrix while the least similar pair reaches
-0.669 and 0.624 (Section 4.6). The point does not need anti-prediction: high overlap does not buy
+target cells inside the weighted area of applicability and transfer the worst in the matrix. On the frames as drawn that pair is below chance in both directions; on the equalised frame it is
+0.551 and 0.510, above chance but still among the weakest in the matrix, while the least similar
+pair reaches 0.669 and 0.624 (Section 4.6). The point does not need anti-prediction: high overlap does not buy
 transfer.
 
 The same holds for the niche-overlap and regime families. At the point estimates, the pair with the
@@ -76,11 +75,13 @@ whether or not their transfer works, so separability carries no ordering informa
 ## 5.4 What the conditional diagnostic is, and what it is not
 
 The sign-agreement index was the paper's one diagnostic with an interval excluding zero, and Section
-4.5 states its three limits with the result: it sits essentially on its own tie-structure ceiling,
-it could not have cleared family-wise correction on ten effective pairs whatever it returned, and
-its feature subset is chosen on the same data, its all-nine-feature counterparts spanning zero.
+4.5 states three limits with the result: it sits essentially on its own tie-structure ceiling, it
+could not have cleared family-wise correction on ten effective pairs whatever it returned, and its
+feature subset is chosen on the same data, its all-nine-feature counterparts spanning zero. A fourth
+is that signed associations need burned labels in both regions, so it is a mechanism diagnosis
+rather than a pre-deployment screen.
 
-A fourth limit removes it altogether. The index is built from signed associations that Section 4.10
+A fifth limit removes it altogether. The index is built from signed associations that Section 4.10
 shows to be artefacts of the evaluation frames, and recomputing it on an equalised frame leaves it
 unanimous and variance-free. So the practical conclusion is not "use this index instead", and it is
 not even "the index works but needs labels". It is that **none of the twenty candidates was shown to
