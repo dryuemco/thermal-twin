@@ -1,0 +1,56 @@
+{
+ "what": "Paired thermal-minus-baseline contribution to transfer, by evaluation frame, with the resampling units of Appendix A(o). Source aoi_frame_transfer_frozen_mugla.csv. 20000 replicates, seed 42.",
+ "results": {
+  "as drawn": {
+   "mean": 0.0038,
+   "n": 20,
+   "ci_pair_cluster": [
+    -0.0296,
+    0.0355
+   ],
+   "ci_target_region_cluster": [
+    -0.009,
+    0.0187
+   ],
+   "ci_naive_t": [
+    -0.0297,
+    0.0372
+   ],
+   "spans_zero_pair_cluster": true
+  },
+  "equalised 10 km": {
+   "mean": 0.0231,
+   "n": 20,
+   "ci_pair_cluster": [
+    -0.0043,
+    0.0482
+   ],
+   "ci_target_region_cluster": [
+    0.0158,
+    0.0309
+   ],
+   "ci_naive_t": [
+    -0.0033,
+    0.0495
+   ],
+   "spans_zero_pair_cluster": true
+  },
+  "equalised 5 km": {
+   "mean": 0.0138,
+   "n": 20,
+   "ci_pair_cluster": [
+    -0.0075,
+    0.0346
+   ],
+   "ci_target_region_cluster": [
+    0.0021,
+    0.0279
+   ],
+   "ci_naive_t": [
+    -0.0064,
+    0.0341
+   ],
+   "spans_zero_pair_cluster": true
+  }
+ }
+}
