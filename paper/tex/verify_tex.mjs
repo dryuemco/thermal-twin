@@ -18,9 +18,12 @@ const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 // Appendices are part of the body the converter emits, so they must be part of
 // the Markdown side of the comparison too; otherwise every number that lives
 // only in an appendix reads as invented.
+// A1_sensitivity is released as paper/supplementary_appendices.md rather than
+// printed, so it is no longer part of the built document and must not be
+// compared against it: every number in it would read as one the LaTeX dropped.
 const SECTIONS = ['01_introduction', '02_related_work', '03_methods',
                   '04_results', '05_discussion', '06_conclusions',
-                  'A1_sensitivity', 'A2_diagnostics', 'A3_protocol']
+                  'A2_diagnostics', 'A3_protocol']
   .filter(f => fs.existsSync(path.join(path.resolve(process.env.PAPER_ROOT || 'paper'), f + '.md')));
 
 let fail = 0;

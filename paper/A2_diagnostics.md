@@ -1,3 +1,17 @@
+# Appendix A. Where the rest of the appendices are
+
+Two appendices are printed here: **Appendix B**, the diagnostic tables below, and **Appendix C.5**,
+the eleven limitations. They carry the per-direction numbers and the limitations against which the
+claims are checked, so the paper can be assessed without leaving it.
+
+**Appendix A and the protocol sections C.1 to C.4, C.6 and C.7 are released with the paper rather
+than printed in it**, at `paper/supplementary_appendices.md` in the repository named in the
+declarations. They keep their section names there, so a pointer such as Appendix A(c) or Appendix
+C.2 in the text resolves in that document unchanged. Nothing in them is evidence a claim depends on
+that appears nowhere else; every number in them also sits in a frozen artefact named in the text.
+The lettering of this appendix is kept for that reason: renaming would have broken 148 references
+between the paper, the supplementary appendices and the supplementary material.
+
 # Appendix B. All twenty transferability diagnostics
 
 Section 4.6 summarises this table by family. The full ranking is given here because the negative
