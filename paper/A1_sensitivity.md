@@ -72,11 +72,11 @@ directly as a feature-set contrast.
 
 One thing should be said before the result, because it makes the outcome less surprising than it
 might otherwise appear. The normalised channels are the two that hold their direction in the
-same-geography two-event comparison of Appendix A(m2), where the absolute channels move. That is a
+same-geography two-event comparison of Appendix A(m), where the absolute channels move. That is a
 statement about one region across two fires. **Across regions it does not hold**: `lst_anomaly_mean`
 is itself one of the two predictors whose reversal is bootstrap-supported on the frames as drawn,
 reversing between Bejís and Evia (Section 4.4 withdraws that support under an equalised frame),
-which is why Appendix A(n2) drops it alongside elevation. Being internally normalised protects a
+which is why Appendix A(n) drops it alongside elevation. Being internally normalised protects a
 channel against the offset between two seasons in one place. It does not, on this evidence, protect
 it against a change of place.
 
@@ -352,7 +352,7 @@ than a reversal, not as a restored one.
 
 ## A(m). The same-geography event pair
 
-Appendix A(m2) states the result and its withdrawal; the design, the two structural asymmetries that
+Appendix A(m) states the result and its withdrawal; the design, the two structural asymmetries that
 have no analogue in the twenty-direction matrix, and the direction of the bias they impose are here.
 
 
@@ -391,7 +391,7 @@ reversal smaller rather than larger.
 
 ## A(n). The two interventions, in full
 
-Appendix A(n2) states both results; the four feature-set configurations, the per-region deltas and the
+Appendix A(n) states both results; the four feature-set configurations, the per-region deltas and the
 pooled per-target shortfalls are here.
 
 
@@ -469,7 +469,7 @@ cross-region direction at all. Compositing depth was not tested and remains an o
 Per-region stratifications are in Appendix A(k), and Section 5.2 states the consequence for the
 moisture-stress motivation of Section 1.2.
 
-**The same-geography arm of Appendix A(m2) is the most extreme case in the cohort, and it does not
+**The same-geography arm of Appendix A(m) is the most extreme case in the cohort, and it does not
 survive either.** A fixed study area does not mean a fixed evaluation frame: its 2022 arm has
 **93.2 % of cells beyond 10 km of any burned cell, median 43.6 km**, a larger far field than any
 cross-region arm. Applying the same
@@ -584,19 +584,6 @@ is one of *sufficiency*. Similarity does not guarantee transfer, and dissimilari
 it. The claim rests on two coexisting counterexamples, so it does not depend on the number of pairs
 available.
 
-## A(n2). Interventions, in full
-
-Two interventions were pre-registered. **Pooling** four regions into one training set does not
-recover what single-source transfer loses: every pooled target still falls short of its own
-within-region reference, and only Bejís is below chance with interval support. **Removing the two
-predictors whose signed association reverses** costs −0.081 of mean within-region AUC, supported in
-every region and roughly three quarters of it attributable to elevation, a *baseline* terrain
-variable, and returns +0.014 [−0.017, +0.045] on transfer, whose interval spans zero. A local cost
-is measured; no compensating transfer gain is, so no exchange between the two is demonstrated. Both
-predictors were chosen because they reverse, using the same data on which the two figures are then
-estimated, and no correction for that selection is applied; Section 4.4 additionally withdraws the
-support for the selection rule itself. Per-configuration values are in Appendix A(n).
-
 ## A(v). The sensitivity arms, summarised
 
 Eight design choices were varied with everything else held fixed. They are the Evia AOI and its
@@ -617,16 +604,6 @@ Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS
 the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
 moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
 behaviour. Appendix A reports all eight arms, including one that tests a claim of Section 1.2 and does not uphold it.
-
-## A(m2). The same geography, a second fire
-
-Muğla burned twice, eleven months apart, on the same grid and through the same processing chain.
-The arm was designed to hold place fixed and vary only the fire, which would have separated regional
-concept shift from everything else that differs between study areas. On the frame as drawn it shows
-a bootstrap-supported elevation reversal between the two fires; Section 4.4 withdraws that, because
-the 2022 arm carries the largest far field in the cohort and under a 10 km collar the two arms fall
-on the same side of 0.5. The arm, its structural asymmetries and the direction of the bias they
-impose are in Appendix A(m).
 
 ## A(t). Distance within a region
 

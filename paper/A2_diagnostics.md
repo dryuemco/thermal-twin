@@ -53,7 +53,7 @@ and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
 
 ## B2. The signed univariate associations the reversal claim rests on
 
-Appendix A(n2) drops two predictors because their signed association with burning reverses between
+Appendix A(n) drops two predictors because their signed association with burning reverses between
 regions with bootstrap support on the frames as drawn. Section 4.4 shows that both supported
 elevation reversals disappear once the frames are equalised, so this table is the evidence for the
 feature-removal arm and for the narrowed mechanism claim inside Contribution 1, not for a general reversal
@@ -141,7 +141,7 @@ of a reversed predictor-burning relationship.
 
 ## B5. The same-geography event pair, in full
 
-Appendix A(m2) reports this arm and Section 4.4 withdraws its reversal as a frame artefact. The
+Appendix A(m) reports this arm and Section 4.4 withdraws its reversal as a frame artefact. The
 per-feature values are kept here because the arm is what motivated the frame test, and because
 its structural asymmetries have no analogue in the twenty-direction matrix.
 

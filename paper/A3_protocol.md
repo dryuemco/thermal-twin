@@ -86,7 +86,7 @@ alone, masking every cell that burned in 2021 so the previous year's scar does n
 following year's analysis: it removes 3,073 cells, of which 2,941 belong to the primary population,
 taking it from 41,730 rows to 38,790, a drop of 7.0 %. The two arms therefore share 38,789 of 38,790
 cells and three byte-identical static predictors, and in the 2022-to-2021 direction every target
-positive lies outside the source training population. Appendix A(m2) states what follows for how these
+positive lies outside the source training population. Appendix A(m) states what follows for how these
 two numbers may be read.
 
 **Table C1. Study regions, areas of interest and temporal windows.** Bounding boxes are in EPSG:4326,

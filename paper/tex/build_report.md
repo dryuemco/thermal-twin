@@ -27,8 +27,8 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
-- TABLE WITHOUT CAPTION in 04_results near md line 176
-- TABLE WITHOUT CAPTION in 04_results near md line 338
+- TABLE WITHOUT CAPTION in 04_results near md line 179
+- TABLE WITHOUT CAPTION in 04_results near md line 340
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 135
@@ -43,7 +43,7 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 427
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 481
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 521
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 646
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 623
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
