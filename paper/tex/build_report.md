@@ -31,8 +31,8 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in 04_results near md line 254
 - TABLE WITHOUT CAPTION in 04_results near md line 465
 - TABLE WITHOUT CAPTION in 04_results near md line 677
-- TABLE WITHOUT CAPTION in 04_results near md line 746
-- TABLE WITHOUT CAPTION in 04_results near md line 777
+- TABLE WITHOUT CAPTION in 04_results near md line 751
+- TABLE WITHOUT CAPTION in 04_results near md line 780
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -87,8 +87,8 @@ converter made is listed so it can be reviewed.
 - Cross-region transfer under equalised evaluation: 1 of 7 columns wrap (widest cell 23 chars)
 - : 4 cols, est. width 75 chars -> small, 1 wrapping
 - : 1 of 4 columns wrap (widest cell 29 chars)
-- : 3 cols, est. width 60 chars -> small, 1 wrapping
-- : 1 of 3 columns wrap (widest cell 33 chars)
+- : 3 cols, est. width 57 chars -> small, 1 wrapping
+- : 1 of 3 columns wrap (widest cell 30 chars)
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
 - : 2 of 4 columns wrap (widest cell 33 chars)
 - : 6 cols, est. width 128 chars -> footnotesize, 1 wrapping

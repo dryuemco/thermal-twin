@@ -147,11 +147,10 @@ every interval.
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
 species distribution modelling (Section 2.5); what is new is a magnitude on the wildfire problem
 under a controlled design, and its consequences for a live result. Holding the model, the predictors
-and the fitting fixed and changing only which cells are scored costs **0.143 ROC-AUC**, which exceeds
-the predictor-block increments this literature publishes as findings. A control isolates the cause
+and the fitting fixed and changing only which cells are scored costs **0.143 ROC-AUC**, which is the size of the predictor-block increments this literature publishes as findings. A control isolates the cause
 as the composition of the negative pool rather than class balance (Section 4.3).
 
-Applied between regions, the same effect withdraws three claims we had made (Section 4.10). The five
+Applied between regions, the same effect withdraws five claims we had made (Section 4.10). The five
 study areas enclose very unequal far fields; equalising them to a 10 km collar, which removes only far-field negatives, lifts mean transfer, reduces the below-chance directions, and leaves no sign reversal
 supported under this paper's own criterion — including the two-fire arm inside one study area that
 we had exempted, wrongly, on the ground that its geography was fixed. The agreed direction is also
@@ -167,8 +166,8 @@ five when the evaluation frame is equalised (Section 4.10). Much of that is a pr
 interleaved holdout: withholding a whole burn scar leaves an increment whose interval spans zero.
 Across twenty ordered transfer directions its paired contribution also spans zero, with a sign that
 is a property of the pair rather than of the block, and dropping one region reverses the mean. Two
-controls bound the reading. The static baseline transfers no better than the dynamic one, so the
-failure is not the thermal block's peculiarity; and on matched frames and matched blocking the
+controls bound the reading. The static baseline transfers no better than the dynamic one on either frame, so the failure is not
+the thermal block's peculiarity; and on matched frames and matched blocking the
 equalised transfer still falls **0.155** short of the within-region reference (Section 4.10). The
 within-region half is not novel, comparable results existing for these landscapes
 [@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is. Dimarco et al.

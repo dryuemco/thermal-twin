@@ -46,11 +46,10 @@ thirty. The population is not held fixed either, the 2022 arm being the 2021 arm
 removed. And the 2022 arm rests on eleven positive-carrying 5 km blocks against this design's own
 floor of sixteen. With one fire per region everywhere else, and the one arm that held place fixed now
 withdrawn, **this cohort provides no evidence that the transfer shortfall is regional rather than
-event-specific**, and Section 5.9(v) is a substantive limit rather than a formality. Section 4.11
-sharpens the point: within a single region the model is already at chance by 10 to 20 km from its
-training cells, and the twenty cross-region directions sit on the continuation of that curve rather
-than below it. The shortfall is therefore better described as spatial extrapolation than as region
-crossing, with the region boundary a limiting case rather than the cause.
+event-specific**, and Section 5.9(v) is a substantive limit rather than a formality. Section 4.11 adds a length scale for the
+within-region decay — the model is already at chance by 10 to 20 km from its training cells — but
+explains why that cannot be turned into an attribution: once the curve reaches the chance floor, any
+cross-region mean near 0.5 lies on its continuation by construction.
 
 One conclusion does survive from the other direction. On the frames as drawn the sharpest supported
 reversal belonged to elevation, a *baseline* terrain variable, and the static baseline transfers no
@@ -62,7 +61,7 @@ A diagnostic built on distance in predictor space asks one question: do the targ
 values look like the training data's? That is not the question that matters when the failure is
 conditional. A target region can sit well inside the training envelope while the relationship
 between those predictors and burning points the other way. Manavgat to Muğla is exactly that case, with 0.875 of
-target cells inside the weighted area of applicability and transfer the worst in the matrix. On the frames as drawn that pair is below chance in both directions; on the equalised frame it is
+target cells inside the weighted area of applicability and transfer among the weakest in the matrix. On the frames as drawn that pair is below chance in both directions; on the equalised frame it is
 0.551 and 0.510, above chance but still among the weakest in the matrix, while the least similar
 pair reaches 0.669 and 0.624 (Section 4.6). The point does not need anti-prediction: high overlap does not buy
 transfer.

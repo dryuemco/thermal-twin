@@ -264,8 +264,8 @@ variability. They resample between directions only.
 this evidence those six would need a mechanism acting on the direction of the relationship, and
 Sections 4.5 to 4.9 pursue one. **Section 4.10 then shows that most of this count is an artefact of
 the evaluation frames: equalising them leaves one direction below chance, not six — Manavgat to Bejís, at 0.417 [0.349,
-0.488], which is below chance with interval support on the frame as drawn and at every collar
-radius tested.** The reader
+0.488], below chance with interval support on the frame as drawn and at the 10 km collar; at the
+5 km collar its interval covers chance, at 0.459 [0.372, 0.550].** The reader
 should carry that forward through the intervening sections, whose reversal evidence is computed on
 the frames as drawn. Per-split
 and per-scar detail is in Appendix A(i).
@@ -717,7 +717,12 @@ the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on t
 | 5 km | 5 km | 0.608 | 18 of 20 | 2 | 12 / 0 | +0.014 |
 
 The reference arm reproduces the frozen matrix, at 0.540 against Table 5's 0.541 and 14 of 20
-exactly, so this is measuring the same quantity. The above- and below-chance counts in this table
+exactly, so this is measuring the same quantity. **The baseline control moves with it and must be
+restated on this frame**: the static baseline transfers at 0.593 against the thermal model's 0.617,
+a paired difference of +0.023 rather than the +0.003 of the frame as drawn. The control still holds
+in kind — the static predictor class is not the portable one either — but the gap between them is
+eight times larger once frames are comparable, and Sections 1, 5 and 6 quote only the as-drawn
+pair. The above- and below-chance counts in this table
 are point counts. Under the same 10-cell block bootstrap used for Table 5, at 1000
 replicates, the full frame gives nine directions above chance and four below with interval support,
 and the collar frame fifteen above and one below, so the headline movement is six to one at the
@@ -757,52 +762,52 @@ negative pool moves ROC-AUC by more than the effects this literature reports, th
 five-region transfer matrix, and a mechanism, on frames whose fire-adjacent share ranges from 37 %
 to 98 %. Section 5.9(x) records the frame as a limitation of this cohort rather than of the method.
 
-## 4.11 The length scale: distance, not the region boundary
+## 4.11 Distance within a region, and why it does not reframe the result
 
-Sections 4.3 and 4.10 both point past the region boundary, and one further arm settles where the
-skill is actually lost. It was specified in advance: `positive_control.md` records the confound —
-that a cross-region comparison confounds regional difference with spatial extrapolation — and fixes
-the decision rule before the curve was run, that *if the cross-region points sit on the continuation
-of the within-region curve, the transfer failure needs no regional mechanism*. The curve was then
-run (`distance_curve.md`, `paper/code/distance_curve.py`): a model is fitted on one half of a region
-and applied to the other, and target cells are binned by their distance from the training cells.
+One further arm measures how skill decays with distance inside a single region. A model is fitted on
+one half of a region and applied to the other, and target cells are binned by their distance from the
+training cells (`distance_curve.md`, `paper/code/distance_curve.py`). Means are unweighted over bins,
+whose positive counts range from 1 to 2,564, and the bins carry no intervals.
 
 | Separation from training cells | Bins | Mean target AUC |
 |---|---:|---:|
 | 0 to 5 km | 18 | 0.692 |
 | 5 to 10 km | 16 | 0.519 |
-| 10 to 20 km | 11 | **0.499** |
+| 10 to 20 km | 11 | 0.499 |
 | 20 to 40 km | 6 | 0.445 |
 | 40 to 80 km | 3 | 0.541 |
-| **cross-region, 306 to 2,802 km** | 20 | **0.541** |
+| 80 to 160 km | 1 | 0.421 |
+| cross-region, 306 to 2,802 km | 20 | 0.541 |
 
-**By 10 to 20 km inside a single region the model is already at chance, and crossing a national
-border a hundred times further away does not make it worse.** The twenty cross-region directions
-average 0.541, at or slightly above the within-region plateau, so the cross-region points sit on the
-continuation of the curve rather than below it. By the rule fixed in advance, the transfer failure
-needs no regional mechanism.
+**By 10 to 20 km inside a single region the model is already at chance.** That is worth reporting on
+its own: it bounds how far a susceptibility surface of this kind can be carried from the cells it was
+fitted on, and it is consistent with Section 4.3, where withholding a scar and replacing the model
+with a foreign one cost nothing distinguishable.
 
-This is the third independent arm to say so, and they agree: row C against row D in Section 4.3
-found that replacing a same-region model with one fitted 306 to 2,802 km away costs −0.003 [−0.075,
-+0.069]; Section 4.10 found that equalising the evaluation frames removes most of the apparent
-regional signal; and the curve here supplies the length scale. **The honest statement of this
-paper's negative result is therefore not that these predictors fail to transfer between regions. It
-is that they do not generalise beyond about ten kilometres from the cells they were fitted on, and
-that a region boundary adds nothing measurable to that.** That is a more general claim, better
-supported, and more useful to a practitioner, who gets a length scale rather than a taxonomy.
+**We do not use it to reframe the paper's negative result, and an earlier version of this section
+did.** That version argued that because the twenty cross-region directions average 0.541, at or above
+the within-region plateau, they sit on the continuation of the curve and the transfer failure needs
+no regional mechanism — a rule fixed in advance in `positive_control.md`. Two objections defeat it
+and are recorded in `scar_control.md`, which withdrew the reframing in full. **The rule cannot fail.**
+Once the curve reaches the chance floor, any cross-region mean near 0.5 lies on its continuation by
+construction, so the comparison could not have come out otherwise and a test that cannot fail is not
+evidence. And **extrapolating an uninformative model does not produce reliably reversed ranking**:
+Manavgat to Bejís is below chance with interval support on the frame as drawn and at the 10 km
+collar, which is not what a model that has merely run out of skill returns.
 
-Four limits bound it and none is dismissed. The two distance ranges do not overlap — within-region
-separations span 2 to 86 km and cross-region separations start at 306 km — so this is an
-extrapolation of the within-region curve, made safer only by the curve having flattened before the
-gap begins. The far bins are thin, six at 20 to 40 km and three beyond, so their means should not be
-read closely and the apparent rise at 40 to 80 km is not evidence of anything. The near bins are
-inflated by exactly the autocorrelation blocked validation exists to remove, so **0.692 is an upper
-bound on near-field skill rather than an estimate of it**. And distance is not the only thing that
-changes with distance: this design separates distance from *crossing a study-area boundary*, which
-is the confound at issue, but not from the land cover, terrain and fire history that covary with it.
+Four further limits bound even the descriptive reading. The two distance ranges do not overlap —
+within-region separations span 2 to 86 km and cross-region separations start at 306 km — so any
+comparison across the gap is an extrapolation of the curve. The far bins are thin, six at 20 to 40 km
+and one beyond 80 km, so their means should not be read closely and the apparent rise at 40 to 80 km
+is not evidence of anything. The near bins are inflated by exactly the autocorrelation that blocked
+validation exists to remove, so **0.692 is an upper bound on near-field skill rather than an estimate
+of it**. And distance is not the only thing that changes with distance: this design separates distance
+from crossing a study-area boundary, but not from the land cover, terrain and fire history that
+covary with it.
 
-Nothing here bears on the diagnostics result, which correlates diagnostics against observed transfer
-whatever produces it, nor on the univariate sign evidence, which involves no fitted model.
+What this arm therefore contributes is a length scale for the within-region decay, not an
+attribution. The unit that fails to transfer is not established by this design, and Section 4.3 says
+so directly.
 
 ## 4.12 What target labels cost: the recovery curve
 
