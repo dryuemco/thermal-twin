@@ -31,8 +31,8 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in 04_results near md line 315
 - TABLE WITHOUT CAPTION in 04_results near md line 388
 - TABLE WITHOUT CAPTION in 04_results near md line 464
-- TABLE WITHOUT CAPTION in 04_results near md line 673
-- TABLE WITHOUT CAPTION in 04_results near md line 753
+- TABLE WITHOUT CAPTION in 04_results near md line 676
+- TABLE WITHOUT CAPTION in 04_results near md line 756
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -57,7 +57,7 @@ converter made is listed so it can be reviewed.
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (79)
+## table (81)
 
 - Study regions, areas of interest and tempora: 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
 - Study regions, areas of interest and temporal wi: 5 of 5 columns wrap (widest cell 49 chars)
@@ -83,6 +83,8 @@ converter made is listed so it can be reviewed.
 - Cross-region transfer matrix, thermal model,: 4 cols, est. width 89 chars -> footnotesize
 - Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
 - Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
+- The most and least environmentally similar p: 3 cols, est. width 73 chars -> small, 1 wrapping
+- The most and least environmentally similar pairs: 1 of 3 columns wrap (widest cell 27 chars)
 - : 3 cols, est. width 70 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 23 chars)
 - : 3 cols, est. width 57 chars -> small, 1 wrapping
