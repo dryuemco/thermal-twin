@@ -30,10 +30,9 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in 04_results near md line 188
 - TABLE WITHOUT CAPTION in 04_results near md line 254
 - TABLE WITHOUT CAPTION in 04_results near md line 465
-- TABLE WITHOUT CAPTION in 04_results near md line 600
-- TABLE WITHOUT CAPTION in 04_results near md line 693
-- TABLE WITHOUT CAPTION in 04_results near md line 762
-- TABLE WITHOUT CAPTION in 04_results near md line 793
+- TABLE WITHOUT CAPTION in 04_results near md line 677
+- TABLE WITHOUT CAPTION in 04_results near md line 746
+- TABLE WITHOUT CAPTION in 04_results near md line 777
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -44,6 +43,7 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 267
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 302
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 319
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 346
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
@@ -79,8 +79,8 @@ converter made is listed so it can be reviewed.
 - Evaluation-frame geometry of the five study regi: 1 of 5 columns wrap (widest cell 25 chars)
 - Signed univariate AUC, frame as drawn agains: 7 cols, est. width 97 chars -> small, 1 wrapping
 - Signed univariate AUC, frame as drawn against a : 1 of 7 columns wrap (widest cell 32 chars)
-- The two diagnostics that ordered transfer, r: 3 cols, est. width 174 chars -> small, 3 wrapping
-- The two diagnostics that ordered transfer, recom: 3 of 3 columns wrap (widest cell 69 chars)
+- The diagnostics that ordered transfer, recom: 3 cols, est. width 142 chars -> small, 3 wrapping
+- The diagnostics that ordered transfer, recompute: 3 of 3 columns wrap (widest cell 61 chars)
 - : 4 cols, est. width 107 chars -> small, 2 wrapping
 - : 2 of 4 columns wrap (widest cell 39 chars)
 - Cross-region transfer under equalised evalua: 7 cols, est. width 130 chars -> scriptsize, 1 wrapping

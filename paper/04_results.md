@@ -587,30 +587,21 @@ argument does not hold, because the second is equally decorrelated from elevatio
 same way. Both are point reversals under the strict criterion.
 
 **A weaker instrument does support the anomaly result, and we had given it away.** Table B3's own
-note commits this paper to a difference interval on the pair as the sharper test, and Section 4.10
-had not applied it. Bootstrapping the two regions independently under the collar and differencing
-(`matched_frame_gap.csv`), four pairs have opposite-sided point estimates **and** a difference
-interval excluding zero, all on `lst_anomaly_mean`:
-
-| Pair | AUC A | AUC B | Difference | 95 % CI |
-|---|---:|---:|---:|---|
-| Bejís vs Evia | 0.392 | 0.584 | −0.191 | [−0.295, −0.083] |
-| Evia vs Montiferru | 0.584 | 0.400 | +0.184 | [+0.012, +0.321] |
-| Manavgat vs Evia | 0.462 | 0.584 | −0.122 | [−0.225, −0.020] |
-| Bejís vs Muğla | 0.392 | 0.507 | −0.115 | [−0.219, −0.002] |
-
-Three of the four involve Evia, which is a coherent pattern rather than scatter, and the anomaly is
-the one channel the frame-and-terrain mechanism of this section cannot explain, being decorrelated
-from elevation at −0.195 to +0.256. Three caveats keep it weak and all three are stated rather than
-buried: nine of ninety feature-by-pair differences clear zero, against about 4.5 expected at nominal
-5 % under the null and with no multiplicity correction; the nine features are effectively two to
-three dimensions, as the collinearity paragraph below shows; and Evia's own interval-support status
-turns on 0.003. **The honest statement is that no reversal meets this paper's strict criterion under
-the collar, and that the LST anomaly differs between regions on the weaker difference instrument.** We state it that way rather than quoting the point
-estimates alone, because the alternative would be to apply a looser standard to the arm that
-supersedes Table B3 than to Table B3 itself. Elevation under the collar is above 0.5 in all five
-regions but individually supported in only two, Muğla at 0.606 [0.525, 0.685] and Evia at 0.648
-[0.550, 0.740].
+note commits this paper to a difference interval on the pair as the sharper test, and this section
+had not applied it. Bootstrapping the two regions independently under the collar and differencing,
+four pairs have opposite-sided point estimates **and** a difference interval excluding zero, all on
+`lst_anomaly_mean` and three of the four involving Evia — the largest being Bejís against Evia at
+−0.191 [−0.295, −0.083] (Appendix A(l), Table A6). The anomaly is the one channel the
+frame-and-terrain mechanism of this section cannot explain, being decorrelated from elevation.
+Three caveats keep it weak and all three are stated rather than buried: nine of ninety
+feature-by-pair differences clear zero against about 4.5 expected under the null with no
+multiplicity correction; the nine features are effectively two to three dimensions, as the
+collinearity paragraph below shows; and Evia's own interval-support status turns on 0.003. **The
+honest statement is that no reversal meets this paper's strict criterion under the collar, and that
+the LST anomaly differs between regions on the weaker difference instrument.** We state it that way
+because the alternative would be to apply a looser standard to the arm that supersedes Table B3 than
+to Table B3 itself. Elevation under the collar is above 0.5 in all five regions but individually
+supported in only two, Muğla at 0.606 [0.525, 0.685] and Evia at 0.648 [0.550, 0.740].
 
 **The sign the five regions agree on is not the one the dryness framing predicts.** For LST the
 common direction is *below* 0.5 in every region, at 0.386, 0.405, 0.332, 0.286 and 0.376: a hotter
@@ -636,40 +627,33 @@ out of exactly the signed AUCs this section has just shown to be frame artefacts
 correlated against transfer measured on the same unequal frames. Recomputing both sides under the
 10 km collar (`diagnostics_collar_frame.csv`, `paper/code/verify_diag_collar.py`):
 
-**Table 9. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
-ρ against target ROC-AUC over the ordered directions in which the diagnostic is defined. Source
-`diagnostics_collar_frame.csv`; recomputable by `paper/code/verify_diag_collar.py`.
+**Table 9. The diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman ρ
+against target ROC-AUC over the ordered directions in which each is defined. The first two rows are
+the two variants that cleared zero in Table B1; the third is the all-feature cosine, which did not
+and is shown for contrast. Both sides are recomputed here under one bootstrap setting, 1000
+replicates, seed 42. Source `diagnostics_collar_frame.csv` and `collar_increment_and_cosine.csv`.
 
 | Diagnostic | Full frame | 10 km collar |
 |---|---|---|
-| Sign-agreement fraction over supported features | ρ = +0.86 (p = 0.0001, n = 14), values {0, 0.5, 1} | **1.0 in all 18 defined directions, variance exactly 0 — degenerate** |
-| Cosine similarity over all nine signed AUCs | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
+| Sign-agreement fraction, supported features | ρ = +0.86 (p = 0.0001, n = 14) | **1.0 in all 18 directions, variance exactly 0 — degenerate** |
+| Cosine, supported features | ρ = +0.81 (p = 0.0005, n = 14) | **ρ = −0.06 (p = 0.82, n = 18)**, variance 0.00014 |
+| Cosine, all nine features | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
 
-The second variant that cleared zero in Table B1, the cosine restricted to the same supported
-subset, was not in an earlier version of this test; it is included now and it behaves differently.
-It does **not** become exactly degenerate: unanimous signs fix the directions but not the magnitudes,
-so it retains a trace of variance (0.00014 against 0.82 on the frame as drawn) across eighteen
-defined directions. What it loses is the correlation. Its Spearman against transfer falls from
-**+0.81 (p = 0.0005)** to **−0.06 (p = 0.82)**. Both variants therefore stop ordering transfer on
-comparable frames, one because it has no variance left and one because what variance it has no
-longer tracks anything.
+The two behave differently and the difference matters. Once frames are equalised every region pair
+agrees in sign on every jointly supported feature, so the agreement fraction has no variance left
+and its correlation is undefined rather than weak. The supported cosine does **not** become exactly
+degenerate — unanimous signs fix directions but not magnitudes — so it keeps a trace of variance and
+simply stops tracking transfer. This is not a marginal shift: the number of features supported in
+both regions *rises* from 1.20 to 3.40 per direction, so the diagnostics are better determined and
+unanimous. The disagreements they were reading were the far fields.
 
-Two scope statements belong with this table. First, **both sides are recomputed here under one
-bootstrap setting**, so the comparison is internally consistent, but the full-frame value is not
-numerically the published one: it is ρ = +0.86 over fourteen directions against the ρ = +0.84 over
-sixteen reported in Section 4.5 and Table B1. The support test is itself bootstrap-dependent, and at
-this setting three region pairs carry no jointly supported feature rather than two. The argument
-does not rest on the published figure, it rests on before and after under identical settings.
-Second, **only these two diagnostics were recomputed on the collar.** The other eighteen already
-failed to order the matrix on the frames as drawn and were not rerun; the equalised transfer vector
-differs substantially from the as-drawn one, so their correlations against it are unknown rather
-than shown to be null.
-
-Once the frames are equalised every region pair agrees in sign on every jointly supported feature,
-so the agreement fraction has no variance left and its correlation with transfer is undefined rather
-than weak. This is not a marginal shift: the number of features supported in both regions *rises* from
-1.20 to 3.40 per direction, so the diagnostic is better determined and unanimous. The disagreements
-it was reading were the far fields.
+Two scope statements belong with the table. The full-frame values here are not numerically the
+published ones — ρ = +0.86 over fourteen directions against the +0.84 over sixteen in Section 4.5 —
+because the support test is itself bootstrap-dependent and at this setting three region pairs carry
+no jointly supported feature rather than two; the argument rests on before-and-after under identical
+settings, not on the published figure. And **only these diagnostics were recomputed on the collar**:
+the other eighteen failed on the frames as drawn and were not rerun, so their correlations against
+the equalised transfer vector are unknown rather than shown to be null.
 
 **Contribution 3 is therefore restated, and it becomes a stronger negative result.** The finding is
 not that conditional similarity orders transfer where marginal similarity fails. It is that **no diagnostic tested here has been shown to order transfer** — the eighteen marginal,

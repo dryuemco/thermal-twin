@@ -325,3 +325,28 @@ nearest burned cell in Manavgat or Montiferru, which are the two regions where t
 least residual gradient, so in those two the agreed sign is a weaker version of the same spatial
 effect the collar was introduced to remove. And the reciprocal adjustment runs one way only: NDVI
 reverses in two regions once temperature is held, while LST reverses in none once greenness is held.
+
+## A(l). The LST anomaly under the difference instrument
+
+Section 4.10 reports that no reversal meets this paper's strict criterion once evaluation frames are
+equalised, and that the LST anomaly nonetheless differs between regions on the weaker instrument
+Table B3's note commits the paper to. These are the four pairs that have opposite-sided point
+estimates and a difference interval excluding zero, all on `lst_anomaly_mean`. Signed AUC within the
+10 km collar; the two regions are bootstrapped independently under the 10-cell spatial-block scheme
+and differenced, 1000 replicates, seed 42. Source `matched_frame_gap.csv`, recomputable by
+`paper/code/verify_matched_gap.py`.
+
+**Table A6. Between-region differences in the signed LST-anomaly association, 10 km collar.**
+
+| Pair | AUC A | AUC B | Difference | 95 % CI |
+|---|---:|---:|---:|---|
+| Bejís vs Evia | 0.392 | 0.584 | −0.191 | [−0.295, −0.083] |
+| Evia vs Montiferru | 0.584 | 0.400 | +0.184 | [+0.012, +0.321] |
+| Manavgat vs Evia | 0.462 | 0.584 | −0.122 | [−0.225, −0.020] |
+| Bejís vs Muğla | 0.392 | 0.507 | −0.115 | [−0.219, −0.002] |
+
+Nine of the ninety feature-by-pair differences clear zero, against about 4.5 expected at nominal 5 %
+under the null, and no multiplicity correction is applied; four of the nine are this feature and
+three of those involve Evia. The nine features are effectively two to three dimensions (Section
+4.10), so the ninety comparisons are not independent either. This is reported as a weaker result
+than a reversal, not as a restored one.
