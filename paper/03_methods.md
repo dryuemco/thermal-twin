@@ -125,24 +125,20 @@ source. Neither variant sees a target label, and both are verified label-blind a
 families, moving transfer AUC by at most 0.014 in any direction and 0.008 within the thermal family.
 The canonical λ = 1 lies outside the released sweep and is reported separately in Appendix A(b).
 
-## 3.10 Transfer-gap decomposition and the concept-shift diagnostic
+## 3.10 Transfer-gap decomposition and the concept-shift criterion
 
-For each direction the gap between the target's own within-region skill and the raw transfer result
-is split in two. One part is what the best label-free adaptation recovers, and the other is what it
-does not. The recovered fraction is (adapted − raw) / (within − raw), signed and unclipped, with its interval
-from the same paired bootstrap; it bounds what covariate-level correction can achieve. Section 4.3
-shows the remainder should not be read as a conditional residual, because much of it is incurred
-inside a single region (Appendix A(j)).
+The transfer gap is decomposed into the part a label-free covariate correction recovers and the part
+it does not, as (adapted − raw) / (within − raw), signed and unclipped, with its interval from the
+same paired bootstrap; Section 4.3 shows the remainder should not be read as a conditional residual,
+because much of it is incurred inside a single region (Appendix A(j)).
 
-The mechanism is diagnosed by **signed univariate association**. For each numeric predictor the raw
-ROC-AUC of that predictor against `burned` is computed in each region and never folded to
-max(AUC, 1 − AUC), so a value below 0.5 is read as a direction rather than as weakness. A reversal is
-called bootstrap-supported only when the two regions' point estimates fall on opposite sides of 0.5
-**and each region's own interval excludes 0.5**, under the same 10-cell spatial-block bootstrap.
-That is stricter than requiring the two regions' intervals to be disjoint: a feature whose intervals
-are disjoint but one of which straddles 0.5 has not been shown to point anywhere in that region, so
-it is recorded as a point reversal only. Appendix B states the rule again beside the counts, and
-`conditional_similarity_transfer.json` carries it as machine-readable metadata.
+The mechanism is diagnosed by **signed univariate association**: for each numeric predictor the raw
+ROC-AUC against `burned` is computed in each region and never folded to max(AUC, 1 − AUC), so a value
+below 0.5 is a direction rather than weakness. A reversal is called bootstrap-supported only when the
+two regions' point estimates fall on opposite sides of 0.5 **and each region's own interval excludes
+0.5**, under the same 10-cell spatial-block bootstrap. That is stricter than requiring the two
+intervals to be disjoint: a feature whose intervals are disjoint but one of which straddles 0.5 has
+not been shown to point anywhere in that region, so it is recorded as a point reversal only.
 
 ## 3.11 Transferability diagnostics versus transfer
 
@@ -187,27 +183,20 @@ evaluation region from the training regime. Scars are dilated by buffers of 2, 5
 minimum-component rule, and the per-split and per-scar positive counts, which are unequal and bear
 on the interpretation, are in Appendix A(i).
 
-## 3.14 Leakage control
+## 3.14 Leakage control and reproducibility
 
-An explicit forbidden-column set is enforced at every model fit. Coordinates (`lon`, `lat`, `row`,
-`col` and their normalised forms), every burn-date and label-provenance column, and the agreement
-fraction are excluded from all feature sets, and the enforcement runs as an assertion rather than a
-convention. The natural-vegetation mask is used only to define the population, never as a predictor.
-Spatial blocking prevents a cell from sharing a fold with its own neighbours.
-
-**Reproducibility.** All randomness uses seed 42 and the bootstrap uses 1000 replicates throughout.
-The transfer and adaptation analysis runs in an environment separate from the upstream pipeline's.
-Every within-region model was therefore refitted there and compared against the frozen upstream
-output, and the independently implemented adaptation was compared against the pipeline's own. The
-within-region comparisons agree exactly and the twenty transfer directions to within
-1.6×10⁻⁷. All numbers here were produced under scikit-learn 1.9.0 or verified against it; the
-implementation tolerance that applies if the version is not fixed is stated in Section 5.9(vi), and
-the companion paper reports the version sensitivity and the reproduction check in full.
-
-**Sensitivity analyses.** Every headline result is repeated across two analysis populations, three
-spatial-block sizes, the CORAL sweep, both feature sets and four classifier capacities; where a
-conclusion depends on one of those choices the dependence is reported rather than resolved by
-choosing the favourable setting (Appendix A).
+An explicit forbidden-column set is enforced at every model fit as an assertion rather than a
+convention: coordinates and their normalised forms, every burn-date and label-provenance column, and
+the agreement fraction are excluded from all feature sets. The natural-vegetation mask defines the
+population and is never a predictor. All randomness uses seed 42 and the bootstrap 1000 replicates.
+Because the transfer analysis runs in an environment separate from the upstream pipeline's, every
+within-region model was refitted and compared against the frozen upstream output: the within-region
+comparisons agree exactly and the twenty transfer directions to within 1.6×10⁻⁷. Section 5.9(vi)
+states the implementation tolerance that applies if the library version is not pinned. Every
+headline result is repeated across two populations, three block sizes, the CORAL sweep, both feature
+sets and four classifier capacities, and where a conclusion depends on one of those choices the
+dependence is reported rather than resolved by choosing the favourable setting (Appendix A). Full
+detail is in Appendix C.
 
 ## 3.15 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 

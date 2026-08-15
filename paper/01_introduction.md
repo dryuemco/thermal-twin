@@ -51,48 +51,42 @@
 ---
 
 Wildfire is a defining disturbance of Mediterranean-basin landscapes, and a changing climate is
-reshaping where and how it burns [@Pausas2021]. The pressure to anticipate *where* fire will occur
-has produced a large and still-growing literature on fire susceptibility mapping. It has recently
-been synthesised from both a methodological and an application perspective [@Vibhandik2026;
-@Jodhani2026]. The dominant pattern is well established. Geospatial predictors are assembled over a
-study region and paired with a historical record of burned area. A supervised classifier is then
-fitted, most often a random forest [@Breiman2001]. The resulting susceptibility surface is published
-with a cross-validated AUC in the 0.85 to 0.95 range.
+reshaping where and how it burns [@Pausas2021]. The literature on fire susceptibility mapping is
+large and has recently been synthesised [@Vibhandik2026; @Jodhani2026]. Its dominant pattern is
+settled: geospatial predictors are assembled over a study region, paired with a historical record of
+burned area, and fitted with a supervised classifier, most often a random forest [@Breiman2001]; the
+resulting surface is published with a cross-validated AUC of 0.85 to 0.95.
 
-This paper is about a property that the pattern does not report. Predictors that describe the
-*state* of a surface in a particular season are more informative about that season than predictors
-that describe a place. They are also, as we show, not portable, and a large part of this paper is
-about how much harder that is to establish than it looks: the reading we first reached, that the
+That pattern does not report portability. Predictors describing the *state* of a surface in one
+season are more informative about that season than predictors describing a place, and they do not
+travel. Establishing that is harder than it looks: the reading we first reached, that the
 relationship is reparameterised locally and points in different directions in different places, does
-not survive a correction to how the study regions were evaluated (Section 4.4). The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
-cross-validation, +0.022 when a whole burn scar is withheld, and contributes
-+0.004 between them, an estimate whose interval spans zero, with a sign that is a property of the
-source-target pair rather than of the block.
+not survive a correction to how the study regions were evaluated (Section 4.4). What survives is
+that the dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
+cross-validation, +0.022 when a whole burn scar is withheld, and +0.004 between them on an interval
+spanning zero, with a sign that belongs to the source-target pair rather than to the block.
 
-The obvious reading of that pair of numbers is a trade-off, and our own earlier framing took it. The
-data do not support it. The static baseline transfers at a mean of 0.537 against the thermal model's
-0.541, so the predictor class that ought to travel does not travel either, and removing the
-reversing predictors returns +0.014 of transfer on an interval that also spans zero. Two nulls on
-the portability axis are not an exchange. What is measured is a local gain that does not export, and
-a local cost when the reversing predictors are removed, with no compensating transfer gain on either
-arm.
+The obvious reading of that pair is a trade-off, and our earlier framing took it. The data do not
+support it. The static baseline transfers at 0.537 against the thermal model's 0.541, so the
+predictor class that ought to travel does not travel either, and removing the reversing predictors
+returns +0.014 on an interval that also spans zero. Two nulls on the portability axis are not an
+exchange. What is measured is a local gain that does not export and a local cost when those
+predictors are removed, with no compensating transfer gain on either arm.
 
 ## 1.1 Portability goes unmeasured
 
-A susceptibility model's reported skill is almost always an estimate of *within-region*
-performance. Held-out folds come from the same study area and season, often from the same fire
-event, and where folds are drawn at random over cells, spatial autocorrelation inflates the estimate
-further. The problem is documented across ecological modelling [@Roberts2017; @Ploton2020] and is
-addressed by spatially blocked cross-validation [@Valavi2019; @Meyer2018]. Blocking is the right
-correction for what it corrects, but it does not make the estimate honest about a fire the model has
-not seen, and Section 4.3 measures that gap on identical cells.
+A susceptibility model's reported skill is almost always an estimate of *within-region* performance.
+Held-out folds come from the same study area and season, often the same fire, and random folds over
+cells let spatial autocorrelation inflate the estimate further. The problem is documented across
+ecological modelling [@Roberts2017; @Ploton2020] and addressed by spatially blocked cross-validation
+[@Valavi2019; @Meyer2018]. Blocking corrects what it corrects, but it does not make the estimate
+honest about a fire the model has not seen; Section 4.3 measures that gap on identical cells.
 
-Because only that side of the ledger is reported, portability is never entered at all. A predictor
-block is adopted on the strength of the increment it delivers inside its training footprint, and
-whether that increment survives a change of region is not asked, even though any regional product
-built from locally trained models implicitly promises generalisation beyond it. For fire the
-transfer question is asked far less often than in adjacent fields. Meteorological fire-danger indices
-are known not to port cleanly between fire environments [@Podschwit2022], and the two recent studies
+Because only that side of the ledger is reported, portability is never entered. A predictor block is
+adopted on the increment it delivers inside its training footprint, and whether that increment
+survives a change of region is not asked, even though any regional product built from locally
+trained models implicitly promises generalisation beyond it. Meteorological fire-danger indices are
+known not to port cleanly between fire environments [@Podschwit2022], and the two recent studies
 that test model transfer systematically, across Mediterranean countries [@Dimarco2026] and US
 counties [@Liu2025], both report that it largely succeeds between similar regions — and both
 transfer models whose dominant predictors are *spatially stationary*. Whether a dynamic,
@@ -100,26 +94,24 @@ season-specific predictor class behaves the same way is the question this paper 
 
 ## 1.2 Pre-fire thermal dryness is the natural test case
 
-The dynamic class used here is pre-fire thermal dryness, and it is the class most plausibly
-*expected* to transfer. Standard susceptibility predictors are static or near-static over the
-timescale at which fire danger varies, and such a set explains poorly why one summer burned and the
-preceding one did not. What changes between those summers is the state of the surface, to which
-satellite thermal observation gives partial access (Section 2.2). The Temperature-Vegetation Dryness
-Index [@Sandholt2002] formalises that access into an internally normalised measure which should, in
-principle, be less exposed to absolute-temperature offsets between regions than raw land surface
-temperature. **That theoretical portability advantage is tested here and is not found**: the two
-internally normalised channels transfer no better than the four absolute ones (Appendix A(f)).
+Pre-fire thermal dryness is the dynamic class most plausibly *expected* to transfer. Standard
+susceptibility predictors are static or near-static over the timescale at which fire danger varies,
+so they explain poorly why one summer burned and the preceding one did not. What changes between
+those summers is the state of the surface, to which satellite thermal observation gives partial
+access (Section 2.2). The Temperature-Vegetation Dryness Index [@Sandholt2002] formalises that
+access into an internally normalised measure, which should in principle be less exposed to
+absolute-temperature offsets between regions than raw surface temperature. **That theoretical
+portability advantage is tested here and is not found**: the two normalised channels transfer no
+better than the four absolute ones (Appendix A(f)).
 
 The physics linking moisture stress to combustion is universal, so portability should be most
 expected for this class, which is what makes it diagnostic: a loss here cannot be dismissed as a
-peculiarity of a locally defined covariate. That expectation is the motivation for the design, not a
-finding of it, and Section 4.4 reports that the signed associations run the other way — a hotter
-pre-fire surface is associated with *less* burning in all five regions, and on mutual adjustment
-temperature survives where greenness does not, so on this cohort the absolute channels behave as
-static land-surface descriptors rather than as a dryness index. We keep the framing because it is
-why these predictors were chosen and why their failure to travel is informative, and we state the
-contradiction where the evidence appears rather than adjusting the motivation after the fact.
-
+peculiarity of a locally defined covariate. That expectation motivates the design; it is not a
+finding of it. Section 4.4 reports that the signed associations run the other way — a hotter pre-fire
+surface is associated with *less* burning in all five regions, and on mutual adjustment temperature
+survives where greenness does not, so on this cohort the absolute channels behave as static
+land-surface descriptors rather than as a dryness index. We keep the framing because it is why these
+predictors were chosen and why their failure to travel is informative, and we state the
 ## 1.3 Why the loss is invisible to the diagnostics in use
 
 A deficit on transfer can arise two ways. Under **covariate shift** the marginal distribution of the

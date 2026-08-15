@@ -17,39 +17,38 @@ standing is a shortfall in transferred skill, not a reversed relationship.
 ## 5.2 Why the thermal increment is real but local
 
 The within-region increment and the transfer failure are measured at different separations, and
-Section 4.3 shows that most of the difference between them is already present inside a single
-region. The increment should therefore be read as local in a specific sense: it holds where held-out
-cells are interleaved with training cells, and most of it is gone once they are not, before the fire
-or the region changes. It is not an artefact to be explained away — it replicates in five
-independent regions, survives coarsening of the blocks to about 5 km with its interval intact,
-persists in the secondary population, and survives a predictor window closed up to two weeks earlier
-— but it is established under interleaved validation and not established beyond it. The
-window-closure result is region-specific and should not be overstated: the contribution strengthens
-in Bejís and Muğla, is flat in Montiferru, and **weakens monotonically in Evia**, so what holds
-everywhere is survival, not improvement (Appendix A(d)).
+Section 4.3 shows most of the difference between them is already present inside a single region. The
+increment is therefore local in a specific sense: it holds where held-out cells are interleaved with
+training cells, and most of it is gone once they are not, before the fire or the region changes. It
+is not an artefact to be explained away — it replicates in five regions, survives coarsening to
+about 5 km with its interval intact, persists in the secondary population, and survives a predictor
+window closed up to two weeks earlier — but it is established under interleaved validation and not
+beyond it. The window-closure result is region-specific: the contribution strengthens in Bejís and
+Muğla, is flat in Montiferru and **weakens monotonically in Evia**, so what holds everywhere is
+survival, not improvement (Appendix A(d)).
 
-The natural objection is that different Mediterranean regions are simply different systems, so that
-a predictor meaning one thing in one place and another elsewhere is a comparison of two systems
-rather than instability. **We designed the two-Muğla-events arm to answer that objection and it does not answer it.** On the
-frames as drawn it looked decisive — region, grid and processing chain identical, static predictors
-identical cell by cell, and elevation's association reversing between the two fires — but Sections
-4.4 and 4.10 show it is instead the most extreme frame artefact in the cohort, and under the collar
-the two arms fall on the same side of 0.5.
+The natural objection is that different Mediterranean regions are simply different systems, so a
+predictor meaning one thing in one place and another elsewhere is a comparison of two systems rather
+than instability. **We designed the two-Muğla-events arm to answer that objection and it does not
+answer it.** On the frames as drawn it looked decisive — region, grid and processing chain
+identical, static predictors identical cell by cell, elevation's association reversing between the
+two fires — but Sections 4.4 and 4.10 show it is the most extreme frame artefact in the cohort, and
+under the collar the two arms fall on the same side of 0.5.
 
 The objection therefore stands unanswered, and three further confounds were never resolved in any
 case. Season and year are confounded, and **that confound cannot be resolved in this study area**:
 the events sit 42 days apart in median burn day-of-year, neither year contains a second event at the
 other's phase, and a calendar-matched arm would carry nine burned cells against a gate minimum of
-thirty. The population is not held fixed either, the 2022 arm being the 2021 arm with the 2021 scar
-removed. And the 2022 arm rests on eleven positive-carrying 5 km blocks against this design's own
-floor of sixteen. With one fire per region everywhere else, and the one arm that held place fixed now
+thirty. The population is not fixed either, the 2022 arm being the 2021 arm with the 2021 scar
+removed. And that arm rests on eleven positive-carrying 5 km blocks against this design's own floor
+of sixteen. With one fire per region everywhere else, and the one arm that held place fixed now
 withdrawn, **this cohort provides no evidence that the transfer shortfall is regional rather than
-event-specific**, and Section 5.9(v) is a substantive limit rather than a formality. Section 4.11 adds a length scale for the
-within-region decay — the model is already at chance by 10 to 20 km from its training cells — but
-explains why that cannot be turned into an attribution: once the curve reaches the chance floor, any
-cross-region mean near 0.5 lies on its continuation by construction.
+event-specific**, and Section 5.9(v) is a substantive limit rather than a formality. Section 4.11
+adds a length scale for the within-region decay — the model is already at chance by 10 to 20 km from
+its training cells — but explains why that cannot be turned into an attribution: once the curve
+reaches the chance floor, any cross-region mean near 0.5 lies on its continuation by construction.
 
-One conclusion does survive from the other direction. On the frames as drawn the sharpest supported
+One conclusion survives from the other direction. On the frames as drawn the sharpest supported
 reversal belonged to elevation, a *baseline* terrain variable, and the static baseline transfers no
 better than the dynamic block. Whatever the shortfall is, it is not the thermal block's peculiarity.
 
@@ -134,35 +133,33 @@ travel either.
 
 ## 5.8 Implications
 
-For practice, one number should be stated before any other. In precision-recall terms, which is how
-a susceptibility surface is actually used, transferred models average a PR-AUC of 0.156 against a
-no-skill baseline of 0.136, and six of twenty directions fall below their own baseline. Whatever
-the ROC figures suggest, a model moved to a region it was not fitted in does not usefully rank
-burned cells there.
+For practice, one number comes before any other. In precision-recall terms, which is how a
+susceptibility surface is used, transferred models average a PR-AUC of 0.156 against a no-skill
+baseline of 0.136, and six of twenty directions fall below their own baseline on the frames as
+drawn. Whatever the ROC figures suggest, a model moved to a region it was not fitted in does not
+usefully rank burned cells there.
 
-This paper also supports one concrete change in what is reported. Alongside a spatially
-blocked within-region figure, report skill on a held-out burn scar and its surroundings, or on a
-held-out fire event. On these five regions the two differ by about 0.14 ROC-AUC on the same model,
-which is the size of the effect such papers usually claim, so a blocked figure alone should be read
-as an upper bound. Transfer skill likewise has to be *measured* rather than inferred from similarity,
-and the pre-deployment diagnostics currently used for that inference did not order it here. Where a model
-must be moved, the resource that closes the gap is target labels: thirty-two labelled 5 km blocks
-recover 85 to 89 % of the target's matched ceiling in three of six directions, and 30 to 57 % in the
-rest. That is a real answer and not a cheap one, being 7 to 20 % of the target's natural-vegetation
-population, and at small budgets the same intervention damages the direction that already transfers
-best.
+The paper supports one concrete change in reporting. Alongside a spatially blocked within-region
+figure, report skill on a held-out burn scar and its surroundings. On these five regions the two
+differ by about 0.14 ROC-AUC on the same model, the size of the effect such papers usually claim, so
+a blocked figure alone should be read as an upper bound. Transfer skill likewise has to be
+*measured* rather than inferred from similarity, since the pre-deployment diagnostics used for that
+inference did not order it here. Where a model must be moved, the resource that closes the gap is
+target labels: thirty-two labelled 5 km blocks recover 85 to 89 % of the target's matched ceiling in
+three of six directions and 30 to 57 % in the rest. That is a real answer and not a cheap one, being
+7 to 20 % of the target's natural-vegetation population, and at small budgets the same intervention
+damages the direction that already transfers best.
 
 For method development, the results bound what unsupervised alignment can be asked to do. Two
-label-free methods applied carefully moved fourteen of twenty directions towards chance, and five of
-the six they moved upward involve Montiferru, the smallest region; the sixth, Manavgat to Muğla,
-moves downward. The committed-in-advance CORAL arm reaches a mean of 0.552, and taking whichever of
-the two methods scores better per direction reaches 0.556 — but that selection uses the target
-labels the protocol forbids, so it is an oracle upper bound rather than an achievable result
-(Section 4.5). Even the oracle only reaches the reference a
-model can reach on an unseen scar at all (Section 4.3), so they are not failing far below an
-achievable target; they are regressing the matrix onto it, which costs the directions that already
-worked. What alignment cannot do is exceed that reference, and a sign reversal is not a distribution
-mismatch that realigning inputs would repair.
+label-free methods moved fourteen of twenty directions towards chance; five of the six they moved
+upward involve Montiferru, the smallest region, and the sixth moves downward. The
+committed-in-advance CORAL arm reaches 0.552, and taking whichever method scores better per
+direction reaches 0.556 — but that selection uses the target labels the protocol forbids, so it is an
+oracle upper bound rather than an achievable result (Section 4.5). Even the oracle only reaches the
+reference a model can reach on an unseen scar (Section 4.3). Alignment is therefore not failing far
+below an achievable target; it is regressing the matrix onto that target, which costs the directions
+that already worked. What it cannot do is exceed the reference, and a sign reversal is not a
+distribution mismatch that realigning inputs would repair.
 
 ## 5.9 Limitations
 

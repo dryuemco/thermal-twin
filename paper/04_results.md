@@ -51,46 +51,43 @@ replicates. Block sizes 2/10/20 cells ≈ 1/5/10 km.
 | | 20 (~10 km) | 0.555 | 0.681 | +0.126 | [+0.053, +0.228] |
 
 *Table note (resampling units).* The bootstrap resamples spatial blocks, so what bounds an
-interval's reliability is the number of blocks that carry at least one burned cell. Those counts
-fall quickly as blocks coarsen. At 2 cells they are 235 (Manavgat), 302 (Bejís), 843 (Muğla), 716
-(Evia) and 192 (Montiferru), out of 5 439, 3 967, 11 316, 2 566 and 743 blocks. At 10 cells they are
-28, 19, 70, 41 and 16, out of 237, 176, 576, 155 and 35. At 20 cells they are **12, 6, 33, 15 and
-6**, out of 60, 48, 167, 50 and 12. No bootstrap replicate was invalid at any block size, with one exception. At 20 cells Bejís had 5
-of 1000 replicates single-class. That is the symptom of the six positive-carrying blocks just
-reported, and a further reason to read the row as indicative. An equal-tailed percentile interval
-built on six positive-carrying blocks has no meaningful coverage. Montiferru at 20 cells also feeds
+interval's reliability is the number of blocks carrying at least one burned cell, and those counts
+fall quickly as blocks coarsen: 235, 302, 843, 716 and 192 at 2 cells; 28, 19, 70, 41 and 16 at 10
+cells; and **12, 6, 33, 15 and 6** at 20 cells, out of 60, 48, 167, 50 and 12 blocks. No bootstrap
+replicate was invalid at any block size except Bejís at 20 cells, where 5 of 1000 were single-class
+— the symptom of the six positive-carrying blocks just reported. An equal-tailed percentile interval
+built on six positive-carrying blocks has no meaningful coverage, and Montiferru at 20 cells feeds
 only 12 groups into a 5-fold grouped split, so its models train on about ten blocks each. **The
 20-cell row of this table should be read as indicative rather than as an interval.** The 10-cell row
-is the coarsest blocking this design supports properly, because every region there has 16 to 70
-positive-carrying blocks. The increment holds at that scale in all five regions. Source: `paper/referee2_numbers.md`, block C, counted from the frozen per-cell
-prediction tables.
+is the coarsest blocking this design supports properly, every region there having 16 to 70
+positive-carrying blocks, and the increment holds at that scale in all five regions. Source:
+`paper/referee2_numbers.md`, block C.
 
 This within-region result is not itself novel. It is reported because the transfer arms below are
 measured against it.
 
 ## 4.3 What the evaluation frame is worth, within one region
 
-This section isolates the effect that Section 4.4 later applies between regions. It is reported
-first because it is measured on one model in one region with no transfer involved, so it cannot be
-explained by anything the transfer arms do.
+This section isolates the effect Section 4.4 applies between regions. It comes first because it is
+measured on one model in one region with no transfer involved, so nothing the transfer arms do can
+explain it.
 
 **Where the skill is lost, on a matched comparison.** Four evaluations are reported. The last three
-are scored on **identical cells**, so they differ only in what the model was trained on, and the
-first is included to show why an unmatched comparison misleads. Each uses the transfer protocol
-unchanged: fit, then apply with no refit, no recalibration and no threshold selection.
+are scored on **identical cells**, so they differ only in what the model was trained on; the first
+shows why an unmatched comparison misleads. Each uses the transfer protocol unchanged: fit, then
+apply with no refit, no recalibration and no threshold selection. The held-out unit is a burned
+connected component of at least 50 cells together with all cells within 2 km of it.
 
-The held-out unit is a burned connected component of at least 50 cells together with all cells
-within 2 km of it. What makes that a harder discrimination problem than a whole region is the
-composition of its negatives, not its burned fraction, and that can be shown rather than argued.
-Taking the same fitted model and the same out-of-fold predictions, and scoring them on a random
-sample of region cells drawn at the scar area's own burned fraction, gives **0.782 against the
-region-wide 0.782**: matching the prevalence changes nothing, at −0.000 [−0.003, +0.002] over the
-nine scars. Scoring the same predictions on the scar area itself gives 0.627, a fall of **+0.155
-[+0.093, +0.217]**. The whole effect is therefore the negative pool. Every negative in a scar collar
-is fire-adjacent, sharing the terrain, land cover and synoptic conditions of the positives, whereas a
-region's negatives include its easy far field. The burned fraction, 34 to 87 % against 3.8 to 28.7 %
-for a region, is a symptom of that construction, and ROC-AUC is in any case invariant to class
-balance at fixed class-conditional distributions.
+What makes that a harder problem than a whole region is the composition of its negatives, not its
+burned fraction, and that can be shown rather than argued. Taking the same fitted model and the same
+out-of-fold predictions and scoring them on a random sample of region cells drawn at the scar area's
+own burned fraction gives **0.782 against the region-wide 0.782**: matching the prevalence changes
+nothing, at −0.000 [−0.003, +0.002] over the nine scars. Scoring the same predictions on the scar
+area itself gives 0.627, a fall of **+0.155 [+0.093, +0.217]**. The whole effect is the negative
+pool. Every negative in a scar collar is fire-adjacent, sharing the terrain, land cover and synoptic
+conditions of the positives, whereas a region's negatives include its easy far field. The burned
+fraction, 34 to 87 % against 3.8 to 28.7 % for a region, is a symptom of that construction, and
+ROC-AUC is in any case invariant to class balance at fixed class-conditional distributions.
 
 **Table 2. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
 Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make
@@ -186,33 +183,31 @@ there.
 
 Section 4.3's effect applies with equal force between regions, and this section reports that test
 before the transfer matrix rather than after it, because it changes what Sections 4.5 and 4.7 can
-claim. It withdraws nothing in Section 4.3, which is what the test is built from. Source: `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`, `collar_frame_bootstrap.csv`,
-`diagnostics_collar_frame.csv`, and the code deposited under `paper/code/`.
+claim. It withdraws nothing in Section 4.3, which is what the test is built from. Sources:
+`aoi_frame_auc.csv`, `aoi_frame_transfer.csv`, `collar_frame_bootstrap.csv`,
+`diagnostics_collar_frame.csv` and the code under `paper/code/`.
 
-**The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
-fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose:
-the share of modelled cells lying beyond 10 km of any burned cell runs from **2.1 %** in Montiferru
-to **63.1 %** in Bejís, with median distances from 2.7 to 13.5 km (Appendix B, Table B6). The far
-field is not a neutral addition — in Manavgat the median elevation of modelled cells rises from
-472 m within 5 km of the fire to 1,273 m at 20 to 50 km, against 512 m for the burned cells
-themselves.
+**The five areas of interest are not comparable frames.** Each is a rectangle drawn around a fire,
+and they differ by an order of magnitude in how much unburnt far field they enclose: the share of
+modelled cells beyond 10 km of any burned cell runs from **2.1 %** in Montiferru to **63.1 %** in
+Bejís (Appendix B, Table B6). That far field is not a neutral addition — in Manavgat the median
+elevation of modelled cells rises from 472 m within 5 km of the fire to 1,273 m at 20 to 50 km,
+against 512 m for the burned cells themselves.
 
-**Under an equalised frame the sign reversals of Section 4.7 do not survive.** Restricting every region to cells within 10 km of any burned cell removes only far-field negatives;
-every burned cell is at distance zero and is retained at any radius, so the protection against
-choosing a flattering radius is the sweep reported below, not the retention of positives.
-
-On the equalised frame all five regions agree in sign on elevation, on LST and on TVDI, and both
-bootstrap-supported elevation reversals of Table B3 disappear. Applying this paper's own criterion
-from Section 3.10, which requires each region's own 10-cell block-bootstrap interval to exclude 0.5,
-**no reversal remains bootstrap-supported in the collar frame** (`collar_frame_bootstrap.csv`). Two
-features straddle 0.5 at the point estimate and neither is supported. `lst_anomaly_mean` runs 0.392
-[0.324, 0.460] in Bejís against 0.584 [**0.497**, 0.669] in Evia, so the point estimates fall on
-opposite sides but Evia's interval includes 0.5 by 0.003. `tvdi_difference_mean` straddles as well,
-at 0.509 [0.417, 0.597] in Muğla against 0.384 [0.288, 0.504] in Montiferru, and no region's
-interval excludes 0.5. These are the two internally differenced channels, and an earlier draft of
-this section treated the first as uniquely informative because it carries no lapse-rate signal; that
-argument does not hold, because the second is equally decorrelated from elevation and behaves the
-same way. Both are point reversals under the strict criterion.
+**Under an equalised frame the sign reversals of Section 4.7 do not survive.** Restricting every
+region to cells within 10 km of any burned cell removes only far-field negatives; every burned cell
+is at distance zero and is retained at any radius, so the protection against choosing a flattering
+radius is the sweep below, not the retention of positives. On the equalised frame all five regions
+agree in sign on elevation, on LST and on TVDI, and both bootstrap-supported elevation reversals of
+Table B3 disappear. Under this paper's own criterion from Section 3.10 — each region's own 10-cell
+block-bootstrap interval must exclude 0.5 — **no reversal remains bootstrap-supported**. Two features
+straddle 0.5 at the point estimate and neither is supported: `lst_anomaly_mean` at 0.392 [0.324,
+0.460] in Bejís against 0.584 [**0.497**, 0.669] in Evia, where Evia's interval includes 0.5 by
+0.003; and `tvdi_difference_mean` at 0.509 [0.417, 0.597] in Muğla against 0.384 [0.288, 0.504] in
+Montiferru, where no region's interval excludes 0.5. These are the two internally differenced
+channels. An earlier draft treated the first as uniquely informative because it carries no lapse-rate
+signal; that does not hold, since the second is equally decorrelated from elevation and behaves the
+same way.
 
 **A weaker instrument does support the anomaly result.** Table B3's note commits this paper to a
 difference interval on the pair as the sharper test. Applied under the collar, four pairs have
@@ -381,38 +376,33 @@ intervals entirely below it**; the exception is Bejís to Manavgat, whose interv
 baseline. Only one direction exceeds twice its baseline. These are frame-as-drawn quantities and the
 PR arm was not recomputed on the collar. Per-direction values are in Appendix B, Table B4.
 
-**The static baseline does not transfer either.** This is the control for the reading the rest of
-the paper invites, and it constrains that reading sharply. The same twenty directions were run with
-the terrain, fuel and greenness baseline alone. The mean target AUC is **0.537**, against **0.541**
+**The static baseline does not transfer either.** The same twenty directions were run with the
+terrain, fuel and greenness baseline alone, giving a mean target AUC of **0.537** against **0.541**
 for the thermal model. Static attributes of a place are the class Dimarco et al. transfer
-successfully, and are the class this paper's framing treats as portable. Here that class is itself
-barely above chance. The paired per-direction contrast is given below and in
-`baseline_vs_thermal_transfer.csv`. What matters here
-is that the transfer failure below is not specific to the dynamic block. A baseline that does not
-travel, plus pre-fire thermal state, gives a model that does not travel.
+successfully and the class this paper's framing treats as portable; here that class is itself barely
+above chance. The transfer failure below is therefore not specific to the dynamic block: a baseline
+that does not travel, plus pre-fire thermal state, gives a model that does not travel.
 
 **The thermal block's paired contribution to transfer, with its interval.** Differencing the two
 matrices direction by direction gives a mean of **+0.004**, but the mean is not the informative
-statistic. The individual paired contributions span **−0.148 to +0.133**, twelve positive and eight
-negative, so the spread is thirty times the mean and the sign is a property of the pair rather than
-of the block. A mean near zero here records cancellation, not consistent absence of effect. The
-directions are not independent, since each region appears in eight of the twenty, so the interval
-depends on the resampling unit; **all four units the design permits give the same answer**, from
-[−0.027, +0.034] treating directions as independent to [−0.037, +0.046] jackknifing regions, and
-none propagates within-direction sampling variability (Appendix A(q)). The leave-one-region-out
-jackknife shows how little the mean is anchored: **dropping Evia alone reverses its sign.**
+statistic. The individual contributions span **−0.148 to +0.133**, twelve positive and eight
+negative, so the spread is thirty times the mean and the sign belongs to the pair rather than to the
+block; a mean near zero records cancellation, not consistent absence of effect. The directions are
+not independent, since each region appears in eight of the twenty, so the interval depends on the
+resampling unit — **all four units the design permits give the same answer**, from [−0.027, +0.034]
+treating directions as independent to [−0.037, +0.046] jackknifing regions, and none propagates
+within-direction sampling variability (Appendix A(q)). The leave-one-region-out jackknife shows how
+little the mean is anchored: **dropping Evia alone reverses its sign.**
 
 **On the frames as drawn, six directions are below chance with interval support**, the sharpest at
-0.326 [0.305, 0.349]. Section 4.4 has already shown that most of that count is a property of the
-frames: equalising them leaves **one** direction below chance, Manavgat to Bejís at 0.417 [0.349,
-0.488], supported at the 10 km collar though its interval covers chance at 5 km, at 0.459 [0.372,
-0.550]. That one direction still needs a mechanism acting on the direction of the relationship,
-because no account of merely lost skill produces a reliably reversed ranking, and Sections 4.6 to
-4.10 pursue it. Everything reported below this point is computed on the frames as drawn, so it
-should be read against Section 4.4 throughout. Per-split and per-scar detail is in Appendix A(i).
-
-Per-direction values for all twenty directions, raw and under both adaptations, are in Appendix B,
-Table B9.
+0.326 [0.305, 0.349]. Section 4.4 has shown most of that count is a property of the frames:
+equalising them leaves **one**, Manavgat to Bejís at 0.417 [0.349, 0.488], supported at the 10 km
+collar though its interval covers chance at 5 km. That direction still needs a mechanism acting on
+the direction of the relationship, because no account of merely lost skill produces a reliably
+reversed ranking, and Sections 4.6 to 4.10 pursue it. Everything below this point is computed on the
+frames as drawn and should be read against Section 4.4. Per-split and per-scar detail is in Appendix
+A(i); per-direction values for all twenty directions, raw and under both adaptations, are in
+Appendix B, Table B9.
 
 **Label-blind adaptation compresses the matrix toward chance rather than repairing it.** Under
 region-wise z-scoring the twenty directions span 0.431 to 0.630 and under CORAL 0.443 to 0.624,
@@ -466,53 +456,43 @@ Table B1.
 | P(y) regime structure | 2 | − | +0.29 [−0.38, +0.74] log effective-N distance | **no** | no |
 | geographic | 1 | − | −0.24 [−0.84, +0.73] centroid geodesic distance | yes | no |
 
-Geographic separation does not order the matrix on either construction. Over all twenty directions
-the Spearman correlation between centroid separation and transfer AUC is −0.32 with an interval
-spanning zero; on the twelve-direction common subset of Table 5 it is −0.24, also spanning zero. The
-two nearest directions, Manavgat and Muğla at 306 km, are among the worst on the frames as drawn,
-while the 2,802 km pair returns 0.326 and 0.444, so the transfer mean of 0.541 is not the value at
-any one separation.
+Geographic separation does not order the matrix on either construction: over all twenty directions
+the Spearman correlation between centroid separation and transfer is −0.32, and on the
+twelve-direction common subset −0.24, both spanning zero. The two nearest directions are among the
+worst on the frames as drawn, while the 2,802 km pair returns 0.326 and 0.444, so the transfer mean
+of 0.541 is not the value at any one separation.
 
-**Only two diagnostics have intervals excluding zero, and both are conditional.** The stronger is
-the sign-agreement fraction over interval-supported features, at ρ = +0.84 [+0.58, +0.88]. The
-cosine variant reaches +0.81. No marginal measure was shown to order the matrix. That includes
-area-of-applicability-style dissimilarity in predictor space, climatic distance and geographic
-distance. The niche-overlap and regime families were not shown to order it either. The learned
-domain classifier is at ceiling, separating source from target at AUC ≥ 0.96 for every pair. It
-always succeeds, which is why it carries no ordering information.
+**Only two diagnostics have intervals excluding zero, and both are conditional**: the sign-agreement
+fraction over interval-supported features at ρ = +0.84 [+0.58, +0.88], and its cosine variant at
++0.81. No marginal measure was shown to order the matrix, including area-of-applicability
+dissimilarity, climatic distance and geographic distance, and neither were the niche-overlap and
+regime families. The learned domain classifier is at ceiling, separating source from target at
+AUC ≥ 0.96 for every pair; it always succeeds, which is why it carries no ordering information.
 
-Four limits are stated with the result rather than after it. The first is size. The index's tie
-structure caps the achievable Spearman at +0.861, so the observed +0.840 sits essentially on that
-ceiling. Its exact one-sided permutation p is 0.0060, the smallest this tie structure can produce,
-against a Bonferroni threshold of 0.0026 over the nineteen computed variants. No outcome of this
-diagnostic could have cleared family-wise correction on ten effective pairs. The second limit is
-labels. Signed associations need burned labels in both regions, so the family that appears to work
-is not available before deployment, while the family that fails is.
+Four limits are stated with the result rather than after it. **Size**: the index's tie structure caps
+the achievable Spearman at +0.861, so the observed +0.840 sits on that ceiling, and its exact
+one-sided permutation p of 0.0060 is the smallest that structure can produce against a Bonferroni
+threshold of 0.0026 over nineteen computed variants — **no outcome of this diagnostic could have
+cleared family-wise correction on ten effective pairs**. **Labels**: signed associations need burned
+labels in both regions, so the family that appears to work is not available before deployment while
+the family that fails is. **Selection**, the sharpest of the three: the two rows that clear zero are
+the *supported-feature* variants, whose subset is chosen by whether two regions' bootstrap intervals
+happen to be disjoint — a data-dependent selection made on the same data, with no correction. Their
+unselected counterparts over all nine features are ρ = +0.50 [−0.17, +0.83] and +0.18 [−0.40, +0.72],
+both spanning zero, so the result lives in the selection step and is reported as such.
 
-The third limit is about selection, and it is the sharpest of the first three. The two rows that clear zero
-are the *supported-feature* variants. Their feature subset is chosen by whether two regions'
-bootstrap intervals happen to be disjoint. That is a data-dependent selection, made on the same
-data, with no correction. The unselected counterparts over all nine features are ρ = +0.50
-[−0.17, +0.83] for the cosine and ρ = +0.18 [−0.40, +0.72] for the agreement count. Both span zero.
-The result lives in the selection step, and is reported as such.
+The families sit on unequal samples — twelve directions for the marginal, applicability, climatic and
+geographic rows, sixteen for the supported-conditional rows, twenty for the rest — so every row was
+recomputed on the common twelve. Published values reproduce to 4.8 × 10⁻⁵, the conditional rows still
+lead at +0.87 [+0.65, +0.88] and +0.85 [+0.43, +0.88], and every marginal row still spans zero. The
+ordering is not an artefact of unequal samples.
 
-**The families are compared on unequal samples, and equalising them does not change the ordering.**
-The marginal, applicability, climatic and geographic rows sit on twelve directions, because those
-diagnostics exist only for the four-region subset. The supported-conditional rows sit on sixteen and
-the rest on twenty. A reader may reasonably ask whether the marginal family's failure is a statement
-about power rather than about diagnostics. Every row was therefore recomputed on the common twelve
-directions. The published values reproduce to 4.8 × 10⁻⁵. The conditional rows still lead, at +0.87
-[+0.65, +0.88] and +0.85 [+0.43, +0.88], and every marginal row still spans zero. The ordering is not
-an artefact of unequal samples.
-
-**A fourth limit, established in Section 4.4, removes the result entirely.** The sign-agreement
-index is built from the signed associations that Section 4.4 shows to be artefacts of the evaluation
-frames, and it was correlated against transfer measured on those same frames. Recomputed on an
-equalised frame it is unanimous, taking the value 1.0 in every direction with no variance left to
-correlate, while the continuous cosine variant falls from ρ = +0.50 to +0.12. Everything in this
-section is therefore reported as what the original protocol yields, and the conclusion that survives
-is that **no diagnostic tested here was shown to order transfer once the frames are comparable**.
-
+**A fourth limit, established in Section 4.4, removes the result entirely.** The index is built from
+signed associations that Section 4.4 shows to be frame artefacts, and was correlated against transfer
+measured on the same frames. Recomputed on an equalised frame it is unanimous, with no variance left
+to correlate. Everything in this section is what the original protocol yields; the conclusion that
+survives is that **no diagnostic tested here was shown to order transfer once the frames are
+comparable**.
 
 ## 4.7 The contrast pair: similarity is not sufficient
 
@@ -600,35 +580,33 @@ whose positive counts range from 1 to 2,564, and the bins carry no intervals.
 | 80 to 160 km | 1 | 0.421 |
 | cross-region, 306 to 2,802 km | 20 | 0.541 |
 
-**By 10 to 20 km inside a single region the model is already at chance.** That is worth reporting on
-its own: it bounds how far a susceptibility surface of this kind can be carried from the cells it was
-fitted on, and it is consistent with Section 4.3, where withholding a scar and replacing the model
-with a foreign one cost nothing distinguishable.
+**By 10 to 20 km inside a single region the model is already at chance.** That bounds how far a
+susceptibility surface of this kind can be carried from the cells it was fitted on, and it is
+consistent with Section 4.3, where withholding a scar and replacing the model with a foreign one cost
+nothing distinguishable.
 
-**This does not reframe the paper's negative result, and a reading that it does was considered and
-rejected.** That reading argued that because the twenty cross-region directions average 0.541, at or above
-the within-region plateau, they sit on the continuation of the curve and the transfer failure needs
-no regional mechanism — a rule fixed in advance in `positive_control.md`. Two objections defeat it, and
-`scar_control.md` records the reframing as withdrawn in full. **The rule cannot fail.**
-Once the curve reaches the chance floor, any cross-region mean near 0.5 lies on its continuation by
-construction, so the comparison could not have come out otherwise and a test that cannot fail is not
-evidence. And **extrapolating an uninformative model does not produce reliably reversed ranking**:
+**It does not reframe the paper's negative result, and a reading that it does was considered and
+rejected.** That reading argued that because the twenty cross-region directions average 0.541, at or
+above the within-region plateau, they sit on the continuation of the curve and the failure needs no
+regional mechanism — a rule fixed in advance in `positive_control.md`. Two objections defeat it, and
+`scar_control.md` records the reframing as withdrawn in full. **The rule cannot fail**: once the
+curve reaches the chance floor, any cross-region mean near 0.5 lies on its continuation by
+construction, so the comparison could not have come out otherwise, and a test that cannot fail is not
+evidence. And **extrapolating an uninformative model does not produce a reliably reversed ranking**:
 Manavgat to Bejís is below chance with interval support on the frame as drawn and at the 10 km
 collar, which is not what a model that has merely run out of skill returns.
 
-Four further limits bound even the descriptive reading. The two distance ranges do not overlap —
-within-region separations span 2 to 86 km and cross-region separations start at 306 km — so any
-comparison across the gap is an extrapolation of the curve. The far bins are thin, six at 20 to 40 km
-and one beyond 80 km, so their means should not be read closely and the apparent rise at 40 to 80 km
-is not evidence of anything. The near bins are inflated by exactly the autocorrelation that blocked
-validation exists to remove, so **0.692 is an upper bound on near-field skill rather than an estimate
-of it**. And distance is not the only thing that changes with distance: this design separates distance
+Four limits bound even the descriptive reading. The two distance ranges do not overlap — within-region
+separations span 2 to 86 km, cross-region separations start at 306 km — so any comparison across the
+gap extrapolates the curve. The far bins are thin, six at 20 to 40 km and one beyond 80 km, so their
+means should not be read closely and the apparent rise at 40 to 80 km is not evidence of anything.
+The near bins carry exactly the autocorrelation blocked validation exists to remove, so **0.692 is an
+upper bound on near-field skill rather than an estimate of it**. And this design separates distance
 from crossing a study-area boundary, but not from the land cover, terrain and fire history that
 covary with it.
 
-What this arm therefore contributes is a length scale for the within-region decay, not an
-attribution. The unit that fails to transfer is not established by this design, and Section 4.3 says
-so directly.
+The arm therefore contributes a length scale for the within-region decay, not an attribution. The
+unit that fails to transfer is not established by this design, and Section 4.3 says so directly.
 
 ## 4.12 What target labels cost: the recovery curve
 
