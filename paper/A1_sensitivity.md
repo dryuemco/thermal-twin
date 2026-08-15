@@ -783,17 +783,7 @@ association between source and target, counted over features interval-supported 
 built out of exactly the signed AUCs this section has shown to be frame artefacts, and in Section
 4.6 they are correlated against transfer measured on the same unequal frames. Recomputing both sides under the 10 km collar:
 
-**Table 3. The diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman ρ
-against target ROC-AUC over the ordered directions in which each is defined. The first two rows are
-the two variants that cleared zero in Table B1; the third is the all-feature cosine, which did not
-and is shown for contrast. Both sides are recomputed here under one bootstrap setting, 1000
-replicates, seed 42. Source `diagnostics_collar_frame.csv` and `collar_increment_and_cosine.csv`.
-
-| Diagnostic | Full frame | 10 km collar |
-|---|---|---|
-| Sign-agreement fraction, supported features | ρ = +0.86 (p = 0.0001, n = 14) | **1.0 in all 18 directions, variance exactly 0 — degenerate** |
-| Cosine, supported features | ρ = +0.81 (p = 0.0005, n = 14) | **ρ = −0.06 (p = 0.82, n = 18)**, variance 0.00014 |
-| Cosine, all nine features | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
+Table 3 is in the body (Section 4.4) and is not repeated here.
 
 The two fail differently and both fail. Once frames are equalised every region pair agrees in sign
 on every jointly supported feature, so the agreement fraction has no variance left. The supported
@@ -831,18 +821,7 @@ A(r).
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
-**Table 4. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
-population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
-the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on the target as Table B9,
-1000 replicates, seed 42. Per-direction bounds are in `aoi_frame_transfer.csv`.
-
-| Source frame | Target frame | Mean target AUC | Above chance | Below chance | Supported above / below | Paired thermal delta |
-|---|---|---:|---:|---:|---:|---:|
-| full | full (**Table B9**) | 0.540 | 14 of 20 | **6** | 9 / **4** | +0.003 |
-| full | 10 km | 0.575 | 17 of 20 | 3 | 11 / 1 | +0.002 |
-| 10 km | full | 0.571 | 17 of 20 | 3 | 11 / 3 | +0.014 |
-| **10 km** | **10 km** | **0.617** | **19 of 20** | **1** | **15 / 1** | **+0.023** |
-| 5 km | 5 km | 0.608 | 18 of 20 | 2 | 12 / 0 | +0.014 |
+Table 4 is in the body (Section 4.4) and is not repeated here.
 
 The reference arm reproduces the frozen matrix, at 0.540 against Table B9's 0.541 and 14 of 20
 exactly, so this is measuring the same quantity. **The baseline control moves with it and must be
@@ -885,7 +864,7 @@ comparison implies**, and it shrinks as the frame approaches the fire —
 which is where a susceptibility surface is actually used.
 
 This is Section 4.3's effect acting between regions rather than within one, on frames whose
-fire-adjacent share ranges from 37 % to 98 %. Section 5.9(x) records the frame as a limitation of
+fire-adjacent share ranges from 37 % to 98 %. Section 5.8(x) records the frame as a limitation of
 this cohort rather than of the method.
 
 ## A(x). The transfer matrix and adaptation, elaborated
@@ -951,7 +930,7 @@ that already transferred. Taking the better of the two adaptations per direction
 closer to chance than they began and 6 end further from it; five of those six involve Montiferru,
 the smallest and last-added region, and move upward, while the sixth is Manavgat→Muğla moving
 downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (ix) in
-Section 5.9, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
+Section 5.8, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
 
 The per-direction decomposition is in Appendix A(j), Table A5; two figures from it matter here and
 are used below.
@@ -985,19 +964,7 @@ Twenty candidate diagnostics from five families were each rank-correlated with t
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
 pair-based bootstrap.
 
-**Table 5. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
-raw transfer AUC with pair-based bootstrap 95 % CIs. Exp. is the sign expected if the diagnostic
-orders transfer. The member named is the one with the largest absolute correlation in its family,
-which is not always in the expected direction. All twenty individual diagnostics are in Appendix B,
-Table B1.
-
-| Family | Diagnostics | Exp. | Largest correlation in family | Sign as expected | Any CI excluding 0 |
-|---|---:|:---:|---|:---:|---|
-| **P(y\|x) conditional** | 6 | + | **+0.84 [+0.58, +0.88]** agreement fraction, supported features | yes | **yes, 2 of 6** |
-| P(x\|y=1) niche overlap | 5 | + | +0.24 [−0.45, +0.74] Schoener's D, 1-D mean | yes | no |
-| P(x) marginal | 6 | − | −0.32 [−0.78, +0.33] domain-classifier AUC | yes | no |
-| P(y) regime structure | 2 | − | +0.29 [−0.38, +0.74] log effective-N distance | **no** | no |
-| geographic | 1 | − | −0.24 [−0.84, +0.73] centroid geodesic distance | yes | no |
+Table 5 is in the body (Section 4.6) and is not repeated here.
 
 Geographic separation does not order the matrix on either construction: over all twenty directions
 the Spearman correlation between centroid separation and transfer is −0.32, and on the
@@ -1056,16 +1023,7 @@ conditions of the positives, whereas a region's negatives include its easy far f
 fraction, 34 to 87 % against 3.8 to 28.7 % for a region, is a symptom of that construction, and
 ROC-AUC is in any case invariant to class balance at fixed class-conditional distributions.
 
-**Table 2. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
-Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make
-the mismatch visible. Means and Student *t* intervals are over the eight held-out scars.
-
-| Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
-|---|---|---|---:|---|
-| A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.776 | [0.738, 0.814] |
-| B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.634 | [0.552, 0.716] |
-| C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.501, 0.602] |
-| D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.555 | [0.495, 0.616] |
+Table 2 is in the body (Section 4.3) and is not repeated here.
 
 All four rows are means over the **same eight scars**. A ninth burned component, Bejís, is excluded
 **from this table**: it is that region's only component of any size, so holding it out leaves no
