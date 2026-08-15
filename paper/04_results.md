@@ -87,6 +87,13 @@ case invariant to class balance at fixed class-conditional distributions.
 Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make
 the mismatch visible. Means and Student *t* intervals are over the eight held-out scars.
 
+| Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
+|---|---|---|---:|---|
+| A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.776 | [0.738, 0.814] |
+| B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.634 | [0.552, 0.716] |
+| C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.501, 0.602] |
+| D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.555 | [0.495, 0.616] |
+
 All four rows are means over the **same eight scars**. A ninth burned component, Bejis, is excluded
 **from this table** because it is that region's only component of any size, so holding it out leaves
 no usable source model and there is no row C for it; it is *not* excluded from the arms that need no
@@ -180,6 +187,12 @@ the two variants that cleared zero in Table B1; the third is the all-feature cos
 and is shown for contrast. Both sides are recomputed here under one bootstrap setting, 1000
 replicates, seed 42. Source `diagnostics_collar_frame.csv` and `collar_increment_and_cosine.csv`.
 
+| Diagnostic | Full frame | 10 km collar |
+|---|---|---|
+| Sign-agreement fraction, supported features | ρ = +0.86 (p = 0.0001, n = 14) | **1.0 in all 18 directions, variance exactly 0 — degenerate** |
+| Cosine, supported features | ρ = +0.81 (p = 0.0005, n = 14) | **ρ = −0.06 (p = 0.82, n = 18)**, variance 0.00014 |
+| Cosine, all nine features | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
+
 The two fail differently and both fail: the agreement fraction has no variance left once every pair
 agrees, and the supported cosine keeps a trace of variance but stops tracking transfer. Features
 supported in both regions *rise* from 1.20 to 3.40 per direction, so the diagnostics are better
@@ -203,6 +216,14 @@ positive in all five regions at a mean of +0.077 against +0.086 as drawn (Append
 population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
 the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on the target as Table B9,
 1000 replicates, seed 42. Per-direction bounds are in `aoi_frame_transfer.csv`.
+
+| Source frame | Target frame | Mean target AUC | Above chance | Below chance | Supported above / below | Paired thermal delta |
+|---|---|---:|---:|---:|---:|---:|
+| full | full (**Table B9**) | 0.540 | 14 of 20 | **6** | 9 / **4** | +0.003 |
+| full | 10 km | 0.575 | 17 of 20 | 3 | 11 / 1 | +0.002 |
+| 10 km | full | 0.571 | 17 of 20 | 3 | 11 / 3 | +0.014 |
+| **10 km** | **10 km** | **0.617** | **19 of 20** | **1** | **15 / 1** | **+0.023** |
+| 5 km | 5 km | 0.608 | 18 of 20 | 2 | 12 / 0 | +0.014 |
 
 The reference arm reproduces the frozen matrix, at 0.540 against Table B9's 0.541 and 14 of 20
 exactly. **The baseline control must be restated on this frame**: the static baseline transfers at
@@ -284,6 +305,14 @@ raw transfer AUC with pair-based bootstrap 95 % CIs. Exp. is the sign expected i
 orders transfer. The member named is the one with the largest absolute correlation in its family,
 which is not always in the expected direction. All twenty individual diagnostics are in Appendix B,
 Table B1.
+
+| Family | Diagnostics | Exp. | Largest correlation in family | Sign as expected | Any CI excluding 0 |
+|---|---:|:---:|---|:---:|---|
+| **P(y\|x) conditional** | 6 | + | **+0.84 [+0.58, +0.88]** agreement fraction, supported features | yes | **yes, 2 of 6** |
+| P(x\|y=1) niche overlap | 5 | + | +0.24 [−0.45, +0.74] Schoener's D, 1-D mean | yes | no |
+| P(x) marginal | 6 | − | −0.32 [−0.78, +0.33] domain-classifier AUC | yes | no |
+| P(y) regime structure | 2 | − | +0.29 [−0.38, +0.74] log effective-N distance | **no** | no |
+| geographic | 1 | − | −0.24 [−0.84, +0.73] centroid geodesic distance | yes | no |
 
 **Only two diagnostics have intervals excluding zero, and both are conditional**: the sign-agreement
 fraction over interval-supported features at ρ = +0.84 [+0.58, +0.88], and its cosine variant at

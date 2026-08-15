@@ -21,16 +21,12 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (36)
+## review (32)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
-- "Table 2." opens a paragraph but no table follows; emitted as prose
-- "Table 3." opens a paragraph but no table follows; emitted as prose
-- "Table 4." opens a paragraph but no table follows; emitted as prose
-- "Table 5." opens a paragraph but no table follows; emitted as prose
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 135
@@ -65,10 +61,18 @@ converter made is listed so it can be reviewed.
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (85)
+## table (93)
 
 - Within-region baseline versus thermal perfor: 6 cols, est. width 97 chars -> footnotesize, 1 wrapping
 - Within-region baseline versus thermal performanc: 1 of 6 columns wrap (widest cell 22 chars)
+- The four evaluations, scored on identical ce: 5 cols, est. width 115 chars -> footnotesize, 2 wrapping _(x2)_
+- The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars) _(x2)_
+- The diagnostics that ordered transfer, recom: 3 cols, est. width 142 chars -> small, 3 wrapping _(x2)_
+- The diagnostics that ordered transfer, recompute: 3 of 3 columns wrap (widest cell 61 chars) _(x2)_
+- Cross-region transfer under equalised evalua: 7 cols, est. width 131 chars -> scriptsize, 1 wrapping _(x2)_
+- Cross-region transfer under equalised evaluation: 1 of 7 columns wrap (widest cell 23 chars) _(x2)_
+- Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping _(x2)_
+- Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars) _(x2)_
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
 - : 2 of 4 columns wrap (widest cell 33 chars)
 - no caption; emitted unnumbered so it does not consume a table number _(x27)_
@@ -91,16 +95,8 @@ converter made is listed so it can be reviewed.
 - : 2 of 3 columns wrap (widest cell 45 chars)
 - : 3 cols, est. width 57 chars -> small, 1 wrapping
 - : 1 of 3 columns wrap (widest cell 30 chars)
-- The diagnostics that ordered transfer, recom: 3 cols, est. width 142 chars -> small, 3 wrapping
-- The diagnostics that ordered transfer, recompute: 3 of 3 columns wrap (widest cell 61 chars)
-- Cross-region transfer under equalised evalua: 7 cols, est. width 131 chars -> scriptsize, 1 wrapping
-- Cross-region transfer under equalised evaluation: 1 of 7 columns wrap (widest cell 23 chars)
 - : 4 cols, est. width 75 chars -> small, 1 wrapping
 - : 1 of 4 columns wrap (widest cell 29 chars)
-- Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
-- Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
-- The four evaluations, scored on identical ce: 5 cols, est. width 115 chars -> footnotesize, 2 wrapping
-- The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
 - : 3 cols, est. width 88 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 36 chars)
 - : 6 cols, est. width 125 chars -> footnotesize, 3 wrapping
