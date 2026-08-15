@@ -18,7 +18,7 @@
 > used the same untested comparative removed from §1 of the Introduction. It now says the cost can
 > be of the opposite sign.
 >
-> **Blocking-scale pass 2026-08-13** (`paper/transfer_ci_blocksize.md`, Results §4.7g and Table
+> **Blocking-scale pass 2026-08-13** (`paper/transfer_ci_blocksize.md`, Results §4.8g and Table
 > R13). "Seven directions are harmed with bootstrap support" was the 2-cell (~1 km) count. It now
 > leads with the blocking-invariant statement, the sign change and the −0.148 to +0.133 span at
 > twelve positive and eight negative, and gives the conservative 5 km verdicts of six helped, four

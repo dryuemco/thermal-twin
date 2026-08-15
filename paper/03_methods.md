@@ -191,7 +191,7 @@ before. This asks whether pooling recovers what single-source transfer loses.
 
 **Removal of direction-reversing features.** The two predictors whose signed association reverses
 between regions with bootstrap support **on the frames as drawn** are **`elevation_mean`** (Manavgat
-against Bejís and against Muğla) and **`lst_anomaly_mean`** (Bejís against Evia). Section 4.9
+against Bejís and against Muğla) and **`lst_anomaly_mean`** (Bejís against Evia). Section 4.10
 withdraws that support under an equalised frame, so this selection rule is frame-dependent and the
 arm below is reported as a measurement made under the original protocol rather than as a
 consequence of an established reversal. They are dropped and everything is refitted,
@@ -260,5 +260,5 @@ Muğla admits a comparison in which place is held fixed and the event varies: a 
 inside the identical AOI, on the identical analysis grid, eleven months after the first. Signed
 univariate AUCs are computed for both arms under the same 10-cell spatial-block bootstrap used
 elsewhere. Season, year and population all differ between the arms, since the 2022 arm is defined by
-removing the 2021 scar, and Section 4.8 reports what that costs. Appendix C.3 gives the window
+removing the 2021 scar, and Section 4.9 reports what that costs. Appendix C.3 gives the window
 dates, the population construction and the asymmetry audit.

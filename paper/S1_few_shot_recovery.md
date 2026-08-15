@@ -24,13 +24,13 @@
 The main text establishes that label-free alignment does not close the residual transfer gap, and
 that the part of that gap not attributable to contiguous spatial holdout is conditional. CORAL and per-region standardisation
 recover a minority of the gap at best, and degrade most of the directions that transfer above chance
-without them (§4.3, §4.6, §5.5). Within the six directions covered here, the direction that
+without them (§4.4, §4.7, §5.5). Within the six directions covered here, the direction that
 transfers above chance raw is Bejís to Muğla, and it is the direction that both interventions help
 least. The natural constructive question is therefore what a *small number of target labels* buys,
 since that is the resource label-free machinery cannot substitute for.
 
-The headline of this analysis is in the main text at §4.10. Its ceilings and denominators are
-computed on the frames as drawn, which §4.9 shows are not comparable across regions; the recovery
+The headline of this analysis is in the main text at §4.11. Its ceilings and denominators are
+computed on the frames as drawn, which §4.10 shows are not comparable across regions; the recovery
 fractions should be read as within-frame quantities. The full design, the per-budget table
 and the limits are here, for two reasons. It covers three of the five regions, so it cannot carry a
 claim at the paper's stated scope; and it requires labelled target cells, so it is not an
@@ -115,7 +115,7 @@ larger concept gap costs more labels, not the same labels.
 that transfers above chance raw (0.618), and it is the pair few-shot recalibration helps least: the
 curve is *negative* at 1, 2, 4 and 8 blocks (−0.043 to −0.021 AUC), only overtakes raw at 16, and
 reaches 30 % at 32, the worst of the six. This is the same asymmetry the main text reports for
-label-free adaptation (§4.3): where the source model already carries a usable conditional
+label-free adaptation (§4.4): where the source model already carries a usable conditional
 relationship, a small target sample perturbs it before it can replace it. The mechanism differs,
 since here the target labels are real information rather than a covariate rescaling. The direction
 of the effect is nevertheless the same, and it is the one direction where the intervention is a

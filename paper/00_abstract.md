@@ -5,7 +5,7 @@
 > evidence (exempt from sample-size objections); the narrative is a diagnostic question asked and
 > answered, not a negative result; the label requirement of the conditional index is stated
 > explicitly. **Trimmed 2026-08-13 from 271 to ~250 words**, and the same-geography two-event
-> control (§4.8) was added — it is the strongest answer to the "different places are simply
+> control (§4.9) was added — it is the strongest answer to the "different places are simply
 > different systems" objection and was missing from the previous version.
 >
 > **Style, from 2026-08-13.** Rewritten under the house rule in `paper/STYLE.md`: no em or en
@@ -15,7 +15,7 @@
 >
 > **Consistency pass 2026-08-13.** Two corrections. (i) The diagnostics paragraph contradicted
 > itself: it said none of the twenty candidates ordered transfer and then named the conditional
-> index that does. It now states what §4.4 states, that only two of the twenty had bootstrap
+> index that does. It now states what §4.5 states, that only two of the twenty had bootstrap
 > intervals excluding zero and both are conditional, and that the marginal, niche-overlap and regime
 > families failed to order the matrix. (ii) "Static terrain and fuel baseline" was inaccurate,
 > because the vegetation-index predictor is a predictor-window median composite (§3.4). It is now a
@@ -25,7 +25,7 @@
 > degraded" was the 2-cell (~1 km) split. `paper/transfer_ci_blocksize.md` shows it becomes 6 / 4 /
 > 10 at 10-cell (~5 km) blocking, and that even at 2-cell the boundary between 10 and 11 positive
 > turns on a bound of −0.00045. No count is now quoted in the abstract at all. The sentence rests on
-> the sign instability instead, which §4.7g shows to be invariant to the blocking. "only +0.004" lost
+> the sign instability instead, which §4.8g shows to be invariant to the blocking. "only +0.004" lost
 > its "only" to stay inside the word limit. Recount: 250 words.
 >
 > **Referee round 2, 2026-08-14. Now 322 words, and that is a deliberate decision that must be
@@ -38,9 +38,9 @@
 > so no exchange rate is asserted (referee round 3, item 1.1). (iv) The Muğla two-event sentence no longer says the failure is "not
 > caused by comparing different places"; it says place is what the design holds fixed, and names the
 > season/year confound. (v) The niche-overlap contrast is marked as a point-estimate statement, which
-> §4.5, §5.3 and §6 already do. (vi) The label taxonomy is corrected: niche and regime measures need
+> §4.6, §5.3 and §6 already do. (vi) The label taxonomy is corrected: niche and regime measures need
 > target labels too, so the marginal family is the only pre-deployment family, and it is the one that
-> fails. The few-shot recovery result was added because it is now §4.10 rather than supplementary
+> fails. The few-shot recovery result was added because it is now §4.11 rather than supplementary
 > only. **If the limit turns out to be 250, cut in this order:** the paired-delta span, the
 > recovery-curve sentence, then the season/year clause. Do not cut the interval on +0.004 or the
 > point-estimate qualifier.
@@ -76,7 +76,7 @@
 > otherwise attribute the whole debit to the thermal block. (iv) Both feature-removal figures are
 > marked post-selection. (v) The two-event arm is downgraded to corroborating and its eleven
 > positive-carrying blocks are stated, because Table 3's own note sets sixteen as the floor. (vi) The
-> niche-overlap sentence gains the point-estimate qualifier that §4.5 and §6 already carry, and
+> niche-overlap sentence gains the point-estimate qualifier that §4.6 and §6 already carry, and
 > ρ = 0.84 is correctly attributed to sixteen directions rather than eight pairs (the eight-pair
 > value is 0.866). **If the limit turns out to be 250, cut in this order:** the post-selection
 > sentence, then the recovery figures, then the baseline-transfer clause — but the baseline number is
@@ -93,7 +93,7 @@
 > rounds added the identical-cells ladder, the PR-AUC sentences and the baseline control without
 > recounting, and the body had reached **567 words** while the notes still said ~340. Rewritten to
 > 333, then back up to **394** when the referee round added a fourth substantive finding, the
-> evaluation-frame artefact of §4.9, which supersedes the old sign-reversal paragraph and cannot be
+> evaluation-frame artefact of §4.10, which supersedes the old sign-reversal paragraph and cannot be
 > omitted because it withdraws three earlier claims.
 >
 > **The limit is still unverified.** The Elsevier and ScienceDirect guide pages both return HTTP 403

@@ -14,7 +14,7 @@ First, where a model is scored decides what it appears to know. Changing only th
 costs 0.143 ROC-AUC, the cause is the composition of the negative pool rather than prevalence, and
 applying the same correction between regions withdraws three claims we had made from the frames as
 drawn, including the sign reversal we had offered as the mechanism of the transfer residual
-(Section 4.9).
+(Section 4.10).
 
 Second, the thermal block's local skill does not travel, and the frame correction does not rescue
 it: equalised transfer sits at 0.617 against within-region skill near 0.87, and the static baseline
@@ -51,7 +51,7 @@ a predictor meaning one thing in one place and another elsewhere is not instabil
 of two different systems. The two Muğla events answer it directly: region, AOI, grid, feature
 registry and processing chain identical, static predictors identical cell by cell, and elevation's
 association with burning reversing from 0.611 [0.532, 0.690] to 0.296 [0.230, 0.355], a difference of
-−0.317 [−0.414, −0.220] (Section 4.8). Holding geography fixed does not stabilise the direction of
+−0.317 [−0.414, −0.220] (Section 4.9). Holding geography fixed does not stabilise the direction of
 the relationship.
 
 Three caveats attach and none is dismissed. Season and year are confounded, and **that confound
@@ -61,7 +61,7 @@ nine burned cells against a gate minimum of thirty. The population is not held f
 2022 arm being the 2021 arm with the 2021 scar removed. And the 2022 arm rests on one compact scar
 and eleven positive-carrying 5 km blocks. What survives all three is the narrower reading that
 *something* reverses the elevation-burning association with geography, grid and pipeline held fixed,
-which is why Section 4.8 is reported as corroboration rather than as the load-bearing evidence for
+which is why Section 4.9 is reported as corroboration rather than as the load-bearing evidence for
 the mechanism.
 
 On the frames as drawn the sharpest supported reversal belongs to elevation, a static predictor, so instability is a
@@ -98,13 +98,13 @@ Bonferroni threshold of 0.0026 over nineteen computed variants. No outcome could
 family-wise correction on ten effective pairs. And it needs burned labels in both regions, which
 makes it a mechanism diagnosis rather than a pre-deployment screen.
 
-A fourth limit removes it altogether. The index is built from signed associations that Section 4.9
+A fourth limit removes it altogether. The index is built from signed associations that Section 4.10
 shows to be artefacts of the evaluation frames, and recomputing it on an equalised frame leaves it
 unanimous and variance-free, with the continuous variant falling from ρ = +0.50 to +0.12. So the
 paper's practical conclusion is not "use this index instead", and it is not even "the index works
 but needs labels". It is that **none of the twenty candidates was shown to order transfer once the
 frames are comparable**, and the one that appeared to was reading how the study rectangles were
-drawn. That is a worse position for a practitioner than Section 4.4 first suggests, and it is the
+drawn. That is a worse position for a practitioner than Section 4.5 first suggests, and it is the
 honest one. As always these are nulls on ten effective pairs: not shown to order transfer, rather
 than shown incapable of it.
 
@@ -211,13 +211,13 @@ across scikit-learn versions. All reported numbers are fixed to one verified ver
 reproduction elsewhere requires the archived environment.
 
 (vii) **The diagnostic correlations rest on an effective sample of ten region pairs.** Both the
-successes and the failures of Section 4.4 should be read at that power.
+successes and the failures of Section 4.5 should be read at that power.
 
 (viii) **Manavgat's atypical transfer behaviour remains unexplained.** It is where the conditional
 diagnosis bites hardest and where feature removal recovers most. Three candidates have now been tested and none survives: its meteorology, which was not extreme;
 the quality screening of its coarse thermal input, which propagates widely but moves no signed
-association by more than +0.0003 (Section 4.7, Appendix A(e)); and the evaluation frame, which
-explains its elevation figure but not its transfer behaviour (Section 4.9). With one fire season per
+association by more than +0.0003 (Section 4.8, Appendix A(e)); and the evaluation frame, which
+explains its elevation figure but not its transfer behaviour (Section 4.10). With one fire season per
 region the remaining candidates are not separable in this design.
 
 (ix) **The interval-support counts are less stable than the point estimates behind them.** Several
@@ -227,7 +227,7 @@ estimates and the sign pattern are stable; the counts are not. Every sentence in
 leans on an exact count of supported directions should be read at that precision.
 (x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it.**
 Each region is a rectangle drawn around a fire, and the share of modelled cells lying beyond 10 km of
-any burned cell ranges from 2 % in Montiferru to 63 % in Bejís. Section 4.9 shows this is not
+any burned cell ranges from 2 % in Montiferru to 63 % in Bejís. Section 4.10 shows this is not
 cosmetic: equalising the frame to a 10 km collar removes both supported elevation reversals, makes
 all five regions agree in sign on elevation, LST and TVDI, lifts mean transfer from 0.540 to 0.617
 and reduces the below-chance directions from six to one. We report the equalised arm alongside the
