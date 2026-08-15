@@ -101,7 +101,7 @@ window-symmetric years preceding each predictor window.
 | North Evia 2021 (Greece) | 23.05, 38.55, 23.85, 39.15 | 2021-06-05 to 2021-08-02 (59 d) | 2021-08-03 to 2021-09-30 (59 d) | 2017, 2018, 2019, 2020 |
 | Montiferru 2021 (Italy) | 8.45, 40.05, 8.75, 40.27 | 2021-05-25 to 2021-07-23 (60 d) | 2021-07-24 to 2021-08-31 (39 d) | 2017, 2018, 2019, 2020 |
 
-## 3.4 Predictor variables
+## C.4 Predictor provenance, compositing and the downscaler
 
 Ten predictors are used, four baseline and six thermal, all summarised per cell over the predictor
 window, through the chain shown in Fig. 2. All optical and thermal predictors come from Landsat 8 Collection 2 Level-2
@@ -133,7 +133,7 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
   surface re-enters a feature set from which Section 3.14 excludes coordinates. Appendix A(g)
   reports the increment without these two channels.
 
-## C.4 Limitations, in full
+## C.5 Limitations, in full
 
 Section 5.9 states each limitation; the elaborations are here.
 
@@ -186,7 +186,7 @@ Montiferru, cannot be given a far field for symmetry. Any future cohort should f
 explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
 main design lesson of this paper.
 
-## 3.14 Leakage control
+## C.6 Leakage control and reproducibility, in full
 
 An explicit forbidden-column set is enforced at every model fit. Coordinates (`lon`, `lat`, `row`,
 `col` and their normalised forms), every burn-date and label-provenance column, and the agreement
@@ -208,7 +208,7 @@ spatial-block sizes, the CORAL sweep, both feature sets and four classifier capa
 conclusion depends on one of those choices the dependence is reported rather than resolved by
 choosing the favourable setting (Appendix A).
 
-## 3.10 Transfer-gap decomposition and the concept-shift diagnostic
+## C.7 Transfer-gap decomposition and the concept-shift diagnostic, in full
 
 For each direction the gap between the target's own within-region skill and the raw transfer result
 is split in two. One part is what the best label-free adaptation recovers, and the other is what it

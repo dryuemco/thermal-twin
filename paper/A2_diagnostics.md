@@ -96,7 +96,7 @@ from the same paired bootstrap.
 Three pair-level reversals across **two** features, which is why Section 3.12 removes exactly those
 two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine
 features, and they are not counted. The conservative criterion costs the paper findings rather than
-manufacturing them: a difference interval on the pair, which is the instrument Appendix A(m2) uses,
+manufacturing them: a difference interval on the pair, which is the instrument Appendix A(m) uses,
 would support more reversals than the three listed here.
 
 ## B4. The transfer matrix in precision-recall terms
