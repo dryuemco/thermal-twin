@@ -118,7 +118,7 @@ Three findings carry this paper, stated here as claims and established in Sectio
 
 Two consequences follow, as supporting results: label-free alignment by standardisation and covariance alignment \citep{Sun2016} does not repair transfer, in what we believe is its first application to fire susceptibility; and because the residual is conditional, the resource that closes it is target labels, priced in Appendix A(u).
 
-The leakage-audited, spatially blocked protocol is released with code, configuration and frozen outputs, so most of this can be re-run rather than taken on trust, the one exception being named in the availability statement --- which matters given evidence that wildfire transfer conclusions are sensitive to evaluation design \citep{Xu2026}. A companion paper treats the observational layer beneath this one.
+The leakage-audited, spatially blocked protocol is released with code, configuration and frozen outputs, so most of this can be re-run rather than taken on trust, the three exceptions being named in the declarations --- which matters given evidence that wildfire transfer conclusions are sensitive to evaluation design \citep{Xu2026}. A companion paper treats the observational layer beneath this one.
 
 
 
@@ -1453,40 +1453,58 @@ The mechanism is diagnosed by \textbf{signed univariate association}. For each n
 
 
 % ------------------------------------------------------------ declarations --
-% Elsevier requires all four of these at submission. The two marked NEEDS
-% AUTHOR INPUT cannot be written from the repository and must be completed
-% before the manuscript is uploaded.
+% One consolidated block, matching the authors' house format. Everything here is
+% written from the repository except the item marked NEEDS AUTHOR INPUT, which
+% must be settled before the manuscript is uploaded.
 
-\section*{CRediT authorship contribution statement}
+\section*{Declarations}
 
-\textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis,
+\textbf{Funding.} This work was supported by the \c{C}ukurova University Scientific
+Research Projects Coordination Unit (Bilimsel Ara\c{s}t{\i}rma Projeleri Koordinasyon
+Birimi) under the Career Starter Project (Kariyer Ba\c{s}lang{\i}\c{c} Projesi) scheme,
+project code \texttt{FKB-2025-17608} (``Termal Dijital \.Ikiz Tabanl{\i} S\"ur\"u \.IHA
+Sistemi ile Orman Yang{\i}nlar{\i}n{\i}n Erken Tespiti ve \"Onlenmesi''). Article
+processing charges are covered under the \c{C}ukurova University / T\"UB\.ITAK EKUAL
+open-access agreement.
+
+\textbf{Acknowledgments.} The authors gratefully acknowledge the \c{C}ukurova
+University Scientific Research Projects Coordination Unit for financial support of
+this research, and the Department of Computer Engineering at \c{C}ukurova University
+for providing the laboratory environment and institutional support that made this
+work possible.
+
+\textbf{Competing interests.} The authors declare no competing interests.
+
+\textbf{Ethics approval.} Not applicable. This study involved no human participants,
+animal subjects, or personally identifiable data.
+
+\textbf{Data availability.} All satellite inputs are public. Burned-area labels are
+MODIS MCD64A1 Collection 6.1 and land cover is ESA WorldCover, both retrieved
+through Google Earth Engine; no proprietary or restricted data were used. The
+frozen numeric outputs behind every table and figure, together with the analysis
+code that reads them, are available at
+\url{https://github.com/dryuemco/thermal-twin}. The upstream processing pipeline
+that produced those outputs is a separate release,
+\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, and the commit
+of record for every number reported here is \texttt{48b56e7}. No digital object
+identifier is minted and no archival deposit exists.
+
+\textbf{Code availability.} The analysis code, its configuration and the scripts
+that regenerate each reported artefact are in the first repository above. Three
+components of the upstream pipeline fall outside the released commit, and a reader
+cannot re-run them: the reproduction-check driver and its validation package, on
+which Section~\ref{sec:3.14} rests; the few-shot commit \texttt{19d825b}, cited for
+provenance in the supplementary material; and the ERA5-Land diagnostic, whose
+manifest records commit \texttt{a07ea33}. Every other quantity in the paper can be
+regenerated from the released code and the frozen outputs.
+
+\textbf{Author contributions.} Stated in CRediT terms. \textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis,
 Investigation, Writing -- original draft, Writing -- review and editing,
 Supervision. \textbf{Emrehan Metin:} Software, Data curation, Investigation,
 Validation, Writing -- review and editing.
-% NEEDS AUTHOR INPUT: confirm this split with the co-author before submission.
-
-\section*{Declaration of competing interest}
-
-The authors declare that they have no known competing financial interests or
-personal relationships that could have appeared to influence the work reported
-in this paper.
-
-\section*{Funding}
-
-This work is an output of project 17506, supported by the Scientific Research
-Projects (BAP) unit of \c{C}ukurova University.
-%% Provisional wording, 2026-08-14. Confirm before submission: the project's
-%% full title, the correct rendering of the unit's name in English, and whether
-%% the funder requires a specific acknowledgement sentence.
-
-\section*{Data availability}
-
-All satellite inputs are public and are obtained through Google Earth Engine.
-The processing pipeline, its configuration and the frozen numeric outputs are
-publicly available; the repository, the commit of record and the licence are
-given in the data and code availability statement of the Methods, together with
-the three components that fall outside that release. No digital object
-identifier is minted and no archival deposit exists.
+% NEEDS AUTHOR INPUT: confirm the contribution split with the co-author, and
+% confirm that both repositories above are public, before the manuscript is
+% uploaded.
 
 % ---------------------------------------------------------------- figures --
 % Captions are maintained in ../figure_captions.tex and included verbatim.

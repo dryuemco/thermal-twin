@@ -576,14 +576,6 @@ const CREDIT = FM.credit ||
 Investigation, Writing -- original draft, Writing -- review and editing,
 Supervision. \\textbf{Emrehan Metin:} Software, Data curation, Investigation,
 Validation, Writing -- review and editing.`;
-const DATAAVAIL = FM.dataAvailability ||
-`All satellite inputs are public and are obtained through Google Earth Engine.
-The processing pipeline, its configuration and the frozen numeric outputs are
-publicly available; the repository, the commit of record and the licence are
-given in the data and code availability statement of the Methods, together with
-the three components that fall outside that release. No digital object
-identifier is minted and no archival deposit exists.`;
-
 const abstractMd = read('00_abstract.md');
 // Appendices are ordinary sections to the converter; LaTeX is told where the
 // body ends by the \appendix marker inserted between the two groups below.
@@ -698,32 +690,55 @@ ${KEYWORDS}
 const postamble = `
 
 % ------------------------------------------------------------ declarations --
-% Elsevier requires all four of these at submission. The two marked NEEDS
-% AUTHOR INPUT cannot be written from the repository and must be completed
-% before the manuscript is uploaded.
+% One consolidated block, matching the authors' house format. Everything here is
+% written from the repository except the item marked NEEDS AUTHOR INPUT, which
+% must be settled before the manuscript is uploaded.
 
-\\section*{CRediT authorship contribution statement}
+\\section*{Declarations}
 
-${CREDIT}
-% NEEDS AUTHOR INPUT: confirm this split with the co-author before submission.
+\\textbf{Funding.} This work was supported by the \\c{C}ukurova University Scientific
+Research Projects Coordination Unit (Bilimsel Ara\\c{s}t{\\i}rma Projeleri Koordinasyon
+Birimi) under the Career Starter Project (Kariyer Ba\\c{s}lang{\\i}\\c{c} Projesi) scheme,
+project code \\texttt{FKB-2025-17608} (\`\`Termal Dijital \\.Ikiz Tabanl{\\i} S\\"ur\\"u \\.IHA
+Sistemi ile Orman Yang{\\i}nlar{\\i}n{\\i}n Erken Tespiti ve \\"Onlenmesi''). Article
+processing charges are covered under the \\c{C}ukurova University / T\\"UB\\.ITAK EKUAL
+open-access agreement.
 
-\\section*{Declaration of competing interest}
+\\textbf{Acknowledgments.} The authors gratefully acknowledge the \\c{C}ukurova
+University Scientific Research Projects Coordination Unit for financial support of
+this research, and the Department of Computer Engineering at \\c{C}ukurova University
+for providing the laboratory environment and institutional support that made this
+work possible.
 
-The authors declare that they have no known competing financial interests or
-personal relationships that could have appeared to influence the work reported
-in this paper.
+\\textbf{Competing interests.} The authors declare no competing interests.
 
-\\section*{Funding}
+\\textbf{Ethics approval.} Not applicable. This study involved no human participants,
+animal subjects, or personally identifiable data.
 
-This work is an output of project 17506, supported by the Scientific Research
-Projects (BAP) unit of \\c{C}ukurova University.
-%% Provisional wording, 2026-08-14. Confirm before submission: the project's
-%% full title, the correct rendering of the unit's name in English, and whether
-%% the funder requires a specific acknowledgement sentence.
+\\textbf{Data availability.} All satellite inputs are public. Burned-area labels are
+MODIS MCD64A1 Collection 6.1 and land cover is ESA WorldCover, both retrieved
+through Google Earth Engine; no proprietary or restricted data were used. The
+frozen numeric outputs behind every table and figure, together with the analysis
+code that reads them, are available at
+\\url{https://github.com/dryuemco/thermal-twin}. The upstream processing pipeline
+that produced those outputs is a separate release,
+\\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, and the commit
+of record for every number reported here is \\texttt{48b56e7}. No digital object
+identifier is minted and no archival deposit exists.
 
-\\section*{Data availability}
+\\textbf{Code availability.} The analysis code, its configuration and the scripts
+that regenerate each reported artefact are in the first repository above. Three
+components of the upstream pipeline fall outside the released commit, and a reader
+cannot re-run them: the reproduction-check driver and its validation package, on
+which Section~\\ref{sec:3.14} rests; the few-shot commit \\texttt{19d825b}, cited for
+provenance in the supplementary material; and the ERA5-Land diagnostic, whose
+manifest records commit \\texttt{a07ea33}. Every other quantity in the paper can be
+regenerated from the released code and the frozen outputs.
 
-${DATAAVAIL}
+\\textbf{Author contributions.} Stated in CRediT terms. ${CREDIT}
+% NEEDS AUTHOR INPUT: confirm the contribution split with the co-author, and
+% confirm that both repositories above are public, before the manuscript is
+% uploaded.
 
 % ---------------------------------------------------------------- figures --
 % Captions are maintained in ../figure_captions.tex and included verbatim.
