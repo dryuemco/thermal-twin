@@ -61,9 +61,10 @@ with a cross-validated AUC in the 0.85 to 0.95 range.
 
 This paper is about a property that the pattern does not report. Predictors that describe the
 *state* of a surface in a particular season are more informative about that season than predictors
-that describe a place. They are also, as we show, not portable: the relationship they carry is
-reparameterised locally, existing everywhere but pointing in different directions in different
-places. The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
+that describe a place. They are also, as we show, not portable, and a large part of this paper is
+about how much harder that is to establish than it looks: the reading we first reached, that the
+relationship is reparameterised locally and points in different directions in different places, does
+not survive a correction to how the study regions were evaluated (Section 4.9). The dynamic block is worth +0.056 to +0.153 ROC-AUC inside every region under blocked
 cross-validation, +0.022 when a whole burn scar is withheld, and contributes
 +0.004 between them, an estimate whose interval spans zero, with a sign that is a property of the
 source-target pair rather than of the block.

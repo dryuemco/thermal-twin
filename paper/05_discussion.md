@@ -20,9 +20,10 @@ Second, the thermal block's local skill does not travel, and the frame correctio
 it: equalised transfer sits at 0.617 against within-region skill near 0.87, and the static baseline
 travels no better than the dynamic one, so this is not a peculiarity of thermal predictors.
 
-Third, no diagnostic that can be run before deployment was shown to order the transfer matrix. The
-only two that do require burned labels in the target region, which is the resource a practitioner
-lacks, and they rest on a data-selected subset of predictors.
+Third, no diagnostic was shown to order the transfer matrix. Two appeared to, both requiring burned
+labels in the target region and both resting on a data-selected subset of predictors, and the frame
+correction of the first finding removes even those: recomputed on comparable frames the winning
+index is unanimous and has no variance left to correlate.
 
 ## 5.2 Why the thermal increment is real but local
 
@@ -97,11 +98,15 @@ Bonferroni threshold of 0.0026 over nineteen computed variants. No outcome could
 family-wise correction on ten effective pairs. And it needs burned labels in both regions, which
 makes it a mechanism diagnosis rather than a pre-deployment screen.
 
-That last limit is the substantive one, and it is why the paper's practical conclusion is not "use
-this index instead". It is that the family of diagnostics that can be run before deployment is the
-family that fails here, and the information that would order transfer is the information a
-practitioner does not have when the decision is made. The honest statement is that these twenty
-candidates were **not shown to order transfer**, not that they are shown incapable of it.
+A fourth limit removes it altogether. The index is built from signed associations that Section 4.9
+shows to be artefacts of the evaluation frames, and recomputing it on an equalised frame leaves it
+unanimous and variance-free, with the continuous variant falling from ρ = +0.50 to +0.12. So the
+paper's practical conclusion is not "use this index instead", and it is not even "the index works
+but needs labels". It is that **none of the twenty candidates was shown to order transfer once the
+frames are comparable**, and the one that appeared to was reading how the study rectangles were
+drawn. That is a worse position for a practitioner than Section 4.4 first suggests, and it is the
+honest one. As always these are nulls on ten effective pairs: not shown to order transfer, rather
+than shown incapable of it.
 
 ## 5.5 What the two interventions do and do not show
 

@@ -385,8 +385,16 @@ structure caps the achievable Spearman at +0.861, so the observed +0.840 sits es
 ceiling. Its exact one-sided permutation p is 0.0060, the smallest this tie structure can produce,
 against a Bonferroni threshold of 0.0026 over the nineteen computed variants. No outcome of this
 diagnostic could have cleared family-wise correction on ten effective pairs. The second limit is
-labels. Signed associations need burned labels in both regions. The family that works is therefore
-not available before deployment, while the family that fails is.
+labels. Signed associations need burned labels in both regions, so the family that appears to work
+is not available before deployment, while the family that fails is.
+
+**A fourth limit removes the result entirely, and is reported in Section 4.9.** The sign-agreement
+index is built from the signed associations that Section 4.9 shows to be artefacts of the evaluation
+frames, and it was correlated against transfer measured on those same frames. Recomputed on an
+equalised frame it is unanimous, taking the value 1.0 in every direction with no variance left to
+correlate, while the continuous cosine variant falls from ρ = +0.50 to +0.12. Everything in this
+section is therefore reported as what the original protocol yields, and the conclusion that survives
+is that **no diagnostic tested here was shown to order transfer once the frames are comparable**.
 
 A third limit is about selection, and it is the sharpest of the three. The two rows that clear zero
 are the *supported-feature* variants. Their feature subset is chosen by whether two regions'
@@ -437,7 +445,10 @@ only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggr
 transfer loses.
 
 **(b) Removing the direction-reversing features.** The two predictors whose signed association
-reverses between regions **with bootstrap support** are **`elevation_mean` and `lst_anomaly_mean`**.
+reverses between regions **with bootstrap support on the frames as drawn** are **`elevation_mean` and
+`lst_anomaly_mean`**. Section 4.9 withdraws that support under an equalised frame, so this selection
+rule is frame-dependent and the arm below measures what the removal costs under the original
+protocol, not a consequence of an established reversal.
 The per-region signed associations and the three pair-level reversals that meet that criterion are in
 Appendix B, Tables B2 and B3. Retraining without them
 costs **−0.081** of mean within-region AUC, supported in every region (per-region deltas −0.060,
@@ -484,7 +495,7 @@ is the resampling unit, and it cannot move an estimate computed once over all ta
 Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes
 the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
 moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
-behaviour. Appendix A reports all seven arms, including one that tests a claim of Section 1.2 and does not uphold it.
+behaviour. Appendix A reports all eight arms, including one that tests a claim of Section 1.2 and does not uphold it.
 
 ## 4.8 The same geography, a second fire: reversal with place held constant
 
@@ -601,8 +612,9 @@ not a lapse-rate artefact. Pooling concordance within elevation deciles leaves L
 0.363, 0.327 and 0.392, still below 0.5 in four of five regions, and within NDVI deciles at 0.440,
 0.486, 0.404, 0.279 and 0.368, below 0.5 in all five, despite r(LST, NDVI) reaching −0.92. The
 likely reading is that fuel availability dominates surface dryness at this scale in this cohort:
-NDVI itself is the strongest single predictor under the collar, at 0.582 to 0.663 with intervals
-excluding 0.5 in four of five regions, so greener and therefore more fuel-rich cells burn more,
+NDVI itself is the most consistently supported single predictor under the collar, at 0.582 to 0.663
+with intervals excluding 0.5 in four of five regions, more than any other feature, though in Muğla
+and Evia the absolute thermal channels are further from 0.5, so greener and therefore more fuel-rich cells burn more,
 while the hottest cells are the sparse, rocky ones with little to burn. Section 1.2 motivates the
 thermal block from moisture-stress physics; that motivation is not what the signed associations
 show, and Section 5.2 states the consequence.
@@ -640,13 +652,13 @@ collar, `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00 and
 channels are close to one axis, and the two anomaly channels correlate at 0.64 to 0.94, so the "five
 of nine directions reverse" count of Section 4.5 is a count of features, not of independent
 quantities; in effective dimensions it is closer to two.
-That is coherent rather than fortunate. The absolute thermal channels are strongly collinear with
-elevation, at r = −0.695, −0.125, −0.404, −0.511 and −0.507 for current LST across the five regions,
-and −0.722 to −0.298 for TVDI; the anomaly, which is differenced against each cell's own baseline
-and is therefore lapse-rate-free, correlates with elevation at only +0.036 to +0.256. The channels
-whose reversal vanishes are the ones that were partly measuring terrain, with a proxy strength that
-varies fivefold between regions. The channel whose reversal survives is the one where that
-explanation is unavailable.
+The channels whose reversal vanishes are the ones that were partly measuring terrain. Current LST
+correlates with elevation at r = −0.695, −0.125, −0.404, −0.511 and −0.507 across the five regions,
+and TVDI at −0.722 to −0.298, so their proxy strength varies fivefold between regions and a frame
+that shifts the elevation distribution shifts them with it. The two internally differenced channels
+are decorrelated from elevation by construction — the LST anomaly at −0.195 to +0.256 — and neither
+of them yields a supported reversal either, so this explains which reversals were manufactured
+without licensing a claim that any survived.
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
@@ -679,7 +691,7 @@ method, since equalising it is cheap and we recommend it.
 This is the paper's own Contribution 1 turned on the paper's own matrix. We had measured that the
 composition of the negative pool moves ROC-AUC by more than the effects this literature reports, and
 had then computed a five-region transfer matrix, and a mechanism, on frames whose fire-adjacent
-share ranges from 2 % to 98 %. We report it because it is the strongest available demonstration that
+share ranges from 37 % to 98 %. We report it because it is the strongest available demonstration that
 the reporting standard of Section 5.8 is not a technicality.
 
 ## 4.10 What target labels cost: the recovery curve

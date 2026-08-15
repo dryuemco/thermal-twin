@@ -1,4 +1,23 @@
-# Cover letter — draft for the authors to review before sending
+# Cover letter — DRAFT, SUPERSEDED, DO NOT SEND
+
+> **STOP. This letter predates the 2026-08-15 referee round and describes a claim set the manuscript
+> has since retracted.** It carries the old title, and it advertises the sign-reversal mechanism and
+> the six anti-predictive directions, both of which Section 4.9 withdraws as artefacts of the
+> evaluation frames. Sending it would assert to an editor exactly what the paper now disclaims.
+>
+> It must be rewritten around what the manuscript currently says: the title in
+> `paper/frontmatter.json`; the evaluation-geometry measurement (0.143 [+0.077, +0.208], mechanism
+> isolated to the negative pool) as the lead; the transfer null restated on equalised frames (0.617
+> against within-region ≈0.87); and the diagnostics result as "none was shown to order transfer once
+> the frames are comparable". The self-correction is worth stating plainly to an editor — it is the
+> strongest thing about the submission — rather than being hidden.
+>
+> Left in place, with this header, because the structure and the two author-checked statements below
+> are still reusable. Rewrite before submission.
+
+---
+
+# (superseded draft follows)
 
 > This is a draft. Two things must be checked by an author before it goes: the editor's name and
 > title as they appear on the journal's current masthead, and the two statements made on the authors'
