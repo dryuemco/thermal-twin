@@ -18,9 +18,22 @@
 # step7c is not staged: it is a step7 OUTPUT and both arms regenerate it, and
 # it is 2.7 GB of the 4.2 GB tree.
 #
-# Usage: run_qc_propagation.ps1 <experiment_id>
+# WHY THIS SCRIPT NOW REFUSES TO RUN BY DEFAULT
+# It stages inputs into repo\outputs, which CLAUDE.md declares read-only and
+# which is not under version control. On 2026-08-14 a run of this script
+# overwrote Mugla's canonical step8a modelling dataset; the frozen export
+# survived only as an accidental nested copy, and Section 4.4 of the paper had
+# to be re-run once the divergence was found (see paper/A1_sensitivity.md,
+# "The data-provenance correction"). The overwrite was silent because the
+# staging step uses -Force with -ErrorAction SilentlyContinue.
+#
+# Pass -AllowRepoWrites to proceed. The script then snapshots any step8a
+# parquet it is about to replace, so the frozen version is recoverable.
+#
+# Usage: run_qc_propagation.ps1 <experiment_id> [-AllowRepoWrites]
 
-param([Parameter(Mandatory = $true)][string]$Region)
+param([Parameter(Mandatory = $true)][string]$Region,
+      [switch]$AllowRepoWrites)
 
 $ErrorActionPreference = "Continue"
 $Root = "C:\Users\CORSAIR\projects\thermal-twin"
@@ -34,6 +47,24 @@ $Work = "$Scr\qc_work\$Region"
 New-Item -ItemType Directory -Force -Path $Work | Out-Null
 
 function Say($m) { Write-Output ("=== [{0}] {1}" -f $Region, $m) }
+
+if (-not $AllowRepoWrites) {
+    Write-Output "REFUSING TO RUN: this script writes into $Dst, inside the read-only repo/ tree."
+    Write-Output "A previous run overwrote a canonical step8a parquet there and the paper had to be"
+    Write-Output "re-run. Re-invoke with -AllowRepoWrites if that is genuinely what you want."
+    exit 1
+}
+
+# Snapshot anything we are about to replace, so a frozen export is recoverable.
+$Snap = "$Scr\qc_repo_snapshot\$Region"
+Get-ChildItem "$Dst" -Recurse -Filter "step8a_500m_modeling_dataset.parquet" -ErrorAction SilentlyContinue |
+    ForEach-Object {
+        $rel = $_.FullName.Substring($Dst.Length).TrimStart([char]92)
+        $to  = Join-Path $Snap $rel
+        New-Item -ItemType Directory -Force -Path (Split-Path $to) | Out-Null
+        Copy-Item $_.FullName $to -Force
+        Say ("snapshotted {0}" -f $rel)
+    }
 
 # ---------------------------------------------------------------- 1. stage --
 Say "1/7 staging inputs (step7c excluded, it is regenerated)"
