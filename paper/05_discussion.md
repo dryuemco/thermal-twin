@@ -218,3 +218,14 @@ verdicts sit within a thousandth of their reference value, and at 1 km blocking 
 of ten positive, seven negative and three uncertain turns on a lower bound of −0.00045. The point
 estimates and the sign pattern are stable; the counts are not. Every sentence in this paper that
 leans on an exact count of supported directions should be read at that precision.
+(x) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
+configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows
+the transfer result does not depend on that choice: a depth-6 forest, a leaf-200 forest and a
+penalised logistic regression transfer at 0.556, 0.550 and 0.510 against the canonical 0.541, all
+four place exactly fourteen of twenty directions above chance, and the linear model, the one built
+to extrapolate, transfers worst. Regularisation costs within-region skill, 0.888 down to 0.741,
+without buying portability, and it drives the thermal block's cross-region contribution negative.
+Other model families were not tried, and a fundamentally different inductive bias might behave
+differently, but within this family the negative result is a property of the predictors rather than
+of an unregularised estimator.
+

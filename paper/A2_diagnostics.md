@@ -54,7 +54,7 @@ and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
 ## B2. The signed univariate associations the reversal claim rests on
 
 Section 4.6b drops two predictors because their signed association with burning reverses between
-regions with bootstrap support, and Contribution 3 names the reversal as the mechanism. This is the
+regions with bootstrap support, and Contribution 4 names the reversal as the mechanism. This is the
 evidence for both. It was computed for the frozen analysis and is reproduced here because the claim
 is otherwise asserted rather than shown.
 

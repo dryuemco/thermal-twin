@@ -97,6 +97,30 @@ The comparison is between two sub-blocks of one thermal set on one cohort. It do
 normalised dryness indices in general, and it does not test a normalisation fitted against a pooled
 multi-region reference rather than each region's own baseline years.
 
+**(h) Model capacity.** Every number in this paper comes from one random forest with unlimited
+depth and `min_samples_leaf = 3`. That is the configuration most able to encode local structure and
+least able to extrapolate, so a reader may reasonably ask whether the transfer failure is a property
+of the predictors or of the estimator. Holding the model fixed is right for the internal comparisons
+and does not license the external claim, so three further estimators were run over the same twenty
+directions and the same five within-region folds.
+
+| Estimator | Within-region AUC | Within increment | Transfer AUC | Transfer increment | Above chance |
+|---|---:|---:|---:|---:|---:|
+| Random forest, depth unlimited, leaf 3 | 0.888 | +0.099 | 0.541 | +0.004 | 14 of 20 |
+| Random forest, depth 6, leaf 50 | 0.829 | +0.055 | **0.556** | −0.007 | 14 of 20 |
+| Random forest, leaf 200 | 0.805 | +0.047 | **0.550** | −0.021 | 14 of 20 |
+| Penalised logistic regression | 0.741 | +0.045 | **0.510** | −0.024 | 14 of 20 |
+
+**Regularisation does not rescue transfer.** All four estimators land between 0.510 and 0.556, all
+four put exactly fourteen of twenty directions above chance, and the linear model, the one built to
+extrapolate, transfers worst. Within-region skill falls as capacity is reduced, from 0.888 to 0.741,
+which is what regularisation is expected to cost; transfer does not rise to meet it. The thermal
+block's contribution to transfer is +0.004 under the canonical forest and **negative** under all
+three regularised alternatives, so the block does not become portable when the model is made simpler.
+
+The transfer failure is therefore a property of the predictors on this cohort, not of an
+unregularised forest. Detail in `paper/model_capacity.json`.
+
 **(g) The coordinate-informed channels.** `downscaled_lst_mean` and `fused_lst_mean` come from a
 per-region downscaling model whose own inputs include coordinates, which Section 3.14 names as the
 one route by which a coordinate-derived surface re-enters a feature set that excludes coordinates. A

@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{48}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -31,6 +31,19 @@
 \newblock \bibinfo{journal}{Proceedings of the National Academy of Sciences}
   \bibinfo{volume}{110}, \bibinfo{pages}{6442--6447}.
 \newblock \DOIprefix\doi{10.1073/pnas.1211466110}.
+%Type = Article
+\bibitem[{Barve et~al.(2011)Barve, Barve, Jim{\'e}nez-Valverde, Lira-Noriega,
+  Maher, Peterson, Sober{\'o}n and Villalobos}]{Barve2011}
+\bibinfo{author}{Barve, N.}, \bibinfo{author}{Barve, V.},
+  \bibinfo{author}{Jim{\'e}nez-Valverde, A.}, \bibinfo{author}{Lira-Noriega,
+  A.}, \bibinfo{author}{Maher, S.P.}, \bibinfo{author}{Peterson, A.T.},
+  \bibinfo{author}{Sober{\'o}n, J.}, \bibinfo{author}{Villalobos, F.},
+  \bibinfo{year}{2011}.
+\newblock \bibinfo{title}{The crucial role of the accessible area in ecological
+  niche modeling and species distribution modeling}.
+\newblock \bibinfo{journal}{Ecological Modelling} \bibinfo{volume}{222},
+  \bibinfo{pages}{1810--1819}.
+\newblock \DOIprefix\doi{10.1016/j.ecolmodel.2011.02.011}.
 %Type = Article
 \bibitem[{Boschetti et~al.(2019)Boschetti, Roy, Giglio, Huang, Zubkova and
   Humber}]{Boschetti2019}
@@ -183,6 +196,15 @@
 \newblock \bibinfo{howpublished}{arXiv preprint arXiv:2511.11589}.
 \newblock \DOIprefix\doi{10.48550/arXiv.2511.11589},
   \href{http://arxiv.org/abs/2511.11589}{{\tt arXiv:2511.11589}}.
+%Type = Article
+\bibitem[{Lobo et~al.(2008)Lobo, Jim{\'e}nez-Valverde and Real}]{Lobo2008}
+\bibinfo{author}{Lobo, J.M.}, \bibinfo{author}{Jim{\'e}nez-Valverde, A.},
+  \bibinfo{author}{Real, R.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{{AUC}: a misleading measure of the performance of
+  predictive distribution models}.
+\newblock \bibinfo{journal}{Global Ecology and Biogeography}
+  \bibinfo{volume}{17}, \bibinfo{pages}{145--151}.
+\newblock \DOIprefix\doi{10.1111/j.1466-8238.2007.00358.x}.
 %Type = Article
 \bibitem[{Ludwig et~al.(2023)Ludwig, Moreno-Martinez, H{\"o}lzel, Pebesma and
   Meyer}]{Ludwig2023}
@@ -422,6 +444,17 @@
 \newblock \bibinfo{journal}{Methods in Ecology and Evolution}
   \bibinfo{volume}{10}, \bibinfo{pages}{225--232}.
 \newblock \DOIprefix\doi{10.1111/2041-210X.13107}.
+%Type = Article
+\bibitem[{VanDerWal et~al.(2009)VanDerWal, Shoo, Graham and
+  Williams}]{VanDerWal2009}
+\bibinfo{author}{VanDerWal, J.}, \bibinfo{author}{Shoo, L.P.},
+  \bibinfo{author}{Graham, C.}, \bibinfo{author}{Williams, S.E.},
+  \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{Selecting pseudo-absence data for presence-only
+  distribution modeling: How far should you stray from what you know?}
+\newblock \bibinfo{journal}{Ecological Modelling} \bibinfo{volume}{220},
+  \bibinfo{pages}{589--594}.
+\newblock \DOIprefix\doi{10.1016/j.ecolmodel.2008.11.010}.
 %Type = Article
 \bibitem[{Vesk et~al.(2021)Vesk, Morris, Neal, Mokany and Pollock}]{Vesk2021}
 \bibinfo{author}{Vesk, P.A.}, \bibinfo{author}{Morris, W.K.},
