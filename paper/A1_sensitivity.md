@@ -300,3 +300,28 @@ Appendix A(c), which covers the raw arm and the paired delta only.
 | Evia→Muğla | 0.859 | 0.577 | 0.530 (CORAL) | −0.17 [−0.22, −0.11] | **negative recovery** |
 | Muğla→Evia | 0.912 | 0.653 | 0.563 (CORAL) | −0.35 [−0.43, −0.27] | **negative recovery** |
 | Bejís→Muğla | 0.859 | 0.618 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
+
+## A(k). The thermal sign, stratified
+
+Section 4.10 reports that all five regions agree on a negative association between pre-fire surface
+temperature and burning, and that neither of the two obvious confounders explains it. The
+per-region values are here. Signed AUC against `burned` within the 10 km collar; stratified columns
+pool within-stratum concordance over deciles of the named variable, weighting each stratum by its
+positive-negative pair count. Source `matched_frame_gap.csv`, recomputable by
+`paper/code/verify_matched_gap.py`.
+
+| Region | LST raw | LST within elevation | LST within NDVI | LST within distance | NDVI raw | NDVI within LST |
+|---|---:|---:|---:|---:|---:|---:|
+| Manavgat | 0.386 | 0.402 | 0.440 | **0.505** | 0.621 | 0.542 |
+| Bejís | 0.405 | 0.509 | 0.486 | 0.350 | 0.618 | 0.574 |
+| Muğla | 0.332 | 0.363 | 0.404 | 0.367 | 0.652 | 0.547 |
+| Evia | 0.286 | 0.327 | 0.279 | 0.319 | 0.663 | **0.380** |
+| Montiferru | 0.376 | 0.392 | 0.368 | **0.485** | 0.582 | **0.405** |
+
+Three readings follow. The LST sign survives stratification within elevation in four of five regions
+and within greenness in all five, despite r(LST, NDVI) reaching −0.92, so it is neither a lapse-rate
+proxy nor an inverse-greenness proxy. It does *not* survive stratification within distance to the
+nearest burned cell in Manavgat or Montiferru, which are the two regions where the collar leaves the
+least residual gradient, so in those two the agreed sign is a weaker version of the same spatial
+effect the collar was introduced to remove. And the reciprocal adjustment runs one way only: NDVI
+reverses in two regions once temperature is held, while LST reverses in none once greenness is held.
