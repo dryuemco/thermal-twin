@@ -146,56 +146,45 @@ every interval.
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
 species distribution modelling (Section 2.5); what is new is a magnitude on the wildfire problem
-under a controlled design, and its consequences for a live result. Holding the model, the predictors
-and the fitting fixed and changing only which cells are scored costs **0.143 ROC-AUC**, which is the size of the predictor-block increments this literature publishes as findings. A control isolates the cause
-as the composition of the negative pool rather than class balance (Section 4.3).
-
-Applied between regions, the same effect withdraws five claims we had made (Section 4.4). The five
-study areas enclose very unequal far fields; equalising them to a 10 km collar, which removes only far-field negatives, lifts mean transfer, reduces the below-chance directions, and leaves no sign reversal
-supported under this paper's own criterion — including the two-fire arm inside one study area that
-we had exempted, wrongly, on the ground that its geography was fixed. The agreed direction is also
-not the one dryness physics predicts: hotter pre-fire surfaces burned less in every region, and on
-mutual adjustment temperature survives where greenness does not, so the absolute thermal channels
-behave here as static land-surface descriptors. The practical consequence is a reporting standard
-(Section 5.8).
+under a controlled design. Holding the model, the predictors and the fitting fixed and changing only
+which cells are scored costs **0.143 ROC-AUC**, the size of the predictor-block increments this
+literature publishes as findings, with the cause isolated to the composition of the negative pool
+rather than class balance (Section 4.3). Applied between regions the same effect withdraws five
+claims of our own, including the sign reversal we had offered as the mechanism of the transfer
+residual and the one arm that held place fixed (Section 4.4). The practical consequence is a
+reporting standard (Section 5.8).
 
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
 thermal block is worth a substantial within-region increment in every one of five regions under
 blocked cross-validation, with every bootstrap interval above zero, and it remains positive in all
-five when the evaluation frame is equalised (Section 4.4). Much of that is a property of
-interleaved holdout: withholding a whole burn scar leaves an increment whose interval spans zero.
-Across twenty ordered transfer directions its paired contribution also spans zero, with a sign that
-is a property of the pair rather than of the block, and dropping one region reverses the mean. Two
-controls bound the reading. The static baseline transfers no better than the dynamic one on either frame, so the failure is not
-the thermal block's peculiarity; and on matched frames and matched blocking the
-equalised transfer still falls **0.155** short of the within-region reference (Section 4.4). The
-within-region half is not novel, comparable results existing for these landscapes
-[@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is. Dimarco et al.
-[@Dimarco2026] transfer a predominantly stationary predictor set successfully across a comparable
-Mediterranean design, though their response variable is ignition rather than burned area
-(Section 5.7).
+five when the frame is equalised. Much of that is a property of interleaved holdout: withholding a
+whole burn scar leaves an increment whose interval spans zero. Across twenty ordered transfer
+directions its paired contribution also spans zero, with a sign that is a property of the pair
+rather than of the block. Two controls bound the reading. The static baseline transfers no better
+than the dynamic one on either frame, so the failure is not the thermal block's peculiarity; and on
+matched frames and matched blocking the equalised transfer still falls **0.155** short of the
+within-region reference. The within-region half is not novel [@AlkanAkinci2023; @Iban2022]; the
+paired contrast against portability is. Dimarco et al. [@Dimarco2026] transfer a predominantly
+stationary predictor set successfully across a comparable Mediterranean design, though their
+response variable is ignition rather than burned area (Section 5.7).
 
 **Contribution 3. The shortfall cannot be anticipated by any diagnostic we could run.** Twenty
 candidate diagnostics from five families are evaluated against observed transfer under one bootstrap
-framework: predictor-space dissimilarity [@Meyer2021; @Meyer2022; @Ludwig2023], climatic and
-geographic distance, learned domain separability, niche-overlap statistics and burn-pattern regime
-distances. Eighteen were not shown to order the matrix on the frames as drawn; the domain classifier
-is at ceiling and therefore carries no ordering information at all. Two conditional variants did
-order it, but both need burned labels on both sides, both rest on a data-selected feature subset
-whose all-nine counterparts span zero, and **Contribution 1 removes even those**: recomputed on comparable frames one becomes unanimous with
-no variance left to correlate and the other loses its correlation entirely, from ρ = +0.81 to −0.06
-(Section 4.4).
-The point survives without any ranking, at the point estimates: the pair with the highest
+framework, including predictor-space dissimilarity [@Meyer2021; @Meyer2022; @Ludwig2023], climatic
+and geographic distance, learned domain separability, niche overlap and burn-pattern regime
+distances. Eighteen were not shown to order the matrix on the frames as drawn. Two conditional
+variants did, but both need burned labels on both sides, both rest on a data-selected feature subset
+whose all-nine counterparts span zero, and **Contribution 1 removes even those**: on comparable
+frames one becomes unanimous with no variance left to correlate and the other loses its correlation
+entirely (Section 4.4). The point survives without any ranking: the pair with the highest
 burned-niche overlap is among the weakest in the matrix while the lowest transfers above chance in
-both directions. That contradicts
-an expectation the fire literature carries [@Dimarco2026; @Liu2025] and agrees with species
-distribution modelling [@Vesk2021; @Rousseau2022].
+both directions, contradicting an expectation the fire literature carries [@Dimarco2026; @Liu2025]
+and agreeing with species distribution modelling [@Vesk2021; @Rousseau2022].
 
-Two consequences follow, reported as supporting results rather than leading ones. Label-free
-alignment by standardisation and covariance alignment [@Sun2016] does not repair transfer; it
-compresses most directions towards chance, and we believe this is the first application of
-covariance alignment to fire susceptibility. And because the residual is conditional, the resource
-that closes it is target labels, whose price is measured in Section 4.12.
+Two consequences follow, reported as supporting results. Label-free alignment by standardisation and
+covariance alignment [@Sun2016] does not repair transfer, and we believe this is the first
+application of covariance alignment to fire susceptibility. And because the residual is conditional,
+the resource that closes it is target labels, whose price is measured in Section 4.12.
 
 Alongside these, a leakage-audited, spatially blocked evaluation and transfer protocol is released
 with code, configuration and frozen outputs, so that most of this result can be re-run rather than

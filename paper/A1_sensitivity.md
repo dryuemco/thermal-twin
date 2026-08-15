@@ -225,7 +225,7 @@ most similar negatives only, while a transfer arm includes the whole easy far fi
 states the consequence: the last three rows of the ladder are not distinguishable by this design.
 
 **Table A3. The foreign-region arm, decomposed by source.** Each held-out scar area is scored with a
-model fitted on each of the other four regions. Table 3's row D is the mean over the **eight** scars that carry a row C, that is 32 of the 36
+model fitted on each of the other four regions. Table 2's row D is the mean over the **eight** scars that carry a row C, that is 32 of the 36
 combinations below; the nine-scar mean quoted in this appendix is 0.559 against row D's 0.555.
 
 | Target region | Scar | Mean over sources | Min | Max | Spread |
@@ -283,7 +283,7 @@ within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered
 − raw)/(within − raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru
 directions are not part of this decomposition (per-pair absolute decompositions exist without
 fraction CIs). The status column asks whether the *adapted* value clears chance and uses the 2-cell
-adapted intervals of Table 6. The adapted arms were not recomputed at the coarser blocking of
+adapted intervals of Table B9. The adapted arms were not recomputed at the coarser blocking of
 Appendix A(c), which covers the raw arm and the paired delta only.
 
 | Direction | Within | Raw | Best adapted (method) | Recovered fraction [CI] | Status |
@@ -362,7 +362,7 @@ and again eleven months later, on the same grid and through the same processing 
 arm is the 2021 population with the 2021 scar removed: 41,730 rows / 2,911 burned for 2021 against
 38,790 rows / 331 burned for 2022. **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for
 the 2022 arm**, and eleven is below the sixteen this design sets as its own floor, so the 2022
-intervals are read as indicative exactly as the 20-cell row of Table 2 is. Full per-feature values are in Appendix B, Table B5.
+intervals are read as indicative exactly as the 20-cell row of Table 1 is. Full per-feature values are in Appendix B, Table B5.
 
 **On the frame as drawn, elevation reverses with bootstrap support.** In 2021 higher ground burned
 preferentially, at 0.611 [0.532, 0.690]; in 2022 lower ground did, at 0.296 [0.230, 0.355]. The
@@ -538,3 +538,23 @@ point-estimate case only. Only one direction, Evia to Manavgat, exceeds twice it
 against 0.038. A transferred model therefore ranks burned cells about a sixth better than random on
 average, and worse than random in five directions with interval support and a sixth at the point. This is a
 sharper statement than the ROC means support and it should be the one a practitioner reads.
+
+**The within-region increment survives the same correction, and is reported here because Section 4.2
+establishes it on the frames this section calls incomparable.** Running the baseline arm on the
+collar as well (`collar_increment_and_cosine.csv`, `paper/code/verify_collar_increment.py`), the
+thermal increment at 5 km blocking is +0.041, +0.030, +0.091, +0.134 and +0.090 across the five
+regions, **positive in all five**, with a mean of +0.077 against +0.086 on the frame as drawn. It
+does erode as the frame tightens further: at a 5 km collar the mean halves to +0.041, still positive
+in all five. These are point estimates; the intervals in Table 1 are computed on the frame as drawn.
+The paper's one surviving predictor-level positive claim therefore holds on the frame it argues is
+the correct one.
+
+**The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
+fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose.
+
+The share of modelled cells lying beyond 10 km of any burned cell is 60.1 % in Manavgat, 63.1 % in
+Bejís, 55.3 % in Muğla, 43.7 % in Evia and **2.1 %** in Montiferru, with median distances of 13.4,
+13.5, 11.3, 8.0 and 2.7 km (Appendix B, Table B6). Montiferru's frame is fire-scale; Manavgat's and Bejís's are roughly three-fifths far field. The
+far field is not a neutral addition. In Manavgat the median elevation of modelled cells rises from
+472 m within 5 km of the fire to 955 m at 10 to 20 km and 1,273 m at 20 to 50 km, against 512 m for
+the burned cells themselves, in Taurus terrain that no plausible spread model would place at risk.

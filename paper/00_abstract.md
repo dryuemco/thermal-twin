@@ -75,7 +75,7 @@
 > dominance of the −0.081 is stated, because elevation is a *baseline* variable and a reader would
 > otherwise attribute the whole debit to the thermal block. (iv) Both feature-removal figures are
 > marked post-selection. (v) The two-event arm is downgraded to corroborating and its eleven
-> positive-carrying blocks are stated, because Table 2's own note sets sixteen as the floor. (vi) The
+> positive-carrying blocks are stated, because Table 1's own note sets sixteen as the floor. (vi) The
 > niche-overlap sentence gains the point-estimate qualifier that §4.7 and §6 already carry, and
 > ρ = 0.84 is correctly attributed to sixteen directions rather than eight pairs (the eight-pair
 > value is 0.866). **If the limit turns out to be 250, cut in this order:** the post-selection
