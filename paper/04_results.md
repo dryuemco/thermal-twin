@@ -306,28 +306,8 @@ the smallest and last-added region, and move upward, while the sixth is Manavgat
 downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (ix) in
 Section 5.9, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
 
-**Table 6. Transfer-gap decomposition (four-AOI set, 12 directions).** Within = target's
-within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered fraction = (adapted
-− raw)/(within − raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru
-directions are not part of this decomposition (per-pair absolute decompositions exist without
-fraction CIs). The status column asks whether the *adapted* value clears chance and uses the 2-cell
-adapted intervals of Table 5. The adapted arms were not recomputed at the coarser blocking of
-Appendix A(c), which covers the raw arm and the paired delta only.
-
-| Direction | Within | Raw | Best adapted (method) | Recovered fraction [CI] | Status |
-|---|---|---|---|---|---|
-| Manavgat→Bejís | 0.918 | 0.326 | 0.511 (CORAL) | +0.31 [+0.28, +0.34] | recovery, chance not excluded |
-| Bejís→Manavgat | 0.870 | 0.444 | 0.555 (CORAL) | +0.26 [+0.18, +0.34] | recovery above chance |
-| Muğla→Manavgat | 0.870 | 0.401 | 0.560 (CORAL) | +0.34 [+0.28, +0.40] | recovery above chance |
-| Bejís→Evia | 0.912 | 0.383 | 0.532 (z-score) | +0.28 [+0.23, +0.32] | recovery above chance |
-| Evia→Bejís | 0.918 | 0.448 | 0.549 (z-score) | +0.22 [+0.16, +0.27] | recovery above chance |
-| Manavgat→Muğla | 0.859 | 0.470 | 0.443 (CORAL) | −0.07 [−0.12, −0.03] | **negative recovery** |
-| Muğla→Bejís | 0.918 | 0.583 | 0.560 (CORAL) | −0.07 [−0.16, +0.01] | **negative recovery** |
-| Manavgat→Evia | 0.912 | 0.613 | 0.542 (z-score) | −0.23 [−0.32, −0.14] | **negative recovery** |
-| Evia→Manavgat | 0.870 | 0.686 | 0.527 (CORAL) | −0.86 [−1.18, −0.60] | **negative recovery** |
-| Evia→Muğla | 0.859 | 0.577 | 0.530 (CORAL) | −0.17 [−0.22, −0.11] | **negative recovery** |
-| Muğla→Evia | 0.912 | 0.653 | 0.563 (CORAL) | −0.35 [−0.43, −0.27] | **negative recovery** |
-| Bejís→Muğla | 0.859 | 0.618 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
+The per-direction decomposition is in Appendix A(j), Table A5; two figures from it matter here and
+are used below.
 
 **Against the right reference, adaptation is not failing** (Fig. 5). The three controls above give an
 achievable reference for a model applied to a fire it has not seen: 0.574 for the half-split, 0.552
@@ -354,7 +334,7 @@ Twenty candidate diagnostics from five families were each rank-correlated with t
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
 pair-based bootstrap.
 
-**Table 7. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
+**Table 6. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
 raw transfer AUC with pair-based bootstrap 95 % CIs. Exp. is the sign expected if the diagnostic
 orders transfer. The member named is the one with the largest absolute correlation in its family,
 which is not always in the expected direction. All twenty individual diagnostics are in Appendix B,
@@ -370,7 +350,7 @@ Table B1.
 
 Geographic separation does not order the matrix on either construction. Over all twenty directions
 the Spearman correlation between centroid separation and transfer AUC is −0.32 with an interval
-spanning zero; on the twelve-direction common subset of Table 7 it is −0.24, also spanning zero. The
+spanning zero; on the twelve-direction common subset of Table 6 it is −0.24, also spanning zero. The
 two nearest directions, Manavgat and Muğla at 306 km, are among the worst on the frames as drawn,
 while the 2,802 km pair returns 0.326 and 0.444, so the transfer mean of 0.541 is not the value at
 any one separation.
@@ -417,7 +397,7 @@ an artefact of unequal samples.
 
 ## 4.6 The contrast pair: similarity is not sufficient
 
-The clearest single view of Table 7 needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
+The clearest single view of Table 6 needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
 country and the same fire year. They are 306 km apart by the centroid geodesic distance this paper
 uses as a diagnostic, and their nearest boundaries are 191 km apart. Their burned cells occupy the
 most similar environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77
@@ -552,7 +532,7 @@ built from. Source: `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`, `collar_frame
 **The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
 fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose.
 
-**Table 8. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
+**Table 7. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
 population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell.
 Source `aoi_frame_auc.csv`; recomputable by `paper/code/verify_aoi_frame.py`.
 
@@ -572,7 +552,7 @@ the burned cells themselves, in Taurus terrain that no plausible spread model wo
 **Under an equalised frame the sign reversals of Section 4.6 do not survive.** Restricting every
 region to cells within 10 km of any burned cell drops **no positives**, only far-field negatives.
 
-**Table 9. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
+**Table 8. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
 intervals that decide the reversal question are given in the text below and in
 `collar_frame_bootstrap.csv` (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to
 max(AUC, 1 − AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned
@@ -660,7 +640,7 @@ out of exactly the signed AUCs this section has just shown to be frame artefacts
 correlated against transfer measured on the same unequal frames. Recomputing both sides under the
 10 km collar (`diagnostics_collar_frame.csv`, `paper/code/verify_diag_collar.py`):
 
-**Table 10. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
+**Table 9. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
 ρ against target ROC-AUC over the ordered directions in which the diagnostic is defined. Source
 `diagnostics_collar_frame.csv`; recomputable by `paper/code/verify_diag_collar.py`.
 
@@ -697,43 +677,34 @@ drawn, because they are what a reader following the original protocol would obta
 the correction.
 
 **The two-event arm does not survive the test either, and it is the most extreme case in the
-cohort.** Section 4.9 reports a bootstrap-supported elevation reversal between two Muğla fires
-eleven months apart, and it was exempted from this section on the ground that the study area is
-fixed. The area of interest is fixed; the evaluation frame is not. The 2022 arm is one compact scar
-of 332 burned cells inside a 38,819-cell box, so **93.2 % of its cells lie beyond 10 km of any
-burned cell, with a median distance of 43.6 km** — a larger far field than any cross-region arm,
-Bejís's 63.1 % included. Applying the same collar (`mugla_two_event_collar.csv`,
-`paper/code/verify_mugla_collar.py`; the full-frame values reproduce Table B5 at 0.611 and 0.297):
+cohort.** Section 4.9's arm was exempted on the ground that the study area is fixed; the area is
+fixed but the evaluation frame is not, and its 2022 arm has **93.2 % of cells beyond 10 km of any
+burned cell, median 43.6 km** — a larger far field than any cross-region arm. Applying the same
+collar (`mugla_two_event_collar.csv`; the full-frame values reproduce Table B5):
 
 | Muğla arm | share beyond 10 km | full frame | 10 km collar |
 |---|---:|---|---|
 | 2021 | 55.3 % | 0.611 [0.529, 0.692], supported | 0.606 [0.525, 0.685], supported |
 | 2022 | **93.2 %** | 0.297 [0.229, 0.363], supported | **0.565 [0.450, 0.677], not supported** |
 
-Under the collar the 2022 arm moves to the **same side of 0.5** as the 2021 arm and its interval
-covers chance, so the pair is no longer a reversal on either half of the criterion. The 2021 arm is
-nearly frame-invariant, at 0.611 against 0.606, which is what isolates the effect to the 2022 arm's
-far field rather than to the collar itself. **No bootstrap-supported sign reversal survives anywhere
-in this paper once evaluation frames are equalised**, between regions or between two fires in one
-region, and Section 4.9 should be read with that correction.
+The 2022 arm moves to the **same side of 0.5** as the 2021 arm and its interval covers chance, while
+the 2021 arm is nearly frame-invariant, which isolates the effect to the 2022 arm's far field rather
+than to the collar. **No bootstrap-supported sign reversal survives anywhere in this paper once
+evaluation frames are equalised**, between regions or between two fires in one region.
 
-Three further points bound how many independent reversals could have been counted. Within the
-collar, `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00 and
-`downscaled_lst_mean` at 0.97 to 0.99, and `current_tvdi_mean` at 0.87 to 0.98. The four absolute
-channels are close to one axis, and the two anomaly channels correlate at 0.64 to 0.94, so the "five
-of nine directions reverse" count of Section 4.6 is a count of features, not of independent
-quantities; in effective dimensions it is closer to two.
-The channels whose reversal vanishes are the ones that were partly measuring terrain. Current LST
-correlates with elevation at r = −0.695, −0.125, −0.404, −0.511 and −0.507 across the five regions,
-and TVDI at −0.722 to −0.298, so their proxy strength varies fivefold between regions and a frame
-that shifts the elevation distribution shifts them with it. The two internally differenced channels
-are decorrelated from elevation by construction — the LST anomaly at −0.195 to +0.256 — and neither
-of them yields a supported reversal either, so this explains which reversals were manufactured
-without licensing a claim that any survived.
+Two points bound how many independent reversals could have been counted in the first place. The
+channels whose reversal vanishes are the ones partly measuring terrain: current LST correlates with
+elevation at −0.695 to −0.125 across the regions and TVDI at −0.722 to −0.298, so their proxy
+strength varies fivefold and a frame that shifts the elevation distribution shifts them with it. And
+within the collar `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00,
+`downscaled_lst_mean` at 0.97 to 0.99 and `current_tvdi_mean` at 0.87 to 0.98, so the four absolute
+channels are close to one axis and the two differenced channels correlate at 0.64 to 0.94: the "five
+of nine directions reverse" count of Section 4.6 counts features, not independent quantities, and
+**in effective dimensions it is closer to two**.
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
-**Table 11. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
+**Table 10. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
 population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
 the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on the target as Table 5,
 1000 replicates, seed 42. Per-direction bounds are in `aoi_frame_transfer.csv`.

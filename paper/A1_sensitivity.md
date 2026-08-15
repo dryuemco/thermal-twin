@@ -269,3 +269,34 @@ qualifies.
 A minus A′, the effect of prevalence alone, is **−0.000 [−0.003, +0.002]**. A′ minus B, the effect of
 replacing the region's negatives with fire-adjacent ones, is **+0.155 [+0.093, +0.217]**. The
 evaluation-area effect is entirely the negative pool.
+
+## A(j). The transfer-gap decomposition, in full
+
+Section 4.4 states the two figures this table carries — at most 34 % of the gap recovered in the
+directions that started below chance, and seven directions with negative recovery. The table is
+kept here rather than in the body because Section 4.3 shows the within-region reference in its
+denominator is not matched to a transfer evaluation, and Section 4.10 shows its raw column is
+frame-dependent, so the fractions should be read as within-protocol quantities.
+
+**Table A5. Transfer-gap decomposition (four-AOI set, 12 directions).** Within = target's
+within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered fraction = (adapted
+− raw)/(within − raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru
+directions are not part of this decomposition (per-pair absolute decompositions exist without
+fraction CIs). The status column asks whether the *adapted* value clears chance and uses the 2-cell
+adapted intervals of Table 5. The adapted arms were not recomputed at the coarser blocking of
+Appendix A(c), which covers the raw arm and the paired delta only.
+
+| Direction | Within | Raw | Best adapted (method) | Recovered fraction [CI] | Status |
+|---|---|---|---|---|---|
+| Manavgat→Bejís | 0.918 | 0.326 | 0.511 (CORAL) | +0.31 [+0.28, +0.34] | recovery, chance not excluded |
+| Bejís→Manavgat | 0.870 | 0.444 | 0.555 (CORAL) | +0.26 [+0.18, +0.34] | recovery above chance |
+| Muğla→Manavgat | 0.870 | 0.401 | 0.560 (CORAL) | +0.34 [+0.28, +0.40] | recovery above chance |
+| Bejís→Evia | 0.912 | 0.383 | 0.532 (z-score) | +0.28 [+0.23, +0.32] | recovery above chance |
+| Evia→Bejís | 0.918 | 0.448 | 0.549 (z-score) | +0.22 [+0.16, +0.27] | recovery above chance |
+| Manavgat→Muğla | 0.859 | 0.470 | 0.443 (CORAL) | −0.07 [−0.12, −0.03] | **negative recovery** |
+| Muğla→Bejís | 0.918 | 0.583 | 0.560 (CORAL) | −0.07 [−0.16, +0.01] | **negative recovery** |
+| Manavgat→Evia | 0.912 | 0.613 | 0.542 (z-score) | −0.23 [−0.32, −0.14] | **negative recovery** |
+| Evia→Manavgat | 0.870 | 0.686 | 0.527 (CORAL) | −0.86 [−1.18, −0.60] | **negative recovery** |
+| Evia→Muğla | 0.859 | 0.577 | 0.530 (CORAL) | −0.17 [−0.22, −0.11] | **negative recovery** |
+| Muğla→Evia | 0.912 | 0.653 | 0.563 (CORAL) | −0.35 [−0.43, −0.27] | **negative recovery** |
+| Bejís→Muğla | 0.859 | 0.618 | 0.518 (z-score) | −0.42 [−0.51, −0.34] | **negative recovery** |
