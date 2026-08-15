@@ -61,6 +61,26 @@ Earth Engine authentication (`earthengine authenticate`) is needed **only** for 
 (Step 1 to Step 7). Everything from Step 8 onward reads local parquet and needs no credentials, and
 those are the steps that produce every number in the paper.
 
+### Which Cloud project
+
+Initialise against **`thermaltwin`**:
+
+```python
+ee.Initialize(project="thermaltwin")
+```
+
+Verified 2026-08-16 from this machine: MCD64A1, MOD11A1, MOD13A1, LANDSAT/LC08/C02/T1_L2,
+ESA/WorldCover/v200 and USGS/SRTMGL1_003 are all reachable. `python check_ee.py thermaltwin`
+re-runs the readiness check.
+
+Do **not** use `b7-thermal-digital-twin`. That is the value of `GEE_PROJECT` in
+`repo/core/config.py`, it belongs to the pipeline author, and this account has no
+`serviceUsageConsumer` role on it, so `ee.Initialize` fails with a permission error. Any step
+imported from `repo/` inherits that constant, so a run driven from here must override the project
+rather than rely on the default. The stored credential carries no project of its own and the account
+cannot enumerate its projects, so the id cannot be rediscovered from the machine — it is recorded
+here for that reason.
+
 ## Proof that the environment is right
 
 `src/step8b_train_baseline_vs_thermal_model.py` was run unmodified at `48b56e7` against the frozen
