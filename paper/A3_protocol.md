@@ -45,7 +45,7 @@ MCD64A1 does not distinguish. Verdicts are reported in Section 4.1.
 
 ## C.2 Transferability diagnostics versus transfer
 
-Twenty candidate diagnostics from four families are each rank-correlated against the same target
+Twenty candidate diagnostics from five families are each rank-correlated against the same target
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
 pair-based bootstrap. The families are marginal predictor-distribution measures P(x), burned-niche
 overlap P(x|y=1), fire-regime label-pattern structure P(y), and conditional feature-response

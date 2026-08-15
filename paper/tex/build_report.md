@@ -21,23 +21,26 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (82 chars)
 
-## review (19)
+## review (22)
 
-- BLOCKQUOTE DROPPED — check it was not content: > **Length correction, 2026-08-15.** The running count in these notes had gone stale: successive > rounds adde
+- BLOCKQUOTE DROPPED — check it was not content: > **Length, 2026-08-15 (two passes).** The running count in these notes had gone stale: successive > rounds ad
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
-- TABLE WITHOUT CAPTION in 04_results near md line 134
-- TABLE WITHOUT CAPTION in 04_results near md line 248
-- TABLE WITHOUT CAPTION in 04_results near md line 442
+- TABLE WITHOUT CAPTION in 04_results near md line 138
+- TABLE WITHOUT CAPTION in 04_results near md line 257
+- TABLE WITHOUT CAPTION in 04_results near md line 451
+- TABLE WITHOUT CAPTION in 04_results near md line 553
+- TABLE WITHOUT CAPTION in 04_results near md line 570
+- TABLE WITHOUT CAPTION in 04_results near md line 591
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 77
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 112
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 143
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 184
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 200
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 223
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 247
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 92
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 127
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 158
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 199
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 216
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 240
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 266
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 76
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 92
@@ -48,7 +51,7 @@ converter made is listed so it can be reviewed.
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (41)
+## table (46)
 
 - Study regions, areas of interest and tempora: 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
 - Study regions, areas of interest and temporal wi: 5 of 5 columns wrap (widest cell 49 chars)
@@ -71,6 +74,11 @@ converter made is listed so it can be reviewed.
 - : 2 of 3 columns wrap (widest cell 23 chars)
 - Signed univariate feature-burned AUC, Muğla : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping
 - Signed univariate feature-burned AUC, Muğla 2021: 3 of 4 columns wrap (widest cell 24 chars)
+- : 5 cols, est. width 78 chars -> small, 1 wrapping
+- : 1 of 5 columns wrap (widest cell 25 chars)
+- : 7 cols, est. width 97 chars -> small, 1 wrapping
+- : 1 of 7 columns wrap (widest cell 32 chars)
+- : 6 cols, est. width 104 chars -> footnotesize
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
 - : 2 of 4 columns wrap (widest cell 33 chars)
 - : 6 cols, est. width 128 chars -> footnotesize, 1 wrapping
