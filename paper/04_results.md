@@ -607,29 +607,32 @@ is that **no diagnostic tested here was shown to order transfer once the frames 
 
 ## 4.7 The contrast pair: similarity is not sufficient
 
-The clearest single view of Table 8 needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
-country and the same fire year. They are 306 km apart by the centroid geodesic distance this paper
-uses as a diagnostic, and their nearest boundaries are 191 km apart. Their burned cells occupy the
-most similar environmental envelope of any pair in the matrix, with per-feature Schoener's D of 0.77
-to 0.89. Yet on the frames as drawn five of nine feature-response directions point opposite ways. Elevation
-is one of them, at a signed AUC of 0.374 [0.289, 0.471] in Manavgat against 0.611 [0.532, 0.690] in
-Muğla, with disjoint intervals, and all four absolute thermal channels are among the others.
-**Section 4.4 has already withdrawn that reading**: this is the pair whose Manavgat arm is 60 % far field, and
-under a 10 km collar the elevation figure moves to 0.561 against 0.606, on the same side of 0.5. The
-contrast that survives is the transfer result itself, not the reversal count that was offered to
-explain it. Transfer is below chance in both directions at the point estimate on the frames as
-drawn, at 0.470 and 0.401, but **that half does not survive equalisation either**: under the 10 km
-collar the pair transfers at 0.551 and 0.510, both above chance (`aoi_frame_transfer.csv`). Both
-directions also sit inside the nominal area of applicability, at 0.875 and 0.531 of target cells,
-which is itself a full-frame quantity. **What survives is the ordinal contrast**: on the equalised frame the most environmentally similar
-pair is still among the weakest in the matrix, at 0.551 and 0.510, which rank fifth and second from
-the bottom of the twenty directions, while the least similar pair reaches 0.669 and 0.624, ranking
-fifteenth and eleventh. Neither is the extreme — the weakest direction is Manavgat to Bejís at 0.417
-and the strongest is Muğla to Evia at 0.727 — so the contrast is ordinal and not a claim about the
-endpoints. Schoener's D is
-computed over burned cells only and is therefore collar-invariant, so the similarity ordering is
-unchanged. The claim this section supports is that high envelope overlap does not buy transfer, not
-that it produces anti-prediction.
+The clearest single view needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
+country and fire year, 306 km apart by centroid, and their burned cells occupy the most similar
+environmental envelope of any pair in the matrix; Bejís and Montiferru occupy the least similar.
+
+**Table 9. The most and least environmentally similar pairs, on both frames.** Schoener's *D* is
+computed over burned cells only and is therefore collar-invariant. Transfer values are the two
+ordered directions of each pair; ranks are out of the twenty directions on the equalised frame.
+As-drawn transfer is read from Table 7, collar transfer from `aoi_frame_transfer.csv`.
+
+| | Manavgat–Muğla | Bejís–Montiferru |
+|---|---|---|
+| Schoener's *D*, mean 1-D | **0.826** (highest) | **0.479** (lowest) |
+| per-feature *D* | 0.77 to 0.89 | 0.23 to 0.77 |
+| transfer, frames as drawn | 0.470, 0.401 | 0.594, 0.548 |
+| transfer, 10 km collar | 0.551, 0.510 | 0.669, 0.624 |
+| rank of 20 on the collar | 5th, 2nd from bottom | 15th, 11th |
+| target cells inside the AoA | 0.875, 0.531 | — |
+
+Two readings of this pair do not survive Section 4.4 and are not offered. On the frames as drawn
+five of nine feature-response directions point opposite ways, elevation among them; under the collar
+that figure moves to 0.561 against 0.606, on the same side of 0.5. And transfer is below chance in
+both directions as drawn but above chance under the collar. **What survives is the ordinal
+contrast**: the most similar pair is among the weakest in the matrix and the least similar among the
+stronger, while neither is the extreme — the weakest direction is Manavgat to Bejís at 0.417 and the
+strongest Muğla to Evia at 0.727. The claim this supports is that high envelope overlap does not buy
+transfer, not that it produces anti-prediction. The AoA shares are full-frame quantities.
 
 Bejís and Montiferru sit at the opposite extreme. Their burned envelopes barely overlap, and they
 carry the most dissimilar values on every overlap measure. They transfer above chance in both
