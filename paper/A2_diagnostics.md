@@ -56,7 +56,7 @@ and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
 Section 4.6b drops two predictors because their signed association with burning reverses between
 regions with bootstrap support on the frames as drawn. Section 4.9 shows that both supported
 elevation reversals disappear once the frames are equalised, so this table is the evidence for the
-feature-removal arm and for the narrowed claim of Contribution 4, not for a general reversal
+feature-removal arm and for the narrowed mechanism claim inside Contribution 1, not for a general reversal
 mechanism. It was computed for the frozen analysis and is reproduced here because the claim
 is otherwise asserted rather than shown.
 

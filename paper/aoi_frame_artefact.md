@@ -5,6 +5,7 @@ referee raised it; every number below was re-derived independently of the refere
 frozen `repo/outputs/experiments/*/step8a/*.parquet` files, by `paper/code/verify_aoi_frame.py` and
 `paper/code/verify_aoi_transfer.py`.**
 
+
 ## The claim
 
 The five "regions" are rectangles of very different generosity relative to their fires. A signed
@@ -117,7 +118,7 @@ Muğla→Manavgat 0.393 → 0.510.
 
 The paper measured, in `prevalence_control.json`, that swapping a region's negatives for
 fire-adjacent ones moves AUC by **+0.155 [+0.093, +0.217]**, and then computed its entire transfer
-matrix and its whole reversal mechanism on frames whose fire-adjacent share ranges from 2 % to 98 %.
+matrix and its whole reversal mechanism on frames whose fire-adjacent share ranges from 37 % to 98 %.
 The artefact and its explanation are both already in the manuscript; they had not been connected.
 
 This makes the paper more coherent, not less. Contribution 1 stops being a control that happens to

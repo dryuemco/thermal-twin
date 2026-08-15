@@ -29,11 +29,11 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 138
 - TABLE WITHOUT CAPTION in 04_results near md line 257
-- TABLE WITHOUT CAPTION in 04_results near md line 459
-- TABLE WITHOUT CAPTION in 04_results near md line 561
-- TABLE WITHOUT CAPTION in 04_results near md line 578
-- TABLE WITHOUT CAPTION in 04_results near md line 620
-- TABLE WITHOUT CAPTION in 04_results near md line 659
+- TABLE WITHOUT CAPTION in 04_results near md line 470
+- TABLE WITHOUT CAPTION in 04_results near md line 572
+- TABLE WITHOUT CAPTION in 04_results near md line 589
+- TABLE WITHOUT CAPTION in 04_results near md line 632
+- TABLE WITHOUT CAPTION in 04_results near md line 671
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
