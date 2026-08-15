@@ -55,8 +55,8 @@ susceptibility, fire occurrence or burned-area prediction.
 
 ## 2.4 Cross-region generalisation of fire models
 
-Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] report, in a
-Peruvian case study, that
+Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] report, in a Peruvian
+case study, that
 meteorologically derived danger indices do not port cleanly between fire environments. WildfireGenome
 [@Liu2025] runs a leave-one-county-out matrix across seven US counties and reports strong
 within-county performance with highly variable off-diagonal transfer, similar pairs transferring well
@@ -69,22 +69,21 @@ Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a 1 km Mediterranean datac
 
 **Evaluation extent and AUC.** Species distribution modelling settled long ago that the area a model
 is evaluated over is not a neutral choice. Lobo et al. [@Lobo2008] make it the fifth and, by their
-own ranking, most important reason to distrust AUC as a comparative measure: the extent of the
-modelled area governs how many easy absences enter the calculation, and therefore the score.
-VanDerWal et al. [@VanDerWal2009] show the same lever on the calibration side, and Barve et al.
-[@Barve2011] give the argument its general form as the accessible area. That literature is
-qualitative about magnitude, because magnitude is problem-specific. Two things follow. Our
-Contribution 1 is a measurement inside that framework rather than a new phenomenon. And the wildfire
-literature has largely not imported the lesson: region-wide figures are reported as though they
-described performance at the fire, and we know of no wildfire study that holds the model fixed and
-varies only the evaluation cells — which is why Section 5.7 treats the 0.143 as a reporting problem
-rather than a caveat.
+own ranking, most important reason to distrust AUC comparatively: the extent of the modelled area
+governs how many easy absences enter the calculation, and therefore the score. VanDerWal et al.
+[@VanDerWal2009] show the same lever on the calibration side, and Barve et al. [@Barve2011] give the
+argument its general form as the accessible area. That literature is qualitative about magnitude,
+because magnitude is problem-specific, so our Contribution 1 is a measurement inside that framework
+rather than a new phenomenon. The wildfire literature has largely not imported the lesson:
+region-wide figures are reported as though they described performance at the fire, and we know of no
+wildfire study that holds the model fixed and varies only the evaluation cells — which is why
+Section 5.7 treats the 0.143 as a reporting problem rather than a caveat.
 
-**The nearest neighbour, and the contrast the present paper draws.** Dimarco et al. [@Dimarco2026]
-is the closest Mediterranean analogue: 500 m predictors harmonised across four countries, tree
-ensembles under spatial cross-validation, transfer tested both leave-one-country-out and as a full
-4 × 4 matrix, every transfer exceeding AUC 0.80 and bioclimatically similar countries scoring higher,
-with no domain adaptation applied.[^dimarco-lst] Much of the design is shared — Mediterranean
+**The nearest neighbour, and the contrast this paper draws.** Dimarco et al. [@Dimarco2026] is the
+closest Mediterranean analogue: 500 m predictors harmonised across four countries, tree ensembles
+under spatial cross-validation, transfer tested both leave-one-country-out and as a full 4 × 4
+matrix, every transfer exceeding AUC 0.80 and bioclimatically similar countries scoring higher, with
+no domain adaptation.[^dimarco-lst] Much of the design is shared — Mediterranean
 regions, 500 m cells, MCD64A1-derived targets, tree ensembles, spatially aware validation, an
 explicit transfer matrix — and two things differ. **The predictor class**: their model rests on
 attributes of a place, all spatially stationary, ours on the state of a surface in one season. **The

@@ -65,13 +65,13 @@ spatial autocorrelation inflate it further. The problem is documented across eco
 @Meyer2018], but blocking does not make the estimate honest about a fire the model has not seen.
 
 Because only that side of the ledger is reported, portability is never entered: a predictor block is
-adopted on the increment it delivers inside its training footprint, and whether that increment
-survives a change of region is not asked, even though any regional product built from locally
-trained models implicitly promises generalisation beyond it. Meteorological fire-danger indices are
-known not to port cleanly in a Peruvian case study [@Podschwit2022], and the two studies that test model transfer
+adopted on the increment it delivers inside its training footprint, and whether that survives a
+change of region is not asked, even though any regional product built from locally trained models
+implicitly promises generalisation beyond it. Meteorological fire-danger indices are known not to
+port cleanly in a Peruvian case study [@Podschwit2022], and the two studies that test transfer
 systematically [@Dimarco2026; @Liu2025] both report that it largely succeeds between similar
 regions — and both transfer models whose dominant predictors are *spatially stationary*. Whether a
-dynamic, season-specific class behaves the same way is the question this paper puts.
+dynamic, season-specific class behaves the same way is this paper's question.
 
 ## 1.2 Pre-fire thermal dryness is the natural test case
 
@@ -80,8 +80,8 @@ predictors are static or near-static over the timescale at which fire danger var
 poorly why one summer burned and the preceding one did not; what changes is the state of the
 surface, to which satellite thermal observation gives partial access (Section 2.2). The physics
 linking moisture stress to combustion is universal, so portability should be most expected here,
-which is what makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally
-defined covariate. The expectation is sharpest for the internally normalised channels, which should
+which makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally defined
+covariate. The expectation is sharpest for the internally normalised channels, which should
 be least exposed to absolute-temperature offsets between regions; **they transfer no better than the
 absolute ones** (Appendix A(f)). The expectation motivates the design and is not a finding of it —
 Section 4.4 reports the associations running the other way.
@@ -104,34 +104,32 @@ every interval.
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
 species distribution modelling (Section 2.4); what is new is a magnitude under a controlled design.
-Holding the model, predictors and fitting fixed and changing only which cells are scored costs
-**0.143 ROC-AUC** — the size of the increments this design measures for a predictor block — with the
-cause isolated to the composition of the negative pool rather than class balance (Section 4.3).
-Applied between regions it withdraws five claims of our own, including the sign reversal we had
-offered as the mechanism and the one arm that held place fixed (Section 4.4). The practical
-consequence is a reporting standard (Section 5.7).
+Holding model, predictors and fitting fixed and changing only which cells are scored costs **0.143
+ROC-AUC**, the size of the increments this design measures for a predictor block, with the cause
+measured as the negative pool's composition rather than class balance (Section 4.3). Applied between
+regions it withdraws five claims of our own, including the sign reversal we had offered as the
+mechanism and the one arm that held place fixed (Section 4.4), and the practical consequence is a
+reporting standard (Section 5.7).
 
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
 thermal block is worth a substantial within-region increment in all five regions, every bootstrap
 interval above zero, and stays positive when the frame is equalised — but much of it is a property of
-interleaved holdout, and across twenty transfer directions the paired contribution spans zero on both frames under the
-primary resampling unit, though much closer to the boundary once equalised and not under every
-admissible unit (Section 4.4), with a
-sign belonging to the pair rather than the block. Two controls bound this: the static baseline
-transfers no better on either frame, so the failure is not the thermal block's peculiarity, and on
-matched frames and blocking the equalised transfer still falls **0.155** short of the within-region
-reference. The within-region half is not novel [@AlkanAkinci2023; @Iban2022]; the paired contrast
-against portability is.
+interleaved holdout, and across twenty transfer directions the paired contribution spans zero on both
+frames under the primary resampling unit, though much closer to the boundary once equalised and not
+under every admissible unit (Section 4.4), with a sign belonging to the pair rather than the block.
+Two controls bound this: the static baseline transfers no better on either frame, so the failure is
+not the thermal block's peculiarity, and on matched frames and blocking equalised transfer still
+falls **0.155** short of the within-region reference. The within-region half is not novel
+[@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is.
 
-**Contribution 3. The shortfall cannot be anticipated by any diagnostic we could run.** Of twenty
-candidates from five families, eighteen were not shown to order the matrix on the frames as drawn.
-Two conditional variants did, but both need burned labels on both sides, both rest on a
-data-selected feature subset whose all-nine counterparts span zero, and **Contribution 1 removes
-even those** (Section 4.4). The point survives without any ranking: at the point estimates the pair
-with the highest burned-niche overlap is among the weakest in the matrix while the lowest transfers
-above chance in both directions, contradicting an expectation the fire literature carries
-[@Dimarco2026; @Liu2025] and agreeing with species distribution modelling [@Vesk2021;
-@Rousseau2022].
+**Contribution 3. The shortfall cannot be anticipated by any diagnostic we could run.** Of twenty candidates from
+five families, eighteen were not shown to order the matrix on the frames as drawn. Two conditional
+variants did, but both need burned labels on both sides, both rest on a data-selected feature subset
+whose all-nine counterparts span zero, and **Contribution 1 removes even those** (Section 4.4). The
+point survives without any ranking: at the point estimates the pair with the highest burned-niche
+overlap is among the weakest in the matrix while the lowest transfers above chance in both
+directions, contradicting an expectation the fire literature carries [@Dimarco2026; @Liu2025] and
+agreeing with species distribution modelling [@Vesk2021; @Rousseau2022].
 
 Two consequences follow, as supporting results: label-free alignment by standardisation and
 covariance alignment [@Sun2016] does not repair transfer, in what we believe is its first application
@@ -139,6 +137,7 @@ to fire susceptibility; and because the residual is conditional, the resource th
 target labels, priced in Appendix A(u).
 
 The leakage-audited, spatially blocked protocol is released with code, configuration and frozen
-outputs, so most of this can be re-run rather than taken on trust; the one exception is named in the
-availability statement. That matters given evidence that wildfire transfer conclusions are sensitive
-to evaluation design [@Xu2026]. A companion paper treats the observational layer beneath this one.
+outputs, so most of this can be re-run rather than taken on trust, the one exception being named in
+the availability statement — which matters given evidence that wildfire transfer conclusions are
+sensitive to evaluation design [@Xu2026]. A companion paper treats the observational layer beneath
+this one.

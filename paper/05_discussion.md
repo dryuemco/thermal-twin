@@ -9,32 +9,29 @@
 ## 5.1 Reading the three findings together
 
 Section 1.4 states the three findings and Section 4 establishes them; this section argues from them.
-One relation between them makes the paper cohere: the first finding is not a caveat attached to the
-other two, it is the instrument that sets their size. Applied to our own matrix it withdrew five
-claims we had made, and what it left standing is a shortfall in transferred skill, not a reversed
-relationship.
+One relation between them makes the paper cohere: the first is not a caveat attached to the other
+two, it is the instrument that sets their size. Applied to our own matrix it withdrew five claims,
+and what it left standing is a shortfall in transferred skill, not a reversed relationship.
 
 ## 5.2 Why the thermal increment is real but local
 
 The within-region increment and the transfer failure are measured at different separations, and
-Section 4.3 shows most of the difference between them is already present inside a single region. The
-increment is local in a specific sense: it holds where held-out cells are interleaved with training
-cells and most of it is gone once they are not, before the fire or the region changes. It is not an
-artefact to be explained away, surviving every sensitivity arm of Appendix A(a)–(h), but it is
-established under interleaved validation and not beyond it. Even there the window-closure arm is
-region-specific and **weakens monotonically in Evia**, so what holds everywhere is survival, not
-improvement.
+Section 4.3 shows most of the difference is already present inside a single region. The increment is
+local in a specific sense: it holds where held-out cells are interleaved with training cells and most
+of it is gone once they are not, before the fire or the region changes. It is not an artefact to be
+explained away, surviving every sensitivity arm of Appendix A(a)–(h), but it is established under
+interleaved validation and not beyond it — and even there the window-closure arm **weakens
+monotonically in Evia**, so what holds everywhere is survival, not improvement.
 
 The natural objection is that Mediterranean regions are simply different systems, so a predictor
 meaning one thing in one place and another elsewhere is a comparison of two systems rather than
-instability. **We designed the two-Muğla-events arm to answer that objection and it does not
-answer it**: Section 4.4 shows it is the most extreme frame artefact in the cohort. The objection
-therefore stands unanswered, and three further confounds were never resolved in any case: season and
-year, which **cannot be resolved in this study area**, an unfixed population, and a positive-block
-count below this design's own floor (Appendix C.5(ii)). With one fire per region everywhere else and
-the one place-fixed arm withdrawn, **this cohort provides no evidence that the transfer shortfall is
-regional rather than event-specific**. Appendix A(t) adds a length scale for the within-region decay
-but cannot turn it into an attribution either.
+instability. **We designed the two-Muğla-events arm to answer that objection and it does not answer
+it**: Section 4.4 shows it is the most extreme frame artefact in the cohort. Three further confounds
+were never resolved in any case: season and year, which **cannot be resolved in this study area**, an
+unfixed population, and a positive-block count below this design's own floor (Appendix C.5(ii)). With
+one fire per region everywhere else and that arm withdrawn, **this cohort provides no evidence that
+the transfer shortfall is regional rather than event-specific**. Appendix A(t) adds a length scale
+for the within-region decay but cannot turn it into an attribution either.
 
 One conclusion survives from the other direction: the static baseline transfers no better than the
 dynamic block, so whatever the shortfall is, it is not the thermal block's peculiarity.
@@ -44,24 +41,22 @@ dynamic block, so whatever the shortfall is, it is not the thermal block's pecul
 A diagnostic built on distance in predictor space asks whether the target's predictor values look
 like the training data's, which is not the question that matters when the failure is conditional: a
 target region can sit well inside the training envelope while the relationship between those
-predictors and burning points the other way. Manavgat to Muğla is exactly that
-case, with 0.875 of target cells inside the full-frame area of applicability and transfer among the
-weakest in the matrix **on either frame**, while the least similar pair transfers better
-(Appendix A(s)). High
-overlap does not buy transfer. **The qualifier is not decorative**: at the 5 km blocking this paper
-otherwise defends neither contrasted direction carries a verdict, so this is a statement about point
-estimates and is made as one. The domain classifier is at ceiling for every pair, so
-separability carries no ordering information.
+predictors and burning points the other way. Manavgat to Muğla is exactly that case,
+with 0.875 of target cells inside the full-frame area of applicability and transfer among the weakest
+in the matrix **on either frame**, while the least similar pair transfers better (Appendix A(s)).
+High overlap does not buy transfer. **The qualifier is not decorative**: at the 5 km blocking this
+paper otherwise defends neither contrasted direction carries a verdict, so this is a statement about
+point estimates. The domain classifier is at ceiling for every pair, so separability carries no
+ordering information either.
 
 The two conditional variants that did clear zero are not a remedy. Section 4.6 states four limits
 with them: a tie-structure ceiling and a family-wise threshold **no outcome could have cleared**, a
 label requirement that makes it a mechanism diagnosis rather than a screen, a feature subset selected
 on the same data, and the frame, which removes the result altogether — the index is built from signed
-associations Section 4.4 shows to be frame artefacts. So the practical
-conclusion is not "use this index instead", nor even "it works but needs labels": **none of the
-twenty candidates was shown to order transfer**, and the two that appeared to were reading how the
-rectangles were drawn. As always these are nulls on ten effective pairs: not shown to order
-transfer, rather than shown incapable of it.
+associations Section 4.4 shows to be frame artefacts. So the practical conclusion is not "use this index
+instead", nor even "it works but needs labels": **none of the twenty candidates was shown to order
+transfer**, and the two that appeared to were reading how the rectangles were drawn — nulls on ten
+effective pairs, not shown to order transfer rather than shown incapable of it.
 
 ## 5.4 What the two interventions do and do not show
 
@@ -103,24 +98,24 @@ travel either.
 
 ## 5.7 Implications
 
-In precision-recall terms, which is how a susceptibility surface is used, transferred models average a PR-AUC of 0.156 against a no-skill
-baseline of 0.136 **on the frames as drawn**, six of twenty falling below their own baseline
-(Section 4.5). Whatever the ROC figures suggest, a model moved to a region it was
-not fitted in does not usefully rank burned cells there.
+In precision-recall terms, which is how a susceptibility surface is used, transferred models average
+a PR-AUC of 0.156 against a no-skill baseline of 0.136 **on the frames as drawn**, six of twenty
+falling below their own baseline (Section 4.5). Whatever the ROC figures suggest, a model moved to a
+region it was not fitted in does not usefully rank burned cells there.
 
 The paper supports one concrete change in reporting: alongside a spatially blocked within-region
 figure, report skill on a held-out burn scar and its surroundings. On these five regions the two
 differ by about 0.14 ROC-AUC on the same model, the size of the effect such papers usually claim, so
-a blocked figure alone should be read as an upper bound. Transfer skill likewise has to be *measured*
-rather than inferred from similarity, since the diagnostics used for that inference did not order it
-here. Where a model must be moved, the resource that closes the gap is target labels, priced in
-Appendix A(u): a real answer, but not a cheap one.
+**a blocked figure alone should be read as an upper bound**. Transfer skill likewise has to be
+*measured* rather than inferred from similarity, since the diagnostics used for that inference did
+not order it here, and where a model must be moved the resource that closes the gap is target labels
+(Appendix A(u)): a real answer, but not a cheap one.
 
-For method development, the results bound what unsupervised alignment can be asked to do. Even the
-oracle selection — which uses the target labels the protocol forbids — only reaches the reference a
-model can reach on an unseen scar (Section 4.5). Alignment is not failing far below an achievable target;
-it is regressing the matrix onto it, at the cost of the directions that already worked. A sign
-reversal is not a distribution mismatch that realigning inputs repairs.
+The results also bound what unsupervised alignment can be asked to do. Even the oracle selection,
+which uses the target labels the protocol forbids, only reaches the reference a model can reach on an
+unseen scar (Section 4.5). Alignment is not failing far below an achievable target; it is regressing
+the matrix onto it, at the cost of the directions that already worked. A sign reversal is not a
+distribution mismatch that realigning inputs repairs.
 
 ## 5.8 Limitations
 
