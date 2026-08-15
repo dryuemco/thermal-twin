@@ -104,7 +104,7 @@ would support more reversals than the three listed here.
 ROC-AUC is reported throughout the main text for comparability with the susceptibility literature.
 A susceptibility surface is used as a ranked area budget, so precision-recall is the operational
 quantity, and at target prevalences of 3.8 to 28.7 % the two can differ sharply. Read from the same
-frozen step9b exports as Table 5.
+frozen step9b exports as Table 9.
 
 **Table B4. Thermal transfer, PR-AUC against the no-skill baseline.** The baseline is the target's
 burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random

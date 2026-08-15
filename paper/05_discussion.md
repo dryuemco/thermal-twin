@@ -77,8 +77,7 @@ whether or not their transfer works, so separability carries no ordering informa
 
 ## 5.4 What the conditional diagnostic is, and what it is not
 
-The sign-agreement index was the paper's one diagnostic with an interval excluding zero, and Section
-4.5 states three limits with the result: it sits essentially on its own tie-structure ceiling, it
+The sign-agreement index was the paper's one diagnostic with an interval excluding zero, and Section 4.6 states three limits with the result: it sits essentially on its own tie-structure ceiling, it
 could not have cleared family-wise correction on ten effective pairs whatever it returned, and its
 feature subset is chosen on the same data, its all-nine-feature counterparts spanning zero. A fourth
 is that signed associations need burned labels in both regions, so it is a mechanism diagnosis
