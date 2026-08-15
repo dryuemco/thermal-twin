@@ -30,13 +30,13 @@ Where a fire model is scored decides what it appears to know. Holding the model,
 its fitting fixed and changing only which cells are scored, moving from a whole study region to the
 burn scar and its 2 km collar costs **0.143 ROC-AUC**. A control isolates the cause as the
 composition of the negative pool rather than class balance. The effect is the size of the
-predictor-block increments this literature publishes as findings, so a region-wide validation figure
+predictor-block increments this design itself measures, so a region-wide validation figure
 should be read as an upper bound on what a model achieves where fire actually occurs, and reported
 as one.
 
 That correction is not only other people's problem. Applied to our own five-region matrix it
 withdraws five of our claims. The study areas enclose very unequal far fields, and equalising them
-to a 10 km collar lifts mean transfer from 0.540 to 0.617, reduces the
+to a 10 km collar lifts mean transfer from 0.541 to 0.616, reduces the
 directions below chance, and leaves no sign reversal supported between regions under our own
 criterion — including the one arm that held place fixed, two fires in the same study area eleven
 months apart, which we had wrongly exempted because its geography was constant while its evaluation
@@ -48,7 +48,7 @@ rectangles were drawn.
 What survives is the central result. Pre-fire thermal dryness adds a real and repeatable
 within-region increment in all five regions, surviving spatial blocking at about 5 km and a
 predictor window closed up to two weeks before the first labelled burning. It does not travel: on
-matched frames and matched blocking, equalised transfer of 0.617 falls 0.155 short of the
+matched frames and matched blocking, equalised transfer of 0.616 falls 0.155 short of the
 within-region reference, the paired cross-region contribution spans zero with a sign that varies by
 pair, and the static baseline transfers no better than the dynamic one on either frame, so this is not a
 peculiarity of thermal predictors. The shortfall also cannot be anticipated: none of twenty diagnostics from

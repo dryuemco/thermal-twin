@@ -66,25 +66,25 @@ transfer, rather than shown incapable of it.
 ## 5.4 What the two interventions do and do not show
 
 Both interventions show the same shape. Pooling four regions never beats the best single-source
-transfer for any target and stays well below the within-region ceiling (Appendix A(n)), so
-aggregation does not manufacture the missing conditional information. Removing the reversing
+transfer for any target and stays well below the within-region ceiling (Appendix A(n)), so it does
+not manufacture the missing conditional information. Removing the reversing
 predictors costs −0.081 of within-region skill with interval support in every region, and returns
 +0.014 [−0.017, +0.045] in mean transfer.
 
 That pair of numbers is easy to read as an exchange, and it is not one. Both arms are null on the
 portability axis — the thermal block's own contribution is +0.004, removal returns +0.014, both
-intervals spanning zero — so what the interventions measure is a local cost and no compensating
-gain. That is not a conservation law, and it is not a rate at which local
-skill can be sold for portability. No such rate is estimated here.
+intervals spanning zero — so they measure a local cost and no compensating gain. That is not a
+conservation law and not a rate at which local skill can be sold for portability; no such rate is
+estimated here.
 
 ## 5.5 The regime hypothesis, reported as it happened
 
-A regime-structure explanation was stated in advance and the data confirmed the null. The
+A regime-structure explanation was stated in advance and the data confirmed the null: the
 regime-distance correlation has the wrong sign at the point estimate, the most regime-similar pair
-fails in both directions, and the most regime-different pair transfers above chance. One mundane
-explanation can be set aside: subsampling Muğla, by far the largest population, to Manavgat's cell
-count and separately to its positive count leaves its transfer behaviour inside the subsampling
-range in both roles. The error was in the hypothesised grouping, not in the data, and with ten pairs
+fails in both directions, and the most regime-different pair transfers above chance. One mundane explanation
+can be set aside: subsampling Muğla, much the largest population, to Manavgat's cell count and
+separately to its positive count leaves its transfer behaviour inside the subsampling range in both
+roles. The error was in the hypothesised grouping, not in the data, and with ten pairs
 this cannot refute regime typology [@Archibald2013] in general.
 
 ## 5.6 The empirical contrast with Dimarco et al.
@@ -111,30 +111,27 @@ not fitted in does not usefully rank burned cells there.
 The paper supports one concrete change in reporting: alongside a spatially blocked within-region
 figure, report skill on a held-out burn scar and its surroundings. On these five regions the two
 differ by about 0.14 ROC-AUC on the same model, the size of the effect such papers usually claim, so
-a blocked figure alone should be read as an upper bound. Transfer skill likewise has to be
-*measured* rather than inferred from similarity, since the diagnostics used for that inference did
-not order it here. Where a model must be moved, the resource that closes the gap is target labels,
-priced in Appendix A(u): a real answer, but not a cheap one, and drawn from the event being
-predicted.
+a blocked figure alone should be read as an upper bound. Transfer skill likewise has to be *measured*
+rather than inferred from similarity, since the diagnostics used for that inference did not order it
+here. Where a model must be moved, the resource that closes the gap is target labels, priced in
+Appendix A(u): a real answer, but not a cheap one.
 
 For method development, the results bound what unsupervised alignment can be asked to do. Even the
 oracle selection — which uses the target labels the protocol forbids — only reaches the reference a
-model can reach on an unseen scar (Section 4.5). Alignment is not failing far below an achievable
-target; it is regressing the matrix onto it, which costs the directions that already worked. A sign
+model can reach on an unseen scar (Section 4.5). Alignment is not failing far below an achievable target;
+it is regressing the matrix onto it, at the cost of the directions that already worked. A sign
 reversal is not a distribution mismatch that realigning inputs repairs.
 
 ## 5.8 Limitations
 
 Eleven limitations are stated in full in Appendix C.5; four bind the conclusions above. **The frames
 are not comparable and this cohort cannot fully repair it** (Section 4.4): the collar radius is
-itself a choice — 5 km and 10 km give 0.608 against 0.617 — and the frames were fixed upstream, so
-we can restrict them but not extend them. Any future cohort should fix the frame
-by an explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that
-as the main design lesson of this paper. **Each region contributes one fire season**, so regional
+itself a choice — 5 km and 10 km give 0.608 against 0.616 — and the frames were fixed upstream, so
+we can restrict them but not extend them. Any future cohort should fix the frame by an explicit
+accessible-area rule [@Barve2011] before any predictor is computed; that is the main design lesson
+of this paper. **Each region contributes one fire season**, so regional
 concept shift is confounded with event meteorology and the shortfall cannot be attributed to region
-rather than event (Section 5.2). **The diagnostic correlations rest
-on an effective sample of ten region pairs**, so both the successes and failures of Section 4.6 read
-at that power. And **the interval-support counts are less stable than the point
-estimates behind them**: the published split turns on a lower bound of −0.00045. The remaining seven — from the absent meteorological
-covariates to the single classifier family, whose capacity sweep is in Appendix A(h) — bear on
-scope rather than on the conclusions above.
+rather than event (Section 5.2). **The diagnostic correlations rest on an effective sample
+of ten region pairs**, so Section 4.6's successes and failures both read at that power. And **the interval-support counts are less stable than the point
+estimates behind them**: the published split turns on a lower bound of −0.00045. The remaining seven, from the absent meteorological covariates
+to the single classifier family (Appendix A(h)), bear on scope rather than on the conclusions above.

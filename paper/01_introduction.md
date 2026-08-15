@@ -103,9 +103,9 @@ every interval.
 
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
-species distribution modelling (Section 2.5); what is new is a magnitude under a controlled design.
+species distribution modelling (Section 2.4); what is new is a magnitude under a controlled design.
 Holding the model, predictors and fitting fixed and changing only which cells are scored costs
-**0.143 ROC-AUC** — the size of the increments this literature publishes as findings — with the
+**0.143 ROC-AUC** — the size of the increments this design measures for a predictor block — with the
 cause isolated to the composition of the negative pool rather than class balance (Section 4.3).
 Applied between regions it withdraws five claims of our own, including the sign reversal we had
 offered as the mechanism and the one arm that held place fixed (Section 4.4). The practical
@@ -136,8 +136,7 @@ covariance alignment [@Sun2016] does not repair transfer, in what we believe is 
 to fire susceptibility; and because the residual is conditional, the resource that closes it is
 target labels, priced in Appendix A(u).
 
-A leakage-audited, spatially blocked evaluation and transfer protocol is released with code,
-configuration and frozen outputs, so most of this result can be re-run rather than taken on trust;
-the one exception, the reproduction-check code, is named in the availability statement. That matters
-given evidence that wildfire transfer conclusions are sensitive to evaluation design [@Xu2026]. A
-companion paper treats the observational layer beneath this one.
+The leakage-audited, spatially blocked protocol is released with code, configuration and frozen
+outputs, so most of this can be re-run rather than taken on trust; the one exception is named in the
+availability statement. That matters given evidence that wildfire transfer conclusions are sensitive
+to evaluation design [@Xu2026]. A companion paper treats the observational layer beneath this one.

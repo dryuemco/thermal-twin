@@ -37,13 +37,13 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 267
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 302
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 319
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 346
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 427
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 492
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 545
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 657
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 890
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1122
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 347
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 428
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 493
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 546
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 658
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 907
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1139
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
@@ -116,8 +116,8 @@ converter made is listed so it can be reviewed.
 - : 10 cols, est. width 176 chars -> scriptsize, 3 wrapping
 - : 3 of 10 columns wrap (widest cell 27 chars)
 - : 4 cols, est. width 89 chars -> footnotesize
-- : 3 cols, est. width 73 chars -> small, 1 wrapping
-- : 1 of 3 columns wrap (widest cell 27 chars)
+- : 3 cols, est. width 86 chars -> small, 1 wrapping
+- : 1 of 3 columns wrap (widest cell 41 chars)
 - : 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
 - : 5 of 5 columns wrap (widest cell 49 chars)
 - Few-shot recovery of target ROC-AUC, thermal: 10 cols, est. width 100 chars -> footnotesize

@@ -183,7 +183,7 @@ leans on an exact count of supported directions should be read at that precision
 (x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it**
 (Section 4.4). We report the equalised arm alongside the frame-as-drawn arm rather than replacing one
 with the other, because the collar radius is itself a choice and 5 km and 10 km do not agree exactly
-(0.608 against 0.617). The deeper limitation is that the frames were fixed upstream of this work, in
+(0.608 against 0.616). The deeper limitation is that the frames were fixed upstream of this work, in
 `repo/`, so we can restrict them but not extend them; a region whose rectangle is already fire-scale,
 Montiferru, cannot be given a far field for symmetry. Any future cohort should fix the frame by an
 explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
