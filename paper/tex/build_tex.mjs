@@ -156,7 +156,21 @@ function collectTableLabels(files) {
 class Vault {
   constructor() { this.items = []; }
   put(tex) { this.items.push(tex); return `\u0000${this.items.length - 1}\u0000`; }
-  restore(s) { return s.replace(/\u0000(\d+)\u0000/g, (_, i) => this.items[+i]); }
+  // Vaulted items can hold vault tokens of their own: a footnote is vaulted
+  // whole, and the citations inside it were vaulted first. One pass leaves the
+  // inner tokens unsubstituted, because they enter the string only after the
+  // scan has passed that point, and they reach the .tex as raw NUL bytes.
+  // Repeat until the string stops changing; the bound is a guard, not a limit
+  // any real document approaches.
+  restore(s) {
+    for (let pass = 0; pass < 8; pass++) {
+      const next = s.replace(/\u0000(\d+)\u0000/g, (_, i) => this.items[+i]);
+      if (next === s) return s;
+      s = next;
+    }
+    note('review', 'VAULT TOKENS LEFT UNRESOLVED AFTER 8 PASSES');
+    return s;
+  }
 }
 
 // ------------------------------------------------------------ inline markup --
@@ -244,6 +258,12 @@ function inline(src, vault) {
     }
     return 'Table~' + vault.put('\\ref{tab:' + n + '}');
   });
+
+  // 4b. Straight double quotes render as right-hand quotes at both ends, so an
+  //     opening quote comes out backwards. Convert balanced pairs to the LaTeX
+  //     forms. Code spans and anything else already vaulted are untouched,
+  //     since the vault token carries no quote characters.
+  s = s.replace(/"([^"]*)"/g, (_, inner) => '``' + inner + "''");
 
   // 5. Bold / italic.
   s = s.replace(/\*\*([^*]+)\*\*/g, (_, t) => '\\textbf{' + t + '}');
@@ -383,7 +403,12 @@ function convertBody(md, opts = {}) {
   // \footnote{} at its point of use. A footnote left behind would be silently
   // escaped into "[\textasciicircum{}id]" and its text stranded as a paragraph.
   const footnotes = new Map();
-  md = md.replace(/^\[\^([^\]]+)\]:\s*([\s\S]*?)(?=\n\s*\n|\n\[\^|$)/gm, (_, id, text) => {
+  // The end anchor must mean end of FILE, not end of line. Under /m a bare $
+  // matched the first line break, so a footnote written across several lines was
+  // captured only as far as its first line: the rest stayed in the Markdown and
+  // was typeset as a stray paragraph with no subject, and the footnote itself
+  // ended mid-sentence. $(?![\s\S]) is end-of-input even with /m set.
+  md = md.replace(/^\[\^([^\]]+)\]:\s*([\s\S]*?)(?=\n\s*\n|\n\[\^|$(?![\s\S]))/gm, (_, id, text) => {
     footnotes.set(id, text.replace(/\s*\n\s*/g, ' ').trim());
     note('footnote', `definition [^${id}] captured (${text.trim().length} chars)`);
     return '';
@@ -662,7 +687,10 @@ const preamble = `% ============================================================
 % the wrong directory, and l-columns that cannot wrap, which ran the widest
 % table 763pt past the margin. See build_report.md.
 % =============================================================================
-\\documentclass[preprint,review,12pt]{elsarticle}
+\%% authoryear is required by elsarticle-harv. Without it \citep printed a
+%% bracketed number while the reference list stayed alphabetical author-year,
+%% so the in-text numbers ran 29, 42, 14 with nothing to match them against.
+\\documentclass[preprint,review,authoryear,12pt]{elsarticle}
 
 \\usepackage[utf8]{inputenc}
 \\usepackage[T1]{fontenc}

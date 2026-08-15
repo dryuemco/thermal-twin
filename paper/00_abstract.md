@@ -131,5 +131,5 @@ supported under our own criterion, though the LST anomaly still differs on a dif
 is withheld and +0.004 [−0.028, +0.036] across twenty transfer directions, with a sign that varies
 by pair. The static baseline transfers no better, at 0.537 against 0.541, and equalised transfer sits 0.155 below a
 matched within-region reference. Of twenty candidate diagnostics from five families, none was shown to order
-transfer, and the two that appeared to need target labels. Transfer skill has to be
+transfer, and the two that appeared to do so need target labels in both regions. Transfer skill has to be
 measured, not inferred from similarity.
