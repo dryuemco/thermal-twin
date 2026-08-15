@@ -185,3 +185,44 @@ with the other, because the collar radius is itself a choice and 5 km and 10 km 
 Montiferru, cannot be given a far field for symmetry. Any future cohort should fix the frame by an
 explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
 main design lesson of this paper.
+
+## 3.14 Leakage control
+
+An explicit forbidden-column set is enforced at every model fit. Coordinates (`lon`, `lat`, `row`,
+`col` and their normalised forms), every burn-date and label-provenance column, and the agreement
+fraction are excluded from all feature sets, and the enforcement runs as an assertion rather than a
+convention. The natural-vegetation mask is used only to define the population, never as a predictor.
+Spatial blocking prevents a cell from sharing a fold with its own neighbours.
+
+**Reproducibility.** All randomness uses seed 42 and the bootstrap uses 1000 replicates throughout.
+The transfer and adaptation analysis runs in an environment separate from the upstream pipeline's.
+Every within-region model was therefore refitted there and compared against the frozen upstream
+output, and the independently implemented adaptation was compared against the pipeline's own. The
+within-region comparisons agree exactly and the twenty transfer directions to within
+1.6×10⁻⁷. All numbers here were produced under scikit-learn 1.9.0 or verified against it; the
+implementation tolerance that applies if the version is not fixed is stated in Section 5.9(vi), and
+the companion paper reports the version sensitivity and the reproduction check in full.
+
+**Sensitivity analyses.** Every headline result is repeated across two analysis populations, three
+spatial-block sizes, the CORAL sweep, both feature sets and four classifier capacities; where a
+conclusion depends on one of those choices the dependence is reported rather than resolved by
+choosing the favourable setting (Appendix A).
+
+## 3.10 Transfer-gap decomposition and the concept-shift diagnostic
+
+For each direction the gap between the target's own within-region skill and the raw transfer result
+is split in two. One part is what the best label-free adaptation recovers, and the other is what it
+does not. The recovered fraction is (adapted − raw) / (within − raw), signed and unclipped, with its interval
+from the same paired bootstrap; it bounds what covariate-level correction can achieve. Section 4.3
+shows the remainder should not be read as a conditional residual, because much of it is incurred
+inside a single region (Appendix A(j)).
+
+The mechanism is diagnosed by **signed univariate association**. For each numeric predictor the raw
+ROC-AUC of that predictor against `burned` is computed in each region and never folded to
+max(AUC, 1 − AUC), so a value below 0.5 is read as a direction rather than as weakness. A reversal is
+called bootstrap-supported only when the two regions' point estimates fall on opposite sides of 0.5
+**and each region's own interval excludes 0.5**, under the same 10-cell spatial-block bootstrap.
+That is stricter than requiring the two regions' intervals to be disjoint: a feature whose intervals
+are disjoint but one of which straddles 0.5 has not been shown to point anywhere in that region, so
+it is recorded as a point reversal only. Appendix B states the rule again beside the counts, and
+`conditional_similarity_transfer.json` carries it as machine-readable metadata.
