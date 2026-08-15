@@ -241,7 +241,7 @@ central negative result, and its size must be stated on a matched comparison: se
 a within-region reference of about 0.87 would compare a collar number with a full-rectangle one at
 1 km blocking. Recomputed on the same frame at 5 km blocking that reference is 0.772, so the
 shortfall is **+0.155 [+0.094, +0.217]** paired by target region — real, and 0.155 rather than the
-0.25 an unmatched comparison implies, and shrinking as the frame approaches the fire. Section 5.9(x)
+0.25 an unmatched comparison implies, and shrinking as the frame approaches the fire. Section 5.8(x)
 records the frame as a limitation of this cohort rather than of the method.
 
 ## 4.5 Cross-region transfer, and what label-free adaptation does to it

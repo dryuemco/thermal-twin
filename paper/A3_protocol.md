@@ -135,7 +135,7 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
 
 ## C.5 Limitations, in full
 
-Section 5.9 states each limitation; the elaborations are here.
+Section 5.8 states each limitation; the elaborations are here.
 
 (i) **No meteorological covariates** enter the models, so we cannot say how local skill and
 portability behave for a mixed thermal-plus-weather predictor set.
@@ -186,6 +186,14 @@ Montiferru, cannot be given a far field for symmetry. Any future cohort should f
 explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
 main design lesson of this paper.
 
+(xi) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
+configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows the transfer result is not an artefact of that
+choice: three further estimators, including a penalised linear one, all land between 0.510 and 0.556
+and all place fourteen of twenty directions above chance. Those are point estimates without
+intervals, so the ordering among them is not claimed as a result. Other model families were not
+tried, and a different inductive bias might behave differently, but within this family the negative
+result is a property of the predictors rather than of an unregularised estimator.
+
 ## C.6 Leakage control and reproducibility, in full
 
 An explicit forbidden-column set is enforced at every model fit. Coordinates (`lon`, `lat`, `row`,
@@ -200,7 +208,7 @@ Every within-region model was therefore refitted there and compared against the 
 output, and the independently implemented adaptation was compared against the pipeline's own. The
 within-region comparisons agree exactly and the twenty transfer directions to within
 1.6×10⁻⁷. All numbers here were produced under scikit-learn 1.9.0 or verified against it; the
-implementation tolerance that applies if the version is not fixed is stated in Section 5.9(vi), and
+implementation tolerance that applies if the version is not fixed is stated in Section 5.8(vi), and
 the companion paper reports the version sensitivity and the reproduction check in full.
 
 **Sensitivity analyses.** Every headline result is repeated across two analysis populations, three

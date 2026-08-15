@@ -141,8 +141,8 @@ These are stated so the analysis is not read as more than it is.
    upper-budget intervals therefore reflect a saturated selection pool, not a well-estimated
    quantity, and the top budget is not a small budget for these AOIs: 880 of Bejís's 1,100 burned
    cells are inside it.
-5. **The ceiling is the 10-cell-block target-only value**, not the ≈ 1 km within-region headline of
-   Table 1, and is correspondingly lower (0.777 to 0.824 against 0.859 to 0.918). Recovery fractions are
+5. **The ceiling is the 10-cell-block target-only value**, not the ≈ 1 km within-region headline reported
+   in the main paper, and is correspondingly lower (0.777 to 0.824 against 0.859 to 0.918). Recovery fractions are
    only interpretable against this matched-blocking ceiling.
 6. **Ceiling reproduction verified for all three targets.** Manavgat, Bejís and Muğla all reproduce
    the frozen large-block artefacts exactly, at an absolute difference of 0.0 against a 10⁻⁹

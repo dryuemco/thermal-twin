@@ -17,7 +17,7 @@ negative class, and not tuned on burned prevalence, gate outcome or any model me
 choice was label-informed and is stated as such**: the North Evia box was extended after the legacy
 box was found to carry an atypically high burned prevalence, the extended geometry then being defined
 from place anchors, with the legacy variant kept as a sensitivity arm (Appendix A). Section 4.4 shows
-that this framing decision is consequential and Section 5.9(x) treats it as the design lesson of the
+that this framing decision is consequential and Section 5.8(x) treats it as the design lesson of the
 paper. A sixth region, Kozan 2023, is carried as a negative control and excluded by the gate of
 Section 3.3.
 
@@ -64,7 +64,7 @@ baseline at the same cell, the Temperature-Vegetation Dryness Index and its diff
 baseline, and two coordinate-informed products, a downscaled and a fused surface temperature. The
 two internally differenced channels are the ones constructed to isolate the dynamic anomaly. TVDI's
 wet and dry edges are percentiles of the values a given area and window happen to contain, so it is
-not portable as a physical quantity independently of any concept shift; Section 5.9 carries the
+not portable as a physical quantity independently of any concept shift; Section 5.8 carries the
 consequence. Provenance, compositing and the downscaler are in Appendix C.
 
 ## 3.5 Cell aggregation, validity and analysis populations
@@ -191,7 +191,7 @@ the agreement fraction are excluded from all feature sets. The natural-vegetatio
 population and is never a predictor. All randomness uses seed 42 and the bootstrap 1000 replicates.
 Because the transfer analysis runs in an environment separate from the upstream pipeline's, every
 within-region model was refitted and compared against the frozen upstream output: the within-region
-comparisons agree exactly and the twenty transfer directions to within 1.6×10⁻⁷. Section 5.9(vi)
+comparisons agree exactly and the twenty transfer directions to within 1.6×10⁻⁷. Section 5.8(vi)
 states the implementation tolerance that applies if the library version is not pinned. Every
 headline result is repeated across two populations, three block sizes, the CORAL sweep, both feature
 sets and four classifier capacities, and where a conclusion depends on one of those choices the
