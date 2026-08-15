@@ -32,7 +32,7 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in 04_results near md line 459
 - TABLE WITHOUT CAPTION in 04_results near md line 561
 - TABLE WITHOUT CAPTION in 04_results near md line 578
-- TABLE WITHOUT CAPTION in 04_results near md line 599
+- TABLE WITHOUT CAPTION in 04_results near md line 627
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 92
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 127
