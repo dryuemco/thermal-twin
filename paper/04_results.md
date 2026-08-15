@@ -106,7 +106,7 @@ region's negatives include its easy far field. The burned fraction, 34 to 87 % a
 for a region, is a symptom of that construction, and ROC-AUC is in any case invariant to class
 balance at fixed class-conditional distributions.
 
-**Table 5. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
+**Table 4. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
 Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make
 the mismatch visible. Means and Student *t* intervals are over the eight held-out scars.
 
@@ -221,7 +221,7 @@ stays far below that target's own within-region thermal performance of 0.870. Ac
 the raw deficit against the within-region reference is 0.184 to 0.592 AUC. That reference is a
 region-level blocked estimate; the controls below show it is not matched to a transfer evaluation.
 
-Those counts belong to the 2-cell blocking of Table 4. At the more conservative 10-cell blocking the
+Those counts belong to the 2-cell blocking of Table 5. At the more conservative 10-cell blocking the
 same points give 9 above, 4 below and 7 uncertain, and no direction changes side of the chance line
 (Section 4.8). Four of the six below-chance directions keep their support there. Bejís to Manavgat
 and Manavgat to Muğla lose it and carry no verdict. The qualitative statement is unchanged. The
@@ -281,7 +281,7 @@ should carry that forward through the intervening sections, whose reversal evide
 the frames as drawn. Per-split
 and per-scar detail is in Appendix A(i).
 
-**Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
+**Table 5. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
 spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise z-scoring (λ =
 10⁻⁵).
 
@@ -323,7 +323,7 @@ within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered
 − raw)/(within − raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru
 directions are not part of this decomposition (per-pair absolute decompositions exist without
 fraction CIs). The status column asks whether the *adapted* value clears chance and uses the 2-cell
-adapted intervals of Table 4. The adapted arms were not recomputed at the coarser blocking of
+adapted intervals of Table 5. The adapted arms were not recomputed at the coarser blocking of
 Appendix A(c), which covers the raw arm and the paired delta only.
 
 | Direction | Within | Raw | Best adapted (method) | Recovered fraction [CI] | Status |
@@ -416,7 +416,7 @@ The marginal, applicability, climatic and geographic rows sit on twelve directio
 diagnostics exist only for the four-region subset. The supported-conditional rows sit on sixteen and
 the rest on twenty. A reader may reasonably ask whether the marginal family's failure is a statement
 about power rather than about diagnostics. Every row was therefore recomputed on the common twelve
-directions. The published values reproduce to 4.9 × 10⁻⁵. The conditional rows still lead, at +0.87
+directions. The published values reproduce to 4.8 × 10⁻⁵. The conditional rows still lead, at +0.87
 [+0.65, +0.88] and +0.85 [+0.43, +0.88], and every marginal row still spans zero. The ordering is not
 an artefact of unequal samples.
 
@@ -571,7 +571,7 @@ claim. This section reports that test. Source: `aoi_frame_auc.csv`, `aoi_frame_t
 **The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
 fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose.
 
-**Table 10. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
+**Table 9. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
 population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell.
 Source `aoi_frame_auc.csv`; recomputable by `paper/code/verify_aoi_frame.py`.
 
@@ -591,7 +591,7 @@ the burned cells themselves, in Taurus terrain that no plausible spread model wo
 **Under an equalised frame the sign reversals of Section 4.6 do not survive.** Restricting every
 region to cells within 10 km of any burned cell drops **no positives**, only far-field negatives.
 
-**Table 11. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
+**Table 10. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
 intervals that decide the reversal question are given in the text below and in
 `collar_frame_bootstrap.csv` (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to
 max(AUC, 1 − AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned
@@ -644,7 +644,7 @@ out of exactly the signed AUCs this section has just shown to be frame artefacts
 correlated against transfer measured on the same unequal frames. Recomputing both sides under the
 10 km collar (`diagnostics_collar_frame.csv`, `paper/code/verify_diag_collar.py`):
 
-**Table 12. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
+**Table 11. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
 ρ against target ROC-AUC over the ordered directions in which the diagnostic is defined. Source
 `diagnostics_collar_frame.csv`; recomputable by `paper/code/verify_diag_collar.py`.
 
@@ -684,22 +684,22 @@ without licensing a claim that any survived.
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
-**Table 9. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
+**Table 12. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
 population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
-the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on the target as Table 4,
+the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on the target as Table 5,
 1000 replicates, seed 42. Per-direction bounds are in `aoi_frame_transfer.csv`.
 
 | Source frame | Target frame | Mean target AUC | Above chance | Below chance | Supported above / below | Paired thermal delta |
 |---|---|---:|---:|---:|---:|---:|
-| full | full (**Table 4**) | 0.540 | 14 of 20 | **6** | 9 / **4** | +0.003 |
+| full | full (**Table 5**) | 0.540 | 14 of 20 | **6** | 9 / **4** | +0.003 |
 | full | 10 km | 0.575 | 17 of 20 | 3 | 11 / 1 | +0.002 |
 | 10 km | full | 0.571 | 17 of 20 | 3 | 11 / 3 | +0.014 |
 | **10 km** | **10 km** | **0.617** | **19 of 20** | **1** | **15 / 1** | **+0.023** |
 | 5 km | 5 km | 0.608 | 18 of 20 | 2 | 12 / 0 | +0.014 |
 
-The reference arm reproduces the frozen matrix, at 0.540 against Table 4's 0.541 and 14 of 20
+The reference arm reproduces the frozen matrix, at 0.540 against Table 5's 0.541 and 14 of 20
 exactly, so this is measuring the same quantity. The above- and below-chance counts in this table
-are point counts. Under the same 10-cell block bootstrap used for Table 4, at 1000
+are point counts. Under the same 10-cell block bootstrap used for Table 5, at 1000
 replicates, the full frame gives nine directions above chance and four below with interval support,
 and the collar frame fifteen above and one below, so the headline movement is six to one at the
 point estimate and **four to one with interval support** (`aoi_frame_transfer.csv`, which carries

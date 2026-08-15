@@ -68,23 +68,15 @@
                     country={T\"urkiye}}
 
 \begin{abstract}
-Pre-fire thermal dryness separates a fire year from a normal year, but models built on it are rarely tested outside the region where they were fitted. Five Mediterranean wildfire regions were analysed on about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six thermal predictors to a terrain, fuel and greenness baseline.
-
-\textbf{Local skill does not travel, and most of it is lost before the region changes.} Within-region ROC-AUC rose by +0.056 to +0.153 under blocked cross-validation, but by +0.022 [$-$0.032, +0.077] when a whole burn scar is withheld, and by +0.004 [$-$0.028, +0.036] across twenty transfer directions, with a sign that changes from pair to pair. The static baseline transferred no better, 0.537 against 0.541, so this is not a property of the dynamic block. On \textbf{identical cells}, a model holding the held-out scar scores 0.634, one without it 0.552 and one fitted 306 to 2,802 km away 0.555, so neither withholding the fire nor crossing the region is shown to cost anything. What is measurable is the evaluation area itself, worth \textbf{0.143 [+0.077, +0.208]} of the fall from a region-wide 0.776, because its negatives are all fire-adjacent and therefore the hardest in the region.
-
-\textbf{The failure cannot be anticipated.} Of twenty candidate diagnostics only two had intervals excluding zero, both measuring sign agreement over a selected feature subset (rho = 0.84, post-selection). Recomputed on the equalised frame that statistic is unanimous and has no variance left, and its continuous counterpart falls from rho = 0.50 to 0.12, so no diagnostic tested here was shown to order transfer once the frames are comparable.
-
-\textbf{Most of the apparent mechanism is an artefact of the evaluation frame.} Five predictors reverse direction between regions on the frames as drawn, but those frames enclose very different far fields, from 2 \% to 63 \% of cells beyond 10 km of any fire, on higher ground. A 10 km collar, which drops no burned cells, makes all five agree in sign on elevation, LST and TVDI, lifts transfer from 0.540 to 0.617, drops the directions below chance from six to one, and leaves no reversal bootstrap-supported under our own criterion. The agreed sign is not the one the dryness framing predicts: hotter surfaces burned less everywhere, surviving stratification within elevation and greenness.
-
-Label-free alignment pushed fourteen of twenty directions towards chance rather than repairing them. Transfer skill has to be measured, not inferred from similarity.
+Pre-fire thermal dryness separates a fire year from a normal year, but models built on it are rarely tested outside the region where they were fitted. Five Mediterranean wildfire regions were analysed on about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six thermal predictors to a terrain, fuel and greenness baseline. The first result is about \textbf{evaluation geometry}: holding the model, its predictors and its fitting fixed and changing only which cells are scored, moving from the whole region to the burn scar and its 2 km collar costs \textbf{0.143 ROC-AUC [+0.077, +0.208]}, which exceeds the predictor-block increments this literature reports as findings. A control isolates the cause as the composition of the negative pool rather than class balance: matching prevalence costs $-$0.000 [$-$0.003, +0.002] while substituting fire-adjacent negatives costs +0.155 [+0.093, +0.217]. Applied between regions the same effect withdrew three of our own claims. The five study areas enclose very unequal far fields, and restricting each to a 10 km collar, which drops no burned cells, lifts mean transfer from 0.540 to 0.617, leaves no sign reversal bootstrap-supported, and makes the surviving agreed direction the opposite of the one dryness physics predicts, hotter pre-fire surfaces having burned less in every region even within elevation and greenness strata. Local skill nonetheless does not travel: the thermal block adds +0.056 to +0.153 within regions under blocked cross-validation but +0.022 [$-$0.032, +0.077] when a whole burn scar is withheld and +0.004 [$-$0.028, +0.036] across twenty transfer directions, with a sign that varies by pair, while the static baseline transfers no better, at 0.537 against 0.541. Of twenty candidate diagnostics from five families, none was shown to order transfer once the frames are comparable; the two that appeared to require target labels and become degenerate on equalised frames. Transfer skill has to be measured, not inferred from similarity.
 \end{abstract}
 
 \begin{highlights}
   \item Scoring the same model at the fire, not region-wide, costs 0.143 AUC
   \item The cause is the negative pool, not prevalence: +0.155 against -0.000
-  \item Thermal predictors add +0.06 to +0.15 AUC within all five fire regions
-  \item Equalising the frame lifts transfer 0.540 to 0.617, six below chance to one
-  \item On comparable evaluation frames, none of 20 diagnostics orders transfer
+  \item Under blocked CV, thermal predictors add +0.06 to +0.15 AUC in five regions
+  \item Equalising the evaluation frame lifts mean transfer from 0.540 to 0.617
+  \item On comparable frames, none of 20 diagnostics is shown to order transfer
 \end{highlights}
 
 \begin{keyword}
@@ -370,7 +362,7 @@ The held-out unit is a burned connected component of at least 50 cells together 
   \centering
   \footnotesize
   \caption{The four evaluations, scored on identical cells. Primary natural-vegetation population. Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make the mismatch visible. Means and Student \emph{t} intervals are over the eight held-out scars.}
-  \label{tab:5}
+  \label{tab:4}
   \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xlrl}
     \hline
     Evaluation & Model trained on & Scored on & Mean AUC & 95 \% CI \\
@@ -423,7 +415,7 @@ The point estimate falls monotonically as the holdout hardens, and the last two 
 
 \textbf{Raw transfer is heterogeneous and includes anti-predictive directions.} Raw target AUC spans 0.326 to 0.686 (Fig.~\ref{fig:transfer-matrix}). Twelve of 20 directions are above chance with CI support. Six are \emph{below} chance with CI support: both directions of Manavgat to Bejís and of Manavgat to Muğla, plus Bejís to Evia and Evia to Bejís. Two intervals span 0.5. Even the best raw transfer, Evia to Manavgat at 0.686, stays far below that target's own within-region thermal performance of 0.870. Across all directions the raw deficit against the within-region reference is 0.184 to 0.592 AUC. That reference is a region-level blocked estimate; the controls below show it is not matched to a transfer evaluation.
 
-Those counts belong to the 2-cell blocking of Table~\ref{tab:4}. At the more conservative 10-cell blocking the same points give 9 above, 4 below and 7 uncertain, and no direction changes side of the chance line (Section~\ref{sec:4.8}). Four of the six below-chance directions keep their support there. Bejís to Manavgat and Manavgat to Muğla lose it and carry no verdict. The qualitative statement is unchanged. The counts should not be read as exact.
+Those counts belong to the 2-cell blocking of Table~\ref{tab:5}. At the more conservative 10-cell blocking the same points give 9 above, 4 below and 7 uncertain, and no direction changes side of the chance line (Section~\ref{sec:4.8}). Four of the six below-chance directions keep their support there. Bejís to Manavgat and Manavgat to Muğla lose it and carry no verdict. The qualitative statement is unchanged. The counts should not be read as exact.
 
 \textbf{In precision terms the transfer is worse than the ROC figures suggest.} ROC-AUC is the metric used throughout this paper, for comparability with the literature, but a susceptibility surface is used as a ranked area budget, so precision-recall is the operational quantity. Across the twenty directions the thermal model's PR-AUC averages \textbf{0.156 against a no-skill baseline of 0.136}. The mean of the twenty per-direction lifts is 1.16; the ratio of the two means just quoted is 1.146. \textbf{Six of the twenty fall below their own no-skill baseline at the point estimate, and five of those six have intervals entirely below it.} The exception is Bejís to Manavgat, at 0.034 [0.029, 0.042] against a baseline of 0.038, whose interval covers the baseline and which is therefore a point-estimate case only. Only one direction, Evia to Manavgat, exceeds twice its baseline, at 0.094 against 0.038. A transferred model therefore ranks burned cells about a sixth better than random on average, and worse than random in five directions with interval support and a sixth at the point. This is a sharper statement than the ROC means support and it should be the one a practitioner reads.
 
@@ -455,7 +447,7 @@ Every interval spans zero, and the point estimate is a small fraction of each wi
   \centering
   \footnotesize
   \caption{Cross-region transfer matrix, thermal model, TSG population. Target ROC-AUC with 2-cell spatial-block bootstrap 95\% CIs (1000 replicates). CORAL is applied after region-wise z-scoring ($\lambda$ = 10$^{-5}$).}
-  \label{tab:4}
+  \label{tab:5}
   \begin{tabular}{llll}
     \hline
     Direction & Raw & Region-wise z-score & CORAL \\
@@ -489,7 +481,7 @@ Every interval spans zero, and the point estimate is a small fraction of each wi
 \begin{table}[htbp]
   \centering
   \footnotesize
-  \caption{Transfer-gap decomposition (four-AOI set, 12 directions). Within = target's within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered fraction = (adapted $-$ raw)/(within $-$ raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru directions are not part of this decomposition (per-pair absolute decompositions exist without fraction CIs). The status column asks whether the \emph{adapted} value clears chance and uses the 2-cell adapted intervals of Table~\ref{tab:4}. The adapted arms were not recomputed at the coarser blocking of Appendix A(c), which covers the raw arm and the paired delta only.}
+  \caption{Transfer-gap decomposition (four-AOI set, 12 directions). Within = target's within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered fraction = (adapted $-$ raw)/(within $-$ raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru directions are not part of this decomposition (per-pair absolute decompositions exist without fraction CIs). The status column asks whether the \emph{adapted} value clears chance and uses the 2-cell adapted intervals of Table~\ref{tab:5}. The adapted arms were not recomputed at the coarser blocking of Appendix A(c), which covers the raw arm and the paired delta only.}
   \label{tab:6}
   \begin{tabularx}{\linewidth}{lll>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
     \hline
@@ -545,7 +537,7 @@ Two limits are stated with the result rather than after it. The first is size. T
 
 A third limit is about selection, and it is the sharpest of the three. The two rows that clear zero are the \emph{supported-feature} variants. Their feature subset is chosen by whether two regions' bootstrap intervals happen to be disjoint. That is a data-dependent selection, made on the same data, with no correction. The unselected counterparts over all nine features are $\rho$ = +0.50 [$-$0.17, +0.83] for the cosine and $\rho$ = +0.18 [$-$0.40, +0.72] for the agreement count. Both span zero. The result lives in the selection step, and is reported as such.
 
-\textbf{The families are compared on unequal samples, and equalising them does not change the ordering.} The marginal, applicability, climatic and geographic rows sit on twelve directions, because those diagnostics exist only for the four-region subset. The supported-conditional rows sit on sixteen and the rest on twenty. A reader may reasonably ask whether the marginal family's failure is a statement about power rather than about diagnostics. Every row was therefore recomputed on the common twelve directions. The published values reproduce to 4.9 $\times$ 10$^{-5}$. The conditional rows still lead, at +0.87 [+0.65, +0.88] and +0.85 [+0.43, +0.88], and every marginal row still spans zero. The ordering is not an artefact of unequal samples.
+\textbf{The families are compared on unequal samples, and equalising them does not change the ordering.} The marginal, applicability, climatic and geographic rows sit on twelve directions, because those diagnostics exist only for the four-region subset. The supported-conditional rows sit on sixteen and the rest on twenty. A reader may reasonably ask whether the marginal family's failure is a statement about power rather than about diagnostics. Every row was therefore recomputed on the common twelve directions. The published values reproduce to 4.8 $\times$ 10$^{-5}$. The conditional rows still lead, at +0.87 [+0.65, +0.88] and +0.85 [+0.43, +0.88], and every marginal row still spans zero. The ordering is not an artefact of unequal samples.
 
 \subsection{The contrast pair: similarity is not sufficient}\label{sec:4.6}
 
@@ -627,7 +619,7 @@ Section~\ref{sec:4.3} established that swapping a region's negatives for fire-ad
   \centering
   \small
   \caption{Evaluation-frame geometry of the five study regions. Primary natural-vegetation population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell. Source \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}auc.\allowbreak{}csv}; recomputable by \texttt{paper/\allowbreak{}code/\allowbreak{}verify\_\allowbreak{}aoi\_\allowbreak{}frame.\allowbreak{}py}.}
-  \label{tab:10}
+  \label{tab:9}
   \begin{tabularx}{\linewidth}{lrr>{\raggedleft\arraybackslash}Xr}
     \hline
     Region & cells & burned & median distance to burned & share beyond 10 km \\
@@ -649,7 +641,7 @@ Montiferru's frame is fire-scale; Manavgat's and Bejís's are roughly three-fift
   \centering
   \small
   \caption{Signed univariate AUC, frame as drawn against a 10 km collar. Point estimates; the intervals that decide the reversal question are given in the text below and in \texttt{collar\_\allowbreak{}frame\_\allowbreak{}bootstrap.\allowbreak{}csv} (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to max(AUC, 1 $-$ AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned cells in any region.}
-  \label{tab:11}
+  \label{tab:10}
   \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrrrrl}
     \hline
     Signed univariate AUC & Manavgat & Bejís & Muğla & Evia & Montiferru & straddles 0.5 \\
@@ -674,7 +666,7 @@ On the equalised frame all five regions agree in sign on elevation, on LST and o
   \centering
   \small
   \caption{The two diagnostics that ordered transfer, recomputed on an equalised frame. Spearman $\rho$ against target ROC-AUC over the ordered directions in which the diagnostic is defined. Source \texttt{diagnostics\_\allowbreak{}collar\_\allowbreak{}frame.\allowbreak{}csv}; recomputable by \texttt{paper/\allowbreak{}code/\allowbreak{}verify\_\allowbreak{}diag\_\allowbreak{}collar.\allowbreak{}py}.}
-  \label{tab:12}
+  \label{tab:11}
   \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
     \hline
     Diagnostic & Full frame & 10 km collar \\
@@ -696,13 +688,13 @@ Three further points bound how many independent reversals could have been counte
 \begin{table}[htbp]
   \centering
   \scriptsize
-  \caption{Cross-region transfer under equalised evaluation frames. Primary natural-vegetation population, thermal model, twenty ordered directions per row. Above/below chance are point counts; the supported counts use the same 10-cell ($\approx$5 km) spatial-block bootstrap on the target as Table~\ref{tab:4}, 1000 replicates, seed 42. Per-direction bounds are in \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}.}
-  \label{tab:9}
+  \caption{Cross-region transfer under equalised evaluation frames. Primary natural-vegetation population, thermal model, twenty ordered directions per row. Above/below chance are point counts; the supported counts use the same 10-cell ($\approx$5 km) spatial-block bootstrap on the target as Table~\ref{tab:5}, 1000 replicates, seed 42. Per-direction bounds are in \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}.}
+  \label{tab:12}
   \begin{tabularx}{\linewidth}{llrrr>{\raggedleft\arraybackslash}Xr}
     \hline
     Source frame & Target frame & Mean target AUC & Above chance & Below chance & Supported above / below & Paired thermal delta \\
     \hline
-    full & full (\textbf{Table~\ref{tab:4}}) & 0.540 & 14 of 20 & \textbf{6} & 9 / \textbf{4} & +0.003 \\
+    full & full (\textbf{Table~\ref{tab:5}}) & 0.540 & 14 of 20 & \textbf{6} & 9 / \textbf{4} & +0.003 \\
     full & 10 km & 0.575 & 17 of 20 & 3 & 11 / 1 & +0.002 \\
     10 km & full & 0.571 & 17 of 20 & 3 & 11 / 3 & +0.014 \\
     \textbf{10 km} & \textbf{10 km} & \textbf{0.617} & \textbf{19 of 20} & \textbf{1} & \textbf{15 / 1} & \textbf{+0.023} \\
@@ -711,7 +703,7 @@ Three further points bound how many independent reversals could have been counte
   \end{tabularx}
 \end{table}
 
-The reference arm reproduces the frozen matrix, at 0.540 against Table~\ref{tab:4}'s 0.541 and 14 of 20 exactly, so this is measuring the same quantity. The above- and below-chance counts in this table are point counts. Under the same 10-cell block bootstrap used for Table~\ref{tab:4}, at 1000 replicates, the full frame gives nine directions above chance and four below with interval support, and the collar frame fifteen above and one below, so the headline movement is six to one at the point estimate and \textbf{four to one with interval support} (\texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}, which carries the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to 0.602, and Bejís to Manavgat, 0.440 to 0.601.
+The reference arm reproduces the frozen matrix, at 0.540 against Table~\ref{tab:5}'s 0.541 and 14 of 20 exactly, so this is measuring the same quantity. The above- and below-chance counts in this table are point counts. Under the same 10-cell block bootstrap used for Table~\ref{tab:5}, at 1000 replicates, the full frame gives nine directions above chance and four below with interval support, and the collar frame fifteen above and one below, so the headline movement is six to one at the point estimate and \textbf{four to one with interval support} (\texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}, which carries the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to 0.602, and Bejís to Manavgat, 0.440 to 0.601.
 
 \textbf{What this does and does not change.} Three claims do not survive and are withdrawn here rather than defended. The count of six anti-predictive directions becomes one. The sign reversal of elevation, LST and TVDI as the mechanism of the residual is a property of the frames, not of the predictor-burning relationship. And the paired thermal contribution is not stable at +0.004: it rises to +0.023 once frames are equalised, so the claim that the block contributes nothing between regions is frame-dependent too. What survives is the central negative result, and it survives with room to spare: equalised transfer of 0.617 against within-region skill of about 0.87 leaves most of the gap intact. Section~\ref{sec:5.9} records the frame as a limitation of the cohort rather than of the method, since equalising it is cheap and we recommend it.
 
@@ -729,19 +721,13 @@ Two limits belong with the number. At small budgets the same intervention damage
 
 \section{Discussion}\label{sec:5}
 
-\subsection{Principal findings}\label{sec:5.1}
+\subsection{Reading the three findings together}\label{sec:5.1}
 
-Three results carry this paper, each established in Section~\ref{sec:4} and not re-tabulated here.
-
-First, where a model is scored decides what it appears to know. Changing only the evaluation cells costs 0.143 ROC-AUC, the cause is the composition of the negative pool rather than prevalence, and applying the same correction between regions withdraws three claims we had made from the frames as drawn, including the sign reversal we had offered as the mechanism of the transfer residual (Section~\ref{sec:4.10}).
-
-Second, the thermal block's local skill does not travel, and the frame correction does not rescue it: equalised transfer sits at 0.617 against within-region skill near 0.87, and the static baseline travels no better than the dynamic one, so this is not a peculiarity of thermal predictors.
-
-Third, no diagnostic was shown to order the transfer matrix. Two appeared to, both requiring burned labels in the target region and both resting on a data-selected subset of predictors, and the frame correction of the first finding removes even those: recomputed on comparable frames the winning index is unanimous and has no variance left to correlate.
+Section~\ref{sec:1.4} states the three findings and Section~\ref{sec:4} establishes them; this section argues from them rather than restating them. One relation between them does need saying, because it is what makes the paper cohere: the first finding is not a caveat attached to the other two, it is the instrument that sets their size. Applied to our own matrix it withdrew three claims we had made, and what it left standing is a shortfall in transferred skill, not a reversed relationship.
 
 \subsection{Why the thermal increment is real but local}\label{sec:5.2}
 
-A distinction has to be drawn before this section can say anything useful. The within-region increment and the transfer failure are measured at different separations, and Section~\ref{sec:4.3} shows that most of the difference between them is already present inside a single region. What follows therefore reads the increment as local in a specific sense: it holds where the held-out cells are interleaved with training cells, and most of it is gone once they are not, before the fire or the region changes. What that does not explain is why the directions differ from each other, and in particular why six of them are anti-predictive.
+A distinction has to be drawn before this section can say anything useful. The within-region increment and the transfer failure are measured at different separations, and Section~\ref{sec:4.3} shows that most of the difference between them is already present inside a single region. What follows therefore reads the increment as local in a specific sense: it holds where the held-out cells are interleaved with training cells, and most of it is gone once they are not, before the fire or the region changes. What that does not explain is why the directions differ from each other. On the frames as drawn six of them are anti-predictive, but Section~\ref{sec:4.10} shows that count is itself mostly a frame artefact and leaves one, so what needs explaining is a shortfall in transferred skill rather than a reliably reversed ranking.
 
 The within-region increment is not an artefact to be explained away, but it is measured under a holdout that Section~\ref{sec:4.3} shows is generous. Withholding a whole burn scar reduces it to +0.022 [$-$0.032, +0.077], so what follows describes an increment that is established under interleaved validation and not established beyond it. It replicates in five independent regions, survives coarsening of the spatial blocks to $\sim$5 km with its interval intact, persists in the secondary all-valid population, and survives a predictor window closed 7 and 14 days earlier in all five regions. The direction of that last result is region-specific and should not be overstated: the contribution strengthens in Bejís (0.058 $\rightarrow$ 0.079 at 14 days) and Muğla (0.115 $\rightarrow$ 0.128), is flat in Montiferru, and \textbf{weakens monotonically in Evia} (0.156 $\rightarrow$ 0.149 $\rightarrow$ 0.135). What holds everywhere is survival, not improvement. The transfer failure is therefore not evidence that the thermal signal is spurious. It is evidence that the fitted relationship is \emph{local}.
 
@@ -990,7 +976,7 @@ Section~\ref{sec:4.3} reports four evaluations of the same models as a ladder. T
 
 The evaluation populations of the two arms are not comparable with each other or with the transfer targets. A held-out scar with its 2 km collar contains only fire-adjacent negatives, against a whole target region's inclusion of its easy far field; the burned fractions, 34 to 87 \% against 3.8 to 28.7 \%, are a symptom of that rather than the cause, since ROC-AUC is invariant to class balance at fixed class-conditional distributions. The scar arm therefore asks for discrimination against the nearest and most similar negatives only, while a transfer arm includes the whole easy far field. Section~\ref{sec:4.3} states the consequence: the last three rows of the ladder are not distinguishable by this design.
 
-\textbf{Table A3. The foreign-region arm, decomposed by source.} Each held-out scar area is scored with a model fitted on each of the other four regions. Table~\ref{tab:5}'s row D is the mean over the \textbf{eight} scars that carry a row C, that is 32 of the 36 combinations below; the nine-scar mean quoted in this appendix is 0.559 against row D's 0.555.
+\textbf{Table A3. The foreign-region arm, decomposed by source.} Each held-out scar area is scored with a model fitted on each of the other four regions. Table~\ref{tab:4}'s row D is the mean over the \textbf{eight} scars that carry a row C, that is 32 of the 36 combinations below; the nine-scar mean quoted in this appendix is 0.559 against row D's 0.555.
 
 \begin{table}[htbp]
   \centering
@@ -1137,7 +1123,7 @@ Three pair-level reversals across \textbf{two} features, which is why Section~\r
 
 \subsection{B4. The transfer matrix in precision-recall terms}
 
-ROC-AUC is reported throughout the main text for comparability with the susceptibility literature. A susceptibility surface is used as a ranked area budget, so precision-recall is the operational quantity, and at target prevalences of 3.8 to 28.7 \% the two can differ sharply. Read from the same frozen step9b exports as Table~\ref{tab:4}.
+ROC-AUC is reported throughout the main text for comparability with the susceptibility literature. A susceptibility surface is used as a ranked area budget, so precision-recall is the operational quantity, and at target prevalences of 3.8 to 28.7 \% the two can differ sharply. Read from the same frozen step9b exports as Table~\ref{tab:5}.
 
 \textbf{Table B4. Thermal transfer, PR-AUC against the no-skill baseline.} The baseline is the target's burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random ranking. Ordered by lift.
 

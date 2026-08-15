@@ -225,7 +225,7 @@ most similar negatives only, while a transfer arm includes the whole easy far fi
 states the consequence: the last three rows of the ladder are not distinguishable by this design.
 
 **Table A3. The foreign-region arm, decomposed by source.** Each held-out scar area is scored with a
-model fitted on each of the other four regions. Table 5's row D is the mean over the **eight** scars that carry a row C, that is 32 of the 36
+model fitted on each of the other four regions. Table 4's row D is the mean over the **eight** scars that carry a row C, that is 32 of the 36
 combinations below; the nine-scar mean quoted in this appendix is 0.559 against row D's 0.555.
 
 | Target region | Scar | Mean over sources | Min | Max | Spread |

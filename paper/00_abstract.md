@@ -89,56 +89,45 @@
 > alike. **Check the guide before submission**; if 400 is confirmed, there is room to restore the
 > per-region robustness detail and the domain-classifier ceiling.
 
-> **Length, 2026-08-15 (two passes).** The running count in these notes had gone stale: successive
-> rounds added the identical-cells ladder, the PR-AUC sentences and the baseline control without
-> recounting, and the body had reached **567 words** while the notes still said ~340. Rewritten to
-> 333, then back up to **394** when the referee round added a fourth substantive finding, the
-> evaluation-frame artefact of §4.10, which supersedes the old sign-reversal paragraph and cannot be
-> omitted because it withdraws three earlier claims.
+> **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4.
+> (i) **Converted from a structured to a single unstructured paragraph.** It had grown four bold
+> lead-ins; *Ecological Informatics* takes an unstructured abstract and the headings would be
+> stripped or queried at submission. (ii) **Reordered to lead with the evaluation-geometry result**,
+> which the title, §1.4, the highlights and §6 all lead with while the abstract led with the transfer
+> null. (iii) **The title's operative term "evaluation geometry" now appears in the abstract**; it
+> previously appeared nowhere in it.
 >
-> **The limit is still unverified.** The Elsevier and ScienceDirect guide pages both return HTTP 403
-> to automated fetching, and a web search returns the journal's guide without the abstract clause. A
-> single uncorroborated source reports 400 words. 394 satisfies that and does not satisfy a 250-word
-> limit. **Check the guide before submission.**
+> **Now 309 words, down from 567 at the start of the day.** The limit remains unverified: the
+> Elsevier and ScienceDirect guide pages both return HTTP 403 to automated fetching, and a search
+> returns the journal guide without the abstract clause. A single uncorroborated source reports 400.
+> **Check the guide manually before submission.** If 250 is confirmed, cut in this order: the
+> stratification clause ("even within elevation and greenness strata"), then the two prevalence-control
+> figures (keeping "the composition of the negative pool rather than class balance"), then
+> "+0.056 to +0.153 within regions under blocked cross-validation".
 >
-> Already cut in these passes: the PR-AUC sentences (§4.2 keeps them), the 0.374 to 0.724 spread of
-> the four foreign models, the post-selection markers on the feature-removal figures, the two-event
-> population clause, the few-shot recovery figures, and the −0.081 / +0.014 feature-removal exchange.
-> **If the guide confirms 250, cut next in this order:** the far-field percentages in the third
-> finding, then the 0.540 to 0.617 transfer lift (keeping the sign-agreement clause), then the
-> baseline-transfer control. Protected: the interval on +0.004, the fourteen-of-twenty count, the
-> 0.143 interval, the surviving LST-anomaly reversal, and the statement that the collar drops no
-> burned cells — without that last clause the frame result reads as cherry-picking.
+> **Protected, do not cut:** the interval on 0.143; the interval on +0.004; "which drops no burned
+> cells", without which the collar result reads as cherry-picking; "none was shown to order
+> transfer" rather than "none orders"; and the baseline control 0.537 against 0.541, which is what
+> shows the failure is not a peculiarity of the dynamic block.
 
 Pre-fire thermal dryness separates a fire year from a normal year, but models built on it are rarely
 tested outside the region where they were fitted. Five Mediterranean wildfire regions were analysed
 on about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six thermal
-predictors to a terrain, fuel and greenness baseline.
-
-**Local skill does not travel, and most of it is lost before the region changes.** Within-region
-ROC-AUC rose by +0.056 to +0.153 under blocked cross-validation, but by +0.022 [−0.032, +0.077] when
-a whole burn scar is withheld, and by +0.004 [−0.028, +0.036] across twenty transfer directions,
-with a sign that changes from pair to pair. The static baseline transferred no better, 0.537 against
-0.541, so this is not a property of the dynamic block. On **identical cells**, a model holding the held-out scar scores 0.634, one without it 0.552 and one
-fitted 306 to 2,802 km away 0.555, so neither withholding the fire nor crossing the region is shown
-to cost anything. What is measurable is the evaluation area itself, worth **0.143 [+0.077, +0.208]**
-of the fall from a region-wide 0.776, because its negatives are all fire-adjacent and therefore the
-hardest in the region.
-
-**The failure cannot be anticipated.** Of twenty candidate diagnostics only two had intervals
-excluding zero, both measuring sign agreement over a selected feature subset (rho = 0.84,
-post-selection). Recomputed on the equalised frame that statistic is unanimous and has no variance
-left, and its continuous counterpart falls from rho = 0.50 to 0.12, so no diagnostic tested here was
-shown to order transfer once the frames are comparable.
-
-**Most of the apparent mechanism is an artefact of the evaluation frame.** Five predictors reverse
-direction between regions on the frames as drawn, but those frames enclose very different far
-fields, from 2 % to 63 % of cells beyond 10 km of any fire, on higher ground. A 10 km collar, which
-drops no burned cells, makes all five agree in sign on elevation, LST and TVDI, lifts transfer from
-0.540 to 0.617, drops the directions below chance from six to one, and leaves no reversal
-bootstrap-supported under our own criterion. The agreed sign is not the one the dryness framing
-predicts: hotter surfaces burned less everywhere, surviving stratification within elevation and
-greenness.
-
-Label-free alignment pushed fourteen of twenty directions towards chance rather than repairing them.
-Transfer skill has to be measured, not inferred from similarity.
+predictors to a terrain, fuel and greenness baseline. The first result is about **evaluation
+geometry**: holding the model, its predictors and its fitting fixed and changing only which cells are
+scored, moving from the whole region to the burn scar and its 2 km collar costs **0.143 ROC-AUC
+[+0.077, +0.208]**, which exceeds the predictor-block increments this literature reports as findings.
+A control isolates the cause as the composition of the negative pool rather than class balance:
+matching prevalence costs −0.000 [−0.003, +0.002] while substituting fire-adjacent negatives costs
++0.155 [+0.093, +0.217]. Applied between regions the same effect withdrew three of our own claims.
+The five study areas enclose very unequal far fields, and restricting each to a 10 km collar, which
+drops no burned cells, lifts mean transfer from 0.540 to 0.617, leaves no sign reversal
+bootstrap-supported, and makes the surviving agreed direction the opposite of the one dryness
+physics predicts, hotter pre-fire surfaces having burned less in every region even within elevation
+and greenness strata. Local skill nonetheless does not travel: the thermal block adds +0.056 to
++0.153 within regions under blocked cross-validation but +0.022 [−0.032, +0.077] when a whole burn
+scar is withheld and +0.004 [−0.028, +0.036] across twenty transfer directions, with a sign that
+varies by pair, while the static baseline transfers no better, at 0.537 against 0.541. Of twenty
+candidate diagnostics from five families, none was shown to order transfer once the frames are
+comparable; the two that appeared to require target labels and become degenerate on equalised
+frames. Transfer skill has to be measured, not inferred from similarity.

@@ -6,24 +6,13 @@
 > compositing, predictor redundancy and the coordinate channels, MODIS quality screening, label
 > noise and the safeguards, move with their evidence to the companion paper.
 
-## 5.1 Principal findings
+## 5.1 Reading the three findings together
 
-Three results carry this paper, each established in Section 4 and not re-tabulated here.
-
-First, where a model is scored decides what it appears to know. Changing only the evaluation cells
-costs 0.143 ROC-AUC, the cause is the composition of the negative pool rather than prevalence, and
-applying the same correction between regions withdraws three claims we had made from the frames as
-drawn, including the sign reversal we had offered as the mechanism of the transfer residual
-(Section 4.10).
-
-Second, the thermal block's local skill does not travel, and the frame correction does not rescue
-it: equalised transfer sits at 0.617 against within-region skill near 0.87, and the static baseline
-travels no better than the dynamic one, so this is not a peculiarity of thermal predictors.
-
-Third, no diagnostic was shown to order the transfer matrix. Two appeared to, both requiring burned
-labels in the target region and both resting on a data-selected subset of predictors, and the frame
-correction of the first finding removes even those: recomputed on comparable frames the winning
-index is unanimous and has no variance left to correlate.
+Section 1.4 states the three findings and Section 4 establishes them; this section argues from them
+rather than restating them. One relation between them does need saying, because it is what makes the
+paper cohere: the first finding is not a caveat attached to the other two, it is the instrument that
+sets their size. Applied to our own matrix it withdrew three claims we had made, and what it left
+standing is a shortfall in transferred skill, not a reversed relationship.
 
 ## 5.2 Why the thermal increment is real but local
 
@@ -32,7 +21,9 @@ increment and the transfer failure are measured at different separations, and Se
 most of the difference between them is already present inside a single region. What follows
 therefore reads the increment as local in a specific sense: it holds where the held-out cells are interleaved with
 training cells, and most of it is gone once they are not, before the fire or the region changes. What that does not explain is why the directions differ from each
-other, and in particular why six of them are anti-predictive.
+other. On the frames as drawn six of them are anti-predictive, but Section 4.10 shows that count is
+itself mostly a frame artefact and leaves one, so what needs explaining is a shortfall in transferred
+skill rather than a reliably reversed ranking.
 
 The within-region increment is not an artefact to be explained away, but it is measured under a
 holdout that Section 4.3 shows is generous. Withholding a whole burn scar reduces it to +0.022
