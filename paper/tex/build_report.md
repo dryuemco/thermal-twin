@@ -19,7 +19,7 @@ converter made is listed so it can be reviewed.
 
 ## footnote (1)
 
-- definition [^dimarco-lst] captured (82 chars)
+- definition [^dimarco-lst] captured (326 chars)
 
 ## review (32)
 

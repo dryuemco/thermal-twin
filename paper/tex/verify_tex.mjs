@@ -167,7 +167,10 @@ if (/\[@/.test(body)) leftovers.push('unconverted [@citation]');
 if (/^\s*\|/m.test(body)) leftovers.push('raw Markdown table row');
 if (/\*\*/.test(body)) leftovers.push('raw ** bold');
 if (/^#{1,6}\s/m.test(body)) leftovers.push('raw # heading');
-if (/`/.test(body)) leftovers.push('raw backtick');
+// A doubled backtick is the LaTeX opening quote, produced deliberately from a
+// straight " in the Markdown; only a lone backtick is unconsumed code-span
+// syntax.
+if (/`/.test(body.replace(/``/g, ''))) leftovers.push('raw backtick');
 check('no Markdown syntax survives into the LaTeX', leftovers.length === 0, leftovers.join(', '));
 
 console.log(`\n${fail === 0 ? 'ALL CHECKS PASSED' : fail + ' CHECK(S) FAILED'}`);
