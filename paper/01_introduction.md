@@ -176,7 +176,7 @@ and agreeing with species distribution modelling [@Vesk2021; @Rousseau2022].
 Two consequences follow, reported as supporting results. Label-free alignment by standardisation and
 covariance alignment [@Sun2016] does not repair transfer, and we believe this is the first
 application of covariance alignment to fire susceptibility. And because the residual is conditional,
-the resource that closes it is target labels, whose price is measured in Section 4.12.
+the resource that closes it is target labels, whose price is measured in Appendix A(u).
 
 Alongside these, a leakage-audited, spatially blocked evaluation and transfer protocol is released
 with code, configuration and frozen outputs, so that most of this result can be re-run rather than

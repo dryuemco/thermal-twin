@@ -204,5 +204,5 @@ Muğla admits a comparison in which place is held fixed and the event varies: a 
 inside the identical AOI, on the identical analysis grid, eleven months after the first. Signed
 univariate AUCs are computed for both arms under the same 10-cell spatial-block bootstrap used
 elsewhere. Season, year and population all differ between the arms, since the 2022 arm is defined by
-removing the 2021 scar, and Section 4.10 reports what that costs. Appendix C.3 gives the window
+removing the 2021 scar, and Appendix A(m2) reports what that costs. Appendix C.3 gives the window
 dates, the population construction and the asymmetry audit.

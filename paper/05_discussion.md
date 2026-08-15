@@ -32,7 +32,7 @@ predictor meaning one thing in one place and another elsewhere is a comparison o
 than instability. **We designed the two-Muğla-events arm to answer that objection and it does not
 answer it.** On the frames as drawn it looked decisive — region, grid and processing chain
 identical, static predictors identical cell by cell, elevation's association reversing between the
-two fires — but Sections 4.4 and 4.10 show it is the most extreme frame artefact in the cohort, and
+two fires — but Section 4.4 and Appendix A(m2) show it is the most extreme frame artefact in the cohort, and
 under the collar the two arms fall on the same side of 0.5.
 
 The objection therefore stands unanswered, and three further confounds were never resolved in any
@@ -43,7 +43,7 @@ thirty. The population is not fixed either, the 2022 arm being the 2021 arm with
 removed. And that arm rests on eleven positive-carrying 5 km blocks against this design's own floor
 of sixteen. With one fire per region everywhere else, and the one arm that held place fixed now
 withdrawn, **this cohort provides no evidence that the transfer shortfall is regional rather than
-event-specific**, and Section 5.9(v) is a substantive limit rather than a formality. Section 4.11
+event-specific**, and Section 5.9(v) is a substantive limit rather than a formality. Appendix A(t)
 adds a length scale for the within-region decay — the model is already at chance by 10 to 20 km from
 its training cells — but explains why that cannot be turned into an attribution: once the curve
 reaches the chance floor, any cross-region mean near 0.5 lies on its continuation by construction.
@@ -60,7 +60,7 @@ conditional. A target region can sit well inside the training envelope while the
 between those predictors and burning points the other way. Manavgat to Muğla is exactly that case, with 0.875 of
 target cells inside the weighted area of applicability and transfer among the weakest in the matrix. On the frames as drawn that pair is below chance in both directions; on the equalised frame it is
 0.551 and 0.510, above chance but still among the weakest in the matrix, while the least similar
-pair reaches 0.669 and 0.624 (Section 4.7). The point does not need anti-prediction: high overlap does not buy
+pair reaches 0.669 and 0.624 (Appendix A(s)). The point does not need anti-prediction: high overlap does not buy
 transfer.
 
 The same holds for the niche-overlap and regime families. At the point estimates, the pair with the
@@ -185,7 +185,7 @@ the shortfall to region rather than to event.
 the library version is not pinned.
 
 (vii) **The diagnostic correlations rest on an effective sample of ten region pairs**, and both the
-successes and the failures of Section 4.7 should be read at that power.
+successes and the failures of Appendix A(s) should be read at that power.
 
 (viii) **Manavgat's atypical transfer behaviour remains unexplained**; three candidates were tested
 and none survives (Appendix C).

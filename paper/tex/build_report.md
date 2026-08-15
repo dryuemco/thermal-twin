@@ -29,7 +29,6 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - TABLE WITHOUT CAPTION in 04_results near md line 171
 - TABLE WITHOUT CAPTION in 04_results near md line 333
-- TABLE WITHOUT CAPTION in 04_results near md line 581
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 128
@@ -44,6 +43,7 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 427
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 481
 - TABLE WITHOUT CAPTION in A1_sensitivity near md line 521
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 646
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
@@ -78,8 +78,6 @@ converter made is listed so it can be reviewed.
 - : 1 of 4 columns wrap (widest cell 29 chars)
 - Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
 - Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
-- : 3 cols, est. width 57 chars -> small, 1 wrapping
-- : 1 of 3 columns wrap (widest cell 30 chars)
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
 - : 2 of 4 columns wrap (widest cell 33 chars)
 - : 6 cols, est. width 128 chars -> footnotesize, 1 wrapping
@@ -99,6 +97,8 @@ converter made is listed so it can be reviewed.
 - : 2 of 4 columns wrap (widest cell 39 chars)
 - : 3 cols, est. width 89 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 45 chars)
+- : 3 cols, est. width 57 chars -> small, 1 wrapping
+- : 1 of 3 columns wrap (widest cell 30 chars)
 - : 6 cols, est. width 125 chars -> footnotesize, 3 wrapping
 - : 3 of 6 columns wrap (widest cell 42 chars)
 - : 6 cols, est. width 157 chars -> scriptsize, 6 wrapping

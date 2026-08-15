@@ -53,7 +53,7 @@ and +0.85 [+0.43, +0.88], every marginal row still spans zero. Source:
 
 ## B2. The signed univariate associations the reversal claim rests on
 
-Section 4.8b drops two predictors because their signed association with burning reverses between
+Appendix A(n2) drops two predictors because their signed association with burning reverses between
 regions with bootstrap support on the frames as drawn. Section 4.4 shows that both supported
 elevation reversals disappear once the frames are equalised, so this table is the evidence for the
 feature-removal arm and for the narrowed mechanism claim inside Contribution 1, not for a general reversal
@@ -96,7 +96,7 @@ from the same paired bootstrap.
 Three pair-level reversals across **two** features, which is why Section 3.12 removes exactly those
 two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine
 features, and they are not counted. The conservative criterion costs the paper findings rather than
-manufacturing them: a difference interval on the pair, which is the instrument Section 4.10 uses,
+manufacturing them: a difference interval on the pair, which is the instrument Appendix A(m2) uses,
 would support more reversals than the three listed here.
 
 ## B4. The transfer matrix in precision-recall terms
@@ -141,7 +141,7 @@ of a reversed predictor-burning relationship.
 
 ## B5. The same-geography event pair, in full
 
-Section 4.10 reports this arm and Section 4.4 withdraws its reversal as a frame artefact. The
+Appendix A(m2) reports this arm and Section 4.4 withdraws its reversal as a frame artefact. The
 per-feature values are kept here because the arm is what motivated the frame test, and because
 its structural asymmetries have no analogue in the twenty-direction matrix.
 

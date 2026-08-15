@@ -72,11 +72,11 @@ directly as a feature-set contrast.
 
 One thing should be said before the result, because it makes the outcome less surprising than it
 might otherwise appear. The normalised channels are the two that hold their direction in the
-same-geography two-event comparison of Section 4.10, where the absolute channels move. That is a
+same-geography two-event comparison of Appendix A(m2), where the absolute channels move. That is a
 statement about one region across two fires. **Across regions it does not hold**: `lst_anomaly_mean`
 is itself one of the two predictors whose reversal is bootstrap-supported on the frames as drawn,
 reversing between Bejís and Evia (Section 4.4 withdraws that support under an equalised frame),
-which is why Section 4.8b drops it alongside elevation. Being internally normalised protects a
+which is why Appendix A(n2) drops it alongside elevation. Being internally normalised protects a
 channel against the offset between two seasons in one place. It does not, on this evidence, protect
 it against a change of place.
 
@@ -352,7 +352,7 @@ than a reversal, not as a restored one.
 
 ## A(m). The same-geography event pair
 
-Section 4.10 states the result and its withdrawal; the design, the two structural asymmetries that
+Appendix A(m2) states the result and its withdrawal; the design, the two structural asymmetries that
 have no analogue in the twenty-direction matrix, and the direction of the bias they impose are here.
 
 
@@ -391,7 +391,7 @@ reversal smaller rather than larger.
 
 ## A(n). The two interventions, in full
 
-Section 4.8 states both results; the four feature-set configurations, the per-region deltas and the
+Appendix A(n2) states both results; the four feature-set configurations, the per-region deltas and the
 pooled per-target shortfalls are here.
 
 
@@ -469,7 +469,7 @@ cross-region direction at all. Compositing depth was not tested and remains an o
 Per-region stratifications are in Appendix A(k), and Section 5.2 states the consequence for the
 moisture-stress motivation of Section 1.2.
 
-**The same-geography arm of Section 4.10 is the most extreme case in the cohort, and it does not
+**The same-geography arm of Appendix A(m2) is the most extreme case in the cohort, and it does not
 survive either.** A fixed study area does not mean a fixed evaluation frame: its 2022 arm has
 **93.2 % of cells beyond 10 km of any burned cell, median 43.6 km**, a larger far field than any
 cross-region arm. Applying the same
@@ -492,7 +492,7 @@ strength varies fivefold and a frame that shifts the elevation distribution shif
 within the collar `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00,
 `downscaled_lst_mean` at 0.97 to 0.99 and `current_tvdi_mean` at 0.87 to 0.98, so the four absolute
 channels are close to one axis and the two differenced channels correlate at 0.64 to 0.94: the "five
-of nine directions reverse" count of Section 4.7 counts features, not independent quantities, and
+of nine directions reverse" count of Appendix A(s) counts features, not independent quantities, and
 **in effective dimensions it is closer to two**.
 
 Two scope statements belong with the table. The full-frame values here are not numerically the
@@ -558,3 +558,141 @@ Bejís, 55.3 % in Muğla, 43.7 % in Evia and **2.1 %** in Montiferru, with media
 far field is not a neutral addition. In Manavgat the median elevation of modelled cells rises from
 472 m within 5 km of the fire to 955 m at 10 to 20 km and 1,273 m at 20 to 50 km, against 512 m for
 the burned cells themselves, in Taurus terrain that no plausible spread model would place at risk.
+
+## A(s). The contrast pair, in full
+
+The clearest single view needs no ranking at all (Fig. 8). Manavgat and Muğla lie in the same
+country and fire year, 306 km apart by centroid, and their burned cells occupy the most similar
+environmental envelope of any pair in the matrix; Bejís and Montiferru occupy the least similar.
+
+Per-quantity values for both pairs, on both frames, are in Appendix B, Table B10.
+
+Two readings of this pair do not survive Section 4.4 and are not offered. On the frames as drawn
+five of nine feature-response directions point opposite ways, elevation among them; under the collar
+that figure moves to 0.561 against 0.606, on the same side of 0.5. And transfer is below chance in
+both directions as drawn but above chance under the collar. **What survives is the ordinal
+contrast**: the most similar pair is among the weakest in the matrix and the least similar among the
+stronger, while neither is the extreme — the weakest direction is Manavgat to Bejís at 0.417 and the
+strongest Muğla to Evia at 0.727. The claim this supports is that high envelope overlap does not buy
+transfer, not that it produces anti-prediction. The AoA shares are full-frame quantities.
+
+Bejís and Montiferru sit at the opposite extreme. Their burned envelopes barely overlap, and they
+carry the most dissimilar values on every overlap measure. They transfer above chance in both
+directions. That half of the contrast rests on point estimates: neither direction carries a verdict
+at 5 km blocking, and the marginal applicability audit was never produced for Montiferru. The claim
+is one of *sufficiency*. Similarity does not guarantee transfer, and dissimilarity does not preclude
+it. The claim rests on two coexisting counterexamples, so it does not depend on the number of pairs
+available.
+
+## A(n2). Interventions, in full
+
+Two interventions were pre-registered. **Pooling** four regions into one training set does not
+recover what single-source transfer loses: every pooled target still falls short of its own
+within-region reference, and only Bejís is below chance with interval support. **Removing the two
+predictors whose signed association reverses** costs −0.081 of mean within-region AUC, supported in
+every region and roughly three quarters of it attributable to elevation, a *baseline* terrain
+variable, and returns +0.014 [−0.017, +0.045] on transfer, whose interval spans zero. A local cost
+is measured; no compensating transfer gain is, so no exchange between the two is demonstrated. Both
+predictors were chosen because they reverse, using the same data on which the two figures are then
+estimated, and no correction for that selection is applied; Section 4.4 additionally withdraws the
+support for the selection rule itself. Per-configuration values are in Appendix A(n).
+
+## A(v). The sensitivity arms, summarised
+
+Eight design choices were varied with everything else held fixed. They are the Evia AOI and its
+prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor
+window, the quality screening of the coarse thermal input, the contrast between the normalised and
+the absolute dryness channels, the removal of the coordinate-informed channels, and the capacity of
+the classifier. None changes a conclusion above. Two
+bound how the results should be read, so they are carried into the main text here.
+
+Coarsening the blocks from 1 km to 5 km moves the **paired thermal-minus-baseline delta** verdicts
+from ten positive, seven negative and three uncertain to six, four and ten. The above-chance
+verdicts on the thermal arm itself, a different quantity, move from twelve, six and two to nine,
+four and seven. Support is removed from seven verdicts and added to none.
+The point estimates are unchanged, but that is an identity rather than a result. The blocking scale
+is the resampling unit, and it cannot move an estimate computed once over all target cells.
+
+Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes
+the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
+moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
+behaviour. Appendix A reports all eight arms, including one that tests a claim of Section 1.2 and does not uphold it.
+
+## A(m2). The same geography, a second fire
+
+Muğla burned twice, eleven months apart, on the same grid and through the same processing chain.
+The arm was designed to hold place fixed and vary only the fire, which would have separated regional
+concept shift from everything else that differs between study areas. On the frame as drawn it shows
+a bootstrap-supported elevation reversal between the two fires; Section 4.4 withdraws that, because
+the 2022 arm carries the largest far field in the cohort and under a 10 km collar the two arms fall
+on the same side of 0.5. The arm, its structural asymmetries and the direction of the bias they
+impose are in Appendix A(m).
+
+## A(t). Distance within a region
+
+One further arm measures how skill decays with distance inside a single region. A model is fitted on
+one half of a region and applied to the other, and target cells are binned by their distance from the
+training cells (`distance_curve.md`, `paper/code/distance_curve.py`). Means are unweighted over bins,
+whose positive counts range from 1 to 2,564, and the bins carry no intervals.
+
+| Separation from training cells | Bins | Mean target AUC |
+|---|---:|---:|
+| 0 to 5 km | 18 | 0.692 |
+| 5 to 10 km | 16 | 0.519 |
+| 10 to 20 km | 11 | 0.499 |
+| 20 to 40 km | 6 | 0.445 |
+| 40 to 80 km | 3 | 0.541 |
+| 80 to 160 km | 1 | 0.421 |
+| cross-region, 306 to 2,802 km | 20 | 0.541 |
+
+**By 10 to 20 km inside a single region the model is already at chance.** That bounds how far a
+susceptibility surface of this kind can be carried from the cells it was fitted on, and it is
+consistent with Section 4.3, where withholding a scar and replacing the model with a foreign one cost
+nothing distinguishable.
+
+**It does not reframe the paper's negative result, and a reading that it does was considered and
+rejected.** That reading argued that because the twenty cross-region directions average 0.541, at or
+above the within-region plateau, they sit on the continuation of the curve and the failure needs no
+regional mechanism — a rule fixed in advance in `positive_control.md`. Two objections defeat it, and
+`scar_control.md` records the reframing as withdrawn in full. **The rule cannot fail**: once the
+curve reaches the chance floor, any cross-region mean near 0.5 lies on its continuation by
+construction, so the comparison could not have come out otherwise, and a test that cannot fail is not
+evidence. And **extrapolating an uninformative model does not produce a reliably reversed ranking**:
+Manavgat to Bejís is below chance with interval support on the frame as drawn and at the 10 km
+collar, which is not what a model that has merely run out of skill returns.
+
+Four limits bound even the descriptive reading. The two distance ranges do not overlap — within-region
+separations span 2 to 86 km, cross-region separations start at 306 km — so any comparison across the
+gap extrapolates the curve. The far bins are thin, six at 20 to 40 km and one beyond 80 km, so their
+means should not be read closely and the apparent rise at 40 to 80 km is not evidence of anything.
+The near bins carry exactly the autocorrelation blocked validation exists to remove, so **0.692 is an
+upper bound on near-field skill rather than an estimate of it**. And this design separates distance
+from crossing a study-area boundary, but not from the land cover, terrain and fire history that
+covary with it.
+
+The arm therefore contributes a length scale for the within-region decay, not an attribution. The
+unit that fails to transfer is not established by this design, and Section 4.3 says so directly.
+
+## A(u). What target labels cost
+
+Everything above measures a failure; this prices it. Label-free alignment does not close the residual
+gap, so the missing resource is information about the target that alignment cannot synthesise, and
+the direct way to supply it is target labels. A frozen labelled-budget diagnostic answers how many, for
+three regions across all six ordered directions, using one 10-cell (~5 km) spatial block as the unit
+of labelling effort and reading recovery against a matched target-only ceiling of 0.777 to 0.824.
+
+Thirty-two labelled blocks recover **85 to 89 % of that ceiling in three of the six directions**, two
+of which started below chance; 51 to 57 % in two more, the directions where the conditional gap is
+widest; and 30 % in the sixth. That budget is 7 to 20 % of the target's natural-vegetation
+population, which at the 2,700 to 3,000 labelled cells those blocks carry (S1.3) and this grid's
+effective cell area of 0.199 to 0.208 km² (Appendix C) is roughly **540 to 620 km²**, so it is a real
+answer and not a cheap one. Two properties of the
+measurement bound it and are stated in the supplement rather than buried: at the top budget the
+selection pool is nearly exhausted, so the narrow upper-budget intervals reflect saturation rather
+than precision, and the labelled blocks are drawn from the event being predicted, which is not a
+resource available before that event burns. The protocol, the full curve and the limits are in
+Supplement S1.
+
+Two limits belong with the number. At small budgets the same intervention damages the direction that
+already transfers best without any labels. And six directions in three regions cannot support a
+general label budget, so none is offered.
