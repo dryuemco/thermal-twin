@@ -63,7 +63,7 @@ and eleven positive-carrying 5 km blocks. What survives all three is the narrowe
 which is why Section 4.8 is reported as corroboration rather than as the load-bearing evidence for
 the mechanism.
 
-The sharpest supported reversal belongs to elevation, a static predictor, so instability is a
+On the frames as drawn the sharpest supported reversal belongs to elevation, a static predictor, so instability is a
 property of the predictor-to-burning mapping generally rather than of thermal channels specifically.
 This is the same conclusion the baseline transfer arm reaches from the other direction: the
 instability is not the thermal block's peculiarity.

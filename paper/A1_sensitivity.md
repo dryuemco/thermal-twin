@@ -74,7 +74,8 @@ One thing should be said before the result, because it makes the outcome less su
 might otherwise appear. The normalised channels are the two that hold their direction in the
 same-geography two-event comparison of Section 4.8, where the absolute channels move. That is a
 statement about one region across two fires. **Across regions it does not hold**: `lst_anomaly_mean`
-is itself one of the two bootstrap-supported reversing predictors, reversing between Bejís and Evia,
+is itself one of the two predictors whose reversal is bootstrap-supported on the frames as drawn,
+reversing between Bejís and Evia (Section 4.9 withdraws that support under an equalised frame),
 which is why Section 4.6b drops it alongside elevation. Being internally normalised protects a
 channel against the offset between two seasons in one place. It does not, on this evidence, protect
 it against a change of place.

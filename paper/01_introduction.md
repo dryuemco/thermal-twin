@@ -214,11 +214,15 @@ separability, niche-overlap statistics and burn-pattern regime distances were no
 order the matrix; the domain classifier is at ceiling, with AUC ≥ 0.96 for every pair. Only two
 diagnostics have intervals excluding zero, and both measure conditional direction agreement, that
 is, whether each predictor's signed association points the same way in both regions (Spearman
-ρ = +0.84 and +0.81 over sixteen directions from eight pairs). **Both are computed on a data-selected
-subset of predictors, and their all-nine-feature counterparts span zero, so the result rests on that
-selection.** Signed associations need burned labels on both sides, so this is a mechanism diagnosis
-rather than a screen: the marginal family, the only one runnable before deployment, is the one that
-fails. The same point survives without any ranking, at the point estimates: the pair with the
+ρ = +0.84 and +0.81 over sixteen directions from eight pairs). Both are computed on a data-selected
+subset of predictors, and their all-nine-feature counterparts span zero. **Contribution 1 then
+removes even that exception.** The sign-agreement statistic is built from the signed associations
+that the frame test shows to be artefacts, and recomputed on an equalised frame it is unanimous —
+1.0 in every direction, with no variance left to correlate — while the continuous alternative falls
+from ρ = +0.50 to +0.12 (Section 4.9). The honest finding is therefore stronger and worse for the
+practitioner than it first appeared: **no diagnostic tested here, marginal or conditional, was shown
+to order transfer once the frames are comparable**, and the one that appeared to was reading how the
+study rectangles were drawn. The same point survives without any ranking, at the point estimates: the pair with the
 highest burned-niche overlap fails in both directions while the lowest transfers in both. That
 contradicts an expectation the fire literature carries [@Dimarco2026; @Liu2025] and agrees with
 species distribution modelling [@Vesk2021; @Rousseau2022].

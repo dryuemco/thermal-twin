@@ -125,10 +125,11 @@ to cost anything. What is measurable is the evaluation area itself, worth **0.14
 of the fall from a region-wide 0.776, because its negatives are all fire-adjacent and therefore the
 hardest in the region.
 
-**The failure is invisible before deployment.** Of twenty candidate diagnostics only two had
-intervals excluding zero; both measure sign agreement over a selected feature subset (rho = 0.84,
-post-selection) and both need target labels. No marginal measure ordered the matrix, so the family
-that works is the one a practitioner does not have.
+**The failure cannot be anticipated.** Of twenty candidate diagnostics only two had intervals
+excluding zero, both measuring sign agreement over a selected feature subset (rho = 0.84,
+post-selection). Recomputed on the equalised frame that statistic is unanimous and has no variance
+left, and its continuous counterpart falls from rho = 0.50 to 0.12, so no diagnostic tested here was
+shown to order transfer once the frames are comparable.
 
 **Most of the apparent mechanism is an artefact of the evaluation frame.** Five predictors reverse
 direction between regions on the frames as drawn, but those frames enclose very different far

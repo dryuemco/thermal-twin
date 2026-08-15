@@ -352,7 +352,7 @@ already incurred inside the region, so it should not be read as a measure of con
 away from the reference; in six of those raw transfer was already above chance and adaptation
 destroyed that advantage. Label-free alignment therefore does not act as a repair mechanism.
 
-## 4.4 Transferability diagnostics: only conditional similarity orders transfer
+## 4.4 Transferability diagnostics: what appears to order transfer, and why it does not
 
 Twenty candidate diagnostics from five families were each rank-correlated with the same target
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
@@ -580,10 +580,15 @@ region to cells within 10 km of any burned cell drops **no positives**, only far
 On the equalised frame all five regions agree in sign on elevation, on LST and on TVDI, and both
 bootstrap-supported elevation reversals of Table B3 disappear. Applying this paper's own criterion
 from Section 3.10, which requires each region's own 10-cell block-bootstrap interval to exclude 0.5,
-**no reversal remains bootstrap-supported in the collar frame** (`collar_frame_bootstrap.csv`). The
-closest is `lst_anomaly_mean`, at 0.392 [0.324, 0.460] in Bejís against 0.584 [**0.497**, 0.669] in
-Evia: the point estimates fall on opposite sides but Evia's interval includes 0.5 by 0.003, so this
-is a point reversal, not a supported one. We state it that way rather than quoting the point
+**no reversal remains bootstrap-supported in the collar frame** (`collar_frame_bootstrap.csv`). Two
+features straddle 0.5 at the point estimate and neither is supported. `lst_anomaly_mean` runs 0.392
+[0.324, 0.460] in Bejís against 0.584 [**0.497**, 0.669] in Evia, so the point estimates fall on
+opposite sides but Evia's interval includes 0.5 by 0.003. `tvdi_difference_mean` straddles as well,
+at 0.509 [0.417, 0.597] in Muğla against 0.384 [0.288, 0.504] in Montiferru, and no region's
+interval excludes 0.5. These are the two internally differenced channels, and an earlier draft of
+this section treated the first as uniquely informative because it carries no lapse-rate signal; that
+argument does not hold, because the second is equally decorrelated from elevation and behaves the
+same way. Both are point reversals, not supported ones. We state it that way rather than quoting the point
 estimates alone, because the alternative would be to apply a looser standard to the arm that
 supersedes Table B3 than to Table B3 itself. Elevation under the collar is above 0.5 in all five
 regions but individually supported in only two, Muğla at 0.606 [0.525, 0.685] and Evia at 0.648
@@ -601,6 +606,33 @@ excluding 0.5 in four of five regions, so greener and therefore more fuel-rich c
 while the hottest cells are the sparse, rocky ones with little to burn. Section 1.2 motivates the
 thermal block from moisture-stress physics; that motivation is not what the signed associations
 show, and Section 5.2 states the consequence.
+
+**The same test destroys the one diagnostic that appeared to work.** Section 4.4's only diagnostic
+with an interval excluding zero is the fraction of features whose signed association points the same
+way in source and target, counted over features interval-supported in both. That statistic is built
+out of exactly the signed AUCs this section has just shown to be frame artefacts, and it was
+correlated against transfer measured on the same unequal frames. Recomputing both sides under the
+10 km collar (`diagnostics_collar_frame.csv`, `paper/code/verify_diag_collar.py`):
+
+| Diagnostic | Full frame | 10 km collar |
+|---|---|---|
+| Sign-agreement fraction over supported features | ρ = +0.86 (p = 0.0001, n = 14), values {0, 0.5, 1} | **1.0 in all 18 defined directions, variance exactly 0 — degenerate** |
+| Cosine similarity over all nine signed AUCs | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
+
+Once the frames are equalised every region pair agrees in sign on every jointly supported feature,
+so the diagnostic has no variance left and its correlation with transfer is undefined rather than
+weak. This is not a marginal shift: the number of features supported in both regions *rises* from
+1.20 to 3.40 per direction, so the diagnostic is better determined and unanimous. The disagreements
+it was reading were the far fields.
+
+**Contribution 3 is therefore restated, and it becomes a stronger negative result.** The finding is
+not that conditional similarity orders transfer where marginal similarity fails. It is that **no
+diagnostic tested here, marginal or conditional, orders transfer once the evaluation frames are
+equalised** — and the one that appeared to was measuring how the study rectangles were drawn. The
+practitioner's position is worse than Section 4.4 implied, not better: there is no screen, and the
+apparent exception was an artefact. Section 4.4's numbers are retained as computed, on the frames as
+drawn, because they are what a reader following the original protocol would obtain; this section is
+the correction.
 
 Three further points bound how many independent reversals could have been counted. Within the
 collar, `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00 and
@@ -627,7 +659,11 @@ explanation is unavailable.
 | 5 km | 5 km | 0.608 | 18 of 20 | 2 | +0.014 |
 
 The reference arm reproduces the frozen matrix, at 0.540 against Table 4's 0.541 and 14 of 20
-exactly, so this is measuring the same quantity. The largest movers are Bejís to Evia, 0.383 to
+exactly, so this is measuring the same quantity. The above- and below-chance counts in this table
+are point counts. Under the same 10-cell block bootstrap used for Table 4, the full frame gives nine
+directions above chance and four below with interval support, and the collar frame fourteen above
+and one below, so the headline movement is six to one at the point estimate and **four to one with
+interval support** (`aoi_frame_transfer.csv`). The largest movers are Bejís to Evia, 0.383 to
 0.602, and Bejís to Manavgat, 0.440 to 0.601.
 
 **What this does and does not change.** Three claims do not survive and are withdrawn here rather

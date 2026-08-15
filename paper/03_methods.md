@@ -190,8 +190,11 @@ populations of the other four regions and evaluated on the held-out region, with
 before. This asks whether pooling recovers what single-source transfer loses.
 
 **Removal of direction-reversing features.** The two predictors whose signed association reverses
-between regions with bootstrap support are **`elevation_mean`** (Manavgat against Bejís and against
-Muğla) and **`lst_anomaly_mean`** (Bejís against Evia). They are dropped and everything is refitted,
+between regions with bootstrap support **on the frames as drawn** are **`elevation_mean`** (Manavgat
+against Bejís and against Muğla) and **`lst_anomaly_mean`** (Bejís against Evia). Section 4.9
+withdraws that support under an equalised frame, so this selection rule is frame-dependent and the
+arm below is reported as a measurement made under the original protocol rather than as a
+consequence of an established reversal. They are dropped and everything is refitted,
 within-region and across every direction, and the two are also dropped singly so the cost can be
 attributed. This measures what the removal costs locally and what it returns on transfer on the same
 footing. Note that the two features are selected by the same reversal analysis against which the
