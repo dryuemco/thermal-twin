@@ -78,10 +78,15 @@ shown rather than argued. Taking the same fitted model and the same out-of-fold 
 scoring them on a random sample of region cells drawn at the scar area's own burned fraction gives
 **0.782 against the region-wide 0.782**: matching the prevalence changes nothing, at
 −0.000 [−0.003, +0.002] over the nine scars. Scoring the same predictions on the scar area itself
-gives 0.627, a fall of **+0.155 [+0.093, +0.217]**. The whole effect is the negative pool — every
-negative in a scar collar is fire-adjacent, sharing the terrain, land cover and synoptic conditions
-of the positives, whereas a region's negatives include its easy far field — and ROC-AUC is in any
-case invariant to class balance at fixed class-conditional distributions.
+gives 0.627, a fall of **+0.155 [+0.093, +0.217]**. That comparison swaps both pools at once, so the
+two single swaps were run to say which one carries it. Replacing only the negatives, keeping region
+positives at the scar's count and taking the scar's own negatives, costs **0.147 [0.104, 0.191]** —
+the whole of it. Replacing only the positives costs **0.002 [−0.048, +0.052]**, null on average
+though it runs from −0.13 to +0.11 across scars. So the attribution is measured rather than
+inferred: **the effect is the negative pool** — every negative in a scar collar is fire-adjacent,
+sharing the terrain, land cover and synoptic conditions of the positives, whereas a region's
+negatives include its easy far field — and ROC-AUC is in any case invariant to class balance at
+fixed class-conditional distributions (`pool_decomposition.json`).
 
 **Table 2. The four evaluations, scored on identical cells.** Primary natural-vegetation population.
 Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make
@@ -253,7 +258,15 @@ under the same 10-cell bootstrap the movement is six below chance to one at the 
 the frames rather than of the predictor-burning relationship, and are identified as such where they
 appear: the count of six anti-predictive directions, which becomes one; the sign reversal of
 elevation, LST and TVDI as a mechanism; the sign-agreement diagnostic; the same-geography arm; and
-the paired thermal contribution, +0.004 as drawn against +0.023 equalised. What survives is the
+the paired thermal contribution, +0.004 as drawn against +0.023 equalised. **That last quantity
+carries the portability null, so it is given an interval on the frame this section argues for**:
++0.023 [−0.004, +0.048] under the pair-cluster resampling of Appendix A(o), which is the unit
+behind the as-drawn +0.004 [−0.030, +0.036]. It still spans zero, so the null survives the
+correction — but only just, where the as-drawn interval was centred near zero, and under the
+alternative admissible unit, clustering by target region, it does not span zero at [+0.016, +0.031].
+The honest reading is that **the paired contribution is not established as non-zero on the corrected
+frame, and is much closer to the boundary there than the as-drawn number suggests**
+(`equalised_delta_interval.json`). What survives is the
 central negative result, and its size must be stated on a matched comparison: setting 0.616 against
 a within-region reference of about 0.87 would compare a collar number with a full-rectangle one at
 1 km blocking. Recomputed on the same frame at 5 km blocking that reference is 0.772, so the

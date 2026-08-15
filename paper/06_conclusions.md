@@ -49,7 +49,8 @@ What survives is the central result. Pre-fire thermal dryness adds a real and re
 within-region increment in all five regions, surviving spatial blocking at about 5 km and a
 predictor window closed up to two weeks before the first labelled burning. It does not travel: on
 matched frames and matched blocking, equalised transfer of 0.616 falls 0.155 short of the
-within-region reference, the paired cross-region contribution spans zero with a sign that varies by
+within-region reference, the paired cross-region contribution spans zero on the equalised frame as on the frame as drawn,
+with a sign that varies by
 pair, and the static baseline transfers no better than the dynamic one on either frame, so this is not a
 peculiarity of thermal predictors. The shortfall also cannot be anticipated: none of twenty diagnostics from
 five families was shown to order the matrix, and the two that appeared to do so require target
