@@ -839,19 +839,23 @@ through Google Earth Engine; no proprietary or restricted data were used. The
 frozen numeric outputs behind every table and figure, together with the analysis
 code that reads them, are available at
 \\url{https://github.com/dryuemco/thermal-twin}. The upstream processing pipeline
-that produced those outputs is a separate release,
+that produced those outputs is a separate public release,
 \\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, and the commit
-of record for every number reported here is \\texttt{48b56e7}. No digital object
-identifier is minted and no archival deposit exists.
+of record for every number reported here is \\texttt{6381f4c}. The modelling dataset each
+number rests on is identified there by SHA-256, which is how the one provenance
+incident in this project was settled: a rebuild had replaced one region's file at
+its canonical path, and the recorded hash identifies the frozen original
+unambiguously. No digital object identifier is minted and no archival deposit
+exists.
 
 \\textbf{Code availability.} The analysis code, its configuration and the scripts
-that regenerate each reported artefact are in the first repository above. Three
-components of the upstream pipeline fall outside the released commit, and a reader
-cannot re-run them: the reproduction-check driver and its validation package, on
-which Section~\\ref{sec:3.14} rests; the few-shot commit \\texttt{19d825b}, cited for
-provenance in the supplementary material; and the ERA5-Land diagnostic, whose
-manifest records commit \\texttt{a07ea33}. Every other quantity in the paper can be
-regenerated from the released code and the frozen outputs.
+that regenerate each reported artefact are in the first repository above. Every
+quantity in the paper can be regenerated from the released code and the frozen
+outputs. Three components were outside an earlier release and are now inside it:
+the reproduction-check driver and its validation package, on which
+Section~\\ref{sec:3.14} rests; the few-shot run, whose commit is reachable through
+the tag \\texttt{few-shot-run-19d825b}; and the ERA5-Land diagnostic, whose manifest
+records commit \\texttt{a07ea33}.
 
 \\textbf{Author contributions.} Stated in CRediT terms. ${CREDIT}
 % NEEDS AUTHOR INPUT: confirm the contribution split with the co-author, and

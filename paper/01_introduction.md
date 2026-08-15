@@ -137,6 +137,6 @@ to fire susceptibility; and because the residual is conditional, the resource th
 target labels, priced in Appendix A(u).
 
 The leakage-audited, spatially blocked protocol is released with code, configuration and frozen
-outputs, so most of this can be re-run rather than taken on trust, the three exceptions being named
-in the declarations — which matters given evidence that wildfire transfer conclusions are sensitive
+outputs, so most of this can be re-run rather than taken on trust, the release being complete as
+the declarations record — which matters given evidence that wildfire transfer conclusions are sensitive
 to evaluation design [@Xu2026]. A companion paper treats the observational layer beneath this one.

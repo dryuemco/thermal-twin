@@ -139,7 +139,7 @@ Three findings carry this paper, stated here as claims and established in Sectio
 
 Two consequences follow, as supporting results: label-free alignment by standardisation and covariance alignment \citep{Sun2016} does not repair transfer, in what we believe is its first application to fire susceptibility; and because the residual is conditional, the resource that closes it is target labels, priced in Appendix A(u).
 
-The leakage-audited, spatially blocked protocol is released with code, configuration and frozen outputs, so most of this can be re-run rather than taken on trust, the three exceptions being named in the declarations --- which matters given evidence that wildfire transfer conclusions are sensitive to evaluation design \citep{Xu2026}. A companion paper treats the observational layer beneath this one.
+The leakage-audited, spatially blocked protocol is released with code, configuration and frozen outputs, so most of this can be re-run rather than taken on trust, the release being complete as the declarations record --- which matters given evidence that wildfire transfer conclusions are sensitive to evaluation design \citep{Xu2026}. A companion paper treats the observational layer beneath this one.
 
 
 
@@ -1090,7 +1090,7 @@ This settles what Contribution 3 can claim. It is not that conditional similarit
 
 \textbf{The within-region increment survives the same correction}, remaining positive in all five regions on the equalised frame with a mean of +0.077 against +0.086 as drawn, and halving but staying positive in all five at a 5 km collar. The paper's one surviving predictor-level positive claim therefore holds on the frame it argues is the correct one. Per-region values are in Appendix A(o).
 
-\textbf{The data-provenance correction.} Muğla's 500 m modelling dataset at the canonical path had been overwritten by a quality-screening rebuild after the frozen tables were computed, so this section's scripts had read a version of that one region differing from Table~\ref{tab:1} and B9 in \texttt{downscaled\_\allowbreak{}lst\_\allowbreak{}mean} and \texttt{fused\_\allowbreak{}lst\_\allowbreak{}mean}. The two files agree on every other column; the proof that the difference is the data and not the fitting is that both give a within-region baseline of 0.6980 at 10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773. Two regions' files carry the rebuild's timestamp, Manavgat's and Muğla's, so both were replaced; the distinction that matters is whether the replacement agrees with what was published. Manavgat's does, reproducing its Table~\ref{tab:1} row to the printed precision at 0.748 and 0.797, as does the rebuild's own reported increment interval. Muğla's does not. Bejís, Evia and Montiferru were not touched. Every arm of Section~\ref{sec:4.4} was therefore re-run with Muğla read from the surviving frozen copy and the other four regions as they stand, which is the configuration Table~\ref{tab:1} and B9 were computed under. The correction moves forty of the hundred per-direction transfer values by up to 0.022, the largest being Muğla to Montiferru at 0.509 $\rightarrow$ 0.531. It leaves every headline quantity of Table~\ref{tab:4} unchanged to within 0.0012, the largest being the full-to-10 km paired delta at +0.0021 against +0.0033: the equalised mean 0.6163 against 0.6166, its paired delta +0.0231 against +0.0234, and the above-chance counts identical in four rows of five, the 5 km row moving from 18 to 19 as one direction crosses 0.5. The signed-AUC results are unaffected in substance --- only Muğla's two channels move, by at most 0.008, and the same two features straddle 0.5 on each frame. Sources \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer\_\allowbreak{}frozen\_\allowbreak{}mugla.\allowbreak{}csv}, \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}auc\_\allowbreak{}frozen\_\allowbreak{}mugla.\allowbreak{}csv}, \texttt{frozen\_\allowbreak{}mugla\_\allowbreak{}recheck.\allowbreak{}json}; code \texttt{code/\allowbreak{}frozen\_\allowbreak{}mugla\_\allowbreak{}verify\_\allowbreak{}aoi\_\allowbreak{}transfer.\allowbreak{}py}.
+\textbf{The data-provenance correction.} Muğla's 500 m modelling dataset at the canonical path had been overwritten by a quality-screening rebuild after the frozen tables were computed, so this section's scripts had read a version of that one region differing from Table~\ref{tab:1} and B9 in \texttt{downscaled\_\allowbreak{}lst\_\allowbreak{}mean} and \texttt{fused\_\allowbreak{}lst\_\allowbreak{}mean}. The two files agree on every other column, and which of them is canonical is not a matter of inference: the pipeline records a SHA-256 for each region's modelling dataset, and that hash identifies the frozen copy and not the file that had replaced it. The difference is the data and not the fitting, since both give a within-region baseline of 0.6980 at 10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773. The pipeline's own frozen 10-cell ceiling for this region, computed independently in a separate robustness namespace, is 0.6980 and 0.7773, which is the frozen file. Two regions' files carry the rebuild's timestamp, Manavgat's and Muğla's, so both were replaced; the distinction that matters is whether the replacement agrees with what was published. Manavgat's does, reproducing its Table~\ref{tab:1} row to the printed precision at 0.748 and 0.797, as does the rebuild's own reported increment interval. Muğla's does not. Bejís, Evia and Montiferru were not touched. Every arm of Section~\ref{sec:4.4} was therefore re-run with Muğla read from the surviving frozen copy and the other four regions as they stand, which is the configuration Table~\ref{tab:1} and B9 were computed under. The correction moves forty of the hundred per-direction transfer values by up to 0.022, the largest being Muğla to Montiferru at 0.509 $\rightarrow$ 0.531. It leaves every headline quantity of Table~\ref{tab:4} unchanged to within 0.0012, the largest being the full-to-10 km paired delta at +0.0021 against +0.0033: the equalised mean 0.6163 against 0.6166, its paired delta +0.0231 against +0.0234, and the above-chance counts identical in four rows of five, the 5 km row moving from 18 to 19 as one direction crosses 0.5. The signed-AUC results are unaffected in substance --- only Muğla's two channels move, by at most 0.008, and the same two features straddle 0.5 on each frame. Sources \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer\_\allowbreak{}frozen\_\allowbreak{}mugla.\allowbreak{}csv}, \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}auc\_\allowbreak{}frozen\_\allowbreak{}mugla.\allowbreak{}csv}, \texttt{frozen\_\allowbreak{}mugla\_\allowbreak{}recheck.\allowbreak{}json}; code \texttt{code/\allowbreak{}frozen\_\allowbreak{}mugla\_\allowbreak{}verify\_\allowbreak{}aoi\_\allowbreak{}transfer.\allowbreak{}py}.
 
 \textbf{The transfer matrix moves as well.} Restricting source and target to the same collar gives Table~\ref{tab:4} of the body (Section~\ref{sec:4.4}), which is not repeated here.
 
@@ -1670,19 +1670,23 @@ through Google Earth Engine; no proprietary or restricted data were used. The
 frozen numeric outputs behind every table and figure, together with the analysis
 code that reads them, are available at
 \url{https://github.com/dryuemco/thermal-twin}. The upstream processing pipeline
-that produced those outputs is a separate release,
+that produced those outputs is a separate public release,
 \url{https://github.com/emrehann17/satellite-thermal-digital-twin}, and the commit
-of record for every number reported here is \texttt{48b56e7}. No digital object
-identifier is minted and no archival deposit exists.
+of record for every number reported here is \texttt{6381f4c}. The modelling dataset each
+number rests on is identified there by SHA-256, which is how the one provenance
+incident in this project was settled: a rebuild had replaced one region's file at
+its canonical path, and the recorded hash identifies the frozen original
+unambiguously. No digital object identifier is minted and no archival deposit
+exists.
 
 \textbf{Code availability.} The analysis code, its configuration and the scripts
-that regenerate each reported artefact are in the first repository above. Three
-components of the upstream pipeline fall outside the released commit, and a reader
-cannot re-run them: the reproduction-check driver and its validation package, on
-which Section~\ref{sec:3.14} rests; the few-shot commit \texttt{19d825b}, cited for
-provenance in the supplementary material; and the ERA5-Land diagnostic, whose
-manifest records commit \texttt{a07ea33}. Every other quantity in the paper can be
-regenerated from the released code and the frozen outputs.
+that regenerate each reported artefact are in the first repository above. Every
+quantity in the paper can be regenerated from the released code and the frozen
+outputs. Three components were outside an earlier release and are now inside it:
+the reproduction-check driver and its validation package, on which
+Section~\ref{sec:3.14} rests; the few-shot run, whose commit is reachable through
+the tag \texttt{few-shot-run-19d825b}; and the ERA5-Land diagnostic, whose manifest
+records commit \texttt{a07ea33}.
 
 \textbf{Author contributions.} Stated in CRediT terms. \textbf{Emrehan Metin:} Software, Data curation, Investigation, Validation,
 Writing -- review and editing. \textbf{Yunus Emre Cogurcu:} Conceptualization,
