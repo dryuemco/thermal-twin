@@ -283,7 +283,7 @@ within-region thermal AUC; best adapted = the better of z-score/CORAL; recovered
 − raw)/(within − raw), signed and unclipped, with paired bootstrap CI (1000 replicates). Montiferru
 directions are not part of this decomposition (per-pair absolute decompositions exist without
 fraction CIs). The status column asks whether the *adapted* value clears chance and uses the 2-cell
-adapted intervals of Table 5. The adapted arms were not recomputed at the coarser blocking of
+adapted intervals of Table 9. The adapted arms were not recomputed at the coarser blocking of
 Appendix A(c), which covers the raw arm and the paired delta only.
 
 | Direction | Within | Raw | Best adapted (method) | Recovered fraction [CI] | Status |
@@ -347,6 +347,5 @@ and differenced, 1000 replicates, seed 42. Source `matched_frame_gap.csv`, recom
 
 Nine of the ninety feature-by-pair differences clear zero, against about 4.5 expected at nominal 5 %
 under the null, and no multiplicity correction is applied; four of the nine are this feature and
-three of those involve Evia. The nine features are effectively two to three dimensions (Section
-4.10), so the ninety comparisons are not independent either. This is reported as a weaker result
+three of those involve Evia. The nine features are effectively two to three dimensions (Section 4.4), so the ninety comparisons are not independent either. This is reported as a weaker result
 than a reversal, not as a restored one.
