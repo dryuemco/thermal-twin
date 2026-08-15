@@ -327,7 +327,7 @@ One confound must be stated. Holding out a region's only large scar also removes
 
 What this establishes is bounded rather than positive. Rows C and D both sit close to chance, so the comparison between them has little dynamic range, and neither the fire's identity nor the region boundary is shown to cost anything here. What is measurable is the change of evaluation geometry between rows A and B. Nor does it establish the fire event as the unit, because the held-out patch is defined by the labels, so its identity cannot be separated from its location. The within-region half-split, which does see half of the target scar, returns 0.574 against leave-one-scar-out's 0.552, with overlapping intervals.
 
-\textbf{The result is robust to how the held-out patch is defined}, at 0.543 to 0.565 across minimum component sizes from 25 to 200 cells and under both 4- and 8-connectivity, and flat across buffers of 2, 5 and 10 km.
+\textbf{The result is robust to how the held-out patch is defined.} Sweeping the two parameters that define it --- minimum burned-component size over 25, 50, 100 and 200 cells, and connectivity over the 4- and 8-neighbourhoods --- moves the row-C mean between \textbf{0.545 and 0.566} across all eight settings, against the 0.552 of the reported configuration, which the sweep reproduces to 0.001 (\texttt{scar\_\allowbreak{}definition\_\allowbreak{}sweep.\allowbreak{}csv}, \texttt{paper/\allowbreak{}code/\allowbreak{}scar\_\allowbreak{}definition\_\allowbreak{}sweep.\allowbreak{}py}). The number of qualifying scars falls from eleven to seven as the size threshold rises, which is what moves the mean; connectivity changes it by at most 0.001 at any threshold. The result is also flat across buffers of 2, 5 and 10 km.
 
 \textbf{The increment declines with the holdout, and is not established once the fire is withheld.} Contribution 1 is about the paired thermal-minus-baseline difference, so the same evaluations were run on it.
 
@@ -379,7 +379,7 @@ Section~\ref{sec:4.3}'s effect applies with equal force between regions, and thi
 
 The two fail differently and both fail. Once frames are equalised every region pair agrees in sign on every jointly supported feature, so the agreement fraction has no variance left. The supported cosine keeps a trace of variance --- unanimous signs fix directions but not magnitudes --- and simply stops tracking transfer. This is not a marginal shift: features supported in both regions \emph{rise} from 1.20 to 3.40 per direction, so the diagnostics are better determined and unanimous. The disagreements they were reading were the far fields.
 
-Two scope statements belong with the table and are given in Appendix A(p): the full-frame values here are not numerically the published ones, because the support test is itself bootstrap-dependent; and only these diagnostics were recomputed on the collar, so the other eighteen are unknown against the equalised transfer vector rather than shown to be null.
+Two scope statements belong with the table and are given in Appendix A(o): the full-frame values here are not numerically the published ones, because the support test is itself bootstrap-dependent; and only these diagnostics were recomputed on the collar, so the other eighteen are unknown against the equalised transfer vector rather than shown to be null.
 
 This settles what Contribution 3 can claim. It is not that conditional similarity orders transfer where marginal similarity fails; it is that \textbf{no diagnostic tested here has been shown to order transfer}. The eighteen marginal, niche and regime candidates do not order it on the frames as drawn, and the two conditional variants that do stop doing so once the frames are comparable, because what they were reading is how the study rectangles were drawn. The practitioner's position is therefore worse than the as-drawn analysis suggests, not better: there is no screen, and the apparent exception is an artefact. Section~\ref{sec:4.6} reports its numbers as computed under the pre-registered protocol, which is what a reader following that protocol would obtain.
 
@@ -440,7 +440,7 @@ Those counts belong to the 2-cell blocking of Table B9. At the more conservative
 
 \textbf{The static baseline does not transfer either.} The same twenty directions were run with the terrain, fuel and greenness baseline alone, giving a mean target AUC of \textbf{0.537} against \textbf{0.541} for the thermal model. Static attributes of a place are the class Dimarco et al. transfer successfully and the class this paper's framing treats as portable; here that class is itself barely above chance. The transfer failure below is therefore not specific to the dynamic block: a baseline that does not travel, plus pre-fire thermal state, gives a model that does not travel.
 
-\textbf{The thermal block's paired contribution to transfer, with its interval.} Differencing the two matrices direction by direction gives a mean of \textbf{+0.004}, but the mean is not the informative statistic. The individual contributions span \textbf{$-$0.148 to +0.133}, twelve positive and eight negative, so the spread is thirty times the mean and the sign belongs to the pair rather than to the block; a mean near zero records cancellation, not consistent absence of effect. The directions are not independent, since each region appears in eight of the twenty, so the interval depends on the resampling unit --- \textbf{all four units the design permits give the same answer}, from [$-$0.027, +0.034] treating directions as independent to [$-$0.037, +0.046] jackknifing regions, and none propagates within-direction sampling variability (Appendix A(q)). The leave-one-region-out jackknife shows how little the mean is anchored: \textbf{dropping Evia alone reverses its sign.}
+\textbf{The thermal block's paired contribution to transfer, with its interval.} Differencing the two matrices direction by direction gives a mean of \textbf{+0.004}, but the mean is not the informative statistic. The individual contributions span \textbf{$-$0.148 to +0.133}, twelve positive and eight negative, so the spread is thirty times the mean and the sign belongs to the pair rather than to the block; a mean near zero records cancellation, not consistent absence of effect. The directions are not independent, since each region appears in eight of the twenty, so the interval depends on the resampling unit --- \textbf{all four units the design permits give the same answer}, from [$-$0.027, +0.034] treating directions as independent to [$-$0.037, +0.046] jackknifing regions, and none propagates within-direction sampling variability (Appendix A(o)). The leave-one-region-out jackknife shows how little the mean is anchored: \textbf{dropping Evia alone reverses its sign.}
 
 \textbf{On the frames as drawn, six directions are below chance with interval support}, the sharpest at 0.326 [0.305, 0.349]. Section~\ref{sec:4.4} has shown most of that count is a property of the frames: equalising them leaves \textbf{one}, Manavgat to Bejís at 0.417 [0.349, 0.488], supported at the 10 km collar though its interval covers chance at 5 km. That direction still needs a mechanism acting on the direction of the relationship, because no account of merely lost skill produces a reliably reversed ranking, and Section~\ref{sec:4.6} pursues it. Everything below this point is computed on the frames as drawn and should be read against Section~\ref{sec:4.4}. Per-split and per-scar detail is in Appendix A(i); per-direction values for all twenty directions, raw and under both adaptations, are in Appendix B, Table B9.
 
@@ -450,7 +450,7 @@ The per-direction decomposition is in Appendix A(j), Table A5; two figures from 
 
 \textbf{Against the right reference, adaptation is not failing} (Fig.~\ref{fig:adaptation}). The three controls above give an achievable reference for a model applied to a fire it has not seen: 0.574 for the half-split, 0.552 for the leave-one-scar-out. CORAL, committed to in advance, averages \textbf{0.552} across the twenty directions against 0.541 raw, which is exactly that reference. Taking whichever of the two adaptations scores higher per direction gives 0.556, but that selection uses the target labels the protocol forbids, so it is an oracle upper bound rather than an achievable result and is reported as one. What it does is regress the matrix towards that value: fourteen of twenty directions move closer to chance, which harms the directions that already worked and helps the ones that did not. The verdict that follows is narrower than "alignment fails". Alignment cannot exceed what a model can achieve on an unseen fire, and it does not.
 
-In the six directions where raw transfer was below chance, the best label-free method recovers at most 34 \% of the gap to the within-region reference, so the remaining unrecovered fraction is at least 0.66 everywhere. The half-split control above shows that the larger part of that remainder is already incurred inside the region, so it should not be read as a measure of concept shift. Seven directions show \emph{negative} recovery, meaning adaptation moves the score away from the reference; in six of those raw transfer was already above chance and adaptation destroyed that advantage. Label-free alignment therefore does not act as a repair mechanism.
+In the six directions where raw transfer was below chance, the best label-free method recovers at most 34 \% of the gap to the within-region reference, so the remaining unrecovered fraction is at least 0.66 everywhere. The half-split control above shows that the larger part of that remainder is already incurred inside the region, so it should not be read as a measure of concept shift. On the four-AOI twelve-direction subset for which the decomposition is defined (Appendix A(j)), seven directions show \emph{negative} recovery, meaning adaptation moves the score away from the reference; in six of those raw transfer was already above chance and adaptation destroyed that advantage. Label-free alignment therefore does not act as a repair mechanism.
 
 \subsection{Transferability diagnostics: what appears to order transfer, and why it does not}\label{sec:4.6}
 
@@ -486,7 +486,7 @@ The families sit on unequal samples --- twelve directions for the marginal, appl
 
 \subsection{Further arms, in brief}\label{sec:4.7}
 
-Six further arms bear on the findings above without changing them, and are reported in full in Appendix A. \textbf{The contrast pair} (A(s)): the most environmentally similar pair in the matrix is among the weakest in transfer and the least similar among the stronger, so high envelope overlap does not buy transfer --- an ordinal claim, not one about the endpoints. \textbf{Interventions} (A(n)): pooling four regions into one training set does not recover what single-source transfer loses, and removing the two reversing predictors costs $-$0.081 of within-region AUC while returning +0.014 [$-$0.017, +0.045] on transfer, so a local cost is measured and no compensating transfer gain is. \textbf{Sensitivity} (A(a)--A(h)): eight design choices were varied with everything else held fixed and none changes a conclusion above. \textbf{The same geography, a second fire} (A(m)): the one arm that held place fixed shows a reversal on the frame as drawn, which Section~\ref{sec:4.4} withdraws. \textbf{Distance} (A(t)): within a single region the model is already at chance by 10 to 20 km from its training cells, which bounds how far a surface of this kind can be carried but cannot be turned into an attribution, for the reason given there. \textbf{The price of labels} (A(u)): thirty-two labelled 5 km blocks recover 85 to 89 \% of the target's matched ceiling in three of six directions and 30 to 57 \% in the rest, which is 7 to 20 \% of the target's natural-vegetation population and not a cheap answer.
+Six further arms bear on the findings above without changing them, and are reported in full in Appendix A. \textbf{The contrast pair} (A(s)): the most environmentally similar pair in the matrix is among the weakest in transfer and the least similar among the stronger, so high envelope overlap does not buy transfer --- an ordinal claim, not one about the endpoints. \textbf{Interventions} (A(n)): pooling four regions into one training set does not recover what single-source transfer loses, and removing the two reversing predictors costs $-$0.081 of within-region AUC while returning +0.014 [$-$0.017, +0.045] on transfer, so a local cost is measured and no compensating transfer gain is. \textbf{Sensitivity} (A(a)--A(h)): eight design choices were varied with everything else held fixed; none changes a conclusion above, except arm (f), which tests a claim of Section~\ref{sec:1.2} and does not uphold it. \textbf{The same geography, a second fire} (A(m)): the one arm that held place fixed shows a reversal on the frame as drawn, which Section~\ref{sec:4.4} withdraws. \textbf{Distance} (A(t)): within a single region the model is already at chance by 10 to 20 km from its training cells, which bounds how far a surface of this kind can be carried but cannot be turned into an attribution, for the reason given there. \textbf{The price of labels} (A(u)): thirty-two labelled 5 km blocks recover 85 to 89 \% of the target's matched ceiling in three of six directions and 30 to 57 \% in the rest, which is 7 to 20 \% of the target's natural-vegetation population and not a cheap answer. Two limits bound it: at the top budget the selection pool is nearly exhausted, so the narrow upper-budget intervals reflect saturation rather than precision, and \textbf{the labelled blocks are drawn from the event being predicted, which is not a resource available before that event burns}.
 
 
 
@@ -494,7 +494,7 @@ Six further arms bear on the findings above without changing them, and are repor
 
 \subsection{Reading the three findings together}\label{sec:5.1}
 
-Section~\ref{sec:1.4} states the three findings and Section~\ref{sec:4} establishes them; this section argues from them rather than restating them. One relation between them does need saying, because it is what makes the paper cohere: the first finding is not a caveat attached to the other two, it is the instrument that sets their size. Applied to our own matrix it withdrew three claims we had made, and what it left standing is a shortfall in transferred skill, not a reversed relationship.
+Section~\ref{sec:1.4} states the three findings and Section~\ref{sec:4} establishes them; this section argues from them rather than restating them. One relation between them does need saying, because it is what makes the paper cohere: the first finding is not a caveat attached to the other two, it is the instrument that sets their size. Applied to our own matrix it withdrew five claims we had made, and what it left standing is a shortfall in transferred skill, not a reversed relationship.
 
 \subsection{Why the thermal increment is real but local}\label{sec:5.2}
 
@@ -635,26 +635,6 @@ This arm strengthens the negative finding rather than softening it. Four differe
 
 The comparison is between two sub-blocks of one thermal set on one cohort. It does not test normalised dryness indices in general, and it does not test a normalisation fitted against a pooled multi-region reference rather than each region's own baseline years.
 
-\textbf{(h) Model capacity.} Every number in this paper comes from one random forest with unlimited depth and \texttt{min\_\allowbreak{}samples\_\allowbreak{}leaf = 3}. That is the configuration most able to encode local structure and least able to extrapolate, so a reader may reasonably ask whether the transfer failure is a property of the predictors or of the estimator. Holding the model fixed is right for the internal comparisons and does not license the external claim, so three further estimators were run over the same twenty directions and the same five within-region folds.
-
-\begin{center}
-  \footnotesize
-  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrrrr}
-    \hline
-    Estimator & Within-region AUC & Within increment & Transfer AUC & Transfer increment & Above chance \\
-    \hline
-    Random forest, depth unlimited, leaf 3 & 0.888 & +0.099 & 0.541 & +0.004 & 14 of 20 \\
-    Random forest, depth 6, leaf 50 & 0.829 & +0.055 & \textbf{0.556} & $-$0.007 & 14 of 20 \\
-    Random forest, leaf 200 & 0.805 & +0.047 & \textbf{0.550} & $-$0.021 & 14 of 20 \\
-    Penalised logistic regression & 0.741 & +0.045 & \textbf{0.510} & $-$0.024 & 14 of 20 \\
-    \hline
-  \end{tabularx}
-\end{center}
-
-\textbf{Regularisation does not rescue transfer.} All four estimators land between 0.510 and 0.556, all four put exactly fourteen of twenty directions above chance, and the linear model, the one built to extrapolate, transfers worst. Within-region skill falls as capacity is reduced, from 0.888 to 0.741, which is what regularisation is expected to cost; transfer does not rise to meet it. The thermal block's contribution to transfer is +0.004 under the canonical forest and \textbf{negative} under all three regularised alternatives, so the block does not become portable when the model is made simpler.
-
-The transfer failure is therefore a property of the predictors on this cohort, not of an unregularised forest. Detail in \texttt{paper/\allowbreak{}model\_\allowbreak{}capacity.\allowbreak{}json}.
-
 \textbf{(g) The coordinate-informed channels.} \texttt{downscaled\_\allowbreak{}lst\_\allowbreak{}mean} and \texttt{fused\_\allowbreak{}lst\_\allowbreak{}mean} come from a per-region downscaling model whose own inputs include coordinates, which Section~\ref{sec:3.14} names as the one route by which a coordinate-derived surface re-enters a feature set that excludes coordinates. A coordinate-smoothed surface is by construction locally informative and non-portable, so if the within-region increment depended on it, that increment would be this paper's own result in miniature rather than a finding about thermal dryness. The arm was therefore run here rather than deferred.
 
 Both channels were dropped and everything refitted, over all twenty directions and all five within-region folds. The reference configuration reproduces the frozen exports exactly, at 0.000000 against both the transfer and the within-region references.
@@ -678,6 +658,26 @@ Both channels were dropped and everything refitted, over all twenty directions a
 \textbf{The increment does not depend on them.} It stays positive in every region and retains 82 \% to 103 \% of its size, rising slightly in one region. Mean transfer is likewise unchanged, at 0.545 without the two channels against 0.541 with them and 0.537 for the baseline alone. The local skill this paper reports is therefore not an artefact of a coordinate-smoothed surface.
 
 This arm was computed independently here and reproduces the companion paper's figure for the same quantity, 82 \% to 103 \%, from a separately written harness.
+
+\textbf{(h) Model capacity.} Every number in this paper comes from one random forest with unlimited depth and \texttt{min\_\allowbreak{}samples\_\allowbreak{}leaf = 3}. That is the configuration most able to encode local structure and least able to extrapolate, so a reader may reasonably ask whether the transfer failure is a property of the predictors or of the estimator. Holding the model fixed is right for the internal comparisons and does not license the external claim, so three further estimators were run over the same twenty directions and the same five within-region folds.
+
+\begin{center}
+  \footnotesize
+  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrrrrr}
+    \hline
+    Estimator & Within-region AUC & Within increment & Transfer AUC & Transfer increment & Above chance \\
+    \hline
+    Random forest, depth unlimited, leaf 3 & 0.888 & +0.099 & 0.541 & +0.004 & 14 of 20 \\
+    Random forest, depth 6, leaf 50 & 0.829 & +0.055 & \textbf{0.556} & $-$0.007 & 14 of 20 \\
+    Random forest, leaf 200 & 0.805 & +0.047 & \textbf{0.550} & $-$0.021 & 14 of 20 \\
+    Penalised logistic regression & 0.741 & +0.045 & \textbf{0.510} & $-$0.024 & 14 of 20 \\
+    \hline
+  \end{tabularx}
+\end{center}
+
+\textbf{Regularisation does not rescue transfer.} All four estimators land between 0.510 and 0.556, all four put exactly fourteen of twenty directions above chance, and the linear model, the one built to extrapolate, transfers worst. Within-region skill falls as capacity is reduced, from 0.888 to 0.741, which is what regularisation is expected to cost; transfer does not rise to meet it. The thermal block's contribution to transfer is +0.004 under the canonical forest and \textbf{negative} under all three regularised alternatives, so the block does not become portable when the model is made simpler.
+
+The transfer failure is therefore a property of the predictors on this cohort, not of an unregularised forest. Detail in \texttt{paper/\allowbreak{}model\_\allowbreak{}capacity.\allowbreak{}json}.
 
 \subsection{A(i). The four evaluations of Section~\ref{sec:4.3}, in full}
 
@@ -1096,7 +1096,7 @@ Appendix A(n2) drops two predictors because their signed association with burnin
   \end{tabularx}
 \end{center}
 
-Three pair-level reversals across \textbf{two} features, which is why Section~\ref{sec:3.12} removes exactly those two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine features, and they are not counted. The conservative criterion costs the paper findings rather than manufacturing them: a difference interval on the pair, which is the instrument Appendix A(m2) uses, would support more reversals than the three listed here.
+Three pair-level reversals across \textbf{two} features, which is why Section~\ref{sec:3.12} removes exactly those two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine features, and they are not counted. The conservative criterion costs the paper findings rather than manufacturing them: a difference interval on the pair, which is the instrument Appendix A(m) uses, would support more reversals than the three listed here.
 
 \subsection{B4. The transfer matrix in precision-recall terms}
 
@@ -1319,7 +1319,7 @@ Two further properties bound the comparison. A historical-burn exclusion applies
   \end{tabularx}
 \end{center}
 
-\subsection{Predictor variables}\label{sec:3.4}
+\subsection{C.4 Predictor provenance, compositing and the downscaler}
 
 Ten predictors are used, four baseline and six thermal, all summarised per cell over the predictor window, through the chain shown in Fig.~\ref{fig:pipeline}. All optical and thermal predictors come from Landsat 8 Collection 2 Level-2 (\texttt{LANDSAT/\allowbreak{}LC08/\allowbreak{}C02/\allowbreak{}T1\_\allowbreak{}L2}), quality-screened per pixel from the \texttt{QA\_\allowbreak{}PIXEL} band with the water bit deliberately preserved; the coarse-resolution thermal input is \texttt{MODIS/\allowbreak{}061/\allowbreak{}MOD11A1}.
 
@@ -1333,7 +1333,7 @@ Ten predictors are used, four baseline and six thermal, all summarised per cell 
   \item \textbf{Downscaled LST} and \textbf{fused LST}. A MODIS-to-Landsat downscaling model is trained on the predictor window and applied to the full 30 m grid. The fused product equals observed Landsat LST wherever that is valid, and the downscaled surface only where it is not. Gap-filling therefore never replaces or blends a valid observation. The gap-filled share is 0.11 \% to 9.70 \% by region. The downscaler's own inputs include coordinates, which is the one route by which a coordinate-derived surface re-enters a feature set from which Section~\ref{sec:3.14} excludes coordinates. Appendix A(g) reports the increment without these two channels.
 \end{itemize}
 
-\subsection{C.4 Limitations, in full}
+\subsection{C.5 Limitations, in full}
 
 Section~\ref{sec:5.9} states each limitation; the elaborations are here.
 
@@ -1355,7 +1355,7 @@ Section~\ref{sec:5.9} states each limitation; the elaborations are here.
 
 (ix) \textbf{The interval-support counts are less stable than the point estimates behind them.} Several verdicts sit within a thousandth of their reference value, and at 1 km blocking the published split of ten positive, seven negative and three uncertain turns on a lower bound of $-$0.00045. The point estimates and the sign pattern are stable; the counts are not. Every sentence in this paper that leans on an exact count of supported directions should be read at that precision. (x) \textbf{The five areas of interest are not comparable frames, and this cohort cannot fully repair it} (Section~\ref{sec:4.4}). We report the equalised arm alongside the frame-as-drawn arm rather than replacing one with the other, because the collar radius is itself a choice and 5 km and 10 km do not agree exactly (0.608 against 0.617). The deeper limitation is that the frames were fixed upstream of this work, in \texttt{repo/\allowbreak{}}, so we can restrict them but not extend them; a region whose rectangle is already fire-scale, Montiferru, cannot be given a far field for symmetry. Any future cohort should fix the frame by an explicit accessible-area rule \citep{Barve2011} before any predictor is computed, and we treat that as the main design lesson of this paper.
 
-\subsection{Leakage control}\label{sec:3.14}
+\subsection{C.6 Leakage control and reproducibility, in full}
 
 An explicit forbidden-column set is enforced at every model fit. Coordinates (\texttt{lon}, \texttt{lat}, \texttt{row}, \texttt{col} and their normalised forms), every burn-date and label-provenance column, and the agreement fraction are excluded from all feature sets, and the enforcement runs as an assertion rather than a convention. The natural-vegetation mask is used only to define the population, never as a predictor. Spatial blocking prevents a cell from sharing a fold with its own neighbours.
 
@@ -1363,7 +1363,7 @@ An explicit forbidden-column set is enforced at every model fit. Coordinates (\t
 
 \textbf{Sensitivity analyses.} Every headline result is repeated across two analysis populations, three spatial-block sizes, the CORAL sweep, both feature sets and four classifier capacities; where a conclusion depends on one of those choices the dependence is reported rather than resolved by choosing the favourable setting (Appendix A).
 
-\subsection{Transfer-gap decomposition and the concept-shift diagnostic}\label{sec:3.10}
+\subsection{C.7 Transfer-gap decomposition and the concept-shift diagnostic, in full}
 
 For each direction the gap between the target's own within-region skill and the raw transfer result is split in two. One part is what the best label-free adaptation recovers, and the other is what it does not. The recovered fraction is (adapted $-$ raw) / (within $-$ raw), signed and unclipped, with its interval from the same paired bootstrap; it bounds what covariate-level correction can achieve. Section~\ref{sec:4.3} shows the remainder should not be read as a conditional residual, because much of it is incurred inside a single region (Appendix A(j)).
 
@@ -1444,7 +1444,7 @@ identifier is minted and no archival deposit exists.
   larger than the study AOIs for that reason alone; the difference in size
   carries no methodological meaning and is not a design choice. Coastlines are
   Natural Earth 1:50\,m; country borders are omitted deliberately. The scale
-  bar is exact only at 38\textdegree N. Region bounding boxes match Table~1 to
+  bar is exact only at 38\textdegree N. Region bounding boxes match Table~C1 to
   $5\times10^{-3}$ degrees.}
   \label{fig:study-map}
 \end{figure}
@@ -1500,7 +1500,7 @@ identifier is minted and no archival deposit exists.
   interval excludes zero in all ten of the 2- and 10-cell region--block-size
   combinations. The five 20-cell intervals also lie above zero but rest on 6 to
   33 positive-carrying blocks each, so they are plotted as indicative rather
-  than as intervals (Table~\ref{tab:3}, table note). In (c)
+  than as intervals (Table~\ref{tab:1}, table note). In (c)
   the five regions are offset horizontally by 0.15 cell so their whiskers
   separate; \textbf{this offset is cosmetic, since all five regions are evaluated
   at exactly the same three block sizes} (2, 10, 20 cells), and the offset is
@@ -1536,7 +1536,7 @@ identifier is minted and no archival deposit exists.
   z-score Evia$\rightarrow$Mu\u{g}la is 0.5013 (un-hatched, above chance).
   Every cell carries its value, and every label's colour is chosen by measured
   WCAG contrast against that cell's rendered colour (worst case 4.7:1).
-  Confidence intervals for these directions are given in Table~4.}
+  Confidence intervals for these directions are given in Table~B9.}
   \label{fig:transfer-matrix}
 \end{figure}
 

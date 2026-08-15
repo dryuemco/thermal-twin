@@ -155,8 +155,13 @@ fire event as the unit, because the held-out patch is defined by the labels, so 
 be separated from its location. The within-region half-split, which does see half of the target
 scar, returns 0.574 against leave-one-scar-out's 0.552, with overlapping intervals.
 
-**The result is robust to how the held-out patch is defined**, at 0.543 to 0.565 across minimum
-component sizes from 25 to 200 cells and under both 4- and 8-connectivity, and flat across buffers
+**The result is robust to how the held-out patch is defined.** Sweeping the two parameters that
+define it — minimum burned-component size over 25, 50, 100 and 200 cells, and connectivity over the
+4- and 8-neighbourhoods — moves the row-C mean between **0.545 and 0.566** across all eight settings,
+against the 0.552 of the reported configuration, which the sweep reproduces to 0.001
+(`scar_definition_sweep.csv`, `paper/code/scar_definition_sweep.py`). The number of qualifying scars
+falls from eleven to seven as the size threshold rises, which is what moves the mean; connectivity
+changes it by at most 0.001 at any threshold. The result is also flat across buffers
 of 2, 5 and 10 km.
 
 **The increment declines with the holdout, and is not established once the fire is withheld.**
@@ -257,7 +262,7 @@ stops tracking transfer. This is not a marginal shift: features supported in bot
 from 1.20 to 3.40 per direction, so the diagnostics are better determined and unanimous. The
 disagreements they were reading were the far fields.
 
-Two scope statements belong with the table and are given in Appendix A(p): the full-frame values
+Two scope statements belong with the table and are given in Appendix A(o): the full-frame values
 here are not numerically the published ones, because the support test is itself bootstrap-dependent;
 and only these diagnostics were recomputed on the collar, so the other eighteen are unknown against
 the equalised transfer vector rather than shown to be null.
@@ -391,7 +396,7 @@ block; a mean near zero records cancellation, not consistent absence of effect. 
 not independent, since each region appears in eight of the twenty, so the interval depends on the
 resampling unit — **all four units the design permits give the same answer**, from [−0.027, +0.034]
 treating directions as independent to [−0.037, +0.046] jackknifing regions, and none propagates
-within-direction sampling variability (Appendix A(q)). The leave-one-region-out jackknife shows how
+within-direction sampling variability (Appendix A(o)). The leave-one-region-out jackknife shows how
 little the mean is anchored: **dropping Evia alone reverses its sign.**
 
 **On the frames as drawn, six directions are below chance with interval support**, the sharpest at
@@ -432,7 +437,8 @@ fire, and it does not.
 In the six directions where raw transfer was below chance, the best label-free method recovers at
 most 34 % of the gap to the within-region reference, so the remaining unrecovered fraction is at
 least 0.66 everywhere. The half-split control above shows that the larger part of that remainder is
-already incurred inside the region, so it should not be read as a measure of concept shift. Seven directions show *negative* recovery, meaning adaptation moves the score
+already incurred inside the region, so it should not be read as a measure of concept shift. On the four-AOI twelve-direction subset for which the decomposition is defined (Appendix A(j)),
+seven directions show *negative* recovery, meaning adaptation moves the score
 away from the reference; in six of those raw transfer was already above chance and adaptation
 destroyed that advantage. Label-free alignment therefore does not act as a repair mechanism.
 
@@ -503,12 +509,15 @@ does not buy transfer — an ordinal claim, not one about the endpoints. **Inter
 pooling four regions into one training set does not recover what single-source transfer loses, and
 removing the two reversing predictors costs −0.081 of within-region AUC while returning +0.014
 [−0.017, +0.045] on transfer, so a local cost is measured and no compensating transfer gain is.
-**Sensitivity** (A(a)–A(h)): eight design choices were varied with everything else held fixed and
-none changes a conclusion above. **The same geography, a second fire** (A(m)): the one arm that held
+**Sensitivity** (A(a)–A(h)): eight design choices were varied with everything else held fixed; none
+changes a conclusion above, except arm (f), which tests a claim of Section 1.2 and does not uphold
+it. **The same geography, a second fire** (A(m)): the one arm that held
 place fixed shows a reversal on the frame as drawn, which Section 4.4 withdraws. **Distance**
 (A(t)): within a single region the model is already at chance by 10 to 20 km from its training
 cells, which bounds how far a surface of this kind can be carried but cannot be turned into an
 attribution, for the reason given there. **The price of labels** (A(u)): thirty-two labelled 5 km
 blocks recover 85 to 89 % of the target's matched ceiling in three of six directions and 30 to 57 %
 in the rest, which is 7 to 20 % of the target's natural-vegetation population and not a cheap
-answer.
+answer. Two limits bound it: at the top budget the selection pool is nearly exhausted, so the narrow
+upper-budget intervals reflect saturation rather than precision, and **the labelled blocks are drawn
+from the event being predicted, which is not a resource available before that event burns**.

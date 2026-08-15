@@ -11,7 +11,7 @@
 Section 1.4 states the three findings and Section 4 establishes them; this section argues from them
 rather than restating them. One relation between them does need saying, because it is what makes the
 paper cohere: the first finding is not a caveat attached to the other two, it is the instrument that
-sets their size. Applied to our own matrix it withdrew three claims we had made, and what it left
+sets their size. Applied to our own matrix it withdrew five claims we had made, and what it left
 standing is a shortfall in transferred skill, not a reversed relationship.
 
 ## 5.2 Why the thermal increment is real but local
