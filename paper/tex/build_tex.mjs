@@ -635,7 +635,13 @@ const abstractMd = read('00_abstract.md');
 // body ends by the \appendix marker inserted between the two groups below.
 const BODY = ['01_introduction', '02_related_work', '03_methods',
               '04_results', '05_discussion', '06_conclusions'];
-const APPENDICES = ['A1_sensitivity', 'A2_diagnostics', 'A3_protocol']
+// A1_sensitivity is no longer printed. Appendix A and the protocol half of
+// Appendix C are released as paper/supplementary_appendices.md, under the same
+// section names, so every "Appendix A(x)" and "Appendix C.2" pointer in the
+// paper still resolves - it resolves in that document instead of overleaf. What
+// stays here is the evidence a reader checks the claims against: Appendix B's
+// tables and Appendix C.5's eleven limitations.
+const APPENDICES = ['A2_diagnostics', 'A3_protocol']
   .filter(f => has(f + '.md'));
 const sections = [...BODY, ...APPENDICES];
 
@@ -838,7 +844,10 @@ MODIS MCD64A1 Collection 6.1 and land cover is ESA WorldCover, both retrieved
 through Google Earth Engine; no proprietary or restricted data were used. The
 frozen numeric outputs behind every table and figure, together with the analysis
 code that reads them, are available at
-\\url{https://github.com/dryuemco/thermal-twin}. The upstream processing pipeline
+\\url{https://github.com/dryuemco/thermal-twin}, which also carries the supplementary
+appendices: Appendix A and protocol sections C.1 to C.4, C.6 and C.7, released
+with the paper rather than printed in it, at
+\\texttt{paper/supplementary\\_appendices.md}. The upstream processing pipeline
 that produced those outputs is a separate public release,
 \\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, and the commit
 of record for every number reported here is \\texttt{6381f4c}. The modelling dataset each

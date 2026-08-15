@@ -25,7 +25,8 @@ Each region has two non-overlapping windows. The **predictor window** closes the
 vary with the event: 57 to 61 days for predictors, 35 to 59 for labels, counted inclusively. A four-year baseline of window-symmetric composites precedes each
 predictor window and supplies the climatological reference for the anomaly channels. Region
 identifiers, bounding boxes, window dates and baseline years are registered in `core/regions.py` and
-reproduced in Appendix C, Table C1.
+reproduced in Appendix C, Table C1. The processing chain and the evaluation
+programme it feeds are drawn in Fig. 2.
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
@@ -43,7 +44,7 @@ full specification, including what follows from the grid's shape.
 ## 3.3 Burned-landcover admissibility gate
 
 Before any modelling each region passes a gate asking what fraction of its burned cells is dominated
-by natural vegetation, using ESA WorldCover classes on the same cells. A region is admitted at 0.50
+by natural vegetation, using ESA WorldCover classes [@Zanaga2022] on the same cells. A region is admitted at 0.50
 with at least 30 burned cells, and rejected as a cropland-dominated control at 0.50 cropland.
 Verdicts and the purpose of the gate are in Section 4.1, the full rule in Appendix C.1.
 
@@ -132,7 +133,8 @@ Twenty candidate diagnostics from five families are computed for every region pa
 rank-correlated (Spearman) against observed raw transfer AUC, under one bootstrap that resamples
 unordered region pairs with both of their ordered directions travelling together. The families are
 marginal predictor-space measures P(x), including area-of-applicability dissimilarity, climatic and
-geographic distance and a learned domain classifier; burned-niche overlap P(x|y=1); regime distance
+geographic distance and a learned domain classifier; burned-niche overlap P(x|y=1), measured by
+Schoener's D [@Schoener1968] and Warren's I [@Warren2008]; regime distance
 P(y); and conditional direction agreement P(y|x). **No family-wise error control is claimed**, and
 the number of variants per family is reported with the result. Appendix C.2 gives the full
 specification.

@@ -255,7 +255,7 @@ protocol yields; per-direction values are in Appendix B, Table B9, and the suppo
 Appendix A(x).
 
 **Raw transfer is heterogeneous and includes anti-predictive directions.** Target AUC spans 0.326 to
-0.686. The support counts depend on the blocking scale, so both are reported: at 2-cell (≈1 km)
+0.686, and Fig. 4 gives the matrix direction by direction. The support counts depend on the blocking scale, so both are reported: at 2-cell (≈1 km)
 blocking twelve of twenty directions are above chance with interval support and six below; at the
 10-cell (≈5 km) blocking this design defends, nine are above and four below with seven uncertain,
 the counts Table 4 uses. Of the below-chance directions only Manavgat to Bejís survives frame
@@ -285,8 +285,8 @@ since each region appears in eight of the twenty, so the interval depends on the
 +0.046], and none propagates within-direction sampling variability. The leave-one-region-out
 jackknife shows how little the mean is anchored: **dropping Evia alone reverses its sign.**
 
-**Label-blind adaptation compresses the matrix toward chance rather than repairing it.** Under
-region-wise z-scoring the twenty directions span 0.431 to 0.630 and under CORAL 0.443 to 0.624,
+**Label-blind adaptation compresses the matrix toward chance rather than repairing it** (Fig. 5).
+Under region-wise z-scoring the twenty directions span 0.431 to 0.630 and under CORAL 0.443 to 0.624,
 roughly half the raw spread, and fourteen of twenty move closer to chance — which helps the
 directions that failed and harms those that worked. The committed-in-advance CORAL arm averages
 **0.552**; taking whichever method scores better per direction gives 0.556, but that selection uses
@@ -348,9 +348,13 @@ once the frames are comparable**.
 Six further arms bear on the findings above without changing them: the contrast pair (A(s)), the two
 interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event arm (A(m)), the
 distance curve (A(t)) and the label-budget curve (A(u)).
-Each is stated there with its own limits. The two bearing directly on Sections 5.4 and 5.7 are the
-interventions, where a local cost of −0.081 is measured against a transfer return of +0.014 [−0.017,
-+0.045] whose interval spans zero, and the label budget, where thirty-two labelled 5 km blocks
-recover 85 to 89 % of the target's matched ceiling in three of six directions and 30 to 57 % in the
-rest — 7 to 20 % of the target's population, drawn from the event being predicted, which is not a
-resource available before that event burns.
+Each is stated there with its own limits. Three are plotted here because the shape of the result is
+the argument: pooling every other region never beats the best single source for any target (Fig. 6);
+removing the direction-reversing features costs within-region skill and returns nothing measurable on
+transfer (Fig. 7); and the contrast pair shows the most burned-niche overlap sitting with the weakest
+transfer (Fig. 8). The two bearing directly on Sections 5.4 and 5.7 are the interventions, where a
+local cost of −0.081 is measured against a transfer return of +0.014 [−0.017, +0.045] whose interval
+spans zero, and the label budget, where thirty-two labelled 5 km blocks recover 85 to 89 % of the
+target's matched ceiling in three of six directions and 30 to 57 % in the rest — 7 to 20 % of the
+target's population, drawn from the event being predicted, which is not a resource available before
+that event burns.
