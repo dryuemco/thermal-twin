@@ -204,32 +204,16 @@ selection is applied.
 ## 3.13 Controls on the transfer path
 
 Four evaluations establish what the transfer arms are measuring. All use the transfer protocol of
-Section 3.8 unchanged: fit on the source cells, apply to the target cells, no refit, no
-recalibration, no threshold selection. All were verified to reproduce the frozen cross-region AUCs
-exactly before being used.
-
-**Within-region half-split.** The modelled cells of a region are cut in two at the median of a grid
-axis, a model is fitted on one half and applied to the other. Both axes and both directions are run,
-giving four splits per region. A split is discarded when either half is single-class, which happens
-twice in one region. Per-split source and target positive counts are reported, because they are
-unequal and bear on the interpretation.
-
-**Foreign-region evaluation.** Each held-out scar area is additionally scored with a model fitted on
-each of the other four regions in turn, and those four results averaged, so that a same-region model
-and a foreign one are compared on identical cells. This is the arm that separates the effect of
-withholding the fire from the effect of separation distance.
-
-**Leave-one-scar-out.** Burned connected components are found with 8-connectivity on the analysis
-grid. Every component of at least 50 cells is held out together with all cells within a buffer of it,
-a model is fitted on the remainder of the same region, and applied to the held-out area. Buffers of
-2, 5 and 10 km are run. A scar held out at 2 km inside its own region is close to its
-training data and yet wholly unseen, which is what makes the comparison with the foreign-region arm
-informative. The held-out patch is defined by the labels, so this arm cannot separate the identity of
-a fire from its location.
-
-Appendix A(i) reports all four in full, with per-split and per-scar tables. Intervals for the
-four-row ladder are Student *t* over the eight held-out scars, which is that arm's resampling unit,
-rather than the spatial-block bootstrap of Section 3.7 used everywhere else in this paper.
+Section 3.8 unchanged — fit on the source cells, apply to the target cells, no refit, no
+recalibration, no threshold selection — and all were verified to reproduce the frozen cross-region
+AUCs before being used. They are a **within-region half-split** (the modelled cells cut in two at the
+median of a grid axis, both axes and both directions, a split discarded when either half is
+single-class); **leave-one-scar-out** (each burned component of at least 50 cells, dilated by a 2 km
+buffer, withheld from training and used as the target); a **foreign-region evaluation** of the same
+held-out scar areas; and the **same blocked model restricted** to those areas, which isolates the
+evaluation region from the training regime. Buffer variants, the minimum-component rule and the
+per-split and per-scar positive counts, which are unequal and bear on the interpretation, are in
+Appendix A(i).
 
 ## 3.14 Leakage control
 
@@ -243,11 +227,10 @@ Spatial blocking prevents a cell from sharing a fold with its own neighbours.
 The transfer and adaptation analysis runs in an environment separate from the upstream pipeline's.
 Every within-region model was therefore refitted there and compared against the frozen upstream
 output, and the independently implemented adaptation was compared against the pipeline's own. The
-within-region comparisons agree exactly, and the twenty transfer directions agree to within
-1.6×10⁻⁷. Random-forest fits are not bit-identical across library versions. All numbers here were
-therefore produced under scikit-learn 1.9.0, or verified against it. If that version is not fixed,
-cross-region point estimates carry an implementation tolerance of about ±0.02 to 0.03. The companion paper reports the version
-sensitivity and the reproduction check in full.
+within-region comparisons agree exactly and the twenty transfer directions to within
+1.6×10⁻⁷. All numbers here were produced under scikit-learn 1.9.0 or verified against it; the
+implementation tolerance that applies if the version is not fixed is stated in Section 5.9(vi), and
+the companion paper reports the version sensitivity and the reproduction check in full.
 
 **Sensitivity analyses.** Every headline result is repeated across two analysis populations, three
 spatial-block sizes, the CORAL regularisation sweep and both feature sets. Where a conclusion

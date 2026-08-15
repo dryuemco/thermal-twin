@@ -16,37 +16,27 @@ standing is a shortfall in transferred skill, not a reversed relationship.
 
 ## 5.2 Why the thermal increment is real but local
 
-A distinction has to be drawn before this section can say anything useful. The within-region
-increment and the transfer failure are measured at different separations, and Section 4.3 shows that
-most of the difference between them is already present inside a single region. What follows
-therefore reads the increment as local in a specific sense: it holds where the held-out cells are interleaved with
-training cells, and most of it is gone once they are not, before the fire or the region changes. What that does not explain is why the directions differ from each
-other. On the frames as drawn six of them are anti-predictive, but Section 4.10 shows that count is
-itself mostly a frame artefact and leaves one, so what needs explaining is a shortfall in transferred
-skill rather than a reliably reversed ranking.
-
-The within-region increment is not an artefact to be explained away, but it is measured under a
-holdout that Section 4.3 shows is generous. Withholding a whole burn scar reduces it to +0.022
-[−0.032, +0.077], so what follows describes an increment that is established under interleaved
-validation and not established beyond it. It replicates in five
-independent regions, survives coarsening of the spatial blocks to ~5 km with its interval intact,
-persists in the secondary all-valid population, and survives a predictor window closed 7 and 14 days
-earlier in all five regions. The direction of that last result is region-specific and should not be
-overstated: the contribution strengthens in Bejís (0.058 → 0.079 at 14 days) and Muğla (0.115 →
-0.128), is flat in Montiferru, and **weakens monotonically in Evia** (0.156 → 0.149 → 0.135). What
-holds everywhere is survival, not improvement. The transfer failure is therefore not evidence that
-the thermal signal is spurious. It is evidence that the fitted relationship is *local*.
+The within-region increment and the transfer failure are measured at different separations, and
+Section 4.3 shows that most of the difference between them is already present inside a single
+region. The increment should therefore be read as local in a specific sense: it holds where held-out
+cells are interleaved with training cells, and most of it is gone once they are not, before the fire
+or the region changes. It is not an artefact to be explained away — it replicates in five
+independent regions, survives coarsening of the blocks to about 5 km with its interval intact,
+persists in the secondary population, and survives a predictor window closed up to two weeks earlier
+— but it is established under interleaved validation and not established beyond it. The
+window-closure result is region-specific and should not be overstated: the contribution strengthens
+in Bejís and Muğla, is flat in Montiferru, and **weakens monotonically in Evia**, so what holds
+everywhere is survival, not improvement (Appendix A(d)).
 
 The natural objection is that different Mediterranean regions are simply different systems, so that
-a predictor meaning one thing in one place and another elsewhere is not instability but a comparison
-of two different systems. **We designed the two-Muğla-events arm to answer that objection and it does
-not answer it.** On the frames as drawn it looked decisive: region, AOI, grid, feature registry and
+a predictor meaning one thing in one place and another elsewhere is a comparison of two systems
+rather than instability. **We designed the two-Muğla-events arm to answer that objection and it does
+not answer it.** On the frames as drawn it looked decisive: region, grid, feature registry and
 processing chain identical, static predictors identical cell by cell, and elevation's association
-reversing from 0.611 [0.532, 0.690] to 0.296 [0.230, 0.355]. Section 4.9 shows the arm is instead the
-most extreme frame artefact in the cohort. The 2022 event is one compact scar inside the whole Muğla
-box, so 93.2 % of its cells lie beyond 10 km of any burned cell against 55.3 % for the 2021 arm, and
-under a 10 km collar the 2022 figure moves to 0.565, the same side of 0.5 as the 2021 arm's
-near-unchanged 0.606, with an interval covering chance.
+reversing between the two fires. Section 4.9 shows the arm is instead the most extreme frame
+artefact in the cohort — 93.2 % of the 2022 arm's cells lie beyond 10 km of any burned cell against
+55.3 % for 2021 — and under the collar the 2022 figure moves to the same side of 0.5 as the 2021
+arm's near-unchanged value, with an interval covering chance.
 
 The objection therefore stands unanswered, and three further confounds were never resolved in any
 case. Season and year are confounded, and **that confound cannot be resolved in this study area**:
@@ -54,15 +44,13 @@ the events sit 42 days apart in median burn day-of-year, neither year contains a
 other's phase, and a calendar-matched arm would carry nine burned cells against a gate minimum of
 thirty. The population is not held fixed either, the 2022 arm being the 2021 arm with the 2021 scar
 removed. And the 2022 arm rests on eleven positive-carrying 5 km blocks against this design's own
-floor of sixteen. With one fire per region everywhere else in the paper, and the one arm that held
-place fixed now withdrawn, **this cohort provides no evidence that the transfer shortfall is
-regional rather than event-specific**, and Section 5.9(v) should be read as the substantive limit it
-is rather than as a formality.
+floor of sixteen. With one fire per region everywhere else, and the one arm that held place fixed now
+withdrawn, **this cohort provides no evidence that the transfer shortfall is regional rather than
+event-specific**, and Section 5.9(v) is a substantive limit rather than a formality.
 
-On the frames as drawn the sharpest supported reversal belongs to elevation, a static predictor, so instability is a
-property of the predictor-to-burning mapping generally rather than of thermal channels specifically.
-This is the same conclusion the baseline transfer arm reaches from the other direction: the
-instability is not the thermal block's peculiarity.
+One conclusion does survive from the other direction. On the frames as drawn the sharpest supported
+reversal belonged to elevation, a *baseline* terrain variable, and the static baseline transfers no
+better than the dynamic block. Whatever the shortfall is, it is not the thermal block's peculiarity.
 
 ## 5.3 Why the similarity-based diagnostics fail
 
@@ -87,25 +75,19 @@ whether or not their transfer works, so separability carries no ordering informa
 
 ## 5.4 What the conditional diagnostic is, and what it is not
 
-The sign-agreement index reaches ρ = +0.84 [+0.58, +0.88] against observed transfer. Three limits
-are reported with it rather than after it, and the sharpest is a selection: the two rows that clear
-zero are supported-feature variants whose subset is chosen on the same data, and their
-all-nine-feature counterparts span zero. Its tie structure caps the achievable Spearman at +0.861,
-so the observed value sits essentially on its own ceiling and the ranking it supports is coarse. Its
-exact one-sided permutation p is 0.0060, the smallest that tie structure can produce, against a
-Bonferroni threshold of 0.0026 over nineteen computed variants. No outcome could have cleared
-family-wise correction on ten effective pairs. And it needs burned labels in both regions, which
-makes it a mechanism diagnosis rather than a pre-deployment screen.
+The sign-agreement index was the paper's one diagnostic with an interval excluding zero, and Section
+4.5 states its three limits with the result: it sits essentially on its own tie-structure ceiling,
+it could not have cleared family-wise correction on ten effective pairs whatever it returned, and
+its feature subset is chosen on the same data, its all-nine-feature counterparts spanning zero.
 
 A fourth limit removes it altogether. The index is built from signed associations that Section 4.10
 shows to be artefacts of the evaluation frames, and recomputing it on an equalised frame leaves it
-unanimous and variance-free, with the continuous variant falling from ρ = +0.50 to +0.12. So the
-paper's practical conclusion is not "use this index instead", and it is not even "the index works
-but needs labels". It is that **none of the twenty candidates was shown to order transfer once the
-frames are comparable**, and the one that appeared to was reading how the study rectangles were
-drawn. That is a worse position for a practitioner than Section 4.5 first suggests, and it is the
-honest one. As always these are nulls on ten effective pairs: not shown to order transfer, rather
-than shown incapable of it.
+unanimous and variance-free. So the practical conclusion is not "use this index instead", and it is
+not even "the index works but needs labels". It is that **none of the twenty candidates was shown to
+order transfer**, and the one that appeared to was reading how the study rectangles were drawn. That
+is a worse position for a practitioner than Section 4.5 alone suggests, and it is the honest one. As
+always these are nulls on ten effective pairs: not shown to order transfer, rather than shown
+incapable of it.
 
 ## 5.5 What the two interventions do and do not show
 

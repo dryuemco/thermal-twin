@@ -149,42 +149,29 @@ region where holding out one scar still leaves the source model properly trained
 0.597.
 
 **Row D is a mean over four foreign models, and the spread behind it is large.** Decomposing it gives
-**32** scar-by-source combinations, eight scars by four foreign sources, running from 0.374 to 0.724,
-with **ten of the 32 below chance** and a mean spread of 0.171 across the four sources for a given
-scar, reaching 0.329 for one. The pooled
-0.555 is therefore not a statement that any foreign model does as well as a same-region one. It is a
-statement that the *average* foreign model does, and the variation it averages over is the
-pair-specific sign instability that Sections 4.5 to 4.9 are about. Both facts belong together: a
-region boundary costs nothing on average, and which side of that average a particular pair lands on
-is not predictable from anything measured here.
+**32** scar-by-source combinations running from 0.374 to 0.724, with **ten below chance** and a mean
+spread of 0.171 across the four sources for a given scar (Appendix A, Table A3). The pooled 0.555 is
+therefore not a statement that any foreign model does as well as a same-region one, but that the
+*average* one does, and the variation it averages over is exactly the pair-specific instability that
+the rest of Section 4 is about.
 
-The first difference should not be over-read, and one confound has to be stated. Holding out a
-region's only large scar also removes most of its positives: the source model retains 11 positives
-in Evia, 88 in Manavgat and 97 in Montiferru, against about 2,000 in Muğla, which has four separate
-scars. Those four non-Muğla arms average 0.525 and the four Muğla arms 0.579. Three of the four are
-genuinely starved; the fourth, Montiferru's second component, retains 472 source positives, so the
-shortfall there is not a training-size effect. so row C mixes "the fire
-was withheld" with "almost all the positives were withheld". Restricted to Muğla, C is 0.579 and D
-is 0.597, and the C to D comparison still shows nothing. With eight scars, three of them starved, this
-design cannot establish a fire-specific residual, only bound it at about 0.18 against the 0.143 that
-separates row A from row B on the same model.
+One confound must be stated. Holding out a region's only large scar also removes most of its
+positives: the source model retains 11 positives in Evia, 88 in Manavgat and 97 in Montiferru,
+against about 2,000 in Muğla, which has four separate scars. Those four non-Muğla arms average 0.525
+and the four Muğla arms 0.579. Three of the four are genuinely starved — the fourth, Montiferru's
+second component, retains 472 source positives — so row C mixes "the fire was withheld" with "almost
+all the positives were withheld". Restricted to Muğla, C is 0.579 and D is 0.597, and the C-to-D
+comparison still shows nothing. **With eight scars, three of them starved, this design cannot
+establish a fire-specific residual, only bound it at about 0.18.**
 
-What this establishes is bounded rather than positive. Rows C and D both sit close to chance, so a
+What this establishes is bounded rather than positive. Rows C and D both sit close to chance, so the
 comparison between them has little dynamic range, and neither the fire's identity nor the region
-boundary is shown to cost anything on this evaluation. What is measurable is the change of
-evaluation geometry between rows A and B. What it does not establish
-is the fire event as the unit, because the held-out patch is defined by the labels, so its identity
-cannot be separated from its location. Two further observations point the same way: a model trained
-on the other half of the same fire is no better at matched sample size, and the within-region
-half-split, which does see half of the target scar, returns 0.574 against leave-one-scar-out's 0.552
-with overlapping intervals.
-
-Separation does not order the twenty-direction matrix either. The Spearman correlation between
-centroid separation and transfer AUC is −0.32 with an interval spanning zero, and the two nearest
-directions, Manavgat and Muğla at 306 km, are among the worst at 0.470 and 0.401. This is a
-different quantity from Table 7's geographic-distance row, computed on the twelve-direction subset,
-which gives −0.24; both span zero. The transfer mean of 0.541 is over all twenty directions and is
-not the value at any one separation: the 2,802 km pair returns 0.326 and 0.444.
+boundary is shown to cost anything here. What is measurable is the change of evaluation geometry
+between rows A and B. **It is not shown to be zero on an unseen fire, and eight scars cannot show
+that; what this design establishes is that it is not established there.** Nor does it establish the
+fire event as the unit, because the held-out patch is defined by the labels, so its identity cannot
+be separated from its location. The within-region half-split, which does see half of the target
+scar, returns 0.574 against leave-one-scar-out's 0.552, with overlapping intervals.
 
 **The result is robust to how the held-out patch is defined**, at 0.543 to 0.565 across minimum
 component sizes from 25 to 200 cells and under both 4- and 8-connectivity, and flat across buffers
@@ -381,6 +368,13 @@ Table B1.
 | P(y) regime structure | 2 | − | +0.29 [−0.38, +0.74] log effective-N distance | **no** | no |
 | geographic | 1 | − | −0.24 [−0.84, +0.73] centroid geodesic distance | yes | no |
 
+Geographic separation does not order the matrix on either construction. Over all twenty directions
+the Spearman correlation between centroid separation and transfer AUC is −0.32 with an interval
+spanning zero; on the twelve-direction common subset of Table 7 it is −0.24, also spanning zero. The
+two nearest directions, Manavgat and Muğla at 306 km, are among the worst on the frames as drawn,
+while the 2,802 km pair returns 0.326 and 0.444, so the transfer mean of 0.541 is not the value at
+any one separation.
+
 **Only two diagnostics have intervals excluding zero, and both are conditional.** The stronger is
 the sign-agreement fraction over interval-supported features, at ρ = +0.84 [+0.58, +0.88]. The
 cosine variant reaches +0.81. No marginal measure was shown to order the matrix. That includes
@@ -515,85 +509,50 @@ behaviour. Appendix A reports all eight arms, including one that tests a claim o
 
 ## 4.9 The same geography, a second fire, and why it does not survive either
 
-Every result above compares different places. Muğla admits a stricter test, because a second fire
-burned inside the identical AOI on the identical analysis grid. The 2021 event has a predictor
-window closing on 28 July. The 2022 event has a matched window closing on 20 June. Region, bounding
-box, cell definition, feature registry and processing chain are the same in both arms. The design
-holds place fixed. It does not hold season fixed, because the 2022 fire ignites about six weeks
-earlier, and it does not hold the population fixed, because the 2022 arm is defined by removing the
-2021 scar.
+This arm was designed to hold place fixed and vary only the fire, which would have separated
+regional concept shift from everything that differs between study areas. Muğla burned twice, in 2021
+and again eleven months later, on the same grid and through the same processing chain, and the 2022
+arm is the 2021 population with the 2021 scar removed: 73,098 rows / 2,911 burned for 2021 against
+38,790 rows / 331 burned for 2022. **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for
+the 2022 arm**, and eleven is below the sixteen this design sets as its own floor, so the 2022
+intervals are read as indicative exactly as the 20-cell row of Table 3 is. Full per-feature values are in Appendix B, Table B5.
 
-**Table 8. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
-`burned`, never folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
-replicates, seed 42 (Section 3.15). Analysis population 41,730 rows / 2,911 burned (2021) and
-38,790 rows / 331 burned (2022). **Positive-carrying 5 km blocks: 70 for the 2021 arm and 11 for the
-2022 arm.** Table 3's note sets sixteen as the floor this design supports at that blocking, so the
-2022 intervals here fall below the paper's own standard and are read as indicative, exactly as the
-20-cell row of Table 3 is. The 2022 arm is additionally a single compact scar, so its eleven blocks
-are contiguous. Read from
-`paper/step9g_raw/.../mugla_2021__mugla_2022_event_relative/step9g_direction_reversal_table.csv`.
+**On the frame as drawn, elevation reverses with bootstrap support.** In 2021 higher ground burned
+preferentially, at 0.611 [0.532, 0.690]; in 2022 lower ground did, at 0.296 [0.230, 0.355]. The
+intervals are disjoint and the difference is −0.317 [−0.414, −0.220]: the same predictor, region and
+grid, and an association pointing the opposite way in two fires eleven months apart. The four
+absolute thermal channels change side as well.
 
-| Feature | 2021 AUC [95 % CI] | 2022 AUC [95 % CI] | Reversal |
-|---|---|---|---|
-| **elevation_mean** | **0.611 [0.532, 0.690]** | **0.296 [0.230, 0.355]** | **bootstrap-supported** |
-| current_lst_mean | 0.325 [0.271, 0.382] | 0.515 [0.434, 0.580] | point only |
-| current_tvdi_mean | 0.336 [0.275, 0.398] | 0.594 [0.475, 0.674] | point only |
-| downscaled_lst_mean | 0.307 [0.253, 0.366] | 0.508 [0.435, 0.571] | point only |
-| fused_lst_mean | 0.325 [0.272, 0.383] | 0.519 [0.436, 0.583] | point only |
-| ndvi_mean | 0.662 [0.616, 0.704] | 0.707 [0.624, 0.777] | none |
-| slope_mean | 0.637 [0.582, 0.686] | 0.558 [0.468, 0.634] | none |
-| lst_anomaly_mean | 0.485 [0.395, 0.566] | 0.380 [0.249, 0.502] | none |
-| tvdi_difference_mean | 0.490 [0.396, 0.575] | 0.397 [0.265, 0.514] | none |
+**Section 4.10 withdraws it.** The 2022 arm is one compact scar inside the whole Muğla box, so
+93.2 % of its cells lie beyond 10 km of any burned cell against 55.3 % for the 2021 arm — the most
+extreme far field in the cohort. Under the same 10 km collar the 2021 figure barely moves, 0.611 to
+0.606 and still supported, while the 2022 figure moves from 0.297 to 0.565, onto the same side of
+0.5 as 2021 with an interval covering chance. The arm shows the same artefact as the cross-region
+reversals rather than confirming them. We keep the section because the structural properties below
+have no analogue elsewhere in the paper, and because this arm is what motivated the frame test.
 
-**On the frame as drawn, elevation reverses with bootstrap support. Section 4.10 withdraws it.**
-This section reports the arm as it was computed, because it was designed and frozen before the frame
-test existed; the withdrawal is stated at the end and in Section 4.10. In 2021 higher ground burned
-preferentially, at 0.611
-with its interval entirely above 0.5; in 2022 lower ground did, at 0.296 with its interval entirely
-below. The two intervals are disjoint, 0.532 against 0.355, and the difference is −0.317 [−0.414,
-−0.220]. The same predictor, the same region, the same grid, and an association that points the
-opposite way in two fires eleven months apart. The four absolute thermal channels change side as
-well, from bootstrap-supported lower-values-burn in 2021 to higher-values-burn point estimates in
-2022.
-
-**None of this survives the frame test of Section 4.10.** The 2022 arm is one compact scar inside
-the whole Muğla box, so 93.2 % of its cells lie beyond 10 km of any burned cell against 55.3 % for
-the 2021 arm — the most extreme far field in the cohort. Under the same 10 km collar the 2021 figure
-barely moves, 0.611 to 0.606 and still supported, while the 2022 figure moves from 0.297 to 0.565,
-onto the same side of 0.5 as 2021 and with an interval covering chance. The arm therefore shows the
-same artefact as the cross-region reversals rather than an independent confirmation of them, and the
-asymmetry between the two arms' frames is what produces it. We keep the section because the
-structural properties below are worth recording and because the arm is what motivated the frame test,
-not because it establishes a reversal.
-
-Two structural properties must be read alongside these numbers, because they have no analogue in the
-twenty-direction matrix. The two arms are not disjoint samples: they share 38,789 of the 2022 arm's
-38,790 cells, and elevation, slope and land cover are identical to the digit across all 73,098 grid
-cells, so only NDVI and the six thermal channels carry new information between them. And the removal
-is the target's own positive class, so in the 2022 to 2021 direction not one target positive is
-present in the source training population while 38,789 of 38,819 target negatives are, and
-membership of the source training set alone separates the 2021 target's classes at ROC-AUC 0.9996.
-We therefore cannot bound what that asymmetry does to a transfer estimate between the two arms,
-which is why none is reported here, only state that a
-direction with this structure is not comparable to the twenty between-region directions. The
-elevation reversal is the finding; the structural asymmetry is a competing explanation this design
-cannot exclude. The known part of the bias runs the safe way: the removed cells are high, with a
-median of 563 m, and unburned in 2022, so removing them raises the 2022 elevation AUC and makes the
+The two arms are not disjoint samples: they share 38,789 of the 2022 arm's 38,790 cells, and
+elevation, slope and land cover are identical to the digit across all 73,098 grid cells, so only
+NDVI and the six thermal channels carry new information between them. And the removal is the
+target's own positive class, so in the 2022-to-2021 direction not one target positive is in the
+source training population while 38,789 of 38,819 target negatives are, and membership of the source
+training set alone separates the 2021 target's classes at ROC-AUC 0.9996. **We therefore cannot
+bound what that asymmetry does to a transfer estimate between the two arms.** The known part of the
+bias runs the safe way: the removed cells are high, with a median of 563 m against the population's
+lower centre, so removing them strips high negatives from the 2022 arm and makes the observed
 reversal smaller rather than larger.
 
 ## 4.10 The evaluation frame, applied to our own matrix
 
-Section 4.3 established that swapping a region's negatives for fire-adjacent ones moves ROC-AUC by
-+0.155 [+0.093, +0.217] with the model held fixed. That result was obtained inside one region. It
-applies with equal force between regions, and applying it changes what Sections 4.4 and 4.6 can
-claim. It does not withdraw anything in this section; the within-region result above is what the
-test is built from. This section reports that test. Source: `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`,
-`paper/code/verify_aoi_frame.py`, `paper/code/verify_aoi_transfer.py`.
+Section 4.3's effect applies with equal force between regions, and applying it changes what
+Sections 4.4 and 4.6 can claim. It withdraws nothing in Section 4.3 itself, which is what the test is
+built from. Source: `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`, `collar_frame_bootstrap.csv`,
+`diagnostics_collar_frame.csv`, and the code deposited under `paper/code/`.
 
 **The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
 fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose.
 
-**Table 9. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
+**Table 8. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
 population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell.
 Source `aoi_frame_auc.csv`; recomputable by `paper/code/verify_aoi_frame.py`.
 
@@ -613,7 +572,7 @@ the burned cells themselves, in Taurus terrain that no plausible spread model wo
 **Under an equalised frame the sign reversals of Section 4.6 do not survive.** Restricting every
 region to cells within 10 km of any burned cell drops **no positives**, only far-field negatives.
 
-**Table 10. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
+**Table 9. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
 intervals that decide the reversal question are given in the text below and in
 `collar_frame_bootstrap.csv` (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to
 max(AUC, 1 − AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned
@@ -701,7 +660,7 @@ out of exactly the signed AUCs this section has just shown to be frame artefacts
 correlated against transfer measured on the same unequal frames. Recomputing both sides under the
 10 km collar (`diagnostics_collar_frame.csv`, `paper/code/verify_diag_collar.py`):
 
-**Table 11. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
+**Table 10. The two diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman
 ρ against target ROC-AUC over the ordered directions in which the diagnostic is defined. Source
 `diagnostics_collar_frame.csv`; recomputable by `paper/code/verify_diag_collar.py`.
 
@@ -744,7 +703,7 @@ fixed. The area of interest is fixed; the evaluation frame is not. The 2022 arm 
 of 332 burned cells inside a 38,819-cell box, so **93.2 % of its cells lie beyond 10 km of any
 burned cell, with a median distance of 43.6 km** — a larger far field than any cross-region arm,
 Bejís's 63.1 % included. Applying the same collar (`mugla_two_event_collar.csv`,
-`paper/code/verify_mugla_collar.py`; the full-frame values reproduce Table 8 at 0.611 and 0.297):
+`paper/code/verify_mugla_collar.py`; the full-frame values reproduce Table B5 at 0.611 and 0.297):
 
 | Muğla arm | share beyond 10 km | full frame | 10 km collar |
 |---|---:|---|---|
@@ -774,7 +733,7 @@ without licensing a claim that any survived.
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
-**Table 12. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
+**Table 11. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
 population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
 the supported counts use the same 10-cell (≈5 km) spatial-block bootstrap on the target as Table 5,
 1000 replicates, seed 42. Per-direction bounds are in `aoi_frame_transfer.csv`.
@@ -817,15 +776,12 @@ reference on the same frame and at the 5 km blocking this design defends
 
 The shortfall survives on every matched row, which is what matters, but it is **0.155 at the collar,
 not the 0.25 the unmatched comparison implies**, and it shrinks as the frame approaches the fire —
-which is where a susceptibility surface is actually used. We report the matched figure and drop the
-"room to spare" reading. Section 5.9 records the frame as a limitation of the cohort rather than of the
-method, since equalising it is cheap and we recommend it.
+which is where a susceptibility surface is actually used.
 
-This is the paper's own Contribution 1 turned on the paper's own matrix. We had measured that the
-composition of the negative pool moves ROC-AUC by more than the effects this literature reports, and
-had then computed a five-region transfer matrix, and a mechanism, on frames whose fire-adjacent
-share ranges from 37 % to 98 %. We report it because it is the strongest available demonstration that
-the reporting standard of Section 5.8 is not a technicality.
+This is Section 4.3's result turned on our own matrix: we had measured that the composition of the
+negative pool moves ROC-AUC by more than the effects this literature reports, then computed a
+five-region transfer matrix, and a mechanism, on frames whose fire-adjacent share ranges from 37 %
+to 98 %. Section 5.9(x) records the frame as a limitation of this cohort rather than of the method.
 
 ## 4.11 What target labels cost: the recovery curve
 
