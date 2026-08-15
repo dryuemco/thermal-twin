@@ -62,7 +62,7 @@ marginal, niche or regime families, and on ten effective pairs those nulls mean 
 transfer rather than shown not to. Two conditional variants did carry intervals excluding zero, but
 they rest on a data-selected subset of predictors, require burned labels on both sides, and — on the
 equalised frames of the first finding — become unanimous and variance-free, so they were reading the
-study rectangles rather than the transfer. No diagnostic tested here survives as a screen. Label-free
+study rectangles rather than the transfer. No diagnostic tested here has been shown to work as a screen. Label-free
 alignment compresses fourteen of twenty directions towards chance rather than repairing them, and
 pooled multi-region training does not escape it either. Supervised recalibration works but is not
 cheap: thirty-two labelled 5 km blocks recover 85 to 89 % of the target's matched ceiling in three

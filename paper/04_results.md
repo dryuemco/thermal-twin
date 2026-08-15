@@ -245,7 +245,8 @@ the paper invites, and it constrains that reading sharply. The same twenty direc
 the terrain, fuel and greenness baseline alone. The mean target AUC is **0.537**, against **0.541**
 for the thermal model. Static attributes of a place are the class Dimarco et al. transfer
 successfully, and are the class this paper's framing treats as portable. Here that class is itself
-barely above chance. The paired per-direction contrast is given in Section 4.7b. What matters here
+barely above chance. The paired per-direction contrast is given below and in
+`baseline_vs_thermal_transfer.csv`. What matters here
 is that the transfer failure below is not specific to the dynamic block. A baseline that does not
 travel, plus pre-fire thermal state, gives a model that does not travel.
 
@@ -505,7 +506,7 @@ the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed u
 moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
 behaviour. Appendix A reports all eight arms, including one that tests a claim of Section 1.2 and does not uphold it.
 
-## 4.9 The same geography, a second fire: reversal with place held constant
+## 4.9 The same geography, a second fire, and why it does not survive either
 
 Every result above compares different places. Muğla admits a stricter test, because a second fire
 burned inside the identical AOI on the identical analysis grid. The 2021 event has a predictor
@@ -537,13 +538,26 @@ are contiguous. Read from
 | lst_anomaly_mean | 0.485 [0.395, 0.566] | 0.380 [0.249, 0.502] | none |
 | tvdi_difference_mean | 0.490 [0.396, 0.575] | 0.397 [0.265, 0.514] | none |
 
-**Elevation reverses with bootstrap support.** In 2021 higher ground burned preferentially, at 0.611
+**On the frame as drawn, elevation reverses with bootstrap support. Section 4.10 withdraws it.**
+This section reports the arm as it was computed, because it was designed and frozen before the frame
+test existed; the withdrawal is stated at the end and in Section 4.10. In 2021 higher ground burned
+preferentially, at 0.611
 with its interval entirely above 0.5; in 2022 lower ground did, at 0.296 with its interval entirely
 below. The two intervals are disjoint, 0.532 against 0.355, and the difference is −0.317 [−0.414,
 −0.220]. The same predictor, the same region, the same grid, and an association that points the
 opposite way in two fires eleven months apart. The four absolute thermal channels change side as
 well, from bootstrap-supported lower-values-burn in 2021 to higher-values-burn point estimates in
 2022.
+
+**None of this survives the frame test of Section 4.10.** The 2022 arm is one compact scar inside
+the whole Muğla box, so 93.2 % of its cells lie beyond 10 km of any burned cell against 55.3 % for
+the 2021 arm — the most extreme far field in the cohort. Under the same 10 km collar the 2021 figure
+barely moves, 0.611 to 0.606 and still supported, while the 2022 figure moves from 0.297 to 0.565,
+onto the same side of 0.5 as 2021 and with an interval covering chance. The arm therefore shows the
+same artefact as the cross-region reversals rather than an independent confirmation of them, and the
+asymmetry between the two arms' frames is what produces it. We keep the section because the
+structural properties below are worth recording and because the arm is what motivated the frame test,
+not because it establishes a reversal.
 
 Two structural properties must be read alongside these numbers, because they have no analogue in the
 twenty-direction matrix. The two arms are not disjoint samples: they share 38,789 of the 2022 arm's
@@ -564,8 +578,9 @@ reversal smaller rather than larger.
 
 Section 4.3 established that swapping a region's negatives for fire-adjacent ones moves ROC-AUC by
 +0.155 [+0.093, +0.217] with the model held fixed. That result was obtained inside one region. It
-applies with equal force between regions, and applying it changes what Sections 4.3 and 4.5 can
-claim. This section reports that test. Source: `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`,
+applies with equal force between regions, and applying it changes what Sections 4.4 and 4.6 can
+claim. It does not withdraw anything in this section; the within-region result above is what the
+test is built from. This section reports that test. Source: `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`,
 `paper/code/verify_aoi_frame.py`, `paper/code/verify_aoi_transfer.py`.
 
 **The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
@@ -653,6 +668,17 @@ correlated against transfer measured on the same unequal frames. Recomputing bot
 | Sign-agreement fraction over supported features | ρ = +0.86 (p = 0.0001, n = 14), values {0, 0.5, 1} | **1.0 in all 18 defined directions, variance exactly 0 — degenerate** |
 | Cosine similarity over all nine signed AUCs | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
 
+Two scope statements belong with this table. First, **both sides are recomputed here under one
+bootstrap setting**, so the comparison is internally consistent, but the full-frame value is not
+numerically the published one: it is ρ = +0.86 over fourteen directions against the ρ = +0.84 over
+sixteen reported in Section 4.5 and Table B1. The support test is itself bootstrap-dependent, and at
+this setting three region pairs carry no jointly supported feature rather than two. The argument
+does not rest on the published figure, it rests on before and after under identical settings.
+Second, **only these two diagnostics were recomputed on the collar.** The other eighteen already
+failed to order the matrix on the frames as drawn and were not rerun; the equalised transfer vector
+differs substantially from the as-drawn one, so their correlations against it are unknown rather
+than shown to be null.
+
 Once the frames are equalised every region pair agrees in sign on every jointly supported feature,
 so the diagnostic has no variance left and its correlation with transfer is undefined rather than
 weak. This is not a marginal shift: the number of features supported in both regions *rises* from
@@ -660,13 +686,35 @@ weak. This is not a marginal shift: the number of features supported in both reg
 it was reading were the far fields.
 
 **Contribution 3 is therefore restated, and it becomes a stronger negative result.** The finding is
-not that conditional similarity orders transfer where marginal similarity fails. It is that **no
-diagnostic tested here, marginal or conditional, orders transfer once the evaluation frames are
-equalised** — and the one that appeared to was measuring how the study rectangles were drawn. The
+not that conditional similarity orders transfer where marginal similarity fails. It is that **no diagnostic tested here has been shown to order transfer** — the eighteen marginal,
+niche and regime candidates failed on the frames as drawn, and the two conditional variants that did
+order the matrix stop doing so once the frames are equalised, because they were measuring how the
+study rectangles were drawn. The
 practitioner's position is worse than Section 4.5 implied, not better: there is no screen, and the
 apparent exception was an artefact. Section 4.5's numbers are retained as computed, on the frames as
 drawn, because they are what a reader following the original protocol would obtain; this section is
 the correction.
+
+**The two-event arm does not survive the test either, and it is the most extreme case in the
+cohort.** Section 4.9 reports a bootstrap-supported elevation reversal between two Muğla fires
+eleven months apart, and it was exempted from this section on the ground that the study area is
+fixed. The area of interest is fixed; the evaluation frame is not. The 2022 arm is one compact scar
+of 332 burned cells inside a 38,819-cell box, so **93.2 % of its cells lie beyond 10 km of any
+burned cell, with a median distance of 43.6 km** — a larger far field than any cross-region arm,
+Bejís's 63.1 % included. Applying the same collar (`mugla_two_event_collar.csv`,
+`paper/code/verify_mugla_collar.py`; the full-frame values reproduce Table 8 at 0.611 and 0.297):
+
+| Muğla arm | share beyond 10 km | full frame | 10 km collar |
+|---|---:|---|---|
+| 2021 | 55.3 % | 0.611 [0.529, 0.692], supported | 0.606 [0.525, 0.685], supported |
+| 2022 | **93.2 %** | 0.297 [0.229, 0.363], supported | **0.565 [0.450, 0.677], not supported** |
+
+Under the collar the 2022 arm moves to the **same side of 0.5** as the 2021 arm and its interval
+covers chance, so the pair is no longer a reversal on either half of the criterion. The 2021 arm is
+nearly frame-invariant, at 0.611 against 0.606, which is what isolates the effect to the 2022 arm's
+far field rather than to the collar itself. **No bootstrap-supported sign reversal survives anywhere
+in this paper once evaluation frames are equalised**, between regions or between two fires in one
+region, and Section 4.9 should be read with that correction.
 
 Three further points bound how many independent reversals could have been counted. Within the
 collar, `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00 and

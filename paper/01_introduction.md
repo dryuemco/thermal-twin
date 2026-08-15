@@ -184,10 +184,13 @@ closest is the LST anomaly between Bejís and Evia, a point reversal whose Evia 
 by 0.003. The sign the five regions now agree on is also not the one the dryness framing predicts:
 hotter pre-fire surfaces burned less in every region, and that survives stratification within
 elevation and greenness deciles, so on this cohort the block behaves as a proxy for fuel
-availability rather than as a moisture-stress index (Section 4.10). A reversal also appears
-between two fires eleven months apart inside one study area, where the frame is fixed by
-construction (Section 4.9), but on elevation alone, on eleven positive-carrying blocks, and with one
-fire per arm it is as consistent with event-to-event variation as with any regional property. The
+availability rather than as a moisture-stress index (Section 4.10). A reversal also appears between two fires
+eleven months apart inside one study area (Section 4.9), and we had exempted it because the study
+area is fixed. That exemption was wrong: the area is fixed but the evaluation frame is not, and the
+2022 arm carries the largest far field in the cohort at 93.2 % of its cells beyond 10 km of any
+burned cell. Under the same collar it moves to the same side of 0.5 as the 2021 arm and loses
+interval support, so **no bootstrap-supported sign reversal survives anywhere in this paper once
+evaluation frames are equalised**. The
 practical consequence is a reporting standard, stated in Section 5.8.
 
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The

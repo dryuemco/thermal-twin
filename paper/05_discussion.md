@@ -165,7 +165,7 @@ the six they moved upward involve Montiferru, the smallest region; the sixth, Ma
 moves downward. The committed-in-advance CORAL arm reaches a mean of 0.552, and taking whichever of
 the two methods scores better per direction reaches 0.556 — but that selection uses the target
 labels the protocol forbids, so it is an oracle upper bound rather than an achievable result
-(Section 4.3). Even the oracle only reaches the reference a
+(Section 4.4). Even the oracle only reaches the reference a
 model can reach on an unseen scar at all (Section 4.3), so they are not failing far below an
 achievable target; they are regressing the matrix onto it, which costs the directions that already
 worked. What alignment cannot do is exceed that reference, and a sign reversal is not a distribution

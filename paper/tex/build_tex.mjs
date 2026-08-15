@@ -336,11 +336,23 @@ function convertTable(lines, vault, caption, label) {
 
   const cell = c => escapeOutsideVault(inline(c, vault));
   const out = [];
-  out.push('\\begin{table}[htbp]');
-  out.push('  \\centering');
-  out.push('  ' + size);
-  out.push('  \\caption{' + caption + '}');
-  if (label) out.push('  \\label{' + label + '}');
+  // A table with no caption must NOT be a float. \caption{} still steps the
+  // table counter, so an uncaptioned float silently consumes a number and every
+  // later table is numbered one higher in the PDF than in the source. These are
+  // inline display tables (the increment ladder, the resampling-unit list, the
+  // sensitivity arms); set them centred and unnumbered instead.
+  const floating = Boolean(caption && caption.trim());
+  if (!floating) {
+    note('table', 'no caption; emitted unnumbered so it does not consume a table number');
+    out.push('\\begin{center}');
+    out.push('  ' + size);
+  } else {
+    out.push('\\begin{table}[htbp]');
+    out.push('  \\centering');
+    out.push('  ' + size);
+    out.push('  \\caption{' + caption + '}');
+    if (label) out.push('  \\label{' + label + '}');
+  }
   out.push(useTabularx
     ? '  \\begin{tabularx}{\\linewidth}{' + spec + '}'
     : '  \\begin{tabular}{' + align.join('') + '}');
@@ -353,7 +365,7 @@ function convertTable(lines, vault, caption, label) {
   }
   out.push('    \\hline');
   out.push(useTabularx ? '  \\end{tabularx}' : '  \\end{tabular}');
-  out.push('\\end{table}');
+  out.push(floating ? '\\end{table}' : '\\end{center}');
   return out.join('\n');
 }
 

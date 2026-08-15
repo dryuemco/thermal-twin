@@ -128,6 +128,6 @@ and greenness strata. Local skill nonetheless does not travel: the thermal block
 +0.153 within regions under blocked cross-validation but +0.022 [−0.032, +0.077] when a whole burn
 scar is withheld and +0.004 [−0.028, +0.036] across twenty transfer directions, with a sign that
 varies by pair, while the static baseline transfers no better, at 0.537 against 0.541. Of twenty
-candidate diagnostics from five families, none was shown to order transfer once the frames are
-comparable; the two that appeared to require target labels and become degenerate on equalised
-frames. Transfer skill has to be measured, not inferred from similarity.
+candidate diagnostics from five families, none was shown to order transfer: eighteen failed on the
+frames as drawn, and the two that succeeded require target labels and become degenerate once the
+frames are equalised. Transfer skill has to be measured, not inferred from similarity.
