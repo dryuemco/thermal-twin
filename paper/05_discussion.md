@@ -9,14 +9,17 @@
 ## 5.1 Principal findings
 
 Four results carry this paper. First, the pre-fire thermal block raises spatially blocked
-within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean regions, with bootstrap
-support at 1 km and 5 km blocking, and contributes +0.004 [−0.028, +0.036] across twenty ordered
+within-region ROC-AUC by +0.056 to +0.153 in every one of five Mediterranean regions at 1 km
+blocking, and by +0.045 to +0.148 at 5 km, with bootstrap support at both, and contributes +0.004 [−0.028, +0.036] across twenty ordered
 transfer directions, indistinguishable from zero and with a sign that varies by pair. The static
 baseline transfers no better, at a mean of 0.537 against 0.541, so the failure is not a property of
-the dynamic block specifically. Nor is it attributable to region crossing. On identical
+the dynamic block specifically. Nor is it shown to be attributable to region crossing. On identical
 cells, withholding the burn scar from training costs +0.082 [−0.011, +0.175] and moving the training
-data 306 to 2,802 km away costs −0.003 [−0.075, +0.069]. The failure is a property of contiguous
-spatial holdout. The six below-chance directions are a separate matter, since no account of
+data 306 to 2,802 km away costs −0.003 [−0.075, +0.069]. Both span zero, and both arms sit close to
+chance, so the comparison has little dynamic range: what this establishes is a bound, not a positive
+attribution. The fire-specific residual is bounded at about +0.18 and the region-crossing effect at
+about ±0.07. Neither is shown to cost anything, and it would be an error to read the second as
+evidence that region crossing is free. The six below-chance directions are a separate matter, since no account of
 merely lost skill produces a reliably reversed ranking. Removing the two reversing predictors,
 elevation and the LST anomaly, costs −0.081 of within-region skill, supported in every region and
 three quarters attributable to elevation, and changes transfer by +0.014 [−0.017, +0.045], which
@@ -166,8 +169,12 @@ population, and at small budgets the same intervention damages the direction tha
 best.
 
 For method development, the results bound what unsupervised alignment can be asked to do. Two
-label-free methods applied carefully moved fourteen of twenty directions towards chance, and every
-direction they improved involves the smallest region. But their mean, 0.556, is at the reference a
+label-free methods applied carefully moved fourteen of twenty directions towards chance, and five of
+the six they moved upward involve Montiferru, the smallest region; the sixth, Manavgat to Muğla,
+moves downward. The committed-in-advance CORAL arm reaches a mean of 0.552, and taking whichever of
+the two methods scores better per direction reaches 0.556 — but that selection uses the target
+labels the protocol forbids, so it is an oracle upper bound rather than an achievable result
+(Section 4.3). Even the oracle only reaches the reference a
 model can reach on an unseen scar at all (Section 4.3), so they are not failing far below an
 achievable target; they are regressing the matrix onto it, which costs the directions that already
 worked. What alignment cannot do is exceed that reference, and a sign reversal is not a distribution
@@ -223,12 +230,28 @@ verdicts sit within a thousandth of their reference value, and at 1 km blocking 
 of ten positive, seven negative and three uncertain turns on a lower bound of −0.00045. The point
 estimates and the sign pattern are stable; the counts are not. Every sentence in this paper that
 leans on an exact count of supported directions should be read at that precision.
-(x) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
+(x) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it.**
+Each region is a rectangle drawn around a fire, and the share of modelled cells lying beyond 10 km of
+any burned cell ranges from 2 % in Montiferru to 63 % in Bejís. Section 4.9 shows this is not
+cosmetic: equalising the frame to a 10 km collar removes both supported elevation reversals, makes
+all five regions agree in sign on elevation, LST and TVDI, lifts mean transfer from 0.540 to 0.617
+and reduces the below-chance directions from six to one. We report the equalised arm alongside the
+frame-as-drawn arm rather than replacing one with the other, because the collar radius is itself a
+choice and 5 km and 10 km do not agree exactly (0.608 against 0.617). The deeper limitation is that
+the frames were fixed upstream of this work, in `repo/`, so we can restrict them but not extend them;
+a region whose rectangle is already fire-scale, Montiferru, cannot be given a far field for symmetry.
+Any future cohort should fix the frame by an explicit accessible-area rule [@Barve2011] before any
+predictor is computed, and we treat that as the main design lesson of this paper.
+
+(xi) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
 configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows
-the transfer result does not depend on that choice: a depth-6 forest, a leaf-200 forest and a
-penalised logistic regression transfer at 0.556, 0.550 and 0.510 against the canonical 0.541, all
-four place exactly fourteen of twenty directions above chance, and the linear model, the one built
-to extrapolate, transfers worst. Regularisation costs within-region skill, 0.888 down to 0.741,
+the transfer result is not an artefact of that choice: a depth-6 forest, a leaf-200 forest and a
+penalised logistic regression transfer at 0.556, 0.550 and 0.510 against the canonical 0.541, and
+all four place exactly fourteen of twenty directions above chance. Those four values are point
+estimates over the twenty directions and carry no intervals, so the ordering among them, including
+the observation that the linear model transfers worst, is not claimed as a result; what the arm
+supports is the weaker and sufficient statement that all four land in a narrow band well below
+within-region skill. Regularisation costs within-region skill, 0.888 down to 0.741,
 without buying portability, and it drives the thermal block's cross-region contribution negative.
 Other model families were not tried, and a fundamentally different inductive bias might behave
 differently, but within this family the negative result is a property of the predictors rather than

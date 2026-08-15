@@ -101,10 +101,14 @@ counts should not be read as exact.
 **In precision terms the transfer is worse than the ROC figures suggest.** ROC-AUC is the metric
 used throughout this paper, for comparability with the literature, but a susceptibility surface is
 used as a ranked area budget, so precision-recall is the operational quantity. Across the twenty
-directions the thermal model's PR-AUC averages **0.156 against a no-skill baseline of 0.136**, a lift
-of 1.16. **Six of the twenty fall below their own no-skill baseline**, and only one, Evia to
-Manavgat, exceeds twice it, at 0.094 against 0.038. A transferred model therefore ranks burned cells
-about a sixth better than random on average, and worse than random in six directions. This is a
+directions the thermal model's PR-AUC averages **0.156 against a no-skill baseline of 0.136**. The
+mean of the twenty per-direction lifts is 1.16; the ratio of the two means just quoted is 1.146.
+**Six of the twenty fall below their own no-skill baseline at the point estimate, and five of those
+six have intervals entirely below it.** The exception is Bejís to Manavgat, at 0.034 [0.029, 0.042]
+against a baseline of 0.038, whose interval covers the baseline and which is therefore a
+point-estimate case only. Only one direction, Evia to Manavgat, exceeds twice its baseline, at 0.094
+against 0.038. A transferred model therefore ranks burned cells about a sixth better than random on
+average, and worse than random in five directions with interval support and a sixth at the point. This is a
 sharper statement than the ROC means support and it should be the one a practitioner reads.
 
 **The static baseline does not transfer either.** This is the control for the reading the rest of
@@ -164,15 +168,14 @@ the mismatch visible. Means and Student *t* intervals are over the eight held-ou
 | Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
 |---|---|---|---:|---|
 | A. Blocked cross-validation, 5 km | the region, scar included | the whole region | 0.776 | [0.738, 0.814] |
-| B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.634 | [0.562, 0.706] |
-| C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.503, 0.601] |
-| D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.555 | [0.502, 0.608] |
+| B. Same blocked model, restricted | the region, **scar included** | the scar area | 0.634 | [0.552, 0.716] |
+| C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.552 | [0.501, 0.602] |
+| D. Foreign region | another region, 306 to 2,802 km | the scar area | 0.555 | [0.495, 0.616] |
 
 All four rows are means over the **same eight scars**. A ninth burned component, Bejís, is excluded
 throughout: it is that region's only component of any size, so holding it out leaves no usable
-source model and there is no row C for it. Rows A, B and D are reported here on the eight so that
-the differences are paired. and the intervals are Student *t* over those
-eight, which is the resampling unit for this arm rather than the spatial-block bootstrap used
+source model and there is no row C for it. Rows A, B and D are reported here on the eight so that the differences are
+paired, and the intervals are Student *t* over those eight, which is the resampling unit for this arm rather than the spatial-block bootstrap used
 elsewhere in the paper. Eight is a small number and the intervals are wide accordingly. Four of the
 eight scars are in Muğla and two in Montiferru, so they are not independent; row A in particular is
 a region-level quantity repeated across the scars of a region, and its interval is pseudo-replicated
@@ -181,8 +184,11 @@ what they are reported for.
 
 **The same model, scored two ways on the same region, differs by 0.143 AUC.** Rows A and B are one
 model. The only change is which cells it is scored on: the whole region, or the burn scar and its
-2 km collar. That change alone costs 0.143 of the 0.225 fall from A to C, about two thirds, and it
-is the size of the entire increment this literature usually reports. A region-wide blocked figure is
+2 km collar. That change alone costs **0.143 [+0.077, +0.208]** of the 0.225 [+0.157, +0.293] fall from A to C,
+about two thirds, and it is the size of the entire increment this literature usually reports. Both
+intervals are Student *t* over the eight scars, so the "two thirds" is a ratio of two estimates and
+is compatible with anything from roughly a third to nine tenths; the point of the comparison is the
+size of the numerator, not the precision of the fraction. A region-wide blocked figure is
 therefore an upper bound on what the same model achieves where the fire actually is, and the
 difference is not small enough to ignore. Any comparison of a scar-level result against a region-level
 reference inherits that, and the region-level reference is what a paper of this kind normally
@@ -198,8 +204,9 @@ region where holding out one scar still leaves the source model properly trained
 0.597.
 
 **Row D is a mean over four foreign models, and the spread behind it is large.** Decomposing it gives
-36 scar-by-source combinations running from 0.374 to 0.724, with **ten of the 36 below chance** and a
-mean spread of 0.164 across the four sources for a given scar, reaching 0.329 for one. The pooled
+**32** scar-by-source combinations, eight scars by four foreign sources, running from 0.374 to 0.724,
+with **ten of the 32 below chance** and a mean spread of 0.171 across the four sources for a given
+scar, reaching 0.329 for one. The pooled
 0.555 is therefore not a statement that any foreign model does as well as a same-region one. It is a
 statement that the *average* foreign model does, and the variation it averages over is the
 pair-specific sign instability that Sections 4.4 to 4.8 are about. Both facts belong together: a
@@ -209,9 +216,11 @@ is not predictable from anything measured here.
 The first difference should not be over-read, and one confound has to be stated. Holding out a
 region's only large scar also removes most of its positives: the source model retains 11 positives
 in Evia, 88 in Manavgat and 97 in Montiferru, against about 2,000 in Muğla, which has four separate
-scars. Those four starved arms average 0.525 and the four Muğla arms 0.579, so row C mixes "the fire
+scars. Those four non-Muğla arms average 0.525 and the four Muğla arms 0.579. Three of the four are
+genuinely starved; the fourth, Montiferru's second component, retains 472 source positives, so the
+shortfall there is not a training-size effect. so row C mixes "the fire
 was withheld" with "almost all the positives were withheld". Restricted to Muğla, C is 0.579 and D
-is 0.597, and the C to D comparison still shows nothing. With eight scars, half of them starved, this
+is 0.597, and the C to D comparison still shows nothing. With eight scars, three of them starved, this
 design cannot establish a fire-specific residual, only bound it at about 0.18 against the 0.143 that
 separates row A from row B on the same model.
 
@@ -228,7 +237,7 @@ with overlapping intervals.
 Separation does not order the twenty-direction matrix either. The Spearman correlation between
 centroid separation and transfer AUC is −0.32 with an interval spanning zero, and the two nearest
 directions, Manavgat and Muğla at 306 km, are among the worst at 0.470 and 0.401. This is a
-different quantity from Table 6's geographic-distance row, computed on the twelve-direction subset,
+different quantity from Table 7's geographic-distance row, computed on the twelve-direction subset,
 which gives −0.24; both span zero. The transfer mean of 0.541 is over all twenty directions and is
 not the value at any one separation: the 2,802 km pair returns 0.326 and 0.444.
 
@@ -258,7 +267,7 @@ there.
 **Six directions are below chance with interval support**, the sharpest at 0.326 [0.305, 0.349]. No
 account of merely lost skill produces a reliably reversed ranking, so those six need a mechanism
 acting on the direction of the relationship. That is the subject of Sections 4.4 to 4.8. Per-split
-and per-scar detail is in Appendix A(h).
+and per-scar detail is in Appendix A(i).
 
 **Table 4. Cross-region transfer matrix, thermal model, TSG population.** Target ROC-AUC with 2-cell
 spatial-block bootstrap 95% CIs (1000 replicates). CORAL is applied after region-wise z-scoring (λ =
@@ -341,7 +350,7 @@ destroyed that advantage. Label-free alignment therefore does not act as a repai
 
 ## 4.4 Transferability diagnostics: only conditional similarity orders transfer
 
-Twenty candidate diagnostics from four families were each rank-correlated with the same target
+Twenty candidate diagnostics from five families were each rank-correlated with the same target
 quantity, the raw thermal transfer AUC over the twenty ordered directions, under one common
 pair-based bootstrap.
 
@@ -450,14 +459,17 @@ paid.
 
 ## 4.7 Sensitivity analyses
 
-Seven design choices were varied with everything else held fixed. They are the Evia AOI and its
+Eight design choices were varied with everything else held fixed. They are the Evia AOI and its
 prevalence, the CORAL regularisation constant, the blocking scale, the closure date of the predictor
-window, the quality screening of the coarse thermal input, the contrast between the normalised and the
-absolute dryness channels, and the removal of the coordinate-informed channels. None changes a conclusion above. Two
+window, the quality screening of the coarse thermal input, the contrast between the normalised and
+the absolute dryness channels, the removal of the coordinate-informed channels, and the capacity of
+the classifier. None changes a conclusion above. Two
 bound how the results should be read, so they are carried into the main text here.
 
-Coarsening the blocks from 1 km to 5 km moves the verdict counts from ten positive, seven negative
-and three uncertain to six, four and ten. Support is removed from seven verdicts and added to none.
+Coarsening the blocks from 1 km to 5 km moves the **paired thermal-minus-baseline delta** verdicts
+from ten positive, seven negative and three uncertain to six, four and ten. The above-chance
+verdicts on the thermal arm itself, a different quantity, move from twelve, six and two to nine,
+four and seven. Support is removed from seven verdicts and added to none.
 The point estimates are unchanged, but that is an identity rather than a result. The blocking scale
 is the resampling unit, and it cannot move an estimate computed once over all target cells.
 
@@ -521,7 +533,84 @@ cannot exclude. The known part of the bias runs the safe way: the removed cells 
 median of 563 m, and unburned in 2022, so removing them raises the 2022 elevation AUC and makes the
 reversal smaller rather than larger.
 
-## 4.9 What target labels cost: the recovery curve
+## 4.9 The evaluation frame, applied to our own matrix
+
+Section 4.3 established that swapping a region's negatives for fire-adjacent ones moves ROC-AUC by
++0.155 [+0.093, +0.217] with the model held fixed. That result was obtained inside one region. It
+applies with equal force between regions, and applying it changes what Sections 4.3 and 4.5 can
+claim. This section reports that test. Source: `aoi_frame_auc.csv`, `aoi_frame_transfer.csv`,
+`paper/code/verify_aoi_frame.py`, `paper/code/verify_aoi_transfer.py`.
+
+**The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
+fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose.
+
+| Region | cells | burned | median distance to burned | share beyond 10 km |
+|---|---:|---:|---:|---:|
+| Manavgat | 20,511 | 784 | 13.4 km | **60.1 %** |
+| Bejís | 15,190 | 1,100 | 13.5 km | **63.1 %** |
+| Muğla | 41,730 | 2,911 | 11.3 km | 55.3 % |
+| Evia | 9,298 | 2,664 | 8.0 km | 43.7 % |
+| Montiferru | 2,544 | 539 | 2.7 km | **2.1 %** |
+
+Montiferru's frame is fire-scale; Manavgat's and Bejís's are roughly three-fifths far field. The
+far field is not a neutral addition. In Manavgat the median elevation of modelled cells rises from
+472 m within 5 km of the fire to 955 m at 10 to 20 km and 1,273 m at 20 to 50 km, against 512 m for
+the burned cells themselves, in Taurus terrain that no plausible spread model would place at risk.
+
+**Under an equalised frame the sign reversals of Section 4.5 do not survive.** Restricting every
+region to cells within 10 km of any burned cell drops **no positives**, only far-field negatives.
+
+| Signed univariate AUC | Manavgat | Bejís | Muğla | Evia | Montiferru | straddles 0.5 |
+|---|---:|---:|---:|---:|---:|---|
+| elevation, full frame (Table B2) | **0.374** | 0.643 | 0.611 | 0.541 | 0.584 | **yes** |
+| elevation, 10 km collar | 0.561 | 0.614 | 0.606 | 0.648 | 0.581 | no |
+| current LST, full frame | **0.538** | 0.477 | 0.325 | 0.377 | 0.370 | **yes** |
+| current LST, 10 km collar | 0.386 | 0.405 | 0.332 | 0.286 | 0.376 | no |
+| current TVDI, full frame | **0.552** | 0.517 | 0.336 | 0.362 | 0.356 | **yes** |
+| current TVDI, 10 km collar | 0.392 | 0.454 | 0.342 | 0.250 | 0.361 | no |
+
+On the equalised frame all five regions agree in sign on elevation, on LST and on TVDI, and both
+bootstrap-supported elevation reversals of Table B3 disappear. **One reversal survives**:
+`lst_anomaly_mean` still straddles 0.5 under the collar, at 0.392 in Bejís against 0.584 in Evia.
+That is coherent rather than fortunate. The absolute thermal channels are strongly collinear with
+elevation, at r = −0.695, −0.125, −0.404, −0.511 and −0.507 for current LST across the five regions,
+and −0.722 to −0.298 for TVDI; the anomaly, which is differenced against each cell's own baseline
+and is therefore lapse-rate-free, correlates with elevation at only +0.036 to +0.256. The channels
+whose reversal vanishes are the ones that were partly measuring terrain, with a proxy strength that
+varies fivefold between regions. The channel whose reversal survives is the one where that
+explanation is unavailable.
+
+**The transfer matrix moves as well.** Restricting source and target to the same collar:
+
+| Source frame | Target frame | Mean target AUC | Above chance | Below chance | Paired thermal delta |
+|---|---|---:|---:|---:|---:|
+| full | full (**Table 4**) | 0.540 | 14 of 20 | **6** | +0.003 |
+| full | 10 km | 0.575 | 17 of 20 | 3 | +0.002 |
+| 10 km | full | 0.571 | 17 of 20 | 3 | +0.014 |
+| **10 km** | **10 km** | **0.617** | **19 of 20** | **1** | **+0.023** |
+| 5 km | 5 km | 0.608 | 18 of 20 | 2 | +0.014 |
+
+The reference arm reproduces the frozen matrix, at 0.540 against Table 4's 0.541 and 14 of 20
+exactly, so this is measuring the same quantity. The largest movers are Bejís to Evia, 0.383 to
+0.602, and Bejís to Manavgat, 0.440 to 0.601.
+
+**What this does and does not change.** Three claims do not survive and are withdrawn here rather
+than defended. The count of six anti-predictive directions becomes one. The sign reversal of
+elevation, LST and TVDI as the mechanism of the residual is a property of the frames, not of the
+predictor-burning relationship. And the paired thermal contribution is not stable at +0.004: it
+rises to +0.023 once frames are equalised, so the claim that the block contributes nothing between
+regions is frame-dependent too. What survives is the central negative result, and it survives with
+room to spare: equalised transfer of 0.617 against within-region skill of about 0.87 leaves most of
+the gap intact. Section 5.9 records the frame as a limitation of the cohort rather than of the
+method, since equalising it is cheap and we recommend it.
+
+This is the paper's own Contribution 1 turned on the paper's own matrix. We had measured that the
+composition of the negative pool moves ROC-AUC by more than the effects this literature reports, and
+had then computed a five-region transfer matrix, and a mechanism, on frames whose fire-adjacent
+share ranges from 2 % to 98 %. We report it because it is the strongest available demonstration that
+the reporting standard of Section 5.8 is not a technicality.
+
+## 4.10 What target labels cost: the recovery curve
 
 Everything above measures a failure; this prices it. Label-free alignment does not close the residual
 gap, so the missing resource is information about the target that alignment cannot synthesise, and
@@ -532,7 +621,9 @@ of labelling effort and reading recovery against a matched target-only ceiling o
 Thirty-two labelled blocks recover **85 to 89 % of that ceiling in three of the six directions**, two
 of which started below chance; 51 to 57 % in two more, the directions where the conditional gap is
 widest; and 30 % in the sixth. That budget is 7 to 20 % of the target's natural-vegetation
-population, about 800 km², so it is a real answer and not a cheap one. Two properties of the
+population, which at the 2,700 to 3,000 labelled cells those blocks carry (S1.3) and this grid's
+effective cell area of 0.199 to 0.208 km² (Appendix C) is roughly **540 to 620 km²**, so it is a real
+answer and not a cheap one. Two properties of the
 measurement bound it and are stated in the supplement rather than buried: at the top budget the
 selection pool is nearly exhausted, so the narrow upper-budget intervals reflect saturation rather
 than precision, and the labelled blocks are drawn from the event being predicted, which is not a

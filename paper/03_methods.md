@@ -165,12 +165,16 @@ single region.
 The mechanism is diagnosed by **signed univariate association**. For each numeric predictor the raw
 ROC-AUC of that predictor against `burned` is computed in each region and never folded to
 max(AUC, 1 − AUC), so a value below 0.5 is read as a direction rather than as weakness. A reversal is
-called bootstrap-supported only when the two regions' intervals are disjoint, under the same 10-cell
-spatial-block bootstrap.
+called bootstrap-supported only when the two regions' point estimates fall on opposite sides of 0.5
+**and each region's own interval excludes 0.5**, under the same 10-cell spatial-block bootstrap.
+That is stricter than requiring the two regions' intervals to be disjoint: a feature whose intervals
+are disjoint but one of which straddles 0.5 has not been shown to point anywhere in that region, so
+it is recorded as a point reversal only. Appendix B states the rule again beside the counts, and
+`conditional_similarity_transfer.json` carries it as machine-readable metadata.
 
 ## 3.11 Transferability diagnostics versus transfer
 
-Twenty candidate diagnostics from four families are computed for every region pair and
+Twenty candidate diagnostics from five families are computed for every region pair and
 rank-correlated (Spearman) against observed raw transfer AUC, under one bootstrap framework that
 resamples unordered region pairs with both of their ordered directions travelling together. The
 families are marginal predictor-space measures P(x), including area-of-applicability dissimilarity,
@@ -220,7 +224,7 @@ training data and yet wholly unseen, which is what makes the comparison with the
 informative. The held-out patch is defined by the labels, so this arm cannot separate the identity of
 a fire from its location.
 
-Appendix A(h) reports all four in full, with per-split and per-scar tables. Intervals for the
+Appendix A(i) reports all four in full, with per-split and per-scar tables. Intervals for the
 four-row ladder are Student *t* over the eight held-out scars, which is that arm's resampling unit,
 rather than the spatial-block bootstrap of Section 3.7 used everywhere else in this paper.
 

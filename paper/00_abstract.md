@@ -89,46 +89,54 @@
 > alike. **Check the guide before submission**; if 400 is confirmed, there is room to restore the
 > per-region robustness detail and the domain-classifier ceiling.
 
-> **Length correction, 2026-08-15.** The running count in these notes had gone stale: successive
+> **Length, 2026-08-15 (two passes).** The running count in these notes had gone stale: successive
 > rounds added the identical-cells ladder, the PR-AUC sentences and the baseline control without
-> recounting, and the body had reached **567 words** while the notes still said ~340. The limit could
-> not be verified (the Elsevier and ScienceDirect guide pages both return HTTP 403, and a search
-> returns the journal guide without the abstract clause), so the safe target from the earlier note
-> stands. Rewritten to **333 words**, which satisfies a 400-word limit and is close to a 250-word one.
-> Cut in this pass: the PR-AUC sentences (§4.2 keeps them), the 0.374 to 0.724 spread of the four
-> foreign models (the sign instability already carries that point), the post-selection markers (§4.6
-> keeps them), the two-event population clause, and the few-shot recovery figures. **If the guide
-> confirms 400**, restore in this order: the PR-AUC pair, the foreign-model spread, the recovery
-> figures. **If it confirms 250**, cut next: the feature-removal figures in the third finding, then
-> the baseline-transfer control. Protected and not cut here: the interval on +0.004, the
-> fourteen-of-twenty count, the bootstrap support on the reversals, the baseline-transfer control,
-> and the evaluation-area finding.
+> recounting, and the body had reached **567 words** while the notes still said ~340. Rewritten to
+> 333, then back up to **394** when the referee round added a fourth substantive finding, the
+> evaluation-frame artefact of §4.9, which supersedes the old sign-reversal paragraph and cannot be
+> omitted because it withdraws three earlier claims.
+>
+> **The limit is still unverified.** The Elsevier and ScienceDirect guide pages both return HTTP 403
+> to automated fetching, and a web search returns the journal's guide without the abstract clause. A
+> single uncorroborated source reports 400 words. 394 satisfies that and does not satisfy a 250-word
+> limit. **Check the guide before submission.**
+>
+> Already cut in these passes: the PR-AUC sentences (§4.2 keeps them), the 0.374 to 0.724 spread of
+> the four foreign models, the post-selection markers on the feature-removal figures, the two-event
+> population clause, the few-shot recovery figures, and the −0.081 / +0.014 feature-removal exchange.
+> **If the guide confirms 250, cut next in this order:** the far-field percentages in the third
+> finding, then the 0.540 to 0.617 transfer lift (keeping the sign-agreement clause), then the
+> baseline-transfer control. Protected: the interval on +0.004, the fourteen-of-twenty count, the
+> 0.143 interval, the surviving LST-anomaly reversal, and the statement that the collar drops no
+> burned cells — without that last clause the frame result reads as cherry-picking.
 
 Pre-fire thermal dryness separates a fire year from a normal year, but models built on it are rarely
 tested outside the region where they were fitted. Five Mediterranean wildfire regions were analysed
-on about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six pre-fire
-thermal predictors to a terrain, fuel and greenness baseline.
+on about 500 m cells, with MCD64A1 labels and spatially blocked validation, adding six thermal
+predictors to a terrain, fuel and greenness baseline.
 
 **Local skill does not travel, and most of it is lost before the region changes.** Within-region
 ROC-AUC rose by +0.056 to +0.153 under blocked cross-validation, but by +0.022 [−0.032, +0.077] when
 a whole burn scar is withheld, and by +0.004 [−0.028, +0.036] across twenty transfer directions,
 with a sign that changes from pair to pair. The static baseline transferred no better, 0.537 against
-0.541. On **identical cells**, a model holding the held-out scar scores 0.634, one without it 0.552, and
-one fitted 306 to 2,802 km away 0.555, so withholding the fire and crossing the region are both
-undetectable, at +0.082 [−0.011, +0.175] and −0.003 [−0.075, +0.069]. Most of the apparent collapse
-from a region-wide 0.776 is the evaluation area itself, whose negatives are all fire-adjacent and
-therefore the hardest in the region.
+0.541, so this is not a property of the dynamic block. On **identical cells**, a model holding the held-out scar scores 0.634, one without it 0.552, and
+one fitted 306 to 2,802 km away 0.555; the fire-specific residual is bounded at about +0.18 and the
+region-crossing effect at about ±0.07, neither being shown to cost anything. Most of the apparent
+collapse from a region-wide 0.776 is the evaluation area itself, worth **0.143 [+0.077, +0.208]**,
+because its negatives are all fire-adjacent and therefore the hardest in the region.
 
 **The failure is invisible to the diagnostics that can be run before deployment.** Of twenty
-candidates rank-correlated against observed transfer, only two had intervals excluding zero, and both
-need target labels; the stronger measures agreement in the sign of each predictor's association
-(Spearman rho = 0.84). No marginal measure ordered the matrix, so the family that works is the one a
-practitioner does not have.
+candidates rank-correlated against observed transfer, only two had intervals excluding zero, and
+both need target labels; the stronger measures sign agreement over selected features (rho = 0.84
+over sixteen directions, post-selection). No marginal measure ordered the matrix, so the family that
+works is the one a practitioner does not have.
 
-**The mechanism of the residual is a reversal of sign.** Elevation and the LST anomaly reverse the
-direction of their association with burning between regions, with bootstrap support, and the same
-reversal appears between two fires eleven months apart on one grid. Removing them cost −0.081 of
-within-region skill and changed transfer by +0.014 [−0.017, +0.045].
+**Most of the apparent mechanism is an artefact of the evaluation frame.** Five predictors reverse
+direction between regions on the frames as drawn, but those frames enclose very different far
+fields, from 2 % to 63 % of cells beyond 10 km of any fire, on higher ground. Restricting every
+region to a 10 km collar, which drops no burned cells, makes all five agree in sign on elevation,
+LST and TVDI, and lifts transfer from 0.540 to 0.617 with directions below chance falling from six
+to one. One reversal survives, the LST anomaly, the only channel carrying no lapse-rate signal.
 
 Label-free alignment pushed fourteen of twenty directions towards chance rather than repairing them.
 Transfer skill has to be measured, not inferred from similarity.

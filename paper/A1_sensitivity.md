@@ -14,9 +14,24 @@ the chance line.
 four directions, CORAL transfer AUC moves by at most 0.014 within any direction and 0.008 within the
 thermal family. The canonical λ = 1 of the cited method lies outside that sweep and was computed
 separately on the same four directions. It changes the thermal mean from 0.519 to 0.522, a shift of
-+0.003 with a per-direction range of −0.005 to +0.016, and **no direction crosses the chance line**.
-The λ = 1 values are 0.510, 0.444, 0.559 and 0.575 against 0.508, 0.445, 0.564 and 0.559 at λ = 0.1.
-No CORAL-dependent conclusion in this paper is sensitive to λ over the full range from 0 to 1.
++0.003 with a per-direction range of −0.005 to +0.016, and none of those four directions crosses the
+chance line. The λ = 1 values are 0.510, 0.444, 0.559 and 0.575 against 0.508, 0.445, 0.564 and
+0.559 at λ = 0.1.
+
+**Those four directions are Bejís–Muğla and Manavgat–Muğla, and they exclude the pair that moves.**
+An earlier version of this appendix generalised from them to the whole matrix, which was an error:
+the Manavgat–Bejís pair is not in the sweep and it is the pair whose CORAL result is λ-dependent. A
+separate frozen artefact, `experiments/cross_region/step10/coral_lambda_sensitivity.csv`, carries it.
+Bejís to Manavgat gives 0.5571 [0.5292, 0.5857] at λ = 10⁻⁵, 0.5644 at λ = 10⁻³ and 0.5473 at
+λ = 0.1, all with intervals entirely above 0.5, but **0.4850 [0.4496, 0.5197] at λ = 1**, which
+crosses the chance line and loses its interval support. Manavgat to Bejís falls likewise, from
+0.5108 to 0.4776 [0.4501, 0.5013].
+
+The correct statement is therefore narrower. CORAL-dependent conclusions are insensitive to λ over
+three orders of magnitude below 0.1; at the cited method's canonical λ = 1 the one direction whose
+adapted interval sits entirely above chance loses that status. λ = 10⁻⁵ is the minimally regularised
+choice and matches the reference implementation, but the dependence is real and is reported rather
+than absorbed.
 
 **(c) Blocking scale.** Recomputing the transfer quantities at 10-cell (≈ 5 km) blocking from the
 frozen per-cell predictions widens the intervals and moves the verdict counts, from ten positive,
@@ -150,7 +165,7 @@ this paper reports is therefore not an artefact of a coordinate-smoothed surface
 This arm was computed independently here and reproduces the companion paper's figure for the same
 quantity, 82 % to 103 %, from a separately written harness.
 
-## A(h). The four evaluations of Section 4.3, in full
+## A(i). The four evaluations of Section 4.3, in full
 
 Section 4.3 reports four evaluations of the same models as a ladder. The per-split and per-scar
 detail is here, so that the ladder can be checked without leaving the manuscript.
@@ -183,10 +198,11 @@ cells.
 | montiferru 2021 | north-south | low to high | 438 | 101 | 0.583 | 0.511 |
 | montiferru 2021 | north-south | high to low | 101 | 438 | 0.536 | 0.447 |
 
-**Table A2. Leave-one-scar-out at a 2 km buffer, every scar.** Only Muğla contains more than one
-burned component of at least 50 cells, so it is the only region where holding one out leaves the
-source model properly trained. Its four arms mean 0.579; the four arms in the other regions mean
-0.525, and the pooled figure of 0.552 averages the two.
+**Table A2. Leave-one-scar-out at a 2 km buffer, every scar.** Muğla and Montiferru are the only
+regions containing more than one burned component of at least 50 cells. Muğla is the only region
+where holding one out still leaves the source model properly trained across every arm; Montiferru's
+two components are very unequal, so one of its arms retains 472 source positives and the other 97.
+Muğla's four arms mean 0.579; the four arms in the other regions mean 0.525, and the pooled figure of 0.552 averages the two.
 
 | Region | Component | Source positives left | Target positives | Target cells | AUC |
 |---|---:|---:|---:|---:|---:|
@@ -208,7 +224,8 @@ most similar negatives only, while a transfer arm includes the whole easy far fi
 states the consequence: the last three rows of the ladder are not distinguishable by this design.
 
 **Table A3. The foreign-region arm, decomposed by source.** Each held-out scar area is scored with a
-model fitted on each of the other four regions. Row D of Table 5 is the mean of these.
+model fitted on each of the other four regions. Table 5's row D is the mean over the **eight** scars that carry a row C, that is 32 of the 36
+combinations below; the nine-scar mean quoted in this appendix is 0.559 against row D's 0.555.
 
 | Target region | Scar | Mean over sources | Min | Max | Spread |
 |---|---:|---:|---:|---:|---:|
@@ -222,8 +239,10 @@ model fitted on each of the other four regions. Row D of Table 5 is the mean of 
 | Muğla 2021 | 8 | 0.632 | 0.570 | 0.724 | 0.155 |
 | Muğla 2021 | 10 | 0.671 | 0.579 | 0.716 | 0.137 |
 
-Over all 36 combinations the mean is 0.559, the range 0.374 to 0.724, and ten fall below chance. The
-mean spread across the four sources for a single scar is 0.164. Averaging over sources is what makes
+Over all 36 combinations here the mean is 0.559, the range 0.374 to 0.724, and ten fall below
+chance. Restricted to the 32 combinations behind row D the mean is 0.555 and the same ten fall below
+chance. The mean spread across the four sources for a single scar is 0.164 over the nine scars and
+0.171 over the eight. Averaging over sources is what makes
 row D comparable with row C, which is fitted on one region; it is not a claim that the choice of
 foreign source is immaterial, and Section 4.3 states the distinction.
 

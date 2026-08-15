@@ -175,7 +175,8 @@ block is worth +0.056 to +0.153 ROC-AUC inside every one of five regions under b
 cross-validation, with every bootstrap
 interval above zero and the result holding in both analysis populations. That increment is
 substantially a property of interleaved holdout: withholding a whole burn scar leaves +0.022
-[−0.032, +0.077], and across regions +0.004. Across the twenty ordered transfer directions it contributes +0.004 [−0.028, +0.036]. That interval spans zero under
+[−0.032, +0.077]. Across the twenty ordered transfer directions it contributes +0.004 [−0.028,
++0.036]. That interval spans zero under
 all four between-direction resampling units we computed, and the sign varies by pair: paired deltas
 run from −0.148 to +0.133, twelve positive and eight negative. Two controls bound the reading. The baseline arm transfers at a mean of 0.537, against the thermal
 model's 0.541, so the static predictor class is not the portable one either. Three evaluations scored on **identical cells**
@@ -225,16 +226,25 @@ the lowest transfers in both. That contradicts an expectation the fire literatur
 Shift decomposition in applied remote sensing is not itself new [@Huang2026]; the fire application
 and the head-to-head of four diagnostic families on the same pairs are.
 
-**Contribution 4. The mechanism of the residual is a reversal of sign, and it survives holding
-geography fixed.**
-Predictors do not merely weaken across regions, they reverse the direction of their association with
-burning, which is why a distance in predictor space cannot see the failure. The sharpest reversal is
-elevation, whose association points opposite ways in Manavgat and in Bejís and Muğla, with each
-region's own interval excluding chance and the paired difference excluding zero (Appendix B,
-Table B3). The same reversal appears inside a single study area, between two fires eleven
-months apart on an identical grid, where season and population also differ but place does not
-(Section 4.8). That arm rests on one fire and eleven positive-carrying 5 km blocks, below the floor
-this design sets for itself, so it corroborates the mechanism rather than establishing it.
+**Contribution 4. Most of the apparent sign reversal between regions is an artefact of the
+evaluation frame, and what survives it is narrow.**
+Predictors that reverse the direction of their association with burning would explain why a distance
+in predictor space cannot see the failure, and on the frames as drawn five of nine do reverse, with
+elevation supported in two pairs (Appendix B, Table B3). We tested that mechanism against the
+evaluation-geometry effect of Contribution 1 and most of it did not survive. The five areas of
+interest enclose very different amounts of unburnt far field, from 2 % of Montiferru's cells lying
+beyond 10 km of any burned cell to 63 % of Bejís's, and that far field sits at systematically higher
+elevation than the fires. Restricting every region to a 10 km collar, which drops no burned cells,
+makes all five regions agree in sign on elevation, on LST and on TVDI, and both supported elevation
+reversals disappear (Section 4.9). One reversal survives: the LST anomaly, between Bejís and Evia.
+It is also the only channel that is differenced against each cell's own baseline and therefore
+carries no lapse-rate signal, correlating with elevation at +0.04 where absolute LST reaches −0.70.
+The channels whose reversal vanished were partly measuring terrain; the one that remains is the one
+where that explanation is unavailable. A reversal does appear inside a single study area between two
+fires eleven months apart on an identical grid, where the frame is held exactly fixed (Section 4.8),
+but it is elevation only, it rests on eleven positive-carrying 5 km blocks, and with one fire per
+arm it is as consistent with event-to-event variation in where a fire happens as with any regional
+property. We report the mechanism as narrowed rather than established.
 
 Two consequences follow. Both are reported as supporting results, not leading ones. First,
 label-free alignment by standardisation and covariance alignment [@Sun2016] does not repair
