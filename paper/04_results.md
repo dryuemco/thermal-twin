@@ -241,8 +241,8 @@ supported counts are the larger 12 and 6 (Section 4.5). Per-direction bounds are
 | 5 km | 5 km | 0.608 | 19 of 20 | 1 | 12 / 0 | +0.014 |
 
 **A data-provenance defect in this arm was found and corrected**: one region's predictor file at the
-canonical path had been overwritten after the frozen tables were computed, so every arm here was
-re-run against the frozen export. It moves forty of a hundred per-direction values by up to 0.022 and
+canonical path had come to differ from the one the frozen tables were computed on, so every arm here
+was re-run against the frozen export. It moves forty of a hundred per-direction values by up to 0.022 and
 leaves **every headline quantity below unchanged to within 0.0011**, with the signed-AUC results
 identical (Appendix A(w)). The table reports the corrected values. The reference arm reproduces the frozen matrix, at 0.541 against
 Table B9's 0.541 and 14 of 20 exactly. **The baseline control must be restated on this frame**: the static baseline transfers at
