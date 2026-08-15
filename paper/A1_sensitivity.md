@@ -869,9 +869,13 @@ claim therefore holds on the frame it argues is the correct one. Per-region valu
 **The data-provenance correction.** Muğla's 500 m modelling dataset at the canonical path had been
 overwritten by a quality-screening rebuild after the frozen tables were computed, so this section's
 scripts had read a version of that one region differing from Tables 1 and B9 in
-`downscaled_lst_mean` and `fused_lst_mean`. The two files agree on every other column; the proof
-that the difference is the data and not the fitting is that both give a within-region baseline of
-0.6980 at 10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773. Two regions' files carry the rebuild's
+`downscaled_lst_mean` and `fused_lst_mean`. The two files agree on every other column, and which of them is
+canonical is not a matter of inference: the pipeline records a SHA-256 for each region's modelling
+dataset, and that hash identifies the frozen copy and not the file that had replaced it. The
+difference is the data and not the fitting, since both give a within-region baseline of 0.6980 at
+10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773. The pipeline's own
+frozen 10-cell ceiling for this region, computed independently in a separate robustness namespace,
+is 0.6980 and 0.7773, which is the frozen file. Two regions' files carry the rebuild's
 timestamp, Manavgat's and Muğla's, so both were replaced; the distinction that matters is whether
 the replacement agrees with what was published. Manavgat's does, reproducing its Table 1 row to the
 printed precision at 0.748 and 0.797, as does the rebuild's own reported increment interval. Muğla's
