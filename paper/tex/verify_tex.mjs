@@ -48,7 +48,18 @@ const bodyEnd = [DECLARATIONS, FIGURES]
   .map(m => tex.indexOf(m))
   .filter(i => i !== -1)
   .reduce((a, b) => Math.min(a, b), tex.length);
-const body = tex.slice(tex.indexOf('\\end{frontmatter}'), bodyEnd);
+// Figure environments are now placed at their first reference rather than
+// appended after the body, so the slice above no longer excludes them. They are
+// still authored in figure_captions.tex as LaTeX, not ported from the Markdown,
+// so they are cut out here for the same reason the declarations are: their
+// numbers (190 mm column widths, scale bars, region years) exist nowhere in the
+// Markdown and would be reported as inventions.
+const body = tex.slice(tex.indexOf('\\end{frontmatter}'), bodyEnd)
+  .replace(/\\begin\{figure\}[\s\S]*?\\end\{figure\}/g, '')
+  // Counter plumbing emitted with \appendix is template output too, and its
+  // \setcounter{figure}{0} would otherwise read as an invented number.
+  .replace(/\\setcounter\{[^}]*\}\{[^}]*\}/g, '')
+  .replace(/\\makeatletter[\s\S]*?\\makeatother/g, '');
 
 // ------------------------------------------------------------ 1. numbers --
 // Unicode superscripts and subscripts are digits too: 10^-8 is written with
