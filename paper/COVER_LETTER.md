@@ -7,7 +7,7 @@
 >
 > It must be rewritten around what the manuscript currently says: the title in
 > `paper/frontmatter.json`; the evaluation-geometry measurement (0.143 [+0.077, +0.208], mechanism
-> isolated to the negative pool) as the lead; the transfer null restated on equalised frames (0.617
+> isolated to the negative pool) as the lead; the transfer null restated on equalised frames (0.616
 > against within-region ≈0.87); and the diagnostics result as "none was shown to order transfer once
 > the frames are comparable". The self-correction is worth stating plainly to an editor — it is the
 > strongest thing about the submission — rather than being hidden.

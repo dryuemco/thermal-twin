@@ -114,8 +114,9 @@ consequence is a reporting standard (Section 5.7).
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
 thermal block is worth a substantial within-region increment in all five regions, every bootstrap
 interval above zero, and stays positive when the frame is equalised — but much of it is a property of
-interleaved holdout, and across twenty transfer directions the paired contribution spans zero on both frames, though much
-closer to the boundary once equalised (Section 4.4), with a
+interleaved holdout, and across twenty transfer directions the paired contribution spans zero on both frames under the
+primary resampling unit, though much closer to the boundary once equalised and not under every
+admissible unit (Section 4.4), with a
 sign belonging to the pair rather than the block. Two controls bound this: the static baseline
 transfers no better on either frame, so the failure is not the thermal block's peculiarity, and on
 matched frames and blocking the equalised transfer still falls **0.155** short of the within-region

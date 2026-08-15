@@ -5,6 +5,11 @@ in the main text. They are reported so that a reader can see which choices were 
 each was worth. Arm (f) is the exception in one respect: it is not a robustness check but a test of
 a claim the introduction makes, and the claim is not upheld.
 
+## A(a)–A(h). The eight sensitivity arms
+
+Each arm is labelled by its letter below, and is cited elsewhere in the paper as Appendix A(a)
+through A(h).
+
 **(a) Evia AOI and prevalence.** The raw transfer arms were repeated with the legacy,
 high-prevalence Evia box. Every qualitative conclusion is unchanged. Thermal raw transfer AUCs move
 by up to 0.07, the largest being Evia to Bejís at 0.378 to 0.448, and no direction changes side of
@@ -376,7 +381,10 @@ absolute thermal channels change side as well.
 extreme far field in the cohort. Under the same 10 km collar the 2021 figure barely moves, 0.611 to
 0.606 and still supported, while the 2022 figure moves from 0.297 to 0.565, onto the same side of
 0.5 as 2021 with an interval covering chance. The arm shows the same artefact as the cross-region
-reversals rather than confirming them. We keep the section because the structural properties below
+reversals rather than confirming them. That verdict covers **elevation**, and slope, which behaves
+the same way; the arm's thermal channels carry no verdict at all, because the 2022 event's own
+predictors are not exported and the reconstruction used here is valid only for the year-invariant
+ones (Appendix A(o)). We keep the section because the structural properties below
 have no analogue elsewhere in the paper, and because this arm is what motivated the frame test.
 
 The two arms are not disjoint samples: they share 38,789 of the 2022 arm's 38,790 cells, and
@@ -474,41 +482,42 @@ moisture-stress motivation of Section 1.2.
 survive either.** A fixed study area does not mean a fixed evaluation frame: its 2022 arm has
 **93.2 % of cells beyond 10 km of any burned cell, median 43.6 km**, a larger far field than any
 cross-region arm. Applying the same
-collar (`mugla_two_event_collar.csv`; the full-frame values reproduce Table B5):
+collar (`mugla_two_event_collar.csv`; the full-frame values reproduce Table B5 on the
+year-invariant channels only, for the reason given below):
 
-The artefact carries all seven features on both frames, and the verdict differs by feature, so the
-whole table is given rather than the elevation row alone. Each cell is the arm's signed univariate
-AUC with its 10-cell block bootstrap interval; **supported reversal** means the two arms fall on
-opposite sides of 0.5 *and* each interval excludes 0.5, which is this paper's criterion of
-Section 3.10.
+**What this arm can and cannot evaluate.** The 2022 event's own step8a export is not in this tree.
+The released script (`code/verify_mugla_collar.py`) reconstructs the arm by taking the **2021**
+predictor file and substituting the 2022 burned mask, justified on the ground that elevation, slope
+and land cover are identical between the arms. That justification holds for those channels and **not
+for the state-dependent ones**, which the script nonetheless computes. Checked against the frozen
+step9g export, which uses the 2022 arm's own predictors, the reconstruction agrees on the
+year-invariant channels — elevation 0.297 against 0.296, slope 0.559 against 0.558 — and diverges on
+every seasonal one, by +0.136 on `lst_anomaly_mean`, +0.092 on `tvdi_difference_mean`, −0.078 on
+`ndvi_mean` and −0.025 on `current_tvdi_mean`. **So only elevation and slope can be given a collar
+verdict for this arm**, and the thermal channels cannot until the 2022 arm's own predictors are
+exported.
 
 | Feature | 2021, full | 2022, full | full verdict | 2021, collar | 2022, collar | collar verdict |
 |---|---|---|---|---|---|---|
-| elevation_mean | 0.611 [0.529, 0.692] | 0.297 [0.229, 0.363] | **supported reversal** | 0.606 [0.525, 0.685] | 0.565 [0.450, 0.677] | none |
-| current_lst_mean | 0.325 [0.271, 0.386] | 0.513 [0.427, 0.578] | none | 0.332 [0.275, 0.392] | 0.602 [0.516, 0.687] | **supported reversal** |
-| current_tvdi_mean | 0.336 [0.271, 0.403] | 0.569 [0.446, 0.650] | none | 0.342 [0.275, 0.412] | 0.657 [0.550, 0.752] | **supported reversal** |
+| **elevation_mean** | 0.611 [0.529, 0.692] | 0.297 [0.229, 0.363] | **supported reversal** | 0.606 [0.525, 0.685] | 0.565 [0.450, 0.677] | none |
 | slope_mean | 0.637 [0.584, 0.689] | 0.559 [0.463, 0.643] | none | 0.635 [0.578, 0.692] | 0.457 [0.356, 0.548] | none |
-| ndvi_mean | 0.662 [0.615, 0.703] | 0.629 [0.568, 0.696] | none | 0.652 [0.606, 0.695] | 0.540 [0.426, 0.637] | none |
-| lst_anomaly_mean | 0.485 [0.396, 0.570] | 0.516 [0.297, 0.613] | none | 0.507 [0.421, 0.598] | 0.639 [0.446, 0.771] | none |
-| tvdi_difference_mean | 0.490 [0.400, 0.589] | 0.489 [0.319, 0.583] | none | 0.509 [0.417, 0.597] | 0.591 [0.422, 0.720] | none |
+| the five state-dependent channels | — | — | — | — | — | **not evaluable here** |
 
-**The collar does not remove this arm's reversal; it moves it.** The elevation reversal that was
-supported on the frame as drawn is not supported under the collar, which is the result this paper
-reported. But two absolute thermal channels do the opposite: `current_lst_mean` and
-`current_tvdi_mean` are *not* reversals on the frame as drawn and **are** supported reversals under
-the collar, because the 2022 arm's far field was holding its interval across 0.5 and the collar
-removes it. One supported reversal on the frame as drawn becomes two on the collar, in a different
-feature class.
+**On the two channels this arm can evaluate, the collar removes the reversal.** Elevation's 2022 arm
+crosses to the same side of 0.5 with an interval covering chance, while the 2021 arm is nearly
+frame-invariant, which isolates the effect to the 2022 arm's far field rather than to the collar.
+Slope reverses on neither frame.
 
-An earlier version of this appendix generalised the elevation row to "no bootstrap-supported sign
-reversal survives anywhere in this paper once evaluation frames are equalised". **That is withdrawn**:
-the verdict was computed for elevation alone and does not hold for the other six features. Two
-qualifications limit what the two new rows can carry, and both are applied to the elevation row on
-the same terms: the 2022 arm rests on eleven positive-carrying blocks against this design's own floor
-of sixteen, so no verdict from it is strong; and the two channels are partly terrain proxies
-(current LST correlates with elevation at −0.695 to −0.125 across the regions), so they are not
-independent of the row above. What cannot be said is that equalising the frame leaves this arm with
-no supported reversal.
+Two corrections to earlier statements belong here. First, an earlier version generalised the
+elevation row to "no bootstrap-supported sign reversal survives anywhere in this paper once
+evaluation frames are equalised". **That generalisation is withdrawn**: it was computed for one
+feature and the other five could not have supported it either way. Second, a subsequent version
+reported `current_lst_mean` and `current_tvdi_mean` as supported reversals appearing under the
+collar. **Those are withdrawn too** — they are the 2021 pre-fire surface scored against the 2022
+scar, not the 2022 fire's own state. The defensible statement is narrower than either: **on the
+channels this design can evaluate, the collar removes this arm's reversal; on the rest the arm is
+silent.** Whatever it shows rests on eleven positive-carrying blocks against this design's own floor
+of sixteen, so no verdict from it is strong.
 
 Two points bound how many independent reversals could have been counted in the first place. The
 channels whose reversal vanishes are the ones partly measuring terrain: current LST correlates with
@@ -782,7 +791,10 @@ is at distance zero and is retained at any radius, so the protection against cho
 radius is the sweep below, not the retention of positives. On the equalised frame all five regions
 agree in sign on elevation, on LST and on TVDI, and both bootstrap-supported elevation reversals of
 Table B3 disappear. Under this paper's own criterion from Section 3.10 — each region's own 10-cell
-block-bootstrap interval must exclude 0.5 — **no reversal remains bootstrap-supported**. Two features
+block-bootstrap interval must exclude 0.5 — **no between-region reversal remains
+bootstrap-supported**. The qualifier matters: this arm covers the five regions, and the
+same-geography two-fire arm is treated separately in Appendix A(o), where only the year-invariant
+channels can be given a verdict at all. Two features
 straddle 0.5 at the point estimate and neither is supported: `lst_anomaly_mean` at 0.392 [0.324,
 0.460] in Bejís against 0.584 [**0.497**, 0.669] in Evia, where Evia's interval includes 0.5 by
 0.003; and `tvdi_difference_mean` at 0.509 [0.417, 0.597] in Muğla against 0.384 [0.288, 0.504] in
@@ -867,7 +879,8 @@ does not. Bejís, Evia and Montiferru were not touched. Every arm of Section 4.4
 with Muğla read from the surviving frozen copy and the other four regions as they stand, which is
 the configuration Tables 1 and B9 were computed under. The correction moves forty of the hundred per-direction transfer values by
 up to 0.022, the largest being Muğla to Montiferru at 0.509 → 0.531. It leaves every headline
-quantity of Table 4 unchanged to within 0.0011: the equalised mean 0.6163 against 0.6166, its paired
+quantity of Table 4 unchanged to within 0.0012, the largest being the full-to-10 km paired delta at
++0.0021 against +0.0033: the equalised mean 0.6163 against 0.6166, its paired
 delta +0.0231 against +0.0234, and the above-chance counts identical in four rows of five, the 5 km
 row moving from 18 to 19 as one direction crosses 0.5. The signed-AUC results are unaffected in
 substance — only Muğla's two channels move, by at most 0.008, and the same two features straddle 0.5
@@ -880,9 +893,9 @@ not repeated here.
 The reference arm reproduces the frozen matrix, at 0.541 against Table B9's 0.541 and 14 of 20
 exactly, so this is measuring the same quantity. **The baseline control moves with it and must be
 restated on this frame**: the static baseline transfers at 0.593 against the thermal model's 0.616,
-a paired difference of +0.023 rather than the +0.003 of the frame as drawn. The control still holds
+a paired difference of +0.023 rather than the +0.004 of the frame as drawn. The control still holds
 in kind — the static predictor class is not the portable one either — but the gap between them is
-eight times larger once frames are comparable, and Sections 1, 5 and 6 quote only the as-drawn
+about six times larger once frames are comparable, and Sections 1, 5 and 6 quote only the as-drawn
 pair. Table 4's above- and below-chance counts are point counts. Under the same 10-cell block bootstrap used for Table B9, at 1000
 replicates, the full frame gives nine directions above chance and four below with interval support,
 and the collar frame fifteen above and one below, so the headline movement is six to one at the
@@ -1157,7 +1170,7 @@ removing the two reversing predictors costs −0.081 of within-region AUC while 
 **Sensitivity** (A(a)–A(h)): eight design choices were varied with everything else held fixed; none
 changes a conclusion above, except arm (f), which tests a claim of Section 1.2 and does not uphold
 it. **The same geography, a second fire** (A(m)): the one arm that held
-place fixed shows a reversal on the frame as drawn, which Section 4.4 withdraws. **Distance**
+place fixed shows an elevation reversal on the frame as drawn, which Section 4.4 withdraws. **Distance**
 (A(t)): within a single region the model is already at chance by 10 to 20 km from its training
 cells, which bounds how far a surface of this kind can be carried but cannot be turned into an
 attribution, for the reason given there. **The price of labels** (A(u)): thirty-two labelled 5 km
@@ -1167,9 +1180,9 @@ answer. Two limits bound it: at the top budget the selection pool is nearly exha
 upper-budget intervals reflect saturation rather than precision, and **the labelled blocks are drawn
 from the event being predicted, which is not a resource available before that event burns**.
 
-## A(bb). The agreed thermal sign, as first stated
+## A(bb). The agreed thermal sign, in full
 
-Section 4.4 states this result; the paragraph it condensed is here, and Appendix A(k) carries the
+Section 4.4 states this result; the fuller statement is here, and Appendix A(k) carries the
 stratification table it draws on.
 
 **The sign they now agree on is not the one the dryness framing predicts**: everywhere a hotter
@@ -1180,9 +1193,9 @@ interval support is not uniform, so "all five agree" is a point-estimate stateme
 channels behave here as **static land-surface descriptors** rather than as a dryness index
 (Appendix A(k); Section 5.2 draws the consequence).
 
-## A(cc). Section 4.3's table note and residual arm, as first stated
+## A(cc). Section 4.3's table note and residual arm, in full
 
-The two paragraphs Section 4.3 condensed are here in full.
+The two paragraphs Section 4.3 condenses are given here in full.
 
 All four rows are means over the **same eight scars**. A ninth burned component, Bejis, is excluded
 **from this table** because it is that region's only component of any size, so holding it out leaves
@@ -1218,54 +1231,3 @@ Across buffers the mean is 0.552 at 2 km, 0.540 at 5 km and 0.553 at 10 km, the 
 scars rather than eight because one Montiferru component has no 10 km row, so the three are close
 but the 10 km figure is not strictly comparable.
 
-## A(dd). The equalised-frame reversal test, as first stated
-
-Section 4.4 states this result; the paragraph it condensed is here.
-
-**Under an equalised frame the sign reversals do not survive.** Restricting every region to cells
-within 10 km of any burned cell removes only far-field negatives; every burned cell is at distance
-zero and is retained at any radius, so the protection against a flattering radius is the sweep below,
-not the retention of positives. On that frame all five regions agree in sign on elevation, LST and
-TVDI, and both bootstrap-supported elevation reversals of Table B3 disappear. Under this paper's own
-criterion from Section 3.10, **no reversal remains bootstrap-supported**: the two features
-straddling 0.5 at the point estimate are the internally differenced channels, and in each at least
-one region's interval covers 0.5 — Evia's by 0.003. The weaker difference instrument that Table B3's
-note commits this paper to does support four opposite-sided pairs on `lst_anomaly_mean`, three
-involving Evia, with three caveats that keep it weak: nine of ninety differences clear zero against
-about 4.5 expected under the null with no multiplicity correction, the nine features are effectively
-two to three dimensions, and Evia's support status turns on 0.003. **The honest statement is that no
-reversal meets the strict criterion under the collar, and that the LST anomaly differs between
-regions on the weaker one** (Appendix A(l)). One scope limit belongs with it: the interval criterion
-was evaluated at the 10 km collar only. At the point estimate the two radii agree exactly — at both
-5 km and 10 km the same two features straddle 0.5 and the other seven agree in sign across all five
-regions, against eight of nine straddling on the frame as drawn — so the conclusion is not selected
-by the radius, but the strict criterion has been run at one of them (`aoi_frame_auc.csv`).
-
-## A(ee). Section 4.4's closing paragraphs, as first stated
-
-The two paragraphs Section 4.4 condensed are here.
-
-**Two further arms move with the frame.** The same-geography arm of Appendix A(m) is the most
-extreme case in the cohort — a fixed study area is not a fixed evaluation frame, and its 2022 arm has
-93.2 % of cells beyond 10 km of any burned cell against 55.3 % for 2021 — so under the collar its
-two arms fall on the same side of 0.5 **on elevation**, the feature whose reversal we had reported.
-On the other six the collar does not remove this arm's reversal, it moves it: `current_lst_mean` and
-`current_tvdi_mean` are not reversals as drawn and **are** supported reversals under the collar
-(Appendix A(o)). The correct statement is therefore narrower than the one we first drew — between
-regions no bootstrap-supported reversal survives equalisation, but within this two-fire arm one is
-withdrawn and two appear, all three on eleven positive-carrying blocks against a floor of sixteen. The within-region increment, by contrast, **survives**,
-positive in all five regions at a mean of +0.077 against +0.086 as drawn (Appendix A(o)).
-
-**What this settles, and what it leaves standing.** Five quantities reported below are properties of
-the frames rather than of the predictor-burning relationship, and are identified as such where they
-appear: the count of six anti-predictive directions, which becomes one; the sign reversal of
-elevation, LST and TVDI as a mechanism; the sign-agreement diagnostic; the same-geography arm; and
-the paired thermal contribution, +0.004 as drawn against +0.023 equalised. What survives is the
-central negative result, and its size must be stated on a matched comparison: setting 0.616 against
-a within-region reference of about 0.87 would compare a collar number with a full-rectangle one at
-1 km blocking. Recomputed on the same frame at 5 km blocking that reference is 0.772, so the
-shortfall is **+0.155 [+0.094, +0.217]**, a Student *t* interval over the five target regions and
-not the spatial-block bootstrap used elsewhere — numerically almost identical to Section 4.3's
-negative-pool effect over nine scars, which is a different quantity on a different unit — real, and 0.155 rather than the
-0.25 an unmatched comparison implies, and shrinking as the frame approaches the fire. Appendix C.5(x)
-records the frame as a limitation of this cohort rather than of the method.

@@ -81,8 +81,8 @@ scoring them on a random sample of region cells drawn at the scar area's own bur
 gives 0.627, a fall of **+0.155 [+0.093, +0.217]**. That comparison swaps both pools at once, so the
 two single swaps were run to say which one carries it. Replacing only the negatives, keeping region
 positives at the scar's count and taking the scar's own negatives, costs **0.147 [0.104, 0.191]** —
-the whole of it. Replacing only the positives costs **0.002 [−0.048, +0.052]**, null on average
-though it runs from −0.13 to +0.11 across scars. So the attribution is measured rather than
+the whole of it. Replacing only the positives costs **0.002 [−0.052, +0.048]**, null on average
+though the per-scar effect runs from −0.12 to +0.12. So the attribution is measured rather than
 inferred: **the effect is the negative pool** — every negative in a scar collar is fire-adjacent,
 sharing the terrain, land cover and synoptic conditions of the positives, whereas a region's
 negatives include its easy far field — and ROC-AUC is in any case invariant to class balance at
@@ -147,9 +147,11 @@ interleaved holdout**.
 
 Section 4.3's effect applies with equal force between regions. This test is reported before the
 transfer matrix because it changes what Section 4.5 and Appendix A(s) can claim; it withdraws
-nothing in Section 4.3, which is what it is built from. Sources are `aoi_frame_auc.csv`,
-`aoi_frame_transfer.csv`, `collar_frame_bootstrap.csv` and `diagnostics_collar_frame.csv`, with the
-code under `paper/code/` and the elaboration in Appendix A(w).
+nothing in Section 4.3, which is what it is built from. Sources are `aoi_frame_auc_frozen_mugla.csv`
+and `aoi_frame_transfer_frozen_mugla.csv`, which supersede the pre-correction
+`aoi_frame_auc.csv` and `aoi_frame_transfer.csv` for the reason given below, together with
+`collar_frame_bootstrap.csv` and `diagnostics_collar_frame.csv`; the code is under `paper/code/` and
+the elaboration in Appendix A(w).
 
 **The five areas of interest are not comparable frames.** Each is a rectangle drawn around a fire,
 and they differ by an order of magnitude in how much unburnt far field they enclose: the share of
@@ -215,12 +217,12 @@ drawn.
 **Two further arms move with the frame.** The same-geography arm of Appendix A(m) is the most extreme
 case in the cohort — a fixed study area is not a fixed evaluation frame, and its 2022 arm has 93.2 %
 of cells beyond 10 km of any burned cell against 55.3 % for 2021 — so under the collar its two arms
-fall on the same side of 0.5 **on elevation**, the feature whose reversal we had reported. On the
-other six the collar does not remove this arm's reversal, it moves it: `current_lst_mean` and
-`current_tvdi_mean` are not reversals as drawn and **are** supported reversals under the collar. So
-the statement is narrower than the one we first drew — between regions no bootstrap-supported
-reversal survives equalisation, but within this two-fire arm one is withdrawn and two appear, all
-three resting on eleven positive-carrying blocks against a floor of sixteen (Appendix A(o)). The
+fall on the same side of 0.5 on elevation, the feature whose reversal we had reported. The claim is
+scoped rather than general: the 2022 event's own predictor export is not in this tree, so the arm is
+reconstructed from the 2021 predictors with the 2022 burned mask, which is valid for the
+year-invariant channels and **not** for the seasonal ones. **Only elevation and slope carry a collar
+verdict here, and on both the reversal is removed; on the thermal channels this arm is silent**
+(Appendix A(o)). Either way it rests on eleven positive-carrying blocks against a floor of sixteen. The
 within-region increment, by contrast, **survives**, positive in all five regions at a mean of +0.077
 against +0.086 as drawn.
 
@@ -230,7 +232,7 @@ against +0.086 as drawn.
 population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
 the supported counts use a 10-cell (≈5 km) spatial-block bootstrap on the target, 1000 replicates,
 seed 42; **Table B9 reports the same matrix under 2-cell (≈1 km) blocking**, which is why its
-supported counts are the larger 12 and 6 (Section 4.5). Per-direction bounds are in `aoi_frame_transfer.csv`.
+supported counts are the larger 12 and 6 (Section 4.5). Per-direction bounds are in `aoi_frame_transfer_frozen_mugla.csv`.
 
 | Source frame | Target frame | Mean target AUC | Above chance | Below chance | Supported above / below | Paired thermal delta |
 |---|---|---:|---:|---:|---:|---:|
@@ -243,8 +245,8 @@ supported counts are the larger 12 and 6 (Section 4.5). Per-direction bounds are
 **A data-provenance defect in this arm was found and corrected**: one region's predictor file at the
 canonical path had come to differ from the one the frozen tables were computed on, so every arm here
 was re-run against the frozen export. It moves forty of a hundred per-direction values by up to 0.022 and
-leaves **every headline quantity below unchanged to within 0.0011**, with the signed-AUC results
-identical (Appendix A(w)). The table reports the corrected values. The reference arm reproduces the frozen matrix, at 0.541 against
+leaves **every headline quantity below unchanged to within 0.0012**, and moves the signed AUCs of
+one region's two channels by at most 0.008 without changing any verdict (Appendix A(w)). The table reports the corrected values. The reference arm reproduces the frozen matrix, at 0.541 against
 Table B9's 0.541 and 14 of 20 exactly. **The baseline control must be restated on this frame**: the static baseline transfers at
 0.593 against 0.616, a paired difference of +0.023 rather than +0.004 — the control holds in kind,
 but the gap is about six times larger once frames are comparable, and about four times at the 5 km
@@ -261,7 +263,9 @@ elevation, LST and TVDI as a mechanism; the sign-agreement diagnostic; the same-
 the paired thermal contribution, +0.004 as drawn against +0.023 equalised. **That last quantity
 carries the portability null, so it is given an interval on the frame this section argues for**:
 +0.023 [−0.004, +0.048] under the pair-cluster resampling of Appendix A(o), which is the unit
-behind the as-drawn +0.004 [−0.030, +0.036]. It still spans zero, so the null survives the
+behind the as-drawn +0.004. Recomputed here on the corrected data that unit gives the as-drawn
+figure as [−0.030, +0.036] against the frozen export's [−0.028, +0.036], which is the version quoted
+in the abstract and Appendix A(o); the two differ only in the third decimal of one bound. It still spans zero, so the null survives the
 correction — but only just, where the as-drawn interval was centred near zero, and under the
 alternative admissible unit, clustering by target region, it does not span zero at [+0.016, +0.031].
 The honest reading is that **the paired contribution is not established as non-zero on the corrected

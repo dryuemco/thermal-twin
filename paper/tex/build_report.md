@@ -28,32 +28,32 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 93
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 135
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 157
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 200
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 217
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 241
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 267
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 302
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 319
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 347
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 428
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 493
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 546
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 658
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 910
-- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1142
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 98
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 140
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 162
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 205
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 222
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 246
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 272
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 307
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 324
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 352
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 436
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 504
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 555
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 667
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 923
+- TABLE WITHOUT CAPTION in A1_sensitivity near md line 1155
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 34
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 78
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 94
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 135
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 168
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 184
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 199
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 213
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 240
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 254
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 169
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 185
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 200
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 214
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 241
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 255
 - TABLE WITHOUT CAPTION in A3_protocol near md line 102
 
 ## stripped (5)
@@ -89,8 +89,8 @@ converter made is listed so it can be reviewed.
 - : 7 cols, est. width 112 chars -> scriptsize
 - : 3 cols, est. width 70 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 23 chars)
-- : 7 cols, est. width 162 chars -> scriptsize, 2 wrapping
-- : 2 of 7 columns wrap (widest cell 22 chars)
+- : 7 cols, est. width 175 chars -> scriptsize, 3 wrapping
+- : 3 of 7 columns wrap (widest cell 33 chars)
 - : 3 cols, est. width 89 chars -> small, 2 wrapping
 - : 2 of 3 columns wrap (widest cell 45 chars)
 - : 3 cols, est. width 57 chars -> small, 1 wrapping
