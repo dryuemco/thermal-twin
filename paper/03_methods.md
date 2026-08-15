@@ -16,7 +16,7 @@ deliberately not clipped to it, so that unburned cells around each fire form the
 was tuned on burned prevalence, gate outcome or any model metric. **One choice was label-informed and
 is stated as such**: the North Evia box was extended after the legacy box proved atypically high in
 burned prevalence, the extended geometry then defined from place anchors and the legacy variant kept
-as a sensitivity arm. Section 4.4 shows this framing decision is consequential and Appendix C.5(x)
+as a sensitivity arm. Section 4.4 shows this framing decision is consequential and Appendix C.5(ix)
 treats it as the design lesson of the paper. A sixth region, Kozan 2023, is carried as a negative control and excluded by the gate of
 Section 3.3.
 
@@ -127,19 +127,7 @@ two regions' point estimates fall on opposite sides of 0.5 **and each region's o
 0.5**. That is stricter than requiring the intervals to be disjoint, and a feature failing the second
 condition is recorded as a point reversal only.
 
-## 3.11 Transferability diagnostics versus transfer
-
-Twenty candidate diagnostics from five families are computed for every region pair and
-rank-correlated (Spearman) against observed raw transfer AUC, under one bootstrap that resamples
-unordered region pairs with both of their ordered directions travelling together. The families are
-marginal predictor-space measures P(x), including area-of-applicability dissimilarity, climatic and
-geographic distance and a learned domain classifier; burned-niche overlap P(x|y=1), measured by
-Schoener's D [@Schoener1968] and Warren's I [@Warren2008]; regime distance
-P(y); and conditional direction agreement P(y|x). **No family-wise error control is claimed**, and
-the number of variants per family is reported with the result. Appendix C.2 gives the full
-specification.
-
-## 3.12 Interventions
+## 3.11 Interventions
 
 **Pooled multi-region training.** Leave-one-region-out: the model is trained on the pooled primary
 populations of the other four regions and evaluated on the held-out region, with folds blocked as
@@ -154,7 +142,7 @@ each is dropped singly so the cost can be attributed. The two features are selec
 reversal analysis the result is then read against, so **both quantities are post-selection estimates**
 with no correction applied.
 
-## 3.13 Controls on the transfer path
+## 3.12 Controls on the transfer path
 
 Four evaluations establish what the transfer arms are measuring, all using the transfer protocol of
 Section 3.8 unchanged: a **within-region half-split** (modelled cells cut at the median of a grid
@@ -165,13 +153,13 @@ scar areas; and the **same blocked model restricted** to those areas, which isol
 region from the training regime. Buffers of 2, 5 and 10 km were run, 2 km primary. The per-split and
 per-scar positive counts are unequal and bear on the interpretation (Appendix A(i)).
 
-## 3.14 Leakage control and reproducibility
+## 3.13 Leakage control and reproducibility
 
 An explicit forbidden-column set is enforced at every model fit as an assertion rather than a
 convention: coordinates and their normalised forms, every burn-date and label-provenance column, and
 the agreement fraction are excluded from all feature sets. The natural-vegetation mask defines the
 population and is never a predictor. All randomness uses seed 42 and the bootstrap 1000
-replicates, with one qualification: the five diagnostic bootstraps behind Table 5 and Table B1 use
+replicates, with one qualification: the diagnostic bootstraps of the released appendices use
 per-measure offsets from that seed rather than the seed itself, so that independent measures do not
 share a resampling draw. Two of the twenty transfer verdicts are not stable across seeds and are
 identified in Section 4.5.
@@ -183,7 +171,7 @@ populations, three block sizes, the CORAL sweep, both feature sets and four clas
 and where a conclusion depends on one of those choices **the dependence is reported rather than
 resolved by choosing the favourable setting** (Appendices A, C.6).
 
-## 3.15 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
+## 3.14 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 
 Muğla admits a comparison in which place is held fixed and the event varies: a second fire burned
 inside the identical AOI, on the identical grid, eleven months after the first. Signed univariate

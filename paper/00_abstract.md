@@ -130,6 +130,5 @@ supported under our own criterion, though the LST anomaly still differs on a dif
 +0.045 to +0.148 within regions at 5 km blocking, but +0.022 [−0.032, +0.077] when a whole burn scar
 is withheld and +0.004 [−0.028, +0.036] across twenty transfer directions, with a sign that varies
 by pair. The static baseline transfers no better, at 0.537 against 0.541, and equalised transfer sits 0.155 below a
-matched within-region reference. Of twenty candidate diagnostics from five families, none was shown to order
-transfer, and the two that appeared to do so need target labels in both regions. Transfer skill has to be
-measured, not inferred from similarity.
+matched within-region reference. Transfer skill therefore has to be measured on the region a model is
+moved to before it is relied on there.

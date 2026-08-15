@@ -166,30 +166,12 @@ and is attenuated to near-null in Montiferru, so in those two it is largely the 
 gradient the collar was introduced to remove. The stratifications, the correlations and the
 reciprocal adjustment are in Appendix A(k).
 
-**The same test determines what the diagnostics of Section 4.6 can establish.** Both candidates
-there with intervals excluding zero measure agreement in the sign of each predictor's association
-between source and target — built from exactly the signed AUCs shown above to be frame artefacts,
-and correlated against transfer on the same unequal frames. Recomputing both sides under the
-collar:
-
-**Table 3. The diagnostics that ordered transfer, recomputed on an equalised frame.** Spearman ρ
-against target ROC-AUC over the ordered directions in which each is defined. The first two rows are
-the two variants that cleared zero in Table B1; the third is the all-feature cosine, which did not
-and is shown for contrast. Both sides are recomputed here under one bootstrap setting, 1000
-replicates, seed 42. Source `diagnostics_collar_frame.csv` and `collar_increment_and_cosine.csv`.
-
-| Diagnostic | Full frame | 10 km collar |
-|---|---|---|
-| Sign-agreement fraction, supported features | ρ = +0.86 (p = 0.0001, n = 14) | **1.0 in all 18 directions, variance exactly 0 — degenerate** |
-| Cosine, supported features | ρ = +0.81 (p = 0.0005, n = 14) | **ρ = −0.06 (p = 0.82, n = 18)**, variance 0.00014 |
-| Cosine, all nine features | ρ = +0.50 (p = 0.023, n = 20) | ρ = +0.12 (p = 0.61, n = 20) |
-
-The two fail differently and both fail: the agreement fraction has no variance left once every pair
-agrees, and the supported cosine keeps a trace of variance but stops tracking transfer. The
-disagreements they were reading were the far fields. **Only these two were recomputed, so the other
-eighteen are unknown against the equalised transfer vector rather than shown to be null**
-(Appendix A(o)). This settles what Contribution 3 can claim: **no diagnostic tested here has been
-shown to order transfer**, and the two that appeared to were reading how the rectangles were drawn.
+**The same test removes a result of our own.** The diagnostic that best ordered transfer in our
+matrix is built from exactly the signed AUCs shown above to be frame artefacts, and was correlated
+against transfer on the same unequal frames. Recomputed under the collar it is unanimous — 1.0 in
+all eighteen directions, variance exactly zero — so it has no variance left to correlate, and its
+cosine variant falls from ρ = +0.81 to −0.06. The correction does not weaken that result; it
+dissolves it (`diagnostics_collar_frame.csv`, `collar_increment_and_cosine.csv`).
 
 **Two further arms move with the frame.** The same-geography arm is the most extreme case in the
 cohort — a fixed study area is not a fixed evaluation frame, and its 2022 arm has 93.2 % of cells
@@ -203,7 +185,7 @@ positive in all five regions at a mean of +0.077 against +0.086 as drawn.
 
 **The transfer matrix moves as well.** Restricting source and target to the same collar:
 
-**Table 4. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
+**Table 3. Cross-region transfer under equalised evaluation frames.** Primary natural-vegetation
 population, thermal model, twenty ordered directions per row. Above/below chance are point counts;
 the supported counts use a 10-cell (≈5 km) spatial-block bootstrap on the target, 1000 replicates,
 seed 42; **Table B9 reports the same matrix under 2-cell (≈1 km) blocking**, which is why its
@@ -243,7 +225,7 @@ Recomputed on the same frame at 5 km blocking that reference is 0.772, so the sh
 **+0.155 [+0.094, +0.217]**, a Student *t* interval over the five target regions rather than the
 spatial-block bootstrap used elsewhere, and numerically almost identical to Section 4.3's
 negative-pool effect over nine scars, which is a different quantity on a different unit. It is real,
-and 0.155 rather than the 0.25 an unmatched comparison implies. Appendix C.5(x) records the frame as
+and 0.155 rather than the 0.25 an unmatched comparison implies. Appendix C.5(ix) records the frame as
 a limitation of this cohort rather than of the method.
 
 ## 4.5 Cross-region transfer, and what label-free adaptation does to it
@@ -252,13 +234,13 @@ a limitation of this cohort rather than of the method.
 4.4**, which has shown the frames are not comparable and that the within-region reference used here
 is itself frame-dependent. The as-drawn matrix is reported because it is what the pre-registered
 protocol yields; per-direction values are in Appendix B, Table B9, and the supporting arms in
-Appendix A(x).
+Appendix A(ix).
 
 **Raw transfer is heterogeneous and includes anti-predictive directions.** Target AUC spans 0.326 to
 0.686, and Fig. 4 gives the matrix direction by direction. The support counts depend on the blocking scale, so both are reported: at 2-cell (≈1 km)
 blocking twelve of twenty directions are above chance with interval support and six below; at the
 10-cell (≈5 km) blocking this design defends, nine are above and four below with seven uncertain,
-the counts Table 4 uses. Of the below-chance directions only Manavgat to Bejís survives frame
+the counts Table 3 uses. Of the below-chance directions only Manavgat to Bejís survives frame
 equalisation, and two verdicts are not stable across bootstrap seeds
 (`transfer_ci_blocksize.csv`). Even the best raw transfer sits far below that target's own
 within-region 0.870, the raw deficit running 0.184 to 0.592 against a reference Section 4.3 shows is
@@ -294,56 +276,10 @@ the target labels the protocol forbids, so it is **an oracle upper bound rather 
 result**. Even the oracle only reaches the reference a model can reach on an unseen scar
 (Section 4.3), so alignment is regressing the matrix onto that reference rather than failing beneath
 it. What it cannot do is exceed the reference, and a sign reversal is not a distribution mismatch
-that realigning inputs would repair. Appendix A(x) reports the recovery fractions, including the
+that realigning inputs would repair. Appendix A(ix) reports the recovery fractions, including the
 seven directions with *negative* recovery.
 
-## 4.6 Transferability diagnostics: what appears to order transfer, and why it does not
-
-Twenty candidate diagnostics from five families were each rank-correlated with raw thermal transfer
-over the twenty ordered directions, under one common pair-based bootstrap.
-
-**Table 5. Transferability diagnostics versus raw thermal transfer, by family.** Spearman ρ against
-raw transfer AUC with pair-based bootstrap 95 % CIs. Exp. is the sign expected if the diagnostic
-orders transfer. The member named is the one with the largest absolute correlation in its family,
-which is not always in the expected direction. All twenty individual diagnostics are in Appendix B,
-Table B1.
-
-| Family | Diagnostics | Exp. | Largest correlation in family | Sign as expected | Any CI excluding 0 |
-|---|---:|:---:|---|:---:|---|
-| **P(y\|x) conditional** | 6 | + | **+0.84 [+0.58, +0.88]** agreement fraction, supported features | yes | **yes, 2 of 6** |
-| P(x\|y=1) niche overlap | 5 | + | +0.24 [−0.45, +0.74] Schoener's D, 1-D mean | yes | no |
-| P(x) marginal | 6 | − | −0.32 [−0.78, +0.33] domain-classifier AUC | yes | no |
-| P(y) regime structure | 2 | − | +0.29 [−0.38, +0.74] log effective-N distance | **no** | no |
-| geographic | 1 | − | −0.24 [−0.84, +0.73] centroid geodesic distance | yes | no |
-
-**Only two diagnostics have intervals excluding zero, and both are conditional**: the sign-agreement
-fraction over interval-supported features at ρ = +0.84 [+0.58, +0.88], and its cosine variant at
-+0.81. No marginal measure was shown to order the matrix, including area-of-applicability
-dissimilarity, climatic distance and geographic distance, and neither were the niche-overlap and
-regime families. The learned domain classifier is at ceiling, separating source from target at
-AUC ≥ 0.96 for every pair, so it always succeeds and carries no ordering information. Geographic
-separation is a single diagnostic here, centroid distance over the twelve directions for which the
-pipeline author's export defines it, at ρ = −0.24 [−0.84, +0.73]: in the expected direction and
-spanning zero.
-
-Four limits are stated with the result. **Size**: the index's tie structure caps the achievable
-Spearman at +0.861, so the observed +0.840 sits on that ceiling, and its exact one-sided permutation
-p of 0.0060 — 240 of the 8! = 40,320 relabellings of the **eight** pairs on which the index is
-defined — is the smallest that structure can produce, against a Bonferroni threshold of
-0.05/19 = 0.0026. **No outcome of this diagnostic could have cleared family-wise correction.**
-**Labels**: signed associations need burned labels in both regions, so the family that appears to
-work is not available before deployment while the family that fails is. **Selection**, the sharpest:
-the two rows that clear zero are the *supported-feature* variants, whose subset is chosen by whether
-two regions' bootstrap intervals happen to be disjoint — a data-dependent selection on the same data,
-with no correction; their unselected counterparts over all nine features are ρ = +0.50 [−0.17, +0.83]
-and +0.18 [−0.40, +0.72], both spanning zero, so **the result lives in the selection step**.
-**Frame**, established in Section 4.4, removes it entirely. Recomputing every row on the common
-twelve directions reproduces the published values to 4.8 × 10⁻⁵ and leaves the ordering unchanged, so
-it is not an artefact of unequal samples (Appendix B). Everything here is what the original protocol
-yields; the conclusion that survives is that **no diagnostic tested here was shown to order transfer
-once the frames are comparable**.
-
-## 4.7 Further arms
+## 4.6 Further arms
 
 Six further arms bear on the findings above without changing them: the contrast pair (A(s)), the two
 interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event arm (A(m)), the
@@ -351,8 +287,7 @@ distance curve (A(t)) and the label-budget curve (A(u)).
 Each is stated there with its own limits. Three are plotted here because the shape of the result is
 the argument: pooling every other region never beats the best single source for any target (Fig. 6);
 removing the direction-reversing features costs within-region skill and returns nothing measurable on
-transfer (Fig. 7); and the contrast pair shows the most burned-niche overlap sitting with the weakest
-transfer (Fig. 8). The two bearing directly on Sections 5.4 and 5.7 are the interventions, where a
+transfer (Fig. 7). The two bearing directly. The two bearing directly on Sections 5.4 and 5.7 are the interventions, where a
 local cost of −0.081 is measured against a transfer return of +0.014 [−0.017, +0.045] whose interval
 spans zero, and the label budget, where thirty-two labelled 5 km blocks recover 85 to 89 % of the
 target's matched ceiling in three of six directions and 30 to 57 % in the rest — 7 to 20 % of the

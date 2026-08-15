@@ -86,19 +86,9 @@ be least exposed to absolute-temperature offsets between regions; **they transfe
 absolute ones** (Appendix A(f)). The expectation motivates the design and is not a finding of it —
 Section 4.4 reports the associations running the other way.
 
-## 1.3 Why the loss is invisible to the diagnostics in use
-
-The field's instrument for anticipating transfer failure is predictor-space dissimilarity — the area
-of applicability and its relatives [@Meyer2021; @Meyer2022; @Ludwig2023] — which asks whether a target's
-predictor values fall inside the training envelope. That is a question about the marginal
-distribution of the predictors, and it cannot see a change in the *relationship* between predictors
-and response, because detecting one requires the labels being withheld. If the failure is
-conditional rather than marginal, those diagnostics look in the wrong place; Section 4.6 tests
-whether they do.
-
 ## 1.4 Contributions
 
-Three findings carry this paper, stated here as claims and established in Section 4, which carries
+Two findings carry this paper, stated here as claims and established in Section 4, which carries
 every interval.
 
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
@@ -109,7 +99,7 @@ ROC-AUC**, the size of the increments this design measures for a predictor block
 measured as the negative pool's composition rather than class balance (Section 4.3). Applied between
 regions it withdraws five claims of our own, including the sign reversal we had offered as the
 mechanism and the one arm that held place fixed (Section 4.4), and the practical consequence is a
-reporting standard (Section 5.7).
+reporting standard (Section 5.6).
 
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
 thermal block is worth a substantial within-region increment in all five regions, every bootstrap
@@ -121,15 +111,6 @@ Two controls bound this: the static baseline transfers no better on either frame
 not the thermal block's peculiarity, and on matched frames and blocking equalised transfer still
 falls **0.155** short of the within-region reference. The within-region half is not novel
 [@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is.
-
-**Contribution 3. The shortfall cannot be anticipated by any diagnostic we could run.** Of twenty candidates from
-five families, eighteen were not shown to order the matrix on the frames as drawn. Two conditional
-variants did, but both need burned labels on both sides, both rest on a data-selected feature subset
-whose all-nine counterparts span zero, and **Contribution 1 removes even those** (Section 4.4). The
-point survives without any ranking: at the point estimates the pair with the highest burned-niche
-overlap is among the weakest in the matrix while the lowest transfers above chance in both
-directions, contradicting an expectation the fire literature carries [@Dimarco2026; @Liu2025] and
-agreeing with species distribution modelling [@Vesk2021; @Rousseau2022].
 
 Two consequences follow, as supporting results: label-free alignment by standardisation and
 covariance alignment [@Sun2016] does not repair transfer, in what we believe is its first application

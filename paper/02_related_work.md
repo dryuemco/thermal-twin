@@ -27,22 +27,6 @@ tested is whether such a classifier survives strict, label-free application to a
 
 ## 2.3 Spatial validation and transferability
 
-Random cross-validation over spatially autocorrelated cells inflates skill estimates [@Roberts2017;
-@Ploton2020], and spatially blocked designs are the standard remedy [@Valavi2019; @Meyer2018],
-though they have themselves been argued to introduce pessimistic bias [@Wadoux2021; @Mila2022;
-@deBruin2022]. This paper blocks throughout and reports every result at three block sizes, so a
-reader can see which verdicts depend on the choice.
-
-Blocking corrects the inflation random folds produce within a region. It does not speak to
-performance on a fire the model has not seen, which Section 4.3 measures on identical cells. For
-that, the field's instrument is the area of applicability and related predictor-space dissimilarity
-measures [@Meyer2021; @Meyer2022; @Ludwig2023], which ask whether a target's predictor values fall inside the
-training data's envelope. Species distribution modelling has examined transferability far more
-systematically than fire has [@Yates2018], and two studies there report that geographic and
-environmental similarity do not reliably predict transfer success [@Vesk2021; @Rousseau2022];
-transferability of satellite-derived empirical models is an active question in fire remote sensing
-itself [@Marino2024].
-
 The canonical taxonomy separates covariate shift, where the predictor distribution moves but the
 predictor-response relationship holds, from concept shift, where the relationship itself changes
 [@MorenoTorres2012]. Covariate shift is in principle correctable without target labels, by per-region
@@ -77,7 +61,7 @@ because magnitude is problem-specific, so our Contribution 1 is a measurement in
 rather than a new phenomenon. The wildfire literature has largely not imported the lesson:
 region-wide figures are reported as though they described performance at the fire, and we know of no
 wildfire study that holds the model fixed and varies only the evaluation cells — which is why
-Section 5.7 treats the 0.143 as a reporting problem rather than a caveat.
+Section 5.6 treats the 0.143 as a reporting problem rather than a caveat.
 
 **The nearest neighbour, and the contrast this paper draws.** Dimarco et al. [@Dimarco2026] is the
 closest Mediterranean analogue: 500 m predictors harmonised across four countries, tree ensembles
@@ -91,7 +75,7 @@ response variable**: theirs is human-driven ignition, ours burned area, which ha
 dominant controls. Read together the two results suggest the relationship between domain similarity
 and transfer success may be predictor-class dependent, with Vesk et al. [@Vesk2021] and Rousseau and
 Betts [@Rousseau2022] aligning from species distribution modelling while Dimarco et al. and
-WildfireGenome run against it. We present that as a live disagreement; Section 5.6 states why our
+WildfireGenome run against it. We present that as a live disagreement; Section 5.5 states why our
 data do not settle it.
 
 [^dimarco-lst]: Their Results text refers to "LST anomalies", inconsistent with their own Methods,

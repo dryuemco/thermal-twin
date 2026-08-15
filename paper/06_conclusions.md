@@ -50,11 +50,8 @@ frames and blocking, equalised transfer of 0.616 falls 0.155 short of the within
 the paired cross-region contribution spans zero on both frames under the resampling unit we treat as
 primary, though not under every admissible one (Section 4.4), with a sign that varies by pair; and
 the static baseline transfers no better on either frame, so this is not a peculiarity of thermal
-predictors. The shortfall also cannot be anticipated: none of twenty diagnostics from five families
-was shown to order the matrix, and the two that appeared to require target labels on both sides and
-stop ordering transfer once the frames are comparable. Label-free alignment compresses most
-directions towards chance rather than repairing them, and supervised recalibration works but is not
-cheap.
+predictors. Label-free alignment compresses most directions towards chance rather than
+repairing them, and supervised recalibration works but is not cheap.
 
 Two limits belong with all of this. The agreed thermal direction is the opposite of the one
 the dryness framing predicts — hotter pre-fire surfaces burned less in every region, and holding
