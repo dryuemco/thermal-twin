@@ -296,7 +296,22 @@ This section isolates the effect Section~\ref{sec:4.4} applies between regions. 
 
 \textbf{Where the skill is lost, on a matched comparison.} Four evaluations are reported; the last three are scored on \textbf{identical cells}, so they differ only in what the model was trained on, and the first shows why an unmatched comparison misleads. The held-out unit is a burned connected component of at least 50 cells together with all cells within 2 km of it. What makes that a harder problem than a whole region is the composition of its negatives, not its burned fraction, and that can be shown rather than argued. Taking the same fitted model and the same out-of-fold predictions and scoring them on a random sample of region cells drawn at the scar area's own burned fraction gives \textbf{0.782 against the region-wide 0.782}: matching the prevalence changes nothing, at $-$0.000 [$-$0.003, +0.002] over the nine scars. Scoring the same predictions on the scar area itself gives 0.627, a fall of \textbf{+0.155 [+0.093, +0.217]}. The whole effect is the negative pool --- every negative in a scar collar is fire-adjacent, sharing the terrain, land cover and synoptic conditions of the positives, whereas a region's negatives include its easy far field --- and ROC-AUC is in any case invariant to class balance at fixed class-conditional distributions.
 
-\textbf{Table~\ref{tab:2}. The four evaluations, scored on identical cells.} Primary natural-vegetation population. Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make the mismatch visible. Means and Student \emph{t} intervals are over the eight held-out scars.
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \caption{The four evaluations, scored on identical cells. Primary natural-vegetation population. Rows B, C and D are scored on the held-out scar area; row A is the whole region and is shown to make the mismatch visible. Means and Student \emph{t} intervals are over the eight held-out scars.}
+  \label{tab:2}
+  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xlrl}
+    \hline
+    Evaluation & Model trained on & Scored on & Mean AUC & 95 \% CI \\
+    \hline
+    A. Blocked cross-validation, 5 km & the region, scar included & the whole region & 0.776 & [0.738, 0.814] \\
+    B. Same blocked model, restricted & the region, \textbf{scar included} & the scar area & 0.634 & [0.552, 0.716] \\
+    C. Leave-one-scar-out & the region, \textbf{scar withheld} & the scar area & 0.552 & [0.501, 0.602] \\
+    D. Foreign region & another region, 306 to 2,802 km & the scar area & 0.555 & [0.495, 0.616] \\
+    \hline
+  \end{tabularx}
+\end{table}
 
 All four rows are means over the \textbf{same eight scars}. A ninth burned component, Bejis, is excluded \textbf{from this table} because it is that region's only component of any size, so holding it out leaves no usable source model and there is no row C for it; it is \emph{not} excluded from the arms that need no leave-one-scar-out model, which is why the prevalence control above and Tables A3 and A4 are computed on nine scars and report 0.782 and 0.627 against this table's 0.776 and 0.634. The intervals are Student \emph{t} over the eight scars, which is this arm's resampling unit rather than the spatial-block bootstrap used elsewhere. Eight is small and the intervals are wide accordingly; four of the eight scars are in Muğla and two in Montiferru, so they are not independent, and \textbf{row A in particular is a region-level quantity repeated across the scars of a region, so its interval is pseudo-replicated and should not be read as coverage}. The two differences are computed per scar and paired.
 
@@ -318,7 +333,21 @@ Section~\ref{sec:4.3}'s effect applies with equal force between regions. This te
 
 \textbf{The same test determines what the diagnostics of Section~\ref{sec:4.6} can establish.} Both candidates there with intervals excluding zero measure agreement in the sign of each predictor's association between source and target --- built from exactly the signed AUCs shown above to be frame artefacts, and correlated against transfer on the same unequal frames. Recomputing both sides under the collar:
 
-\textbf{Table~\ref{tab:3}. The diagnostics that ordered transfer, recomputed on an equalised frame.} Spearman $\rho$ against target ROC-AUC over the ordered directions in which each is defined. The first two rows are the two variants that cleared zero in Table B1; the third is the all-feature cosine, which did not and is shown for contrast. Both sides are recomputed here under one bootstrap setting, 1000 replicates, seed 42. Source \texttt{diagnostics\_\allowbreak{}collar\_\allowbreak{}frame.\allowbreak{}csv} and \texttt{collar\_\allowbreak{}increment\_\allowbreak{}and\_\allowbreak{}cosine.\allowbreak{}csv}.
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{The diagnostics that ordered transfer, recomputed on an equalised frame. Spearman $\rho$ against target ROC-AUC over the ordered directions in which each is defined. The first two rows are the two variants that cleared zero in Table B1; the third is the all-feature cosine, which did not and is shown for contrast. Both sides are recomputed here under one bootstrap setting, 1000 replicates, seed 42. Source \texttt{diagnostics\_\allowbreak{}collar\_\allowbreak{}frame.\allowbreak{}csv} and \texttt{collar\_\allowbreak{}increment\_\allowbreak{}and\_\allowbreak{}cosine.\allowbreak{}csv}.}
+  \label{tab:3}
+  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+    \hline
+    Diagnostic & Full frame & 10 km collar \\
+    \hline
+    Sign-agreement fraction, supported features & $\rho$ = +0.86 (p = 0.0001, n = 14) & \textbf{1.0 in all 18 directions, variance exactly 0 --- degenerate} \\
+    Cosine, supported features & $\rho$ = +0.81 (p = 0.0005, n = 14) & \textbf{$\rho$ = $-$0.06 (p = 0.82, n = 18)}, variance 0.00014 \\
+    Cosine, all nine features & $\rho$ = +0.50 (p = 0.023, n = 20) & $\rho$ = +0.12 (p = 0.61, n = 20) \\
+    \hline
+  \end{tabularx}
+\end{table}
 
 The two fail differently and both fail: the agreement fraction has no variance left once every pair agrees, and the supported cosine keeps a trace of variance but stops tracking transfer. Features supported in both regions \emph{rise} from 1.20 to 3.40 per direction, so the diagnostics are better determined and unanimous --- the disagreements they were reading were the far fields. Two scope statements belong with the table and are in Appendix A(o); the second matters most, that only these two were recomputed, so the other eighteen are unknown against the equalised transfer vector rather than shown to be null. This settles what Contribution 3 can claim: \textbf{no diagnostic tested here has been shown to order transfer}, and the two that appeared to were reading how the rectangles were drawn.
 
@@ -326,7 +355,23 @@ The two fail differently and both fail: the agreement fraction has no variance l
 
 \textbf{The transfer matrix moves as well.} Restricting source and target to the same collar:
 
-\textbf{Table~\ref{tab:4}. Cross-region transfer under equalised evaluation frames.} Primary natural-vegetation population, thermal model, twenty ordered directions per row. Above/below chance are point counts; the supported counts use the same 10-cell ($\approx$5 km) spatial-block bootstrap on the target as Table B9, 1000 replicates, seed 42. Per-direction bounds are in \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}.
+\begin{table}[htbp]
+  \centering
+  \scriptsize
+  \caption{Cross-region transfer under equalised evaluation frames. Primary natural-vegetation population, thermal model, twenty ordered directions per row. Above/below chance are point counts; the supported counts use the same 10-cell ($\approx$5 km) spatial-block bootstrap on the target as Table B9, 1000 replicates, seed 42. Per-direction bounds are in \texttt{aoi\_\allowbreak{}frame\_\allowbreak{}transfer.\allowbreak{}csv}.}
+  \label{tab:4}
+  \begin{tabularx}{\linewidth}{llrrr>{\raggedleft\arraybackslash}Xr}
+    \hline
+    Source frame & Target frame & Mean target AUC & Above chance & Below chance & Supported above / below & Paired thermal delta \\
+    \hline
+    full & full (\textbf{Table B9}) & 0.540 & 14 of 20 & \textbf{6} & 9 / \textbf{4} & +0.003 \\
+    full & 10 km & 0.575 & 17 of 20 & 3 & 11 / 1 & +0.002 \\
+    10 km & full & 0.571 & 17 of 20 & 3 & 11 / 3 & +0.014 \\
+    \textbf{10 km} & \textbf{10 km} & \textbf{0.617} & \textbf{19 of 20} & \textbf{1} & \textbf{15 / 1} & \textbf{+0.023} \\
+    5 km & 5 km & 0.608 & 18 of 20 & 2 & 12 / 0 & +0.014 \\
+    \hline
+  \end{tabularx}
+\end{table}
 
 The reference arm reproduces the frozen matrix, at 0.540 against Table B9's 0.541 and 14 of 20 exactly. \textbf{The baseline control must be restated on this frame}: the static baseline transfers at 0.593 against 0.617, a paired difference of +0.023 rather than +0.003 --- the control holds in kind, but the gap is eight times larger once frames are comparable. The table's counts are point counts; under the same 10-cell bootstrap the movement is six below chance to one at the point estimate and \textbf{four to one with interval support}.
 
@@ -350,7 +395,23 @@ The reference arm reproduces the frozen matrix, at 0.540 against Table B9's 0.54
 
 Twenty candidate diagnostics from five families were each rank-correlated with raw thermal transfer over the twenty ordered directions, under one common pair-based bootstrap.
 
-\textbf{Table~\ref{tab:5}. Transferability diagnostics versus raw thermal transfer, by family.} Spearman $\rho$ against raw transfer AUC with pair-based bootstrap 95 \% CIs. Exp. is the sign expected if the diagnostic orders transfer. The member named is the one with the largest absolute correlation in its family, which is not always in the expected direction. All twenty individual diagnostics are in Appendix B, Table B1.
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \caption{Transferability diagnostics versus raw thermal transfer, by family. Spearman $\rho$ against raw transfer AUC with pair-based bootstrap 95 \% CIs. Exp. is the sign expected if the diagnostic orders transfer. The member named is the one with the largest absolute correlation in its family, which is not always in the expected direction. All twenty individual diagnostics are in Appendix B, Table B1.}
+  \label{tab:5}
+  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xrc>{\raggedright\arraybackslash}Xcl}
+    \hline
+    Family & Diagnostics & Exp. & Largest correlation in family & Sign as expected & Any CI excluding 0 \\
+    \hline
+    \textbf{P(y|x) conditional} & 6 & + & \textbf{+0.84 [+0.58, +0.88]} agreement fraction, supported features & yes & \textbf{yes, 2 of 6} \\
+    P(x|y=1) niche overlap & 5 & + & +0.24 [$-$0.45, +0.74] Schoener's D, 1-D mean & yes & no \\
+    P(x) marginal & 6 & $-$ & $-$0.32 [$-$0.78, +0.33] domain-classifier AUC & yes & no \\
+    P(y) regime structure & 2 & $-$ & +0.29 [$-$0.38, +0.74] log effective-N distance & \textbf{no} & no \\
+    geographic & 1 & $-$ & $-$0.24 [$-$0.84, +0.73] centroid geodesic distance & yes & no \\
+    \hline
+  \end{tabularx}
+\end{table}
 
 \textbf{Only two diagnostics have intervals excluding zero, and both are conditional}: the sign-agreement fraction over interval-supported features at $\rho$ = +0.84 [+0.58, +0.88], and its cosine variant at +0.81. No marginal measure was shown to order the matrix, including area-of-applicability dissimilarity, climatic distance and geographic distance, and neither were the niche-overlap and regime families. The learned domain classifier is at ceiling, separating source from target at AUC $\ge$ 0.96 for every pair, so it always succeeds and carries no ordering information. Geographic separation does not order the matrix on either construction, at $\rho$ = $-$0.32 over twenty directions and $-$0.24 on the twelve-direction subset, both spanning zero.
 
