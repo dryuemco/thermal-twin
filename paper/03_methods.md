@@ -37,8 +37,9 @@ reference grid is partitioned into 17 x 17 blocks, giving a nominal 510 m cell t
 rather than reproduces the MODIS cell and is square in degrees but not on the ground. A cell's burn
 date is the mode of its positive sub-pixel day-of-year values, tested against the label window; the
 label never affects eligibility for modelling. Two safeguards are recorded rather than assumed:
-cells burning inside a region's own predictor window are removed, which ran for three of five
-regions, and burning in earlier years is screened for none. Appendix C.1 gives the
+cells burning before the label window opens are removed, which ran for three of five regions and
+excluded 49 cells in Muğla, 16 in North Evia and 61 in Montiferru, with none arising in Manavgat or
+Bejís, and burning in earlier years is screened for none. Appendix C.1 gives the
 full specification, including what follows from the grid's shape.
 
 ## 3.3 Burned-landcover admissibility gate
@@ -63,8 +64,12 @@ portable as a physical quantity independently of any concept shift** (Appendices
 ## 3.5 Cell aggregation, validity and analysis populations
 
 Cell-level values are means over the ~510 m cell from valid 30 m pixels only, with the valid fraction
-recorded; a cell is `valid_for_modeling` when it meets a 30 % valid-pixel floor and no thermal
-channel is missing. The **primary** population is natural vegetation, cells whose combined tree,
+recorded. A cell is `valid_for_modeling` when it is analysis-eligible, meaning not excluded for
+pre-label burning, and its predictors are valid: joint finite NDVI, elevation and slope support over
+at least 30 % of the cell, finite means for those three channels, and at least one valid land-cover
+pixel. **Thermal completeness is not part of the definition**: depending on the region, 6 % to 58 %
+of valid cells carry at least one missing thermal channel, and missing values are imputed inside the
+fitting pipeline (Section 3.6) rather than by excluding the cell. The **primary** population is natural vegetation, cells whose combined tree,
 shrub and grass fraction reaches 0.50, which excludes cropland from every burnable mask. The
 **secondary** population is all valid cells; the frozen export carries it for the within-region arm
 in two regions, reported as a sensitivity in Appendix A(v), and the transfer matrix is defined on the
@@ -73,8 +78,10 @@ primary population only.
 ## 3.6 Classifier
 
 The two feature sets of Section 3.4 are nested, the thermal set being the baseline plus the six
-thermal channels. Land cover is one-hot encoded and numeric features are standardised inside the
-fitting pipeline. The classifier is a random forest [@Breiman2001] with 300 trees, unlimited depth,
+thermal channels. Land cover is one-hot encoded. Missing numeric values are median-imputed and the
+categorical channel most-frequent-imputed, with the imputers fitted inside each training fold, and
+on the source alone in transfer, so no held-out or target statistic enters a fit. Features are not
+otherwise standardised; standardisation appears only as the adaptation intervention of Section 3.9. The classifier is a random forest [@Breiman2001] with 300 trees, unlimited depth,
 `min_samples_leaf = 3`, balanced class weights and `random_state = 42`, identical for every region,
 population, feature set and transfer direction, so that no comparison here is confounded by a model
 choice.
@@ -111,8 +118,9 @@ first- and second-order marginal offsets.
 whitening-recolouring map [@Sun2016], λ = 10⁻⁵. Critically **the transform is applied to the source
 only**; the target is left as it is, and the classifier is refitted on the aligned source. Neither
 variant sees a target label, and both are verified label-blind at run time. λ sensitivity was assessed over nine
-values on four of the twenty directions, moving transfer AUC by at most 0.014; the canonical λ = 1
-lies outside that sweep (Appendix A(b)).
+values on four of the twenty directions, moving transfer AUC by at most 0.014, and no value of λ was
+selected on performance; the λ = 1 of the original CORAL formulation lies outside that sweep, while
+the value used throughout remains λ = 10⁻⁵ (Appendix A(b)).
 
 ## 3.10 Transfer-gap decomposition and the concept-shift criterion
 

@@ -147,8 +147,9 @@ spanning one row has exactly one.
 TVDI is normalised against wet and dry edges taken as percentiles of the land surface temperatures a
 scene contains, within bins of a vegetation index. The AOIs are place-based rectangles that are not
 clipped to the coastline, and the water bit is deliberately preserved, so sea takes part in that fit.
-Water-dominant cells are 57.6 % of one AOI and 38.9 % of another, against 0.1 % for the one inland
-region.
+Water-dominant cells are 57.6 % of one AOI's grid and 38.9 % of another's, against 0.1 % for the one
+inland region; the near-identical 57.7 % of Section 4.6 is the same region's share of its all-valid
+population, a different denominator.
 
 The contamination is real and visible: in the marine AOI the three lowest vegetation-index bins carry
 dry edges of 28.8 to 29.9 °C, which is sea-surface temperature and not a land dry edge, where the
@@ -195,8 +196,10 @@ to the label window; it required the unclipped product.
 
 **Gap-filled thermal cells.** Where the fused product falls back on a modelled surface, the channel
 is not an observation. The gap-filled share is concentrated rather than diffuse, reaching 18.8 % of
-cells in one region against 2.0 to 9.1 % elsewhere. Restricting to cells at most 10 % gap-filled
-leaves the increment bootstrap-supported in all five regions; the most exposed region moves most and
+cells in one region against 2.0 to 9.1 % elsewhere. Restricting to cells at most 10 % gap-filled,
+a restriction recomputed here on the primary population with the pipeline's own modelling and
+bootstrap steps, since the pipeline's frozen gap-fill diagnostic exists only for the secondary
+all-valid population, leaves the increment bootstrap-supported in all five regions; the most exposed region moves most and
 in the predicted direction, +0.056 to +0.043, and the others by at most 0.008.
 
 **Coordinate-bearing channels.** Two derived channels inherit a coordinate-derived component from
@@ -230,6 +233,6 @@ Against that, the within-region results rebuild **bit for bit**. Reconstructing 
 the released dependency pins on a different operating system and re-running the released modelling
 step against the archived inputs reproduces every numeric field of the frozen metrics: 142 fields for
 one region with a maximum absolute difference of 6.9×10⁻¹⁸, and 168 for another with a maximum
-difference of **exactly 0**. A regularisation constant that the released sensitivity sweep omits was
-also recomputed directly and leaves every direction on its side of chance, widening the sweep's
-reported spread from 0.014 to 0.019.
+difference of **exactly 0**. The λ = 1 of the original CORAL formulation, a regularisation constant
+the released sensitivity sweep omits, was also recomputed directly and leaves every direction on its
+side of chance, widening the sweep's reported spread from 0.014 to 0.019.

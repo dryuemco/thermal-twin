@@ -41,10 +41,17 @@ length as one that did, because a budget in which every entry is large is not a 
 
 1. **Analysis-cell geometry.** Derived from the export scale and coordinate system and checked
    against the frozen cell counts. Not a variation but a description; reported because block-size
-   labels depend on it.
+   labels depend on it. One provenance fact belongs here: no Earth Engine call in the pipeline sets
+   an explicit resampling kernel, every export declaring only a scale and a coordinate system, so
+   the platform's documented default of nearest-neighbour reprojection applies to every export,
+   while the alignment kernels the pipeline does choose, bilinear for continuous rasters and
+   nearest for categorical ones, are applied locally.
 2. **Coarse-thermal quality screening.** The pipeline's own `QC_Day` bit rule and three-observation
    minimum, applied to the three regions exported before the rule existed, compared against their
-   unscreened means at the input.
+   unscreened means at the input. That the cohort splits this way is established from provenance
+   rather than assumed: the rule entered the export script on 2026-07-23, after those three regions
+   had been exported, and nothing in the outputs marks the difference, so it was recovered by
+   comparing export metadata across regions (Section 4.2).
 3. **Nodata convention.** Exact-zero counts in each region's coarse thermal layer, against the
    pipeline's own suspicious-zero guard and each region's water-dominant cell share.
 4. **Compositing chain.** The released counterfactual audit, which builds a date-balanced composite
