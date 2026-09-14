@@ -219,7 +219,7 @@ Each region has two non-overlapping windows. The \textbf{predictor window} close
 
 \subsection{Burned-area label and the $\sim$500 m analysis grid}\label{sec:3.2}
 
-Labels come from MODIS MCD64A1 Collection 6.1 \citep{Giglio2018} retrieved through Google Earth Engine \citep{Gorelick2017}, whose omission and commission characteristics \citep{Boschetti2019} bound every model here. The analysis grid is \textbf{reconstructed rather than native}: the pipeline's 30 m EPSG:4326 reference grid is partitioned into 17 x 17 blocks, giving a nominal 510 m cell that approximates rather than reproduces the MODIS cell and is square in degrees but not on the ground. A cell's burn date is the mode of its positive sub-pixel day-of-year values, tested against the label window; the label never affects eligibility for modelling. Two safeguards are recorded rather than assumed: cells burning inside a region's own predictor window are removed, which ran for three of five regions, and burning in earlier years is screened for none. Appendix C.1 gives the full specification, including what follows from the grid's shape.
+Labels come from MODIS MCD64A1 Collection 6.1 \citep{Giglio2018} retrieved through Google Earth Engine \citep{Gorelick2017}, whose omission and commission characteristics \citep{Boschetti2019} bound every model here. The analysis grid is \textbf{reconstructed rather than native}: the pipeline's 30 m EPSG:4326 reference grid is partitioned into 17 x 17 blocks, giving a nominal 510 m cell that approximates rather than reproduces the MODIS cell and is square in degrees but not on the ground. A cell's burn date is the mode of its positive sub-pixel day-of-year values, tested against the label window; the label never affects eligibility for modelling. Two safeguards are recorded rather than assumed: cells burning before the label window opens are removed, which ran for three of five regions and excluded 49 cells in Muğla, 16 in North Evia and 61 in Montiferru, with none arising in Manavgat or Bejís, and burning in earlier years is screened for none. Appendix C.1 gives the full specification, including what follows from the grid's shape.
 
 \subsection{Burned-landcover admissibility gate}\label{sec:3.3}
 
@@ -231,11 +231,11 @@ Two feature sets are used. The \textbf{baseline} is terrain, fuel and greenness:
 
 \subsection{Cell aggregation, validity and analysis populations}\label{sec:3.5}
 
-Cell-level values are means over the $\sim$510 m cell from valid 30 m pixels only, with the valid fraction recorded; a cell is \texttt{valid\_\allowbreak{}for\_\allowbreak{}modeling} when it meets a 30 \% valid-pixel floor and no thermal channel is missing. The \textbf{primary} population is natural vegetation, cells whose combined tree, shrub and grass fraction reaches 0.50, which excludes cropland from every burnable mask. The \textbf{secondary} population is all valid cells; the frozen export carries it for the within-region arm in two regions, reported as a sensitivity in Appendix A(v), and the transfer matrix is defined on the primary population only.
+Cell-level values are means over the $\sim$510 m cell from valid 30 m pixels only, with the valid fraction recorded. A cell is \texttt{valid\_\allowbreak{}for\_\allowbreak{}modeling} when it is analysis-eligible, meaning not excluded for pre-label burning, and its predictors are valid: joint finite NDVI, elevation and slope support over at least 30 \% of the cell, finite means for those three channels, and at least one valid land-cover pixel. \textbf{Thermal completeness is not part of the definition}: depending on the region, 6 \% to 58 \% of valid cells carry at least one missing thermal channel, and missing values are imputed inside the fitting pipeline (Section~\ref{sec:3.6}) rather than by excluding the cell. The \textbf{primary} population is natural vegetation, cells whose combined tree, shrub and grass fraction reaches 0.50, which excludes cropland from every burnable mask. The \textbf{secondary} population is all valid cells; the frozen export carries it for the within-region arm in two regions, reported as a sensitivity in Appendix A(v), and the transfer matrix is defined on the primary population only.
 
 \subsection{Classifier}\label{sec:3.6}
 
-The two feature sets of Section~\ref{sec:3.4} are nested, the thermal set being the baseline plus the six thermal channels. Land cover is one-hot encoded and numeric features are standardised inside the fitting pipeline. The classifier is a random forest \citep{Breiman2001} with 300 trees, unlimited depth, \texttt{min\_\allowbreak{}samples\_\allowbreak{}leaf = 3}, balanced class weights and \texttt{random\_\allowbreak{}state = 42}, identical for every region, population, feature set and transfer direction, so that no comparison here is confounded by a model choice.
+The two feature sets of Section~\ref{sec:3.4} are nested, the thermal set being the baseline plus the six thermal channels. Land cover is one-hot encoded. Missing numeric values are median-imputed and the categorical channel most-frequent-imputed, with the imputers fitted inside each training fold, and on the source alone in transfer, so no held-out or target statistic enters a fit. Features are not otherwise standardised; standardisation appears only as the adaptation intervention of Section~\ref{sec:3.9}. The classifier is a random forest \citep{Breiman2001} with 300 trees, unlimited depth, \texttt{min\_\allowbreak{}samples\_\allowbreak{}leaf = 3}, balanced class weights and \texttt{random\_\allowbreak{}state = 42}, identical for every region, population, feature set and transfer direction, so that no comparison here is confounded by a model choice.
 
 \subsection{Spatial-block cross-validation and bootstrap uncertainty}\label{sec:3.7}
 
@@ -253,7 +253,7 @@ Two label-free remedies are tested on every direction, in both feature sets.
 
 \textbf{Region-wise z-score.} Each region's numeric features are standardised using its own statistics, source statistics from source data and target statistics from target data, never pooled. The classifier is refitted on the z-scored source and applied to the z-scored target. This removes first- and second-order marginal offsets.
 
-\textbf{CORAL after region-wise z-score.} The source covariance is aligned to the target's by the standard whitening-recolouring map \citep{Sun2016}, $\lambda$ = 10$^{-5}$. Critically \textbf{the transform is applied to the source only}; the target is left as it is, and the classifier is refitted on the aligned source. Neither variant sees a target label, and both are verified label-blind at run time. $\lambda$ sensitivity was assessed over nine values on four of the twenty directions, moving transfer AUC by at most 0.014; the canonical $\lambda$ = 1 lies outside that sweep (Appendix A(b)).
+\textbf{CORAL after region-wise z-score.} The source covariance is aligned to the target's by the standard whitening-recolouring map \citep{Sun2016}, $\lambda$ = 10$^{-5}$. Critically \textbf{the transform is applied to the source only}; the target is left as it is, and the classifier is refitted on the aligned source. Neither variant sees a target label, and both are verified label-blind at run time. $\lambda$ sensitivity was assessed over nine values on four of the twenty directions, moving transfer AUC by at most 0.014, and no value of $\lambda$ was selected on performance; the $\lambda$ = 1 of the original CORAL formulation lies outside that sweep, while the value used throughout remains $\lambda$ = 10$^{-5}$ (Appendix A(b)).
 
 \subsection{Transfer-gap decomposition and the concept-shift criterion}\label{sec:3.10}
 
@@ -324,28 +324,28 @@ Adding the six thermal predictors to the baseline raises spatially blocked out-o
 
 \begin{table}[htbp]
   \centering
-  \footnotesize
-  \caption{Within-region baseline versus thermal performance and block-size robustness. Primary (TSG) population; spatially blocked 5-fold CV (Section~\ref{sec:3.7}); paired spatial-block bootstrap, 1000 replicates. Block sizes 2/10/20 cells $\approx$ 1/5/10 km.}
+  \small
+  \caption{Within-region baseline versus thermal performance and block-size robustness. Primary (TSG) population; spatially blocked 5-fold CV (Section~\ref{sec:3.7}); paired spatial-block bootstrap, 1000 replicates. Block sizes 2/10/20 cells $\approx$ 1/5/10 km. Baseline and Thermal columns are ROC-AUC; the 95 \% CI belongs to $\Delta$AUC.}
   \label{tab:1}
   \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}Xlllll}
     \hline
-    Region & Block ($\approx$ scale) & Baseline AUC & Thermal AUC & $\Delta$AUC & $\Delta$AUC 95\% CI \\
+    Region & Block & Baseline & Thermal & $\Delta$AUC & 95\% CI \\
     \hline
-    Manavgat 2021 & 2 ($\sim$1 km) & 0.803 & 0.870 & +0.067 & [+0.055, +0.079] \\
-     & 10 ($\sim$5 km) & 0.748 & 0.797 & +0.050 & [+0.023, +0.077] \\
-     & 20 ($\sim$10 km) & 0.683 & 0.731 & +0.048 & [+0.014, +0.085] \\
-    Bejís 2022 & 2 ($\sim$1 km) & 0.862 & 0.918 & +0.056 & [+0.048, +0.065] \\
-     & 10 ($\sim$5 km) & 0.779 & 0.825 & +0.045 & [+0.018, +0.069] \\
-     & 20 ($\sim$10 km) & 0.739 & 0.795 & +0.057 & [+0.031, +0.090] \\
-    Muğla 2021 & 2 ($\sim$1 km) & 0.743 & 0.859 & +0.116 & [+0.106, +0.125] \\
-     & 10 ($\sim$5 km) & 0.698 & 0.777 & +0.079 & [+0.050, +0.105] \\
-     & 20 ($\sim$10 km) & 0.673 & 0.733 & +0.061 & [+0.030, +0.094] \\
-    North Evia 2021 (ext.) & 2 ($\sim$1 km) & 0.759 & 0.912 & +0.153 & [+0.142, +0.166] \\
-     & 10 ($\sim$5 km) & 0.716 & 0.864 & +0.148 & [+0.119, +0.183] \\
-     & 20 ($\sim$10 km) & 0.679 & 0.833 & +0.154 & [+0.124, +0.189] \\
-    Montiferru 2021 & 2 ($\sim$1 km) & 0.781 & 0.883 & +0.101 & [+0.080, +0.125] \\
-     & 10 ($\sim$5 km) & 0.620 & 0.720 & +0.100 & [+0.017, +0.186] \\
-     & 20 ($\sim$10 km) & 0.555 & 0.681 & +0.126 & [+0.053, +0.228] \\
+    Manavgat 2021 & 2 & 0.803 & 0.870 & +0.067 & [+0.055, +0.079] \\
+     & 10 & 0.748 & 0.797 & +0.050 & [+0.023, +0.077] \\
+     & 20 & 0.683 & 0.731 & +0.048 & [+0.014, +0.085] \\
+    Bejís 2022 & 2 & 0.862 & 0.918 & +0.056 & [+0.048, +0.065] \\
+     & 10 & 0.779 & 0.825 & +0.045 & [+0.018, +0.069] \\
+     & 20 & 0.739 & 0.795 & +0.057 & [+0.031, +0.090] \\
+    Muğla 2021 & 2 & 0.743 & 0.859 & +0.116 & [+0.106, +0.125] \\
+     & 10 & 0.698 & 0.777 & +0.079 & [+0.050, +0.105] \\
+     & 20 & 0.673 & 0.733 & +0.061 & [+0.030, +0.094] \\
+    North Evia 2021 (ext.) & 2 & 0.759 & 0.912 & +0.153 & [+0.142, +0.166] \\
+     & 10 & 0.716 & 0.864 & +0.148 & [+0.119, +0.183] \\
+     & 20 & 0.679 & 0.833 & +0.154 & [+0.124, +0.189] \\
+    Montiferru 2021 & 2 & 0.781 & 0.883 & +0.101 & [+0.080, +0.125] \\
+     & 10 & 0.620 & 0.720 & +0.100 & [+0.017, +0.186] \\
+     & 20 & 0.555 & 0.681 & +0.126 & [+0.053, +0.228] \\
     \hline
   \end{tabularx}
 \end{table}

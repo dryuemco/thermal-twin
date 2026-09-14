@@ -44,7 +44,7 @@ converter made is listed so it can be reviewed.
 
 ## table (30)
 
-- Within-region baseline versus thermal perfor: 6 cols, est. width 97 chars -> footnotesize, 1 wrapping
+- Within-region baseline versus thermal perfor: 6 cols, est. width 79 chars -> small, 1 wrapping
 - Within-region baseline versus thermal performanc: 1 of 6 columns wrap (widest cell 22 chars)
 - The four evaluations, scored on identical ce: 5 cols, est. width 115 chars -> footnotesize, 2 wrapping
 - The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
