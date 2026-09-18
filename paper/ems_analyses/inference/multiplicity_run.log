@@ -1,0 +1,149 @@
+                               measure  n_directions  rho_published       rho                                          ci    p_boot  p_boot_bh     p_iid  p_iid_bh
+0                 regime_dist_log_effn          20.0         0.2898  0.289813   [-0.3604323203233605, 0.7276550202286124]  0.364600   0.905169  0.215181  0.653130
+1            regime_dist_largest_share          20.0         0.2898  0.289813   [-0.3604323203233605, 0.7276550202286124]  0.364600   0.905169  0.215181  0.653130
+2                domain_classifier_auc          20.0        -0.3170 -0.316983  [-0.7692378180769862, 0.30772872744833185]  0.285800   0.905169  0.173280  0.653130
+3            target_mean_dissimilarity          12.0        -0.1049 -0.104895   [-0.5714285714285714, 0.4360902255639097]  0.757300   0.941841  0.745609  0.857304
+4             target_p95_dissimilarity          12.0        -0.0839 -0.083916  [-0.5797101449275363, 0.42446043165467634]  0.821900   0.941841  0.795415  0.857304
+5         fraction_inside_weighted_aoa          12.0         0.2168  0.216783   [-0.4822695035460993, 0.5869565217391305]  0.571600   0.905169  0.498556  0.728659
+6                     climate_distance          12.0         0.0565  0.056540   [-0.7159943757874091, 0.7926290870042668]  0.924439   0.974700  0.861449  0.861449
+7               geographic_distance_km          12.0        -0.2403 -0.240296   [-0.8366600265340755, 0.7460038465922508]  0.571686   0.905169  0.451873  0.715465
+8   unweighted_fraction_inside_support          12.0         0.0769  0.076923     [-0.9130434782608695, 0.60431654676259]  0.974700   0.974700  0.812183  0.857304
+9                        agree_count_9          20.0         0.1785  0.178523   [-0.42106037194308094, 0.721815130433245]  0.625900   0.914777  0.451418  0.715465
+10                   vector_spearman_9          20.0         0.2687  0.268681   [-0.3645362635897358, 0.7656196299796705]  0.456900   0.905169  0.252032  0.653130
+11                            cosine_9          20.0         0.5042  0.504155  [-0.15879530768446956, 0.8288939795647671]  0.118800   0.752400  0.023411  0.148273
+12            agree_fraction_supported          16.0         0.8404  0.840418      [0.5764930300097753, 0.87635999649456]  0.000051   0.000973  0.000046  0.000871
+13           vector_spearman_supported           NaN            NaN       NaN                                         NaN       NaN        NaN       NaN       NaN
+14                    cosine_supported          16.0         0.8054  0.805417   [0.39031554800355617, 0.8774024363708869]  0.001001   0.009505  0.000166  0.001581
+15                   schoener_d_mean1d          20.0         0.2415  0.241511   [-0.4291807324175468, 0.7317153174623304]  0.475700   0.905169  0.304980  0.653130
+16                     warren_i_mean1d          20.0         0.2234  0.223398  [-0.44745700051013776, 0.7192526206038005]  0.498000   0.905169  0.343753  0.653130
+17                    schoener_d_pca2d          20.0         0.0966  0.096604    [-0.512664280611334, 0.6743867253953356]  0.791800   0.941841  0.685360  0.857304
+18                      warren_i_pca2d          20.0        -0.0694 -0.069434   [-0.6765545908995944, 0.5156859491185383]  0.842700   0.941841  0.771145  0.857304
+19                  mahalanobis_burned          20.0        -0.2264 -0.226417   [-0.7375427979772998, 0.4123564947807647]  0.495600   0.905169  0.337099  0.653130
+collar10 manavgat_2021 ndvi_mean 0.621
+collar10 manavgat_2021 elevation_mean 0.561
+collar10 manavgat_2021 slope_mean 0.569
+collar10 manavgat_2021 lst_anomaly_mean 0.462
+collar10 manavgat_2021 current_lst_mean 0.386
+collar10 manavgat_2021 current_tvdi_mean 0.392
+collar10 manavgat_2021 tvdi_difference_mean 0.437
+collar10 manavgat_2021 downscaled_lst_mean 0.388
+collar10 manavgat_2021 fused_lst_mean 0.386
+collar10 bejis_2022 ndvi_mean 0.618
+collar10 bejis_2022 elevation_mean 0.614
+collar10 bejis_2022 slope_mean 0.603
+collar10 bejis_2022 lst_anomaly_mean 0.392
+collar10 bejis_2022 current_lst_mean 0.405
+collar10 bejis_2022 current_tvdi_mean 0.454
+collar10 bejis_2022 tvdi_difference_mean 0.451
+collar10 bejis_2022 downscaled_lst_mean 0.395
+collar10 bejis_2022 fused_lst_mean 0.402
+collar10 mugla_2021 ndvi_mean 0.652
+collar10 mugla_2021 elevation_mean 0.606
+collar10 mugla_2021 slope_mean 0.635
+collar10 mugla_2021 lst_anomaly_mean 0.507
+collar10 mugla_2021 current_lst_mean 0.332
+collar10 mugla_2021 current_tvdi_mean 0.342
+collar10 mugla_2021 tvdi_difference_mean 0.509
+collar10 mugla_2021 downscaled_lst_mean 0.314
+collar10 mugla_2021 fused_lst_mean 0.332
+collar10 evia_2021_extended ndvi_mean 0.663
+collar10 evia_2021_extended elevation_mean 0.648
+collar10 evia_2021_extended slope_mean 0.603
+collar10 evia_2021_extended lst_anomaly_mean 0.584
+collar10 evia_2021_extended current_lst_mean 0.286
+collar10 evia_2021_extended current_tvdi_mean 0.250
+collar10 evia_2021_extended tvdi_difference_mean 0.489
+collar10 evia_2021_extended downscaled_lst_mean 0.285
+collar10 evia_2021_extended fused_lst_mean 0.285
+collar10 montiferru_2021 ndvi_mean 0.582
+collar10 montiferru_2021 elevation_mean 0.581
+collar10 montiferru_2021 slope_mean 0.651
+collar10 montiferru_2021 lst_anomaly_mean 0.400
+collar10 montiferru_2021 current_lst_mean 0.376
+collar10 montiferru_2021 current_tvdi_mean 0.361
+collar10 montiferru_2021 tvdi_difference_mean 0.384
+collar10 montiferru_2021 downscaled_lst_mean 0.371
+collar10 montiferru_2021 fused_lst_mean 0.376
+full manavgat_2021 ndvi_mean 0.636
+full manavgat_2021 elevation_mean 0.374
+full manavgat_2021 slope_mean 0.531
+full manavgat_2021 lst_anomaly_mean 0.482
+full manavgat_2021 current_lst_mean 0.538
+full manavgat_2021 current_tvdi_mean 0.552
+full manavgat_2021 tvdi_difference_mean 0.449
+full manavgat_2021 downscaled_lst_mean 0.552
+full manavgat_2021 fused_lst_mean 0.540
+full bejis_2022 ndvi_mean 0.559
+full bejis_2022 elevation_mean 0.643
+full bejis_2022 slope_mean 0.521
+full bejis_2022 lst_anomaly_mean 0.418
+full bejis_2022 current_lst_mean 0.477
+full bejis_2022 current_tvdi_mean 0.517
+full bejis_2022 tvdi_difference_mean 0.512
+full bejis_2022 downscaled_lst_mean 0.484
+full bejis_2022 fused_lst_mean 0.481
+full mugla_2021 ndvi_mean 0.662
+full mugla_2021 elevation_mean 0.611
+full mugla_2021 slope_mean 0.637
+full mugla_2021 lst_anomaly_mean 0.485
+full mugla_2021 current_lst_mean 0.325
+full mugla_2021 current_tvdi_mean 0.336
+full mugla_2021 tvdi_difference_mean 0.490
+full mugla_2021 downscaled_lst_mean 0.307
+full mugla_2021 fused_lst_mean 0.325
+full evia_2021_extended ndvi_mean 0.639
+full evia_2021_extended elevation_mean 0.541
+full evia_2021_extended slope_mean 0.487
+full evia_2021_extended lst_anomaly_mean 0.640
+full evia_2021_extended current_lst_mean 0.377
+full evia_2021_extended current_tvdi_mean 0.362
+full evia_2021_extended tvdi_difference_mean 0.519
+full evia_2021_extended downscaled_lst_mean 0.377
+full evia_2021_extended fused_lst_mean 0.376
+full montiferru_2021 ndvi_mean 0.586
+full montiferru_2021 elevation_mean 0.584
+full montiferru_2021 slope_mean 0.652
+full montiferru_2021 lst_anomaly_mean 0.395
+full montiferru_2021 current_lst_mean 0.370
+full montiferru_2021 current_tvdi_mean 0.356
+full montiferru_2021 tvdi_difference_mean 0.378
+full montiferru_2021 downscaled_lst_mean 0.365
+full montiferru_2021 fused_lst_mean 0.370
+
+== collar10: diff CI excl 0 at 1000 reps: 9/90; opposite & excl: 4; strict (1000) 0
+   Holm<0.05 on p_norm: 0
+   Holm<0.05 on p_pct: 0
+   Holm<0.05 on p_iut_norm: 0
+   Holm<0.05 on p_iut_pct: 0
+                 feature            region_a            region_b      diff   diff_lo   diff_hi    p_norm   p_pct  p_norm_holm  p_pct_holm  p_iut_norm_holm
+35      lst_anomaly_mean          bejis_2022  evia_2021_extended -0.191455 -0.298104 -0.082503  0.000559  0.0008     0.050300       0.072              1.0
+55     current_tvdi_mean          bejis_2022  evia_2021_extended  0.203204  0.075860  0.325709  0.001376  0.0020     0.122459       0.178              1.0
+39      lst_anomaly_mean  evia_2021_extended     montiferru_2021  0.183645  0.023806  0.325485  0.016272  0.0270     1.000000       1.000              1.0
+32      lst_anomaly_mean       manavgat_2021  evia_2021_extended -0.122209 -0.227644 -0.018223  0.022177  0.0203     1.000000       1.000              1.0
+52     current_tvdi_mean       manavgat_2021  evia_2021_extended  0.141592  0.005262  0.267116  0.034923  0.0422     1.000000       1.000              1.0
+34      lst_anomaly_mean          bejis_2022          mugla_2021 -0.114589 -0.224660 -0.004021  0.041992  0.0425     1.000000       1.000              1.0
+45      current_lst_mean          bejis_2022  evia_2021_extended  0.118939 -0.002213  0.234817  0.048787  0.0551     1.000000       1.000              1.0
+54     current_tvdi_mean          bejis_2022          mugla_2021  0.111536 -0.001528  0.221729  0.051132  0.0531     1.000000       1.000              1.0
+85        fused_lst_mean          bejis_2022  evia_2021_extended  0.117613 -0.005108  0.234631  0.054077  0.0595     1.000000       1.000              1.0
+68  tvdi_difference_mean          mugla_2021     montiferru_2021  0.125198 -0.023912  0.257994  0.080616  0.0913     1.000000       1.000              1.0
+75   downscaled_lst_mean          bejis_2022  evia_2021_extended  0.109443 -0.023287  0.236978  0.097479  0.1059     1.000000       1.000              1.0
+57     current_tvdi_mean          mugla_2021  evia_2021_extended  0.091668 -0.020820  0.200003  0.103247  0.1063     1.000000       1.000              1.0
+
+== full: diff CI excl 0 at 1000 reps: 27/90; opposite & excl: 22; strict (1000) 3
+   Holm<0.05 on p_norm: 11
+   Holm<0.05 on p_pct: 6
+   Holm<0.05 on p_iut_norm: 0
+   Holm<0.05 on p_iut_pct: 0
+                 feature            region_a            region_b      diff   diff_lo   diff_hi    p_norm    p_pct  p_norm_holm  p_pct_holm  p_iut_norm_holm
+125     lst_anomaly_mean          bejis_2022  evia_2021_extended -0.222063 -0.313830 -0.127758  0.000003  0.00005     0.000257      0.0045         0.431591
+161  downscaled_lst_mean       manavgat_2021          mugla_2021  0.245092  0.132423  0.346515  0.000006  0.00010     0.000554      0.0089         1.000000
+100       elevation_mean       manavgat_2021          bejis_2022 -0.269175 -0.390947 -0.138146  0.000028  0.00010     0.002485      0.0089         0.826399
+171       fused_lst_mean       manavgat_2021          mugla_2021  0.214868  0.106567  0.313432  0.000041  0.00020     0.003564      0.0174         1.000000
+131     current_lst_mean       manavgat_2021          mugla_2021  0.213460  0.105169  0.311939  0.000046  0.00030     0.003981      0.0258         1.000000
+141    current_tvdi_mean       manavgat_2021          mugla_2021  0.216251  0.097182  0.324317  0.000175  0.00080     0.014837      0.0672         1.000000
+101       elevation_mean       manavgat_2021          mugla_2021 -0.237295 -0.356088 -0.106742  0.000203  0.00100     0.017038      0.0790         0.826399
+164  downscaled_lst_mean          bejis_2022          mugla_2021  0.176666  0.076940  0.269975  0.000315  0.00040     0.026159      0.0340         1.000000
+117           slope_mean          mugla_2021  evia_2021_extended  0.150275  0.064160  0.235301  0.000590  0.00080     0.048388      0.0672         1.000000
+144    current_tvdi_mean          bejis_2022          mugla_2021  0.181508  0.073792  0.281597  0.000592  0.00100     0.048388      0.0790         1.000000
+122     lst_anomaly_mean       manavgat_2021  evia_2021_extended -0.157702 -0.249508 -0.069353  0.000608  0.00080     0.048666      0.0672         1.000000
+129     lst_anomaly_mean  evia_2021_extended     montiferru_2021  0.244865  0.093471  0.379410  0.000751  0.00300     0.059364      0.2310         1.000000

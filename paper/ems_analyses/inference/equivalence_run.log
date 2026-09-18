@@ -1,0 +1,395 @@
+{
+ "margins": [
+  0.02,
+  0.05
+ ],
+ "tost_transfer_increment": {
+  "Q2_equalised10_delta": {
+   "mean": 0.023119025680899262,
+   "units": {
+    "naive_directions_boot": {
+     "ci90": [
+      0.002762080432043382,
+      0.04312572952615276
+     ],
+     "no_gain_larger_than_X": 0.04312572952615276,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pair_cluster_boot": {
+     "ci90": [
+      0.0006336789450529973,
+      0.044518291371590614
+     ],
+     "no_gain_larger_than_X": 0.044518291371590614,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "target_cluster_boot": {
+     "ci90": [
+      0.01701008487693418,
+      0.030016403611496895
+     ],
+     "no_gain_larger_than_X": 0.030016403611496895,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "source_cluster_boot": {
+     "ci90": [
+      0.004272956443833392,
+      0.04759152706990784
+     ],
+     "no_gain_larger_than_X": 0.04759152706990784,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pigeonhole_boot": {
+     "ci90": [
+      -0.004375063981023647,
+      0.052093840286365885
+     ],
+     "no_gain_larger_than_X": 0.052093840286365885,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": false
+    },
+    "cgm_twoway_t4": {
+     "ci90": [
+      0.010825924656091022,
+      0.0354121267057075
+     ],
+     "no_gain_larger_than_X": 0.0354121267057075,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "dyadic_robust_t4": {
+     "ci90": [
+      0.010030222116617016,
+      0.03620782924518151
+     ],
+     "no_gain_larger_than_X": 0.03620782924518151,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "loro_jackknife_t4": {
+     "ci90": [
+      -0.023444344476742086,
+      0.0696823958385406
+     ],
+     "no_gain_larger_than_X": 0.0696823958385406,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": false
+    }
+   }
+  },
+  "Q1_asdrawn_delta": {
+   "mean": 0.004240575177514203,
+   "units": {
+    "naive_directions_boot": {
+     "ci90": [
+      -0.021978575384761837,
+      0.02927865120181618
+     ],
+     "no_gain_larger_than_X": 0.02927865120181618,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pair_cluster_boot": {
+     "ci90": [
+      -0.022132424037051263,
+      0.03055706382174777
+     ],
+     "no_gain_larger_than_X": 0.03055706382174777,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "target_cluster_boot": {
+     "ci90": [
+      -0.0050808957196015496,
+      0.01494730731834552
+     ],
+     "no_gain_larger_than_X": 0.01494730731834552,
+     "equivalent_within_0.02": true,
+     "equivalent_within_0.05": true
+    },
+    "source_cluster_boot": {
+     "ci90": [
+      -0.012879427469608861,
+      0.02777652662273612
+     ],
+     "no_gain_larger_than_X": 0.02777652662273612,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pigeonhole_boot": {
+     "ci90": [
+      -0.026948009934286487,
+      0.03699375831804878
+     ],
+     "no_gain_larger_than_X": 0.03699375831804878,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "cgm_twoway_t4": {
+     "ci90": [
+      NaN,
+      NaN
+     ],
+     "undefined": true
+    },
+    "dyadic_robust_t4": {
+     "ci90": [
+      NaN,
+      NaN
+     ],
+     "undefined": true
+    },
+    "loro_jackknife_t4": {
+     "ci90": [
+      -0.02750967198722503,
+      0.03599082234225343
+     ],
+     "no_gain_larger_than_X": 0.03599082234225343,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    }
+   }
+  },
+  "S_equalised5_delta": {
+   "mean": 0.01384933829676554,
+   "units": {
+    "naive_directions_boot": {
+     "ci90": [
+      -0.0016521463544149574,
+      0.02929614215787502
+     ],
+     "no_gain_larger_than_X": 0.02929614215787502,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pair_cluster_boot": {
+     "ci90": [
+      -0.0037965226845143103,
+      0.03131200203289474
+     ],
+     "no_gain_larger_than_X": 0.03131200203289474,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "target_cluster_boot": {
+     "ci90": [
+      0.0035317400501385958,
+      0.02560636312440808
+     ],
+     "no_gain_larger_than_X": 0.02560636312440808,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "source_cluster_boot": {
+     "ci90": [
+      -0.0006740764212992894,
+      0.028372753014830367
+     ],
+     "no_gain_larger_than_X": 0.028372753014830367,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pigeonhole_boot": {
+     "ci90": [
+      -0.008399056349530983,
+      0.03700065826282425
+     ],
+     "no_gain_larger_than_X": 0.03700065826282425,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "cgm_twoway_t4": {
+     "ci90": [
+      0.0014029618721165555,
+      0.026295714721414523
+     ],
+     "no_gain_larger_than_X": 0.026295714721414523,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "dyadic_robust_t4": {
+     "ci90": [
+      -0.0042420269526771085,
+      0.03194070354620819
+     ],
+     "no_gain_larger_than_X": 0.03194070354620819,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "loro_jackknife_t4": {
+     "ci90": [
+      -0.02934684173839824,
+      0.05704551833192929
+     ],
+     "no_gain_larger_than_X": 0.05704551833192929,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": false
+    }
+   }
+  }
+ },
+ "within_minus_transfer_increment": {
+  "10km": {
+   "per_region": {
+    "Manavgat": {
+     "W": 0.03894248514630583,
+     "T": 0.012065807477667802,
+     "W_minus_T": 0.026876677668638025
+    },
+    "Bejis": {
+     "W": 0.029800650360525927,
+     "T": 0.023415554119286697,
+     "W_minus_T": 0.00638509624123923
+    },
+    "Mugla": {
+     "W": 0.08754567533130342,
+     "T": 0.0165230209292388,
+     "W_minus_T": 0.07102265440206462
+    },
+    "Evia": {
+     "W": 0.1335640547089143,
+     "T": 0.0263780135275462,
+     "W_minus_T": 0.1071860411813681
+    },
+    "Montiferru": {
+     "W": 0.08950502525226112,
+     "T": 0.037212732350756825,
+     "W_minus_T": 0.05229229290150429
+    }
+   },
+   "mean_W": 0.07587157815986212,
+   "mean_T": 0.023119025680899262,
+   "mean_W_minus_T": 0.05275255247896286,
+   "ci95_t4": [
+    0.004198429081587456,
+    0.10130667587633826
+   ],
+   "ci90_t4": [
+    0.015471083548127179,
+    0.09003402140979853
+   ],
+   "smaller_by_at_least_Y": 0.015471083548127179
+  },
+  "5km": {
+   "per_region": {
+    "Manavgat": {
+     "W": 0.01821184752497862,
+     "T": -0.0043281102476578496,
+     "W_minus_T": 0.022539957772636468
+    },
+    "Bejis": {
+     "W": 0.017471333881658335,
+     "T": 0.009567286757946651,
+     "W_minus_T": 0.007904047123711684
+    },
+    "Mugla": {
+     "W": 0.04901446659618691,
+     "T": 0.004775250541492025,
+     "W_minus_T": 0.044239216054694885
+    },
+    "Evia": {
+     "W": 0.07071061328968864,
+     "T": 0.021075744235719875,
+     "W_minus_T": 0.049634869053968765
+    },
+    "Montiferru": {
+     "W": 0.03962331391373908,
+     "T": 0.038156520196327,
+     "W_minus_T": 0.0014667937174120751
+    }
+   },
+   "mean_W": 0.039006315041250315,
+   "mean_T": 0.01384933829676554,
+   "mean_W_minus_T": 0.025156976744484777,
+   "ci95_t4": [
+    -0.0013942899509803153,
+    0.05170824343994987
+   ],
+   "ci90_t4": [
+    0.004770032132591702,
+    0.04554392135637785
+   ],
+   "smaller_by_at_least_Y": 0.004770032132591702
+  },
+  "full": {
+   "per_region": {
+    "Manavgat": {
+     "W": 0.04987954843822251,
+     "T": -0.010095690421705324,
+     "W_minus_T": 0.05997523885992784
+    },
+    "Bejis": {
+     "W": 0.04509855474546742,
+     "T": 0.03340123556358478,
+     "W_minus_T": 0.011697319181882646
+    },
+    "Mugla": {
+     "W": 0.07934092185836983,
+     "T": 0.0021309403172288747,
+     "W_minus_T": 0.07720998154114095
+    },
+    "Evia": {
+     "W": 0.1482321936045179,
+     "T": -0.013450599661313397,
+     "W_minus_T": 0.1616827932658313
+    },
+    "Montiferru": {
+     "W": 0.09947117364288727,
+     "T": 0.0069456460888594265,
+     "W_minus_T": 0.09252552755402785
+    }
+   },
+   "mean_W": 0.08440447845789298,
+   "mean_T": 0.003786306377330871,
+   "mean_W_minus_T": 0.08061817208056213,
+   "ci95_t4": [
+    0.012890299692962806,
+    0.14834604446816146
+   ],
+   "ci90_t4": [
+    0.02861446171584414,
+    0.13262188244528011
+   ],
+   "smaller_by_at_least_Y": 0.02861446171584414
+  }
+ },
+ "scar_frame_loso_minus_foreign": {
+  "mean": 0.01430972457609958,
+  "t95": [
+   -0.05095187495472639,
+   0.07957132410692555
+  ],
+  "t90": [
+   -0.03797901860234418,
+   0.06659846775454334
+  ],
+  "cr1_95": [
+   -0.08295596774132807,
+   0.11157541689352724
+  ],
+  "cr1_90": [
+   -0.057616555336457445,
+   0.0862360044886566
+  ],
+  "n": 8
+ },
+ "scar_frame_foreign_increment_tost": {
+  "mean": 0.008163678591531392,
+  "t90": [
+   -0.0089150750792999,
+   0.025242432262362682
+  ],
+  "cr1_90": [
+   -0.020856988639710305,
+   0.03718434582277309
+  ],
+  "equivalent_within_0.02_t": false,
+  "equivalent_within_0.05_t": true,
+  "equivalent_within_0.02_cr1": false,
+  "equivalent_within_0.05_cr1": true
+ }
+}
