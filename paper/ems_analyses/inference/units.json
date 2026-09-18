@@ -1,0 +1,372 @@
+{
+ "Q1_asdrawn_delta": {
+  "mean": 0.004240575177514203,
+  "n": 20,
+  "naive_directions_boot": [
+   -0.026723111239966207,
+   0.03383872745190679,
+   0.00024149364325572916
+  ],
+  "pair_cluster_boot": [
+   -0.026901603810936217,
+   0.0351054723127639,
+   0.0002552502897362215
+  ],
+  "target_cluster_boot": [
+   -0.006812142717828637,
+   0.01762071478337855,
+   3.918189025148762e-05
+  ],
+  "source_cluster_boot": [
+   -0.013504131165243677,
+   0.031221192487967092,
+   0.00014554090706897087
+  ],
+  "pigeonhole_boot": [
+   -0.033940717109727306,
+   0.04469074927229417,
+   0.0003896988944038919
+  ],
+  "pigeonhole_valid_reps": 20000,
+  "cgm_twoway_t4": [
+   NaN,
+   NaN,
+   -5.449176332625633e-05
+  ],
+  "dyadic_robust_t4": [
+   NaN,
+   NaN,
+   -0.0001560552038244968
+  ],
+  "loro_jackknife_t4": [
+   -0.03710987218800921,
+   0.04559102254303761,
+   0.0002218105724241423
+  ],
+  "loro_means": {
+   "Manavgat": 0.014799004215845934,
+   "Bejis": 0.002071463342146677,
+   "Mugla": 0.006463344102611582,
+   "Evia": -0.008130482321366761,
+   "Montiferru": 0.005999546548333581
+  },
+  "loro_pseudo_mean": 0.004240575177514203,
+  "n_eff": {
+   "naive_directions_boot": 21.03074831056107,
+   "pair_cluster_boot": 19.89730172357549,
+   "target_cluster_boot": 129.62090387456072,
+   "source_cluster_boot": 34.89597620485392,
+   "pigeonhole_boot": 13.032605693379002,
+   "cgm_twoway_t4": null,
+   "dyadic_robust_t4": null,
+   "loro_jackknife_t4": 22.896979050214462
+  },
+  "null": 0.0,
+  "verdicts": {
+   "naive_directions_boot": "spans",
+   "pair_cluster_boot": "spans",
+   "target_cluster_boot": "spans",
+   "source_cluster_boot": "spans",
+   "pigeonhole_boot": "spans",
+   "cgm_twoway_t4": "undefined",
+   "dyadic_robust_t4": "undefined",
+   "loro_jackknife_t4": "spans"
+  }
+ },
+ "Q2_equalised10_delta": {
+  "mean": 0.023119025680899262,
+  "n": 20,
+  "naive_directions_boot": [
+   -0.0013251866036867194,
+   0.04688370493740691,
+   0.0001505721148184059
+  ],
+  "pair_cluster_boot": [
+   -0.0035291616299648427,
+   0.04861115796987956,
+   0.00017754881900166087
+  ],
+  "target_cluster_boot": [
+   0.015819691377957683,
+   0.03071190105683045,
+   1.4872826961220136e-05
+  ],
+  "source_cluster_boot": [
+   0.0032828082200479156,
+   0.05181621830180255,
+   0.00016680390209165835
+  ],
+  "pigeonhole_boot": [
+   -0.010572736782390303,
+   0.05965706706627817,
+   0.00030293544785091824
+  ],
+  "pigeonhole_valid_reps": 20000,
+  "cgm_twoway_t4": [
+   0.0071089069486607245,
+   0.0391291444131378,
+   3.32514756198298e-05
+  ],
+  "dyadic_robust_t4": [
+   0.006072610890667397,
+   0.04016544047113113,
+   3.7695362271294666e-05
+  ],
+  "loro_jackknife_t4": [
+   -0.037523531741558716,
+   0.08376158310335723,
+   0.0004770642071599177
+  ],
+  "loro_means": {
+   "Manavgat": 0.03224234376759949,
+   "Bejis": 0.02306818987354446,
+   "Mugla": 0.034508841734904365,
+   "Evia": 0.00356017568620952,
+   "Montiferru": 0.02221557734223849
+  },
+  "loro_pseudo_mean": 0.02311902568089926,
+  "n_eff": {
+   "naive_directions_boot": 21.089941423591743,
+   "pair_cluster_boot": 17.88554325172281,
+   "target_cluster_boot": 213.51402055752783,
+   "source_cluster_boot": 19.0376666356495,
+   "pigeonhole_boot": 10.482619660638981,
+   "cgm_twoway_t4": 95.50123783537414,
+   "dyadic_robust_t4": 84.24264658055094,
+   "loro_jackknife_t4": 6.656456371882087
+  },
+  "null": 0.0,
+  "verdicts": {
+   "naive_directions_boot": "spans",
+   "pair_cluster_boot": "spans",
+   "target_cluster_boot": "excludes",
+   "source_cluster_boot": "excludes",
+   "pigeonhole_boot": "spans",
+   "cgm_twoway_t4": "excludes",
+   "dyadic_robust_t4": "excludes",
+   "loro_jackknife_t4": "spans"
+  }
+ },
+ "Q3_equalised10_mean_transfer": {
+  "mean": 0.6163154575617942,
+  "n": 20,
+  "naive_directions_boot": [
+   0.5813752668105091,
+   0.6497024053083239,
+   0.0003025704896305067
+  ],
+  "pair_cluster_boot": [
+   0.5749387750605708,
+   0.6575663931068302,
+   0.00044319719665946307
+  ],
+  "target_cluster_boot": [
+   0.572423707892,
+   0.6580649664851864,
+   0.00045852023704319315
+  ],
+  "source_cluster_boot": [
+   0.5925677498138489,
+   0.6379313566626339,
+   0.00013192186324654227
+  ],
+  "pigeonhole_boot": [
+   0.5543571008778175,
+   0.666455334656197,
+   0.0007891319208465412
+  ],
+  "pigeonhole_valid_reps": 20000,
+  "cgm_twoway_t4": [
+   0.5685008359881853,
+   0.664130079135403,
+   0.0002965809578539292
+  ],
+  "dyadic_robust_t4": [
+   0.5694238413467315,
+   0.6632070737768568,
+   0.00028524117797046946
+  ],
+  "loro_jackknife_t4": [
+   0.5046851569425695,
+   0.7279457581810197,
+   0.0016165383281753077
+  ],
+  "loro_means": {
+   "Manavgat": 0.6312666587349655,
+   "Bejis": 0.6383347562108254,
+   "Mugla": 0.6262412997506147,
+   "Evia": 0.5853131754061057,
+   "Montiferru": 0.6004213977064589
+  },
+  "loro_pseudo_mean": 0.6163154575617946,
+  "n_eff": {
+   "naive_directions_boot": 20.634635265044633,
+   "pair_cluster_boot": 14.087254482994181,
+   "target_cluster_boot": 13.616480126924772,
+   "source_cluster_boot": 47.326739797659116,
+   "pigeonhole_boot": 7.911771822376459,
+   "cgm_twoway_t4": 21.051357243800066,
+   "dyadic_robust_t4": 21.888255194829714,
+   "loro_jackknife_t4": 3.8622231138428025
+  },
+  "null": 0.5,
+  "verdicts": {
+   "naive_directions_boot": "excludes",
+   "pair_cluster_boot": "excludes",
+   "target_cluster_boot": "excludes",
+   "source_cluster_boot": "excludes",
+   "pigeonhole_boot": "excludes",
+   "cgm_twoway_t4": "excludes",
+   "dyadic_robust_t4": "excludes",
+   "loro_jackknife_t4": "excludes"
+  }
+ },
+ "S_asdrawn_delta_frozen_refit": {
+  "mean": 0.0037863063773308685,
+  "n": 20,
+  "naive_directions_boot": [
+   -0.027244813396270072,
+   0.03377580269279977,
+   0.00024136232811736876
+  ],
+  "pair_cluster_boot": [
+   -0.028629186906098867,
+   0.03540848084215152,
+   0.0002711599015489625
+  ],
+  "target_cluster_boot": [
+   -0.008992327969761715,
+   0.018739750623660074,
+   5.504300858469848e-05
+  ],
+  "source_cluster_boot": [
+   -0.013256949154619635,
+   0.029867817335356223,
+   0.00013718932017061215
+  ],
+  "pigeonhole_boot": [
+   -0.034626762092564795,
+   0.044540996920515184,
+   0.0003957221841542077
+  ],
+  "pigeonhole_valid_reps": 20000,
+  "cgm_twoway_t4": [
+   NaN,
+   NaN,
+   -4.8645783568454715e-05
+  ],
+  "dyadic_robust_t4": [
+   NaN,
+   NaN,
+   -0.0001730316234083146
+  ],
+  "loro_jackknife_t4": [
+   -0.03736098237598461,
+   0.04493359513064633,
+   0.00021963637445369374
+  ],
+  "loro_means": {
+   "Manavgat": 0.014798989274923654,
+   "Bejis": 0.00032934430351453373,
+   "Mugla": 0.00714345771158435,
+   "Evia": -0.0076072941020754,
+   "Montiferru": 0.004267034698707219
+  },
+  "loro_pseudo_mean": 0.003786306377330855,
+  "n_eff": {
+   "naive_directions_boot": 21.17385772733174,
+   "pair_cluster_boot": 18.847077193572176,
+   "target_cluster_boot": 92.846879698277,
+   "source_cluster_boot": 37.25196385505147,
+   "pigeonhole_boot": 12.914544094154714,
+   "cgm_twoway_t4": null,
+   "dyadic_robust_t4": null,
+   "loro_jackknife_t4": 23.268329797404284
+  },
+  "null": 0.0,
+  "verdicts": {
+   "naive_directions_boot": "spans",
+   "pair_cluster_boot": "spans",
+   "target_cluster_boot": "spans",
+   "source_cluster_boot": "spans",
+   "pigeonhole_boot": "spans",
+   "cgm_twoway_t4": "undefined",
+   "dyadic_robust_t4": "undefined",
+   "loro_jackknife_t4": "spans"
+  }
+ },
+ "S_equalised5_delta": {
+  "mean": 0.01384933829676554,
+  "n": 20,
+  "naive_directions_boot": [
+   -0.004820481947606547,
+   0.0321818167111788,
+   8.917210555226057e-05
+  ],
+  "pair_cluster_boot": [
+   -0.007008304295688064,
+   0.034509486419246206,
+   0.00011264071213555798
+  ],
+  "target_cluster_boot": [
+   0.0020923134691230006,
+   0.026720826820974864,
+   4.257186972675756e-05
+  ],
+  "source_cluster_boot": [
+   -0.0035236606407825196,
+   0.031222337234313603,
+   7.926906825411745e-05
+  ],
+  "pigeonhole_boot": [
+   -0.01344845529741601,
+   0.042293434413220525,
+   0.00019255974992056114
+  ],
+  "pigeonhole_valid_reps": 20000,
+  "cgm_twoway_t4": [
+   -0.0023604011288382767,
+   0.030059077722369355,
+   3.408583086704168e-05
+  ],
+  "dyadic_robust_t4": [
+   -0.009712243527653675,
+   0.03741092012118476,
+   7.201628348855496e-05
+  ],
+  "loro_jackknife_t4": [
+   -0.042407904667925045,
+   0.0701065812614561,
+   0.0004105619588831216
+  ],
+  "loro_means": {
+   "Manavgat": 0.02805908206516158,
+   "Bejis": 0.010488318963379683,
+   "Mugla": 0.02322047048315191,
+   "Evia": 0.0017709384557429181,
+   "Montiferru": 0.0057078815163916176
+  },
+  "loro_pseudo_mean": 0.013849338296765528,
+  "n_eff": {
+   "naive_directions_boot": 21.06180569241512,
+   "pair_cluster_boot": 16.673594517628803,
+   "target_cluster_boot": 44.11658619599673,
+   "source_cluster_boot": 23.693044483687228,
+   "pigeonhole_boot": 9.753469045841866,
+   "cgm_twoway_t4": 55.099890850577545,
+   "dyadic_robust_t4": 26.079179170967922,
+   "loro_jackknife_t4": 4.574524063150982
+  },
+  "null": 0.0,
+  "verdicts": {
+   "naive_directions_boot": "spans",
+   "pair_cluster_boot": "spans",
+   "target_cluster_boot": "excludes",
+   "source_cluster_boot": "spans",
+   "pigeonhole_boot": "spans",
+   "cgm_twoway_t4": "spans",
+   "dyadic_robust_t4": "spans",
+   "loro_jackknife_t4": "spans"
+  }
+ }
+}
