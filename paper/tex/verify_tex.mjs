@@ -120,8 +120,21 @@ for (const m of tex.matchAll(/\\cite[tp]\{([^}]+)\}/g))
   m[1].split(',').forEach(k => cited.add(k.trim()));
 const badKeys = [...cited].filter(k => !bibKeys.has(k));
 check('every \\cite key resolves in REFERENCES.bib', badKeys.length === 0, badKeys.join(', '));
-const uncited = [...bibKeys].filter(k => !cited.has(k));
-check('every bibliography entry is cited', uncited.length === 0, uncited.join(', '));
+// The supplementary appendices are released as Markdown with the paper and cite
+// from the same bibliography (added 2026-09-19). Their keys must resolve too, and
+// an entry cited only there is cited, not an orphan.
+const SUPFILE = path.join(ROOT, 'supplementary_appendices.md');
+const supCited = new Set();
+if (fs.existsSync(SUPFILE)) {
+  const sup = fs.readFileSync(SUPFILE, 'utf8').replace(/<!--[\s\S]*?-->/g, '')
+    .split(/\r?\n/).filter(l => !l.startsWith('>')).join('\n');
+  for (const m of sup.matchAll(/\[@([^\]]+)\]/g))
+    m[1].split(';').forEach(k => supCited.add(k.trim().replace(/^@/, '')));
+}
+const badSup = [...supCited].filter(k => !bibKeys.has(k));
+check('every supplementary citation resolves in REFERENCES.bib', badSup.length === 0, badSup.join(', '));
+const uncited = [...bibKeys].filter(k => !cited.has(k) && !supCited.has(k));
+check('every bibliography entry is cited (manuscript or supplement)', uncited.length === 0, uncited.join(', '));
 
 // --------------------------------------------- 4. LaTeX structural sanity --
 const braces = [...tex].reduce((a, c) => a + (c === '{' ? 1 : c === '}' ? -1 : 0), 0);

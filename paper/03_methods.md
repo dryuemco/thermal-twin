@@ -89,23 +89,68 @@ primary population only.
 The two feature sets of Section 3.4 are nested, the thermal set being the baseline plus the six
 thermal channels. Land cover is one-hot encoded. Missing numeric values are median-imputed and the
 categorical channel most-frequent-imputed, with the imputers fitted inside each training fold, and
-on the source alone in transfer, so no held-out or target statistic enters a fit. Features are not
-otherwise standardised; standardisation appears only as the adaptation intervention of Section 3.9. The classifier is a random forest [@Breiman2001] with 300 trees, unlimited depth,
+on the source alone in transfer, so no held-out statistic enters a fit in the raw arms. Features are
+not otherwise standardised. Standardisation appears only in the adapted arms of Section 3.9, where
+target feature statistics, never target labels, enter the transform by design, and missing values
+there are filled with the region's own mean. The classifier is a random forest [@Breiman2001] with 300 trees, unlimited depth,
 `min_samples_leaf = 3`, balanced class weights and `random_state = 42`, identical for every region,
 population, feature set and transfer direction, so that no comparison here is confounded by a model
 choice.
 
 ## 3.7 Spatial-block cross-validation and bootstrap uncertainty
 
-Cross-validation is spatially blocked. Blocks are squares of the analysis grid formed as
-`row_500m // B` by `col_500m // B`, and five folds are drawn over whole blocks, so no block is split
-between training and test. B is reported at 2, 10 and 20 cells, about 1, 5 and 10 km.
+Cross-validation is spatially blocked. Cell $`i`$ at grid position $`(r_i, c_i)`$, from `row_500m` and
+`col_500m`, is assigned to the block
 
-Uncertainty is a spatial-block bootstrap: blocks are resampled with replacement, 1000 replicates,
-seed 42, with 2.5 and 97.5 percentiles as the interval. Because it is blocks that are resampled,
+```math {#eq:block}
+b_k(i) = \left( \lfloor r_i / k \rfloor,\; \lfloor c_i / k \rfloor \right).
+```
+
+Five folds are drawn over whole blocks, stratified by label, so no block is split between training
+and test. The block size $`k`$ is reported at 2, 10 and 20 cells, about 1, 5 and 10 km.
+
+Every score is a ROC-AUC on a named set of cells $`F`$, its **evaluation frame**. With $`F^{+}`$ the
+burned and $`F^{-}`$ the unburned cells of $`F`$, and $`s_i`$ the predicted score,
+
+```math {#eq:auc}
+\mathrm{AUC}(s; F) = \frac{1}{|F^{+}|\,|F^{-}|} \sum_{i \in F^{+}} \sum_{j \in F^{-}} \left[ \mathbf{1}(s_i > s_j) + \tfrac{1}{2}\,\mathbf{1}(s_i = s_j) \right].
+```
+
+This is the probability that a burned cell in $`F`$ outranks an unburned cell in $`F`$. Changing the frame
+therefore changes the metric even when no score changes (Section 3.12).
+
+Uncertainty is a spatial-block bootstrap. Let $`\beta_1, \dots, \beta_M`$ be the blocks of
+[#eq:block] holding cells of $`F`$. Replicate $`b`$ draws $`M`$ indices $`u_{bm}`$ uniformly with replacement:
+
+```math {#eq:boot}
+F^{*b} = \biguplus_{m=1}^{M} \beta_{u_{bm}}, \qquad \mathrm{CI}_{95} = \left[ Q_{0.025}\{\theta(F^{*b})\}_{b},\; Q_{0.975}\{\theta(F^{*b})\}_{b} \right].
+```
+
+Here $`\theta`$ is the statistic and $`Q`$ the 2.5 and 97.5 percentiles over 1000 replicates, seed 42. A
+single-class replicate is discarded. Differences are formed within each replicate, so they are
+paired. The block size of each interval is stated with the result. Because it is blocks that are resampled,
 what bounds an interval's reliability is the number of blocks carrying at least one burned cell, and
 those counts are reported alongside the intervals. Where a verdict rests on too few such blocks it
 is stated as indicative rather than as an interval.
+
+The twenty transfer directions are not independent, since each region appears in eight. The
+**pair-cluster bootstrap** therefore resamples the ten unordered region pairs, each carrying its set
+$`\pi_p`$ of ordered directions, and averages the carried values $`\delta_{st}`$:
+
+```math {#eq:pair}
+\bar{\delta}^{*b} = \frac{\sum_{m=1}^{10} \sum_{(s,t) \in \pi_{u_{bm}}} \delta_{st}}{\sum_{m=1}^{10} |\pi_{u_{bm}}|}.
+```
+
+The interval is the same percentile form, over 20,000 replicates for Section 4.4. Clustering by
+target region replaces $`\pi_p`$ by the four directions sharing a target. A quantity with one value
+per held-out scar or target region gets a Student t interval over those $`n`$ units,
+
+```math {#eq:tint}
+\bar{x} \pm t_{0.975,\,n-1}\, s_x / \sqrt{n}.
+```
+
+**The effective sample is thus ten pairs or five regions for direction-level intervals, and at most
+eight scars from four regions for scar-level ones.**
 
 ## 3.8 Cross-region transfer protocol
 
@@ -119,13 +164,32 @@ direction rather than a comparison across directions. All twenty ordered directi
 Two label-free remedies are tested on every direction, in both feature sets.
 
 **Region-wise z-score.** Each region's numeric features are standardised using its own statistics,
-source statistics from source data and target statistics from target data, never pooled. The
+source statistics from source data and target statistics from target data, never pooled. For
+feature $`j`$ in region $`R`$,
+
+```math {#eq:zscore}
+z_{ij} = \frac{x_{ij} - \mu_j^{R}}{\sigma_j^{R}}, \qquad \mu_j^{R} = \frac{1}{n_j^{R}} \sum_{i \in O_j^{R}} x_{ij}, \qquad \sigma_j^{R} = \Big( \frac{1}{n_j^{R}} \sum_{i \in O_j^{R}} (x_{ij} - \mu_j^{R})^2 \Big)^{1/2},
+```
+
+where $`O_j^{R}`$ holds the $`n_j^{R}`$ cells with an observed value (ddof 0). A missing value is
+first set to $`\mu_j^{R}`$, so it becomes zero, and $`\sigma_j^{R} < 10^{-12}`$ is replaced by 1.
+Land cover is not transformed. Target feature statistics, never target labels, thus enter the
+adapted arms by design. The
 classifier is refitted on the z-scored source and applied to the z-scored target. This removes
 first- and second-order marginal offsets.
 
 **CORAL after region-wise z-score.** The source covariance is aligned to the target's by the standard
-whitening-recolouring map [@Sun2016], λ = 10⁻⁵. Critically **the transform is applied to the source
-only**; the target is left as it is, and the classifier is refitted on the aligned source. Neither
+whitening-recolouring map [@Sun2016]. With $`Z_R`$ the $`n_R \times d`$ matrix of z-scored numeric
+features, one row per cell,
+
+```math {#eq:coral}
+Z_s^{\mathrm{al}} = Z_s\,(C_s + \lambda I)^{-1/2}\,(C_t + \lambda I)^{1/2}, \qquad C_R = \frac{1}{n_R} \sum_{i=1}^{n_R} (z_i - \bar{z}_R)(z_i - \bar{z}_R)^{\top},
+```
+
+with $`\lambda = 10^{-5}`$ (ddof 0). Both means are zero after [#eq:zscore], so the general map's
+mean terms vanish. Matrix powers use a symmetric eigendecomposition, eigenvalues floored at
+$`10^{-12}`$. Critically **the transform is applied to the source
+only**; the target stays at $`Z_t`$, and the classifier is refitted on $`Z_s^{\mathrm{al}}`$. Neither
 variant sees a target label, and both are verified label-blind at run time. λ sensitivity was assessed over nine
 values on four of the twenty directions, moving transfer AUC by at most 0.014, and no value of λ was
 selected on performance; the λ = 1 of the original CORAL formulation lies outside that sweep, while
@@ -133,8 +197,21 @@ the value used throughout remains λ = 10⁻⁵ (Appendix A(b)).
 
 ## 3.10 Transfer-gap decomposition and the concept-shift criterion
 
-The transfer gap is decomposed as (adapted − raw) / (within − raw), signed and unclipped, with its
-interval from the same paired bootstrap; Section 4.3 shows the remainder should not be read as a
+For a direction into a target, let $`A_{\mathrm{w}}`$ be the target's within-region thermal AUC
+under blocked cross-validation, $`A_{\mathrm{raw}}`$ the raw transfer AUC and $`A_{\mathrm{ad}}`$
+the transfer AUC after adaptation method $`m`$, all on the same target cells. The gap is decomposed as
+
+```math {#eq:decomp}
+G = A_{\mathrm{w}} - A_{\mathrm{raw}}, \qquad R_m = A_{\mathrm{ad}} - A_{\mathrm{raw}}, \qquad U_m = A_{\mathrm{w}} - A_{\mathrm{ad}}, \qquad \rho_m = R_m / G,
+```
+
+so $`R_m + U_m = G`$. The recovered fraction $`\rho_m`$ is signed and unclipped. **When adaptation
+lowers AUC, $`R_m`$ and $`\rho_m`$ are negative and reported as negative recovery, never set to
+zero.** No fraction is reported when $`G \le 0`$. Intervals come from the paired bootstrap of
+[#eq:boot] on 2-cell target blocks, resampling within-region out-of-fold and transfer scores
+together and evaluating [#eq:decomp] per replicate; replicates with $`|G| < 10^{-6}`$ are dropped.
+Where one method is shown per direction it is the one with the higher $`A_{\mathrm{ad}}`$, a choice
+that uses target labels. Section 4.3 shows the remainder should not be read as a
 conditional residual, because much of it is incurred inside a single region (Appendices A(j), C.7).
 
 The mechanism is diagnosed by **signed univariate association**: the raw ROC-AUC of each numeric
@@ -159,16 +236,49 @@ each is dropped singly so the cost can be attributed. The two features are selec
 reversal analysis the result is then read against, so **both quantities are post-selection estimates**
 with no correction applied.
 
-## 3.12 Controls on the transfer path
+## 3.12 Evaluation frames and controls on the transfer path
 
-Four evaluations establish what the transfer arms are measuring, all using the transfer protocol of
-Section 3.8 unchanged: a **within-region half-split** (modelled cells cut at the median of a grid
-axis, both axes and directions, a split discarded when either half is single-class);
-**leave-one-scar-out** (each burned component of at least 50 cells, dilated by a 2 km buffer,
-withheld from training and used as the target); a **foreign-region evaluation** of the same held-out
-scar areas; and the **same blocked model restricted** to those areas, which isolates the evaluation
-region from the training regime. Buffers of 2, 5 and 10 km were run, 2 km primary. The per-split and
-per-scar positive counts are unequal and bear on the interpretation (Appendix A(i)).
+Let $`V_R`$ be the primary population of region $`R`$ and $`P_R \subset V_R`$ its burned cells. By
+[#eq:auc], a frame fixes which burned and unburned cells are compared. The **region-wide frame** is
+$`V_R`$, the rectangle as drawn, used in Sections 4.2 and 4.5.
+
+**Scar frames.** A scar is an 8-connected component $`K`$ of $`P_R`$ with at least 50 cells. Its
+**scar + 2 km collar** is
+
+```math {#eq:scar}
+H_K = \Big\{ i \in V_R : \min_{j \in K} \big( |r_i - r_j| + |c_i - c_j| \big) \le m \Big\},
+```
+
+with $`m = \mathrm{round}(2 / 0.45) = 4`$ grid steps, computed as $`m`$ steps of 4-connected dilation. Its negatives are all fire-adjacent. Four evaluations
+use it (Table 2). A scores out-of-fold predictions from 5-fold blocked cross-validation ($`k = 10`$) on
+$`V_R`$, and B scores the same predictions on $`H_K`$. B is thus the **same blocked model
+restricted** to the scar area, which isolates the evaluation region from the training regime. C is
+**leave-one-scar-out**: a model fitted on $`V_R \setminus H_K`$ is scored on $`H_K`$, skipped if
+either set has one class. D, the **foreign-region evaluation**, averages over the four other regions
+a model fitted on that region's population and scored on $`H_K`$. Buffers of 2, 5 and 10 km were
+run, 2 km primary. Three controls reuse A's predictions, each averaged over 20 draws without
+replacement. The **prevalence-matched** control draws $`|H_K^{+}|`$ cells from $`P_R`$ and
+$`|H_K^{-}|`$ from $`V_R \setminus P_R`$. The **negative-pool** control keeps the drawn burned cells
+but uses the scar's own negatives $`H_K^{-}`$, and the positive-pool control does the converse. A
+**within-region half-split** (modelled cells cut at the median of a grid axis, both axes and
+directions, a split discarded when either half is single-class) completes the set, under the
+transfer protocol of Section 3.8 unchanged. The per-split and per-scar positive counts are unequal
+and bear on the interpretation (Appendix A(i)).
+
+**Distance collars.** With 0.45 km per grid step on both axes, the distance to the nearest burned
+cell and the collar of radius $`r`$, for $`r`$ of 5 and 10 km, are
+
+```math {#eq:collar}
+d_i = 0.45 \min_{j \in P_R} \big\lVert (r_i, c_i) - (r_j, c_j) \big\rVert_2, \qquad F_R(r) = \{ i \in V_R : d_i \le r \}.
+```
+
+Every burned cell has $`d_i = 0`$ and is kept, so only far-field negatives leave. In transfer the
+model is fitted on $`F_s(r_s)`$ and scored on $`F_t(r_t)`$, with the pairs of Table 3 and
+$`r = \infty`$ for the region-wide frame.
+
+**Every collar frame, $`H_K`$ and $`F_R(r)`$ alike, is defined from burned cells, so it is
+label-conditioned.** It is a diagnostic of how the scoring extent shapes the metric. It cannot be
+drawn before a fire.
 
 ## 3.13 Leakage control and reproducibility
 

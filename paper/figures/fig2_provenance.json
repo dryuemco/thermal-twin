@@ -2,7 +2,7 @@
  "figure": "Fig. 2 - methods schematic",
  "script": "paper/figures/fig2_schematic.py",
  "data": "none (schematic; labels mirror 03_methods section numbering)",
- "asserts": "no numbers to assert; instead (a) all 14 section references are verified against the live 03_methods.md heading list at build time - number AND title - so a renumbered Methods breaks the build; (b) every box label is checked to fit its own box",
+ "asserts": "no numbers to assert; instead (a) every section reference is verified against the live 03_methods.md heading list at build time - number AND title - so a renumbered Methods breaks the build; (b) every box label is checked to fit its own box",
  "sections_referenced": [
   "3.2",
   "3.3",
@@ -10,14 +10,12 @@
   "3.5",
   "3.6",
   "3.7",
+  "3.8",
   "3.9",
   "3.10",
   "3.11",
   "3.12",
-  "3.13",
-  "3.14",
-  "3.15",
-  "3.16"
+  "3.13"
  ],
  "gate_branch": "burned-landcover gate shown with its rejecting branch; Kozan 2023 drawn as negative control in the grey/dashed style used in Fig. 1, connected to the gate by a headless dashed connector so the figure does not imply it flows onward into any model",
  "routing": "orthogonal only - every connector is a right-angled elbow with square corners; input products merge on a collector bus; the three lanes in the column 4->5 gap are reused only where vertical runs cannot overlap in y, so no two connectors share a segment",
@@ -32,5 +30,5 @@
   "minimum": 8.0
  },
  "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
- "environment": "matplotlib 3.11.1"
+ "environment": "matplotlib 3.11.0"
 }
