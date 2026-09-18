@@ -1,4 +1,4 @@
-# LaTeX build — Ecological Informatics (Elsevier, `elsarticle`)
+# LaTeX build — Environmental Modelling & Software (Elsevier, `elsarticle`)
 
 ## What this is
 

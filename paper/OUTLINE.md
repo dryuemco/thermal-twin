@@ -1,6 +1,6 @@
 # Manuscript outline — pre-fire thermal dryness and its cross-region transferability
 
-**Target journal:** *Ecological Informatics* (Elsevier; IF 7.3; Q1)
+**Target journal:** *Environmental Modelling & Software* (Elsevier, hybrid, JCR Q1), retargeted 2026-09-19 from *Ecological Informatics* to avoid an APC; see `JOURNAL_OPTIONS.md`
 **Language:** English
 **Status of this outline:** drafting stage. Results are **not** closed. Three regions complete
 (Manavgat 2021, Bejís 2022, Muğla 2021), a fourth (North Evia 2021) partially processed with

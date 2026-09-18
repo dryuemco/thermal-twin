@@ -1,41 +1,52 @@
-# Ecological Informatics — submission checklist (verified 2026-09-19)
+# Environmental Modelling & Software — submission checklist (2026-09-19)
 
-The ScienceDirect guide for authors returns 403 to automated fetching. Each requirement below is
-sourced as stated; "live" means the current guide text as quoted by a search engine index, "2024"
-means the Wayback copy of 2024-01-03, "Elsevier" means a first-party elsevier.com page read directly.
+Retargeted from *Ecological Informatics* on 2026-09-19, because the authors will not pay an APC and
+Ecological Informatics is Full Open Access (APC USD 3,190). Journal comparison: `JOURNAL_OPTIONS.md`.
 
-## Journal facts
+## No APC: the evidence
 
-| Item | Value | Source |
+| Check | Result | Source |
 |---|---|---|
-| Business model | **Full Open Access** since 2024-01-01; APC is compulsory on acceptance | Elsevier APC list; journal news page (live) |
-| APC (list) | **USD 3,190 / EUR 2,910**, excl. tax | `article-publishing-charge.xlsx`, prices as of 27-Aug-2026 |
-| APC for this author group | **90 % of list ≈ USD 2,871** + tax: journal is in the GPOA pilot, Turkey is "Upper-middle income 3" | Elsevier GPOA pricing page + GPOA journals list |
-| TÜBİTAK EKUAL cover | **Not found for Elsevier.** Current EKUAL Read & Publish: Springer Nature, Wiley, OUP, CUP, IOP, RSC | Sabancı Univ. library publisher list; ULAKBİM search |
+| Business model | **Hybrid Open Access**: subscription publication, OA optional at USD 3,570 | Elsevier `article-publishing-charge.xlsx`, prices as of 27-Aug-2026 |
+| Indexed as OA journal? | No (`Open Access = No`) | SCImago 2025 ranking file |
+| Announced move to full OA? | None found; Ecological Informatics' own announcement is findable, so the absence is informative | web search 2026-09-19 |
+| Colour figures | "we will ensure that they appear in color online" — no charge stated | EMS guide for authors (Wayback 2026-03-25) |
+| Page charges | none mentioned in the guide | same |
 
-## Manuscript requirements, and where this manuscript stands
+**At submission and again at acceptance, choose the subscription option, not open access.** Choosing
+OA in the publishing agreement triggers the USD 3,570 APC. The subscription route still allows the
+accepted manuscript to be shared under Elsevier's sharing policy.
+
+## EMS requirements, and where the manuscript stands
+
+Source: EMS guide for authors, Wayback copy of 2026-03-25 (ScienceDirect returns 403 to automated fetching).
 
 | Requirement | Rule | Manuscript | Status |
 |---|---|---|---|
-| Abstract | ≤ 250 words (live; 2024 said 400) | 238 words | OK |
-| Keywords | 1 to 7 (live; 2024 said 4 to 6) | 6 | OK |
-| Highlights | 3 to 5 bullets, ≤ 85 characters each, separate editable file named "Highlights" | 5 bullets, 68 to 75 chars (`highlights.md`) | OK; upload as its own file |
-| Graphical abstract | optional, encouraged | none | optional |
-| Generative-AI declaration | heading "Declaration of generative AI and AI-assisted technologies in the manuscript preparation process", immediately before the references; AI use in the research process also described in Methods | **added 2026-09-19** | **authors to confirm the wording; Methods sentence not yet written** |
-| Competing interests, funding, CRediT, data availability | required | present | see blockers |
-| Structure | numbered sections, Introduction … Conclusions | yes | OK |
-
-Policy source for the AI declaration: Elsevier, "Generative AI policies for journals", updated June 2026.
+| Article type | Research article | yes | OK |
+| Abstract | ≤ 150 words | 146 | OK (cut from 238 on 2026-09-19) |
+| Keywords | 1 to 7 | 6 | OK |
+| Highlights | 3–5 bullets, ≤ 85 characters, separate file named "highlights" | 5 bullets, 68–75 chars | OK; #5 replaced 2026-09-19 |
+| **Graphical abstract** | **required**, separate file, TIFF/EPS/PDF/Office | `figures/graphical_abstract.pdf` (+ .png, 1535×708 px) | **drafted; authors to approve** |
+| Software and/or data availability section | name, developer, contact, year, hardware, software, language, size, availability, cost; "contact the author" not acceptable | added 2026-09-19 | OK, but see blocker 1 |
+| Software available to reviewers | public, or password-protected download with the password given to the editors | analysis repo is private | **blocker 1** |
+| Generative-AI declaration | before references | present | authors to confirm scope |
+| Competing interests | Elsevier declaration tool, uploaded as .docx | statement in manuscript | **generate the .docx at submission** |
+| References | Harvard (name, year) | `elsarticle-harv` | OK |
+| Review model | single anonymised | author names on the PDF | OK |
+| Source files | .tex accepted; PDF alone is not a source file | `manuscript.tex` | upload .tex + figures + .bib |
 
 ## Blockers before upload
 
-1. **The data/code repository named in the declarations is private.** `github.com/dryuemco/thermal-twin`
-   is PRIVATE (checked with `gh repo view`, 2026-09-19). Reviewers following the link get a 404.
-   Options: make it public after removing private material (mail drafts, `methods_inventory_*`,
-   `scratch/`), or deposit a cleaned snapshot (e.g. Zenodo) and cite that. Authors' decision.
-2. **The funding statement says the APC is covered under an EKUAL agreement.** No such Elsevier
-   agreement was found. Confirm with the Çukurova library, or name the real payer (e.g. the BAP
-   project), or remove the sentence.
-3. **Co-author approval of the final text**, and the pending answer on the Manavgat AOI timing
-   (`emrehan_mail_7.md`). The answer does not block: §3.1 holds whichever way it goes.
-4. **Generative-AI declaration wording**, confirmed by both authors (see above).
+1. **Analysis repository is private** (`dryuemco/thermal-twin`, no licence). Make a cleaned copy public
+   with a licence, or give the editors a password-protected download. Authors' decision.
+2. **Co-author approval** of the final text, including the new abstract, highlight #5 and the
+   graphical abstract.
+3. **Generative-AI declaration wording**, confirmed by both authors.
+4. **Paper 2 also lists EMS as a target.** Decide before submitting either: ISPRS Journal of
+   Photogrammetry and Remote Sensing (hybrid, Q1, no APC) is Paper 2's stated alternative.
+
+## Resolved on 2026-09-19
+
+- Funding sentence claiming EKUAL APC cover: removed (no APC is payable on the subscription route).
+- Cover letter rewritten for EMS; the superseded one is in git history.

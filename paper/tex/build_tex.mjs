@@ -705,7 +705,7 @@ const highlights = readOpt('highlights.md', '').split(/\r?\n/)
   .map(l => '  \\item ' + l.replace(/^\s*[-*]\s+/, '').trim());
 
 const preamble = `% =============================================================================
-% manuscript.tex — Ecological Informatics (Elsevier), elsarticle class
+% manuscript.tex — Environmental Modelling & Software (Elsevier), elsarticle class
 %
 % GENERATED FILE. Do not edit by hand: it is produced from the Markdown sources
 % by paper/tex/build_tex.mjs. Edit the Markdown and re-run the script, or the
@@ -818,20 +818,53 @@ const postamble = `
 % written from the repository except the item marked NEEDS AUTHOR INPUT, which
 % must be settled before the manuscript is uploaded.
 
+\\section*{Software and data availability}
+
+\\textbf{Analysis code and frozen outputs.} Name: \\texttt{thermal-twin}. Developers:
+Y.~E.~Cogurcu and E.~Metin; contact: ycogurcu@cu.edu.tr. First available: 2026.
+Hardware: a standard desktop computer. Software required: Python 3.12 with NumPy
+2.4.4, pandas 3.0.2 and scikit-learn 1.9.0, the versions every reported number was
+produced with; scikit-learn in particular carries a cross-region tolerance of about
+$\\pm$0.02 to 0.03 between versions (Appendix C.5(vi)). Program language: Python. Size:
+about 21 MB. Availability: \\url{https://github.com/dryuemco/thermal-twin}, which holds
+the scripts that regenerate each reported artefact, the frozen numeric outputs behind
+every table and figure, and the supplementary appendices (Appendix A and protocol
+sections C.1 to C.4, C.6 and C.7, at \\texttt{paper/supplementary\\_appendices.md}).
+Cost: free.
+% NEEDS AUTHOR INPUT: this repository is PRIVATE and has no licence (checked
+% 2026-09-19). EMS requires software essential to the paper to be available to
+% reviewers; it accepts a password-protected download whose password is given to
+% the editors. Either make a cleaned copy public with a licence, or provide such a
+% download, before submission.
+
+\\textbf{Upstream processing pipeline.} Name: \\texttt{satellite-\\allowbreak{}thermal-\\allowbreak{}digital-\\allowbreak{}twin}.
+Developer: E.~Metin. First available: 2026. Hardware: a standard desktop computer;
+the satellite exports run on Google Earth Engine and need an Earth Engine account.
+Program language: Python. Size: about 20 MB. Availability:
+\\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, MIT licence; the
+commit of record for every number reported here is \\texttt{6381f4c}. Three
+components once outside the release are now inside it: the reproduction-check
+driver and its validation package, on which Section~\\ref{sec:3.14} rests; the
+few-shot run, reachable through the tag \\texttt{few-shot-run-19d825b}; and the
+ERA5-Land diagnostic, whose manifest records commit \\texttt{a07ea33}. Cost: free.
+
+\\textbf{Data.} All satellite inputs are public and were retrieved through Google
+Earth Engine: burned-area labels from MODIS MCD64A1 Collection 6.1, land cover from
+ESA WorldCover, and the thermal, optical and terrain inputs described in
+Section~\\ref{sec:3.4}; no proprietary or restricted data were used. The modelling
+dataset each number rests on is identified in the pipeline by SHA-256, which is how
+the one provenance incident in this project was settled: a rebuild had replaced one
+region's file at its canonical path, and the recorded hash identifies the frozen
+original unambiguously. No digital object identifier is minted and no archival
+deposit exists.
+
 \\section*{Declarations}
 
 \\textbf{Funding.} This work was supported by the \\c{C}ukurova University Scientific
 Research Projects Coordination Unit (Bilimsel Ara\\c{s}t{\\i}rma Projeleri Koordinasyon
 Birimi) under the Career Starter Project (Kariyer Ba\\c{s}lang{\\i}\\c{c} Projesi) scheme,
 project code \\texttt{FKB-2025-17608} (\`\`Termal Dijital \\.Ikiz Tabanl{\\i} S\\"ur\\"u \\.IHA
-Sistemi ile Orman Yang{\\i}nlar{\\i}n{\\i}n Erken Tespiti ve \\"Onlenmesi''). Article
-processing charges are covered under the \\c{C}ukurova University / T\\"UB\\.ITAK EKUAL
-open-access agreement.
-% NEEDS AUTHOR INPUT (checked 2026-09-19): the journal is Full Open Access, APC
-% USD 3,190 list (Elsevier price list of 27-Aug-2026), 90% for an all-Turkey
-% author group under GPOA. No Elsevier Read & Publish agreement under TUBITAK EKUAL
-% was found (current EKUAL R&P publishers: Springer Nature, Wiley, OUP, CUP, IOP,
-% RSC). Confirm the sentence above with the university library or remove it.
+Sistemi ile Orman Yang{\\i}nlar{\\i}n{\\i}n Erken Tespiti ve \\"Onlenmesi'').
 
 \\textbf{Acknowledgments.} The authors gratefully acknowledge the \\c{C}ukurova
 University Scientific Research Projects Coordination Unit for financial support of
@@ -844,37 +877,10 @@ work possible.
 \\textbf{Ethics approval.} Not applicable. This study involved no human participants,
 animal subjects, or personally identifiable data.
 
-\\textbf{Data availability.} All satellite inputs are public. Burned-area labels are
-MODIS MCD64A1 Collection 6.1 and land cover is ESA WorldCover, both retrieved
-through Google Earth Engine; no proprietary or restricted data were used. The
-frozen numeric outputs behind every table and figure, together with the analysis
-code that reads them, are available at
-\\url{https://github.com/dryuemco/thermal-twin}, which also carries the supplementary
-appendices: Appendix A and protocol sections C.1 to C.4, C.6 and C.7, released
-with the paper rather than printed in it, at
-\\texttt{paper/supplementary\\_appendices.md}. The upstream processing pipeline
-that produced those outputs is a separate public release,
-\\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, and the commit
-of record for every number reported here is \\texttt{6381f4c}. The modelling dataset each
-number rests on is identified there by SHA-256, which is how the one provenance
-incident in this project was settled: a rebuild had replaced one region's file at
-its canonical path, and the recorded hash identifies the frozen original
-unambiguously. No digital object identifier is minted and no archival deposit
-exists.
-
-\\textbf{Code availability.} The analysis code, its configuration and the scripts
-that regenerate each reported artefact are in the first repository above. Every
-quantity in the paper can be regenerated from the released code and the frozen
-outputs. Three components were outside an earlier release and are now inside it:
-the reproduction-check driver and its validation package, on which
-Section~\\ref{sec:3.14} rests; the few-shot run, whose commit is reachable through
-the tag \\texttt{few-shot-run-19d825b}; and the ERA5-Land diagnostic, whose manifest
-records commit \\texttt{a07ea33}.
-
 \\textbf{Author contributions.} Stated in CRediT terms. ${CREDIT}
 % NEEDS AUTHOR INPUT: confirm the contribution split with the co-author, and
-% confirm that both repositories above are public, before the manuscript is
-% uploaded.
+% confirm the Software and data availability items above before the manuscript
+% is uploaded.
 
 \\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
 
