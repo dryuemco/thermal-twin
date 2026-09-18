@@ -1,0 +1,33 @@
+{
+ "figure": "Graphical abstract (EMS requirement)",
+ "script": "paper/figures/graphical_abstract.py",
+ "data": "parsed at build time from paper/04_results.md: Table 1 (block 10), the Section 4.3 hardening sentence, the Section 4.4 frame-cost sentence",
+ "within_region_5km": {
+  "Manavgat 2021": 0.05,
+  "Bejís 2022": 0.045,
+  "Muğla 2021": 0.079,
+  "North Evia 2021 (ext.)": 0.148,
+  "Montiferru 2021": 0.1
+ },
+ "half_split": 0.027,
+ "leave_one_scar_out": [
+  0.022,
+  -0.032,
+  0.077
+ ],
+ "across_regions": [
+  0.004,
+  -0.028,
+  0.036
+ ],
+ "frame_cost": [
+  0.143,
+  0.077,
+  0.208
+ ],
+ "canvas_mm": [
+  130,
+  60
+ ],
+ "dpi": 300
+}
