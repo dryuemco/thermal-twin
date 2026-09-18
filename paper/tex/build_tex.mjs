@@ -178,6 +178,12 @@ class Vault {
 function inline(src, vault) {
   let s = src;
 
+  // 0. Inline math $`...`$ and equation references [#eq:label], added
+  //    2026-09-19. Handled before code spans because the math form contains
+  //    backticks. The body is raw LaTeX and is vaulted unescaped.
+  s = s.replace(/\$`([^`]+)`\$/g, (_, m) => vault.put('$' + m + '$'));
+  s = s.replace(/\[#(eq:[\w-]+)\]/g, (_, id) => vault.put('\\eqref{' + id + '}'));
+
   // 1. Code spans -> \texttt{}, vaulted (they contain _ and { legitimately).
   //    Typewriter text does not hyphenate, so an identifier like
   //    burnable_tree_shrub_grass is one unbreakable box and runs straight out
@@ -451,6 +457,27 @@ function convertBody(md, opts = {}) {
 
   while (i < lines.length) {
     const line = lines[i];
+
+    // Display math, added 2026-09-19 for the EMS estimator definitions:
+    //   ```math {#eq:label}
+    //   <raw LaTeX, ASCII>
+    //   ```
+    // becomes a numbered equation. The body is passed through untouched, so it
+    // must be valid LaTeX; the label is optional.
+    const mathFence = line.match(/^```math\s*(?:\{#(eq:[\w-]+)\})?\s*$/);
+    if (mathFence) {
+      const buf = [];
+      i++;
+      while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
+      i++; // closing fence
+      const lbl = mathFence[1] ? `\\label{${mathFence[1]}}` : '';
+      if (/[^\x00-\x7F]/.test(buf.join(''))) {
+        note('review', `NON-ASCII in display math ${mathFence[1] || ''}; use LaTeX macros`);
+      }
+      note('math', `display equation ${mathFence[1] || '(unlabelled)'} (${buf.length} line(s))`);
+      out.push('', '\\begin{equation}' + lbl, ...buf, '\\end{equation}', '');
+      continue;
+    }
 
     // Fenced code block -> verbatim. Must be caught before anything else, or
     // its contents are mangled as inline markup.
