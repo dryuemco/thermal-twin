@@ -8,7 +8,7 @@
 
 ## 5.1 Reading the two findings together
 
-Section 1.4 states the two findings and Section 4 establishes them; this section argues from them.
+Section 1.3 states the two findings and Section 4 establishes them; this section argues from them.
 The relation between them is what makes the paper cohere: the first is not a caveat attached to the
 second, it is the instrument that sets its size. Applied to our own matrix it withdrew five claims,
 and what it left standing is a shortfall in transferred skill, not a reversed relationship.
@@ -104,6 +104,6 @@ accessible-area rule [@Barve2011] before any predictor is computed; that is the 
 of this paper. **Each region contributes one fire season**, so regional
 concept shift is confounded with event meteorology and the shortfall cannot be attributed to region
 rather than event (Section 5.2). **The diagnostic correlations rest on an effective sample
-of ten region pairs**, so Section 4.6's successes and failures both read at that power. And **the interval-support counts are less stable than the point
+of ten region pairs**, so the diagnostic results of Appendix D, successes and failures alike, read at that power. And **the interval-support counts are less stable than the point
 estimates behind them**: the published split turns on a lower bound of −0.00045. The remaining six, from the absent meteorological covariates
-to the single classifier family (Appendix A(h)), bear on scope rather than on the conclusions above.
+to the classifier comparison made by point estimate only (Appendix A(h)), bear on scope rather than on the conclusions above.

@@ -86,7 +86,7 @@ be least exposed to absolute-temperature offsets between regions; **they transfe
 absolute ones** (Appendix A(f)). The expectation motivates the design and is not a finding of it —
 Section 4.4 reports the associations running the other way.
 
-## 1.4 Contributions
+## 1.3 Contributions
 
 Two findings carry this paper, stated here as claims and established in Section 4, which carries
 every interval.

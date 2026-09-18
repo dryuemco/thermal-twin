@@ -640,7 +640,7 @@ const BODY = ['01_introduction', '02_related_work', '03_methods',
 // section names, so every "Appendix A(x)" and "Appendix C.2" pointer in the
 // paper still resolves - it resolves in that document instead of overleaf. What
 // stays here is the evidence a reader checks the claims against: Appendix B's
-// tables and Appendix C.5's eleven limitations.
+// tables and Appendix C.5's ten limitations.
 const APPENDICES = ['A2_diagnostics', 'A3_protocol']
   .filter(f => has(f + '.md'));
 const sections = [...BODY, ...APPENDICES];
@@ -844,7 +844,7 @@ Program language: Python. Size: about 20 MB. Availability:
 \\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, MIT licence; the
 commit of record for every number reported here is \\texttt{6381f4c}. Three
 components once outside the release are now inside it: the reproduction-check
-driver and its validation package, on which Section~\\ref{sec:3.14} rests; the
+driver and its validation package, on which Section~\\ref{sec:3.13} rests; the
 few-shot run, reachable through the tag \\texttt{few-shot-run-19d825b}; and the
 ERA5-Land diagnostic, whose manifest records commit \\texttt{a07ea33}. Cost: free.
 

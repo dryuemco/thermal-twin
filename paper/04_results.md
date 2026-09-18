@@ -120,7 +120,7 @@ labels and its identity cannot be separated from its location. Appendix A(z) rep
 behind row D and the sweeps showing the patch definition does not drive the result.
 
 **The increment declines with the holdout, and is not established once the fire is withheld.**
-Contribution 1 is about the paired thermal-minus-baseline difference, so the same evaluations were
+Contribution 2 concerns the paired thermal-minus-baseline difference, so the same evaluations were
 run on it: +0.056 to +0.153 under blocked cross-validation with every interval above zero, +0.027 on
 a within-region half-split, **+0.022 [−0.032, +0.077]** under leave-one-scar-out, and +0.004
 [−0.028, +0.036] across regions. The point estimate falls monotonically as the holdout hardens and
@@ -139,7 +139,7 @@ below, with `collar_frame_bootstrap.csv` and `diagnostics_collar_frame.csv`; cod
 **The five areas of interest are not comparable frames.** Each is a rectangle drawn around a fire,
 and they differ by an order of magnitude in how much unburnt far field they enclose: the share of
 modelled cells beyond 10 km of any burned cell runs from **2.1 %** in Montiferru to **63.1 %** in
-Bejis (Appendix B, Table B6). That far field is not neutral — in Manavgat the median elevation of
+Bejís (Appendix B, Table B6). That far field is not neutral — in Manavgat the median elevation of
 modelled cells rises from 472 m within 5 km of the fire to 1,273 m at 20 to 50 km, against 512 m for
 the burned cells themselves.
 
@@ -233,7 +233,7 @@ a limitation of this cohort rather than of the method.
 
 **Everything in this section is computed on the frames as drawn and should be read against Section
 4.4**, which has shown the frames are not comparable and that the within-region reference used here
-is itself frame-dependent. The as-drawn matrix is reported because it is what the pre-registered
+is itself frame-dependent. The as-drawn matrix is reported because it is what the original analysis
 protocol yields; per-direction values are in Appendix B, Table B9, and the supporting arms in
 Appendix A(ix).
 
@@ -250,7 +250,7 @@ not matched to a transfer evaluation.
 **In precision terms it is worse than the ROC figures suggest.** A susceptibility surface is used as
 a ranked area budget, so precision-recall is the operational quantity. PR-AUC averages **0.156
 against a no-skill baseline of 0.136**, and **six of twenty directions fall below their own baseline
-at the point estimate, five of them with intervals entirely below it**; the exception is Bejis to
+at the point estimate, five of them with intervals entirely below it**; the exception is Bejís to
 Manavgat, whose interval covers its baseline. Only one direction exceeds twice its baseline. These
 are frame-as-drawn quantities and the PR arm was not recomputed on the collar (Appendix B, Table B4).
 
@@ -285,10 +285,10 @@ seven directions with *negative* recovery.
 Six further arms bear on the findings above without changing them: the contrast pair (A(s)), the two
 interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event arm (A(m)), the
 distance curve (A(t)) and the label-budget curve (A(u)).
-Each is stated there with its own limits. Three are plotted here because the shape of the result is
+Each is stated there with its own limits. Two are plotted here because the shape of the result is
 the argument: pooling every other region never beats the best single source for any target (Fig. 6);
 removing the direction-reversing features costs within-region skill and returns nothing measurable on
-transfer (Fig. 7). The two bearing directly. The two bearing directly on Sections 5.4 and 5.7 are the interventions, where a
+transfer (Fig. 7). The two that bear directly on Sections 5.3 and 5.6 are the interventions, where a
 local cost of −0.081 is measured against a transfer return of +0.014 [−0.017, +0.045] whose interval
 spans zero, and the label budget, where thirty-two labelled 5 km blocks recover 85 to 89 % of the
 target's matched ceiling in three of six directions and 30 to 57 % in the rest — 7 to 20 % of the

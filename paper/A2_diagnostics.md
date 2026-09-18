@@ -1,7 +1,7 @@
 # Appendix A. Where the rest of the appendices are
 
 Two appendices are printed here: **Appendix B**, the diagnostic tables below, and **Appendix C.5**,
-the eleven limitations. They carry the per-direction numbers and the limitations against which the
+the ten limitations. They carry the per-direction numbers and the limitations against which the
 claims are checked, so the paper can be assessed without leaving it.
 
 **Appendix A and the protocol sections C.1 to C.4, C.6 and C.7 are released with the paper rather

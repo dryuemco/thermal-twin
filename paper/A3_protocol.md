@@ -45,7 +45,7 @@ region the remaining candidates are not separable in this design.
 
 (viii) **The interval-support counts are less stable than the point estimates behind them.** Several
 verdicts sit within a thousandth of their reference value, and at 1 km blocking the published split
-of ten positive, seven negative and three uncertain turns on a lower bound of −0.00045. The point
+of the paired thermal-minus-baseline deltas, ten positive, seven negative and three uncertain, turns on a lower bound of −0.00045. The point
 estimates and the sign pattern are stable; the counts are not. Every sentence in this paper that
 leans on an exact count of supported directions should be read at that precision.
 (ix) **The five areas of interest are not comparable frames, and this cohort cannot fully repair it**
@@ -59,10 +59,10 @@ version history cannot show the box fixed before the first gate result (Section 
 explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
 main design lesson of this paper.
 
-(x) **One classifier family.** The headline numbers use a random forest with unlimited depth, the
+(x) **Other classifiers are compared by point estimate only.** The headline numbers use a random forest with unlimited depth, the
 configuration most able to encode local structure and least able to extrapolate. Appendix A(h) shows the transfer result is not an artefact of that
 choice: three further estimators, including a penalised linear one, all land between 0.510 and 0.556
 and all place fourteen of twenty directions above chance. Those are point estimates without
-intervals, so the ordering among them is not claimed as a result. Other model families were not
-tried, and a different inductive bias might behave differently, but within this family the negative
+intervals, so the ordering among them is not claimed as a result. Estimator classes beyond these four were not
+tried, and a different inductive bias might behave differently, but across the four tried the negative
 result is a property of the predictors rather than of an unregularised estimator.

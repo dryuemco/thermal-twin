@@ -48,7 +48,7 @@ and dissimilar pairs collapsing; its label is a principal-component composite of
 rather than observed burned area, and it applies no adaptation. Xu et al. [@Xu2026] argue that
 wildfire transfer conclusions depend strongly on evaluation design, a caution we address by fixing
 the protocol in a project log before the diagnostics were computed and by reporting every sensitivity
-axis; that log is not a formal pre-registration, and Section 3.11 states what was fixed and when.
+axis; that log is not a formal pre-registration, and Appendix D states what was fixed and when.
 Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a 1 km Mediterranean datacube.
 
 **Evaluation extent and AUC.** Species distribution modelling settled long ago that the area a model
