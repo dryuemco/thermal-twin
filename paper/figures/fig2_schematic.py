@@ -54,20 +54,18 @@ FS_NOTE = 9.0   # footer band / orientation note (body)
 
 # --- every section number this figure prints, with the heading it must match --
 SECTIONS = {
-    "3.2":  "Burned-area label and the ~500 m analysis grid",
-    "3.3":  "Burned-landcover admissibility gate",
-    "3.4":  "Predictor variables",
-    "3.5":  "Cell-level aggregation, validity mask and analysis population",
-    "3.6":  "Feature sets",
-    "3.7":  "Classifier and preprocessing",
-    "3.9":  "Spatial-block bootstrap uncertainty",
-    "3.10": "Cross-region transfer protocol",
-    "3.11": "Label-blind domain adaptation",
-    "3.12": "Transfer-gap decomposition and concept-shift diagnostic",
-    "3.13": "Leakage control, sensitivity analyses and reproducibility",
-    "3.14": "Transferability diagnostics versus transfer",
-    "3.15": "Interventions",
-    "3.16": "Additional sensitivity designs",
+    "3.2": 'Burned-area label and the ~500 m analysis grid',
+    "3.3": 'Burned-landcover admissibility gate',
+    "3.4": 'Predictor variables',
+    "3.5": 'Cell aggregation, validity and analysis populations',
+    "3.6": 'Classifier',
+    "3.7": 'Spatial-block cross-validation and bootstrap uncertainty',
+    "3.8": 'Cross-region transfer protocol',
+    "3.9": 'Label-blind domain adaptation',
+    "3.10": 'Transfer-gap decomposition and the concept-shift criterion',
+    "3.11": 'Interventions',
+    "3.12": 'Evaluation frames and controls on the transfer path',
+    "3.13": 'Leakage control and reproducibility',
 }
 _heads = dict(re.findall(r"^##+ (3\.\d+(?:\.\d+)?) (.+)$",
                          METHODS.read_text(encoding="utf-8"), re.M))
@@ -153,14 +151,14 @@ elbow([(C2[0], 57), (REJ_X, 57), (REJ_X, 27), (C1[1], 27)],
       color=CTRL, dashed=True)
 
 # ---------------- column 3: feature sets ------------------------------------
-box(C3[0], 46, w(C3), 18, "feature sets\n(§3.6)\nbaseline vs\n+ 6 thermal",
+box(C3[0], 46, w(C3), 18, "feature sets\n(§3.4, §3.6)\nbaseline vs\n+ 6 thermal",
     fc=BLUE_FILL, ec=BLUE)
 elbow([(C2[1], 34), (82.5, 34), (82.5, 55), (C3[0], 55)])
 
 # ---------------- column 4: the two evaluations -----------------------------
-box(C4[0], 66, w(C4), 18, "within-region (§3.7–3.9)\nRF, spatial-block CV,\n"
+box(C4[0], 66, w(C4), 18, "within-region (§3.6–3.7)\nRF, spatial-block CV,\n"
                           "block-size robustness")
-box(C4[0], 34, w(C4), 20, "cross-region transfer\n(§3.10–3.11)\n20 ordered directions\n"
+box(C4[0], 34, w(C4), 20, "cross-region transfer\n(§3.8–3.9)\n20 ordered directions\n"
                           "z-score / CORAL")
 elbow([(C3[1], 55), (111.5, 55), (111.5, 75), (C4[0], 75)])
 elbow([(C3[1], 55), (111.5, 55), (111.5, 44), (C4[0], 44)])
@@ -168,11 +166,11 @@ elbow([(C3[1], 55), (111.5, 55), (111.5, 44), (C4[0], 44)])
 # ---------------- column 5: what comes out ----------------------------------
 box(C5[0], 74, w(C5), 14, "within-region ΔAUC\n5 regions ×\n3 block sizes",
     fc="#FFFFFF", ec="#555555")
-box(C5[0], 53, w(C5), 18, "transfer-gap\ndecomposition\n(§3.12): recovered\nvs residual",
+box(C5[0], 53, w(C5), 18, "transfer-gap\ndecomposition\n(§3.10): recovered\nvs residual",
     fc=BLUE_FILL, ec=BLUE)
-box(C5[0], 34, w(C5), 16, "diagnostics (§3.14)\nP(x) · P(x|y=1)\nP(y) · P(y|x)",
+box(C5[0], 34, w(C5), 16, "evaluation frames\n(§3.12): region,\nscar, 5/10 km collar",
     fc=ORANGE_FILL, ec=ORANGE)
-box(C5[0], 15, w(C5), 16, "interventions\n(§3.15): LORO,\nfeature removal")
+box(C5[0], 15, w(C5), 16, "interventions\n(§3.11): LORO,\nfeature removal")
 
 # Three routing lanes in the 152-157 gap; lanes are reused only where the
 # vertical runs cannot overlap in y, so no two connectors ever share a segment.
@@ -187,8 +185,8 @@ ax.add_patch(Rectangle((3, 2), 184, 11, facecolor="#F7F7F7",
                        edgecolor="#CCCCCC", linewidth=0.8, zorder=1))
 ax.text(95, 7.5,
         "Applies throughout — leakage hard-exclusion, seed 42, 1000-replicate "
-        "spatial-block bootstrap (§3.13);\nsensitivity designs: Evia AOI, "
-        "Montiferru population, predictor-window closure (§3.16)",
+        "spatial-block bootstrap (§3.7, §3.13);\nsensitivity designs: Evia AOI, "
+        "Montiferru population, predictor-window closure (Appendix A)",
         fontsize=FS_NOTE, ha="center", va="center", linespacing=1.5, zorder=3)
 
 ax.text(3, 91.5, "Section numbers refer to Methods.", fontsize=FS_NOTE,
@@ -206,7 +204,7 @@ if "--preview" in sys.argv:
     "figure": "Fig. 2 - methods schematic",
     "script": "paper/figures/fig2_schematic.py",
     "data": "none (schematic; labels mirror 03_methods section numbering)",
-    "asserts": "no numbers to assert; instead (a) all 14 section references are "
+    "asserts": "no numbers to assert; instead (a) every section reference is "
                "verified against the live 03_methods.md heading list at build "
                "time - number AND title - so a renumbered Methods breaks the "
                "build; (b) every box label is checked to fit its own box",
