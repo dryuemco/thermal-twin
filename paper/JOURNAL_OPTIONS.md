@@ -57,7 +57,7 @@ journal's guide (AFM: 300). The private-repository blocker in `SUBMISSION_CHECKL
 - Two-author article: *başlıca yazar* 0.8, second author 0.5. *Başlıca yazar* is defined as a sole author,
   or the candidate on an article written with **a graduate student the candidate supervises**. Where no
   başlıca yazar exists, the points are split equally. Author order does not decide this.
-- So for Cogurcu on this two-author paper: 24 points if Metin is his supervised graduate student,
+- So for Cogurcu on this two-author paper: 24 points if Metin is a graduate student Cogurcu supervises,
   otherwise 15. Only the first case counts towards the mandatory "başlıca yazar on at least one Q1–Q3
   article" condition (within the 40-point floor of item 1).
 - The work must relate to the bilim alanı applied in; articles produced from the candidate's own
