@@ -8,7 +8,7 @@ the parts of Appendix C that specify the protocol. Everything the paper cites as
 `Appendix C.1`, `C.2`, `C.3`, `C.4`, `C.6` or `C.7` is in this document, under the same names, so a
 pointer in the paper resolves here unchanged.
 
-**What is not here.** Appendix B, the diagnostic tables, and Appendix C.5, the eleven limitations,
+**What is not here.** Appendix B, the diagnostic tables, and Appendix C.5, the ten limitations,
 stay in the paper: they carry the per-direction numbers and the limitations a reader checks the
 claims against, and the paper should be assessable without leaving it.
 
@@ -869,7 +869,7 @@ drawn, and the two conditional variants that do stop doing so once the frames ar
 because what they were reading is how the study rectangles were drawn. The practitioner's position
 is therefore worse than the as-drawn analysis suggests, not better: there is no screen, and the
 apparent exception is an artefact. Appendix D reports its numbers as computed under the
-pre-registered protocol, which is what a reader following that protocol would obtain.
+original analysis protocol, which is what a reader following that protocol would obtain.
 
 **The same-geography arm of Appendix A(m) does not survive either, and it is the most extreme case in
 the cohort.** A fixed study area is not a fixed evaluation frame: its 2022 arm has 93.2 % of cells
