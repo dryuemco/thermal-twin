@@ -49,3 +49,22 @@ Constraint from the authors: Q1, and no APC. Two routes satisfy it:
 The template, highlights rule (3–5 × ≤ 85 characters) and the generative-AI declaration carry over
 unchanged. Remove the funding sentence claiming EKUAL APC cover. Check the abstract limit on the chosen
 journal's guide (AFM: 300). The private-repository blocker in `SUBMISSION_CHECKLIST.md` still applies.
+
+## EMS: ÜAK doçentlik value and review times (checked 2026-09-19)
+
+**ÜAK, Tablo 9 Mühendislik Temel Alanı** (uak.gov.tr PDF, read in full):
+- SCIE article, Q1 = 30 points; Q is the **Web of Science JIF quartile** (table footnote).
+- Two-author article: *başlıca yazar* 0.8, second author 0.5. *Başlıca yazar* is defined as a sole author,
+  or the candidate on an article written with **a graduate student the candidate supervises**. Where no
+  başlıca yazar exists, the points are split equally. Author order does not decide this.
+- So for Cogurcu on this two-author paper: 24 points if Metin is his supervised graduate student,
+  otherwise 15. Only the first case counts towards the mandatory "başlıca yazar on at least one Q1–Q3
+  article" condition (within the 40-point floor of item 1).
+- The work must relate to the bilim alanı applied in; articles produced from the candidate's own
+  graduate theses are scored under item 3 instead (20 points, capped at 20).
+- Which JIF year counts (publication year vs latest) is stated only by secondary sources; check at application.
+
+**EMS timing**, Elsevier's own Journal Insights (Wayback snapshot of 2024-04-16, medians):
+review time 148 days; submission to acceptance 180 days; acceptance to online 5.5 days.
+SciRev (author-reported, n = 9): first round 5.8 months, accepted total 7.0 months, desk rejection
+34 days, 1.7 rounds. No current (2026) official figure was retrievable; ScienceDirect returns 403.
