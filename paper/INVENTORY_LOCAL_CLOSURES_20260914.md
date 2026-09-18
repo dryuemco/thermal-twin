@@ -48,6 +48,8 @@ Araştırma: alt ajan taraması + ana oturumda nokta doğrulama. Emrehan'a giden
 - Dört bölgenin regional koşularında da aynı `[0,7,14]` + `stage=plan` kayıtları var.
 - Zayıflık: preregistration.json'da `created_at` alanı yok; sıralama mtime + hash bağına dayanıyor.
   Makalede bu çerçeveyle ("plan-stage record, hash-bound, file-time ordered") yazılmalı.
+- **Ek çekince (Emrehan, 17 Eylül — haklı):** kayıt sensitivity koşusundan önce, ama kanonik (shift 0)
+  performans sonuçları görüldükten SONRA. "Performanstan bağımsız önceden belirlendi" denemez.
 
 ## Emrehan'a giden 6 sorunun güncel durumu
 1. MODIS QC provenance → **lokalde cevaplı** (3 bölge kural öncesi export; Paper 2 §4.2 kanıtı).

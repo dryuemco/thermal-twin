@@ -53,7 +53,9 @@ leans on an exact count of supported directions should be read at that precision
 with the other, because the collar radius is itself a choice and 5 km and 10 km do not agree exactly
 (0.608 against 0.616). The deeper limitation is that the frames were fixed upstream of this work, in
 `repo/`, so we can restrict them but not extend them; a region whose rectangle is already fire-scale,
-Montiferru, cannot be given a far field for symmetry. Any future cohort should fix the frame by an
+Montiferru, cannot be given a far field for symmetry. Nor can their independence from outcomes be
+fully documented: only Montiferru's box is derived by a rule, and for Manavgat, Bejís and Muğla the
+version history cannot show the box fixed before the first gate result (Section 3.1). Any future cohort should fix the frame by an
 explicit accessible-area rule [@Barve2011] before any predictor is computed, and we treat that as the
 main design lesson of this paper.
 

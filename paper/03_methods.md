@@ -12,8 +12,17 @@
 Five Mediterranean wildfire regions are analysed (Fig. 1): Manavgat 2021 and Muğla 2021 in Türkiye,
 Bejís 2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. Each is a
 place-based rectangle in EPSG:4326, defined from place coverage rather than from a fire perimeter and
-deliberately not clipped to it, so that unburned cells around each fire form the negative class; none
-was tuned on burned prevalence, gate outcome or any model metric. **One choice was label-informed and
+deliberately not clipped to it, so that unburned cells around each fire form the negative class.
+**The record does not show every box fixed before any outcome was seen**, so what it does show is
+stated region by region. In the pipeline's version history each box has a single committed value,
+never changed afterwards. Montiferru's is derived deterministically from the union of four municipal
+boundaries. Manavgat's was drawn to exclude the coastal cropland belt and committed together with the
+gate-only workflow that first evaluated it, the commit that first gave the pipeline any Manavgat
+geometry; its registry comments disagree on whether the drawing preceded or followed that first gate
+run. Bejís's is still labelled the initial candidate in the registry but was committed after its first
+gate and model results. Muğla's coordinates appear in a dated preflight record about four minutes
+before its first gate result and were committed to the registry only afterwards. No box needed
+adjusting to pass the gate, whose admitted margins are wide (Section 4.1). **One choice was label-informed and
 is stated as such**: the North Evia box was extended after the legacy box proved atypically high in
 burned prevalence, the extended geometry then defined from place anchors and the legacy variant kept
 as a sensitivity arm. Section 4.4 shows this framing decision is consequential and Appendix C.5(ix)
