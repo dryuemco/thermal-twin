@@ -866,6 +866,14 @@ records commit \\texttt{a07ea33}.
 
 \\textbf{Author contributions.} Stated in CRediT terms. ${CREDIT}
 
+\\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+
+During the preparation of this work the authors used Claude (Anthropic) in order to
+write and run analysis and verification code against the frozen pipeline outputs,
+cross-check reported numbers against those outputs, and draft and edit manuscript
+text. After using this tool, the authors reviewed and edited the content as needed
+and take full responsibility for the content of the publication.
+
 % ---------------------------------------------------------------- figures --
 % Figures are placed at their first reference, in the body and in the
 % appendices; captions are maintained in ../figure_captions.tex.
