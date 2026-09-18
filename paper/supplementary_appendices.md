@@ -1315,7 +1315,9 @@ deliberately preserved; the coarse-resolution thermal input is `MODIS/061/MOD11A
 
 - **NDVI**, the predictor-window median of Landsat surface reflectance, is the baseline's one
   time-varying member.
-- **Elevation** and **slope** come from the Copernicus DEM GLO-30.
+- **Elevation** and **slope** come from the Copernicus DEM GLO-30, whose heights are referenced to
+  the EGM2008 geoid (EPSG:3855) in metres according to the product handbook; the pipeline applies no
+  datum conversion.
 - **Land cover** is ESA WorldCover v200 [@Zanaga2022], entering as the dominant class code.
 - **Current LST**, the predictor-window median of Landsat surface temperature in °C.
 - **LST anomaly**, a z-score of the current-window LST median against the four baseline years,
