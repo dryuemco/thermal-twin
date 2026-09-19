@@ -1,8 +1,8 @@
-# Study design — transferable wildfire susceptibility models (DRAFT v0.2, 2026-09-19)
+# Study design — transferable wildfire susceptibility models (DRAFT v0.3, 2026-09-19)
 
-**Status: draft for the authors' approval. Nothing here has been run.** Items marked [DATA] are
-confirmed or revised against `DATA_AVAILABILITY.md` (live Earth Engine checks) before the design is
-locked. Once approved, this becomes the basis of the pre-registration (`PREREGISTRATION.md`), which is
+**Status: draft for the authors' approval. Nothing here has been run.** Data sources are confirmed
+against `DATA_AVAILABILITY.md` (live Earth Engine checks, 2026-09-19); the only remaining [DATA] item is
+EFFIS, which is outside Earth Engine. Once approved, this becomes the basis of the pre-registration (`PREREGISTRATION.md`), which is
 committed, tagged, pushed and independently archived before any outcome is computed (§9).
 
 The pilot (`paper/PILOT_FROZEN.md`, tag `pilot-v1-frozen`) motivates the decisions below; the pilot
@@ -34,6 +34,9 @@ motivation, not re-used as evidence.
 
 - **Region = a fixed tile of a fixed grid.** 0.5° × 0.5° over the northern Mediterranean rim (about
   55 × 44 km at 38° N). Geometry fixed before any label or predictor is looked at.
+- **Pre-declared fallback:** if fewer than 12 tiles (10 analysis + 2 hold-out) are eligible at 0.5°,
+  the rule is applied at 1.0° instead. Eligibility counts are design quantities, not outcomes, so this
+  choice is made without seeing any model result, and the count at each size is reported.
 - **Season = 1 June – 31 October of year *y*, 2015–2024.**
 - **Tile-season eligibility** (design validity only, never a model quantity): ≥ 100 burned
   natural-vegetation cells in the season; burned natural-vegetation share ≥ 0.50 (the pilot's gate);
@@ -60,13 +63,18 @@ motivation, not re-used as evidence.
 - **Label:** burned in season *y* per `MODIS/061/MCD64A1` BurnDate (month-aligned collection query plus a
   pixel-level day-of-year filter). A cell burned more than once in a season counts once. **Unit tests**
   cover windows that start mid-month, span months and cross years.
-- **Primary population:** cells whose dominant WorldCover class is tree, shrub or grass.
+- **Primary population:** cells whose dominant land-cover class in **MODIS MCD12Q1 of year *y* − 1**
+  (annual, native 463 m grid) is forest, shrubland, savanna or grassland. Land cover mapped *before*
+  the season is essential: the pilot defined its 2021 fires' population with WorldCover 2021, which may
+  be mapped from post-fire imagery. WorldCover 2021 is a static sensitivity.
 - **Cell rule:** primary = majority of the cell's MODIS footprint burned; sensitivity = any burn.
 - **Independent validation of the label:** EFFIS burnt-area perimeters (EU and Türkiye, all study years)
   rasterised to the grid; agreement reported per tile-season, and the headline estimands re-computed on
   EFFIS labels as a sensitivity. [DATA: EFFIS is not in Earth Engine; obtained from the EFFIS download
   service and hashed into the manifest.]
-- **Second satellite product:** FireCCI where it covers the years [DATA], FIRMS active-fire agreement.
+- **Second satellite product:** FireCCI 5.1 is independent of MCD64A1 but ends in 2020, so it checks
+  2015–2020 only. VIIRS VNP64A1 and GlobFire share MCD64A1's algorithm family or are built from it, so
+  they are robustness checks, not independent validation. FIRMS active-fire agreement is reported.
 
 ## 4. Predictors [lessons 3, 6]
 
@@ -78,18 +86,23 @@ registration (the pilot applied a QC rule to part of its cohort only).
 | Group | Variables (final list fixed at registration) | Source [DATA] |
 |---|---|---|
 | G1 terrain | elevation, slope, northness, eastness, topographic position | GLO-30 |
-| G2 fuel / land cover | class fractions, tree cover, canopy height | WorldCover, Hansen, canopy height |
-| G3 pre-season vegetation | NDVI/EVI level and anomaly, LAI | MODIS MOD13A1, MOD15A2H |
+| G2 fuel / land cover | class fractions (year *y* − 1), tree cover, canopy height (2020, static) | MCD12Q1, MOD44B, ETH canopy height |
+| G3 pre-season vegetation and moisture proxies | NDVI/EVI level and anomaly, LAI/FPAR, ET/PET ratio (no live fuel moisture product exists) | MOD13A1, MOD15A2H, MOD16A2GF |
 | G4 pre-season thermal | LST day level and anomaly (two channels) | MODIS MOD11A1/A2 |
-| G5 antecedent weather | 3/6/12-month precipitation anomaly, temperature and VPD anomaly, soil-moisture anomaly, climatic water deficit | ERA5-Land, TerraClimate |
-| G6 human access | population density, built-up share, distance to roads, night lights | GHSL, roads, VIIRS |
+| G5 antecedent weather and drought | 3/6/12-month precipitation anomaly, temperature and VPD anomaly, soil-water anomaly, climatic water deficit, **Drought Code and Duff Moisture Code on 31 May** | ERA5-Land (daily, hourly), TerraClimate (to 2024-12), CHIRPS |
+| G6 human access | population and built-up (GHSL epoch preceding *y*), distance to roads, night lights (VIIRS annual, V21 and V22 joined) | GHSL P2023A, GRIP4, VIIRS DNB |
 | G7 fire history | years since last burn, burns in the previous 10 years (prior seasons only) | MCD64A1 |
 
 - **Redundancy check before registration:** pairwise correlations and variance inflation within and
   across groups on label-free data; any pair above |r| = 0.9 is reduced to one variable, by a rule
   written first.
-- **In-season explanatory arm (G8)**, season weather extremes (hot-dry-windy days, a fire-weather index
-  [DATA]), is reported separately and never mixed into the forecast model.
+- **In-season explanatory arm (G8)**, season weather extremes (hot-dry-windy days, seasonal FWI), is
+  reported separately and never mixed into the forecast model.
+- **Fire Weather Index system:** no usable FWI exists in Earth Engine at this scale (GFWED is ~62 km and
+  final FWI only). The FWI codes are computed from ERA5-Land hourly noon values with an implementation
+  tested against published reference values.
+- **Sensors:** MODIS/VIIRS 500 m throughout; Sentinel-2 is unreliable before 2017 and Landsat 9 starts
+  late 2021, so neither enters the primary stack.
 - **Tile-level regime descriptors** for Q4: aridity index and a fuel-limited versus drought-limited
   classification, computed from climate only.
 
@@ -109,8 +122,9 @@ declared and checked.
 | V3 spatial | other tiles, same seasons (pooled and pairwise) | held-out tile | spatial transfer |
 | V4 both | other tiles, other seasons | held-out tile-season | full transfer |
 
-- **Block size** from the empirical autocorrelation range of the predictors (label-free), with a fixed
-  10 km sensitivity.
+- **Block size** from the empirical autocorrelation range of the predictors (label-free), with a floor
+  at the coarsest predictor's resolution (ERA5-Land, 11 km) so no weather pixel spans a training and a
+  test block; a fixed 10 km sensitivity is reported.
 - **Primary metric:** ROC-AUC on the full tile population. Also PR-AUC lift over prevalence, partial AUC
   (FPR ≤ 0.1), top-10 % capture, and calibration (reliability, Brier) after recalibration. Per-tile
   prevalence is reported next to every metric.
@@ -183,6 +197,8 @@ panel on the manuscript before submission. 12. Co-author approval and submission
 | Region confounded with event weather | 3–5 seasons per tile; V2 vs V3 (§2, §6) |
 | Missing drivers | Weather, human and fire-history groups (§4) |
 | Label defects | Native grid, unit-tested query, EFFIS and FireCCI checks, cell-rule sensitivity (§3) |
+| Population defined with post-fire land cover | Land cover of year *y* − 1 (MCD12Q1) (§3) |
+| Coarse weather shared across blocks | Block-size floor at 11 km (§6) |
 | Small fires missed by MODIS | EFFIS agreement per tile-season; stated as a scope limit (§3) |
 | Temporal leakage | Pre-season windows; baselines exclude year *y*; fire history from prior seasons only (§4) |
 | Spatial leakage between regions | One-tile separation; spatial blocking within tiles (§2, §6) |

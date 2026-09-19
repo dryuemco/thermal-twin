@@ -46,3 +46,6 @@ Git tag: `pilot-v1-frozen`.
 6. **Non-redundant predictors.** The six thermal channels are two dimensions.
 7. **Prevalence-robust metrics and label-quality sensitivity** (burned fraction, pre-label and
    earlier-year burns, a second burned-area product) from the start.
+8. **Population land cover from before the fire.** The pilot defined its natural-vegetation population
+   with ESA WorldCover 2021 for fires in 2021, a map that may be derived partly from post-fire imagery.
+   Not tested in the pilot; the redesign uses MODIS MCD12Q1 of the year before each season.
