@@ -1,0 +1,1047 @@
+{
+ "script": "paper/code/manavgat_labelfix.py",
+ "rebuild": {
+  "label_window": [
+   "2021-07-28",
+   "2021-08-31"
+  ],
+  "collection_query_window_exclusive_end": [
+   "2021-07-01",
+   "2021-09-01"
+  ],
+  "source": "fresh Earth Engine computePixels read",
+  "fresh_equals_cache": true
+ },
+ "raster_verification": {
+  "shape": [
+   2338,
+   2970
+  ],
+  "nodata_pixels_corrected": 0,
+  "nodata_pixels_frozen": 0,
+  "frozen_positive_pixels": 179667,
+  "frozen_positive_identical_in_corrected": 179667,
+  "frozen_positive_changed_in_corrected": 0,
+  "frozen_zero_pixels": 6764193,
+  "added_pixels": 624130,
+  "added_by_doy": {
+   "209": 41641,
+   "210": 380662,
+   "211": 117283,
+   "212": 84544
+  },
+  "corrected_positive_pixels": 803797,
+  "values_frozen": {
+   "0": 6764193,
+   "213": 50542,
+   "214": 48569,
+   "215": 54794,
+   "216": 17069,
+   "217": 3293,
+   "218": 599,
+   "219": 2073,
+   "220": 2109,
+   "221": 310,
+   "241": 309
+  },
+  "values_corrected": {
+   "0": 6140063,
+   "209": 41641,
+   "210": 380662,
+   "211": 117283,
+   "212": 84544,
+   "213": 50542,
+   "214": 48569,
+   "215": 54794,
+   "216": 17069,
+   "217": 3293,
+   "218": 599,
+   "219": 2073,
+   "220": 2109,
+   "221": 310,
+   "241": 309
+  },
+  "check_a_frozen_values_preserved": true,
+  "check_b_additions_only_doy_209_212": true,
+  "check_no_positive_removed": true
+ },
+ "raster_files": {
+  "mcd64a1_raw_labelfix.tif": {
+   "profile_matches_frozen": {
+    "driver": true,
+    "dtype": true,
+    "nodata": true,
+    "width": true,
+    "height": true,
+    "count": true,
+    "crs": true,
+    "transform": true,
+    "blockxsize": true,
+    "blockysize": true,
+    "tiled": true,
+    "compress": true
+   },
+   "sha256": "8940e7060dfdba1099366bfcdf773ac4e96249840a33e82474744386614d6341"
+  },
+  "mcd64a1_burned_labelfix.tif": {
+   "profile_matches_frozen": {
+    "driver": true,
+    "dtype": true,
+    "nodata": true,
+    "width": true,
+    "height": true,
+    "count": true,
+    "crs": true,
+    "transform": true,
+    "blockxsize": true,
+    "blockysize": true,
+    "tiled": true,
+    "compress": true
+   },
+   "sha256": "9d6427b36264e11e38354a88bf31f605d42e67282368134b229db3b78a6b5973",
+   "frozen_mask_subset_of_corrected": true
+  },
+  "frozen_binary_equals_frozen_raw_gt0": true
+ },
+ "canonical": {
+  "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\drive_new\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+  "sha256": "054a1961fc0582a33d36413263668b63074b21ae8b03d12269b6e228787f3439",
+  "shape": [
+   24150,
+   79
+  ]
+ },
+ "control_frozen_raster": {
+  "label_columns": {
+   "burned": {
+    "equal": true,
+    "disagreements": 0
+   },
+   "burn_date": {
+    "equal": true,
+    "disagreements": 0
+   },
+   "burn_month": {
+    "equal": true,
+    "disagreements": 0
+   },
+   "burn_day_of_year": {
+    "equal": true,
+    "disagreements": 0
+   },
+   "label_source": {
+    "equal": true,
+    "disagreements": 0
+   },
+   "burn_date_pixel_agreement_fraction": {
+    "equal": true,
+    "disagreements": 0
+   },
+   "out_of_window_burndate": {
+    "equal": true,
+    "disagreements": 0
+   }
+  },
+  "step8a": {
+   "inspect_label_raster": {
+    "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\drive_new\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_raw.tif",
+    "label_kind": "raw_burndate",
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "finite_pixel_count": 6943860,
+    "masked_or_nodata_pixel_count": 0,
+    "label_window_doy_range": [
+     209,
+     243
+    ],
+    "unique_values": [
+     0.0,
+     213.0,
+     214.0,
+     215.0,
+     216.0,
+     217.0,
+     218.0,
+     219.0,
+     220.0,
+     221.0,
+     241.0
+    ],
+    "unique_counts": [
+     6764193,
+     50542,
+     48569,
+     54794,
+     17069,
+     3293,
+     599,
+     2073,
+     2109,
+     310,
+     309
+    ],
+    "min": 0.0,
+    "max": 241.0,
+    "count_zero": 6764193,
+    "count_one": 0,
+    "count_gt_one": 179667,
+    "count_positive": 179667,
+    "count_in_label_doy_range": 179667,
+    "looks_binary": false,
+    "no_values_in_label_doy_range": false,
+    "failed_validation": false
+   },
+   "burned_cell_count": 796,
+   "burn_month_counts": {
+    "8": 796,
+    "9": 0,
+    "10": 0
+   },
+   "out_of_window_burndate_cells": 0,
+   "block_size_pixels": 17,
+   "min_valid_fraction": 0.3,
+   "burnable_threshold": 0.5
+  },
+  "landcover_columns": {
+   "landcover_dominant": 0,
+   "landcover_tree_cover_fraction": 0,
+   "landcover_shrubland_fraction": 0,
+   "landcover_grassland_fraction": 0,
+   "landcover_cropland_fraction": 0,
+   "landcover_bare_sparse_vegetation_fraction": 0,
+   "landcover_built_up_fraction": 0,
+   "landcover_permanent_water_fraction": 0,
+   "burnable_tree_shrub_grass": 0,
+   "burnable_tree_shrub": 0
+  }
+ },
+ "corrected_table": {
+  "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin-main\\paper\\data\\manavgat_2021\\step8a_500m_modeling_dataset_labelfix.parquet",
+  "sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+  "shape": [
+   24150,
+   79
+  ],
+  "per_column": {
+   "cell_id": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "row_500m": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "col_500m": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "lon": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "lat": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "pre_label_burn_excluded": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "analysis_eligible": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "burned": {
+    "dtype_equal": true,
+    "equal_to_canonical": false,
+    "cells_differing": 2250,
+    "role": "label (recomputed)",
+    "equal_to_recomputed": true
+   },
+   "burn_date": {
+    "dtype_equal": true,
+    "equal_to_canonical": false,
+    "cells_differing": 2360,
+    "role": "label (recomputed)",
+    "equal_to_recomputed": true
+   },
+   "burn_month": {
+    "dtype_equal": true,
+    "equal_to_canonical": false,
+    "cells_differing": 2360,
+    "role": "label (recomputed)",
+    "equal_to_recomputed": true
+   },
+   "burn_day_of_year": {
+    "dtype_equal": true,
+    "equal_to_canonical": false,
+    "cells_differing": 2360,
+    "role": "label (recomputed)",
+    "equal_to_recomputed": true
+   },
+   "label_source": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "label (recomputed)",
+    "equal_to_recomputed": true
+   },
+   "burn_date_pixel_agreement_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": false,
+    "cells_differing": 2465,
+    "role": "label (recomputed)",
+    "equal_to_recomputed": true
+   },
+   "out_of_window_burndate": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "label (recomputed)",
+    "equal_to_recomputed": true
+   },
+   "ndvi_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "ndvi_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "ndvi_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "ndvi_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "ndvi_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "elevation_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "elevation_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "elevation_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "elevation_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "elevation_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "slope_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "slope_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "slope_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "slope_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "slope_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "lst_anomaly_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "lst_anomaly_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "lst_anomaly_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "lst_anomaly_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "lst_anomaly_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_lst_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_lst_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_lst_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_lst_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_lst_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_tvdi_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_tvdi_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_tvdi_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_tvdi_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "current_tvdi_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "tvdi_difference_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "tvdi_difference_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "tvdi_difference_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "tvdi_difference_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "tvdi_difference_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "downscaled_lst_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "downscaled_lst_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "downscaled_lst_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "downscaled_lst_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "downscaled_lst_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "fused_lst_mean": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "fused_lst_median": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "fused_lst_std": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "fused_lst_valid_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "fused_lst_valid_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_dominant": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_tree_cover_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_shrubland_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_grassland_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_cropland_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_bare_sparse_vegetation_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_built_up_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "landcover_permanent_water_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "burnable_tree_shrub_grass": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "burnable_tree_shrub": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "valid_30m_pixel_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "total_30m_pixel_count": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "valid_30m_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "observed_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "gapfilled_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "invalid_source_fraction": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "source_mask_majority": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "thermal_any_missing": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "valid_for_modeling": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   },
+   "invalid_reason": {
+    "dtype_equal": true,
+    "equal_to_canonical": true,
+    "cells_differing": 0,
+    "role": "non-label"
+   }
+  },
+  "step8a": {
+   "inspect_label_raster": {
+    "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin-main\\paper\\data\\manavgat_2021\\mcd64a1_raw_labelfix.tif",
+    "label_kind": "raw_burndate",
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "finite_pixel_count": 6943860,
+    "masked_or_nodata_pixel_count": 0,
+    "label_window_doy_range": [
+     209,
+     243
+    ],
+    "unique_values": [
+     0.0,
+     209.0,
+     210.0,
+     211.0,
+     212.0,
+     213.0,
+     214.0,
+     215.0,
+     216.0,
+     217.0,
+     218.0,
+     219.0,
+     220.0,
+     221.0,
+     241.0
+    ],
+    "unique_counts": [
+     6140063,
+     41641,
+     380662,
+     117283,
+     84544,
+     50542,
+     48569,
+     54794,
+     17069,
+     3293,
+     599,
+     2073,
+     2109,
+     310,
+     309
+    ],
+    "min": 0.0,
+    "max": 241.0,
+    "count_zero": 6140063,
+    "count_one": 0,
+    "count_gt_one": 803797,
+    "count_positive": 803797,
+    "count_in_label_doy_range": 803797,
+    "looks_binary": false,
+    "no_values_in_label_doy_range": false,
+    "failed_validation": false
+   },
+   "burned_cell_count": 3046,
+   "burn_month_counts": {
+    "8": 686,
+    "9": 0,
+    "10": 0,
+    "7": 2360
+   },
+   "out_of_window_burndate_cells": 0,
+   "block_size_pixels": 17,
+   "min_valid_fraction": 0.3,
+   "burnable_threshold": 0.5
+  }
+ },
+ "cell_counts": {
+  "all_cells": {
+   "n": 24150,
+   "burned_frozen": 796,
+   "burned_corrected": 3046,
+   "prevalence_frozen": 0.03296066252587992,
+   "prevalence_corrected": 0.12612836438923394,
+   "gained": 2250,
+   "lost": 0,
+   "burned_by_doy_corrected": {
+    "209": 158,
+    "210": 1429,
+    "211": 433,
+    "212": 340,
+    "213": 191,
+    "214": 171,
+    "215": 217,
+    "216": 68,
+    "217": 17,
+    "218": 4,
+    "219": 9,
+    "220": 6,
+    "221": 2,
+    "241": 1
+   },
+   "burned_by_doy_frozen": {
+    "213": 247,
+    "214": 205,
+    "215": 231,
+    "216": 68,
+    "217": 17,
+    "218": 6,
+    "219": 9,
+    "220": 6,
+    "221": 2,
+    "241": 5
+   },
+   "burned_by_month_corrected": {
+    "7": 2360,
+    "8": 686
+   },
+   "previously_burned_with_changed_burn_date": 110,
+   "previously_burned_with_changed_agreement": 215
+  },
+  "all_valid": {
+   "n": 24087,
+   "burned_frozen": 796,
+   "burned_corrected": 3046,
+   "prevalence_frozen": 0.033046871756549176,
+   "prevalence_corrected": 0.12645825549051357,
+   "gained": 2250,
+   "lost": 0,
+   "burned_by_doy_corrected": {
+    "209": 158,
+    "210": 1429,
+    "211": 433,
+    "212": 340,
+    "213": 191,
+    "214": 171,
+    "215": 217,
+    "216": 68,
+    "217": 17,
+    "218": 4,
+    "219": 9,
+    "220": 6,
+    "221": 2,
+    "241": 1
+   },
+   "burned_by_doy_frozen": {
+    "213": 247,
+    "214": 205,
+    "215": 231,
+    "216": 68,
+    "217": 17,
+    "218": 6,
+    "219": 9,
+    "220": 6,
+    "221": 2,
+    "241": 5
+   },
+   "burned_by_month_corrected": {
+    "7": 2360,
+    "8": 686
+   },
+   "previously_burned_with_changed_burn_date": 110,
+   "previously_burned_with_changed_agreement": 215
+  },
+  "natural_vegetation": {
+   "n": 20511,
+   "burned_frozen": 784,
+   "burned_corrected": 2935,
+   "prevalence_frozen": 0.03822339232606894,
+   "prevalence_corrected": 0.14309394958802593,
+   "gained": 2151,
+   "lost": 0,
+   "burned_by_doy_corrected": {
+    "209": 136,
+    "210": 1359,
+    "211": 418,
+    "212": 338,
+    "213": 190,
+    "214": 170,
+    "215": 217,
+    "216": 68,
+    "217": 17,
+    "218": 4,
+    "219": 9,
+    "220": 6,
+    "221": 2,
+    "241": 1
+   },
+   "burned_by_doy_frozen": {
+    "213": 242,
+    "214": 198,
+    "215": 231,
+    "216": 68,
+    "217": 17,
+    "218": 6,
+    "219": 9,
+    "220": 6,
+    "221": 2,
+    "241": 5
+   },
+   "burned_by_month_corrected": {
+    "7": 2251,
+    "8": 684
+   },
+   "previously_burned_with_changed_burn_date": 100,
+   "previously_burned_with_changed_agreement": 203
+  }
+ },
+ "gate": {
+  "frozen_json": {
+   "total_valid_cells_or_pixels_considered": 24150,
+   "burned_count": 796,
+   "unburned_count": 23354,
+   "burned_landcover_dominant_counts": {
+    "tree_cover": 708,
+    "grassland": 74,
+    "shrubland": 1,
+    "bare_sparse_vegetation": 1,
+    "permanent_water": 10,
+    "cropland": 2
+   },
+   "unburned_landcover_dominant_counts": {
+    "tree_cover": 14578,
+    "grassland": 4563,
+    "bare_sparse_vegetation": 205,
+    "shrubland": 483,
+    "cropland": 1258,
+    "permanent_water": 1992,
+    "built_up": 272,
+    "herbaceous_wetland": 3
+   },
+   "burned_tree_cover_count": 708,
+   "burned_shrubland_count": 1,
+   "burned_grassland_count": 74,
+   "burned_cropland_count": 2,
+   "burned_tree_shrub_grass_count": 783,
+   "burned_tree_shrub_count": 709,
+   "burned_cropland_dominant_count": 2,
+   "burned_natural_vegetation_fraction": 0.9836683417085427,
+   "burned_cropland_fraction": 0.002512562814070352,
+   "burned_tree_shrub_fraction": 0.8907035175879398,
+   "burned_cells_without_valid_landcover": 0,
+   "unburned_cells_without_valid_landcover": 0,
+   "decision": "wildfire_candidate_pass",
+   "reason": "burned_tree_shrub_grass_count/burned_count=0.984 >= natural_threshold=0.5.",
+   "thresholds": {
+    "min_positives": 30,
+    "natural_threshold": 0.5,
+    "cropland_threshold": 0.5
+   }
+  },
+  "recomputed_on_frozen_raster": {
+   "total_valid_cells_or_pixels_considered": 24150,
+   "burned_count": 796,
+   "unburned_count": 23354,
+   "burned_landcover_dominant_counts": {
+    "tree_cover": 708,
+    "grassland": 74,
+    "shrubland": 1,
+    "bare_sparse_vegetation": 1,
+    "permanent_water": 10,
+    "cropland": 2
+   },
+   "unburned_landcover_dominant_counts": {
+    "tree_cover": 14578,
+    "grassland": 4563,
+    "bare_sparse_vegetation": 205,
+    "shrubland": 483,
+    "cropland": 1258,
+    "permanent_water": 1992,
+    "built_up": 272,
+    "herbaceous_wetland": 3
+   },
+   "burned_tree_cover_count": 708,
+   "burned_shrubland_count": 1,
+   "burned_grassland_count": 74,
+   "burned_cropland_count": 2,
+   "burned_tree_shrub_grass_count": 783,
+   "burned_tree_shrub_count": 709,
+   "burned_cropland_dominant_count": 2,
+   "burned_natural_vegetation_fraction": 0.9836683417085427,
+   "burned_cropland_fraction": 0.002512562814070352,
+   "burned_tree_shrub_fraction": 0.8907035175879398,
+   "burned_cells_without_valid_landcover": 0,
+   "unburned_cells_without_valid_landcover": 0,
+   "decision": "wildfire_candidate_pass",
+   "reason": "burned_tree_shrub_grass_count/burned_count=0.984 >= natural_threshold=0.5.",
+   "thresholds": {
+    "min_positives": 30,
+    "natural_threshold": 0.5,
+    "cropland_threshold": 0.5
+   }
+  },
+  "control_mismatches": [],
+  "corrected": {
+   "total_valid_cells_or_pixels_considered": 24150,
+   "burned_count": 3046,
+   "unburned_count": 21104,
+   "burned_landcover_dominant_counts": {
+    "tree_cover": 2321,
+    "grassland": 561,
+    "shrubland": 28,
+    "bare_sparse_vegetation": 1,
+    "permanent_water": 80,
+    "cropland": 54,
+    "built_up": 1
+   },
+   "unburned_landcover_dominant_counts": {
+    "tree_cover": 12965,
+    "grassland": 4076,
+    "bare_sparse_vegetation": 205,
+    "shrubland": 456,
+    "cropland": 1206,
+    "permanent_water": 1922,
+    "built_up": 271,
+    "herbaceous_wetland": 3
+   },
+   "burned_tree_cover_count": 2321,
+   "burned_shrubland_count": 28,
+   "burned_grassland_count": 561,
+   "burned_cropland_count": 54,
+   "burned_tree_shrub_grass_count": 2910,
+   "burned_tree_shrub_count": 2349,
+   "burned_cropland_dominant_count": 54,
+   "burned_natural_vegetation_fraction": 0.9553512803676953,
+   "burned_cropland_fraction": 0.01772816808929744,
+   "burned_tree_shrub_fraction": 0.7711753118844387,
+   "burned_cells_without_valid_landcover": 0,
+   "unburned_cells_without_valid_landcover": 0,
+   "decision": "wildfire_candidate_pass",
+   "reason": "burned_tree_shrub_grass_count/burned_count=0.955 >= natural_threshold=0.5.",
+   "thresholds": {
+    "min_positives": 30,
+    "natural_threshold": 0.5,
+    "cropland_threshold": 0.5
+   }
+  }
+ },
+ "hashes": {
+  "frozen_raw": "74b600bdb8b451ef2b9f9962a0de1e67cf1d8f4666de4687d56ab8c4218b861e",
+  "frozen_binary": "47bfe5316236ebfc73825f1a4e507f8ab5393cb9ceda6f7c6c200e4153c3bc94",
+  "canonical_parquet": "054a1961fc0582a33d36413263668b63074b21ae8b03d12269b6e228787f3439",
+  "corrected_raw": "8940e7060dfdba1099366bfcdf773ac4e96249840a33e82474744386614d6341",
+  "corrected_binary": "9d6427b36264e11e38354a88bf31f605d42e67282368134b229db3b78a6b5973",
+  "corrected_parquet": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49"
+ }
+}
