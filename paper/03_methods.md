@@ -16,10 +16,8 @@ deliberately not clipped to it, so that unburned cells around each fire form the
 **The record does not show every box fixed before any outcome was seen**, so what it does show is
 stated region by region. In the pipeline's version history each box has a single committed value,
 never changed afterwards. Montiferru's is derived deterministically from the union of four municipal
-boundaries. Manavgat's was drawn to exclude the coastal cropland belt and committed together with the
-gate-only workflow that first evaluated it, the commit that first gave the pipeline any Manavgat
-geometry; its registry comments disagree on whether the drawing preceded or followed that first gate
-run. Bejís's is still labelled the initial candidate in the registry but was committed after its first
+boundaries. Manavgat's was drawn to exclude the coastal cropland belt; its final coordinates are in a dated
+AOI preview record of 7 July 2026, the day before its first gate result, and never changed. Bejís's is still labelled the initial candidate in the registry but was committed after its first
 gate and model results. Muğla's coordinates appear in a dated preflight record about four minutes
 before its first gate result and were committed to the registry only afterwards. No box needed
 adjusting to pass the gate, whose admitted margins are wide (Section 4.1). **One choice was label-informed and
