@@ -18,6 +18,9 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score, average_precision_score, brier_score_loss
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "code"))
+import _canonical  # noqa: E402  (labelfix re-run 2026-09-19: inputs via _canonical.load)
 
 STAGING = sys.argv[1]
 OUT = sys.argv[2]
@@ -32,7 +35,7 @@ NBOOT = 1000
 SEED = 42
 
 def load_region(reg):
-    df = pd.read_parquet(f'{STAGING}/{reg}.parquet',
+    df = _canonical.load(reg,
                          columns=['burned', 'valid_for_modeling', 'burnable_tree_shrub_grass',
                                   'row_500m', 'col_500m', CAT] + THERM_NUM)
     df = df[(df.valid_for_modeling == True) & (df.burnable_tree_shrub_grass == True)].copy()
@@ -110,8 +113,9 @@ for target in targets:
         for feats_name, num_cols in [('baseline', BASE_NUM), ('thermal', THERM_NUM)]:
             t0 = time.time()
             Xtr, ytr, Xte, yte = build_xy(tr, te, num_cols)
+            _canonical.assert_no_leakage(num_cols + [CAT])
             rf = RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
-                                        class_weight='balanced', random_state=SEED, n_jobs=-1)
+                                        class_weight='balanced', random_state=SEED, n_jobs=4)
             rf.fit(Xtr, ytr)
             p = rf.predict_proba(Xte)[:, 1]
             m = metrics(yte, p)

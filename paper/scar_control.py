@@ -25,7 +25,11 @@ from sklearn.metrics import roc_auc_score
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-STAGING = sys.argv[1]
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "code"))
+import _canonical  # noqa: E402  (labelfix re-run 2026-09-19: inputs via _canonical.load)
+
+STAGING = sys.argv[1]  # output: {STAGING}/../verify_scar.json
 REGIONS = ["manavgat_2021", "bejis_2022", "mugla_2021",
            "evia_2021_extended", "montiferru_2021"]
 TH = ["ndvi_mean", "elevation_mean", "slope_mean", "landcover_dominant",
@@ -45,11 +49,11 @@ def build():
     return Pipeline([("preprocess", ColumnTransformer(tr)),
                      ("clf", RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                     class_weight="balanced",
-                                                    random_state=42, n_jobs=-1))])
+                                                    random_state=42, n_jobs=4))])
 
 
 def load(reg):
-    df = pd.read_parquet(f"{STAGING}/{reg}.parquet",
+    df = _canonical.load(reg,
                          columns=["burned", "valid_for_modeling", "burnable_tree_shrub_grass",
                                   "row_500m", "col_500m"] + TH)
     return df[(df.valid_for_modeling == True) & (df.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
@@ -83,6 +87,7 @@ for reg in REGIONS:
             src = df[~held]
             if src.burned.nunique() < 2 or tgt.burned.nunique() < 2:
                 continue
+            _canonical.assert_no_leakage(TH)
             m = build().fit(src[TH], src.burned)
             auc = roc_auc_score(tgt.burned, m.predict_proba(tgt[TH])[:, 1])
             rows.append({"region": reg, "scar": s, "buffer_km": bkm,

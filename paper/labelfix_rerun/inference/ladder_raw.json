@@ -1,0 +1,1298 @@
+{
+ "blocked": [
+  {
+   "frame": "full",
+   "B": 10,
+   "region": "manavgat_2021",
+   "n": 20511,
+   "pos": 2935,
+   "baseline": 0.8203196301445599,
+   "thermal": 0.8822236106383259,
+   "increment": 0.061903980493766
+  },
+  {
+   "frame": "full",
+   "B": 2,
+   "region": "manavgat_2021",
+   "n": 20511,
+   "pos": 2935,
+   "baseline": 0.8411807102607785,
+   "thermal": 0.90807357717935,
+   "increment": 0.06689286691857155
+  },
+  {
+   "frame": "full",
+   "B": 10,
+   "region": "bejis_2022",
+   "n": 15190,
+   "pos": 1100,
+   "baseline": 0.7793700238725079,
+   "thermal": 0.8244685786179753,
+   "increment": 0.04509855474546742
+  },
+  {
+   "frame": "full",
+   "B": 2,
+   "region": "bejis_2022",
+   "n": 15190,
+   "pos": 1100,
+   "baseline": 0.8616776566230079,
+   "thermal": 0.9178110845861024,
+   "increment": 0.05613342796309451
+  },
+  {
+   "frame": "full",
+   "B": 10,
+   "region": "mugla_2021",
+   "n": 41730,
+   "pos": 2911,
+   "baseline": 0.6979859420145867,
+   "thermal": 0.7773268638729566,
+   "increment": 0.07934092185836983
+  },
+  {
+   "frame": "full",
+   "B": 2,
+   "region": "mugla_2021",
+   "n": 41730,
+   "pos": 2911,
+   "baseline": 0.7433200295403336,
+   "thermal": 0.8589830389802724,
+   "increment": 0.11566300943993879
+  },
+  {
+   "frame": "full",
+   "B": 10,
+   "region": "evia_2021_extended",
+   "n": 9298,
+   "pos": 2664,
+   "baseline": 0.7159564410657266,
+   "thermal": 0.8641886346702445,
+   "increment": 0.1482321936045179
+  },
+  {
+   "frame": "full",
+   "B": 2,
+   "region": "evia_2021_extended",
+   "n": 9298,
+   "pos": 2664,
+   "baseline": 0.7589523122760988,
+   "thermal": 0.9122372202621674,
+   "increment": 0.15328490798606853
+  },
+  {
+   "frame": "full",
+   "B": 10,
+   "region": "montiferru_2021",
+   "n": 2544,
+   "pos": 539,
+   "baseline": 0.6204294458658548,
+   "thermal": 0.7199006195087421,
+   "increment": 0.09947117364288727
+  },
+  {
+   "frame": "full",
+   "B": 2,
+   "region": "montiferru_2021",
+   "n": 2544,
+   "pos": 539,
+   "baseline": 0.7811972850804343,
+   "thermal": 0.8826347859479317,
+   "increment": 0.10143750086749737
+  },
+  {
+   "frame": "10km",
+   "B": 10,
+   "region": "manavgat_2021",
+   "n": 8507,
+   "pos": 2935,
+   "baseline": 0.7400080225904406,
+   "thermal": 0.8133395133369451,
+   "increment": 0.07333149074650447
+  },
+  {
+   "frame": "10km",
+   "B": 2,
+   "region": "manavgat_2021",
+   "n": 8507,
+   "pos": 2935,
+   "baseline": 0.7759494112079014,
+   "thermal": 0.8628157824899625,
+   "increment": 0.0868663712820611
+  },
+  {
+   "frame": "10km",
+   "B": 10,
+   "region": "bejis_2022",
+   "n": 5601,
+   "pos": 1100,
+   "baseline": 0.7099628365413746,
+   "thermal": 0.7397634869019005,
+   "increment": 0.029800650360525927
+  },
+  {
+   "frame": "10km",
+   "B": 2,
+   "region": "bejis_2022",
+   "n": 5601,
+   "pos": 1100,
+   "baseline": 0.8233307749792975,
+   "thermal": 0.8687826947547009,
+   "increment": 0.045451919775403415
+  },
+  {
+   "frame": "10km",
+   "B": 10,
+   "region": "mugla_2021",
+   "n": 18674,
+   "pos": 2911,
+   "baseline": 0.6758919527099421,
+   "thermal": 0.7634376280412455,
+   "increment": 0.08754567533130342
+  },
+  {
+   "frame": "10km",
+   "B": 2,
+   "region": "mugla_2021",
+   "n": 18674,
+   "pos": 2911,
+   "baseline": 0.7216689596998377,
+   "thermal": 0.8392348853932715,
+   "increment": 0.11756592569343383
+  },
+  {
+   "frame": "10km",
+   "B": 10,
+   "region": "evia_2021_extended",
+   "n": 5232,
+   "pos": 2664,
+   "baseline": 0.7613600750282994,
+   "thermal": 0.8949241297372137,
+   "increment": 0.1335640547089143
+  },
+  {
+   "frame": "10km",
+   "B": 2,
+   "region": "evia_2021_extended",
+   "n": 5232,
+   "pos": 2664,
+   "baseline": 0.814251313229117,
+   "thermal": 0.9302225707015426,
+   "increment": 0.11597125747242554
+  },
+  {
+   "frame": "10km",
+   "B": 10,
+   "region": "montiferru_2021",
+   "n": 2490,
+   "pos": 539,
+   "baseline": 0.630640392777026,
+   "thermal": 0.7201454180292871,
+   "increment": 0.08950502525226112
+  },
+  {
+   "frame": "10km",
+   "B": 2,
+   "region": "montiferru_2021",
+   "n": 2490,
+   "pos": 539,
+   "baseline": 0.7817046393600542,
+   "thermal": 0.8728105752342408,
+   "increment": 0.09110593587418658
+  },
+  {
+   "frame": "5km",
+   "B": 10,
+   "region": "manavgat_2021",
+   "n": 5770,
+   "pos": 2935,
+   "baseline": 0.7346117075134679,
+   "thermal": 0.7692382574835727,
+   "increment": 0.034626549970104725
+  },
+  {
+   "frame": "5km",
+   "B": 10,
+   "region": "bejis_2022",
+   "n": 2979,
+   "pos": 1100,
+   "baseline": 0.6843323334462239,
+   "thermal": 0.7018036673278822,
+   "increment": 0.017471333881658335
+  },
+  {
+   "frame": "5km",
+   "B": 10,
+   "region": "mugla_2021",
+   "n": 9672,
+   "pos": 2911,
+   "baseline": 0.6775835767923728,
+   "thermal": 0.7265980433885597,
+   "increment": 0.04901446659618691
+  },
+  {
+   "frame": "5km",
+   "B": 10,
+   "region": "evia_2021_extended",
+   "n": 3897,
+   "pos": 2664,
+   "baseline": 0.8111721819142744,
+   "thermal": 0.8818827952039631,
+   "increment": 0.07071061328968864
+  },
+  {
+   "frame": "5km",
+   "B": 10,
+   "region": "montiferru_2021",
+   "n": 1752,
+   "pos": 539,
+   "baseline": 0.676633930196526,
+   "thermal": 0.716257244110265,
+   "increment": 0.03962331391373908
+  }
+ ],
+ "blocked_scar": [
+  {
+   "B": 10,
+   "region": "manavgat_2021",
+   "scar": 1,
+   "baseline": 0.700356924298308,
+   "thermal": 0.7434326259903078,
+   "increment": 0.04307570169199981
+  },
+  {
+   "B": 2,
+   "region": "manavgat_2021",
+   "scar": 1,
+   "baseline": 0.7255516779411522,
+   "thermal": 0.7765766361786937,
+   "increment": 0.051024958237541496
+  },
+  {
+   "B": 10,
+   "region": "bejis_2022",
+   "scar": 1,
+   "baseline": 0.5713701648441326,
+   "thermal": 0.5748131222457973,
+   "increment": 0.0034429574016646702
+  },
+  {
+   "B": 2,
+   "region": "bejis_2022",
+   "scar": 1,
+   "baseline": 0.6591072302921497,
+   "thermal": 0.6883548229149665,
+   "increment": 0.029247592622816843
+  },
+  {
+   "B": 10,
+   "region": "mugla_2021",
+   "scar": 6,
+   "baseline": 0.5802510194947286,
+   "thermal": 0.5640261338770639,
+   "increment": -0.016224885617664664
+  },
+  {
+   "B": 10,
+   "region": "mugla_2021",
+   "scar": 1,
+   "baseline": 0.6049158070632089,
+   "thermal": 0.6539734567306148,
+   "increment": 0.04905764966740589
+  },
+  {
+   "B": 10,
+   "region": "mugla_2021",
+   "scar": 10,
+   "baseline": 0.6101986596582076,
+   "thermal": 0.6734775578535814,
+   "increment": 0.0632788981953738
+  },
+  {
+   "B": 10,
+   "region": "mugla_2021",
+   "scar": 8,
+   "baseline": 0.6774387832152745,
+   "thermal": 0.7608859803674805,
+   "increment": 0.08344719715220594
+  },
+  {
+   "B": 2,
+   "region": "mugla_2021",
+   "scar": 6,
+   "baseline": 0.5891995723095285,
+   "thermal": 0.6073826337776009,
+   "increment": 0.01818306146807247
+  },
+  {
+   "B": 2,
+   "region": "mugla_2021",
+   "scar": 1,
+   "baseline": 0.6572029949548508,
+   "thermal": 0.7282796148119584,
+   "increment": 0.07107661985710756
+  },
+  {
+   "B": 2,
+   "region": "mugla_2021",
+   "scar": 10,
+   "baseline": 0.6385756398858267,
+   "thermal": 0.7455794196704776,
+   "increment": 0.10700377978465092
+  },
+  {
+   "B": 2,
+   "region": "mugla_2021",
+   "scar": 8,
+   "baseline": 0.7024558627881055,
+   "thermal": 0.794555211966488,
+   "increment": 0.09209934917838258
+  },
+  {
+   "B": 10,
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "baseline": 0.685432793807178,
+   "thermal": 0.7450929238950607,
+   "increment": 0.059660130087882624
+  },
+  {
+   "B": 2,
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "baseline": 0.7326885262338945,
+   "thermal": 0.7980351270705717,
+   "increment": 0.0653466008366772
+  },
+  {
+   "B": 10,
+   "region": "montiferru_2021",
+   "scar": 1,
+   "baseline": 0.5551434790079615,
+   "thermal": 0.6215490577925425,
+   "increment": 0.06640557878458109
+  },
+  {
+   "B": 10,
+   "region": "montiferru_2021",
+   "scar": 5,
+   "baseline": 0.621268656716418,
+   "thermal": 0.4610541044776119,
+   "increment": -0.16021455223880604
+  },
+  {
+   "B": 2,
+   "region": "montiferru_2021",
+   "scar": 1,
+   "baseline": 0.6982501861504096,
+   "thermal": 0.7845022624434389,
+   "increment": 0.08625207629302933
+  },
+  {
+   "B": 2,
+   "region": "montiferru_2021",
+   "scar": 5,
+   "baseline": 0.6392257462686567,
+   "thermal": 0.5901352611940298,
+   "increment": -0.04909048507462688
+  }
+ ],
+ "loso": [
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "scar": 6,
+   "src_pos": 1997,
+   "tgt_pos": 914,
+   "tgt_n": 1266,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5701415481400438,
+   "thermal": 0.5951704545454546,
+   "increment": 0.025028906405410778
+  },
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "scar": 1,
+   "src_pos": 2173,
+   "tgt_pos": 738,
+   "tgt_n": 1244,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.6054594192186982,
+   "thermal": 0.5614013946463574,
+   "increment": -0.04405802457234076
+  },
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "scar": 10,
+   "src_pos": 2272,
+   "tgt_pos": 639,
+   "tgt_n": 940,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5721772495437742,
+   "thermal": 0.6166612075554099,
+   "increment": 0.04448395801163563
+  },
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "scar": 8,
+   "src_pos": 2363,
+   "tgt_pos": 548,
+   "tgt_n": 954,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5298847578296357,
+   "thermal": 0.5421415986480169,
+   "increment": 0.012256840818381187
+  },
+  {
+   "frame": "full",
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "src_pos": 11,
+   "tgt_pos": 2653,
+   "tgt_n": 3059,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.3215311600028966,
+   "thermal": 0.4647921583336273,
+   "increment": 0.1432609983307307
+  },
+  {
+   "frame": "full",
+   "region": "montiferru_2021",
+   "scar": 1,
+   "src_pos": 97,
+   "tgt_pos": 442,
+   "tgt_n": 758,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5237126983217826,
+   "thermal": 0.5837032476086832,
+   "increment": 0.05999054928690062
+  },
+  {
+   "frame": "full",
+   "region": "montiferru_2021",
+   "scar": 5,
+   "src_pos": 472,
+   "tgt_pos": 67,
+   "tgt_n": 195,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5278101679104478,
+   "thermal": 0.45778917910447764,
+   "increment": -0.07002098880597013
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "scar": 6,
+   "src_pos": 1997,
+   "tgt_pos": 914,
+   "tgt_n": 1266,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5870517953053511,
+   "thermal": 0.6063196240302366,
+   "increment": 0.019267828724885527
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "scar": 1,
+   "src_pos": 2173,
+   "tgt_pos": 738,
+   "tgt_n": 1244,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5777954518675621,
+   "thermal": 0.5587623316944632,
+   "increment": -0.019033120173098883
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "scar": 10,
+   "src_pos": 2272,
+   "tgt_pos": 639,
+   "tgt_n": 940,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5774439921180832,
+   "thermal": 0.639485491761941,
+   "increment": 0.062041499643857856
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "scar": 8,
+   "src_pos": 2363,
+   "tgt_pos": 548,
+   "tgt_n": 954,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5607942900291252,
+   "thermal": 0.5001438279817338,
+   "increment": -0.06065046204739133
+  },
+  {
+   "frame": "10km",
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "src_pos": 11,
+   "tgt_pos": 2653,
+   "tgt_n": 3059,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.4254575636095581,
+   "thermal": 0.3993364700989121,
+   "increment": -0.02612109351064601
+  },
+  {
+   "frame": "10km",
+   "region": "montiferru_2021",
+   "scar": 1,
+   "src_pos": 97,
+   "tgt_pos": 442,
+   "tgt_n": 758,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5284452145025488,
+   "thermal": 0.5841722034480784,
+   "increment": 0.05572698894552963
+  },
+  {
+   "frame": "10km",
+   "region": "montiferru_2021",
+   "scar": 5,
+   "src_pos": 472,
+   "tgt_pos": 67,
+   "tgt_n": 195,
+   "target_cells_lost_to_collar": 0,
+   "baseline": 0.5420942164179104,
+   "thermal": 0.4753964552238806,
+   "increment": -0.06669776119402987
+  }
+ ],
+ "halfsplit": [
+  {
+   "frame": "full",
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 1795,
+   "tgt_pos": 1140,
+   "baseline": 0.7929540473788569,
+   "thermal": 0.7609276137026859,
+   "increment": -0.03202643367617097
+  },
+  {
+   "frame": "full",
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 1140,
+   "tgt_pos": 1795,
+   "baseline": 0.6375154632484392,
+   "thermal": 0.7122340108208323,
+   "increment": 0.07471854757239305
+  },
+  {
+   "frame": "full",
+   "region": "manavgat_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 0,
+   "tgt_pos": 2935,
+   "skipped": true
+  },
+  {
+   "frame": "full",
+   "region": "manavgat_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 2935,
+   "tgt_pos": 0,
+   "skipped": true
+  },
+  {
+   "frame": "full",
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 640,
+   "tgt_pos": 460,
+   "baseline": 0.7844841953139414,
+   "thermal": 0.7500004612262468,
+   "increment": -0.03448373408769467
+  },
+  {
+   "frame": "full",
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 460,
+   "tgt_pos": 640,
+   "baseline": 0.5604562856125356,
+   "thermal": 0.578079037571225,
+   "increment": 0.017622751958689453
+  },
+  {
+   "frame": "full",
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 357,
+   "tgt_pos": 743,
+   "baseline": 0.6618906346479378,
+   "thermal": 0.7127766608519955,
+   "increment": 0.05088602620405769
+  },
+  {
+   "frame": "full",
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 743,
+   "tgt_pos": 357,
+   "baseline": 0.6131845934903364,
+   "thermal": 0.6026100841107687,
+   "increment": -0.01057450937956772
+  },
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 1449,
+   "tgt_pos": 1462,
+   "baseline": 0.37773021808385976,
+   "thermal": 0.4483561338576868,
+   "increment": 0.07062591577382704
+  },
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 1462,
+   "tgt_pos": 1449,
+   "baseline": 0.628251311694143,
+   "thermal": 0.6364793958645392,
+   "increment": 0.00822808417039611
+  },
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 774,
+   "tgt_pos": 2137,
+   "baseline": 0.5031280606896333,
+   "thermal": 0.5334863205487103,
+   "increment": 0.03035825985907692
+  },
+  {
+   "frame": "full",
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 2137,
+   "tgt_pos": 774,
+   "baseline": 0.5492413519103108,
+   "thermal": 0.2941007998661082,
+   "increment": -0.25514055204420255
+  },
+  {
+   "frame": "full",
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 2052,
+   "tgt_pos": 612,
+   "baseline": 0.505681473725949,
+   "thermal": 0.5892357987734242,
+   "increment": 0.08355432504747529
+  },
+  {
+   "frame": "full",
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 612,
+   "tgt_pos": 2052,
+   "baseline": 0.48174025433253376,
+   "thermal": 0.6453681594239749,
+   "increment": 0.1636279050914411
+  },
+  {
+   "frame": "full",
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 2564,
+   "tgt_pos": 100,
+   "baseline": 0.5130655957161981,
+   "thermal": 0.6488911200356984,
+   "increment": 0.13582552431950023
+  },
+  {
+   "frame": "full",
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 100,
+   "tgt_pos": 2564,
+   "baseline": 0.49541142658717496,
+   "thermal": 0.5332071461297114,
+   "increment": 0.037795719542536466
+  },
+  {
+   "frame": "full",
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 410,
+   "tgt_pos": 129,
+   "baseline": 0.4605879876024215,
+   "thermal": 0.47520829450461455,
+   "increment": 0.01462030690219307
+  },
+  {
+   "frame": "full",
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 129,
+   "tgt_pos": 410,
+   "baseline": 0.5132915767933189,
+   "thermal": 0.5065538410486146,
+   "increment": -0.006737735744704376
+  },
+  {
+   "frame": "full",
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 438,
+   "tgt_pos": 101,
+   "baseline": 0.5113960482210101,
+   "thermal": 0.5828227731389327,
+   "increment": 0.07142672491792257
+  },
+  {
+   "frame": "full",
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 101,
+   "tgt_pos": 438,
+   "baseline": 0.44685379592881835,
+   "thermal": 0.5359882430760039,
+   "increment": 0.08913444714718555
+  },
+  {
+   "frame": "10km",
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 1848,
+   "tgt_pos": 1087,
+   "baseline": 0.5709236180131537,
+   "thermal": 0.5923084398723857,
+   "increment": 0.02138482185923196
+  },
+  {
+   "frame": "10km",
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 1087,
+   "tgt_pos": 1848,
+   "baseline": 0.5268000804505228,
+   "thermal": 0.5741990645450018,
+   "increment": 0.04739898409447896
+  },
+  {
+   "frame": "10km",
+   "region": "manavgat_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 1059,
+   "tgt_pos": 1876,
+   "baseline": 0.5895045520983511,
+   "thermal": 0.6433614212949581,
+   "increment": 0.05385686919660704
+  },
+  {
+   "frame": "10km",
+   "region": "manavgat_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 1876,
+   "tgt_pos": 1059,
+   "baseline": 0.6077233822667055,
+   "thermal": 0.692268315986202,
+   "increment": 0.08454493371949645
+  },
+  {
+   "frame": "10km",
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 611,
+   "tgt_pos": 489,
+   "baseline": 0.7594778447461014,
+   "thermal": 0.7537305788866486,
+   "increment": -0.005747265859452733
+  },
+  {
+   "frame": "10km",
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 489,
+   "tgt_pos": 611,
+   "baseline": 0.5562485518306699,
+   "thermal": 0.6221982750694202,
+   "increment": 0.06594972323875026
+  },
+  {
+   "frame": "10km",
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 643,
+   "tgt_pos": 457,
+   "baseline": 0.6737157942082399,
+   "thermal": 0.7360315872777893,
+   "increment": 0.062315793069549374
+  },
+  {
+   "frame": "10km",
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 457,
+   "tgt_pos": 643,
+   "baseline": 0.5274000361347188,
+   "thermal": 0.5288819138647498,
+   "increment": 0.001481877730031056
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 1545,
+   "tgt_pos": 1366,
+   "baseline": 0.5310996339214853,
+   "thermal": 0.64641797776117,
+   "increment": 0.11531834383968476
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 1366,
+   "tgt_pos": 1545,
+   "baseline": 0.6460387492885447,
+   "thermal": 0.6569108965694475,
+   "increment": 0.0108721472809028
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 778,
+   "tgt_pos": 2133,
+   "baseline": 0.4340416083412281,
+   "thermal": 0.5218817263585543,
+   "increment": 0.08784011801732622
+  },
+  {
+   "frame": "10km",
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 2133,
+   "tgt_pos": 778,
+   "baseline": 0.434929568014359,
+   "thermal": 0.37095547025848924,
+   "increment": -0.06397409775586976
+  },
+  {
+   "frame": "10km",
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 1035,
+   "tgt_pos": 1629,
+   "baseline": 0.6492748268932588,
+   "thermal": 0.6665435187828512,
+   "increment": 0.017268691889592458
+  },
+  {
+   "frame": "10km",
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 1629,
+   "tgt_pos": 1035,
+   "baseline": 0.7251333009438776,
+   "thermal": 0.8217681587205554,
+   "increment": 0.0966348577766778
+  },
+  {
+   "frame": "10km",
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 1819,
+   "tgt_pos": 845,
+   "baseline": 0.6679001747554956,
+   "thermal": 0.7037390181670772,
+   "increment": 0.03583884341158161
+  },
+  {
+   "frame": "10km",
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 845,
+   "tgt_pos": 1819,
+   "baseline": 0.6899692972097574,
+   "thermal": 0.6825519370675495,
+   "increment": -0.007417360142207952
+  },
+  {
+   "frame": "10km",
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "src_pos": 410,
+   "tgt_pos": 129,
+   "baseline": 0.47212034919676116,
+   "thermal": 0.4907451352634077,
+   "increment": 0.018624786066646526
+  },
+  {
+   "frame": "10km",
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "src_pos": 129,
+   "tgt_pos": 410,
+   "baseline": 0.5058698628223396,
+   "thermal": 0.5038848378174504,
+   "increment": -0.0019850250048891738
+  },
+  {
+   "frame": "10km",
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "src_pos": 438,
+   "tgt_pos": 101,
+   "baseline": 0.5290110616111205,
+   "thermal": 0.579614138149613,
+   "increment": 0.0506030765384925
+  },
+  {
+   "frame": "10km",
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "src_pos": 101,
+   "tgt_pos": 438,
+   "baseline": 0.4507491946767318,
+   "thermal": 0.5350369852167594,
+   "increment": 0.08428779054002755
+  }
+ ],
+ "foreign": [
+  {
+   "region": "manavgat_2021",
+   "scar": 1,
+   "source": "bejis_2022",
+   "baseline": 0.44181902383354565,
+   "thermal": 0.4381715486015779,
+   "increment": -0.003647475231967734
+  },
+  {
+   "region": "manavgat_2021",
+   "scar": 1,
+   "source": "mugla_2021",
+   "baseline": 0.5728241345660839,
+   "thermal": 0.5515031177122443,
+   "increment": -0.02132101685383969
+  },
+  {
+   "region": "manavgat_2021",
+   "scar": 1,
+   "source": "evia_2021_extended",
+   "baseline": 0.7146572170490069,
+   "thermal": 0.6647561237822729,
+   "increment": -0.049901093266733976
+  },
+  {
+   "region": "manavgat_2021",
+   "scar": 1,
+   "source": "montiferru_2021",
+   "baseline": 0.49004134896875673,
+   "thermal": 0.5116190602206381,
+   "increment": 0.02157771125188135
+  },
+  {
+   "region": "bejis_2022",
+   "scar": 1,
+   "source": "manavgat_2021",
+   "baseline": 0.5216500734454056,
+   "thermal": 0.5191088624122735,
+   "increment": -0.002541211033132096
+  },
+  {
+   "region": "bejis_2022",
+   "scar": 1,
+   "source": "mugla_2021",
+   "baseline": 0.5230292149502203,
+   "thermal": 0.6239138240574507,
+   "increment": 0.1008846091072304
+  },
+  {
+   "region": "bejis_2022",
+   "scar": 1,
+   "source": "evia_2021_extended",
+   "baseline": 0.4697878243838746,
+   "thermal": 0.5818850987432675,
+   "increment": 0.11209727435939293
+  },
+  {
+   "region": "bejis_2022",
+   "scar": 1,
+   "source": "montiferru_2021",
+   "baseline": 0.6515880528806921,
+   "thermal": 0.6306365268483761,
+   "increment": -0.02095152603231598
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 6,
+   "source": "manavgat_2021",
+   "baseline": 0.4948496866918639,
+   "thermal": 0.5449789884623035,
+   "increment": 0.050129301770439616
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 6,
+   "source": "bejis_2022",
+   "baseline": 0.5379450964790133,
+   "thermal": 0.5515466481002587,
+   "increment": 0.013601551621245322
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 6,
+   "source": "evia_2021_extended",
+   "baseline": 0.5420292918241496,
+   "thermal": 0.5913457952058883,
+   "increment": 0.04931650338173865
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 6,
+   "source": "montiferru_2021",
+   "baseline": 0.5785663666202506,
+   "thermal": 0.596649965187985,
+   "increment": 0.018083598567734338
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 1,
+   "source": "manavgat_2021",
+   "baseline": 0.38255031759803765,
+   "thermal": 0.4099090052165344,
+   "increment": 0.027358687618496746
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 1,
+   "source": "bejis_2022",
+   "baseline": 0.5357967265443405,
+   "thermal": 0.6083314588086592,
+   "increment": 0.07253473226431872
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 1,
+   "source": "evia_2021_extended",
+   "baseline": 0.44237978941054235,
+   "thermal": 0.4741181700354553,
+   "increment": 0.031738380624912965
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 1,
+   "source": "montiferru_2021",
+   "baseline": 0.6401555319901026,
+   "thermal": 0.5649362126032327,
+   "increment": -0.07521931938686988
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 10,
+   "source": "manavgat_2021",
+   "baseline": 0.48701511393945063,
+   "thermal": 0.4328971243481561,
+   "increment": -0.054117989591294546
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 10,
+   "source": "bejis_2022",
+   "baseline": 0.6367273407889196,
+   "thermal": 0.6980253614711525,
+   "increment": 0.06129802068223289
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 10,
+   "source": "evia_2021_extended",
+   "baseline": 0.5799187892211148,
+   "thermal": 0.6884875142326828,
+   "increment": 0.108568725011568
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 10,
+   "source": "montiferru_2021",
+   "baseline": 0.662652920104607,
+   "thermal": 0.7161730070344547,
+   "increment": 0.05352008692984778
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 8,
+   "source": "manavgat_2021",
+   "baseline": 0.5188864118514257,
+   "thermal": 0.5327613174643127,
+   "increment": 0.013874905612886956
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 8,
+   "source": "bejis_2022",
+   "baseline": 0.7014805292869728,
+   "thermal": 0.7243941246269461,
+   "increment": 0.02291359533997328
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 8,
+   "source": "evia_2021_extended",
+   "baseline": 0.4303872568408184,
+   "thermal": 0.6269371831289778,
+   "increment": 0.19654992628815943
+  },
+  {
+   "region": "mugla_2021",
+   "scar": 8,
+   "source": "montiferru_2021",
+   "baseline": 0.6924081298766674,
+   "thermal": 0.6077181690697926,
+   "increment": -0.08468996080687485
+  },
+  {
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "source": "manavgat_2021",
+   "baseline": 0.5573762577544894,
+   "thermal": 0.5278363187691599,
+   "increment": -0.029539938985329472
+  },
+  {
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "source": "bejis_2022",
+   "baseline": 0.5247057425463134,
+   "thermal": 0.374249617962006,
+   "increment": -0.1504561245843074
+  },
+  {
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "source": "mugla_2021",
+   "baseline": 0.6712347208012492,
+   "thermal": 0.648506477470435,
+   "increment": -0.022728243330814246
+  },
+  {
+   "region": "evia_2021_extended",
+   "scar": 1,
+   "source": "montiferru_2021",
+   "baseline": 0.6540717915771532,
+   "thermal": 0.7037047008777126,
+   "increment": 0.049632909300559414
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 1,
+   "source": "manavgat_2021",
+   "baseline": 0.5860587662523626,
+   "thermal": 0.48313906867518186,
+   "increment": -0.10291969757718078
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 1,
+   "source": "bejis_2022",
+   "baseline": 0.43784366229451854,
+   "thermal": 0.51335987169941,
+   "increment": 0.07551620940489145
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 1,
+   "source": "mugla_2021",
+   "baseline": 0.486711724611948,
+   "thermal": 0.45697777650495447,
+   "increment": -0.029733948106993535
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 1,
+   "source": "evia_2021_extended",
+   "baseline": 0.474697863566069,
+   "thermal": 0.5011884987685434,
+   "increment": 0.02649063520247441
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 5,
+   "source": "manavgat_2021",
+   "baseline": 0.6087919776119403,
+   "thermal": 0.5965485074626866,
+   "increment": -0.012243470149253644
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 5,
+   "source": "bejis_2022",
+   "baseline": 0.43557602611940294,
+   "thermal": 0.46058768656716415,
+   "increment": 0.025011660447761208
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 5,
+   "source": "mugla_2021",
+   "baseline": 0.4952192164179105,
+   "thermal": 0.44402985074626866,
+   "increment": -0.05118936567164184
+  },
+  {
+   "region": "montiferru_2021",
+   "scar": 5,
+   "source": "evia_2021_extended",
+   "baseline": 0.4520755597014925,
+   "thermal": 0.39925373134328357,
+   "increment": -0.05282182835820892
+  }
+ ]
+}

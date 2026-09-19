@@ -14,6 +14,9 @@ import numpy as np
 import pandas as pd
 import sklearn
 from sklearn.decomposition import PCA
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "code"))
+import _canonical  # noqa: E402  (labelfix re-run 2026-09-19: inputs via _canonical.load)
 
 STAGING = sys.argv[1]
 OUT = sys.argv[2]
@@ -27,7 +30,7 @@ NBINS_2D = 20
 burned = {}
 nan_report = {}
 for reg in REGIONS:
-    df = pd.read_parquet(f'{STAGING}/{reg}.parquet',
+    df = _canonical.load(reg,
                          columns=['burned', 'valid_for_modeling', 'burnable_tree_shrub_grass'] + FEATURES)
     b = df[(df.valid_for_modeling == True) & (df.burnable_tree_shrub_grass == True) & (df.burned == 1)]
     burned[reg] = b[FEATURES].copy()
@@ -45,6 +48,7 @@ pooled_std = pooled.std(ddof=0).replace(0, 1.0)
 def std_impute(df):  # standardize globally, impute NaN with pooled median (documented)
     return ((df.fillna(pooled_median) - pooled_mean) / pooled_std).to_numpy()
 
+_canonical.assert_no_leakage(FEATURES)
 pca = PCA(n_components=2, random_state=42).fit(std_impute(pooled))
 pc = {reg: pca.transform(std_impute(burned[reg])) for reg in REGIONS}
 pc_all = pca.transform(std_impute(pooled))
@@ -109,8 +113,8 @@ meta = dict(
     mahalanobis='between standardized burned-cell centroids, pooled covariance ((na-1)Sa+(nb-1)Sb)/(na+nb-2), 9 features',
     burned_counts={r: int(len(burned[r])) for r in REGIONS},
     nan_cells_imputed_for_multivariate=nan_report,
-    parquet_sha256_prefixes=dict(manavgat_2021='054a1961', bejis_2022='3dec785a', mugla_2021='c4ab107d',
-                                 evia_2021_extended='bdce859c', montiferru_2021='ffb008f9'),
+    parquet_sha256_prefixes={r: _canonical.sha256(_canonical.path(r))[:8] for r in REGIONS},
+    labels=_canonical.label_setting(),
 )
 json.dump(dict(meta=meta, pairs=pairs), open(OUT, 'w'), indent=1)
 print('written', OUT, flush=True)

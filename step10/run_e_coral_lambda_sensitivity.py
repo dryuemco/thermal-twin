@@ -46,6 +46,10 @@ from spatial_bootstrap import block_bootstrap_ci
 from transfer import run_transfer
 
 OUT_DIR = CROSS_REGION_DIR / "step10"
+# labelfix re-run (2026-09-19): output redirectable; default unchanged.
+import os  # noqa: E402
+if os.environ.get("STEP10_OUT_DIR"):
+    OUT_DIR = Path(os.environ["STEP10_OUT_DIR"])
 
 
 def main() -> None:

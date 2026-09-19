@@ -23,6 +23,9 @@ out = {"margins": MARGINS}
 Q = quantities()
 tost = {}
 for name in ("Q2_equalised10_delta", "Q1_asdrawn_delta", "S_equalised5_delta"):
+    if name not in Q:  # Q1 omitted when its class-B input is absent (see units.quantities)
+        tost[name] = {"skipped": "class-B input transfer_ci_blocksize.json absent"}
+        continue
     y, s, t, _ = Q[name]
     iv90 = intervals(y, s, t, level=0.90)
     rows = {}

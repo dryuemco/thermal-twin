@@ -9,6 +9,7 @@ and collar are identical to the published arms:
 """
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import numpy as np
@@ -30,6 +31,13 @@ CELL_KM, SEED, BUF_KM, MIN_SCAR = 0.45, 42, 2, 50
 N_JOBS = 4
 PAPER = Path(__file__).resolve().parents[1]
 OUTDIR = PAPER / "ems_analyses" / "inference"
+# Re-run redirection (labelfix re-run, 2026-09-19); defaults unchanged. PAPER_ARTEFACTS: where the
+# paper-level inputs live; EMS_OUT_ROOT: output root (…/inference). Relative to the tree root.
+if os.environ.get("PAPER_ARTEFACTS"):
+    PAPER = Path(__file__).resolve().parents[2] / os.environ["PAPER_ARTEFACTS"]
+if os.environ.get("EMS_OUT_ROOT"):
+    OUTDIR = Path(__file__).resolve().parents[2] / os.environ["EMS_OUT_ROOT"] / "inference"
+    OUTDIR.mkdir(parents=True, exist_ok=True)
 SHORT = {"manavgat_2021": "Manavgat", "bejis_2022": "Bejis", "mugla_2021": "Mugla",
          "evia_2021_extended": "Evia", "montiferru_2021": "Montiferru"}
 

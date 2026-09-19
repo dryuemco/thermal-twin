@@ -40,10 +40,12 @@ def load_region(region_key: str, population: str = "all_valid") -> pd.DataFrame:
         raise Step10DataError(
             f"Bilinmeyen popülasyon: {population}. Secenekler: {list(POPULATIONS)}"
         )
-    path = Path(REGIONS[region_key])
-    if not path.exists():
-        raise Step10DataError(f"Veri bulunamadi: {path}")
-    df = pd.read_parquet(path)
+    # labelfix re-run (2026-09-19): read through paper/code/_canonical.load (SHA-256 verified,
+    # label setting per _canonical) instead of the REGIONS path, which is absent in this tree.
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "paper" / "code"))
+    import _canonical
+    df = _canonical.load(region_key)
     if "valid_for_modeling" not in df.columns:
         raise Step10DataError(f"{region_key}: valid_for_modeling kolonu yok.")
     if TARGET_COLUMN not in df.columns:

@@ -21,6 +21,9 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 TREE = HERE.parents[1]                      # thermal-twin-main
 OUT = TREE / "paper" / "ems_analyses" / "labels"
+# Re-run redirection (labelfix re-run, 2026-09-19); default unchanged. Relative to the tree root.
+if os.environ.get("EMS_OUT_ROOT"):
+    OUT = TREE / os.environ["EMS_OUT_ROOT"] / "labels"
 UPSTREAM = Path(r"C:\Users\CORSAIR\projects\thermal-twin")
 REPO = UPSTREAM / "repo"
 FROZEN = UPSTREAM / "drive_new" / "experiments"
@@ -160,9 +163,20 @@ def fetch(image, region: str, band: str, chunk_rows: int = 800) -> np.ndarray:
     return out
 
 
+# Label-corrected rasters, served under the same label setting as _canonical.load (labelfix
+# re-run, 2026-09-19): paper/data/manavgat_2021/LABEL_CORRECTION.md section 9, SHA-256 verified.
+CORRECTED_RASTERS = {("manavgat_2021", "mcd64a1_raw.tif"): (
+    "paper/data/manavgat_2021/mcd64a1_raw_labelfix.tif",
+    "8940e7060dfdba1099366bfcdf773ac4e96249840a33e82474744386614d6341")}
+
+
 def read_local(region: str, name: str) -> np.ndarray:
     import rasterio
-    with rasterio.open(FROZEN / region / "validation/labels" / name) as s:
+    p = FROZEN / region / "validation/labels" / name
+    if C.label_setting() == "corrected" and (region, name) in CORRECTED_RASTERS:
+        rel, sha = CORRECTED_RASTERS[(region, name)]
+        p = C._verified(TREE / rel, sha, region)
+    with rasterio.open(p) as s:
         return s.read(1)
 
 
