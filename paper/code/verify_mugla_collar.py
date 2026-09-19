@@ -21,16 +21,16 @@ import numpy as np
 import pandas as pd
 from scipy import ndimage
 from sklearn.metrics import roc_auc_score
+import _canonical
 
 OUT = sys.argv[1]
-PARQ = "repo/outputs/experiments/mugla_2021/step8a/step8a_500m_modeling_dataset.parquet"
 AUDIT = ("paper/mugla_temporal_raw/burned_pattern_audit_mugla_2021__mugla_2022_event_relative"
          "/experiments/{}/component_membership.parquet")
 CELL_KM, BLOCK, NBOOT, SEED = 0.45, 10, 1000, 42
 FEATS = ["elevation_mean", "slope_mean", "ndvi_mean", "current_lst_mean",
          "current_tvdi_mean", "lst_anomaly_mean", "tvdi_difference_mean"]
 
-d = pd.read_parquet(PARQ)
+d = _canonical.load("mugla_2021")
 d = d[(d.valid_for_modeling == True) &  # noqa: E712
       (d.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
 print(f"Muğla primary population: {len(d)} cells, {int(d.burned.sum())} burned in 2021")

@@ -26,10 +26,17 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import roc_auc_score
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 
 OUT = sys.argv[1]
 REG = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021"]
-ROOT = "repo/outputs/experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
 TH = ["ndvi_mean", "elevation_mean", "slope_mean", "landcover_dominant", "lst_anomaly_mean",
       "current_lst_mean", "current_tvdi_mean", "tvdi_difference_mean",
       "downscaled_lst_mean", "fused_lst_mean"]
@@ -48,11 +55,11 @@ def build():
     return Pipeline([("p", ColumnTransformer(tr)),
                      ("c", RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                   class_weight="balanced",
-                                                  random_state=SEED, n_jobs=-1))])
+                                                  random_state=SEED, n_jobs=4))])
 
 
 def load(r):
-    d = pd.read_parquet(ROOT.format(r))
+    d = _canonical.load(r)
     return d[(d.valid_for_modeling == True) &  # noqa: E712
              (d.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
 
@@ -83,7 +90,7 @@ for conn in (8, 4):
                 tgt, src = df[held], df[~held]
                 if tgt.burned.nunique() < 2 or src.burned.nunique() < 2:
                     continue
-                mdl = build().fit(src[TH], src.burned)
+                mdl = build().fit(*_guard(src[TH], src.burned))
                 auc = roc_auc_score(tgt.burned, mdl.predict_proba(tgt[TH])[:, 1])
                 per_scar.append(auc)
                 rows.append({"connectivity": conn, "min_component_cells": minsize,

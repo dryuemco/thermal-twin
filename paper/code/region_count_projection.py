@@ -31,9 +31,11 @@ import statistics as st
 import sys
 from collections import defaultdict
 
+import os
+
 import numpy as np
 
-SRC = "paper/aoi_frame_transfer_frozen_mugla.csv"
+SRC = os.path.join(os.environ.get("PAPER_ARTEFACTS", "paper"), "aoi_frame_transfer_frozen_mugla.csv")
 FRAME = ("10km", "10km")          # the equalised frame the claim is made on
 REPS = int(sys.argv[1]) if len(sys.argv) > 1 else 2000
 SEED = 42
@@ -68,7 +70,7 @@ def components(d):
     return mu, sa, sb, resid
 
 
-def pair_cluster_ci(delta, rng, nboot=400):
+def pair_cluster_ci(delta, rng, nboot=1000):
     """The paper's unit: resample unordered region pairs, both directions together."""
     pairs = defaultdict(list)
     for (s, t), v in delta.items():
@@ -105,7 +107,7 @@ def main() -> None:
                     if i == j:
                         continue
                     sim[(f"r{i}", f"r{j}")] = mu + a[i] + b[j] + rng.normal(0, se)
-            l, h = pair_cluster_ci(sim, rng, nboot=200)
+            l, h = pair_cluster_ci(sim, rng, nboot=1000)
             widths.append(h - l)
             excl += (l > 0 or h < 0)
         print(f"  {k:3d} {k*(k-1):11d} {st.median(widths):13.4f} {excl/REPS:10.0%}")

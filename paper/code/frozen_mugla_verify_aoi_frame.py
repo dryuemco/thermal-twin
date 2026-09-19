@@ -21,15 +21,10 @@ import numpy as np
 import pandas as pd
 from scipy import ndimage
 from sklearn.metrics import roc_auc_score
+import _canonical
 
 REGIONS = ["manavgat_2021", "bejis_2022", "mugla_2021",
            "evia_2021_extended", "montiferru_2021"]
-_R = "repo/outputs/experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
-_FROZEN_MUGLA = "repo/outputs/experiments/mugla_2021/step8a/step8a/step8a_500m_modeling_dataset.parquet"
-class _Root(str):
-    def format(self, reg):
-        return _FROZEN_MUGLA if reg == "mugla_2021" else _R.format(reg)
-ROOT = _Root(_R)
 CELL_KM = 0.45  # same convention as paper/code/*.py
 
 FEATS = ["elevation_mean", "slope_mean", "ndvi_mean", "current_lst_mean",
@@ -38,7 +33,7 @@ FEATS = ["elevation_mean", "slope_mean", "ndvi_mean", "current_lst_mean",
 
 
 def load(reg):
-    d = pd.read_parquet(ROOT.format(reg))
+    d = _canonical.load(reg)
     d = d[(d.valid_for_modeling == True) &  # noqa: E712
           (d.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
     return d

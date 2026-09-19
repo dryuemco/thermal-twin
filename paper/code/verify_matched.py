@@ -27,6 +27,14 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 
 STAGING = sys.argv[1]
 REGIONS = ["manavgat_2021", "bejis_2022", "mugla_2021",
@@ -47,11 +55,11 @@ def build():
     return Pipeline([("preprocess", ColumnTransformer(tr)),
                      ("clf", RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                     class_weight="balanced",
-                                                    random_state=42, n_jobs=-1))])
+                                                    random_state=42, n_jobs=4))])
 
 
 def load(reg):
-    d = pd.read_parquet(f"{STAGING}/{reg}.parquet",
+    d = _canonical.load(reg,
                         columns=["burned", "valid_for_modeling", "burnable_tree_shrub_grass",
                                  "row_500m", "col_500m"] + TH)
     return d[(d.valid_for_modeling == True) & (d.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
@@ -81,7 +89,7 @@ for reg in REGIONS:
         # C: same region, scar unseen
         c_auc = np.nan
         if src.burned.nunique() >= 2:
-            mdl = build().fit(src[TH], src.burned)
+            mdl = build().fit(*_guard(src[TH], src.burned))
             c_auc = roc_auc_score(tgt.burned, mdl.predict_proba(tgt[TH])[:, 1])
 
         # D: foreign regions, same target cells
@@ -90,7 +98,7 @@ for reg in REGIONS:
             if o == reg:
                 continue
             od = data[o]
-            mdl = build().fit(od[TH], od.burned)
+            mdl = build().fit(*_guard(od[TH], od.burned))
             ds.append(roc_auc_score(tgt.burned, mdl.predict_proba(tgt[TH])[:, 1]))
         d_auc = float(np.mean(ds))
 
@@ -99,7 +107,7 @@ for reg in REGIONS:
         oof = np.full(len(df), np.nan)
         skf = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=42)
         for tr_i, te_i in skf.split(df[TH], df.burned, groups=blk):
-            mdl = build().fit(df.iloc[tr_i][TH], df.iloc[tr_i].burned)
+            mdl = build().fit(*_guard(df.iloc[tr_i][TH], df.iloc[tr_i].burned))
             oof[te_i] = mdl.predict_proba(df.iloc[te_i][TH])[:, 1]
         b_auc = roc_auc_score(tgt.burned, oof[held])
         a_auc = roc_auc_score(df.burned, oof)

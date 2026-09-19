@@ -28,17 +28,29 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 
 OUT = sys.argv[1]
 REG = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021"]
-ROOT = "repo/outputs/experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
 TH = ["ndvi_mean", "elevation_mean", "slope_mean", "landcover_dominant", "lst_anomaly_mean",
       "current_lst_mean", "current_tvdi_mean", "tvdi_difference_mean",
       "downscaled_lst_mean", "fused_lst_mean"]
 BASE = ["ndvi_mean", "elevation_mean", "slope_mean", "landcover_dominant"]
 FEATS9 = [f for f in TH if f != "landcover_dominant"]
 CAT = "landcover_dominant"
-CELL_KM, SEED, NB = 0.45, 42, 400
+CELL_KM, SEED, NB = 0.45, 42, 1000
+import os
+# Artefacts this script reads or writes that are themselves regenerated from the
+# canonical inputs. Default "paper" is the published location; the canonical re-run
+# sets PAPER_ARTEFACTS=paper/canonical_rerun so nothing published is overwritten.
+ART = os.environ.get("PAPER_ARTEFACTS", "paper")
 
 
 def build(fe):
@@ -49,11 +61,11 @@ def build(fe):
     return Pipeline([("p", ColumnTransformer(tr)),
                      ("c", RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                   class_weight="balanced",
-                                                  random_state=SEED, n_jobs=-1))])
+                                                  random_state=SEED, n_jobs=4))])
 
 
 def load(r):
-    d = pd.read_parquet(ROOT.format(r))
+    d = _canonical.load(r)
     d = d[(d.valid_for_modeling == True) &  # noqa: E712
           (d.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
     r0, c0 = int(d.row_500m.min()), int(d.col_500m.min())
@@ -85,7 +97,7 @@ for collar in [None, 10, 5]:
             oof = np.full(len(d), np.nan)
             for tr_i, te_i in StratifiedGroupKFold(5, shuffle=True, random_state=SEED).split(
                     d[fe], d.burned, groups=g):
-                oof[te_i] = build(fe).fit(d.iloc[tr_i][fe], d.iloc[tr_i].burned) \
+                oof[te_i] = build(fe).fit(*_guard(d.iloc[tr_i][fe], d.iloc[tr_i].burned)) \
                     .predict_proba(d.iloc[te_i][fe])[:, 1]
             got[name] = roc_auc_score(d.burned, oof)
         inc = got["thermal"] - got["baseline"]
@@ -100,7 +112,7 @@ for collar in [None, 10, 5]:
 print("=" * 76)
 print("ITEM 4  AN INTERVAL ON THE MATCHED SHORTFALL, PAIRED BY TARGET REGION")
 print("=" * 76)
-tr_c = pd.read_csv("paper/aoi_frame_transfer.csv")
+tr_c = pd.read_csv(f"{ART}/aoi_frame_transfer.csv")
 tr_c = tr_c[(tr_c.source_frame == "10km") & (tr_c.target_frame == "10km")]
 tr_c["tgt"] = tr_c.direction.str.split("_to_").str[1]
 within = {r["region"]: r["thermal"] for r in rows if r["check"] == "increment" and r["frame"] == "10km"}
