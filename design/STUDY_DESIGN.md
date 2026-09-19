@@ -1,4 +1,4 @@
-# Study design — transferable wildfire susceptibility models (DRAFT v0.3, 2026-09-19)
+# Study design — transferable wildfire susceptibility models (DRAFT v0.4, 2026-09-19)
 
 **Status: draft for the authors' approval. Nothing here has been run.** Data sources are confirmed
 against `DATA_AVAILABILITY.md` (live Earth Engine checks, 2026-09-19); the only remaining [DATA] item is
@@ -13,8 +13,9 @@ lesson each one answers is given in brackets. §11 maps every known threat to va
 Wildfire susceptibility models are routinely validated inside the region and season they were fitted
 in, then used elsewhere and later. The study contributes, **in one pre-registered design on
 rule-defined regions**: (i) a measurement of how much the evaluation frame alone changes reported skill;
-(ii) a separation of the transfer gap into its temporal part (another season, same region) and its
-spatial part (another region), which single-season multi-region studies cannot do; (iii) which
+(ii) separate estimates of the transfer gap's temporal part (another season, same region) and spatial
+part (another region), which single-season multi-region studies cannot make, with their difference
+reported against a pre-registered detectability bound (§7); (iii) which
 predictor groups carry skill that travels; (iv) an open, tested research infrastructure that makes all
 of this reproducible and extensible to other regions and hazards. The pilot's findings are cited as the
 motivation, not re-used as evidence.
@@ -67,14 +68,18 @@ motivation, not re-used as evidence.
   (annual, native 463 m grid) is forest, shrubland, savanna or grassland. Land cover mapped *before*
   the season is essential: the pilot defined its 2021 fires' population with WorldCover 2021, which may
   be mapped from post-fire imagery. WorldCover 2021 is a static sensitivity.
-- **Cell rule:** primary = majority of the cell's MODIS footprint burned; sensitivity = any burn.
+- **Cell rule:** MCD64A1 is native to the grid, so each cell is one burned/unburned pixel and needs no
+  rule. For FireCCI (250 m) and EFFIS perimeters the primary rule is majority of the cell burned, with
+  any-burn as sensitivity. MCD64A1 unmapped pixels (QA) become missing labels, not negatives; the
+  season is DOY 152–304 (153–305 in leap years).
 - **Independent validation of the label:** EFFIS burnt-area perimeters (EU and Türkiye, all study years)
   rasterised to the grid; agreement reported per tile-season, and the headline estimands re-computed on
   EFFIS labels as a sensitivity. [DATA: EFFIS is not in Earth Engine; obtained from the EFFIS download
   service and hashed into the manifest.]
 - **Second satellite product:** FireCCI 5.1 is independent of MCD64A1 but ends in 2020, so it checks
   2015–2020 only. VIIRS VNP64A1 and GlobFire share MCD64A1's algorithm family or are built from it, so
-  they are robustness checks, not independent validation. FIRMS active-fire agreement is reported.
+  they are robustness checks, not independent validation. Active-fire agreement uses MOD14A1/MYD14A1 fire classes 8–9 (Earth Engine's `FIRMS` is the
+  near-real-time feed and not science quality).
 
 ## 4. Predictors [lessons 3, 6]
 
@@ -85,13 +90,13 @@ registration (the pilot applied a QC rule to part of its cohort only).
 
 | Group | Variables (final list fixed at registration) | Source [DATA] |
 |---|---|---|
-| G1 terrain | elevation, slope, northness, eastness, topographic position | GLO-30 |
-| G2 fuel / land cover | class fractions (year *y* − 1), tree cover, canopy height (2020, static) | MCD12Q1, MOD44B, ETH canopy height |
+| G1 terrain | elevation, slope, northness, eastness, topographic position (2 km radius) | `COPERNICUS/DEM/GLO30_2024_1` (acquired 2010–2015, before every season) |
+| G2 fuel / land cover | class fractions over the 3 × 3 neighbourhood (year *y* − 1), tree cover (MOD44B of year *y* − 1) | MCD12Q1, MOD44B |
 | G3 pre-season vegetation and moisture proxies | NDVI/EVI level and anomaly, LAI/FPAR, ET/PET ratio (no live fuel moisture product exists) | MOD13A1, MOD15A2H, MOD16A2GF |
-| G4 pre-season thermal | LST day level and anomaly (two channels) | MODIS MOD11A1/A2 |
+| G4 pre-season thermal | LST day level and anomaly (two channels), MOD11A1 with LST error ≤ 2 K (pilot's stricter rule as sensitivity) | MOD11A1 |
 | G5 antecedent weather and drought | 3/6/12-month precipitation anomaly, temperature and VPD anomaly, soil-water anomaly, climatic water deficit, **Drought Code and Duff Moisture Code on 31 May** | ERA5-Land (daily, hourly), TerraClimate (to 2024-12), CHIRPS |
-| G6 human access | population and built-up (GHSL epoch preceding *y*), distance to roads, night lights (VIIRS annual, V21 and V22 joined) | GHSL P2023A, GRIP4, VIIRS DNB |
-| G7 fire history | years since last burn, burns in the previous 10 years (prior seasons only) | MCD64A1 |
+| G6 human access | population and built-up (latest GHSL epoch ≤ *y* − 1, never projections), distance to roads, night-light level of *y* − 1 (level only: the V21/V22 version break at 2021/2022 has no overlap year) | GHSL P2023A, GRIP4, VIIRS DNB |
+| G7 fire history | years since last burn, burns in the previous 10 years, including January–May of *y* (all before the season opens) | MCD64A1 |
 
 - **Redundancy check before registration:** pairwise correlations and variance inflation within and
   across groups on label-free data; any pair above |r| = 0.9 is reduced to one variable, by a rule
@@ -101,6 +106,16 @@ registration (the pilot applied a QC rule to part of its cohort only).
 - **Fire Weather Index system:** no usable FWI exists in Earth Engine at this scale (GFWED is ~62 km and
   final FWI only). The FWI codes are computed from ERA5-Land hourly noon values with an implementation
   tested against published reference values.
+- **Canopy height excluded:** the ETH 2020 map is built from 2020 imagery and shows 2015–2020 burns in
+  their post-fire state, the same leakage the design rejects WorldCover for.
+- **Terra orbit drift:** Terra's overpass drifts earlier from 2022, which biases daytime LST anomalies
+  low in 2023–2024 independently of dryness. Every contrast involving G4 is repeated on seasons
+  2015–2022 only.
+- **Precipitation:** CHIRPS (5.6 km, gauge-corrected) is primary for antecedent totals; ERA5-Land hourly
+  feeds the FWI codes. (ERA5-Land's daily aggregate spans 23:00–23:00 UTC and is not used for FWI.)
+- **Aggregation to 463 m:** MOD11 (927 m) takes the parent pixel; MOD44B (232 m) the mean of 2 × 2;
+  finer products an area-weighted mean; coarse climate the nearest native pixel, FWI computed on the
+  native 0.1° grid first. Full per-product rules: `PRODUCT_SPECS.md`.
 - **Sensors:** MODIS/VIIRS 500 m throughout; Sentinel-2 is unreliable before 2017 and Landsat 9 starts
   late 2021, so neither enters the primary stack.
 - **Tile-level regime descriptors** for Q4: aridity index and a fuel-limited versus drought-limited
@@ -137,13 +152,17 @@ declared and checked.
 
 ## 7. Inference [lesson 5]
 
-- Independent units: tiles (10) and tile-seasons (30–50). Tile-cluster bootstrap; the transfer matrix by
-  a crossed source × target random-effects model, with dyadic-robust intervals as a check. **The primary
-  unit is fixed at registration;** every other unit is reported, and verdicts that depend on the unit
-  are stated as such.
-- **Precision analysis at registration:** expected interval half-widths for each primary contrast at
-  10 tiles, from the pilot's variance components, so a null can be read against what the design could
-  detect.
+- Independent units: tiles (10) and tile-seasons (30–50). **Primary model for the transfer matrix: a
+  crossed source × target random-effects model with a random pair effect shared by both directions of a
+  pair** (the pilot's transfer heterogeneity is reciprocal; without the pair term, simulated coverage is
+  0.90–0.92). Conservative check: tile-cluster bootstrap resampling tiles in both roles. Target-only
+  resampling is not used (coverage 0.79–0.90). Per-tile contrasts use t or bias-corrected intervals.
+  Every other unit is reported, and verdicts that depend on the unit are stated as such.
+- **Precision analysis (`precision/PRECISION.md`):** at 10 tiles the minimum detectable effects at 80 %
+  power are about 0.07 for V1 − V3, 0.10 for V1 − V2, 0.12 for V2 − V3 and 0.02 for a predictor group's
+  contribution to V3. **V2 − V3 is therefore reported as a bound, not as evidence of no difference.**
+  The temporal variance is an assumption (the pilot had one season per region); the analysis is re-run
+  once the eligible seasons are known, before outcomes, and its update is registered.
 - Equivalence margins ±0.02 and ±0.05 ROC-AUC fixed at registration; nulls reported as bounds.
 - Multiplicity: Holm within each pre-declared family (group ablations; per-feature reversals; Q4
   diagnostics).
