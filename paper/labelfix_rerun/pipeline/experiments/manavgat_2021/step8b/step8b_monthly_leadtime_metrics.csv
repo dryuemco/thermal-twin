@@ -1,0 +1,13 @@
+population,month,positive_count,negative_count,auc_baseline,auc_thermal,pr_auc_baseline,pr_auc_thermal,delta_auc,delta_pr_auc,warning
+all_valid,august,686,21041,0.8171068341789451,0.8871707230489743,0.1000920414367208,0.22483308732197133,0.07006388887002912,0.12474104588525052,
+all_valid,september,0,21041,,,,,,,month september has too few positives (0 < 10)
+all_valid,october,0,21041,,,,,,,month october has too few positives (0 < 10)
+cropland_dominant,august,0,1206,,,,,,,month august has too few positives (0 < 10)
+cropland_dominant,september,0,1206,,,,,,,month september has too few positives (0 < 10)
+cropland_dominant,october,0,1206,,,,,,,month october has too few positives (0 < 10)
+burnable_tree_shrub_grass,august,684,17576,0.7870332384405103,0.8648983395752315,0.1058314531351097,0.22498199378401382,0.07786510113472123,0.11915054064890412,
+burnable_tree_shrub_grass,september,0,17576,,,,,,,month september has too few positives (0 < 10)
+burnable_tree_shrub_grass,october,0,17576,,,,,,,month october has too few positives (0 < 10)
+burnable_tree_shrub,august,618,13241,0.750739037739257,0.8524931998751548,0.11340555118972899,0.25708225147413044,0.10175416213589783,0.14367670028440144,
+burnable_tree_shrub,september,0,13241,,,,,,,month september has too few positives (0 < 10)
+burnable_tree_shrub,october,0,13241,,,,,,,month october has too few positives (0 < 10)

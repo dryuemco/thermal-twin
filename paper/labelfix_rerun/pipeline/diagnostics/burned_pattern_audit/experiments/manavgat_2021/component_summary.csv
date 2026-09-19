@@ -1,0 +1,6 @@
+population,component_id,size_cells,min_row,min_col,max_row,max_col,touches_edge,approximate_area_km2,burn_date_min,burn_date_max,burn_date_span,burn_date_unique_valid_count
+all_valid_burned,1,3046,63,47,129,144,False,761.5,209.0,241.0,32.0,14
+burnable_tree_shrub_grass_burned,1,2934,63,47,129,144,False,733.5,209.0,241.0,32.0,14
+burnable_tree_shrub_grass_burned,2,1,110,103,110,103,False,0.25,209.0,209.0,0.0,1
+burnable_tree_shrub_grass_valid_for_modeling_burned,1,2934,63,47,129,144,False,733.5,209.0,241.0,32.0,14
+burnable_tree_shrub_grass_valid_for_modeling_burned,2,1,110,103,110,103,False,0.25,209.0,209.0,0.0,1

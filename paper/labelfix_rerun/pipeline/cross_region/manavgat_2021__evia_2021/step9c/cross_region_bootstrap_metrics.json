@@ -1,0 +1,393 @@
+{
+  "source_experiment_id": "manavgat_2021",
+  "target_experiment_id": "evia_2021",
+  "n_bootstrap_replicates_requested": 1000,
+  "random_seed": 42,
+  "git_commit": null,
+  "predictions_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__evia_2021\\step9b\\cross_region_transfer_predictions.parquet",
+  "predictions_sha256": "57746d8b4984e97673a008ac6ff2161edbc7b30a08926593777adf4bf83fdea4",
+  "spatial_block_column": "target_spatial_block_id",
+  "resampling_unit": "unique target-region spatial blocks",
+  "resampling_scheme": "sample target blocks with replacement; retain every row in each sampled block",
+  "percentile_interval": [
+    2.5,
+    97.5
+  ],
+  "max_attempts_multiplier": 5,
+  "method_note": "Percentile 95% confidence intervals from TARGET-REGION spatial-block bootstrap (blocks resampled with replacement; all rows in a sampled block are kept together). These are NOT classical p-values and the result is NOT described as statistically significant.",
+  "groups": [
+    {
+      "transfer_direction": "evia_2021_to_manavgat_2021",
+      "population": "all_valid",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 6070,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.09874476913212792,
+          "ci_97_5": -0.07073447857110618,
+          "mean": -0.08458403717947029,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.016696450279489537,
+          "ci_97_5": 0.012668958225915293,
+          "mean": -0.0013775397256340022,
+          "interpretation": "uncertain"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.005092660144627529,
+          "ci_97_5": 0.0033903504588195586,
+          "mean": -0.00089572670520105,
+          "interpretation": "uncertain"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.003390350458819559,
+          "ci_97_5": 0.005092660144627528,
+          "mean": 0.00089572670520105,
+          "interpretation": "uncertain"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.7385431918081177,
+          "ci_97_5": 0.7672768785679807,
+          "mean": 0.7523816574283627
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.649135345278472,
+          "ci_97_5": 0.6864697128387668,
+          "mean": 0.6677976202488923
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.2463545232538232,
+          "ci_97_5": 0.29410254168498495,
+          "mean": 0.26918423558180904
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.24198351471624147,
+          "ci_97_5": 0.2949681699814543,
+          "mean": 0.267806695856175
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.24891404731899977,
+          "ci_97_5": 0.2622209604855695,
+          "mean": 0.2555887058795546
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.24989703188982335,
+          "ci_97_5": 0.2597852774058466,
+          "mean": 0.2546929791743536
+        }
+      }
+    },
+    {
+      "transfer_direction": "evia_2021_to_manavgat_2021",
+      "population": "burnable_tree_shrub",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 4577,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.1349482830673297,
+          "ci_97_5": -0.09652713976987205,
+          "mean": -0.11573667829084702,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.051710008058718726,
+          "ci_97_5": -0.01699517396031928,
+          "mean": -0.034456190087571024,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": 0.049627482398871485,
+          "ci_97_5": 0.06205985574574944,
+          "mean": 0.05604311116192553,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.06205985574574944,
+          "ci_97_5": -0.049627482398871485,
+          "mean": -0.05604311116192553,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.6795254722414483,
+          "ci_97_5": 0.7171173279173403,
+          "mean": 0.6983046355416688
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5591825429088285,
+          "ci_97_5": 0.6051725566444767,
+          "mean": 0.5825679572508217
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.24627259241481841,
+          "ci_97_5": 0.3013549926285058,
+          "mean": 0.27514916948296514
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.21464420408234308,
+          "ci_97_5": 0.26738023716734005,
+          "mean": 0.24069297939539414
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.22473111785451372,
+          "ci_97_5": 0.23787008904239845,
+          "mean": 0.23112899170302012
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.2822048420606562,
+          "ci_97_5": 0.2925877618145362,
+          "mean": 0.28717210286494566
+        }
+      }
+    },
+    {
+      "transfer_direction": "evia_2021_to_manavgat_2021",
+      "population": "burnable_tree_shrub_grass",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 5439,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.1763735992641841,
+          "ci_97_5": -0.14090517515284265,
+          "mean": -0.15800150384023745,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.059060344535385396,
+          "ci_97_5": -0.028677512386054333,
+          "mean": -0.04388992747132792,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": 0.049654666423751374,
+          "ci_97_5": 0.05992828445449907,
+          "mean": 0.05478492107750766,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.05992828445449907,
+          "ci_97_5": -0.049654666423751374,
+          "mean": -0.05478492107750766,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.6836704713414941,
+          "ci_97_5": 0.7168916115500809,
+          "mean": 0.7009435605768849
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5209989479233261,
+          "ci_97_5": 0.5628804488944161,
+          "mean": 0.5429420567366476
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.24301554955316282,
+          "ci_97_5": 0.28875596937463427,
+          "mean": 0.26620810475070866
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.19874627294513791,
+          "ci_97_5": 0.24594648790232798,
+          "mean": 0.22231817727938075
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.20681617941372096,
+          "ci_97_5": 0.21917673695040202,
+          "mean": 0.21317877198087018
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.26323089338887556,
+          "ci_97_5": 0.27242114028386205,
+          "mean": 0.2679636930583778
+        }
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_evia_2021",
+      "population": "all_valid",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 1933,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.06709737466899499,
+          "ci_97_5": -0.04127547213890116,
+          "mean": -0.05419748922676766,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.02875485989229414,
+          "ci_97_5": 0.010444475680848716,
+          "mean": -0.008698986400412327,
+          "interpretation": "uncertain"
+        },
+        "delta_brier": {
+          "ci_2_5": 0.009038958230242807,
+          "ci_97_5": 0.018961259508531256,
+          "mean": 0.01420775493312433,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.01896125950853126,
+          "ci_97_5": -0.009038958230242809,
+          "mean": -0.01420775493312433,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.8773596164981963,
+          "ci_97_5": 0.9008122225513804,
+          "mean": 0.889160798881666
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.8181472554317739,
+          "ci_97_5": 0.8520633199332617,
+          "mean": 0.8349633096548983
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.7084048347832751,
+          "ci_97_5": 0.7688550281026778,
+          "mean": 0.7384361848259846
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.7003457455576132,
+          "ci_97_5": 0.7599016312993967,
+          "mean": 0.7297371984255723
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.1323407428528249,
+          "ci_97_5": 0.14934041140502724,
+          "mean": 0.14102359518022506
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.14706036197553735,
+          "ci_97_5": 0.1633127156984964,
+          "mean": 0.15523135011334938
+        }
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_evia_2021",
+      "population": "burnable_tree_shrub",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 1000,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.048193746681684996,
+          "ci_97_5": 0.00414149244225824,
+          "mean": -0.02219885188285261,
+          "interpretation": "uncertain"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.006331631177402453,
+          "ci_97_5": 0.0354223989122018,
+          "mean": 0.015056873915431932,
+          "interpretation": "uncertain"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.013302987411704378,
+          "ci_97_5": 0.007447406946144679,
+          "mean": -0.0031017299379461835,
+          "interpretation": "uncertain"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.007447406946144686,
+          "ci_97_5": 0.013302987411704372,
+          "mean": 0.0031017299379461835,
+          "interpretation": "uncertain"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.5748222758772564,
+          "ci_97_5": 0.6359138406181357,
+          "mean": 0.6044681312360853
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5498860148584661,
+          "ci_97_5": 0.6159058265863319,
+          "mean": 0.5822692793532328
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.726653673371863,
+          "ci_97_5": 0.7920423954564064,
+          "mean": 0.7594224294476977
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.742097934463333,
+          "ci_97_5": 0.805990636056149,
+          "mean": 0.7744793033631295
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.24932308674373574,
+          "ci_97_5": 0.27582544280081983,
+          "mean": 0.26276625783441526
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.2468382945508016,
+          "ci_97_5": 0.27227673691526727,
+          "mean": 0.2596645278964691
+        }
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_evia_2021",
+      "population": "burnable_tree_shrub_grass",
+      "n_successful_replicates": 1000,
+      "n_target_blocks": 1048,
+      "confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.02761008295501273,
+          "ci_97_5": 0.015452817427244655,
+          "mean": -0.00560923066661007,
+          "interpretation": "uncertain"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": 0.0016371787067299367,
+          "ci_97_5": 0.03938750572520814,
+          "mean": 0.020201031271955813,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.01361394454369186,
+          "ci_97_5": 0.005000462871865976,
+          "mean": -0.004559934043775114,
+          "interpretation": "uncertain"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.005000462871865978,
+          "ci_97_5": 0.013613944543691858,
+          "mean": 0.004559934043775114,
+          "interpretation": "uncertain"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.5990227672052594,
+          "ci_97_5": 0.6569858938242183,
+          "mean": 0.6284385649183158
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5938688449715314,
+          "ci_97_5": 0.6508275364675137,
+          "mean": 0.6228293342517058
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.7221823411416983,
+          "ci_97_5": 0.7863106339100338,
+          "mean": 0.7538099639773852
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.7445846292733383,
+          "ci_97_5": 0.8040873144775011,
+          "mean": 0.7740109952493411
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.23965278633565726,
+          "ci_97_5": 0.26429449468232036,
+          "mean": 0.2517072601752226
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.23479708338101563,
+          "ci_97_5": 0.25887905753909674,
+          "mean": 0.24714732613144746
+        }
+      }
+    }
+  ],
+  "created_at": "2026-09-19T09:28:18.523223+00:00"
+}

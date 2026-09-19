@@ -1,0 +1,68 @@
+{
+  "analysis_id": "bad06061e02ea00942bf6c407bf1e0203adcf23531941b6aad17fa8c64dd267b",
+  "experiment_id": "manavgat_2021",
+  "block_size_cells": 10,
+  "nominal_scale": "approximately_5_km",
+  "primary_population": "all_valid",
+  "baseline_roc_auc": 0.8491562981357443,
+  "thermal_roc_auc": 0.9003013314560826,
+  "delta_roc_auc": 0.05114503332033826,
+  "baseline_pr_auc": 0.4428050642964897,
+  "thermal_pr_auc": 0.5673525104208121,
+  "delta_pr_auc": 0.12454744612432245,
+  "feature_sets": {
+    "baseline": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant"
+    ],
+    "thermal_additional": [
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "thermal_model_full": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ]
+  },
+  "model_class": "RandomForestClassifier",
+  "model_hyperparameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 3,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "cv": {
+    "class": "StratifiedGroupKFold",
+    "n_splits": 5,
+    "random_state": 42
+  }
+}

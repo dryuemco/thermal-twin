@@ -1,0 +1,265 @@
+{
+  "analysis_id": "f5f97cec4733da613e64f9e64a9b56fab774bb187417d8c9d54f60dcc139a24b",
+  "created_at": "2026-09-19T08:49:19.265092+00:00",
+  "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+  "scientific_configuration": {
+    "analysis_schema_version": "step8.big_block_robustness.v2",
+    "migration_notes_v1_to_v2": [
+      "Added a canonical, positive-is-better Brier field (`brier_improvement` = baseline_brier - thermal_brier) alongside the deprecated legacy `delta_brier` field (thermal_brier - baseline_brier, negative-is-better), which is retained unchanged for backward compatibility.",
+      "The previously supplied, incorrect small-block reference figures remain only a diagnostic cross-check (`reference_metric_mismatch`); the frozen on-disk Step8B/Step8C artifacts are, and always were, the sole scientific source of truth for the small-block comparison row.",
+      "Split the single robustness verdict into `support_robustness_status` (whether bootstrap support for a positive thermal contribution is retained across block scales) and `effect_magnitude_stability_status` (whether the SIZE of that contribution grows, shrinks, or stays stable across block scales) -- these are independent questions and were previously conflated under one field name (`final_robustness_status`).",
+      "Renamed the lst_anomaly_mean provenance key `legacy_feature_name` to `column_name` (value unchanged: 'lst_anomaly_mean'); the dataset column itself is still never renamed by this analysis.",
+      "Added reporting provenance fields (input dataset / metric source / bootstrap source / OOF predictions paths and SHA-256 hashes, git commit, created_at, and report_regeneration_only/models_refit/bootstrap_rerun flags) so a report-only regeneration is distinguishable from a full fit+bootstrap run in the output artifacts themselves."
+    ],
+    "reporting_provenance": {
+      "input_dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "input_dataset_sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "metric_source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "metric_source_sha256": "53189b23592cd02adc9a5cf26623eb4404eb0258fa0ebfbdee98510355982f9b",
+      "bootstrap_source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8c\\step8c_bootstrap_metrics.json",
+      "bootstrap_source_sha256": "50010888b1e128d019bb871027a56acd4ee38d4302cb99e8fe78d87037ad5a85",
+      "oof_predictions_path": null,
+      "oof_predictions_sha256": null,
+      "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+      "created_at": "2026-09-19T08:49:19.263593+00:00"
+    },
+    "experiment_id": "manavgat_2021",
+    "primary_population": "burnable_tree_shrub_grass",
+    "block_sizes_cells": [
+      10,
+      20
+    ],
+    "nominal_scales": {
+      "10": "approximately_5_km",
+      "20": "approximately_10_km"
+    },
+    "fixed_grid_origin": {
+      "row_500m": 0,
+      "col_500m": 0
+    },
+    "block_construction": "block_row=floor(row_500m/block_size_cells); block_col=floor(col_500m/block_size_cells); spatial_block_id=block{size}_{block_row}_{block_col} (via step8b.add_spatial_block_id, unmodified)",
+    "original_small_block_reference_size_cells": 2,
+    "canonical_grid": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_grid_valid_mask.tif",
+      "sha256": "f934200142fdf890a0168036d435e4dd6f3ff7b517377fa93925db577e635bb3",
+      "width": 175,
+      "height": 138,
+      "crs": "EPSG:4326"
+    },
+    "baseline_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant"
+    ],
+    "thermal_additional_features": [
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "thermal_model_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "categorical_features": [
+      "landcover_dominant"
+    ],
+    "target_column": "burned",
+    "lst_anomaly_mean_provenance": {
+      "column_name": "lst_anomaly_mean",
+      "semantic_identity": "mean_standardized_lst_anomaly",
+      "source_product": "anomaly_zscore",
+      "semantic_name_mismatch": true,
+      "note": "lst_anomaly_mean is a mean of a standardized (z-scored) LST anomaly raster, not an absolute-Celsius anomaly. The column name is kept unchanged in this patch; only this provenance note is added."
+    },
+    "model_class": "RandomForestClassifier",
+    "model_name": "random_forest",
+    "model_hyperparameters": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced",
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 3,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "preprocessing": {
+      "numeric": "SimpleImputer(strategy=median)",
+      "categorical": "SimpleImputer(strategy=most_frequent) + OneHotEncoder(handle_unknown=ignore)",
+      "fit_scope": "inside each training fold only"
+    },
+    "cv": {
+      "class": "StratifiedGroupKFold",
+      "n_splits": 5,
+      "shuffle": true,
+      "random_state": 42,
+      "dynamic_fold_reduction": false,
+      "strict_folds": true
+    },
+    "bootstrap": {
+      "requested_replicates": 1000,
+      "random_state": 42,
+      "ci_method": "2.5/97.5 percentile",
+      "unit": "corresponding big spatial block",
+      "paired": true,
+      "minimum_valid_replicates": 900
+    },
+    "primary_estimands": [
+      "delta_roc_auc = thermal_oof_roc_auc - baseline_oof_roc_auc",
+      "delta_pr_auc = thermal_oof_pr_auc - baseline_oof_pr_auc",
+      "brier_improvement = baseline_oof_brier - thermal_oof_brier (canonical; POSITIVE means the thermal model has the lower/better Brier score); the deprecated delta_brier field uses the opposite sign convention (thermal - baseline, negative-is-better) and is retained only for backward compatibility."
+    ],
+    "interpretation_rules": {
+      "per_metric": {
+        "supported_positive": "ROC-AUC/PR-AUC percentile CI entirely above zero",
+        "uncertain": "percentile CI includes zero",
+        "supported_negative": "ROC-AUC/PR-AUC percentile CI entirely below zero"
+      },
+      "brier_per_metric": {
+        "supported_improvement": "brier_improvement percentile CI entirely above zero",
+        "uncertain": "brier_improvement percentile CI includes zero",
+        "supported_degradation": "brier_improvement percentile CI entirely below zero"
+      },
+      "per_block_size_overall": {
+        "retained": "both ROC-AUC and PR-AUC delta CIs are supported_positive",
+        "partially_retained": "exactly one of ROC-AUC/PR-AUC delta CIs is supported_positive",
+        "not_retained": "neither ROC-AUC nor PR-AUC delta CI is supported_positive"
+      },
+      "support_robustness_status_across_block_sizes": {
+        "strongly_robust": "both predefined block sizes are retained",
+        "moderately_robust": "one retained and the other partially_retained (or both partially_retained)",
+        "scale_sensitive": "support present at one block size and not_retained at the other",
+        "not_robust": "neither block size is retained or partially_retained"
+      },
+      "effect_magnitude_stability_status": {
+        "decreases_with_block_scale": "delta_roc_auc_relative_reduction is >= +5% (an actual reduction) at both the small-to-10-cell and 10-to-20-cell steps",
+        "increases_with_block_scale": "delta_roc_auc_relative_reduction is <= -5% (an increase) at both steps",
+        "stable_across_block_scale": "delta_roc_auc_relative_reduction is within +/-5% at both steps",
+        "non_monotonic": "the two relative reductions disagree in sign or magnitude band",
+        "unavailable": "a required delta_roc_auc value is missing",
+        "field_semantics": "relative_reduction = (previous - current) / abs(previous); POSITIVE means the later block scale's delta is SMALLER (an actual reduction), NEGATIVE means it is LARGER (an increase). Reported per metric (delta_roc_auc_relative_reduction_*, delta_pr_auc_relative_reduction_*) and per scale pair (small_to_10, small_to_20, 10_to_20).",
+        "note": "This status answers a DIFFERENT question than support_robustness_status: whether the SIZE of the thermal contribution grows/shrinks/stays stable, not whether bootstrap support for a positive contribution is retained. The two must be reported separately."
+      },
+      "no_significance_language": "this analysis never uses the phrase 'statistically significant'; wording is restricted to bootstrap interval support/uncertain/crossing zero"
+    },
+    "reference_check": {
+      "expected": {
+        "population": "burnable_tree_shrub_grass",
+        "baseline_roc_auc": 0.7398,
+        "thermal_roc_auc": 0.8629,
+        "delta_roc_auc": 0.1231,
+        "delta_roc_auc_ci": [
+          0.1138,
+          0.133
+        ],
+        "delta_pr_auc": 0.2325,
+        "delta_pr_auc_ci": [
+          0.2102,
+          0.2555
+        ]
+      },
+      "actual": {
+        "baseline_roc_auc": 0.8411807102607785,
+        "thermal_roc_auc": 0.90807357717935,
+        "delta_roc_auc": 0.06689286691857155,
+        "delta_roc_auc_ci": [
+          0.06049303885315217,
+          0.07320023457732208
+        ],
+        "delta_pr_auc": 0.17571211849617985,
+        "delta_pr_auc_ci": [
+          0.1545369805112801,
+          0.19499781027615876
+        ],
+        "baseline_brier": 0.13226574586190404,
+        "thermal_brier": 0.09492372943117652,
+        "delta_brier": -0.037342016430727515,
+        "delta_brier_ci": [
+          -0.04018044745923271,
+          -0.03436289655559801
+        ]
+      },
+      "tolerance": 0.005,
+      "reference_metric_mismatch": true,
+      "mismatched_fields": [
+        "baseline_roc_auc",
+        "thermal_roc_auc",
+        "delta_roc_auc",
+        "delta_pr_auc",
+        "delta_roc_auc_ci",
+        "delta_pr_auc_ci"
+      ],
+      "note": "reference_metric_mismatch flags a diagnostic discrepancy against a previously supplied (incorrect) reference figure for burnable_tree_shrub_grass. It does NOT invalidate the frozen Step8B/Step8C disk artifacts read above, which remain the sole scientific source of truth for this analysis regardless of this flag's value."
+    },
+    "protected_original_inputs": {
+      "step8a/step8a_500m_modeling_dataset.parquet": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+        "sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49"
+      },
+      "step8b/step8b_model_comparison_metrics.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_model_comparison_metrics.json",
+        "sha256": "53189b23592cd02adc9a5cf26623eb4404eb0258fa0ebfbdee98510355982f9b"
+      },
+      "step8b/step8b_predictions.parquet": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_predictions.parquet",
+        "sha256": "55c6215bfd19a324796426adc2f82611e5cbf51e969640b21bfced7497891912"
+      },
+      "step8c/step8c_bootstrap_metrics.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8c\\step8c_bootstrap_metrics.json",
+        "sha256": "50010888b1e128d019bb871027a56acd4ee38d4302cb99e8fe78d87037ad5a85"
+      },
+      "step8e/final_step8_report.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8e\\final_step8_report.json",
+        "sha256": "56da7a93a73c83b46011958d5c45c8c1c9ab01ce0bb01ae6ba62401c3623248b"
+      }
+    },
+    "package_versions": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "scikit_learn": "1.9.0"
+    },
+    "prohibited_actions": [
+      "modify_step8a_modeling_dataset",
+      "regenerate_predictors",
+      "rerun_step5_step5c_step7",
+      "regenerate_step8a",
+      "overwrite_existing_step8b_step8c_outputs",
+      "add_new_model_type",
+      "change_rf_hyperparameters",
+      "feature_subset_tuning",
+      "drop_features_based_on_importance",
+      "change_population_definition",
+      "random_row_split",
+      "cell_level_bootstrap",
+      "model_calibration_or_threshold_optimization",
+      "seam_analysis_or_seam_correction",
+      "rename_lst_anomaly_mean_column",
+      "run_manavgat_bejis_kozan_or_transfer_experiments",
+      "post_hoc_block_selection",
+      "hyperparameter_tuning_after_seeing_results"
+    ]
+  }
+}

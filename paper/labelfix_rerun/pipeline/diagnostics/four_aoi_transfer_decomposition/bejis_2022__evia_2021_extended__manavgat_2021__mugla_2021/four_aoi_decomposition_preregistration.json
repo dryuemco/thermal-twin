@@ -1,0 +1,81 @@
+{
+  "schema_version": "four_aoi_transfer_decomposition.v1",
+  "analysis": "multi_aoi_transfer_gap_recovery_decomposition",
+  "canonical_set_id": "bejis_2022__evia_2021_extended__manavgat_2021__mugla_2021",
+  "aois": [
+    "bejis_2022",
+    "evia_2021_extended",
+    "manavgat_2021",
+    "mugla_2021"
+  ],
+  "n_ordered_directions_expected": 12,
+  "n_ordered_directions_resolved": 12,
+  "definitions": {
+    "raw_gap": "within_target_auc - raw_transfer_auc",
+    "adaptation_effect": "adapted_auc - raw_transfer_auc",
+    "remaining_gap": "within_target_auc - adapted_auc",
+    "recovered_fraction": "adaptation_effect / raw_gap",
+    "remaining_fraction": "remaining_gap / raw_gap",
+    "identity": "recovered_fraction + remaining_fraction == 1",
+    "identity_tolerance": 1e-08
+  },
+  "negative_recovery_convention": {
+    "clipping": "forbidden",
+    "status": "negative_recovery",
+    "meaning": "adaptation did not merely fail to close the gap, it widened the raw transfer gap",
+    "fraction_defined_when": "raw_gap > 0"
+  },
+  "fraction_suppression": {
+    "condition": "raw_gap <= 0",
+    "status": "fraction_not_interpretable_raw_at_or_above_within"
+  },
+  "ratio_guard": {
+    "rule": "abs(raw_gap_rep) < 1e-06",
+    "action": "replicate excluded from the ratio CI and counted"
+  },
+  "uncertainty": {
+    "source": "frozen Step10 spatial-block bootstrap replicates",
+    "within_region_reference_available_per_replicate": true,
+    "joint_uncertainty": true,
+    "note": "within, raw and adapted are all resampled on the SAME target spatial-block replicate, so the fraction CIs carry full joint uncertainty across all three terms.",
+    "ci": "2.5/97.5 percentile"
+  },
+  "status_vocabulary": [
+    "supported_recovery_above_chance",
+    "supported_relative_recovery_but_chance_not_excluded",
+    "recovery_effect_uncertain",
+    "negative_recovery",
+    "fraction_not_interpretable"
+  ],
+  "status_separation": {
+    "adapted_minus_raw_positive": "relative improvement ONLY",
+    "adapted_ci_above_chance": "above-chance ranking support",
+    "never_merged_into": "a single 'successful recovery' status",
+    "chance_level": {
+      "roc_auc": 0.5,
+      "pr_auc": "positive-class prevalence (NOT 0.5)"
+    }
+  },
+  "model_families": [
+    "baseline",
+    "thermal"
+  ],
+  "adaptation_methods": [
+    "regionwise_zscore",
+    "coral_after_regionwise_zscore"
+  ],
+  "metrics": [
+    "roc_auc",
+    "pr_auc"
+  ],
+  "adaptation_methods_kept_separate": true,
+  "reruns_nothing": [
+    "step8",
+    "step9",
+    "step10 models",
+    "step10 adaptation",
+    "step10 predictions",
+    "step10 bootstrap"
+  ],
+  "supersedes": "the earlier two-region 27-31% recovered / 69-73% remaining figures, which must not be carried forward"
+}
