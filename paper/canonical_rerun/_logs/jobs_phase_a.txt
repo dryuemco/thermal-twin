@@ -1,0 +1,19 @@
+regen_transfer_ci
+anomaly_only paper/canonical_rerun/_staging paper/canonical_rerun/no_coord_channels.json
+model_capacity paper/canonical_rerun/_staging paper/canonical_rerun/model_capacity.json
+verify_matched_gap paper/canonical_rerun/matched_frame_gap.csv
+verify_matched paper/canonical_rerun/_staging
+verify_aoi_transfer paper/canonical_rerun/_staging/aoi_frame_transfer.csv
+frozen_mugla_verify_aoi_transfer paper/canonical_rerun/_staging/frozen_mugla_verify_aoi_transfer.csv
+scar_definition_sweep paper/canonical_rerun/scar_definition_sweep.csv
+pool_decomposition paper/canonical_rerun/pool_decomposition.json
+prevalence_control paper/canonical_rerun/_staging
+scar_increment paper/canonical_rerun/_staging
+positive_control paper/canonical_rerun/_staging paper/canonical_rerun/positive_control.json
+distance_curve paper/canonical_rerun/_staging paper/canonical_rerun/distance_curve.json
+d_per_source paper/canonical_rerun/_staging
+verify_transfer_counts
+verify_aoi_frame paper/canonical_rerun/aoi_frame_auc.csv
+frozen_mugla_verify_aoi_frame paper/canonical_rerun/aoi_frame_auc_frozen_mugla.csv
+verify_collar_ci paper/canonical_rerun/collar_frame_bootstrap.csv
+verify_mugla_collar paper/canonical_rerun/mugla_two_event_collar.csv

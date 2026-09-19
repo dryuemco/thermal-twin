@@ -1,0 +1,96 @@
+==================================================================================
+CHECK 1  COLLAR ARM UNDER THE PAPER'S OWN REVERSAL CRITERION (3.10)
+  bootstrap-supported requires EACH region's own interval to exclude 0.5
+==================================================================================
+
+--- elevation_mean ---
+  manavgat_2021          0.561 [0.449, 0.674]  above  excludes 0.5: no 
+  bejis_2022             0.614 [0.496, 0.722]  above  excludes 0.5: no 
+  mugla_2021             0.606 [0.525, 0.685]  above  excludes 0.5: YES
+  evia_2021_extended     0.648 [0.550, 0.740]  above  excludes 0.5: YES
+  montiferru_2021        0.581 [0.391, 0.759]  above  excludes 0.5: no 
+
+--- current_lst_mean ---
+  manavgat_2021          0.386 [0.289, 0.478]  below  excludes 0.5: YES
+  bejis_2022             0.405 [0.334, 0.482]  below  excludes 0.5: YES
+  mugla_2021             0.332 [0.275, 0.392]  below  excludes 0.5: YES
+  evia_2021_extended     0.286 [0.203, 0.375]  below  excludes 0.5: YES
+  montiferru_2021        0.376 [0.251, 0.520]  below  excludes 0.5: no 
+
+--- current_tvdi_mean ---
+  manavgat_2021          0.392 [0.287, 0.490]  below  excludes 0.5: YES
+  bejis_2022             0.454 [0.370, 0.548]  below  excludes 0.5: no 
+  mugla_2021             0.342 [0.275, 0.412]  below  excludes 0.5: YES
+  evia_2021_extended     0.250 [0.168, 0.336]  below  excludes 0.5: YES
+  montiferru_2021        0.361 [0.236, 0.510]  below  excludes 0.5: no 
+
+--- lst_anomaly_mean ---
+  manavgat_2021          0.462 [0.398, 0.517]  below  excludes 0.5: no 
+  bejis_2022             0.392 [0.324, 0.460]  below  excludes 0.5: YES
+  mugla_2021             0.507 [0.421, 0.598]  above  excludes 0.5: no 
+  evia_2021_extended     0.584 [0.497, 0.669]  above  excludes 0.5: no 
+  montiferru_2021        0.400 [0.291, 0.540]  below  excludes 0.5: no 
+
+--- tvdi_difference_mean ---
+  manavgat_2021          0.437 [0.370, 0.504]  below  excludes 0.5: no 
+  bejis_2022             0.451 [0.383, 0.521]  below  excludes 0.5: no 
+  mugla_2021             0.509 [0.417, 0.597]  above  excludes 0.5: no 
+  evia_2021_extended     0.489 [0.417, 0.566]  below  excludes 0.5: no 
+  montiferru_2021        0.384 [0.288, 0.504]  below  excludes 0.5: no 
+
+--- ndvi_mean ---
+  manavgat_2021          0.621 [0.563, 0.674]  above  excludes 0.5: YES
+  bejis_2022             0.618 [0.551, 0.679]  above  excludes 0.5: YES
+  mugla_2021             0.652 [0.606, 0.695]  above  excludes 0.5: YES
+  evia_2021_extended     0.663 [0.562, 0.752]  above  excludes 0.5: YES
+  montiferru_2021        0.582 [0.446, 0.699]  above  excludes 0.5: no 
+
+==================================================================================
+CHECK 2  WHAT SIGN DO THE FIVE REGIONS AGREE ON, AND IS IT A PROXY?
+  signed AUC < 0.5 means HIGHER value associated with LESS burning
+==================================================================================
+
+--- current_lst_mean ---
+  region                   collar   | elev   | ndvi  r(f,elev)  r(f,ndvi)
+  manavgat_2021             0.386    0.402    0.440     -0.682     -0.554
+  bejis_2022                0.405    0.509    0.486     -0.474     -0.783
+  mugla_2021                0.332    0.363    0.404     -0.461     -0.697
+  evia_2021_extended        0.286    0.327    0.279     -0.542     -0.828
+  montiferru_2021           0.376    0.392    0.368     -0.518     -0.918
+
+--- current_tvdi_mean ---
+  region                   collar   | elev   | ndvi  r(f,elev)  r(f,ndvi)
+  manavgat_2021             0.392    0.394    0.442     -0.723     -0.403
+  bejis_2022                0.454    0.577    0.485     -0.604     -0.392
+  mugla_2021                0.342    0.377    0.402     -0.532     -0.529
+  evia_2021_extended        0.250    0.276    0.264     -0.585     -0.724
+  montiferru_2021           0.361    0.359    0.365     -0.501     -0.831
+
+--- lst_anomaly_mean ---
+  region                   collar   | elev   | ndvi  r(f,elev)  r(f,ndvi)
+  manavgat_2021             0.462    0.456    0.463      0.026      0.035
+  bejis_2022                0.392    0.491    0.406     -0.107     -0.209
+  mugla_2021                0.507    0.468    0.523      0.302     -0.061
+  evia_2021_extended        0.584    0.636    0.581     -0.157     -0.052
+  montiferru_2021           0.400    0.402    0.451      0.260     -0.256
+
+==================================================================================
+CHECK 3  HOW MANY INDEPENDENT THERMAL AXES ARE THERE? (collar frame)
+==================================================================================
+
+  manavgat_2021  (n=8070)
+   r(lst,fused)=1.00  r(lst,downscaled)=0.97  r(lst,tvdi)=0.98  r(anom,tvdi_diff)=0.93
+
+  bejis_2022  (n=5243)
+   r(lst,fused)=0.99  r(lst,downscaled)=0.97  r(lst,tvdi)=0.87  r(anom,tvdi_diff)=0.64
+
+  mugla_2021  (n=18019)
+   r(lst,fused)=1.00  r(lst,downscaled)=0.97  r(lst,tvdi)=0.97  r(anom,tvdi_diff)=0.94
+
+  evia_2021_extended  (n=4957)
+   r(lst,fused)=1.00  r(lst,downscaled)=0.98  r(lst,tvdi)=0.96  r(anom,tvdi_diff)=0.67
+
+  montiferru_2021  (n=2488)
+   r(lst,fused)=1.00  r(lst,downscaled)=0.99  r(lst,tvdi)=0.97  r(anom,tvdi_diff)=0.86
+
+wrote paper/canonical_rerun/collar_frame_bootstrap.csv

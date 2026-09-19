@@ -33,6 +33,14 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 
 STAGING, OUT = sys.argv[1], sys.argv[2]
 REGIONS = ["manavgat_2021", "bejis_2022", "mugla_2021",
@@ -47,13 +55,13 @@ SEED = 42
 CLFS = {
     "rf_canonical": lambda: RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                    class_weight="balanced",
-                                                   random_state=SEED, n_jobs=-1),
+                                                   random_state=SEED, n_jobs=4),
     "rf_shallow": lambda: RandomForestClassifier(n_estimators=300, max_depth=6,
                                                  min_samples_leaf=50, class_weight="balanced",
-                                                 random_state=SEED, n_jobs=-1),
+                                                 random_state=SEED, n_jobs=4),
     "rf_leaf200": lambda: RandomForestClassifier(n_estimators=300, min_samples_leaf=200,
                                                  class_weight="balanced",
-                                                 random_state=SEED, n_jobs=-1),
+                                                 random_state=SEED, n_jobs=4),
     "logistic": lambda: LogisticRegression(penalty="l2", C=1.0, max_iter=2000,
                                            class_weight="balanced", random_state=SEED),
 }
@@ -71,7 +79,7 @@ def build(name, feats):
 
 
 def load(reg):
-    d = pd.read_parquet(f"{STAGING}/{reg}.parquet",
+    d = _canonical.load(reg,
                         columns=["burned", "valid_for_modeling", "burnable_tree_shrub_grass",
                                  "row_500m", "col_500m"] + TH)
     return d[(d.valid_for_modeling == True) & (d.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
@@ -82,7 +90,7 @@ transfers, withins = [], []
 
 for src in REGIONS:
     s = data[src]
-    fitted = {n: {f: build(n, feats).fit(s[feats], s.burned)
+    fitted = {n: {f: build(n, feats).fit(*_guard(s[feats], s.burned))
                   for f, feats in (("thermal", TH), ("baseline", BASE))} for n in CLFS}
     print(f"fitted {src}", flush=True)
     for tgt in REGIONS:
@@ -108,7 +116,7 @@ for reg in REGIONS:
             oof = np.full(len(df), np.nan)
             for tr_i, te_i in StratifiedGroupKFold(5, shuffle=True, random_state=SEED).split(
                     df[feats], df.burned, groups=blk):
-                oof[te_i] = build(n, feats).fit(df.iloc[tr_i][feats], df.iloc[tr_i].burned) \
+                oof[te_i] = build(n, feats).fit(*_guard(df.iloc[tr_i][feats], df.iloc[tr_i].burned)) \
                     .predict_proba(df.iloc[te_i][feats])[:, 1]
             row[f"{n}_{f}"] = float(roc_auc_score(df.burned, oof))
         row[f"{n}_increment"] = row[f"{n}_thermal"] - row[f"{n}_baseline"]

@@ -30,10 +30,17 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 
 OUT = sys.argv[1]
 REG = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021"]
-ROOT = "repo/outputs/experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
 TH = ["ndvi_mean", "elevation_mean", "slope_mean", "landcover_dominant", "lst_anomaly_mean",
       "current_lst_mean", "current_tvdi_mean", "tvdi_difference_mean",
       "downscaled_lst_mean", "fused_lst_mean"]
@@ -49,11 +56,11 @@ def build():
     return Pipeline([("p", ColumnTransformer(tr)),
                      ("c", RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                   class_weight="balanced",
-                                                  random_state=SEED, n_jobs=-1))])
+                                                  random_state=SEED, n_jobs=4))])
 
 
 def load(r):
-    d = pd.read_parquet(ROOT.format(r))
+    d = _canonical.load(r)
     d = d[(d.valid_for_modeling == True) &  # noqa: E712
           (d.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
     r0, c0 = int(d.row_500m.min()), int(d.col_500m.min())
@@ -85,7 +92,7 @@ for collar in [None, 10, 5]:
             try:
                 for tr_i, te_i in StratifiedGroupKFold(5, shuffle=True, random_state=SEED).split(
                         d[TH], d.burned, groups=g):
-                    oof[te_i] = build().fit(d.iloc[tr_i][TH], d.iloc[tr_i].burned) \
+                    oof[te_i] = build().fit(*_guard(d.iloc[tr_i][TH], d.iloc[tr_i].burned)) \
                         .predict_proba(d.iloc[te_i][TH])[:, 1]
                 vals.append(roc_auc_score(d.burned, oof))
             except Exception as e:

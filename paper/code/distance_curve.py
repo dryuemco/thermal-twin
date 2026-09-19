@@ -38,6 +38,14 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import roc_auc_score
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 
 STAGING, OUT = sys.argv[1], sys.argv[2]
 
@@ -82,11 +90,11 @@ def build():
     return Pipeline([("preprocess", ColumnTransformer(tr)),
                      ("clf", RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                     class_weight="balanced",
-                                                    random_state=SEED, n_jobs=-1))])
+                                                    random_state=SEED, n_jobs=4))])
 
 
 def load(reg):
-    df = pd.read_parquet(f"{STAGING}/{reg}.parquet",
+    df = _canonical.load(reg,
                          columns=["burned", "valid_for_modeling", "burnable_tree_shrub_grass",
                                   "row_500m", "col_500m"] + THERMAL)
     return df[(df.valid_for_modeling == True) & (df.burnable_tree_shrub_grass == True)].reset_index(drop=True)  # noqa: E712
@@ -106,7 +114,7 @@ for reg in REGIONS:
             tgt = df[~src_mask]
             if src.burned.nunique() < 2 or tgt.burned.nunique() < 2:
                 continue
-            m = build().fit(src[THERMAL], src.burned)
+            m = build().fit(*_guard(src[THERMAL], src.burned))
             p = m.predict_proba(tgt[THERMAL])[:, 1]
             d = (tgt[col] - cut).abs() * km
             for lo, hi in zip(BINS[:-1], BINS[1:]):

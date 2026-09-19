@@ -1,0 +1,231 @@
+{
+ "splits": [
+  {
+   "region": "manavgat_2021",
+   "split_axis": "east_west",
+   "direction": "low_to_high",
+   "n_source": 10293,
+   "n_target": 10218,
+   "source_positives": 700,
+   "target_positives": 84,
+   "thermal_auc": 0.6954136006089826,
+   "baseline_auc": 0.6612064995723965
+  },
+  {
+   "region": "manavgat_2021",
+   "split_axis": "east_west",
+   "direction": "high_to_low",
+   "n_source": 10218,
+   "n_target": 10293,
+   "source_positives": 84,
+   "target_positives": 700,
+   "thermal_auc": 0.557440469985555,
+   "baseline_auc": 0.5801725960894104
+  },
+  {
+   "region": "manavgat_2021",
+   "split_axis": "north_south",
+   "direction": "low_to_high",
+   "n_source": 10285,
+   "n_target": 10226,
+   "source_positives": 0,
+   "target_positives": 784,
+   "skipped": "single_class"
+  },
+  {
+   "region": "manavgat_2021",
+   "split_axis": "north_south",
+   "direction": "high_to_low",
+   "n_source": 10226,
+   "n_target": 10285,
+   "source_positives": 784,
+   "target_positives": 0,
+   "skipped": "single_class"
+  },
+  {
+   "region": "bejis_2022",
+   "split_axis": "east_west",
+   "direction": "low_to_high",
+   "n_source": 7660,
+   "n_target": 7530,
+   "source_positives": 640,
+   "target_positives": 460,
+   "thermal_auc": 0.7500004612262468,
+   "baseline_auc": 0.7844841953139414
+  },
+  {
+   "region": "bejis_2022",
+   "split_axis": "east_west",
+   "direction": "high_to_low",
+   "n_source": 7530,
+   "n_target": 7660,
+   "source_positives": 460,
+   "target_positives": 640,
+   "thermal_auc": 0.578079037571225,
+   "baseline_auc": 0.5604562856125356
+  },
+  {
+   "region": "bejis_2022",
+   "split_axis": "north_south",
+   "direction": "low_to_high",
+   "n_source": 7618,
+   "n_target": 7572,
+   "source_positives": 357,
+   "target_positives": 743,
+   "thermal_auc": 0.7127766608519955,
+   "baseline_auc": 0.6618906346479378
+  },
+  {
+   "region": "bejis_2022",
+   "split_axis": "north_south",
+   "direction": "high_to_low",
+   "n_source": 7572,
+   "n_target": 7618,
+   "source_positives": 743,
+   "target_positives": 357,
+   "thermal_auc": 0.6026100841107687,
+   "baseline_auc": 0.6131845934903364
+  },
+  {
+   "region": "mugla_2021",
+   "split_axis": "east_west",
+   "direction": "low_to_high",
+   "n_source": 20912,
+   "n_target": 20818,
+   "source_positives": 1449,
+   "target_positives": 1462,
+   "thermal_auc": 0.4483561338576868,
+   "baseline_auc": 0.3777302004150613
+  },
+  {
+   "region": "mugla_2021",
+   "split_axis": "east_west",
+   "direction": "high_to_low",
+   "n_source": 20818,
+   "n_target": 20912,
+   "source_positives": 1462,
+   "target_positives": 1449,
+   "thermal_auc": 0.6364793958645392,
+   "baseline_auc": 0.628251311694143
+  },
+  {
+   "region": "mugla_2021",
+   "split_axis": "north_south",
+   "direction": "low_to_high",
+   "n_source": 21092,
+   "n_target": 20638,
+   "source_positives": 774,
+   "target_positives": 2137,
+   "thermal_auc": 0.5334863205487103,
+   "baseline_auc": 0.5031280606896333
+  },
+  {
+   "region": "mugla_2021",
+   "split_axis": "north_south",
+   "direction": "high_to_low",
+   "n_source": 20638,
+   "n_target": 21092,
+   "source_positives": 2137,
+   "target_positives": 774,
+   "thermal_auc": 0.2941007998661082,
+   "baseline_auc": 0.5492413519103108
+  },
+  {
+   "region": "evia_2021_extended",
+   "split_axis": "east_west",
+   "direction": "low_to_high",
+   "n_source": 4697,
+   "n_target": 4601,
+   "source_positives": 2052,
+   "target_positives": 612,
+   "thermal_auc": 0.5892357987734242,
+   "baseline_auc": 0.505681473725949
+  },
+  {
+   "region": "evia_2021_extended",
+   "split_axis": "east_west",
+   "direction": "high_to_low",
+   "n_source": 4601,
+   "n_target": 4697,
+   "source_positives": 612,
+   "target_positives": 2052,
+   "thermal_auc": 0.6453681594239749,
+   "baseline_auc": 0.48174025433253376
+  },
+  {
+   "region": "evia_2021_extended",
+   "split_axis": "north_south",
+   "direction": "low_to_high",
+   "n_source": 4716,
+   "n_target": 4582,
+   "source_positives": 2564,
+   "target_positives": 100,
+   "thermal_auc": 0.6488911200356985,
+   "baseline_auc": 0.5130655957161981
+  },
+  {
+   "region": "evia_2021_extended",
+   "split_axis": "north_south",
+   "direction": "high_to_low",
+   "n_source": 4582,
+   "n_target": 4716,
+   "source_positives": 100,
+   "target_positives": 2564,
+   "thermal_auc": 0.5332071461297114,
+   "baseline_auc": 0.49541142658717496
+  },
+  {
+   "region": "montiferru_2021",
+   "split_axis": "east_west",
+   "direction": "low_to_high",
+   "n_source": 1292,
+   "n_target": 1252,
+   "source_positives": 410,
+   "target_positives": 129,
+   "thermal_auc": 0.47520829450461455,
+   "baseline_auc": 0.4605879876024215
+  },
+  {
+   "region": "montiferru_2021",
+   "split_axis": "east_west",
+   "direction": "high_to_low",
+   "n_source": 1252,
+   "n_target": 1292,
+   "source_positives": 129,
+   "target_positives": 410,
+   "thermal_auc": 0.5065538410486146,
+   "baseline_auc": 0.5132915767933189
+  },
+  {
+   "region": "montiferru_2021",
+   "split_axis": "north_south",
+   "direction": "low_to_high",
+   "n_source": 1294,
+   "n_target": 1250,
+   "source_positives": 438,
+   "target_positives": 101,
+   "thermal_auc": 0.5828227731389327,
+   "baseline_auc": 0.5113960482210101
+  },
+  {
+   "region": "montiferru_2021",
+   "split_axis": "north_south",
+   "direction": "high_to_low",
+   "n_source": 1250,
+   "n_target": 1294,
+   "source_positives": 101,
+   "target_positives": 438,
+   "thermal_auc": 0.5359882430760039,
+   "baseline_auc": 0.44685379592881835
+  }
+ ],
+ "summary": {
+  "n_splits": 18,
+  "thermal_mean": 0.5736676855901552,
+  "thermal_min": 0.2941007998661082,
+  "thermal_max": 0.7500004612262468,
+  "baseline_mean": 0.5470985493523962,
+  "above_0.7": 2,
+  "above_0.5": 15
+ }
+}

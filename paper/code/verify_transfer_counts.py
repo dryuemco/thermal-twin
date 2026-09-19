@@ -6,18 +6,25 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import roc_auc_score
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 REG=["manavgat_2021","bejis_2022","mugla_2021","evia_2021_extended","montiferru_2021"]
-ROOT="repo/outputs/experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
 TH=["ndvi_mean","elevation_mean","slope_mean","landcover_dominant","lst_anomaly_mean",
     "current_lst_mean","current_tvdi_mean","tvdi_difference_mean","downscaled_lst_mean","fused_lst_mean"]
-CAT="landcover_dominant"; CELL=0.45; BLK=10; NB=400
+CAT="landcover_dominant"; CELL=0.45; BLK=10; NB=1000
 def build():
     num=[f for f in TH if f!=CAT]
     tr=[("num",Pipeline([("i",SimpleImputer(strategy="median"))]),num),
         ("cat",Pipeline([("i",SimpleImputer(strategy="most_frequent")),("o",OneHotEncoder(handle_unknown="ignore"))]),[CAT])]
-    return Pipeline([("p",ColumnTransformer(tr)),("c",RandomForestClassifier(n_estimators=300,min_samples_leaf=3,class_weight="balanced",random_state=42,n_jobs=-1))])
+    return Pipeline([("p",ColumnTransformer(tr)),("c",RandomForestClassifier(n_estimators=300,min_samples_leaf=3,class_weight="balanced",random_state=42,n_jobs=4))])
 def load(r):
-    d=pd.read_parquet(ROOT.format(r))
+    d=_canonical.load(r)
     d=d[(d.valid_for_modeling==True)&(d.burnable_tree_shrub_grass==True)].reset_index(drop=True)
     r0,c0=int(d.row_500m.min()),int(d.col_500m.min())
     H=int(d.row_500m.max())-r0+1; W=int(d.col_500m.max())-c0+1
@@ -37,7 +44,7 @@ for tag,coll in [("full",None),("collar10",10)]:
     fitted={}
     for s in REG:
         sub=data[s] if coll is None else data[s][data[s].dist_km<=coll]
-        fitted[s]=build().fit(sub[TH],sub.burned)
+        fitted[s]=build().fit(*_guard(sub[TH],sub.burned))
     ab=bl=abs_=bls=0
     for s in REG:
         for t in REG:

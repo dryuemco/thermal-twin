@@ -1,0 +1,54 @@
+manavgat_2021        east_west    low_to_high  bins done
+manavgat_2021        east_west    high_to_low  bins done
+bejis_2022           east_west    low_to_high  bins done
+bejis_2022           east_west    high_to_low  bins done
+bejis_2022           north_south  low_to_high  bins done
+bejis_2022           north_south  high_to_low  bins done
+mugla_2021           east_west    low_to_high  bins done
+mugla_2021           east_west    high_to_low  bins done
+mugla_2021           north_south  low_to_high  bins done
+mugla_2021           north_south  high_to_low  bins done
+evia_2021_extended   east_west    low_to_high  bins done
+evia_2021_extended   east_west    high_to_low  bins done
+evia_2021_extended   north_south  low_to_high  bins done
+evia_2021_extended   north_south  high_to_low  bins done
+montiferru_2021      east_west    low_to_high  bins done
+montiferru_2021      east_west    high_to_low  bins done
+montiferru_2021      north_south  low_to_high  bins done
+montiferru_2021      north_south  high_to_low  bins done
+
+=== WITHIN-REGION: AUC by separation from the training half ===
+    bin (km)  n bins  mean AUC     min     max
+         0-5      18     0.692   0.345   0.893
+        5-10      16     0.519   0.295   0.775
+       10-20      11     0.499   0.250   0.851
+       20-40       6     0.445   0.187   0.611
+       40-80       3     0.541   0.454   0.592
+      80-160       1     0.421   0.421   0.421
+
+=== CROSS-REGION: AUC by centroid separation ===
+  manavgat_202 -> mugla_2021         306 km   0.4702
+  mugla_2021   -> manavgat_202       306 km   0.4010
+  mugla_2021   -> evia_2021_ex       448 km   0.6534
+  evia_2021_ex -> mugla_2021         448 km   0.5768
+  manavgat_202 -> evia_2021_ex       730 km   0.6126
+  evia_2021_ex -> manavgat_202       730 km   0.6858
+  bejis_2022   -> montiferru_2       792 km   0.5937
+  montiferru_2 -> bejis_2022         792 km   0.5483
+  evia_2021_ex -> montiferru_2      1281 km   0.6467
+  montiferru_2 -> evia_2021_ex      1281 km   0.5862
+  mugla_2021   -> montiferru_2      1718 km   0.5312
+  montiferru_2 -> mugla_2021        1718 km   0.6194
+  manavgat_202 -> montiferru_2      2010 km   0.5333
+  montiferru_2 -> manavgat_202      2010 km   0.5670
+  bejis_2022   -> evia_2021_ex      2073 km   0.3828
+  evia_2021_ex -> bejis_2022        2073 km   0.4480
+  bejis_2022   -> mugla_2021        2508 km   0.6185
+  mugla_2021   -> bejis_2022        2508 km   0.5832
+  manavgat_202 -> bejis_2022        2802 km   0.3258
+  bejis_2022   -> manavgat_202      2802 km   0.4435
+
+cross-region distance range: 306 to 2802 km, n=20
+within-region distance range: 2.0 to 85.9 km, n=55 bins
+
+wrote paper/canonical_rerun/distance_curve.json

@@ -1,0 +1,5 @@
+as drawn         mean +0.0042  pair-cluster B=1000 [-0.0267, +0.0382]  B=20000 [-0.0268, +0.0353]  target-cluster B=1000 [-0.0061, +0.0176]
+equalised 10 km  mean +0.0223  pair-cluster B=1000 [-0.0026, +0.0474]  B=20000 [-0.0028, +0.0473]  target-cluster B=1000 [+0.0156, +0.0304]
+equalised 5 km   mean +0.0165  pair-cluster B=1000 [-0.0034, +0.0370]  B=20000 [-0.0037, +0.0362]  target-cluster B=1000 [+0.0038, +0.0294]
+max |canonical refit delta - step9b delta (4 dp)| = 0.00007
+wrote paper/canonical_rerun/transfer_delta_ci.json and paper/canonical_rerun/equalised_delta_interval.json

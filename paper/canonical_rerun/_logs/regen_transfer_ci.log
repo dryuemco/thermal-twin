@@ -1,0 +1,6 @@
+full /full  mean 0.5414  point 14 above/6 below  CI-supported 9 above / 4 below
+full /10km  mean 0.5773  point 17 above/3 below  CI-supported 11 above / 2 below
+10km /full  mean 0.5697  point 17 above/3 below  CI-supported 11 above / 3 below
+10km /10km  mean 0.6155  point 19 above/1 below  CI-supported 16 above / 1 below
+5km  /5km   mean 0.6102  point 19 above/1 below  CI-supported 12 above / 0 below
+wrote paper/canonical_rerun/aoi_frame_transfer.csv with bootstrap bounds

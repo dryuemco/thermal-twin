@@ -9,19 +9,31 @@ from sklearn.impute import SimpleImputer
 from sklearn.metrics import roc_auc_score
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 REG=["manavgat_2021","bejis_2022","mugla_2021","evia_2021_extended","montiferru_2021"]
-ROOT="repo/outputs/experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
 TH=["ndvi_mean","elevation_mean","slope_mean","landcover_dominant","lst_anomaly_mean",
     "current_lst_mean","current_tvdi_mean","tvdi_difference_mean","downscaled_lst_mean","fused_lst_mean"]
 BASE=["ndvi_mean","elevation_mean","slope_mean","landcover_dominant"]
 CAT="landcover_dominant"; CELL=0.45; BLK=10; NB=1000
+import os
+# Artefacts this script reads or writes that are themselves regenerated from the
+# canonical inputs. Default "paper" is the published location; the canonical re-run
+# sets PAPER_ARTEFACTS=paper/canonical_rerun so nothing published is overwritten.
+ART = os.environ.get("PAPER_ARTEFACTS", "paper")
 def build(fe):
     num=[f for f in fe if f!=CAT]
     tr=[("num",Pipeline([("i",SimpleImputer(strategy="median"))]),num),
         ("cat",Pipeline([("i",SimpleImputer(strategy="most_frequent")),("o",OneHotEncoder(handle_unknown="ignore"))]),[CAT])]
-    return Pipeline([("p",ColumnTransformer(tr)),("c",RandomForestClassifier(n_estimators=300,min_samples_leaf=3,class_weight="balanced",random_state=42,n_jobs=-1))])
+    return Pipeline([("p",ColumnTransformer(tr)),("c",RandomForestClassifier(n_estimators=300,min_samples_leaf=3,class_weight="balanced",random_state=42,n_jobs=4))])
 def load(r):
-    d=pd.read_parquet(ROOT.format(r))
+    d=_canonical.load(r)
     d=d[(d.valid_for_modeling==True)&(d.burnable_tree_shrub_grass==True)].reset_index(drop=True)
     r0,c0=int(d.row_500m.min()),int(d.col_500m.min())
     H=int(d.row_500m.max())-r0+1; W=int(d.col_500m.max())-c0+1
@@ -41,7 +53,7 @@ rows=[]
 FR=[("full","full"),("full","10km"),("10km","full"),("10km","10km"),("5km","5km")]
 def fr(d,tag): return d if tag=="full" else d[d.dist_km<=(10 if tag=="10km" else 5)]
 for sf,tf in FR:
-    fitted={s:{l:build(fe).fit(fr(data[s],sf)[fe],fr(data[s],sf).burned) for l,fe in (("thermal",TH),("baseline",BASE))} for s in REG}
+    fitted={s:{l:build(fe).fit(*_guard(fr(data[s],sf)[fe],fr(data[s],sf).burned)) for l,fe in (("thermal",TH),("baseline",BASE))} for s in REG}
     for s in REG:
         for t in REG:
             if s==t: continue
@@ -59,5 +71,5 @@ for sf,tf in FR:
     sub=pd.DataFrame([r for r in rows if r["source_frame"]==sf and r["target_frame"]==tf])
     print(f"{sf:5s}/{tf:5s} mean {sub.thermal.mean():.4f}  point {int((sub.thermal>0.5).sum())} above/{int((sub.thermal<0.5).sum())} below  "
           f"CI-supported {int(sub['ci_above_0.5'].sum())} above / {int(sub['ci_below_0.5'].sum())} below", flush=True)
-pd.DataFrame(rows).to_csv("paper/aoi_frame_transfer.csv",index=False)
-print("wrote paper/aoi_frame_transfer.csv with bootstrap bounds")
+pd.DataFrame(rows).to_csv(f"{ART}/aoi_frame_transfer.csv",index=False)
+print(f"wrote {ART}/aoi_frame_transfer.csv with bootstrap bounds")

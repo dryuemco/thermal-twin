@@ -1,0 +1,69 @@
+regions loaded
+=== transfers ===
+  fit manavgat_2021 full (1s)
+  fit manavgat_2021 drop_elev (1s)
+  fit manavgat_2021 drop_anom (1s)
+  fit manavgat_2021 drop_both (1s)
+  fit manavgat_2021 baseline_only (1s)
+  fit manavgat_2021 anomaly_only (1s)
+  fit manavgat_2021 absolute_only (1s)
+  fit manavgat_2021 no_coord_channels (1s)
+manavgat_2021->bejis_2022 full=0.3258 dElev=+0.1176[+0.048,+0.203] dAnom=+0.0170 dBoth=+0.1023[+0.043,+0.169]
+manavgat_2021->mugla_2021 full=0.4702 dElev=+0.0359[-0.001,+0.074] dAnom=+0.0015 dBoth=+0.0336[-0.007,+0.077]
+manavgat_2021->evia_2021_extended full=0.6126 dElev=-0.0708[-0.122,-0.019] dAnom=-0.0280 dBoth=-0.0576[-0.107,-0.005]
+manavgat_2021->montiferru_2021 full=0.5333 dElev=+0.0171[-0.072,+0.100] dAnom=-0.0060 dBoth=+0.0014[-0.078,+0.071]
+  fit bejis_2022 full (1s)
+  fit bejis_2022 drop_elev (1s)
+  fit bejis_2022 drop_anom (1s)
+  fit bejis_2022 drop_both (1s)
+  fit bejis_2022 baseline_only (1s)
+  fit bejis_2022 anomaly_only (1s)
+  fit bejis_2022 absolute_only (1s)
+  fit bejis_2022 no_coord_channels (1s)
+bejis_2022->manavgat_2021 full=0.4435 dElev=+0.0682[-0.004,+0.131] dAnom=-0.0195 dBoth=+0.0613[-0.006,+0.120]
+bejis_2022->mugla_2021 full=0.6185 dElev=-0.0548[-0.124,+0.015] dAnom=-0.0065 dBoth=-0.0295[-0.090,+0.031]
+bejis_2022->evia_2021_extended full=0.3828 dElev=-0.0015[-0.039,+0.042] dAnom=+0.0455 dBoth=+0.0626[+0.026,+0.100]
+bejis_2022->montiferru_2021 full=0.5937 dElev=-0.0345[-0.128,+0.057] dAnom=+0.0054 dBoth=-0.0319[-0.129,+0.068]
+  fit mugla_2021 full (4s)
+  fit mugla_2021 drop_elev (4s)
+  fit mugla_2021 drop_anom (4s)
+  fit mugla_2021 drop_both (4s)
+  fit mugla_2021 baseline_only (3s)
+  fit mugla_2021 anomaly_only (3s)
+  fit mugla_2021 absolute_only (3s)
+  fit mugla_2021 no_coord_channels (3s)
+mugla_2021->manavgat_2021 full=0.4010 dElev=+0.0549[-0.007,+0.117] dAnom=+0.0199 dBoth=+0.0673[+0.005,+0.128]
+mugla_2021->bejis_2022 full=0.5832 dElev=-0.0258[-0.052,-0.002] dAnom=+0.0113 dBoth=-0.0224[-0.055,+0.010]
+mugla_2021->evia_2021_extended full=0.6534 dElev=-0.0377[-0.060,-0.013] dAnom=+0.0123 dBoth=-0.0355[-0.063,-0.009]
+mugla_2021->montiferru_2021 full=0.5312 dElev=+0.0127[-0.063,+0.088] dAnom=+0.0019 dBoth=+0.0591[-0.010,+0.133]
+  fit evia_2021_extended full (1s)
+  fit evia_2021_extended drop_elev (1s)
+  fit evia_2021_extended drop_anom (1s)
+  fit evia_2021_extended drop_both (1s)
+  fit evia_2021_extended baseline_only (1s)
+  fit evia_2021_extended anomaly_only (1s)
+  fit evia_2021_extended absolute_only (1s)
+  fit evia_2021_extended no_coord_channels (1s)
+evia_2021_extended->manavgat_2021 full=0.6858 dElev=-0.0780[-0.107,-0.040] dAnom=+0.0099 dBoth=-0.0417[-0.073,-0.005]
+evia_2021_extended->bejis_2022 full=0.4480 dElev=+0.0750[+0.023,+0.131] dAnom=+0.0005 dBoth=+0.0560[+0.000,+0.122]
+evia_2021_extended->mugla_2021 full=0.5768 dElev=+0.0264[-0.014,+0.069] dAnom=-0.0021 dBoth=+0.0160[-0.019,+0.051]
+evia_2021_extended->montiferru_2021 full=0.6467 dElev=-0.0250[-0.078,+0.029] dAnom=-0.0228 dBoth=-0.0156[-0.084,+0.050]
+  fit montiferru_2021 full (0s)
+  fit montiferru_2021 drop_elev (0s)
+  fit montiferru_2021 drop_anom (0s)
+  fit montiferru_2021 drop_both (0s)
+  fit montiferru_2021 baseline_only (0s)
+  fit montiferru_2021 anomaly_only (0s)
+  fit montiferru_2021 absolute_only (0s)
+  fit montiferru_2021 no_coord_channels (0s)
+montiferru_2021->manavgat_2021 full=0.5670 dElev=+0.0569[+0.017,+0.092] dAnom=-0.0096 dBoth=+0.0592[+0.026,+0.092]
+montiferru_2021->bejis_2022 full=0.5483 dElev=-0.0357[-0.063,-0.010] dAnom=-0.0200 dBoth=+0.0046[-0.025,+0.034]
+montiferru_2021->mugla_2021 full=0.6194 dElev=-0.0072[-0.037,+0.020] dAnom=+0.0251 dBoth=+0.0159[-0.029,+0.059]
+montiferru_2021->evia_2021_extended full=0.5862 dElev=+0.0038[-0.038,+0.047] dAnom=+0.0085 dBoth=-0.0201[-0.065,+0.028]
+=== within-region OOF CV ===
+manavgat_2021 full=0.8696 (step8c diff 0.0000) dElev=-0.0555 dAnom=-0.0023 dBoth=-0.0603
+bejis_2022 full=0.9178 (step8c diff 0.0000) dElev=-0.1137 dAnom=-0.0092 dBoth=-0.1299
+mugla_2021 full=0.8590 (step8c diff 0.0000) dElev=-0.0594 dAnom=-0.0087 dBoth=-0.0735
+evia_2021_extended full=0.9122 (step8c diff 0.0000) dElev=-0.0234 dAnom=-0.0350 dBoth=-0.0626
+montiferru_2021 full=0.8826 (step8c diff 0.0000) dElev=-0.0528 dAnom=-0.0110 dBoth=-0.0789
+written paper/canonical_rerun/no_coord_channels.json

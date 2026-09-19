@@ -1,0 +1,18 @@
+manavgat_2021        scar   1  prev=0.61  A=0.797  A'=0.796  B=0.589
+bejis_2022           scar   1  prev=0.66  A=0.824  A'=0.825  B=0.575
+mugla_2021           scar   6  prev=0.72  A=0.777  A'=0.779  B=0.564
+mugla_2021           scar   1  prev=0.59  A=0.777  A'=0.779  B=0.654
+mugla_2021           scar  10  prev=0.68  A=0.777  A'=0.776  B=0.673
+mugla_2021           scar   8  prev=0.57  A=0.777  A'=0.779  B=0.761
+evia_2021_extended   scar   1  prev=0.87  A=0.864  A'=0.861  B=0.745
+montiferru_2021      scar   1  prev=0.58  A=0.720  A'=0.718  B=0.622
+montiferru_2021      scar   5  prev=0.34  A=0.720  A'=0.710  B=0.461
+
+=== IS THE DROP PREVALENCE, OR THE NEGATIVE POOL? ===
+  A   whole region                           0.7817
+  A'  random cells, scar's prevalence        0.7804
+  B   scar area, fire-adjacent negatives     0.6271
+  A - A'  prevalence alone                   +0.0013  [-0.0017, +0.0042]
+  C - A'  NEGATIVE pool alone                -0.1483  [-0.1924, -0.1042]
+  D - A'  POSITIVE pool alone                +0.0016  [-0.0483, +0.0515]
+  B - A'  both pools (published)             -0.1533  [-0.2149, -0.0917]

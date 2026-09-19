@@ -26,6 +26,14 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.metrics import roc_auc_score
+import _canonical
+
+
+def _guard(X, y):
+    """Methods 3.13: forbidden-column assertion on the exact columns passed to the model."""
+    _canonical.assert_no_leakage(list(X.columns))
+    return X, y
+
 
 STAGING = sys.argv[1]
 OUT = sys.argv[2]
@@ -75,10 +83,10 @@ def build_pipeline(feature_list):
     return Pipeline([('preprocess', ColumnTransformer(transformers)),
                      ('clf', RandomForestClassifier(n_estimators=300, min_samples_leaf=3,
                                                     class_weight='balanced', random_state=SEED,
-                                                    n_jobs=-1))])
+                                                    n_jobs=4))])
 
 def load_region(reg):
-    df = pd.read_parquet(f'{STAGING}/{reg}.parquet',
+    df = _canonical.load(reg,
                          columns=['burned', 'valid_for_modeling', 'burnable_tree_shrub_grass',
                                   'row_500m', 'col_500m'] + THERMAL_FEATURES)
     return df[(df.valid_for_modeling == True) & (df.burnable_tree_shrub_grass == True)].reset_index(drop=True)
@@ -123,7 +131,7 @@ for src in REGIONS:
     for cfg, feats in CONFIGS.items():
         t0 = time.time()
         pipe = build_pipeline(feats)
-        pipe.fit(data[src][feats], data[src].burned.astype(int))
+        pipe.fit(*_guard(data[src][feats], data[src].burned.astype(int)))
         fitted[cfg] = pipe
         print(f'  fit {src} {cfg} ({time.time()-t0:.0f}s)', flush=True)
     for tgt in REGIONS:
@@ -172,7 +180,7 @@ for reg in REGIONS:
     for tr_idx, te_idx in folds:
         for cfg, feats in CONFIGS.items():
             pipe = build_pipeline(feats)
-            pipe.fit(df.iloc[tr_idx][feats], y[tr_idx])
+            pipe.fit(*_guard(df.iloc[tr_idx][feats], y[tr_idx]))
             oof[cfg][te_idx] = pipe.predict_proba(df.iloc[te_idx][feats])[:, 1]
     aucs = {cfg: float(roc_auc_score(y, oof[cfg])) for cfg in CONFIGS}
     expected = cmp_inputs['within'][reg]['thermal_auc']

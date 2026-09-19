@@ -1,0 +1,29 @@
+manavgat_2021        east_west    low_to_high  thermal=0.6954 baseline=0.6612
+manavgat_2021        east_west    high_to_low  thermal=0.5574 baseline=0.5802
+bejis_2022           east_west    low_to_high  thermal=0.7500 baseline=0.7845
+bejis_2022           east_west    high_to_low  thermal=0.5781 baseline=0.5605
+bejis_2022           north_south  low_to_high  thermal=0.7128 baseline=0.6619
+bejis_2022           north_south  high_to_low  thermal=0.6026 baseline=0.6132
+mugla_2021           east_west    low_to_high  thermal=0.4484 baseline=0.3777
+mugla_2021           east_west    high_to_low  thermal=0.6365 baseline=0.6283
+mugla_2021           north_south  low_to_high  thermal=0.5335 baseline=0.5031
+mugla_2021           north_south  high_to_low  thermal=0.2941 baseline=0.5492
+evia_2021_extended   east_west    low_to_high  thermal=0.5892 baseline=0.5057
+evia_2021_extended   east_west    high_to_low  thermal=0.6454 baseline=0.4817
+evia_2021_extended   north_south  low_to_high  thermal=0.6489 baseline=0.5131
+evia_2021_extended   north_south  high_to_low  thermal=0.5332 baseline=0.4954
+montiferru_2021      east_west    low_to_high  thermal=0.4752 baseline=0.4606
+montiferru_2021      east_west    high_to_low  thermal=0.5066 baseline=0.5133
+montiferru_2021      north_south  low_to_high  thermal=0.5828 baseline=0.5114
+montiferru_2021      north_south  high_to_low  thermal=0.5360 baseline=0.4469
+
+=== SUMMARY ===
+  n_splits: 18
+  thermal_mean: 0.5736676855901552
+  thermal_min: 0.2941007998661082
+  thermal_max: 0.7500004612262468
+  baseline_mean: 0.5470985493523962
+  above_0.7: 2
+  above_0.5: 15
+
+wrote paper/canonical_rerun/positive_control.json

@@ -1,0 +1,17 @@
+manavgat_2021        scar   1  n= 1135 prev=0.61  A=0.797  B=0.589  C=0.592  D=0.468
+bejis_2022           scar   1  n= 1657 prev=0.66  A=0.824  B=0.575  C=nan  D=0.589
+mugla_2021           scar   6  n= 1266 prev=0.72  A=0.777  B=0.564  C=0.595  D=0.568
+mugla_2021           scar   1  n= 1244 prev=0.59  A=0.777  B=0.654  C=0.561  D=0.518
+mugla_2021           scar  10  n=  940 prev=0.68  A=0.777  B=0.673  C=0.617  D=0.671
+mugla_2021           scar   8  n=  954 prev=0.57  A=0.777  B=0.761  C=0.542  D=0.632
+evia_2021_extended   scar   1  n= 3059 prev=0.87  A=0.864  B=0.745  C=0.465  D=0.590
+montiferru_2021      scar   1  n=  758 prev=0.58  A=0.720  B=0.622  C=0.584  D=0.504
+montiferru_2021      scar   5  n=  195 prev=0.34  A=0.720  B=0.461  C=0.458  D=0.490
+
+=== MATCHED COMPARISONS, 2 km buffer, all on identical cells ===
+  A  region-wide blocked CV (different cells)    0.7817  [0.752, 0.811]  n=9
+  B  blocked CV, scar SEEN, scar cells only      0.6271  [0.566, 0.688]  n=9
+  C  scar UNSEEN, same region                    0.5518  [0.510, 0.593]  n=8
+  D  foreign region, 306-2802 km                 0.5590  [0.514, 0.604]  n=9
+  B - C  fire-specific residual                  +0.0819  [+0.005, +0.159]
+  C - D  distance effect                         -0.0034  [-0.063, +0.056]
