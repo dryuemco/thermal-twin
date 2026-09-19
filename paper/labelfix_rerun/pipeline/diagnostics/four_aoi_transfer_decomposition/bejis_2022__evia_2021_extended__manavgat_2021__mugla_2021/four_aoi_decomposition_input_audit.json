@@ -1,0 +1,277 @@
+{
+  "schema_version": "four_aoi_transfer_decomposition.v1",
+  "created_at": "2026-09-19T09:35:43.898711+00:00",
+  "inputs": [
+    {
+      "pair": "bejis_2022__evia_2021_extended",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step10\\step10_metrics.csv",
+      "sha256": "c6b8e4b83fc3688eb165f66bc861d07feb13be7d5e073ede33e12c41d823ec14",
+      "size_bytes": 2859
+    },
+    {
+      "pair": "bejis_2022__evia_2021_extended",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "aa33463079334f80b67ae67fba1861febc106592d678466135c25ba95fad129b",
+      "size_bytes": 712620
+    },
+    {
+      "pair": "bejis_2022__evia_2021_extended",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step10\\step10_decomposition.csv",
+      "sha256": "83fb8afb429177d5c0f25cb5d75c8ed9b678dc3fa13f26a87ee077c1215f0e42",
+      "size_bytes": 3903
+    },
+    {
+      "pair": "manavgat_2021__bejis_2022",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step10\\step10_metrics.csv",
+      "sha256": "60d29f8712ef0320a64458bd5768a23bbf7fe695f2a080bb978142f67e3ac56d",
+      "size_bytes": 2817
+    },
+    {
+      "pair": "manavgat_2021__bejis_2022",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "66967ca0d5f1f8db4f36bf668086db3d7bc9e08e884fa222140328654610088c",
+      "size_bytes": 712593
+    },
+    {
+      "pair": "manavgat_2021__bejis_2022",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step10\\step10_decomposition.csv",
+      "sha256": "f24aec853c2742c39f34ef9f66ff7cb1b0a803c84351897d7008e339717550af",
+      "size_bytes": 3870
+    },
+    {
+      "pair": "bejis_2022__mugla_2021",
+      "path": "outputs\\cross_region\\bejis_2022__mugla_2021\\step10\\step10_metrics.csv",
+      "sha256": "f7f54641df97fd42e03c568b40d94b62bebdafd6419e0a9ba5f524ebd81bc954",
+      "size_bytes": 2739
+    },
+    {
+      "pair": "bejis_2022__mugla_2021",
+      "path": "outputs\\cross_region\\bejis_2022__mugla_2021\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "09b60aa54da1487ba672b8f3eae7dbec7748aca699e0a66451121bf0f8ea45a2",
+      "size_bytes": 712575
+    },
+    {
+      "pair": "bejis_2022__mugla_2021",
+      "path": "outputs\\cross_region\\bejis_2022__mugla_2021\\step10\\step10_decomposition.csv",
+      "sha256": "2b5e77dbda37b03c408a95c6c0aface601ec1ddeae157f54f59ecb9b6eb48f21",
+      "size_bytes": 3805
+    },
+    {
+      "pair": "manavgat_2021__evia_2021_extended",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step10\\step10_metrics.csv",
+      "sha256": "defa5269e283493eabf638720f18d5c592a416cfff199fdc606ab79327908f79",
+      "size_bytes": 2921
+    },
+    {
+      "pair": "manavgat_2021__evia_2021_extended",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "6232ce89da40b435b8d6116e395253e50b47d1097cafbff87e62ae9bff42f897",
+      "size_bytes": 712631
+    },
+    {
+      "pair": "manavgat_2021__evia_2021_extended",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step10\\step10_decomposition.csv",
+      "sha256": "28d2753acd8a680f15fc0b37360a850a79df713f533598dc8321b909b3fe2021",
+      "size_bytes": 3972
+    },
+    {
+      "pair": "mugla_2021__evia_2021_extended",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step10\\step10_metrics.csv",
+      "sha256": "c4abe595860d80e9136bc968ead3e091d577bcef05d5bdee7e9eb9aa70a79940",
+      "size_bytes": 2859
+    },
+    {
+      "pair": "mugla_2021__evia_2021_extended",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "c2ef1237ef11f7b31b68ea4e273a5f24ab8ddfcf4281a69664fcaf4f0e6ad497",
+      "size_bytes": 712614
+    },
+    {
+      "pair": "mugla_2021__evia_2021_extended",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step10\\step10_decomposition.csv",
+      "sha256": "0f18c2e31e5f3e41f748782cd1282a78408a48480d0b061fb3248c48ca4cf05c",
+      "size_bytes": 3923
+    },
+    {
+      "pair": "manavgat_2021__mugla_2021",
+      "path": "outputs\\cross_region\\manavgat_2021__mugla_2021\\step10\\step10_metrics.csv",
+      "sha256": "4a6156a481eb9cfbaff6bc1deecbb73f1f76ffdb4e604c7b1f54b3b61f406ffd",
+      "size_bytes": 2808
+    },
+    {
+      "pair": "manavgat_2021__mugla_2021",
+      "path": "outputs\\cross_region\\manavgat_2021__mugla_2021\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "fc4e13da5ea0e895316f534885ab26c885171812f5f9e4a6c68fa0c60d7a9699",
+      "size_bytes": 712588
+    },
+    {
+      "pair": "manavgat_2021__mugla_2021",
+      "path": "outputs\\cross_region\\manavgat_2021__mugla_2021\\step10\\step10_decomposition.csv",
+      "sha256": "545ba162a15e846c98fd3ab399bdc84c82f8de2eb88b473347a2f85c29cf3c88",
+      "size_bytes": 3853
+    },
+    {
+      "pair": "mugla_2021__bejis_2022",
+      "path": "outputs\\cross_region\\mugla_2021__bejis_2022\\step10\\step10_metrics.csv",
+      "sha256": "94e34c87f7d63ba657660c8711bbba43084edcb8c01723ac6f5f7954212203af",
+      "size_bytes": 2742
+    },
+    {
+      "pair": "mugla_2021__bejis_2022",
+      "path": "outputs\\cross_region\\mugla_2021__bejis_2022\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "0072915b5e905578d872329398ec716e0e471a0e2e6924383932e719a10cddae",
+      "size_bytes": 712575
+    },
+    {
+      "pair": "mugla_2021__bejis_2022",
+      "path": "outputs\\cross_region\\mugla_2021__bejis_2022\\step10\\step10_decomposition.csv",
+      "sha256": "143a4464389749e5fa7856ee74c2e5ddfbf9dd35ee501f87da79c5f2d0c4b7e5",
+      "size_bytes": 3800
+    },
+    {
+      "pair": "mugla_2021__manavgat_2021",
+      "path": "outputs\\cross_region\\mugla_2021__manavgat_2021\\step10\\step10_metrics.csv",
+      "sha256": "0f9238b3deef78577146cb8bfd92bcd25fe1253e634ba4231c4291b37601c655",
+      "size_bytes": 2808
+    },
+    {
+      "pair": "mugla_2021__manavgat_2021",
+      "path": "outputs\\cross_region\\mugla_2021__manavgat_2021\\step10\\step10_bootstrap_replicates.parquet",
+      "sha256": "3f2d1e7eb4a50cca3f92768f82b7a3708b30297bd4f9f847f3b0e30a06171364",
+      "size_bytes": 712589
+    },
+    {
+      "pair": "mugla_2021__manavgat_2021",
+      "path": "outputs\\cross_region\\mugla_2021__manavgat_2021\\step10\\step10_decomposition.csv",
+      "sha256": "a9ac64405d57494f7d563de0f4132b70ede17a1001deca09fdac41f8a5fd7022",
+      "size_bytes": 3853
+    }
+  ],
+  "input_count": 24,
+  "direction_resolution": {
+    "bejis_2022_to_evia_2021_extended": {
+      "available": true,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "evia_2021_extended",
+      "chosen_pair_dir": "bejis_2022__evia_2021_extended",
+      "candidates": [
+        "bejis_2022__evia_2021_extended"
+      ],
+      "preferred_dir_existed": true
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "available": true,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "manavgat_2021",
+      "chosen_pair_dir": "manavgat_2021__bejis_2022",
+      "candidates": [
+        "manavgat_2021__bejis_2022"
+      ],
+      "preferred_dir_existed": false
+    },
+    "bejis_2022_to_mugla_2021": {
+      "available": true,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "mugla_2021",
+      "chosen_pair_dir": "bejis_2022__mugla_2021",
+      "candidates": [
+        "bejis_2022__mugla_2021",
+        "mugla_2021__bejis_2022"
+      ],
+      "preferred_dir_existed": true
+    },
+    "evia_2021_extended_to_bejis_2022": {
+      "available": true,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "bejis_2022",
+      "chosen_pair_dir": "bejis_2022__evia_2021_extended",
+      "candidates": [
+        "bejis_2022__evia_2021_extended"
+      ],
+      "preferred_dir_existed": false
+    },
+    "evia_2021_extended_to_manavgat_2021": {
+      "available": true,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "manavgat_2021",
+      "chosen_pair_dir": "manavgat_2021__evia_2021_extended",
+      "candidates": [
+        "manavgat_2021__evia_2021_extended"
+      ],
+      "preferred_dir_existed": false
+    },
+    "evia_2021_extended_to_mugla_2021": {
+      "available": true,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "mugla_2021",
+      "chosen_pair_dir": "mugla_2021__evia_2021_extended",
+      "candidates": [
+        "mugla_2021__evia_2021_extended"
+      ],
+      "preferred_dir_existed": false
+    },
+    "manavgat_2021_to_bejis_2022": {
+      "available": true,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "bejis_2022",
+      "chosen_pair_dir": "manavgat_2021__bejis_2022",
+      "candidates": [
+        "manavgat_2021__bejis_2022"
+      ],
+      "preferred_dir_existed": true
+    },
+    "manavgat_2021_to_evia_2021_extended": {
+      "available": true,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "chosen_pair_dir": "manavgat_2021__evia_2021_extended",
+      "candidates": [
+        "manavgat_2021__evia_2021_extended"
+      ],
+      "preferred_dir_existed": true
+    },
+    "manavgat_2021_to_mugla_2021": {
+      "available": true,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "chosen_pair_dir": "manavgat_2021__mugla_2021",
+      "candidates": [
+        "manavgat_2021__mugla_2021",
+        "mugla_2021__manavgat_2021"
+      ],
+      "preferred_dir_existed": true
+    },
+    "mugla_2021_to_bejis_2022": {
+      "available": true,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "bejis_2022",
+      "chosen_pair_dir": "mugla_2021__bejis_2022",
+      "candidates": [
+        "bejis_2022__mugla_2021",
+        "mugla_2021__bejis_2022"
+      ],
+      "preferred_dir_existed": true
+    },
+    "mugla_2021_to_evia_2021_extended": {
+      "available": true,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "chosen_pair_dir": "mugla_2021__evia_2021_extended",
+      "candidates": [
+        "mugla_2021__evia_2021_extended"
+      ],
+      "preferred_dir_existed": true
+    },
+    "mugla_2021_to_manavgat_2021": {
+      "available": true,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "manavgat_2021",
+      "chosen_pair_dir": "mugla_2021__manavgat_2021",
+      "candidates": [
+        "manavgat_2021__mugla_2021",
+        "mugla_2021__manavgat_2021"
+      ],
+      "preferred_dir_existed": true
+    }
+  }
+}

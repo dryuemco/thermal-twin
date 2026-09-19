@@ -1,0 +1,332 @@
+{
+  "source_experiment_id": "manavgat_2021",
+  "target_experiment_id": "evia_2021_extended",
+  "shared_baseline_features": [
+    "ndvi_mean",
+    "elevation_mean",
+    "slope_mean",
+    "landcover_dominant"
+  ],
+  "shared_thermal_features": [
+    "lst_anomaly_mean",
+    "current_lst_mean",
+    "current_tvdi_mean",
+    "tvdi_difference_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "shared_thermal_model_features": [
+    "ndvi_mean",
+    "elevation_mean",
+    "slope_mean",
+    "landcover_dominant",
+    "lst_anomaly_mean",
+    "current_lst_mean",
+    "current_tvdi_mean",
+    "tvdi_difference_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "forbidden_model_columns": [
+    "burned",
+    "burn_date",
+    "burn_month",
+    "burn_day_of_year",
+    "label_source",
+    "cell_id",
+    "row_500m",
+    "col_500m",
+    "lon",
+    "lat",
+    "experiment_id",
+    "region_key",
+    "spatial_block_id",
+    "fold_id",
+    "valid_for_modeling",
+    "invalid_reason",
+    "source_mask_majority",
+    "observed_fraction",
+    "gapfilled_fraction",
+    "invalid_source_fraction",
+    "valid_30m_fraction",
+    "burn_date_pixel_agreement_fraction",
+    "out_of_window_burndate"
+  ],
+  "primary_populations": [
+    "burnable_tree_shrub_grass"
+  ],
+  "secondary_populations": [
+    "all_valid",
+    "burnable_tree_shrub"
+  ],
+  "target_column": "burned",
+  "cell_level_required": "500m_reconstructed_mcd64a1_cell",
+  "source": {
+    "checks": {
+      "predictor_window_ends_before_label_window": true,
+      "gate_exists": true,
+      "gate_is_wildfire_candidate_pass": true,
+      "step8a_stats_exists": true,
+      "cell_level_correct": true,
+      "no_30m_label_claim_true": true,
+      "feature_semantics_resolved_from_manifest": true,
+      "dataset_exists": true,
+      "required_shared_columns_present": true,
+      "target_column_is_burned": true,
+      "primary_label_is_mcd64a1": true,
+      "spatial_block_id_computable": true,
+      "no_forbidden_columns_in_feature_sets": true,
+      "primary_population_sufficient": true,
+      "tvdi_computed_for_region": true
+    },
+    "errors": [],
+    "info": {
+      "experiment_id": "manavgat_2021",
+      "region_key": "manavgat_aoi",
+      "role": "anchor_wildfire",
+      "predictor_window": [
+        "2021-06-01",
+        "2021-07-27"
+      ],
+      "label_window": [
+        "2021-07-28",
+        "2021-08-31"
+      ],
+      "baseline_years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "gate_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\validation\\labels\\burned_landcover_gate.json",
+      "gate_decision": "wildfire_candidate_pass",
+      "step8a_stats_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_dataset_stats.json",
+      "step8a_stats_sha256": "18170d2a67aa17e2d515dbd782c69bc7e43f08062d3d5b15de410795d2898cd5",
+      "cell_level": "500m_reconstructed_mcd64a1_cell",
+      "no_30m_label_claim": true,
+      "feature_contract": {
+        "ndvi_mean": {
+          "column_name": "ndvi_mean",
+          "semantic_identity": "mean_current_period_ndvi",
+          "source_manifest_key": "ndvi",
+          "source_product": "current_ndvi_median"
+        },
+        "elevation_mean": {
+          "column_name": "elevation_mean",
+          "semantic_identity": "mean_elevation",
+          "source_manifest_key": "elevation",
+          "source_product": "elevation"
+        },
+        "slope_mean": {
+          "column_name": "slope_mean",
+          "semantic_identity": "mean_slope",
+          "source_manifest_key": "slope",
+          "source_product": "slope"
+        },
+        "landcover_dominant": {
+          "column_name": "landcover_dominant",
+          "semantic_identity": "dominant_esa_worldcover_class",
+          "source_manifest_key": "landcover",
+          "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+        },
+        "lst_anomaly_mean": {
+          "column_name": "lst_anomaly_mean",
+          "semantic_identity": "mean_standardized_lst_anomaly",
+          "source_manifest_key": "lst_anomaly",
+          "source_product": "anomaly_zscore"
+        },
+        "current_lst_mean": {
+          "column_name": "current_lst_mean",
+          "semantic_identity": "mean_current_period_lst_celsius",
+          "source_manifest_key": "current_lst",
+          "source_product": "current_period_median_celsius"
+        },
+        "current_tvdi_mean": {
+          "column_name": "current_tvdi_mean",
+          "semantic_identity": "mean_current_period_tvdi",
+          "source_manifest_key": "current_tvdi",
+          "source_product": "current_tvdi"
+        },
+        "tvdi_difference_mean": {
+          "column_name": "tvdi_difference_mean",
+          "semantic_identity": "mean_tvdi_difference",
+          "source_manifest_key": "tvdi_difference",
+          "source_product": "tvdi_difference"
+        },
+        "downscaled_lst_mean": {
+          "column_name": "downscaled_lst_mean",
+          "semantic_identity": "mean_downscaled_lst_celsius",
+          "source_manifest_key": "downscaled_lst",
+          "source_product": "downscaled_lst_celsius"
+        },
+        "fused_lst_mean": {
+          "column_name": "fused_lst_mean",
+          "semantic_identity": "mean_fused_lst_celsius",
+          "source_manifest_key": "fused_lst",
+          "source_product": "fused_lst_celsius"
+        }
+      },
+      "dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "dataset_sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "row_count": 24150,
+      "missing_columns": [],
+      "label_sources_seen": [
+        "MCD64A1"
+      ],
+      "population_counts": {
+        "burnable_tree_shrub_grass": {
+          "positive_count": 2935,
+          "negative_count": 17576,
+          "sufficient": true
+        },
+        "all_valid": {
+          "positive_count": 3046,
+          "negative_count": 21041,
+          "sufficient": true
+        },
+        "burnable_tree_shrub": {
+          "positive_count": 2297,
+          "negative_count": 13241,
+          "sufficient": true
+        }
+      }
+    }
+  },
+  "target": {
+    "checks": {
+      "predictor_window_ends_before_label_window": true,
+      "gate_exists": true,
+      "gate_is_wildfire_candidate_pass": true,
+      "step8a_stats_exists": true,
+      "cell_level_correct": true,
+      "no_30m_label_claim_true": true,
+      "feature_semantics_resolved_from_manifest": true,
+      "dataset_exists": true,
+      "required_shared_columns_present": true,
+      "target_column_is_burned": true,
+      "primary_label_is_mcd64a1": true,
+      "spatial_block_id_computable": true,
+      "no_forbidden_columns_in_feature_sets": true,
+      "primary_population_sufficient": true,
+      "tvdi_computed_for_region": true
+    },
+    "errors": [],
+    "info": {
+      "experiment_id": "evia_2021_extended",
+      "region_key": "north_evia_extended",
+      "role": "mediterranean_transfer_wildfire",
+      "predictor_window": [
+        "2021-06-05",
+        "2021-08-02"
+      ],
+      "label_window": [
+        "2021-08-03",
+        "2021-09-30"
+      ],
+      "baseline_years": [
+        2017,
+        2018,
+        2019,
+        2020
+      ],
+      "gate_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021_extended\\validation\\labels\\burned_landcover_gate.json",
+      "gate_decision": "wildfire_candidate_pass",
+      "step8a_stats_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021_extended\\step8a\\step8a_dataset_stats.json",
+      "step8a_stats_sha256": "8ba510dacff226db389a406f736372fedf511e83edc95a8f4cec332a72aef74f",
+      "cell_level": "500m_reconstructed_mcd64a1_cell",
+      "no_30m_label_claim": true,
+      "feature_contract": {
+        "ndvi_mean": {
+          "column_name": "ndvi_mean",
+          "semantic_identity": "mean_current_period_ndvi",
+          "source_manifest_key": "ndvi",
+          "source_product": "current_ndvi_median"
+        },
+        "elevation_mean": {
+          "column_name": "elevation_mean",
+          "semantic_identity": "mean_elevation",
+          "source_manifest_key": "elevation",
+          "source_product": "elevation"
+        },
+        "slope_mean": {
+          "column_name": "slope_mean",
+          "semantic_identity": "mean_slope",
+          "source_manifest_key": "slope",
+          "source_product": "slope"
+        },
+        "landcover_dominant": {
+          "column_name": "landcover_dominant",
+          "semantic_identity": "dominant_esa_worldcover_class",
+          "source_manifest_key": "landcover",
+          "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+        },
+        "lst_anomaly_mean": {
+          "column_name": "lst_anomaly_mean",
+          "semantic_identity": "mean_standardized_lst_anomaly",
+          "source_manifest_key": "lst_anomaly",
+          "source_product": "anomaly_zscore"
+        },
+        "current_lst_mean": {
+          "column_name": "current_lst_mean",
+          "semantic_identity": "mean_current_period_lst_celsius",
+          "source_manifest_key": "current_lst",
+          "source_product": "current_period_median_celsius"
+        },
+        "current_tvdi_mean": {
+          "column_name": "current_tvdi_mean",
+          "semantic_identity": "mean_current_period_tvdi",
+          "source_manifest_key": "current_tvdi",
+          "source_product": "current_tvdi"
+        },
+        "tvdi_difference_mean": {
+          "column_name": "tvdi_difference_mean",
+          "semantic_identity": "mean_tvdi_difference",
+          "source_manifest_key": "tvdi_difference",
+          "source_product": "tvdi_difference"
+        },
+        "downscaled_lst_mean": {
+          "column_name": "downscaled_lst_mean",
+          "semantic_identity": "mean_downscaled_lst_celsius",
+          "source_manifest_key": "downscaled_lst",
+          "source_product": "downscaled_lst_celsius"
+        },
+        "fused_lst_mean": {
+          "column_name": "fused_lst_mean",
+          "semantic_identity": "mean_fused_lst_celsius",
+          "source_manifest_key": "fused_lst",
+          "source_product": "fused_lst_celsius"
+        }
+      },
+      "dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021_extended\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "dataset_sha256": "bdce859cf482f575d0f273174b157f47efd61779953fdd23d9486c5face5e553",
+      "row_count": 22925,
+      "missing_columns": [],
+      "label_sources_seen": [
+        "MCD64A1"
+      ],
+      "population_counts": {
+        "burnable_tree_shrub_grass": {
+          "positive_count": 2664,
+          "negative_count": 6634,
+          "sufficient": true
+        },
+        "all_valid": {
+          "positive_count": 2788,
+          "negative_count": 20118,
+          "sufficient": true
+        },
+        "burnable_tree_shrub": {
+          "positive_count": 2464,
+          "negative_count": 5699,
+          "sufficient": true
+        }
+      }
+    }
+  },
+  "shared_features_present_in_both": true,
+  "feature_contracts_match": true,
+  "git_commit": null,
+  "errors": [],
+  "passed": true,
+  "created_at": "2026-09-19T09:07:17.417195+00:00"
+}

@@ -1,0 +1,189 @@
+{
+  "analysis_id": "1f6245a3ccff1cf115c54f547509f1206954d9391892748e131ab5540cdb9a47",
+  "created_at": "2026-09-19T09:35:53.101119+00:00",
+  "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+  "requested_experiment_ids": [
+    "bejis_2022",
+    "evia_2021",
+    "evia_2021_extended",
+    "kozan_2023",
+    "manavgat_2021",
+    "montiferru_2021",
+    "mugla_2021",
+    "mugla_2022",
+    "mugla_2022_event_relative"
+  ],
+  "resolved_experiment_ids": [
+    "bejis_2022",
+    "evia_2021_extended",
+    "manavgat_2021",
+    "montiferru_2021",
+    "mugla_2021"
+  ],
+  "selection_mode": "all_enabled",
+  "excluded": {
+    "evia_2021": "superseded_by_evia_2021_extended",
+    "kozan_2023": "negative_control",
+    "mugla_2022": "superseded_by_mugla_2022_event_relative",
+    "mugla_2022_event_relative": "temporal_transfer_wildfire"
+  },
+  "allow_superseded_sensitivity": false,
+  "superseded_pairs": [],
+  "superseded_sensitivity_note": null,
+  "input_paths": {
+    "bejis_2022": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8a\\step8a_500m_modeling_dataset.parquet",
+    "evia_2021_extended": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021_extended\\step8a\\step8a_500m_modeling_dataset.parquet",
+    "manavgat_2021": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+    "montiferru_2021": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\montiferru_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+    "mugla_2021": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8a\\step8a_500m_modeling_dataset.parquet"
+  },
+  "input_sha256": {
+    "bejis_2022": "3dec785a7d8e31db2d67ed283546bbfbca1559f56df46663488d0afc24d9e393",
+    "evia_2021_extended": "bdce859cf482f575d0f273174b157f47efd61779953fdd23d9486c5face5e553",
+    "manavgat_2021": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+    "montiferru_2021": "ffb008f977445076835ae35a70776b0b813d0a36655d2c656fd21e6fedd4ac50",
+    "mugla_2021": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e"
+  },
+  "pre_label_gate": {
+    "bejis_2022": {
+      "gate_available": true,
+      "gate_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\validation\\labels\\burned_landcover_gate.json",
+      "gate_sha256": "8e4658283070d67a6d882aca00c1d89af072ad433f3cdfbae28f338a2394a65d",
+      "pre_label_burn_exclusion_rule": null,
+      "pre_label_burn_excluded_count": 0,
+      "validated": true,
+      "analysis_universe_cells_gate": 15759,
+      "burned_count_gate": 1103
+    },
+    "evia_2021_extended": {
+      "gate_available": true,
+      "gate_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021_extended\\validation\\labels\\burned_landcover_gate.json",
+      "gate_sha256": "b90b51603b13927d88aa2577219f84a7b76cb800e332ae2c8bb555fb7087466d",
+      "pre_label_burn_exclusion_rule": "valid nonzero BurnDate calendar date < label_start (2021-08-03)",
+      "pre_label_burn_excluded_count": 16,
+      "validated": true,
+      "analysis_universe_cells_gate": 22909,
+      "burned_count_gate": 2788
+    },
+    "manavgat_2021": {
+      "gate_available": true,
+      "gate_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\validation\\labels\\burned_landcover_gate.json",
+      "gate_sha256": "a26dcc5edd24df2cbc7513c4b18521b7a6a8711a91f196a4fe86ed8e08152441",
+      "pre_label_burn_exclusion_rule": "not_applied",
+      "pre_label_burn_excluded_count": 0,
+      "validated": true,
+      "analysis_universe_cells_gate": 24150,
+      "burned_count_gate": 3046
+    },
+    "montiferru_2021": {
+      "gate_available": true,
+      "gate_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\montiferru_2021\\validation\\labels\\burned_landcover_gate.json",
+      "gate_sha256": "92ac140fbfa72dedd0c72f0d0de6db1d720c0b672000d2e68a40fe3f60e8beaa",
+      "pre_label_burn_exclusion_rule": "valid nonzero BurnDate calendar date < label_start (2021-07-24)",
+      "pre_label_burn_excluded_count": 61,
+      "validated": true,
+      "analysis_universe_cells_gate": 3173,
+      "burned_count_gate": 697
+    },
+    "mugla_2021": {
+      "gate_available": true,
+      "gate_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\validation\\labels\\burned_landcover_gate.json",
+      "gate_sha256": "acadc06206952d9ca4a9effd9b1262bff00e057bbc4442f0cc1f1078855322bc",
+      "pre_label_burn_exclusion_rule": "valid nonzero BurnDate calendar date < label_start (2021-07-29)",
+      "pre_label_burn_excluded_count": 49,
+      "validated": true,
+      "analysis_universe_cells_gate": 73049,
+      "burned_count_gate": 3026
+    }
+  },
+  "scientific_configuration": {
+    "analysis_schema_version": "burned_pattern_audit.v2",
+    "resolved_experiment_ids": [
+      "bejis_2022",
+      "evia_2021_extended",
+      "manavgat_2021",
+      "montiferru_2021",
+      "mugla_2021"
+    ],
+    "connectivity": {
+      "name": "8_neighbour_raster_adjacency",
+      "rule": "abs(delta_row) <= 1 and abs(delta_col) <= 1, excluding the cell itself",
+      "neighbour_offsets": [
+        [
+          -1,
+          -1
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          -1,
+          1
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "frozen": true
+    },
+    "populations": {
+      "all_valid_burned": "Canonical event-footprint population: Step8A rows that are canonical-analysis-eligible (Step8A 'analysis_eligible' column, i.e. NOT pre-label-burn-excluded -- see resolve_analysis_eligible_mask) with burned == 1 and valid (non-null) row_500m/col_500m grid coordinates. No land-cover restriction. Primary population for component count, patch-size distribution, elevation distribution, and land-cover composition.",
+      "burnable_tree_shrub_grass_burned": "Natural-vegetation sensitivity population: the corrected primary population further restricted to rows where the existing Step8A 'burnable_tree_shrub_grass' boolean column is True. That frozen Step8A column is a COMBINED per-cell fraction rule -- (landcover_tree_cover_fraction + landcover_shrubland_fraction + landcover_grassland_fraction) >= burnable_threshold (STEP8A_BURNABLE_FRACTION_THRESHOLD) -- already computed in Step8A and reused verbatim here, never recomputed. It is NOT a dominant-land-cover selection: the 'landcover_dominant' column is no part of the selection rule (it is used only for descriptive land-cover composition reporting). A cell therefore qualifies whenever the three fractions SUM to at least the threshold even if its single dominant class is cropland/bare/other, and a cell whose dominant class is tree, shrubland or grassland is excluded if that sum falls below the threshold. Reported as a sensitivity analysis, never substituted for the primary population.",
+      "burnable_tree_shrub_grass_valid_for_modeling_burned": "Advisor-specific final-model-population morphology comparison. Selection contract, all conditions required simultaneously: analysis_eligible == True AND valid_for_modeling == True AND burnable_tree_shrub_grass == True AND burned == 1 AND non-null row_500m/col_500m. Both Step8A boolean columns are reused verbatim and never recomputed here (see the burnable_tree_shrub_grass_burned definition for the combined fraction rule behind 'burnable_tree_shrub_grass'). This population describes the morphology of the rows that actually reach the final model; it is an ADDITIONAL comparison only and does NOT replace, redefine, or otherwise alter the 'all_valid_burned' primary population or the 'burnable_tree_shrub_grass_burned' sensitivity population."
+    },
+    "burnable_mask_column": "burnable_tree_shrub_grass",
+    "valid_for_modeling_column": "valid_for_modeling",
+    "landcover_mapping_source": "src.step8a_prepare_500m_modeling_dataset.ESA_WORLDCOVER_CLASSES",
+    "cell_area_km2_source": "core.config.STEP8A_MCD64A1_NATIVE_CELL_SIZE_M (documented as an APPROXIMATION of the true native MCD64A1 sinusoidal-grid cell size, anchored to the Landsat/EPSG:4326 30 m reference predictor grid -- see src/step8a_prepare_500m_modeling_dataset.py module docstring).",
+    "approximate_cell_area_km2": 0.25,
+    "input_step8a_sha256": {
+      "bejis_2022": "3dec785a7d8e31db2d67ed283546bbfbca1559f56df46663488d0afc24d9e393",
+      "evia_2021_extended": "bdce859cf482f575d0f273174b157f47efd61779953fdd23d9486c5face5e553",
+      "manavgat_2021": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "montiferru_2021": "ffb008f977445076835ae35a70776b0b813d0a36655d2c656fd21e6fedd4ac50",
+      "mugla_2021": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e"
+    },
+    "package_versions": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "pyarrow": "24.0.0"
+    },
+    "prohibited_actions": [
+      "fit any model",
+      "calculate transfer performance",
+      "modify Step8A",
+      "use target-label adaptation",
+      "rerun Step9 or Step10",
+      "call components confirmed independent fire events",
+      "claim causality",
+      "claim statistical significance",
+      "choose a population or connectivity based on favorable results"
+    ],
+    "limitations": [
+      "Connected components are a spatial fragmentation proxy. They must not be interpreted as a definitive count of independent wildfire events, because one event may appear as multiple disconnected components and multiple events may be spatially connected at the analysis resolution.",
+      "Connected-component count is resolution-dependent (8-neighbour adjacency on the fixed 500 m Step8A grid); a coarser or finer grid would yield a different count for the same physical burned area.",
+      "Results are sensitive to AOI clipping: a component that would be contiguous in a wider AOI can appear split, or vice versa, purely because of where the analysis extent was drawn.",
+      "MCD64A1-scale cells are approximate spatial units, not exact ground-truth footprints (see CELL_AREA_KM2_SOURCE provenance).",
+      "Component count is not a definitive fire-event count.",
+      "Results are descriptive and do not explain cross-region transfer performance causally."
+    ]
+  }
+}

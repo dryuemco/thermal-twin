@@ -1,0 +1,9 @@
+experiment_id,model_family,roc_auc,pr_auc,thermal_minus_baseline_roc_auc,thermal_minus_baseline_pr_auc,large_block_robustness_available,large_block_support_status,effect_magnitude_stability_status,large_block_unavailable_reason
+bejis_2022,baseline,0.8616776566230079,0.3027735748414686,0.05613342796309451,0.19503423145298132,True,supported_on_both_metrics,,
+bejis_2022,thermal,0.9178110845861024,0.49780780629444993,0.05613342796309451,0.19503423145298132,True,supported_on_both_metrics,,
+evia_2021_extended,baseline,0.7589523122760988,0.5159513545668625,0.15328490798606853,0.30041574520182823,True,strongly_robust,stable_across_block_scale,
+evia_2021_extended,thermal,0.9122372202621674,0.8163670997686907,0.15328490798606853,0.30041574520182823,True,strongly_robust,stable_across_block_scale,
+manavgat_2021,baseline,0.8411807102607785,0.4698773243148263,0.06689286691857155,0.17571211849617985,True,strongly_robust,decreases_with_block_scale,
+manavgat_2021,thermal,0.90807357717935,0.6455894428110062,0.06689286691857155,0.17571211849617985,True,strongly_robust,decreases_with_block_scale,
+mugla_2021,baseline,0.7433200295403336,0.22494508611689773,0.11566300943993879,0.2218023040272814,True,strongly_robust,decreases_with_block_scale,
+mugla_2021,thermal,0.8589830389802724,0.44674739014417914,0.11566300943993879,0.2218023040272814,True,strongly_robust,decreases_with_block_scale,

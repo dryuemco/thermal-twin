@@ -1,0 +1,22 @@
+                                direction  raw_thermal_roc  z_thermal_roc  coral_thermal_roc  raw_baseline_roc
+0        bejis_2022_to_evia_2021_extended         0.382821       0.531600           0.499097          0.530461
+1             bejis_2022_to_manavgat_2021         0.314155       0.302112           0.405749          0.296555
+2           bejis_2022_to_montiferru_2021         0.593725       0.549505           0.573965          0.553036
+3                bejis_2022_to_mugla_2021         0.618475       0.517733           0.506638          0.592239
+4        evia_2021_extended_to_bejis_2022         0.448008       0.549472           0.548925          0.391734
+5     evia_2021_extended_to_manavgat_2021         0.676883       0.403520           0.416519          0.727365
+6   evia_2021_extended_to_montiferru_2021         0.646704       0.567612           0.581467          0.549424
+7        evia_2021_extended_to_mugla_2021         0.576836       0.501343           0.530239          0.512501
+8             manavgat_2021_to_bejis_2022         0.396403       0.450402           0.466847          0.370691
+9     manavgat_2021_to_evia_2021_extended         0.654009       0.529137           0.504316          0.622592
+10       manavgat_2021_to_montiferru_2021         0.517808       0.526755           0.505012          0.533986
+11            manavgat_2021_to_mugla_2021         0.437662       0.426746           0.417421          0.465607
+12          montiferru_2021_to_bejis_2022         0.548301       0.573741           0.568908          0.612627
+13  montiferru_2021_to_evia_2021_extended         0.586193       0.630446           0.623890          0.556424
+14       montiferru_2021_to_manavgat_2021         0.404107       0.387985           0.436079          0.337949
+15          montiferru_2021_to_mugla_2021         0.619352       0.575938           0.564950          0.651203
+16               mugla_2021_to_bejis_2022         0.583191       0.535263           0.560332          0.450738
+17       mugla_2021_to_evia_2021_extended         0.653405       0.561325           0.563280          0.599755
+18            mugla_2021_to_manavgat_2021         0.344955       0.484819           0.476115          0.422259
+19          mugla_2021_to_montiferru_2021         0.531243       0.587011           0.583848          0.610525
+means: {'raw_thermal_roc': 0.5267, 'z_thermal_roc': 0.5096, 'coral_thermal_roc': 0.5167, 'raw_baseline_roc': 0.5194}

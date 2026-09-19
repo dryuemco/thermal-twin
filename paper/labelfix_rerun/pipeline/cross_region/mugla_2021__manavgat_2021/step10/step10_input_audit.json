@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-09-19T09:19:13.521655+00:00",
+  "checks": {
+    "mugla_2021": {
+      "step8a_dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "step8a_dataset_exists": true,
+      "step8a_dataset_sha256": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e",
+      "step8b_predictions_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8b\\step8b_predictions.parquet",
+      "step8b_predictions_exists": true,
+      "step8b_predictions_sha256": "d6d8b685ce4f45bf300a0c61305e90e75c789a3d6b13f5731ce5c76ff8fe9118",
+      "step8b_metrics_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "step8b_metrics_exists": true,
+      "step8b_metrics_sha256": "b584d76e8812f604fb7a716bcf7a3da2071c4c50559a6fe6d6264af56cada406",
+      "step8a_missing_required_columns": []
+    },
+    "manavgat_2021": {
+      "step8a_dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "step8a_dataset_exists": true,
+      "step8a_dataset_sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "step8b_predictions_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_predictions.parquet",
+      "step8b_predictions_exists": true,
+      "step8b_predictions_sha256": "55c6215bfd19a324796426adc2f82611e5cbf51e969640b21bfced7497891912",
+      "step8b_metrics_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "step8b_metrics_exists": true,
+      "step8b_metrics_sha256": "53189b23592cd02adc9a5cf26623eb4404eb0258fa0ebfbdee98510355982f9b",
+      "step8a_missing_required_columns": []
+    },
+    "step9b_reference": {
+      "metrics_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__manavgat_2021\\step9b\\cross_region_transfer_metrics.json",
+      "metrics_exists": true,
+      "metrics_sha256": "89ed9cbb69f4f776cc8130d72819930ea2fcf1b48b9a216f57fa93f321d5a130",
+      "predictions_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__manavgat_2021\\step9b\\cross_region_transfer_predictions.parquet",
+      "predictions_exists": true,
+      "predictions_sha256": "9630a9f63e29e9168cbc27e012e450689ed12d7197f2e54b88c0586f55ec5085"
+    }
+  },
+  "package_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.9.0"
+  },
+  "analysis_id": "2843b998c142c98d266cbb16e299412fcf6b15cefd7f5c6f600dca321500107c"
+}

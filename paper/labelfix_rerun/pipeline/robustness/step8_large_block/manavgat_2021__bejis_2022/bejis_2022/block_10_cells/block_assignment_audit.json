@@ -1,0 +1,76 @@
+{
+  "analysis_id": "bb909a2c9bff1b7b76c95fa6fd36144d54bfd532883d305238bebd8c97915d3a",
+  "experiment_id": "bejis_2022",
+  "block_size_cells": 10,
+  "nominal_scale": "approximately_5_km",
+  "total_modeling_rows": 15190,
+  "positive_rows": 1100,
+  "negative_rows": 14090,
+  "total_large_blocks": 176,
+  "blocks_containing_positives": 19,
+  "blocks_containing_negatives": 172,
+  "mixed_class_blocks": 15,
+  "rows_per_block": {
+    "min": 9,
+    "median": 100.0,
+    "max": 100
+  },
+  "positives_per_block": {
+    "min": 0,
+    "median": 0.0,
+    "max": 100
+  },
+  "number_of_cv_folds": 5,
+  "folds": [
+    {
+      "fold_id": 0,
+      "train_rows": 12149,
+      "test_rows": 3041,
+      "train_positives": 864,
+      "test_positives": 236,
+      "train_blocks": 141,
+      "test_blocks": 35,
+      "block_overlap": 0
+    },
+    {
+      "fold_id": 1,
+      "train_rows": 12103,
+      "test_rows": 3087,
+      "train_positives": 874,
+      "test_positives": 226,
+      "train_blocks": 142,
+      "test_blocks": 34,
+      "block_overlap": 0
+    },
+    {
+      "fold_id": 2,
+      "train_rows": 12117,
+      "test_rows": 3073,
+      "train_positives": 865,
+      "test_positives": 235,
+      "train_blocks": 139,
+      "test_blocks": 37,
+      "block_overlap": 0
+    },
+    {
+      "fold_id": 3,
+      "train_rows": 12215,
+      "test_rows": 2975,
+      "train_positives": 907,
+      "test_positives": 193,
+      "train_blocks": 140,
+      "test_blocks": 36,
+      "block_overlap": 0
+    },
+    {
+      "fold_id": 4,
+      "train_rows": 12176,
+      "test_rows": 3014,
+      "train_positives": 890,
+      "test_positives": 210,
+      "train_blocks": 142,
+      "test_blocks": 34,
+      "block_overlap": 0
+    }
+  ]
+}

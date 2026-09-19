@@ -1,0 +1,46 @@
+{
+  "analysis_id": "f5f97cec4733da613e64f9e64a9b56fab774bb187417d8c9d54f60dcc139a24b",
+  "experiment_id": "manavgat_2021",
+  "block_size_cells": 20,
+  "nominal_scale": "approximately_10_km",
+  "primary_population": "burnable_tree_shrub_grass",
+  "block_audit": {
+    "total_rows": 20511,
+    "eligible_rows": 20511,
+    "positive_rows": 2935,
+    "negative_rows": 17576,
+    "unique_spatial_blocks": 60,
+    "positive_containing_blocks": 17,
+    "negative_containing_blocks": 59,
+    "mixed_class_blocks": 16,
+    "fold_count": 5,
+    "train_test_block_leakage_total": 0,
+    "train_test_block_leakage_free": true
+  },
+  "protected_original_inputs": [
+    "step8a/step8a_500m_modeling_dataset.parquet",
+    "step8b/step8b_predictions.parquet",
+    "step8b/step8b_model_comparison_metrics.json",
+    "step8c/step8c_bootstrap_metrics.json",
+    "step8e/final_step8_report.json"
+  ],
+  "input_dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+  "input_dataset_sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+  "metric_source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\robustness\\step8_big_blocks_v2\\block_20_cells\\step8b_metrics.json",
+  "metric_source_sha256": "2abf95426afb0bd5de3ffc2efa5d7e7ad7a3af52cda7bab5879700ecc613e87e",
+  "bootstrap_source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\robustness\\step8_big_blocks_v2\\block_20_cells\\bootstrap_summary.json",
+  "bootstrap_source_sha256": "dc28e2eb9d69e1f258d41c40edd8cc9fee83dfb3efb34bf3ed2e8281c500f1bb",
+  "oof_predictions_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\robustness\\step8_big_blocks_v2\\block_20_cells\\oof_predictions.parquet",
+  "oof_predictions_sha256": "9d7edee998ec67cb463cbeca248f1e34130eedbed55d45b95baec4199bb92949",
+  "original_small_block_provenance": {
+    "metric_source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_model_comparison_metrics.json",
+    "metric_source_sha256": "53189b23592cd02adc9a5cf26623eb4404eb0258fa0ebfbdee98510355982f9b",
+    "bootstrap_source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8c\\step8c_bootstrap_metrics.json",
+    "bootstrap_source_sha256": "50010888b1e128d019bb871027a56acd4ee38d4302cb99e8fe78d87037ad5a85"
+  },
+  "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+  "created_at": "2026-09-19T08:50:44.257893+00:00",
+  "report_regeneration_only": false,
+  "models_refit": true,
+  "bootstrap_rerun": true
+}

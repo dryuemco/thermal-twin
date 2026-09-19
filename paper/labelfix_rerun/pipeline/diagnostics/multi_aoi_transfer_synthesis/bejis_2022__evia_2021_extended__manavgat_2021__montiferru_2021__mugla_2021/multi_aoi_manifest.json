@@ -1,0 +1,1243 @@
+{
+  "canonical_set_id": "bejis_2022__evia_2021_extended__manavgat_2021__montiferru_2021__mugla_2021",
+  "generated_at": "2026-09-19T09:35:46.367199+00:00",
+  "primary_population": "burnable_tree_shrub_grass",
+  "aois_display_order": [
+    "bejis_2022",
+    "evia_2021_extended",
+    "manavgat_2021",
+    "montiferru_2021",
+    "mugla_2021"
+  ],
+  "aois_canonical_order": [
+    "bejis_2022",
+    "evia_2021_extended",
+    "manavgat_2021",
+    "montiferru_2021",
+    "mugla_2021"
+  ],
+  "ordered_directions": [
+    [
+      "bejis_2022",
+      "evia_2021_extended"
+    ],
+    [
+      "bejis_2022",
+      "manavgat_2021"
+    ],
+    [
+      "bejis_2022",
+      "montiferru_2021"
+    ],
+    [
+      "bejis_2022",
+      "mugla_2021"
+    ],
+    [
+      "evia_2021_extended",
+      "bejis_2022"
+    ],
+    [
+      "evia_2021_extended",
+      "manavgat_2021"
+    ],
+    [
+      "evia_2021_extended",
+      "montiferru_2021"
+    ],
+    [
+      "evia_2021_extended",
+      "mugla_2021"
+    ],
+    [
+      "manavgat_2021",
+      "bejis_2022"
+    ],
+    [
+      "manavgat_2021",
+      "evia_2021_extended"
+    ],
+    [
+      "manavgat_2021",
+      "montiferru_2021"
+    ],
+    [
+      "manavgat_2021",
+      "mugla_2021"
+    ],
+    [
+      "montiferru_2021",
+      "bejis_2022"
+    ],
+    [
+      "montiferru_2021",
+      "evia_2021_extended"
+    ],
+    [
+      "montiferru_2021",
+      "manavgat_2021"
+    ],
+    [
+      "montiferru_2021",
+      "mugla_2021"
+    ],
+    [
+      "mugla_2021",
+      "bejis_2022"
+    ],
+    [
+      "mugla_2021",
+      "evia_2021_extended"
+    ],
+    [
+      "mugla_2021",
+      "manavgat_2021"
+    ],
+    [
+      "mugla_2021",
+      "montiferru_2021"
+    ]
+  ],
+  "unordered_pairs": [
+    [
+      "bejis_2022",
+      "evia_2021_extended"
+    ],
+    [
+      "bejis_2022",
+      "manavgat_2021"
+    ],
+    [
+      "bejis_2022",
+      "montiferru_2021"
+    ],
+    [
+      "bejis_2022",
+      "mugla_2021"
+    ],
+    [
+      "evia_2021_extended",
+      "manavgat_2021"
+    ],
+    [
+      "evia_2021_extended",
+      "montiferru_2021"
+    ],
+    [
+      "evia_2021_extended",
+      "mugla_2021"
+    ],
+    [
+      "manavgat_2021",
+      "montiferru_2021"
+    ],
+    [
+      "manavgat_2021",
+      "mugla_2021"
+    ],
+    [
+      "montiferru_2021",
+      "mugla_2021"
+    ]
+  ],
+  "input_families_resolved": [
+    "large_block_robustness",
+    "step10_pair",
+    "step8_within_region",
+    "step9_transfer",
+    "step9e_shift_audit",
+    "step9g_feature_reversal"
+  ],
+  "resolved_inputs": [
+    {
+      "family": "step8_within_region",
+      "path": "outputs\\experiments\\bejis_2022\\step8b\\step8b_model_comparison_metrics.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8b\\step8b_model_comparison_metrics.json",
+      "schema_version": "step8b_model_comparison_metrics",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "7be1421686ca517eb0db5f1c764546bcf6bda9ba3f5cfc8c61bc42d05c7c08e9"
+    },
+    {
+      "family": "large_block_robustness",
+      "path": "outputs\\robustness\\step8_large_block_primary_all_valid\\manavgat_2021__bejis_2022\\step8_large_block_primary_all_valid_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block_primary_all_valid\\manavgat_2021__bejis_2022\\step8_large_block_primary_all_valid_final_report.json",
+      "schema_version": "step8.large_block_robustness_primary_all_valid.v1",
+      "analysis_id": "bb909a2c9bff1b7b76c95fa6fd36144d54bfd532883d305238bebd8c97915d3a",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "legacy_pair_relative_schema:primary_all_valid",
+      "content_hash": "859f240ef2a0d38c9ec771f8d32ef67adaa24aae2a3c7f41d0ae2178b0009a1e",
+      "artifact_scope": "pair_global_sensitivity_reference_pointer",
+      "extraction_key": "scope.natural_vegetation_sensitivity_robustness->new_large_block_conditions"
+    },
+    {
+      "family": "step8_within_region",
+      "path": "outputs\\experiments\\evia_2021_extended\\step8b\\step8b_model_comparison_metrics.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021_extended\\step8b\\step8b_model_comparison_metrics.json",
+      "schema_version": "step8b_model_comparison_metrics",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "7a5b2b97a4bfe32202a982b5f411cbd01bbcf8075970e8790ccebf27498eeef1"
+    },
+    {
+      "family": "large_block_robustness",
+      "path": "outputs\\experiments\\evia_2021_extended\\robustness\\step8_big_blocks\\comparison\\big_block_robustness_summary.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021_extended\\robustness\\step8_big_blocks\\comparison\\big_block_robustness_summary.json",
+      "schema_version": "step8.big_block_robustness.v2",
+      "analysis_id": "d1dabd1f5eba77a6d52f6b22b5fd800611854393a9407b6e407d61259a8006f2",
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "generic_per_experiment_schema",
+      "content_hash": "be400f266fe3e88c585fddbecb6544e2c5c850cf040843b0730157771c91fea5",
+      "artifact_scope": "per_experiment",
+      "extraction_key": "$",
+      "namespace": "step8_big_blocks"
+    },
+    {
+      "family": "step8_within_region",
+      "path": "outputs\\experiments\\manavgat_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "schema_version": "step8b_model_comparison_metrics",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "53189b23592cd02adc9a5cf26623eb4404eb0258fa0ebfbdee98510355982f9b"
+    },
+    {
+      "family": "large_block_robustness",
+      "path": "outputs\\experiments\\manavgat_2021\\robustness\\step8_big_blocks_v2\\comparison\\big_block_robustness_summary.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\robustness\\step8_big_blocks_v2\\comparison\\big_block_robustness_summary.json",
+      "schema_version": "step8.big_block_robustness.v2",
+      "analysis_id": "f5f97cec4733da613e64f9e64a9b56fab774bb187417d8c9d54f60dcc139a24b",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "versioned_per_experiment_schema",
+      "content_hash": "3be50d2b3ad9544f7309dc9795e02a04821b5ec948d67bb9cd3913d32c6f6bee",
+      "artifact_scope": "per_experiment",
+      "extraction_key": "$",
+      "namespace": "step8_big_blocks_v2"
+    },
+    {
+      "family": "step8_within_region",
+      "path": "outputs\\experiments\\montiferru_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\montiferru_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "schema_version": "step8b_model_comparison_metrics",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "64f64063f51d6ae8a8b877a9d14b5cf2b7539a2647e0e682e9b41fe60812b5b3"
+    },
+    {
+      "family": "large_block_robustness",
+      "path": "outputs\\experiments\\montiferru_2021\\robustness\\step8_big_blocks\\comparison\\big_block_robustness_summary.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\montiferru_2021\\robustness\\step8_big_blocks\\comparison\\big_block_robustness_summary.json",
+      "schema_version": "step8.big_block_robustness.v2",
+      "analysis_id": "aa9de063504b96369b7ecec929e152095b0a6c6514acb91f973cc4a673312ba1",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "generic_per_experiment_schema",
+      "content_hash": "9da682dc86358595fda1d8fa7054cd89c99ea086f19d71916c961c2540f55f69",
+      "artifact_scope": "per_experiment",
+      "extraction_key": "$",
+      "namespace": "step8_big_blocks"
+    },
+    {
+      "family": "step8_within_region",
+      "path": "outputs\\experiments\\mugla_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8b\\step8b_model_comparison_metrics.json",
+      "schema_version": "step8b_model_comparison_metrics",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "b584d76e8812f604fb7a716bcf7a3da2071c4c50559a6fe6d6264af56cada406"
+    },
+    {
+      "family": "large_block_robustness",
+      "path": "outputs\\experiments\\mugla_2021\\robustness\\step8_big_blocks\\comparison\\big_block_robustness_summary.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\robustness\\step8_big_blocks\\comparison\\big_block_robustness_summary.json",
+      "schema_version": "step8.big_block_robustness.v2",
+      "analysis_id": "2e59288cbb4b7896b64325e0299b06f809ae8d0a965fde4355877d667bbdb91d",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": null,
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "generic_per_experiment_schema",
+      "content_hash": "edb31378257fd7b7b147d5a06d2d5d11ba2e63454622bd7df694df34104a9997",
+      "artifact_scope": "per_experiment",
+      "extraction_key": "$",
+      "namespace": "step8_big_blocks"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "ff0e1366299c072aa0c19b885bd9aebb216230745dd46fccc97ef7a635ad01e2"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "5474cfa138fb7a34035e96b1252904f13f4b53560ceb733208749f8ef64932d2",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "bejis_2022_to_evia_2021_extended",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "bejis_2022__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "bejis_2022",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "816f37f71700c973de6b632e7d7aa6d798dbf99439ee0e94ae1bf822a49b5df2"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "dac2a609be11013970d8d0d65746ad84c92405378b53e91d2bd0862eb4b9f81c",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "bejis_2022_to_manavgat_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "manavgat_2021__bejis_2022",
+      "resolved_path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "bejis_2022"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "9f729b7054b1768096126ea5667bbfea67cb2840054cda0d2246a8eff45fee3f"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "fe2c39bd1886db2770bc74102a7c55ca2e5e8b20243e5673b643f7fedce40975",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "bejis_2022_to_montiferru_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "montiferru_2021__bejis_2022",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "bejis_2022"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\bejis_2022__mugla_2021\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__mugla_2021\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "3ba977676b86cfe949a1261ed8101291d6025b90b83ff592d8a82d485bd9fd1d"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\bejis_2022__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "1e5c06177cdf03bbfe3c49af2953a11d7bd005b115ae7aa6a8ec61cacdcf242c",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "bejis_2022_to_mugla_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "bejis_2022__mugla_2021",
+      "resolved_path": "outputs\\cross_region\\bejis_2022__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "bejis_2022",
+      "root_target_experiment_id": "mugla_2021"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "ff0e1366299c072aa0c19b885bd9aebb216230745dd46fccc97ef7a635ad01e2"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "5474cfa138fb7a34035e96b1252904f13f4b53560ceb733208749f8ef64932d2",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "evia_2021_extended_to_bejis_2022",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "bejis_2022__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "bejis_2022",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "81e265e52bd6b8295bfb1487284f59d75d3f0e40800ad0a724401937fe9b7673"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "f75bd21f6110fe3926bde8d350c8d09f9745b370476d1638b27fff19887350be",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "evia_2021_extended_to_manavgat_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "manavgat_2021__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "2cf46768927895aadc9183d94f23662f5d7bce57cb1724f48d6733f30e8916f6"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "d259380804c359677728f73f1db67c1ffebc746b0e076ea1f6b717f8a3a0aa8b",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "evia_2021_extended_to_montiferru_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "montiferru_2021__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "8ed10acd3d3c382ed74357ad734155f6dbaac47e6f06c269438798c7abf7f3b4"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "66729d50cd01e676e8c1feadc0f302884c516d2afbcdf4aaec6122f0a0f705b5",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "evia_2021_extended_to_mugla_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "mugla_2021__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "mugla_2021",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "816f37f71700c973de6b632e7d7aa6d798dbf99439ee0e94ae1bf822a49b5df2"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "dac2a609be11013970d8d0d65746ad84c92405378b53e91d2bd0862eb4b9f81c",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "manavgat_2021_to_bejis_2022",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "manavgat_2021__bejis_2022",
+      "resolved_path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "bejis_2022"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "81e265e52bd6b8295bfb1487284f59d75d3f0e40800ad0a724401937fe9b7673"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "f75bd21f6110fe3926bde8d350c8d09f9745b370476d1638b27fff19887350be",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "manavgat_2021_to_evia_2021_extended",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "manavgat_2021__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "1766c21c543f41c634851f686a59e1bb31b4949594edd91bf06ce9f166587a97"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "2c4d958e2bea992876f098483869970b540f952b7b155f7e1db0037d9fe1658c",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "manavgat_2021_to_montiferru_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "montiferru_2021__manavgat_2021",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "manavgat_2021"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\manavgat_2021__mugla_2021\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__mugla_2021\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "e662d9b5d62e521f5b7af1147eac320e8a05a20c9a4cf5350b92e40999a9eca2"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\manavgat_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "7ae30f0d46468a8d78393405fd0232613466d5299f9b9666647a9d13968d2432",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "manavgat_2021_to_mugla_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "manavgat_2021__mugla_2021",
+      "resolved_path": "outputs\\cross_region\\manavgat_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "mugla_2021"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "9f729b7054b1768096126ea5667bbfea67cb2840054cda0d2246a8eff45fee3f"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "fe2c39bd1886db2770bc74102a7c55ca2e5e8b20243e5673b643f7fedce40975",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "montiferru_2021_to_bejis_2022",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "montiferru_2021__bejis_2022",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "bejis_2022"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "2cf46768927895aadc9183d94f23662f5d7bce57cb1724f48d6733f30e8916f6"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "d259380804c359677728f73f1db67c1ffebc746b0e076ea1f6b717f8a3a0aa8b",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "montiferru_2021_to_evia_2021_extended",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "montiferru_2021__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "1766c21c543f41c634851f686a59e1bb31b4949594edd91bf06ce9f166587a97"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "2c4d958e2bea992876f098483869970b540f952b7b155f7e1db0037d9fe1658c",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "montiferru_2021_to_manavgat_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "montiferru_2021__manavgat_2021",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "manavgat_2021"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__mugla_2021\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__mugla_2021\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "6c487ff217d4f5b78f89d328bb22bca64a9b21b23006d7296a31e8799dae314b"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "c326a2c53c6f4362d5af6ac6d6532cbfcb22b72b60f76c84edb21518b70cea4f",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "montiferru_2021_to_mugla_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "montiferru_2021__mugla_2021",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "mugla_2021"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\mugla_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__bejis_2022\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "8d74f6a80410426de29eb55c2c1264edb18a1841ce06f48f3db45cf7cd5c486a"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\mugla_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "bejis_2022",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "b0eae0c2934cf894d47b998915fe0d890dbc441fd968f35d4b22026f4093ae42",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "mugla_2021_to_bejis_2022",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "mugla_2021__bejis_2022",
+      "resolved_path": "outputs\\cross_region\\mugla_2021__bejis_2022\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "mugla_2021",
+      "root_target_experiment_id": "bejis_2022"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "8ed10acd3d3c382ed74357ad734155f6dbaac47e6f06c269438798c7abf7f3b4"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "66729d50cd01e676e8c1feadc0f302884c516d2afbcdf4aaec6122f0a0f705b5",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "mugla_2021_to_evia_2021_extended",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "mugla_2021__evia_2021_extended",
+      "resolved_path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "mugla_2021",
+      "root_target_experiment_id": "evia_2021_extended"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\mugla_2021__manavgat_2021\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__manavgat_2021\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:direct_pair_directory",
+      "content_hash": "a52f7041b712bf5e5e82afcd236578e63636871d6e54926760c535c5c791b2cc"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\mugla_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "c40f8abd05e07addd7d39e8abb7896f52b2b05b2189a74ccb724aac2749e197a",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "mugla_2021_to_manavgat_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace"
+      ],
+      "resolution_mode": "exact_directional_namespace",
+      "resolved_namespace": "mugla_2021__manavgat_2021",
+      "resolved_path": "outputs\\cross_region\\mugla_2021__manavgat_2021\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "mugla_2021",
+      "root_target_experiment_id": "manavgat_2021"
+    },
+    {
+      "family": "step9_transfer",
+      "path": "outputs\\cross_region\\montiferru_2021__mugla_2021\\step9d\\final_cross_region_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__mugla_2021\\step9d\\final_cross_region_report.json",
+      "schema_version": "step9d.final_cross_region_report",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9d_merged_report:reverse_pair_directory",
+      "content_hash": "6c487ff217d4f5b78f89d328bb22bca64a9b21b23006d7296a31e8799dae314b"
+    },
+    {
+      "family": "step9e_shift_audit",
+      "path": "outputs\\cross_region\\montiferru_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema_version": "step9e.distribution_shift_audit",
+      "analysis_id": null,
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "c326a2c53c6f4362d5af6ac6d6532cbfcb22b72b60f76c84edb21518b70cea4f",
+      "artifact_scope": "pair_global_with_direction_records",
+      "requested_logical_direction": "mugla_2021_to_montiferru_2021",
+      "resolution_precedence": [
+        "exact_directional_namespace",
+        "legacy_reverse_namespace_fallback"
+      ],
+      "resolution_mode": "legacy_reverse_namespace_fallback",
+      "resolved_namespace": "montiferru_2021__mugla_2021",
+      "resolved_path": "outputs\\cross_region\\montiferru_2021__mugla_2021\\step9e\\distribution_shift_audit.json",
+      "schema": "step9e.distribution_shift_audit.pair_global_with_direction_records",
+      "root_source_experiment_id": "montiferru_2021",
+      "root_target_experiment_id": "mugla_2021"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\bejis_2022__evia_2021_extended\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\bejis_2022__evia_2021_extended\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "ea95fd9ae0804091112afe2bdeabc0681fb889a06ca97b9eb7f0b6b94d6acb35",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:direct_pair_directory",
+      "content_hash": "640a1a7f8cde402ee07eb85ac79b7b8f3bc205bda5771d990aaab93e93dda729"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\bejis_2022__evia_2021_extended\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__evia_2021_extended\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "149c7402985d665c8ba48a6776cffba0b918e66e51cc90c81322a627e11c6165",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "evia_2021_extended",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "a251c65524c64c9806883d872b1e8575ee0991f3770764f5305375e417e11ea9"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__bejis_2022\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__bejis_2022\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "cc8f2299ae76963ef184f01e88c473be76952ca631fb9f33dfac26f3faa38e19",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:reverse_pair_directory",
+      "content_hash": "0fe5675b603e6aa6c2b2923066de1d527d9c9a364c7dd5c737f17efef5ecd87b"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\manavgat_2021__bejis_2022\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__bejis_2022\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "2ad1ffd6313293607ec474b598e70b9e11d8ba7658f353cdc3aa9d68ec09cde4"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__bejis_2022\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__bejis_2022\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "319e400a3910f0f777c5b1bb5f701b5b1c3bc816a81ec920824f2fcbd7b9bd94",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:reverse_pair_directory",
+      "content_hash": "f14099b88e06fc7d49ee0f0f18ca9e86b8cfc301efedac87e68bb6aabc148ac5"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\montiferru_2021__bejis_2022\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__bejis_2022\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "f7dc75ba525ddc9d1f532bb6244123ffef572cb554ef7e27403619f772671268",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "6db15c0e4cf1b6b3dae2fc47ebeb238367c2b411279703b1b015710b0be9da39"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal_integration_v2\\bejis_2022__mugla_2021\\step9g_integration_correction_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal_integration_v2\\bejis_2022__mugla_2021\\step9g_integration_correction_final_report.json",
+      "schema_version": "step9g.integration_correction.v2",
+      "analysis_id": "a982faf8b0843b2cb32247306c5516c4d6ba9f205d8ba9b9647c7559cb287e4d",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v2_integration:direct_pair_directory",
+      "content_hash": "350e96d9b4c36561f031c2c38749783718bb79a7e54883f6a2751d2fbdf70897"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\bejis_2022__mugla_2021\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\bejis_2022__mugla_2021\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "af4e071bdebe4d47dd836dab87a7de0851dc2fe5c998bb000dc1cf0a6e3c6f49",
+      "source_experiment_id": "bejis_2022",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "67a67a69b8c634779268a9c729181dfc687120d0ff6ded39dcc7b494a03a617f"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__evia_2021_extended\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__evia_2021_extended\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "15bda8fc40e9587effb0e8a5cfc2cb8b1cc5f6ab94635d6b0f9bdb10336a0460",
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:reverse_pair_directory",
+      "content_hash": "85f694fce48c823b301b56845a1e7e3e752619b81b328266bf9d83bdb083d7c7"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__evia_2021_extended\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "77c6546794363ce466c1440abb4317289d1fa2878d9acba04d4a76003a7be56d",
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "5a8073688a8d16f445312b66f2d93b63eaad9767a8f4fb1e700bbf2235dd6a2c"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__evia_2021_extended\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__evia_2021_extended\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "1862489bb81cfe4e097e88eaae64aad5f959c0d444da1aff61755a7e14653ae7",
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:reverse_pair_directory",
+      "content_hash": "df32e23c52c57bedd32fec8605aa97eac6be243714d41e4cda1aafc4029cbdd1"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__evia_2021_extended\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "ae15f0c2a275b37a45b8b3c44f1447c372fecf952bba1dc5c90ed5d16f5e5094",
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "95278aaf5db5159ce497c1606c8cdc4cef61b55c18b489f6c2653e312bbb9672"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\mugla_2021__evia_2021_extended\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\mugla_2021__evia_2021_extended\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "8356e8e119186fcff5423849e9cc87051c4ee0b51306b45f9fd309fd3a904da0",
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:reverse_pair_directory",
+      "content_hash": "6d8d5591ac322aa45126cba62dddbafa73b4896f8ac2151be90262c4be0f59c2"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\mugla_2021__evia_2021_extended\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\mugla_2021__evia_2021_extended\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "58dadef1d4f742cb28a578fca763f7b7770d6f9a86ea43dfe5ea89ee2d695ae3",
+      "source_experiment_id": "evia_2021_extended",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "152b90f75c7d61e5b3d4d719eafa251c942b7870d6c24bc1260b5ae1ec2055a0"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__manavgat_2021\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__manavgat_2021\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "16ba1398e0f98d591929c71442d6e435f12d86fa7f7ec712bd21f6b6e4795f6a",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:reverse_pair_directory",
+      "content_hash": "80e8d296c304a09466c6fa83c4ad4e7d16c4c10e769e75071198608fa1c54d20"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\montiferru_2021__manavgat_2021\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__manavgat_2021\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "27f5f9a83a56105b8be62adf87793be3debe9f20b06219b750e85ef879936a15",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "montiferru_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "reverse_pair_directory",
+      "content_hash": "94873200869b4d9224d03eff216c4dbb133c6a2162a909b99e1cd41f414bb7e4"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__mugla_2021\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__mugla_2021\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "0539a418ce832ee296d1803cd3a435909723534def1a532df97079136636ca5e",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:direct_pair_directory",
+      "content_hash": "c0f348378568697bae716be83d544c9188dc2ae50b04ba8e988d58cae4315899"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\manavgat_2021__mugla_2021\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__mugla_2021\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "a382046d5453412ea0145ce4ee057b9dfb8394160d7eac32551db26a51fb19ef",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "28d598bc7a8afee91425d7fbafb6ecea4b541524a22e586d9c9db5c6942308b1"
+    },
+    {
+      "family": "step9g_feature_reversal",
+      "path": "outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__mugla_2021\\step9g_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\montiferru_2021__mugla_2021\\step9g_final_report.json",
+      "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+      "analysis_id": "fe88bb9567a915c2a30092a10e921d80079f9a0ab2196bc097fba5fd126b41b4",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "step9g_v1:direct_pair_directory",
+      "content_hash": "00acac7f678fbe78e79eb3b8a8f04aa0a1163164a66e8d142202c2483c48c463"
+    },
+    {
+      "family": "step10_pair",
+      "path": "outputs\\cross_region\\montiferru_2021__mugla_2021\\step10\\step10_final_report.json",
+      "absolute_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\montiferru_2021__mugla_2021\\step10\\step10_final_report.json",
+      "schema_version": "step10.final_report.v2",
+      "analysis_id": "d7348189fcedaabbcfae53d618d974926a2e3dc712b739f8a7541d34522684da",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "resolution_method": "direct_pair_directory",
+      "content_hash": "2f4b170440dde45b1d207d9128fa80faad8c8d052d35cfa11716f6fa01ada85e"
+    }
+  ],
+  "duplicate_input_paths_detected": {},
+  "output_file_hashes": {
+    "multi_aoi_transfer_synthesis.json": "a3b42705700c875d0d3f47441ff89347d13fdb206bb9fbc26abcfca65daebe83",
+    "multi_aoi_transfer_synthesis.md": "6f9be85a9e960ba19526c08f9e6fbfe6a21886320e6e671fa56ff8e9844d2041",
+    "multi_aoi_transfer_matrix.csv": "04a33988cade31d79170d332a81844cfad22c666deb0b0d59709fd7a0ea6401f",
+    "multi_aoi_feature_stability.csv": "c864cd7dada65a175aaac3dde558b09c909541f7867265cbe55362f85370d0e9",
+    "multi_aoi_within_region.csv": "34f0357ff0dba99d78ee75cb05256d2531a29cf7c4c6a3c212d86ebdec4e0bdb"
+  }
+}

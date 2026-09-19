@@ -1,0 +1,64 @@
+{
+  "analysis_id": "65c7faae6e58b4048561d1333e0b49ce949b4449472de4cc7c6ba3f51ee9b5ee",
+  "created_at": "2026-09-19T09:35:41.552193+00:00",
+  "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+  "comparison_schema_version": "step9g.multi_aoi_univariate_auc_comparison.v1",
+  "requested_experiment_ids": [
+    "bejis_2022",
+    "manavgat_2021",
+    "mugla_2021"
+  ],
+  "resolved_experiment_ids": [
+    "bejis_2022",
+    "manavgat_2021",
+    "mugla_2021"
+  ],
+  "discovered_pair_report_paths": {
+    "bejis_2022__manavgat_2021": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__bejis_2022\\step9g_final_report.json",
+    "bejis_2022__mugla_2021": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\bejis_2022__mugla_2021\\step9g_final_report.json",
+    "manavgat_2021__mugla_2021": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\diagnostics\\step9g_univariate_feature_auc_direction_reversal\\manavgat_2021__mugla_2021\\step9g_final_report.json"
+  },
+  "unavailable_pair_reports": [],
+  "complete_pairwise_matrix": true,
+  "input_report_sha256": {
+    "manavgat_2021__bejis_2022": "0fe5675b603e6aa6c2b2923066de1d527d9c9a364c7dd5c737f17efef5ecd87b",
+    "bejis_2022__mugla_2021": "2466e1f3bcec15388ddcd828aa18ca996bd5c19db32596e6fe81592922ac38fa",
+    "manavgat_2021__mugla_2021": "c0f348378568697bae716be83d544c9188dc2ae50b04ba8e988d58cae4315899"
+  },
+  "underlying_step9g_analysis_ids": {
+    "manavgat_2021__bejis_2022": "cc8f2299ae76963ef184f01e88c473be76952ca631fb9f33dfac26f3faa38e19",
+    "bejis_2022__mugla_2021": "a2b79783c174350179ca600a9ec4ddd536e557a3cfbcde6cebed3d985e70663a",
+    "manavgat_2021__mugla_2021": "0539a418ce832ee296d1803cd3a435909723534def1a532df97079136636ca5e"
+  },
+  "report_schema_versions": {
+    "manavgat_2021__bejis_2022": "step9g.univariate_feature_auc_direction_reversal.v1",
+    "bejis_2022__mugla_2021": "step9g.univariate_feature_auc_direction_reversal.report.v2",
+    "manavgat_2021__mugla_2021": "step9g.univariate_feature_auc_direction_reversal.v1"
+  },
+  "scientific_contract": {
+    "primary_population": "burnable_tree_shrub_grass",
+    "numeric_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "block_size_cells": 10,
+    "nominal_block_scale": "approximately_5_km",
+    "bootstrap_replicates": 1000,
+    "bootstrap_seed": 42,
+    "raw_auc_semantics": "burned is the positive class; the raw (untransformed) feature value is used as the ranking score; AUC below 0.5 is a direction and is never inverted.",
+    "landcover_excluded_reason": "landcover_dominant is categorical; its integer class codes have no scientifically meaningful scalar ordering, so a raw-code ROC-AUC would be invalid. Reported as a separate descriptive table instead."
+  },
+  "package_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit_learn": "1.9.0"
+  },
+  "output_schema_version": "step9g.multi_aoi_univariate_auc_comparison.v1"
+}

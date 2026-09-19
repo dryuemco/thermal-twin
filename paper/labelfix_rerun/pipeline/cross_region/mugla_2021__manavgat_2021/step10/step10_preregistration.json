@@ -1,0 +1,166 @@
+{
+  "analysis_id": "2843b998c142c98d266cbb16e299412fcf6b15cefd7f5c6f600dca321500107c",
+  "created_at": "2026-09-19T09:19:13.504875+00:00",
+  "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+  "scientific_config": {
+    "schema_version": "step10.v1",
+    "source_experiment_id": "mugla_2021",
+    "target_experiment_id": "manavgat_2021",
+    "directions": [
+      "mugla_2021_to_manavgat_2021",
+      "manavgat_2021_to_mugla_2021"
+    ],
+    "primary_population": "burnable_tree_shrub_grass",
+    "primary_estimand": "delta_roc_auc_thermal = regionwise_zscore(thermal).roc_auc - raw_source_only(thermal).roc_auc",
+    "secondary_estimands": [
+      "delta_pr_auc_thermal = regionwise_zscore(thermal).pr_auc - raw_source_only(thermal).pr_auc",
+      "delta_roc_auc_coral_minus_raw_thermal",
+      "delta_roc_auc_coral_minus_zscore_thermal",
+      "baseline_model_results (raw/zscore/coral, roc_auc + pr_auc)",
+      "target_within_region_step8b_oof_metric_minus_adapted_transfer_metric"
+    ],
+    "baseline_numeric_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean"
+    ],
+    "baseline_categorical_features": [
+      "landcover_dominant"
+    ],
+    "thermal_numeric_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "thermal_categorical_features": [
+      "landcover_dominant"
+    ],
+    "regionwise_zscore_numeric_feature_pool": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "prohibited_leakage_columns": [
+      "burned",
+      "burn_date",
+      "burn_month",
+      "burn_day_of_year",
+      "label_source",
+      "cell_id",
+      "row_500m",
+      "col_500m",
+      "lon",
+      "lat",
+      "experiment_id",
+      "region_key",
+      "spatial_block_id",
+      "fold_id",
+      "valid_for_modeling",
+      "invalid_reason",
+      "source_mask_majority",
+      "observed_fraction",
+      "gapfilled_fraction",
+      "invalid_source_fraction",
+      "valid_30m_fraction",
+      "burn_date_pixel_agreement_fraction",
+      "out_of_window_burndate"
+    ],
+    "model_classes": {
+      "baseline": "RandomForestClassifier",
+      "thermal": "RandomForestClassifier"
+    },
+    "model_hyperparameters": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced",
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 3,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "random_state": 42,
+    "adaptation_methods": {
+      "raw_source_only": {
+        "definition": "Reuses Step9B's exact preprocessing (build_pipeline: source-fitted median imputer + one-hot encoder) and model fit; no additional transform. Must reproduce Step9B metrics within 1e-6."
+      },
+      "regionwise_zscore": {
+        "definition": "z = (x - region_mean) / region_std, computed independently per region.",
+        "ddof": 0,
+        "missing_value_rule": "fill with region's own feature mean before standardizing (becomes 0 after transform)",
+        "zero_variance_rule": "if std < 1e-12, use divisor 1.0 and record a constant-feature guard",
+        "clipping_or_winsorization": false,
+        "categorical_handling": "untouched; source-fitted one-hot encoding preserved",
+        "metadata_classification": "unsupervised_target_covariate_adaptation",
+        "never_uses_target_labels": true
+      },
+      "coral_after_regionwise_zscore": {
+        "definition": "CORAL (Sun & Saenko) applied to numeric features AFTER regionwise z-score. Cs=cov(Xs_z)+lambda*I, Ct=cov(Xt_z)+lambda*I, A=Cs^(-1/2) @ Ct^(1/2) via symmetric eigendecomposition, Xs_coral = Xs_z @ A, Xt_coral = Xt_z (target unchanged).",
+        "lambda": 1e-05,
+        "eigenvalue_floor": 1e-12,
+        "categorical_handling": "excluded from covariance alignment",
+        "never_uses_target_labels": true
+      }
+    },
+    "adaptation_method_names": [
+      "raw_source_only",
+      "regionwise_zscore",
+      "coral_after_regionwise_zscore"
+    ],
+    "threshold_policy": "none -- ROC-AUC and PR-AUC are threshold-free; no target threshold is fit.",
+    "bootstrap": {
+      "replicates": 1000,
+      "ci_method": "2.5/97.5 percentile",
+      "random_state": 42,
+      "min_valid_replicates": 900,
+      "resampling_unit": "target spatial_block_id (existing, not redefined)",
+      "pairing": "identical sampled target blocks across all methods within a replicate",
+      "invalid_replicate_rule": "single-class target y invalidates the replicate for ALL methods jointly"
+    },
+    "interpretation_rules": {
+      "raw_anti_predictive": "If raw ROC-AUC point estimate < 0.5, say 'anti-predictive at the point-estimate level'. Only say bootstrap-supported below-chance if the full 95% CI is below 0.5.",
+      "covariate_recovery": "Strong support if CI(z-score - raw) is entirely above 0. Above-chance support if the full z-score ROC-AUC CI is above 0.5. Otherwise report only point-estimate improvement.",
+      "residual_gap": "If CI(within - adapted) is entirely above 0, report a supported residual performance gap after covariate adaptation. Call it consistent with remaining concept shift, not definitive proof by itself.",
+      "coral_vs_zscore": "If CI(CORAL - z-score) includes 0, state that CORAL did not show supported improvement over simple region-wise standardization.",
+      "bidirectional_claim": "Only call the pattern bidirectional if the same qualitative result occurs in both directions. Otherwise call it direction-dependent.",
+      "significance_wording": "Never use p-values or 'statistically significant'. Use 'bootstrap-supported' or 'the percentile interval excludes zero'."
+    },
+    "prohibited_actions": [
+      "new_regions",
+      "new_feature_subsets",
+      "feature_selection",
+      "hyperparameter_tuning",
+      "new_model_types",
+      "deep_adaptation",
+      "target_label_calibration",
+      "target_label_threshold_fitting",
+      "prediction_inversion",
+      "post_hoc_acceptance_criteria"
+    ],
+    "not_probability_calibration": true,
+    "not_operational_transfer_proof": true
+  }
+}

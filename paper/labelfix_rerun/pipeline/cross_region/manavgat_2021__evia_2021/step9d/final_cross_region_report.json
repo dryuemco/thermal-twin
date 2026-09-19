@@ -1,0 +1,1343 @@
+{
+  "source_experiment_id": "manavgat_2021",
+  "target_experiment_id": "evia_2021",
+  "directions_evaluated": [
+    "evia_2021_to_manavgat_2021",
+    "manavgat_2021_to_evia_2021"
+  ],
+  "primary_population": "burnable_tree_shrub_grass",
+  "direction_summaries": [
+    {
+      "transfer_direction": "evia_2021_to_manavgat_2021",
+      "source_experiment_id": "evia_2021",
+      "target_experiment_id": "manavgat_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "population_results": {
+        "burnable_tree_shrub_grass": {
+          "transfer": {
+            "transfer_direction": "evia_2021_to_manavgat_2021",
+            "population": "burnable_tree_shrub_grass",
+            "source_experiment_id": "evia_2021",
+            "target_experiment_id": "manavgat_2021",
+            "source_cell_count": 3946,
+            "target_cell_count": 20511,
+            "source_positive_count": 2663,
+            "source_negative_count": 1283,
+            "target_positive_count": 2935,
+            "target_negative_count": 17576,
+            "target_burned_prevalence": 0.14309394958802593,
+            "skipped": false,
+            "baseline_metrics": {
+              "positive_count": 2935,
+              "negative_count": 17576,
+              "threshold_used": 0.3,
+              "roc_auc": 0.7013431278055331,
+              "pr_auc": 0.26645420113682705,
+              "brier_score": 0.21305368604830194,
+              "balanced_accuracy": 0.6373658442401323,
+              "precision": 0.20240343347639486,
+              "recall": 0.8034071550255537,
+              "f1": 0.32334590332533425,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 3946,
+                "best_f1_on_source_oof": 0.8531969309462916
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant"
+              ]
+            },
+            "thermal_metrics": {
+              "positive_count": 2935,
+              "negative_count": 17576,
+              "threshold_used": 0.35,
+              "roc_auc": 0.543205424153581,
+              "pr_auc": 0.22250511975527193,
+              "brier_score": 0.2678563162538193,
+              "balanced_accuracy": 0.47510956554508665,
+              "precision": 0.1345879475507847,
+              "recall": 0.6749574105621806,
+              "f1": 0.22442505947660588,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 3946,
+                "best_f1_on_source_oof": 0.8831444759206799
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant",
+                "lst_anomaly_mean",
+                "current_lst_mean",
+                "current_tvdi_mean",
+                "tvdi_difference_mean",
+                "downscaled_lst_mean",
+                "fused_lst_mean"
+              ]
+            },
+            "delta_metrics": {
+              "delta_auc": -0.15813770365195212,
+              "delta_pr_auc": -0.04394908138155512,
+              "delta_brier": 0.054802630205517344,
+              "brier_improvement": -0.054802630205517344
+            }
+          },
+          "bootstrap": {
+            "transfer_direction": "evia_2021_to_manavgat_2021",
+            "population": "burnable_tree_shrub_grass",
+            "n_successful_replicates": 1000,
+            "n_target_blocks": 5439,
+            "confidence_intervals": {
+              "delta_roc_auc": {
+                "ci_2_5": -0.1763735992641841,
+                "ci_97_5": -0.14090517515284265,
+                "mean": -0.15800150384023745,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "delta_pr_auc": {
+                "ci_2_5": -0.059060344535385396,
+                "ci_97_5": -0.028677512386054333,
+                "mean": -0.04388992747132792,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "delta_brier": {
+                "ci_2_5": 0.049654666423751374,
+                "ci_97_5": 0.05992828445449907,
+                "mean": 0.05478492107750766,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "brier_improvement": {
+                "ci_2_5": -0.05992828445449907,
+                "ci_97_5": -0.049654666423751374,
+                "mean": -0.05478492107750766,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "baseline_roc_auc": {
+                "ci_2_5": 0.6836704713414941,
+                "ci_97_5": 0.7168916115500809,
+                "mean": 0.7009435605768849
+              },
+              "thermal_roc_auc": {
+                "ci_2_5": 0.5209989479233261,
+                "ci_97_5": 0.5628804488944161,
+                "mean": 0.5429420567366476
+              },
+              "baseline_pr_auc": {
+                "ci_2_5": 0.24301554955316282,
+                "ci_97_5": 0.28875596937463427,
+                "mean": 0.26620810475070866
+              },
+              "thermal_pr_auc": {
+                "ci_2_5": 0.19874627294513791,
+                "ci_97_5": 0.24594648790232798,
+                "mean": 0.22231817727938075
+              },
+              "baseline_brier": {
+                "ci_2_5": 0.20681617941372096,
+                "ci_97_5": 0.21917673695040202,
+                "mean": 0.21317877198087018
+              },
+              "thermal_brier": {
+                "ci_2_5": 0.26323089338887556,
+                "ci_97_5": 0.27242114028386205,
+                "mean": 0.2679636930583778
+              }
+            }
+          }
+        },
+        "all_valid": {
+          "transfer": {
+            "transfer_direction": "evia_2021_to_manavgat_2021",
+            "population": "all_valid",
+            "source_experiment_id": "evia_2021",
+            "target_experiment_id": "manavgat_2021",
+            "source_cell_count": 7728,
+            "target_cell_count": 24087,
+            "source_positive_count": 2774,
+            "source_negative_count": 4954,
+            "target_positive_count": 3046,
+            "target_negative_count": 21041,
+            "target_burned_prevalence": 0.12645825549051357,
+            "skipped": false,
+            "baseline_metrics": {
+              "positive_count": 3046,
+              "negative_count": 21041,
+              "threshold_used": 0.5499999999999999,
+              "roc_auc": 0.7521961234862629,
+              "pr_auc": 0.26856934308371155,
+              "brier_score": 0.2557092070425747,
+              "balanced_accuracy": 0.7026453262012948,
+              "precision": 0.25127314814814816,
+              "recall": 0.7127380170715693,
+              "f1": 0.3715557076844087,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 7728,
+                "best_f1_on_source_oof": 0.8388712639839706
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant"
+              ]
+            },
+            "thermal_metrics": {
+              "positive_count": 3046,
+              "negative_count": 21041,
+              "threshold_used": 0.5499999999999999,
+              "roc_auc": 0.6680165101789979,
+              "pr_auc": 0.267075958048221,
+              "brier_score": 0.2547460011588952,
+              "balanced_accuracy": 0.6378979142213762,
+              "precision": 0.21823411705852927,
+              "recall": 0.5728824688115561,
+              "f1": 0.3160659300851295,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 7728,
+                "best_f1_on_source_oof": 0.8701500258665287
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant",
+                "lst_anomaly_mean",
+                "current_lst_mean",
+                "current_tvdi_mean",
+                "tvdi_difference_mean",
+                "downscaled_lst_mean",
+                "fused_lst_mean"
+              ]
+            },
+            "delta_metrics": {
+              "delta_auc": -0.08417961330726498,
+              "delta_pr_auc": -0.0014933850354905687,
+              "delta_brier": -0.000963205883679541,
+              "brier_improvement": 0.000963205883679541
+            }
+          },
+          "bootstrap": {
+            "transfer_direction": "evia_2021_to_manavgat_2021",
+            "population": "all_valid",
+            "n_successful_replicates": 1000,
+            "n_target_blocks": 6070,
+            "confidence_intervals": {
+              "delta_roc_auc": {
+                "ci_2_5": -0.09874476913212792,
+                "ci_97_5": -0.07073447857110618,
+                "mean": -0.08458403717947029,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "delta_pr_auc": {
+                "ci_2_5": -0.016696450279489537,
+                "ci_97_5": 0.012668958225915293,
+                "mean": -0.0013775397256340022,
+                "interpretation": "uncertain"
+              },
+              "delta_brier": {
+                "ci_2_5": -0.005092660144627529,
+                "ci_97_5": 0.0033903504588195586,
+                "mean": -0.00089572670520105,
+                "interpretation": "uncertain"
+              },
+              "brier_improvement": {
+                "ci_2_5": -0.003390350458819559,
+                "ci_97_5": 0.005092660144627528,
+                "mean": 0.00089572670520105,
+                "interpretation": "uncertain"
+              },
+              "baseline_roc_auc": {
+                "ci_2_5": 0.7385431918081177,
+                "ci_97_5": 0.7672768785679807,
+                "mean": 0.7523816574283627
+              },
+              "thermal_roc_auc": {
+                "ci_2_5": 0.649135345278472,
+                "ci_97_5": 0.6864697128387668,
+                "mean": 0.6677976202488923
+              },
+              "baseline_pr_auc": {
+                "ci_2_5": 0.2463545232538232,
+                "ci_97_5": 0.29410254168498495,
+                "mean": 0.26918423558180904
+              },
+              "thermal_pr_auc": {
+                "ci_2_5": 0.24198351471624147,
+                "ci_97_5": 0.2949681699814543,
+                "mean": 0.267806695856175
+              },
+              "baseline_brier": {
+                "ci_2_5": 0.24891404731899977,
+                "ci_97_5": 0.2622209604855695,
+                "mean": 0.2555887058795546
+              },
+              "thermal_brier": {
+                "ci_2_5": 0.24989703188982335,
+                "ci_97_5": 0.2597852774058466,
+                "mean": 0.2546929791743536
+              }
+            }
+          }
+        },
+        "burnable_tree_shrub": {
+          "transfer": {
+            "transfer_direction": "evia_2021_to_manavgat_2021",
+            "population": "burnable_tree_shrub",
+            "source_experiment_id": "evia_2021",
+            "target_experiment_id": "manavgat_2021",
+            "source_cell_count": 3534,
+            "target_cell_count": 15538,
+            "source_positive_count": 2453,
+            "source_negative_count": 1081,
+            "target_positive_count": 2297,
+            "target_negative_count": 13241,
+            "target_burned_prevalence": 0.14783112369674348,
+            "skipped": false,
+            "baseline_metrics": {
+              "positive_count": 2297,
+              "negative_count": 13241,
+              "threshold_used": 0.3,
+              "roc_auc": 0.6985452732089615,
+              "pr_auc": 0.2751485682443472,
+              "brier_score": 0.2309763922123032,
+              "balanced_accuracy": 0.6235479454473426,
+              "precision": 0.19820851994583896,
+              "recall": 0.8284719198955159,
+              "f1": 0.31988569507480247,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 3534,
+                "best_f1_on_source_oof": 0.8524712002972873
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant"
+              ]
+            },
+            "thermal_metrics": {
+              "positive_count": 2297,
+              "negative_count": 13241,
+              "threshold_used": 0.35,
+              "roc_auc": 0.5826830996202906,
+              "pr_auc": 0.2402478054746112,
+              "brier_score": 0.2872290950203654,
+              "balanced_accuracy": 0.4901351250093006,
+              "precision": 0.14474944142993937,
+              "recall": 0.7897257292120157,
+              "f1": 0.2446557421269135,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 3534,
+                "best_f1_on_source_oof": 0.8852901484480432
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant",
+                "lst_anomaly_mean",
+                "current_lst_mean",
+                "current_tvdi_mean",
+                "tvdi_difference_mean",
+                "downscaled_lst_mean",
+                "fused_lst_mean"
+              ]
+            },
+            "delta_metrics": {
+              "delta_auc": -0.1158621735886709,
+              "delta_pr_auc": -0.034900762769736,
+              "delta_brier": 0.056252702808062216,
+              "brier_improvement": -0.056252702808062216
+            }
+          },
+          "bootstrap": {
+            "transfer_direction": "evia_2021_to_manavgat_2021",
+            "population": "burnable_tree_shrub",
+            "n_successful_replicates": 1000,
+            "n_target_blocks": 4577,
+            "confidence_intervals": {
+              "delta_roc_auc": {
+                "ci_2_5": -0.1349482830673297,
+                "ci_97_5": -0.09652713976987205,
+                "mean": -0.11573667829084702,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "delta_pr_auc": {
+                "ci_2_5": -0.051710008058718726,
+                "ci_97_5": -0.01699517396031928,
+                "mean": -0.034456190087571024,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "delta_brier": {
+                "ci_2_5": 0.049627482398871485,
+                "ci_97_5": 0.06205985574574944,
+                "mean": 0.05604311116192553,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "brier_improvement": {
+                "ci_2_5": -0.06205985574574944,
+                "ci_97_5": -0.049627482398871485,
+                "mean": -0.05604311116192553,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "baseline_roc_auc": {
+                "ci_2_5": 0.6795254722414483,
+                "ci_97_5": 0.7171173279173403,
+                "mean": 0.6983046355416688
+              },
+              "thermal_roc_auc": {
+                "ci_2_5": 0.5591825429088285,
+                "ci_97_5": 0.6051725566444767,
+                "mean": 0.5825679572508217
+              },
+              "baseline_pr_auc": {
+                "ci_2_5": 0.24627259241481841,
+                "ci_97_5": 0.3013549926285058,
+                "mean": 0.27514916948296514
+              },
+              "thermal_pr_auc": {
+                "ci_2_5": 0.21464420408234308,
+                "ci_97_5": 0.26738023716734005,
+                "mean": 0.24069297939539414
+              },
+              "baseline_brier": {
+                "ci_2_5": 0.22473111785451372,
+                "ci_97_5": 0.23787008904239845,
+                "mean": 0.23112899170302012
+              },
+              "thermal_brier": {
+                "ci_2_5": 0.2822048420606562,
+                "ci_97_5": 0.2925877618145362,
+                "mean": 0.28717210286494566
+              }
+            }
+          }
+        }
+      },
+      "primary_population_skipped": false,
+      "source_cell_count": 3946,
+      "target_cell_count": 20511,
+      "source_positive_count": 2663,
+      "target_positive_count": 2935,
+      "target_burned_prevalence": 0.14309394958802593,
+      "baseline_target_metrics": {
+        "positive_count": 2935,
+        "negative_count": 17576,
+        "threshold_used": 0.3,
+        "roc_auc": 0.7013431278055331,
+        "pr_auc": 0.26645420113682705,
+        "brier_score": 0.21305368604830194,
+        "balanced_accuracy": 0.6373658442401323,
+        "precision": 0.20240343347639486,
+        "recall": 0.8034071550255537,
+        "f1": 0.32334590332533425,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 3946,
+          "best_f1_on_source_oof": 0.8531969309462916
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_target_metrics": {
+        "positive_count": 2935,
+        "negative_count": 17576,
+        "threshold_used": 0.35,
+        "roc_auc": 0.543205424153581,
+        "pr_auc": 0.22250511975527193,
+        "brier_score": 0.2678563162538193,
+        "balanced_accuracy": 0.47510956554508665,
+        "precision": 0.1345879475507847,
+        "recall": 0.6749574105621806,
+        "f1": 0.22442505947660588,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 3946,
+          "best_f1_on_source_oof": 0.8831444759206799
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.15813770365195212,
+        "delta_pr_auc": -0.04394908138155512,
+        "delta_brier": 0.054802630205517344,
+        "brier_improvement": -0.054802630205517344
+      },
+      "bootstrap_confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.1763735992641841,
+          "ci_97_5": -0.14090517515284265,
+          "mean": -0.15800150384023745,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": -0.059060344535385396,
+          "ci_97_5": -0.028677512386054333,
+          "mean": -0.04388992747132792,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": 0.049654666423751374,
+          "ci_97_5": 0.05992828445449907,
+          "mean": 0.05478492107750766,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.05992828445449907,
+          "ci_97_5": -0.049654666423751374,
+          "mean": -0.05478492107750766,
+          "interpretation": "negative_bootstrap_support"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.6836704713414941,
+          "ci_97_5": 0.7168916115500809,
+          "mean": 0.7009435605768849
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5209989479233261,
+          "ci_97_5": 0.5628804488944161,
+          "mean": 0.5429420567366476
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.24301554955316282,
+          "ci_97_5": 0.28875596937463427,
+          "mean": 0.26620810475070866
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.19874627294513791,
+          "ci_97_5": 0.24594648790232798,
+          "mean": 0.22231817727938075
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.20681617941372096,
+          "ci_97_5": 0.21917673695040202,
+          "mean": 0.21317877198087018
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.26323089338887556,
+          "ci_97_5": 0.27242114028386205,
+          "mean": 0.2679636930583778
+        }
+      },
+      "bootstrap_interpretation": {
+        "delta_auc": "negative_bootstrap_support",
+        "delta_pr_auc": "negative_bootstrap_support",
+        "delta_brier": "negative_bootstrap_support"
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_evia_2021",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "evia_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "population_results": {
+        "burnable_tree_shrub_grass": {
+          "transfer": {
+            "transfer_direction": "manavgat_2021_to_evia_2021",
+            "population": "burnable_tree_shrub_grass",
+            "source_experiment_id": "manavgat_2021",
+            "target_experiment_id": "evia_2021",
+            "source_cell_count": 20511,
+            "target_cell_count": 3946,
+            "source_positive_count": 2935,
+            "source_negative_count": 17576,
+            "target_positive_count": 2663,
+            "target_negative_count": 1283,
+            "target_burned_prevalence": 0.6748606183476938,
+            "skipped": false,
+            "baseline_metrics": {
+              "positive_count": 2663,
+              "negative_count": 1283,
+              "threshold_used": 0.49999999999999994,
+              "roc_auc": 0.6279142394447861,
+              "pr_auc": 0.7529795986226415,
+              "brier_score": 0.25195232184222205,
+              "balanced_accuracy": 0.6005877430648747,
+              "precision": 0.7468982630272953,
+              "recall": 0.6781825009387908,
+              "f1": 0.7108836843141114,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 20511,
+                "best_f1_on_source_oof": 0.4716699801192843
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant"
+              ]
+            },
+            "thermal_metrics": {
+              "positive_count": 2663,
+              "negative_count": 1283,
+              "threshold_used": 0.5499999999999999,
+              "roc_auc": 0.62206607741139,
+              "pr_auc": 0.7732794385058308,
+              "brier_score": 0.24743336011559766,
+              "balanced_accuracy": 0.5830153054370257,
+              "precision": 0.7459218981710332,
+              "recall": 0.5666541494555013,
+              "f1": 0.6440460947503202,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 20511,
+                "best_f1_on_source_oof": 0.6003688902551491
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant",
+                "lst_anomaly_mean",
+                "current_lst_mean",
+                "current_tvdi_mean",
+                "tvdi_difference_mean",
+                "downscaled_lst_mean",
+                "fused_lst_mean"
+              ]
+            },
+            "delta_metrics": {
+              "delta_auc": -0.005848162033396109,
+              "delta_pr_auc": 0.020299839883189286,
+              "delta_brier": -0.0045189617266243876,
+              "brier_improvement": 0.0045189617266243876
+            }
+          },
+          "bootstrap": {
+            "transfer_direction": "manavgat_2021_to_evia_2021",
+            "population": "burnable_tree_shrub_grass",
+            "n_successful_replicates": 1000,
+            "n_target_blocks": 1048,
+            "confidence_intervals": {
+              "delta_roc_auc": {
+                "ci_2_5": -0.02761008295501273,
+                "ci_97_5": 0.015452817427244655,
+                "mean": -0.00560923066661007,
+                "interpretation": "uncertain"
+              },
+              "delta_pr_auc": {
+                "ci_2_5": 0.0016371787067299367,
+                "ci_97_5": 0.03938750572520814,
+                "mean": 0.020201031271955813,
+                "interpretation": "positive_bootstrap_support"
+              },
+              "delta_brier": {
+                "ci_2_5": -0.01361394454369186,
+                "ci_97_5": 0.005000462871865976,
+                "mean": -0.004559934043775114,
+                "interpretation": "uncertain"
+              },
+              "brier_improvement": {
+                "ci_2_5": -0.005000462871865978,
+                "ci_97_5": 0.013613944543691858,
+                "mean": 0.004559934043775114,
+                "interpretation": "uncertain"
+              },
+              "baseline_roc_auc": {
+                "ci_2_5": 0.5990227672052594,
+                "ci_97_5": 0.6569858938242183,
+                "mean": 0.6284385649183158
+              },
+              "thermal_roc_auc": {
+                "ci_2_5": 0.5938688449715314,
+                "ci_97_5": 0.6508275364675137,
+                "mean": 0.6228293342517058
+              },
+              "baseline_pr_auc": {
+                "ci_2_5": 0.7221823411416983,
+                "ci_97_5": 0.7863106339100338,
+                "mean": 0.7538099639773852
+              },
+              "thermal_pr_auc": {
+                "ci_2_5": 0.7445846292733383,
+                "ci_97_5": 0.8040873144775011,
+                "mean": 0.7740109952493411
+              },
+              "baseline_brier": {
+                "ci_2_5": 0.23965278633565726,
+                "ci_97_5": 0.26429449468232036,
+                "mean": 0.2517072601752226
+              },
+              "thermal_brier": {
+                "ci_2_5": 0.23479708338101563,
+                "ci_97_5": 0.25887905753909674,
+                "mean": 0.24714732613144746
+              }
+            }
+          }
+        },
+        "all_valid": {
+          "transfer": {
+            "transfer_direction": "manavgat_2021_to_evia_2021",
+            "population": "all_valid",
+            "source_experiment_id": "manavgat_2021",
+            "target_experiment_id": "evia_2021",
+            "source_cell_count": 24087,
+            "target_cell_count": 7728,
+            "source_positive_count": 3046,
+            "source_negative_count": 21041,
+            "target_positive_count": 2774,
+            "target_negative_count": 4954,
+            "target_burned_prevalence": 0.3589544513457557,
+            "skipped": false,
+            "baseline_metrics": {
+              "positive_count": 2774,
+              "negative_count": 4954,
+              "threshold_used": 0.5499999999999999,
+              "roc_auc": 0.8895335645981965,
+              "pr_auc": 0.7385099331603864,
+              "brier_score": 0.14070654286155626,
+              "balanced_accuracy": 0.7479000022994535,
+              "precision": 0.7396373056994818,
+              "recall": 0.617519826964672,
+              "f1": 0.6730844793713163,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 24087,
+                "best_f1_on_source_oof": 0.4796101564503719
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant"
+              ]
+            },
+            "thermal_metrics": {
+              "positive_count": 2774,
+              "negative_count": 4954,
+              "threshold_used": 0.5499999999999999,
+              "roc_auc": 0.8352399392362148,
+              "pr_auc": 0.7295920865138952,
+              "brier_score": 0.1550282923103257,
+              "balanced_accuracy": 0.7267752290066449,
+              "precision": 0.7270652670013692,
+              "recall": 0.5742609949531363,
+              "f1": 0.6416918429003021,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 24087,
+                "best_f1_on_source_oof": 0.6045230501594665
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant",
+                "lst_anomaly_mean",
+                "current_lst_mean",
+                "current_tvdi_mean",
+                "tvdi_difference_mean",
+                "downscaled_lst_mean",
+                "fused_lst_mean"
+              ]
+            },
+            "delta_metrics": {
+              "delta_auc": -0.05429362536198179,
+              "delta_pr_auc": -0.008917846646491201,
+              "delta_brier": 0.014321749448769433,
+              "brier_improvement": -0.014321749448769433
+            }
+          },
+          "bootstrap": {
+            "transfer_direction": "manavgat_2021_to_evia_2021",
+            "population": "all_valid",
+            "n_successful_replicates": 1000,
+            "n_target_blocks": 1933,
+            "confidence_intervals": {
+              "delta_roc_auc": {
+                "ci_2_5": -0.06709737466899499,
+                "ci_97_5": -0.04127547213890116,
+                "mean": -0.05419748922676766,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "delta_pr_auc": {
+                "ci_2_5": -0.02875485989229414,
+                "ci_97_5": 0.010444475680848716,
+                "mean": -0.008698986400412327,
+                "interpretation": "uncertain"
+              },
+              "delta_brier": {
+                "ci_2_5": 0.009038958230242807,
+                "ci_97_5": 0.018961259508531256,
+                "mean": 0.01420775493312433,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "brier_improvement": {
+                "ci_2_5": -0.01896125950853126,
+                "ci_97_5": -0.009038958230242809,
+                "mean": -0.01420775493312433,
+                "interpretation": "negative_bootstrap_support"
+              },
+              "baseline_roc_auc": {
+                "ci_2_5": 0.8773596164981963,
+                "ci_97_5": 0.9008122225513804,
+                "mean": 0.889160798881666
+              },
+              "thermal_roc_auc": {
+                "ci_2_5": 0.8181472554317739,
+                "ci_97_5": 0.8520633199332617,
+                "mean": 0.8349633096548983
+              },
+              "baseline_pr_auc": {
+                "ci_2_5": 0.7084048347832751,
+                "ci_97_5": 0.7688550281026778,
+                "mean": 0.7384361848259846
+              },
+              "thermal_pr_auc": {
+                "ci_2_5": 0.7003457455576132,
+                "ci_97_5": 0.7599016312993967,
+                "mean": 0.7297371984255723
+              },
+              "baseline_brier": {
+                "ci_2_5": 0.1323407428528249,
+                "ci_97_5": 0.14934041140502724,
+                "mean": 0.14102359518022506
+              },
+              "thermal_brier": {
+                "ci_2_5": 0.14706036197553735,
+                "ci_97_5": 0.1633127156984964,
+                "mean": 0.15523135011334938
+              }
+            }
+          }
+        },
+        "burnable_tree_shrub": {
+          "transfer": {
+            "transfer_direction": "manavgat_2021_to_evia_2021",
+            "population": "burnable_tree_shrub",
+            "source_experiment_id": "manavgat_2021",
+            "target_experiment_id": "evia_2021",
+            "source_cell_count": 15538,
+            "target_cell_count": 3534,
+            "source_positive_count": 2297,
+            "source_negative_count": 13241,
+            "target_positive_count": 2453,
+            "target_negative_count": 1081,
+            "target_burned_prevalence": 0.6941143180531976,
+            "skipped": false,
+            "baseline_metrics": {
+              "positive_count": 2453,
+              "negative_count": 1081,
+              "threshold_used": 0.44999999999999996,
+              "roc_auc": 0.6047404431810168,
+              "pr_auc": 0.7591399577260909,
+              "brier_score": 0.2626985883901341,
+              "balanced_accuracy": 0.5869306891861161,
+              "precision": 0.7507598784194529,
+              "recall": 0.7048512026090501,
+              "f1": 0.7270815811606391,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 15538,
+                "best_f1_on_source_oof": 0.4222096956031567
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant"
+              ]
+            },
+            "thermal_metrics": {
+              "positive_count": 2453,
+              "negative_count": 1081,
+              "threshold_used": 0.5499999999999999,
+              "roc_auc": 0.5823004397567892,
+              "pr_auc": 0.7740985303581273,
+              "brier_score": 0.2596205844762482,
+              "balanced_accuracy": 0.5623286707774995,
+              "precision": 0.7489736070381232,
+              "recall": 0.5205870362821036,
+              "f1": 0.6142376142376142,
+              "threshold_selection": {
+                "method": "source_oof_f1_optimal",
+                "n_splits_used": 5,
+                "oof_coverage": 15538,
+                "best_f1_on_source_oof": 0.5678271308523409
+              },
+              "feature_list": [
+                "ndvi_mean",
+                "elevation_mean",
+                "slope_mean",
+                "landcover_dominant",
+                "lst_anomaly_mean",
+                "current_lst_mean",
+                "current_tvdi_mean",
+                "tvdi_difference_mean",
+                "downscaled_lst_mean",
+                "fused_lst_mean"
+              ]
+            },
+            "delta_metrics": {
+              "delta_auc": -0.022440003424227584,
+              "delta_pr_auc": 0.014958572632036371,
+              "delta_brier": -0.003078003913885907,
+              "brier_improvement": 0.003078003913885907
+            }
+          },
+          "bootstrap": {
+            "transfer_direction": "manavgat_2021_to_evia_2021",
+            "population": "burnable_tree_shrub",
+            "n_successful_replicates": 1000,
+            "n_target_blocks": 1000,
+            "confidence_intervals": {
+              "delta_roc_auc": {
+                "ci_2_5": -0.048193746681684996,
+                "ci_97_5": 0.00414149244225824,
+                "mean": -0.02219885188285261,
+                "interpretation": "uncertain"
+              },
+              "delta_pr_auc": {
+                "ci_2_5": -0.006331631177402453,
+                "ci_97_5": 0.0354223989122018,
+                "mean": 0.015056873915431932,
+                "interpretation": "uncertain"
+              },
+              "delta_brier": {
+                "ci_2_5": -0.013302987411704378,
+                "ci_97_5": 0.007447406946144679,
+                "mean": -0.0031017299379461835,
+                "interpretation": "uncertain"
+              },
+              "brier_improvement": {
+                "ci_2_5": -0.007447406946144686,
+                "ci_97_5": 0.013302987411704372,
+                "mean": 0.0031017299379461835,
+                "interpretation": "uncertain"
+              },
+              "baseline_roc_auc": {
+                "ci_2_5": 0.5748222758772564,
+                "ci_97_5": 0.6359138406181357,
+                "mean": 0.6044681312360853
+              },
+              "thermal_roc_auc": {
+                "ci_2_5": 0.5498860148584661,
+                "ci_97_5": 0.6159058265863319,
+                "mean": 0.5822692793532328
+              },
+              "baseline_pr_auc": {
+                "ci_2_5": 0.726653673371863,
+                "ci_97_5": 0.7920423954564064,
+                "mean": 0.7594224294476977
+              },
+              "thermal_pr_auc": {
+                "ci_2_5": 0.742097934463333,
+                "ci_97_5": 0.805990636056149,
+                "mean": 0.7744793033631295
+              },
+              "baseline_brier": {
+                "ci_2_5": 0.24932308674373574,
+                "ci_97_5": 0.27582544280081983,
+                "mean": 0.26276625783441526
+              },
+              "thermal_brier": {
+                "ci_2_5": 0.2468382945508016,
+                "ci_97_5": 0.27227673691526727,
+                "mean": 0.2596645278964691
+              }
+            }
+          }
+        }
+      },
+      "primary_population_skipped": false,
+      "source_cell_count": 20511,
+      "target_cell_count": 3946,
+      "source_positive_count": 2935,
+      "target_positive_count": 2663,
+      "target_burned_prevalence": 0.6748606183476938,
+      "baseline_target_metrics": {
+        "positive_count": 2663,
+        "negative_count": 1283,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.6279142394447861,
+        "pr_auc": 0.7529795986226415,
+        "brier_score": 0.25195232184222205,
+        "balanced_accuracy": 0.6005877430648747,
+        "precision": 0.7468982630272953,
+        "recall": 0.6781825009387908,
+        "f1": 0.7108836843141114,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 20511,
+          "best_f1_on_source_oof": 0.4716699801192843
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_target_metrics": {
+        "positive_count": 2663,
+        "negative_count": 1283,
+        "threshold_used": 0.5499999999999999,
+        "roc_auc": 0.62206607741139,
+        "pr_auc": 0.7732794385058308,
+        "brier_score": 0.24743336011559766,
+        "balanced_accuracy": 0.5830153054370257,
+        "precision": 0.7459218981710332,
+        "recall": 0.5666541494555013,
+        "f1": 0.6440460947503202,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 20511,
+          "best_f1_on_source_oof": 0.6003688902551491
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.005848162033396109,
+        "delta_pr_auc": 0.020299839883189286,
+        "delta_brier": -0.0045189617266243876,
+        "brier_improvement": 0.0045189617266243876
+      },
+      "bootstrap_confidence_intervals": {
+        "delta_roc_auc": {
+          "ci_2_5": -0.02761008295501273,
+          "ci_97_5": 0.015452817427244655,
+          "mean": -0.00560923066661007,
+          "interpretation": "uncertain"
+        },
+        "delta_pr_auc": {
+          "ci_2_5": 0.0016371787067299367,
+          "ci_97_5": 0.03938750572520814,
+          "mean": 0.020201031271955813,
+          "interpretation": "positive_bootstrap_support"
+        },
+        "delta_brier": {
+          "ci_2_5": -0.01361394454369186,
+          "ci_97_5": 0.005000462871865976,
+          "mean": -0.004559934043775114,
+          "interpretation": "uncertain"
+        },
+        "brier_improvement": {
+          "ci_2_5": -0.005000462871865978,
+          "ci_97_5": 0.013613944543691858,
+          "mean": 0.004559934043775114,
+          "interpretation": "uncertain"
+        },
+        "baseline_roc_auc": {
+          "ci_2_5": 0.5990227672052594,
+          "ci_97_5": 0.6569858938242183,
+          "mean": 0.6284385649183158
+        },
+        "thermal_roc_auc": {
+          "ci_2_5": 0.5938688449715314,
+          "ci_97_5": 0.6508275364675137,
+          "mean": 0.6228293342517058
+        },
+        "baseline_pr_auc": {
+          "ci_2_5": 0.7221823411416983,
+          "ci_97_5": 0.7863106339100338,
+          "mean": 0.7538099639773852
+        },
+        "thermal_pr_auc": {
+          "ci_2_5": 0.7445846292733383,
+          "ci_97_5": 0.8040873144775011,
+          "mean": 0.7740109952493411
+        },
+        "baseline_brier": {
+          "ci_2_5": 0.23965278633565726,
+          "ci_97_5": 0.26429449468232036,
+          "mean": 0.2517072601752226
+        },
+        "thermal_brier": {
+          "ci_2_5": 0.23479708338101563,
+          "ci_97_5": 0.25887905753909674,
+          "mean": 0.24714732613144746
+        }
+      },
+      "bootstrap_interpretation": {
+        "delta_auc": "uncertain",
+        "delta_pr_auc": "positive_bootstrap_support",
+        "delta_brier": "uncertain"
+      }
+    }
+  ],
+  "overall_conclusion": "partial_transfer_supported",
+  "overall_conclusion_text": "Only one direction (or only some metrics) show positive target-region spatial-block bootstrap support for the thermal predictor set; the cross-region transfer result is mixed.",
+  "cautious_statement_template": "The thermal predictor set showed measurable cross-region transfer improvement supported by target-region spatial-block bootstrap.",
+  "caution_notes": [
+    "This is NOT a claim of operational wildfire prediction.",
+    "This is NOT a claim of causal fire prediction.",
+    "Labels are MCD64A1 ~500 m reconstructed cells, NOT 30 m fire labels.",
+    "Bootstrap intervals are target-region spatial-block percentile intervals, NOT classical statistical significance."
+  ],
+  "reproducibility": {
+    "git_commit": null,
+    "resolved_inputs": {
+      "manavgat_2021": {
+        "experiment_id": "manavgat_2021",
+        "dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+        "dataset_sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+        "step8a_manifest_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_dataset_stats.json",
+        "step8a_manifest_sha256": "18170d2a67aa17e2d515dbd782c69bc7e43f08062d3d5b15de410795d2898cd5",
+        "feature_contract": {
+          "ndvi_mean": {
+            "column_name": "ndvi_mean",
+            "semantic_identity": "mean_current_period_ndvi",
+            "source_manifest_key": "ndvi",
+            "source_product": "current_ndvi_median"
+          },
+          "elevation_mean": {
+            "column_name": "elevation_mean",
+            "semantic_identity": "mean_elevation",
+            "source_manifest_key": "elevation",
+            "source_product": "elevation"
+          },
+          "slope_mean": {
+            "column_name": "slope_mean",
+            "semantic_identity": "mean_slope",
+            "source_manifest_key": "slope",
+            "source_product": "slope"
+          },
+          "landcover_dominant": {
+            "column_name": "landcover_dominant",
+            "semantic_identity": "dominant_esa_worldcover_class",
+            "source_manifest_key": "landcover",
+            "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+          },
+          "lst_anomaly_mean": {
+            "column_name": "lst_anomaly_mean",
+            "semantic_identity": "mean_standardized_lst_anomaly",
+            "source_manifest_key": "lst_anomaly",
+            "source_product": "anomaly_zscore"
+          },
+          "current_lst_mean": {
+            "column_name": "current_lst_mean",
+            "semantic_identity": "mean_current_period_lst_celsius",
+            "source_manifest_key": "current_lst",
+            "source_product": "current_period_median_celsius"
+          },
+          "current_tvdi_mean": {
+            "column_name": "current_tvdi_mean",
+            "semantic_identity": "mean_current_period_tvdi",
+            "source_manifest_key": "current_tvdi",
+            "source_product": "current_tvdi"
+          },
+          "tvdi_difference_mean": {
+            "column_name": "tvdi_difference_mean",
+            "semantic_identity": "mean_tvdi_difference",
+            "source_manifest_key": "tvdi_difference",
+            "source_product": "tvdi_difference"
+          },
+          "downscaled_lst_mean": {
+            "column_name": "downscaled_lst_mean",
+            "semantic_identity": "mean_downscaled_lst_celsius",
+            "source_manifest_key": "downscaled_lst",
+            "source_product": "downscaled_lst_celsius"
+          },
+          "fused_lst_mean": {
+            "column_name": "fused_lst_mean",
+            "semantic_identity": "mean_fused_lst_celsius",
+            "source_manifest_key": "fused_lst",
+            "source_product": "fused_lst_celsius"
+          }
+        }
+      },
+      "evia_2021": {
+        "experiment_id": "evia_2021",
+        "dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+        "dataset_sha256": "dd543544b6cd1b38c943ba54805c4832342294276c868ae3a2d6f61d8b329456",
+        "step8a_manifest_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\evia_2021\\step8a\\step8a_dataset_stats.json",
+        "step8a_manifest_sha256": "a228a887c3b1e6c455bc785c1311ded2e8a7bdc6a8fafa615a7d33c94fbb9ab8",
+        "feature_contract": {
+          "ndvi_mean": {
+            "column_name": "ndvi_mean",
+            "semantic_identity": "mean_current_period_ndvi",
+            "source_manifest_key": "ndvi",
+            "source_product": "current_ndvi_median"
+          },
+          "elevation_mean": {
+            "column_name": "elevation_mean",
+            "semantic_identity": "mean_elevation",
+            "source_manifest_key": "elevation",
+            "source_product": "elevation"
+          },
+          "slope_mean": {
+            "column_name": "slope_mean",
+            "semantic_identity": "mean_slope",
+            "source_manifest_key": "slope",
+            "source_product": "slope"
+          },
+          "landcover_dominant": {
+            "column_name": "landcover_dominant",
+            "semantic_identity": "dominant_esa_worldcover_class",
+            "source_manifest_key": "landcover",
+            "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+          },
+          "lst_anomaly_mean": {
+            "column_name": "lst_anomaly_mean",
+            "semantic_identity": "mean_standardized_lst_anomaly",
+            "source_manifest_key": "lst_anomaly",
+            "source_product": "anomaly_zscore"
+          },
+          "current_lst_mean": {
+            "column_name": "current_lst_mean",
+            "semantic_identity": "mean_current_period_lst_celsius",
+            "source_manifest_key": "current_lst",
+            "source_product": "current_period_median_celsius"
+          },
+          "current_tvdi_mean": {
+            "column_name": "current_tvdi_mean",
+            "semantic_identity": "mean_current_period_tvdi",
+            "source_manifest_key": "current_tvdi",
+            "source_product": "current_tvdi"
+          },
+          "tvdi_difference_mean": {
+            "column_name": "tvdi_difference_mean",
+            "semantic_identity": "mean_tvdi_difference",
+            "source_manifest_key": "tvdi_difference",
+            "source_product": "tvdi_difference"
+          },
+          "downscaled_lst_mean": {
+            "column_name": "downscaled_lst_mean",
+            "semantic_identity": "mean_downscaled_lst_celsius",
+            "source_manifest_key": "downscaled_lst",
+            "source_product": "downscaled_lst_celsius"
+          },
+          "fused_lst_mean": {
+            "column_name": "fused_lst_mean",
+            "semantic_identity": "mean_fused_lst_celsius",
+            "source_manifest_key": "fused_lst",
+            "source_product": "fused_lst_celsius"
+          }
+        }
+      }
+    },
+    "model_name": "random_forest",
+    "model_parameters": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced",
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 3,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "preprocessing_parameters": {
+      "numeric_imputation": "median",
+      "categorical_imputation": "most_frequent",
+      "categorical_encoding": "one_hot_handle_unknown_ignore",
+      "fit_region": "source_only"
+    },
+    "random_seed": 42,
+    "spatial_cv_n_splits_requested": 5,
+    "minimum_positives_and_negatives_per_population": 30,
+    "baseline_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant"
+    ],
+    "thermal_model_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "population_definition": {
+      "valid_universe": "valid_for_modeling == True",
+      "primary": [
+        "burnable_tree_shrub_grass"
+      ],
+      "secondary": [
+        "all_valid",
+        "burnable_tree_shrub"
+      ],
+      "named_population_membership": "valid universe AND the named Step8A boolean population column"
+    },
+    "spatial_block_size_cells": 2,
+    "spatial_block_definition": "block_row=floor(row_500m/spatial_block_size_cells); block_col=floor(col_500m/spatial_block_size_cells); spatial_block_id='<block_row>_<block_col>'; fixed origin (0,0)",
+    "bootstrap_settings": {
+      "n_bootstrap_replicates_requested": 1000,
+      "random_seed": 42,
+      "spatial_block_column": "target_spatial_block_id",
+      "resampling_unit": "unique target-region spatial blocks",
+      "resampling_scheme": "sample target blocks with replacement; retain every row in each sampled block",
+      "percentile_interval": [
+        2.5,
+        97.5
+      ],
+      "max_attempts_multiplier": 5
+    }
+  },
+  "scope": {
+    "evaluates": "Step8 ~500m MCD64A1-cell burned-area association model, cross-region transfer",
+    "not_a_30m_fire_prediction_model": true,
+    "not_an_operational_fire_detection_system": true,
+    "does_not_transfer_step7_downscaling_model": true,
+    "no_classical_statistical_significance_claimed": true
+  },
+  "created_at": "2026-09-19T09:28:18.537725+00:00"
+}
