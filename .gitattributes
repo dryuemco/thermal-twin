@@ -16,3 +16,8 @@ paper/step9g_raw/**          -text
 # quoted in Methods 3.13, so it must never be rewritten either.
 paper/mugla_transfer_raw/**  -text
 paper/reproduction_check/**  -text
+
+# Files verified by SHA-256 (registration, annexes, primary data) must never have their bytes
+# changed by line-ending conversion, or hashes differ between machines. Added 2026-09-19.
+design/** -text
+paper/data/** -text
