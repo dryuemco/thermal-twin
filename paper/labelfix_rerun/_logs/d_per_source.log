@@ -1,0 +1,40 @@
+five source models fitted
+
+manavgat_2021        scar   1  bejis_20=0.438  mugla_20=0.552  evia_202=0.665  montifer=0.512   mean=0.542  spread=0.227
+bejis_2022           scar   1  manavgat=0.519  mugla_20=0.624  evia_202=0.582  montifer=0.631   mean=0.589  spread=0.112
+mugla_2021           scar   6  manavgat=0.545  bejis_20=0.552  evia_202=0.591  montifer=0.597   mean=0.571  spread=0.052
+mugla_2021           scar   1  manavgat=0.410  bejis_20=0.608  evia_202=0.474  montifer=0.565   mean=0.514  spread=0.198
+mugla_2021           scar  10  manavgat=0.433  bejis_20=0.698  evia_202=0.688  montifer=0.716   mean=0.634  spread=0.283
+mugla_2021           scar   8  manavgat=0.533  bejis_20=0.724  evia_202=0.627  montifer=0.608   mean=0.623  spread=0.192
+evia_2021_extended   scar   1  manavgat=0.528  bejis_20=0.374  mugla_20=0.649  montifer=0.704   mean=0.564  spread=0.329
+montiferru_2021      scar   1  manavgat=0.483  bejis_20=0.513  mugla_20=0.457  evia_202=0.501   mean=0.489  spread=0.056
+montiferru_2021      scar   5  manavgat=0.597  bejis_20=0.461  mugla_20=0.444  evia_202=0.399   mean=0.475  spread=0.197
+
+=== ROW D DECOMPOSED BY SOURCE ===
+  combinations: 36   pooled mean: 0.5556
+  overall range: 0.374 to 0.724
+  below chance: 10 of 36
+
+  per-scar spread (max minus min across the four sources):
+                          mean    min    max  spread
+target_region      scar                             
+bejis_2022         1     0.589  0.519  0.631   0.112
+evia_2021_extended 1     0.564  0.374  0.704   0.329
+manavgat_2021      1     0.542  0.438  0.665   0.227
+montiferru_2021    1     0.489  0.457  0.513   0.056
+                   5     0.475  0.399  0.597   0.197
+mugla_2021         1     0.514  0.410  0.608   0.198
+                   6     0.571  0.545  0.597   0.052
+                   8     0.623  0.533  0.724   0.192
+                   10    0.634  0.433  0.716   0.283
+
+  mean per-scar spread: 0.183
+
+  per-source mean over all scars:
+                     mean    min    max  count
+source                                        
+bejis_2022          0.546  0.374  0.724      8
+evia_2021_extended  0.566  0.399  0.688      8
+manavgat_2021       0.506  0.410  0.597      8
+montiferru_2021     0.619  0.512  0.716      7
+mugla_2021          0.545  0.444  0.649      5

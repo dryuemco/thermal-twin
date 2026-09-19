@@ -1,0 +1,9 @@
+direction,source,target,variant,lambda,is_primary_lambda,roc_auc,pr_auc,roc_auc_ci_lo,roc_auc_ci_hi,ci_entirely_above_0.5,zscore_reference_roc_auc
+manavgat_2021__bejis_2022,manavgat_2021,bejis_2022,coral_after_regionwise_zscore,1e-05,True,0.4704,0.062,0.4444,0.4938,False,0.4504
+manavgat_2021__bejis_2022,manavgat_2021,bejis_2022,coral_after_regionwise_zscore,0.001,False,0.4742,0.0627,0.4478,0.4981,False,0.4504
+manavgat_2021__bejis_2022,manavgat_2021,bejis_2022,coral_after_regionwise_zscore,0.1,False,0.4662,0.0614,0.4399,0.4906,False,0.4504
+manavgat_2021__bejis_2022,manavgat_2021,bejis_2022,coral_after_regionwise_zscore,1.0,False,0.4569,0.0605,0.4285,0.4821,False,0.4504
+bejis_2022__manavgat_2021,bejis_2022,manavgat_2021,coral_after_regionwise_zscore,1e-05,True,0.4077,0.117,0.389,0.4266,False,0.2974
+bejis_2022__manavgat_2021,bejis_2022,manavgat_2021,coral_after_regionwise_zscore,0.001,False,0.4099,0.1171,0.3908,0.429,False,0.2974
+bejis_2022__manavgat_2021,bejis_2022,manavgat_2021,coral_after_regionwise_zscore,0.1,False,0.3674,0.1091,0.3484,0.3868,False,0.2974
+bejis_2022__manavgat_2021,bejis_2022,manavgat_2021,coral_after_regionwise_zscore,1.0,False,0.3131,0.1031,0.2927,0.3332,False,0.2974

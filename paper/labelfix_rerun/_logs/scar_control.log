@@ -1,0 +1,32 @@
+manavgat_2021        components >= 50 cells: 1  sizes=[2934]
+bejis_2022           components >= 50 cells: 1  sizes=[1100]
+mugla_2021           components >= 50 cells: 4  sizes=[914, 738, 639, 548]
+    scar   6 buffer  2 km  src_pos= 1997 tgt_pos=  914  AUC=0.5952
+    scar   6 buffer  5 km  src_pos= 1997 tgt_pos=  914  AUC=0.6020
+    scar   6 buffer 10 km  src_pos= 1997 tgt_pos=  914  AUC=0.6069
+    scar   1 buffer  2 km  src_pos= 2173 tgt_pos=  738  AUC=0.5614
+    scar   1 buffer  5 km  src_pos= 2173 tgt_pos=  738  AUC=0.5264
+    scar   1 buffer 10 km  src_pos= 2173 tgt_pos=  738  AUC=0.4910
+    scar  10 buffer  2 km  src_pos= 2272 tgt_pos=  639  AUC=0.6167
+    scar  10 buffer  5 km  src_pos= 2272 tgt_pos=  639  AUC=0.5385
+    scar  10 buffer 10 km  src_pos= 2272 tgt_pos=  639  AUC=0.5027
+    scar   8 buffer  2 km  src_pos= 2363 tgt_pos=  548  AUC=0.5421
+    scar   8 buffer  5 km  src_pos= 2363 tgt_pos=  548  AUC=0.5668
+    scar   8 buffer 10 km  src_pos= 2363 tgt_pos=  548  AUC=0.5277
+evia_2021_extended   components >= 50 cells: 1  sizes=[2653]
+    scar   1 buffer  2 km  src_pos=   11 tgt_pos= 2653  AUC=0.4648
+    scar   1 buffer  5 km  src_pos=   11 tgt_pos= 2653  AUC=0.4651
+    scar   1 buffer 10 km  src_pos=   11 tgt_pos= 2653  AUC=0.4678
+montiferru_2021      components >= 50 cells: 2  sizes=[416, 55]
+    scar   1 buffer  2 km  src_pos=   97 tgt_pos=  442  AUC=0.5837
+    scar   1 buffer  5 km  src_pos=   36 tgt_pos=  503  AUC=0.4929
+    scar   5 buffer  2 km  src_pos=  472 tgt_pos=   67  AUC=0.4578
+    scar   5 buffer  5 km  src_pos=  429 tgt_pos=  110  AUC=0.5392
+    scar   5 buffer 10 km  src_pos=  124 tgt_pos=  415  AUC=0.6928
+
+=== leave-one-scar-out, by buffer ===
+   2 km buffer: n=  7  mean=0.5460  median=0.5614  range 0.458 to 0.617
+   5 km buffer: n=  7  mean=0.5330  median=0.5385  range 0.465 to 0.602
+  10 km buffer: n=  6  mean=0.5481  median=0.5152  range 0.468 to 0.693
+
+cross-region reference (frozen): mean 0.541 over 20 directions at 306 to 2802 km

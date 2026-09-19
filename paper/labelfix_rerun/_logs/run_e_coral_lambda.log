@@ -1,0 +1,12 @@
+[manavgat_2021__bejis_2022] zscore(ref) ROC=0.4504 CI=[0.4231,0.4751]
+[manavgat_2021__bejis_2022] CORAL λ=1e-05  ROC=0.4704 CI=[0.4444,0.4938] crosses/below 0.5  <-- birincil
+[manavgat_2021__bejis_2022] CORAL λ=0.001  ROC=0.4742 CI=[0.4478,0.4981] crosses/below 0.5
+[manavgat_2021__bejis_2022] CORAL λ=0.1    ROC=0.4662 CI=[0.4399,0.4906] crosses/below 0.5
+[manavgat_2021__bejis_2022] CORAL λ=1      ROC=0.4569 CI=[0.4285,0.4821] crosses/below 0.5
+[bejis_2022__manavgat_2021] zscore(ref) ROC=0.2974 CI=[0.2773,0.3166]
+[bejis_2022__manavgat_2021] CORAL λ=1e-05  ROC=0.4077 CI=[0.3890,0.4266] crosses/below 0.5  <-- birincil
+[bejis_2022__manavgat_2021] CORAL λ=0.001  ROC=0.4099 CI=[0.3908,0.4290] crosses/below 0.5
+[bejis_2022__manavgat_2021] CORAL λ=0.1    ROC=0.3674 CI=[0.3484,0.3868] crosses/below 0.5
+[bejis_2022__manavgat_2021] CORAL λ=1      ROC=0.3131 CI=[0.2927,0.3332] crosses/below 0.5
+
+[done] C:\Users\CORSAIR\projects\thermal-twin-main\paper\labelfix_rerun\step10/coral_lambda_sensitivity.csv (+ .json)

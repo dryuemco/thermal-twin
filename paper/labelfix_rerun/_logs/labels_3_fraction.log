@@ -1,0 +1,26 @@
+manavgat_2021 {'tsg_cells': 20511, 'burned': 2935, 'label_rule_disagreements': 0, 'cells_with_nodata_subpixels': 193, 'burned_frac_quantiles': [0.0035, 0.6692, 1.0, 1.0, 1.0, 1.0, 1.0], 'burned_frac_eq_1': 2439, 'burned_ge_0.5': 2704, 'burned_lt_0.5_dropped': 231, 'distinct_frac_values_burned': 201}
+  ref   B= 2 n= 20511 pos= 2935 posblk= 814 base=0.8412 therm=0.9081 d=+0.0669 [+0.0606,+0.0733] positive_bootstrap_support
+  f>=.5 B= 2 n= 20280 pos= 2704 posblk= 750 base=0.8553 therm=0.9176 d=+0.0623 [+0.0556,+0.0687] positive_bootstrap_support
+  ref   B=10 n= 20511 pos= 2935 posblk=  47 base=0.8203 therm=0.8822 d=+0.0619 [+0.0413,+0.0822] positive_bootstrap_support
+  f>=.5 B=10 n= 20280 pos= 2704 posblk=  47 base=0.8265 therm=0.8931 d=+0.0665 [+0.0440,+0.0884] positive_bootstrap_support
+bejis_2022 {'tsg_cells': 15190, 'burned': 1100, 'label_rule_disagreements': 0, 'cells_with_nodata_subpixels': 237, 'burned_frac_quantiles': [0.0069, 0.527, 1.0, 1.0, 1.0, 1.0, 1.0], 'burned_frac_eq_1': 886, 'burned_ge_0.5': 991, 'burned_lt_0.5_dropped': 109, 'distinct_frac_values_burned': 95}
+  ref   B= 2 n= 15190 pos= 1100 posblk= 302 base=0.8617 therm=0.9178 d=+0.0561 [+0.0474,+0.0648] positive_bootstrap_support
+  f>=.5 B= 2 n= 15081 pos=  991 posblk= 277 base=0.8618 therm=0.9142 d=+0.0525 [+0.0447,+0.0607] positive_bootstrap_support
+  ref   B=10 n= 15190 pos= 1100 posblk=  19 base=0.7794 therm=0.8245 d=+0.0451 [+0.0183,+0.0678] positive_bootstrap_support
+  f>=.5 B=10 n= 15081 pos=  991 posblk=  19 base=0.7969 therm=0.8501 d=+0.0532 [+0.0219,+0.0785] positive_bootstrap_support
+mugla_2021 {'tsg_cells': 41730, 'burned': 2911, 'label_rule_disagreements': 0, 'cells_with_nodata_subpixels': 232, 'burned_frac_quantiles': [0.0035, 0.3875, 1.0, 1.0, 1.0, 1.0, 1.0], 'burned_frac_eq_1': 2191, 'burned_ge_0.5': 2551, 'burned_lt_0.5_dropped': 360, 'distinct_frac_values_burned': 242}
+  ref   B= 2 n= 41730 pos= 2911 posblk= 843 base=0.7433 therm=0.8590 d=+0.1157 [+0.1063,+0.1250] positive_bootstrap_support
+  f>=.5 B= 2 n= 41370 pos= 2551 posblk= 743 base=0.7609 therm=0.8721 d=+0.1112 [+0.1015,+0.1208] positive_bootstrap_support
+  ref   B=10 n= 41730 pos= 2911 posblk=  70 base=0.6980 therm=0.7773 d=+0.0793 [+0.0466,+0.1048] positive_bootstrap_support
+  f>=.5 B=10 n= 41370 pos= 2551 posblk=  61 base=0.7229 therm=0.8036 d=+0.0807 [+0.0528,+0.1048] positive_bootstrap_support
+evia_2021_extended {'tsg_cells': 9298, 'burned': 2664, 'label_rule_disagreements': 0, 'cells_with_nodata_subpixels': 29, 'burned_frac_quantiles': [0.0035, 0.9896, 1.0, 1.0, 1.0, 1.0, 1.0], 'burned_frac_eq_1': 2389, 'burned_ge_0.5': 2539, 'burned_lt_0.5_dropped': 125, 'distinct_frac_values_burned': 153}
+  ref   B= 2 n=  9298 pos= 2664 posblk= 716 base=0.7590 therm=0.9122 d=+0.1533 [+0.1417,+0.1645] positive_bootstrap_support
+  f>=.5 B= 2 n=  9173 pos= 2539 posblk= 688 base=0.7719 therm=0.9195 d=+0.1477 [+0.1357,+0.1582] positive_bootstrap_support
+  ref   B=10 n=  9298 pos= 2664 posblk=  41 base=0.7160 therm=0.8642 d=+0.1482 [+0.1186,+0.1822] positive_bootstrap_support
+  f>=.5 B=10 n=  9173 pos= 2539 posblk=  40 base=0.7348 therm=0.8722 d=+0.1374 [+0.1083,+0.1692] positive_bootstrap_support
+montiferru_2021 {'tsg_cells': 2544, 'burned': 539, 'label_rule_disagreements': 0, 'cells_with_nodata_subpixels': 93, 'burned_frac_quantiles': [0.0104, 0.3315, 0.7941, 1.0, 1.0, 1.0, 1.0], 'burned_frac_eq_1': 380, 'burned_ge_0.5': 451, 'burned_lt_0.5_dropped': 88, 'distinct_frac_values_burned': 94}
+  ref   B= 2 n=  2544 pos=  539 posblk= 192 base=0.7812 therm=0.8826 d=+0.1014 [+0.0794,+0.1227] positive_bootstrap_support
+  f>=.5 B= 2 n=  2456 pos=  451 posblk= 166 base=0.8000 therm=0.8823 d=+0.0822 [+0.0607,+0.1061] positive_bootstrap_support
+  ref   B=10 n=  2544 pos=  539 posblk=  16 base=0.6204 therm=0.7199 d=+0.0995 [+0.0171,+0.1856] positive_bootstrap_support
+  f>=.5 B=10 n=  2456 pos=  451 posblk=  14 base=0.6426 therm=0.7317 d=+0.0891 [+0.0001,+0.1742] positive_bootstrap_support
+done

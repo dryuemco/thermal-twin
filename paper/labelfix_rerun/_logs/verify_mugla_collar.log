@@ -1,0 +1,24 @@
+Muðla primary population: 41730 cells, 2911 burned in 2021
+  mugla_2021                   population 'burnable_tree_shrub_grass_burned': 2911 burned cells
+  mugla_2022_event_relative    population 'burnable_tree_shrub_grass_burned': 332 burned cells
+
+matched onto the primary population: 2021 2911, 2022 332
+2022 arm after removing the 2021 scar: 38819 cells, 332 burned
+
+=== 2021 arm: 41730 cells, 2911 burned, 55.3 % beyond 10 km, median 11.3 km ===
+  full      elevation 0.611 [0.529, 0.692]  excludes 0.5: YES
+  collar10  elevation 0.606 [0.525, 0.685]  excludes 0.5: YES
+
+=== 2022 arm: 38819 cells, 332 burned, 93.2 % beyond 10 km, median 43.6 km ===
+  full      elevation 0.297 [0.229, 0.363]  excludes 0.5: YES
+  collar10  elevation 0.565 [0.450, 0.677]  excludes 0.5: no
+
+==========================================================================
+DOES THE TWO-EVENT ELEVATION REVERSAL SURVIVE THE COLLAR?
+==========================================================================
+  full      2021 0.611 [0.529,0.692]   2022 0.297 [0.229,0.363]
+            opposite sides of 0.5: True;  both intervals exclude 0.5: True  ->  BOOTSTRAP-SUPPORTED REVERSAL
+  collar10  2021 0.606 [0.525,0.685]   2022 0.565 [0.450,0.677]
+            opposite sides of 0.5: False;  both intervals exclude 0.5: False  ->  not supported
+
+wrote C:/Users/CORSAIR/projects/thermal-twin-main/paper/labelfix_rerun/code/mugla_two_event_collar.csv

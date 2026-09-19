@@ -107,17 +107,23 @@ UNITS = ["naive_directions_boot", "pair_cluster_boot", "target_cluster_boot",
 
 
 def quantities():
-    tb = pd.DataFrame(json.load(open(E.PAPER / "transfer_ci_blocksize.json")))
-    tb["src"] = tb.direction.str.split("_to_").str[0]
-    tb["tgt"] = tb.direction.str.split("_to_").str[1]
+    # Q1 comes from transfer_ci_blocksize.json, a pipeline-derived (class B->M) file. When the
+    # redirected inputs directory lacks it (labelfix re-run, 2026-09-19), Q1 is omitted, not faked.
+    tbp = E.PAPER / "transfer_ci_blocksize.json"
+    tb = pd.DataFrame(json.load(open(tbp))) if tbp.exists() else None
+    if tb is not None:
+        tb["src"] = tb.direction.str.split("_to_").str[0]
+        tb["tgt"] = tb.direction.str.split("_to_").str[1]
     af = pd.read_csv(E.PAPER / "aoi_frame_transfer_frozen_mugla.csv")
     af["src"] = af.direction.str.split("_to_").str[0]
     af["tgt"] = af.direction.str.split("_to_").str[1]
     eq = af[(af.source_frame == "10km") & (af.target_frame == "10km")]
     e5 = af[(af.source_frame == "5km") & (af.target_frame == "5km")]
     ff = af[(af.source_frame == "full") & (af.target_frame == "full")]
+    q = {} if tb is None else {
+        "Q1_asdrawn_delta": (tb.point_delta.to_numpy(), tb.src.to_numpy(), tb.tgt.to_numpy(), 0.0)}
     return {
-        "Q1_asdrawn_delta": (tb.point_delta.to_numpy(), tb.src.to_numpy(), tb.tgt.to_numpy(), 0.0),
+        **q,
         "Q2_equalised10_delta": (eq.delta.to_numpy(), eq.src.to_numpy(), eq.tgt.to_numpy(), 0.0),
         "Q3_equalised10_mean_transfer": (eq.thermal.to_numpy(), eq.src.to_numpy(),
                                          eq.tgt.to_numpy(), 0.5),

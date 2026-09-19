@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -28,6 +29,12 @@ import _canonical as C  # noqa: E402
 
 PAPER = HERE.parent
 OUT = PAPER / "ems_analyses" / "geometry"
+# Re-run redirection (labelfix re-run, 2026-09-19); defaults unchanged. PAPER_ARTEFACTS: where the
+# paper/code artefacts read below live; EMS_OUT_ROOT: output root (…/geometry). Relative to the tree root.
+if os.environ.get("PAPER_ARTEFACTS"):
+    PAPER = HERE.parent.parent / os.environ["PAPER_ARTEFACTS"]
+if os.environ.get("EMS_OUT_ROOT"):
+    OUT = HERE.parent.parent / os.environ["EMS_OUT_ROOT"] / "geometry"
 OUT.mkdir(parents=True, exist_ok=True)
 
 REGIONS = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021"]

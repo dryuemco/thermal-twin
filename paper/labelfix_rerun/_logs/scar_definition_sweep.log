@@ -1,0 +1,28 @@
+  8-conn  min  25 cells    9 scars   mean row-C AUC 0.5419
+  8-conn  min  50 cells    7 scars   mean row-C AUC 0.5460
+  8-conn  min 100 cells    6 scars   mean row-C AUC 0.5606
+  8-conn  min 200 cells    6 scars   mean row-C AUC 0.5606
+  4-conn  min  25 cells    9 scars   mean row-C AUC 0.5414
+  4-conn  min  50 cells    7 scars   mean row-C AUC 0.5453
+  4-conn  min 100 cells    6 scars   mean row-C AUC 0.5599
+  4-conn  min 200 cells    6 scars   mean row-C AUC 0.5599
+
+======================================================================
+DOES ROW C DEPEND ON HOW THE HELD-OUT PATCH IS DEFINED?
+======================================================================
+                                  count    mean
+connectivity min_component_cells               
+4            25                       9  0.5414
+             50                       7  0.5453
+             100                      6  0.5599
+             200                      6  0.5599
+8            25                       9  0.5419
+             50                       7  0.5460
+             100                      6  0.5606
+             200                      6  0.5606
+
+  range of the mean across all eight settings: 0.5414 to 0.5606
+  manuscript claims: 0.543 to 0.565
+  published row C (min 50, 8-connectivity): 0.552
+
+wrote paper/labelfix_rerun/code/scar_definition_sweep.csv

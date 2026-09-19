@@ -1,0 +1,43 @@
+==============================================================================
+CHECK 1  A MATCHED WITHIN-REGION REFERENCE
+  the paper compares 0.617 (10 km collar) against ~0.87 (full frame, 1 km blocking)
+==============================================================================
+  frame full   blocking  2 cells (~0.9 km): within-region mean 0.8959   [0.908, 0.918, 0.859, 0.912, 0.883]
+  frame full   blocking 10 cells (~4.5 km): within-region mean 0.8136   [0.882, 0.824, 0.777, 0.864, 0.720]
+  frame 10km   blocking  2 cells (~0.9 km): within-region mean 0.8748   [0.863, 0.869, 0.839, 0.930, 0.873]
+  frame 10km   blocking 10 cells (~4.5 km): within-region mean 0.7863   [0.813, 0.740, 0.763, 0.895, 0.720]
+  frame 5km    blocking  2 cells (~0.9 km): within-region mean 0.8509   [0.840, 0.820, 0.824, 0.917, 0.853]
+  frame 5km    blocking 10 cells (~4.5 km): within-region mean 0.7592   [0.769, 0.702, 0.727, 0.882, 0.716]
+
+  transfer means for reference: full 0.5400, 10 km collar 0.6166, 5 km collar 0.6077
+
+==============================================================================
+CHECK 2  DIFFERENCE INTERVALS ON THE LST ANOMALY, 10 km COLLAR
+  the paper's own Table B3 note names this instrument
+==============================================================================
+  manavgat_2021          0.487 [0.422, 0.553]
+  bejis_2022             0.392 [0.324, 0.460]
+  mugla_2021             0.507 [0.421, 0.598]
+  evia_2021_extended     0.584 [0.497, 0.669]
+  montiferru_2021        0.400 [0.291, 0.540]
+
+  manavgat_202 0.487 vs mugla_2021   0.507  diff -0.020 [-0.132, +0.089]  opposite sides, diff excludes 0: no
+  manavgat_202 0.487 vs evia_2021_ex 0.584  diff -0.097 [-0.210, +0.021]  opposite sides, diff excludes 0: no
+  bejis_2022   0.392 vs mugla_2021   0.507  diff -0.115 [-0.219, -0.002]  opposite sides, diff excludes 0: YES
+  bejis_2022   0.392 vs evia_2021_ex 0.584  diff -0.191 [-0.295, -0.083]  opposite sides, diff excludes 0: YES
+  mugla_2021   0.507 vs montiferru_2 0.400  diff +0.107 [-0.066, +0.249]  opposite sides, diff excludes 0: no
+  evia_2021_ex 0.584 vs montiferru_2 0.400  diff +0.184 [+0.012, +0.321]  opposite sides, diff excludes 0: YES
+
+==============================================================================
+CHECK 3  RECIPROCAL STRATIFICATION: does NDVI survive within LST deciles?
+==============================================================================
+  region                  LST raw  LST|ndvi  NDVI raw  NDVI|lst  LST|dist
+  manavgat_2021             0.522     0.556     0.551     0.550     0.454
+  bejis_2022                0.405     0.486     0.618     0.574     0.350
+  mugla_2021                0.332     0.404     0.652     0.547     0.367
+  evia_2021_extended        0.286     0.279     0.663     0.380     0.319
+  montiferru_2021           0.376     0.368     0.582     0.405     0.485
+
+  (values below 0.5 mean higher predictor -> less burning)
+
+wrote paper/labelfix_rerun/code/matched_frame_gap.csv

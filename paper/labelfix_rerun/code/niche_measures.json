@@ -1,0 +1,249 @@
+{
+ "meta": {
+  "created": "2026-08-08",
+  "environment": "python 3.12.10, scikit-learn 1.9.0, numpy 2.4.4, pandas 3.0.2 (WSL micromamba mm-thermal)",
+  "population": "valid_for_modeling AND burnable_tree_shrub_grass AND burned==1 (P(x|y=1) only, no unburned variant)",
+  "binning": "1D: 50 shared bins over the global range of all five regions' burned cells per feature; 2D: 20x20 bins over global PC1-PC2 range",
+  "pca": "PCA(2) fit on pooled standardized burned cells of all five regions (global mean/sd ddof=0, NaN -> pooled median)",
+  "mahalanobis": "between standardized burned-cell centroids, pooled covariance ((na-1)Sa+(nb-1)Sb)/(na+nb-2), 9 features",
+  "burned_counts": {
+   "manavgat_2021": 2935,
+   "bejis_2022": 1100,
+   "mugla_2021": 2911,
+   "evia_2021_extended": 2664,
+   "montiferru_2021": 539
+  },
+  "nan_cells_imputed_for_multivariate": {
+   "manavgat_2021": {
+    "lst_anomaly_mean": 34
+   },
+   "bejis_2022": {
+    "lst_anomaly_mean": 95,
+    "current_lst_mean": 84,
+    "current_tvdi_mean": 84,
+    "tvdi_difference_mean": 84
+   },
+   "mugla_2021": {
+    "lst_anomaly_mean": 58
+   },
+   "evia_2021_extended": {
+    "lst_anomaly_mean": 99,
+    "current_lst_mean": 15,
+    "current_tvdi_mean": 15,
+    "tvdi_difference_mean": 15,
+    "downscaled_lst_mean": 7
+   },
+   "montiferru_2021": {}
+  },
+  "parquet_sha256_prefixes": {
+   "manavgat_2021": "e4ab8b85",
+   "bejis_2022": "3dec785a",
+   "mugla_2021": "c4ab107d",
+   "evia_2021_extended": "bdce859c",
+   "montiferru_2021": "ffb008f9"
+  },
+  "labels": "corrected"
+ },
+ "pairs": [
+  {
+   "region_a": "manavgat_2021",
+   "region_b": "bejis_2022",
+   "schoener_d_mean1d": 0.6254955226505189,
+   "warren_i_mean1d": 0.854207481052167,
+   "schoener_d_pca2d": 0.3619188477621187,
+   "warren_i_pca2d": 0.621957498691946,
+   "mahalanobis_burned": 5.372564471888626,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.735,
+    "elevation_mean": 0.237,
+    "slope_mean": 0.8472,
+    "lst_anomaly_mean": 0.6076,
+    "current_lst_mean": 0.7189,
+    "current_tvdi_mean": 0.7112,
+    "tvdi_difference_mean": 0.4279,
+    "downscaled_lst_mean": 0.6584,
+    "fused_lst_mean": 0.6862
+   }
+  },
+  {
+   "region_a": "manavgat_2021",
+   "region_b": "mugla_2021",
+   "schoener_d_mean1d": 0.7992135498817967,
+   "warren_i_mean1d": 0.9513175825989868,
+   "schoener_d_pca2d": 0.660805720181395,
+   "warren_i_pca2d": 0.8699662571477748,
+   "mahalanobis_burned": 2.512771575539048,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.849,
+    "elevation_mean": 0.7403,
+    "slope_mean": 0.8041,
+    "lst_anomaly_mean": 0.8676,
+    "current_lst_mean": 0.7707,
+    "current_tvdi_mean": 0.8704,
+    "tvdi_difference_mean": 0.783,
+    "downscaled_lst_mean": 0.7372,
+    "fused_lst_mean": 0.7707
+   }
+  },
+  {
+   "region_a": "manavgat_2021",
+   "region_b": "evia_2021_extended",
+   "schoener_d_mean1d": 0.6882788625386412,
+   "warren_i_mean1d": 0.901737920375775,
+   "schoener_d_pca2d": 0.5283378352799137,
+   "warren_i_pca2d": 0.7849415321178512,
+   "mahalanobis_burned": 2.604025616266855,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.6643,
+    "elevation_mean": 0.8088,
+    "slope_mean": 0.8509,
+    "lst_anomaly_mean": 0.5878,
+    "current_lst_mean": 0.6297,
+    "current_tvdi_mean": 0.705,
+    "tvdi_difference_mean": 0.7358,
+    "downscaled_lst_mean": 0.5778,
+    "fused_lst_mean": 0.6345
+   }
+  },
+  {
+   "region_a": "manavgat_2021",
+   "region_b": "montiferru_2021",
+   "schoener_d_mean1d": 0.6609272665385272,
+   "warren_i_mean1d": 0.8604640499398956,
+   "schoener_d_pca2d": 0.44114756015461776,
+   "warren_i_pca2d": 0.6473467744396881,
+   "mahalanobis_burned": 5.231373412469386,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.6639,
+    "elevation_mean": 0.7092,
+    "slope_mean": 0.6114,
+    "lst_anomaly_mean": 0.7339,
+    "current_lst_mean": 0.6477,
+    "current_tvdi_mean": 0.7861,
+    "tvdi_difference_mean": 0.5228,
+    "downscaled_lst_mean": 0.6257,
+    "fused_lst_mean": 0.6477
+   }
+  },
+  {
+   "region_a": "bejis_2022",
+   "region_b": "mugla_2021",
+   "schoener_d_mean1d": 0.5805245073157459,
+   "warren_i_mean1d": 0.8334062920209455,
+   "schoener_d_pca2d": 0.4701736360513413,
+   "warren_i_pca2d": 0.7280698457808843,
+   "mahalanobis_burned": 5.888872207014618,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.6471,
+    "elevation_mean": 0.3453,
+    "slope_mean": 0.7109,
+    "lst_anomaly_mean": 0.5888,
+    "current_lst_mean": 0.5784,
+    "current_tvdi_mean": 0.7573,
+    "tvdi_difference_mean": 0.5114,
+    "downscaled_lst_mean": 0.524,
+    "fused_lst_mean": 0.5615
+   }
+  },
+  {
+   "region_a": "bejis_2022",
+   "region_b": "evia_2021_extended",
+   "schoener_d_mean1d": 0.523735858380768,
+   "warren_i_mean1d": 0.7513063018654597,
+   "schoener_d_pca2d": 0.44667895167895166,
+   "warren_i_pca2d": 0.6758634150379665,
+   "mahalanobis_burned": 7.4538076896221765,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.4615,
+    "elevation_mean": 0.0721,
+    "slope_mean": 0.8313,
+    "lst_anomaly_mean": 0.7449,
+    "current_lst_mean": 0.4273,
+    "current_tvdi_mean": 0.9111,
+    "tvdi_difference_mean": 0.5109,
+    "downscaled_lst_mean": 0.3522,
+    "fused_lst_mean": 0.4023
+   }
+  },
+  {
+   "region_a": "bejis_2022",
+   "region_b": "montiferru_2021",
+   "schoener_d_mean1d": 0.4789532076727148,
+   "warren_i_mean1d": 0.7166267118884364,
+   "schoener_d_pca2d": 0.10139146567717994,
+   "warren_i_pca2d": 0.18106947362033,
+   "mahalanobis_burned": 7.9518285995364835,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.5507,
+    "elevation_mean": 0.2646,
+    "slope_mean": 0.7064,
+    "lst_anomaly_mean": 0.4037,
+    "current_lst_mean": 0.4765,
+    "current_tvdi_mean": 0.7728,
+    "tvdi_difference_mean": 0.2262,
+    "downscaled_lst_mean": 0.4415,
+    "fused_lst_mean": 0.468
+   }
+  },
+  {
+   "region_a": "mugla_2021",
+   "region_b": "evia_2021_extended",
+   "schoener_d_mean1d": 0.7310817817111412,
+   "warren_i_mean1d": 0.9253728200929027,
+   "schoener_d_pca2d": 0.6283865022700474,
+   "warren_i_pca2d": 0.8503587550958014,
+   "mahalanobis_burned": 3.2591593365528615,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.7922,
+    "elevation_mean": 0.6114,
+    "slope_mean": 0.7138,
+    "lst_anomaly_mean": 0.6458,
+    "current_lst_mean": 0.8043,
+    "current_tvdi_mean": 0.7507,
+    "tvdi_difference_mean": 0.6923,
+    "downscaled_lst_mean": 0.764,
+    "fused_lst_mean": 0.8051
+   }
+  },
+  {
+   "region_a": "mugla_2021",
+   "region_b": "montiferru_2021",
+   "schoener_d_mean1d": 0.6886929264757052,
+   "warren_i_mean1d": 0.8626376139380081,
+   "schoener_d_pca2d": 0.4055877870963507,
+   "warren_i_pca2d": 0.5791963867605486,
+   "mahalanobis_burned": 3.603952106542543,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.7531,
+    "elevation_mean": 0.6245,
+    "slope_mean": 0.5237,
+    "lst_anomaly_mean": 0.6516,
+    "current_lst_mean": 0.8295,
+    "current_tvdi_mean": 0.8561,
+    "tvdi_difference_mean": 0.3331,
+    "downscaled_lst_mean": 0.7972,
+    "fused_lst_mean": 0.8295
+   }
+  },
+  {
+   "region_a": "evia_2021_extended",
+   "region_b": "montiferru_2021",
+   "schoener_d_mean1d": 0.6483451751783248,
+   "warren_i_mean1d": 0.8610791845687913,
+   "schoener_d_pca2d": 0.2903364867650582,
+   "warren_i_pca2d": 0.4738197271445401,
+   "mahalanobis_burned": 4.563454426343979,
+   "per_feature_schoener_d": {
+    "ndvi_mean": 0.7416,
+    "elevation_mean": 0.7309,
+    "slope_mean": 0.581,
+    "lst_anomaly_mean": 0.3551,
+    "current_lst_mean": 0.7736,
+    "current_tvdi_mean": 0.7615,
+    "tvdi_difference_mean": 0.3834,
+    "downscaled_lst_mean": 0.7373,
+    "fused_lst_mean": 0.7706
+   }
+  }
+ ]
+}

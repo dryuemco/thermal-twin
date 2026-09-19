@@ -1,0 +1,16 @@
+manavgat_2021: burned n=2935 nan_cells=34
+bejis_2022: burned n=1100 nan_cells=347
+mugla_2021: burned n=2911 nan_cells=58
+evia_2021_extended: burned n=2664 nan_cells=151
+montiferru_2021: burned n=539 nan_cells=0
+manavgat_2021~bejis_2022: D1=0.625 I1=0.854 D2=0.362 I2=0.622 Mah=5.373
+manavgat_2021~mugla_2021: D1=0.799 I1=0.951 D2=0.661 I2=0.870 Mah=2.513
+manavgat_2021~evia_2021_extended: D1=0.688 I1=0.902 D2=0.528 I2=0.785 Mah=2.604
+manavgat_2021~montiferru_2021: D1=0.661 I1=0.860 D2=0.441 I2=0.647 Mah=5.231
+bejis_2022~mugla_2021: D1=0.581 I1=0.833 D2=0.470 I2=0.728 Mah=5.889
+bejis_2022~evia_2021_extended: D1=0.524 I1=0.751 D2=0.447 I2=0.676 Mah=7.454
+bejis_2022~montiferru_2021: D1=0.479 I1=0.717 D2=0.101 I2=0.181 Mah=7.952
+mugla_2021~evia_2021_extended: D1=0.731 I1=0.925 D2=0.628 I2=0.850 Mah=3.259
+mugla_2021~montiferru_2021: D1=0.689 I1=0.863 D2=0.406 I2=0.579 Mah=3.604
+evia_2021_extended~montiferru_2021: D1=0.648 I1=0.861 D2=0.290 I2=0.474 Mah=4.563
+written paper/labelfix_rerun/code/niche_measures.json

@@ -1,0 +1,27 @@
+regen_transfer_ci|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/regen_transfer_ci.py
+ems_inference_ladder|/c/Users/CORSAIR/projects/thermal-twin-main/paper/code|ems_inference_ladder.py
+loro_pooled|/c/Users/CORSAIR/projects/thermal-twin-main|paper/loro_pooled.py paper/labelfix_rerun/code/_staging paper/labelfix_rerun/code/loro_all.json
+labels_2_history|/c/Users/CORSAIR/projects/thermal-twin-main/paper/code|ems_labels_2_history.py /c/Users/CORSAIR/AppData/Local/Temp/claude/C--Users-CORSAIR-projects-thermal-twin/8911435d-ef1c-4b4f-b100-32540ff7bf73/scratchpad/eecache
+model_capacity|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/model_capacity.py paper/labelfix_rerun/code/_staging paper/labelfix_rerun/code/model_capacity.json
+verify_matched_gap|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/verify_matched_gap.py paper/labelfix_rerun/code/matched_frame_gap.csv
+verify_matched|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/verify_matched.py paper/labelfix_rerun/code/_staging
+scar_definition_sweep|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/scar_definition_sweep.py paper/labelfix_rerun/code/scar_definition_sweep.csv
+verify_transfer_counts|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/verify_transfer_counts.py
+verify_aoi_transfer|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/verify_aoi_transfer.py paper/labelfix_rerun/code/_staging/aoi_frame_transfer.csv
+frozen_mugla_verify_aoi_transfer|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/frozen_mugla_verify_aoi_transfer.py paper/labelfix_rerun/code/_staging/frozen_mugla_verify_aoi_transfer.csv
+multiplicity_reversal|/c/Users/CORSAIR/projects/thermal-twin-main/paper/code|ems_inference_multiplicity.py
+labels_3_fraction|/c/Users/CORSAIR/projects/thermal-twin-main/paper/code|ems_labels_3_fraction.py
+labels_1_prelabel|/c/Users/CORSAIR/projects/thermal-twin-main/paper/code|ems_labels_1_prelabel.py /c/Users/CORSAIR/AppData/Local/Temp/claude/C--Users-CORSAIR-projects-thermal-twin/8911435d-ef1c-4b4f-b100-32540ff7bf73/scratchpad/eecache
+pool_decomposition|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/pool_decomposition.py paper/labelfix_rerun/code/pool_decomposition.json
+prevalence_control|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/prevalence_control.py paper/labelfix_rerun/code/_staging
+scar_increment|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/scar_increment.py paper/labelfix_rerun/code/_staging
+positive_control|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/positive_control.py paper/labelfix_rerun/code/_staging paper/labelfix_rerun/code/positive_control.json
+d_per_source|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/d_per_source.py paper/labelfix_rerun/code/_staging
+scar_control|/c/Users/CORSAIR/projects/thermal-twin-main|paper/scar_control.py paper/labelfix_rerun/code/_staging
+run_e_coral_lambda|/c/Users/CORSAIR/projects/thermal-twin-main/step10|/c/Users/CORSAIR/projects/thermal-twin-main/paper/labelfix_rerun/_logs/run_e_driver.py
+verify_collar_ci|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/verify_collar_ci.py paper/labelfix_rerun/code/collar_frame_bootstrap.csv
+verify_aoi_frame|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/verify_aoi_frame.py paper/labelfix_rerun/code/aoi_frame_auc.csv
+frozen_mugla_verify_aoi_frame|/c/Users/CORSAIR/projects/thermal-twin-main|paper/code/frozen_mugla_verify_aoi_frame.py paper/labelfix_rerun/code/aoi_frame_auc_frozen_mugla.csv
+niche_overlap|/c/Users/CORSAIR/projects/thermal-twin-main|paper/niche_overlap.py paper/labelfix_rerun/code/_staging paper/labelfix_rerun/code/niche_measures.json
+labels_4_dimensionality|/c/Users/CORSAIR/projects/thermal-twin-main/paper/code|ems_labels_4_dimensionality.py
+verify_mugla_collar|/c/Users/CORSAIR/projects/thermal-twin|/c/Users/CORSAIR/projects/thermal-twin-main/paper/code/verify_mugla_collar.py /c/Users/CORSAIR/projects/thermal-twin-main/paper/labelfix_rerun/code/mugla_two_event_collar.csv

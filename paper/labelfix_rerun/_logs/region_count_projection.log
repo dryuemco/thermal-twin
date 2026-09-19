@@ -1,0 +1,15 @@
+  observed, 20 directions from 5 regions
+    mean paired delta      +0.0238
+    pair-cluster 95% CI    [-0.0041, +0.0492]   width 0.0533   contains 0
+    source sd 0.0000   target sd 0.0000   residual sd 0.0578
+
+  projection, 2000 simulated cohorts per k, mu held at the observed value
+    k  directions  median width  excludes 0
+    5          20        0.0463        52%
+    6          30        0.0387        65%
+    8          56        0.0292        88%
+   10          90        0.0233        98%
+   12         132        0.0194        99%
+
+  A projection, not a finding. It assumes the observed mean is the truth and that
+  further regions behave like these five; neither is established.

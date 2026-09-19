@@ -1,0 +1,73 @@
+==============================================================================
+STAGE 1a  AOI GEOMETRY: how much of each 'region' is far field?
+==============================================================================
+region                       n  burned  med dist    >10km     max
+manavgat_2021            20511    2935     13.1k    58.5%   45.5k
+bejis_2022               15190    1100     13.5k    63.1%   34.1k
+mugla_2021               41730    2911     11.3k    55.3%   45.7k
+evia_2021_extended        9298    2664      8.0k    43.7%   45.7k
+montiferru_2021           2544     539      2.7k     2.1%   12.0k
+
+==============================================================================
+STAGE 1b  ELEVATION BY DISTANCE BAND (Manavgat): is the far field uphill?
+==============================================================================
+        band       n  median elev
+      0-5 km    5770         330 m
+     5-10 km    2737         723 m
+    10-20 km    5370         995 m
+    20-50 km    6634        1273 m
+      BURNED    2935         287 m
+AOI elevation max: 2355 m
+
+==============================================================================
+STAGE 1c  SIGNED UNIVARIATE AUC: full AOI vs collar-restricted
+   (positives are untouched by the collar; only far-field negatives drop)
+==============================================================================
+
+--- elevation_mean ---
+region  manavgat_2021  bejis_2022  mugla_2021  evia_2021_extended  montiferru_2021
+collar                                                                            
+full            0.232       0.643       0.611               0.541            0.584
+<=10km          0.376       0.614       0.606               0.648            0.581
+<=5km           0.428       0.597       0.595               0.674            0.528
+    full     min 0.232 max 0.643  straddles 0.5: YES
+    <=10km   min 0.376 max 0.648  straddles 0.5: YES
+
+--- current_lst_mean ---
+region  manavgat_2021  bejis_2022  mugla_2021  evia_2021_extended  montiferru_2021
+collar                                                                            
+full            0.665       0.477       0.325               0.377            0.370
+<=10km          0.522       0.405       0.332               0.286            0.376
+<=5km           0.521       0.407       0.336               0.310            0.444
+    full     min 0.325 max 0.665  straddles 0.5: YES
+    <=10km   min 0.286 max 0.522  straddles 0.5: YES
+
+--- lst_anomaly_mean ---
+region  manavgat_2021  bejis_2022  mugla_2021  evia_2021_extended  montiferru_2021
+collar                                                                            
+full            0.509       0.418       0.485               0.640            0.395
+<=10km          0.487       0.392       0.507               0.584            0.400
+<=5km           0.526       0.425       0.504               0.583            0.387
+    full     min 0.395 max 0.640  straddles 0.5: YES
+    <=10km   min 0.392 max 0.584  straddles 0.5: YES
+
+--- current_tvdi_mean ---
+region  manavgat_2021  bejis_2022  mugla_2021  evia_2021_extended  montiferru_2021
+collar                                                                            
+full            0.677       0.517       0.336               0.362            0.356
+<=10km          0.527       0.454       0.342               0.250            0.361
+<=5km           0.534       0.467       0.349               0.278            0.433
+    full     min 0.336 max 0.677  straddles 0.5: YES
+    <=10km   min 0.250 max 0.527  straddles 0.5: YES
+
+==============================================================================
+STAGE 1d  LST-ELEVATION COLLINEARITY (Q item 4)
+==============================================================================
+region                  r(lst,elev)  r(tvdi,elev)  r(anom,elev)
+manavgat_2021                -0.695        -0.722         0.036
+bejis_2022                   -0.125        -0.298         0.142
+mugla_2021                   -0.404        -0.472         0.235
+evia_2021_extended           -0.511        -0.583        -0.195
+montiferru_2021              -0.507        -0.488         0.256
+
+wrote paper/labelfix_rerun/code/aoi_frame_auc_frozen_mugla.csv

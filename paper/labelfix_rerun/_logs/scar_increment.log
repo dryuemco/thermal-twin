@@ -1,0 +1,17 @@
+mugla_2021           scar   6  baseline=0.5701  thermal=0.5952  increment=+0.0250
+mugla_2021           scar   1  baseline=0.6055  thermal=0.5614  increment=-0.0441
+mugla_2021           scar  10  baseline=0.5722  thermal=0.6167  increment=+0.0445
+mugla_2021           scar   8  baseline=0.5299  thermal=0.5421  increment=+0.0123
+evia_2021_extended   scar   1  baseline=0.3215  thermal=0.4648  increment=+0.1433
+montiferru_2021      scar   1  baseline=0.5237  thermal=0.5838  increment=+0.0601
+montiferru_2021      scar   5  baseline=0.5278  thermal=0.4578  increment=-0.0700
+
+=== THERMAL INCREMENT UNDER LEAVE-ONE-SCAR-OUT ===
+  n = 7 scars
+  baseline mean 0.5215   thermal mean 0.5460
+  increment     +0.0244  t-95% [-0.0405, +0.0893]
+  positive in 5 of 7;  range -0.0700 to +0.1433
+  Muðla only (n=4): +0.0094  [-0.0511, +0.0700]
+
+  for comparison: blocked-CV within-region increment +0.056 to +0.153;
+                  half-split increment +0.027; cross-region +0.004

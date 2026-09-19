@@ -1,0 +1,321 @@
+{
+ "margins": [
+  0.02,
+  0.05
+ ],
+ "tost_transfer_increment": {
+  "Q2_equalised10_delta": {
+   "mean": 0.02378249132072554,
+   "units": {
+    "naive_directions_boot": {
+     "ci90": [
+      0.0028867245407303665,
+      0.044326213574303296
+     ],
+     "no_gain_larger_than_X": 0.044326213574303296,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pair_cluster_boot": {
+     "ci90": [
+      0.0007609118426934238,
+      0.046954808011961856
+     ],
+     "no_gain_larger_than_X": 0.046954808011961856,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "target_cluster_boot": {
+     "ci90": [
+      0.012825210294647952,
+      0.03614748254883783
+     ],
+     "no_gain_larger_than_X": 0.03614748254883783,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "source_cluster_boot": {
+     "ci90": [
+      0.011998409285995576,
+      0.03833658285788168
+     ],
+     "no_gain_larger_than_X": 0.03833658285788168,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pigeonhole_boot": {
+     "ci90": [
+      0.00031038546808227817,
+      0.05233666846569385
+     ],
+     "no_gain_larger_than_X": 0.05233666846569385,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": false
+    },
+    "cgm_twoway_t4": {
+     "ci90": [
+      NaN,
+      NaN
+     ],
+     "undefined": true
+    },
+    "dyadic_robust_t4": {
+     "ci90": [
+      NaN,
+      NaN
+     ],
+     "undefined": true
+    },
+    "loro_jackknife_t4": {
+     "ci90": [
+      -0.007709011593070674,
+      0.055273994234521756
+     ],
+     "no_gain_larger_than_X": 0.055273994234521756,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": false
+    }
+   }
+  },
+  "Q1_asdrawn_delta": {
+   "skipped": "class-B input transfer_ci_blocksize.json absent"
+  },
+  "S_equalised5_delta": {
+   "mean": 0.016771263752576922,
+   "units": {
+    "naive_directions_boot": {
+     "ci90": [
+      0.0024335140162457373,
+      0.03136977185196208
+     ],
+     "no_gain_larger_than_X": 0.03136977185196208,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pair_cluster_boot": {
+     "ci90": [
+      -8.821121630081692e-05,
+      0.033697030926923985
+     ],
+     "no_gain_larger_than_X": 0.033697030926923985,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "target_cluster_boot": {
+     "ci90": [
+      0.003987076297976536,
+      0.030034617470751444
+     ],
+     "no_gain_larger_than_X": 0.030034617470751444,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "source_cluster_boot": {
+     "ci90": [
+      0.008687505550413145,
+      0.025183520698841555
+     ],
+     "no_gain_larger_than_X": 0.025183520698841555,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "pigeonhole_boot": {
+     "ci90": [
+      -0.0020774040235870786,
+      0.03801020133085307
+     ],
+     "no_gain_larger_than_X": 0.03801020133085307,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "cgm_twoway_t4": {
+     "ci90": [
+      0.00925241216477277,
+      0.024290115340381075
+     ],
+     "no_gain_larger_than_X": 0.024290115340381075,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "dyadic_robust_t4": {
+     "ci90": [
+      0.009277846969667061,
+      0.024264680535486784
+     ],
+     "no_gain_larger_than_X": 0.024264680535486784,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": true
+    },
+    "loro_jackknife_t4": {
+     "ci90": [
+      -0.017783513841720132,
+      0.05132604134687397
+     ],
+     "no_gain_larger_than_X": 0.05132604134687397,
+     "equivalent_within_0.02": false,
+     "equivalent_within_0.05": false
+    }
+   }
+  }
+ },
+ "within_minus_transfer_increment": {
+  "10km": {
+   "per_region": {
+    "Manavgat": {
+     "W": 0.07333149074650447,
+     "T": 0.002267918137780725,
+     "W_minus_T": 0.07106357260872374
+    },
+    "Bejis": {
+     "W": 0.029800650360525927,
+     "T": 0.0246742390579872,
+     "W_minus_T": 0.0051264113025387276
+    },
+    "Mugla": {
+     "W": 0.08754567533130342,
+     "T": 0.02115496355290045,
+     "W_minus_T": 0.06639071177840297
+    },
+    "Evia": {
+     "W": 0.1335640547089143,
+     "T": 0.01745798806984555,
+     "W_minus_T": 0.11610606663906875
+    },
+    "Montiferru": {
+     "W": 0.08950502525226112,
+     "T": 0.05335734778511377,
+     "W_minus_T": 0.036147677467147345
+    }
+   },
+   "mean_W": 0.08274937927990185,
+   "mean_T": 0.02378249132072554,
+   "mean_W_minus_T": 0.05896688795917632,
+   "ci95_t4": [
+    0.007449644252946468,
+    0.11048413166540616
+   ],
+   "ci90_t4": [
+    0.019410236819225588,
+    0.09852353909912705
+   ],
+   "smaller_by_at_least_Y": 0.019410236819225588
+  },
+  "5km": {
+   "per_region": {
+    "Manavgat": {
+     "W": 0.034626549970104725,
+     "T": -0.006258934768304424,
+     "W_minus_T": 0.04088548473840915
+    },
+    "Bejis": {
+     "W": 0.017471333881658335,
+     "T": 0.024791535633073625,
+     "W_minus_T": -0.0073202017514152895
+    },
+    "Mugla": {
+     "W": 0.04901446659618691,
+     "T": 0.0057636203982964745,
+     "W_minus_T": 0.043250846197890436
+    },
+    "Evia": {
+     "W": 0.07071061328968864,
+     "T": 0.013344815314097525,
+     "W_minus_T": 0.05736579797559112
+    },
+    "Montiferru": {
+     "W": 0.03962331391373908,
+     "T": 0.04621528218572143,
+     "W_minus_T": -0.00659196827198235
+    }
+   },
+   "mean_W": 0.04228925553027554,
+   "mean_T": 0.016771263752576926,
+   "mean_W_minus_T": 0.02551799177769861,
+   "ci95_t4": [
+    -0.012114328714677852,
+    0.06315031227007507
+   ],
+   "ci90_t4": [
+    -0.003377354056258358,
+    0.05441333761165558
+   ],
+   "smaller_by_at_least_Y": -0.003377354056258358
+  },
+  "full": {
+   "per_region": {
+    "Manavgat": {
+     "W": 0.061903980493766,
+     "T": -0.011007164601876947,
+     "W_minus_T": 0.07291114509564295
+    },
+    "Bejis": {
+     "W": 0.04509855474546742,
+     "T": 0.03752813891218787,
+     "W_minus_T": 0.0075704158332795535
+    },
+    "Mugla": {
+     "W": 0.07934092185836983,
+     "T": 0.007693830962039851,
+     "W_minus_T": 0.07164709089632998
+    },
+    "Evia": {
+     "W": 0.1482321936045179,
+     "T": -0.008200833011938701,
+     "W_minus_T": 0.15643302661645658
+    },
+    "Montiferru": {
+     "W": 0.09947117364288727,
+     "T": 0.010627420317480827,
+     "W_minus_T": 0.08884375332540644
+    }
+   },
+   "mean_W": 0.08680936486900168,
+   "mean_T": 0.007328278515578579,
+   "mean_W_minus_T": 0.0794810863534231,
+   "ci95_t4": [
+    0.013529729378939717,
+    0.1454324433279065
+   ],
+   "ci90_t4": [
+    0.028841443539408998,
+    0.13012072916743722
+   ],
+   "smaller_by_at_least_Y": 0.028841443539408998
+  }
+ },
+ "scar_frame_loso_minus_foreign": {
+  "mean": 0.016188907656375713,
+  "t95": [
+   -0.06118317251761899,
+   0.09356098783037042
+  ],
+  "t90": [
+   -0.04525503050028638,
+   0.07763284581303781
+  ],
+  "cr1_95": [
+   -0.1538452335721162,
+   0.18622304888486763
+  ],
+  "cr1_90": [
+   -0.09920437916924627,
+   0.1315821944819977
+  ],
+  "n": 7
+ },
+ "scar_frame_foreign_increment_tost": {
+  "mean": 0.008231412268588287,
+  "t90": [
+   -0.015022903429031509,
+   0.031485727966208084
+  ],
+  "cr1_90": [
+   -0.05023495975261985,
+   0.06669778428979642
+  ],
+  "equivalent_within_0.02_t": false,
+  "equivalent_within_0.05_t": true,
+  "equivalent_within_0.02_cr1": false,
+  "equivalent_within_0.05_cr1": false
+ }
+}

@@ -1,0 +1,76 @@
+manavgat_2021 {'years': [2016, 2017, 2018, 2019, 2020], 'baseline_years_registered': [2017, 2018, 2019, 2020], 'per_year': {2016: {'cells_all': 0, 'cells_tsg': 0}, 2017: {'cells_all': 0, 'cells_tsg': 0}, 2018: {'cells_all': 0, 'cells_tsg': 0}, 2019: {'cells_all': 0, 'cells_tsg': 0}, 2020: {'cells_all': 0, 'cells_tsg': 0}}, 'cells_all_grid': 0, 'cells_valid_for_modeling': 0, 'cells_tsg': 0, 'tsg_total': 20511, 'tsg_hist5_and_label_burned': 0, 'tsg_burned_total': 2935, 'event_year_gap_window': ['2021-01-01', '2021-05-31'], 'gap_cells_tsg': 0, 'gap_cells_tsg_not_in_hist5': 0}
+bejis_2022 {'years': [2017, 2018, 2019, 2020, 2021], 'baseline_years_registered': [2018, 2019, 2020, 2021], 'per_year': {2017: {'cells_all': 125, 'cells_tsg': 125}, 2018: {'cells_all': 0, 'cells_tsg': 0}, 2019: {'cells_all': 0, 'cells_tsg': 0}, 2020: {'cells_all': 0, 'cells_tsg': 0}, 2021: {'cells_all': 38, 'cells_tsg': 38}}, 'cells_all_grid': 163, 'cells_valid_for_modeling': 163, 'cells_tsg': 163, 'tsg_total': 15190, 'tsg_hist5_and_label_burned': 0, 'tsg_burned_total': 1100, 'event_year_gap_window': ['2022-01-01', '2022-06-14'], 'gap_cells_tsg': 0, 'gap_cells_tsg_not_in_hist5': 0}
+mugla_2021 {'years': [2016, 2017, 2018, 2019, 2020], 'baseline_years_registered': [2017, 2018, 2019, 2020], 'per_year': {2016: {'cells_all': 68, 'cells_tsg': 65}, 2017: {'cells_all': 57, 'cells_tsg': 57}, 2018: {'cells_all': 4, 'cells_tsg': 4}, 2019: {'cells_all': 70, 'cells_tsg': 63}, 2020: {'cells_all': 5, 'cells_tsg': 5}}, 'cells_all_grid': 204, 'cells_valid_for_modeling': 200, 'cells_tsg': 194, 'tsg_total': 41730, 'tsg_hist5_and_label_burned': 25, 'tsg_burned_total': 2911, 'event_year_gap_window': ['2021-01-01', '2021-05-31'], 'gap_cells_tsg': 0, 'gap_cells_tsg_not_in_hist5': 0}
+evia_2021_extended {'years': [2016, 2017, 2018, 2019, 2020], 'baseline_years_registered': [2017, 2018, 2019, 2020], 'per_year': {2016: {'cells_all': 161, 'cells_tsg': 150}, 2017: {'cells_all': 0, 'cells_tsg': 0}, 2018: {'cells_all': 52, 'cells_tsg': 52}, 2019: {'cells_all': 179, 'cells_tsg': 176}, 2020: {'cells_all': 13, 'cells_tsg': 13}}, 'cells_all_grid': 380, 'cells_valid_for_modeling': 380, 'cells_tsg': 366, 'tsg_total': 9298, 'tsg_hist5_and_label_burned': 88, 'tsg_burned_total': 2664, 'event_year_gap_window': ['2021-01-01', '2021-06-04'], 'gap_cells_tsg': 0, 'gap_cells_tsg_not_in_hist5': 0}
+montiferru_2021 {'years': [2016, 2017, 2018, 2019, 2020], 'baseline_years_registered': [2017, 2018, 2019, 2020], 'per_year': {2016: {'cells_all': 92, 'cells_tsg': 49}, 2017: {'cells_all': 11, 'cells_tsg': 9}, 2018: {'cells_all': 0, 'cells_tsg': 0}, 2019: {'cells_all': 0, 'cells_tsg': 0}, 2020: {'cells_all': 0, 'cells_tsg': 0}}, 'cells_all_grid': 103, 'cells_valid_for_modeling': 102, 'cells_tsg': 58, 'tsg_total': 2544, 'tsg_hist5_and_label_burned': 32, 'tsg_burned_total': 539, 'event_year_gap_window': ['2021-01-01', '2021-05-24'], 'gap_cells_tsg': 0, 'gap_cells_tsg_not_in_hist5': 0}
+reference manavgat_2021 {'collar10:current_lst_mean': 0.522, 'collar10:downscaled_lst_mean': 0.533, 'collar10:fused_lst_mean': 0.522, 'collar10:current_tvdi_mean': 0.527, 'full:current_lst_mean': 0.665, 'full:downscaled_lst_mean': 0.683, 'full:fused_lst_mean': 0.666, 'full:current_tvdi_mean': 0.677}
+reference bejis_2022 {'collar10:current_lst_mean': 0.405, 'collar10:downscaled_lst_mean': 0.395, 'collar10:fused_lst_mean': 0.402, 'collar10:current_tvdi_mean': 0.454, 'full:current_lst_mean': 0.477, 'full:downscaled_lst_mean': 0.484, 'full:fused_lst_mean': 0.481, 'full:current_tvdi_mean': 0.517}
+reference mugla_2021 {'collar10:current_lst_mean': 0.332, 'collar10:downscaled_lst_mean': 0.314, 'collar10:fused_lst_mean': 0.332, 'collar10:current_tvdi_mean': 0.342, 'full:current_lst_mean': 0.325, 'full:downscaled_lst_mean': 0.307, 'full:fused_lst_mean': 0.325, 'full:current_tvdi_mean': 0.336}
+reference evia_2021_extended {'collar10:current_lst_mean': 0.286, 'collar10:downscaled_lst_mean': 0.285, 'collar10:fused_lst_mean': 0.285, 'collar10:current_tvdi_mean': 0.25, 'full:current_lst_mean': 0.377, 'full:downscaled_lst_mean': 0.377, 'full:fused_lst_mean': 0.376, 'full:current_tvdi_mean': 0.362}
+reference montiferru_2021 {'collar10:current_lst_mean': 0.376, 'collar10:downscaled_lst_mean': 0.371, 'collar10:fused_lst_mean': 0.376, 'collar10:current_tvdi_mean': 0.361, 'full:current_lst_mean': 0.37, 'full:downscaled_lst_mean': 0.365, 'full:fused_lst_mean': 0.37, 'full:current_tvdi_mean': 0.356}
+excluded manavgat_2021 {'collar10:current_lst_mean': 0.522, 'collar10:downscaled_lst_mean': 0.533, 'collar10:fused_lst_mean': 0.522, 'collar10:current_tvdi_mean': 0.527, 'full:current_lst_mean': 0.665, 'full:downscaled_lst_mean': 0.683, 'full:fused_lst_mean': 0.666, 'full:current_tvdi_mean': 0.677}
+excluded bejis_2022 {'collar10:current_lst_mean': 0.406, 'collar10:downscaled_lst_mean': 0.395, 'collar10:fused_lst_mean': 0.402, 'collar10:current_tvdi_mean': 0.455, 'full:current_lst_mean': 0.479, 'full:downscaled_lst_mean': 0.486, 'full:fused_lst_mean': 0.483, 'full:current_tvdi_mean': 0.519}
+excluded mugla_2021 {'collar10:current_lst_mean': 0.333, 'collar10:downscaled_lst_mean': 0.315, 'collar10:fused_lst_mean': 0.334, 'collar10:current_tvdi_mean': 0.343, 'full:current_lst_mean': 0.326, 'full:downscaled_lst_mean': 0.307, 'full:fused_lst_mean': 0.326, 'full:current_tvdi_mean': 0.337}
+excluded evia_2021_extended {'collar10:current_lst_mean': 0.286, 'collar10:downscaled_lst_mean': 0.286, 'collar10:fused_lst_mean': 0.285, 'collar10:current_tvdi_mean': 0.249, 'full:current_lst_mean': 0.381, 'full:downscaled_lst_mean': 0.383, 'full:fused_lst_mean': 0.38, 'full:current_tvdi_mean': 0.365}
+excluded montiferru_2021 {'collar10:current_lst_mean': 0.358, 'collar10:downscaled_lst_mean': 0.352, 'collar10:fused_lst_mean': 0.358, 'collar10:current_tvdi_mean': 0.341, 'full:current_lst_mean': 0.352, 'full:downscaled_lst_mean': 0.345, 'full:fused_lst_mean': 0.352, 'full:current_tvdi_mean': 0.335}
+manavgat_2021
+  ref  B=10 n= 20511 pos= 2935 posblk=  47 base=0.8203 therm=0.8822 d=+0.0619 [+0.0413,+0.0822] positive_bootstrap_support
+  excl B=10 n= 20511 pos= 2935 posblk=  47 base=0.8203 therm=0.8822 d=+0.0619 [+0.0413,+0.0822] positive_bootstrap_support
+bejis_2022
+  ref  B=10 n= 15190 pos= 1100 posblk=  19 base=0.7794 therm=0.8245 d=+0.0451 [+0.0183,+0.0678] positive_bootstrap_support
+  excl B=10 n= 15027 pos= 1100 posblk=  19 base=0.8023 therm=0.8571 d=+0.0548 [+0.0250,+0.0816] positive_bootstrap_support
+mugla_2021
+  ref  B=10 n= 41730 pos= 2911 posblk=  70 base=0.6980 therm=0.7773 d=+0.0793 [+0.0466,+0.1048] positive_bootstrap_support
+  excl B=10 n= 41536 pos= 2886 posblk=  70 base=0.7019 therm=0.7901 d=+0.0882 [+0.0628,+0.1112] positive_bootstrap_support
+evia_2021_extended
+  ref  B=10 n=  9298 pos= 2664 posblk=  41 base=0.7160 therm=0.8642 d=+0.1482 [+0.1186,+0.1822] positive_bootstrap_support
+  excl B=10 n=  8932 pos= 2576 posblk=  41 base=0.7142 therm=0.8759 d=+0.1617 [+0.1291,+0.1999] positive_bootstrap_support
+montiferru_2021
+  ref  B=10 n=  2544 pos=  539 posblk=  16 base=0.6204 therm=0.7199 d=+0.0995 [+0.0171,+0.1856] positive_bootstrap_support
+  excl B=10 n=  2486 pos=  507 posblk=  16 base=0.6573 therm=0.7680 d=+0.1107 [+0.0321,+0.1917] positive_bootstrap_support
+transfer reference
+           manavgat_2021 -> bejis_2022           base=0.3707 therm=0.3964 d=+0.0257 B10 uncertain_ci_overlaps_zero
+           manavgat_2021 -> mugla_2021           base=0.4656 therm=0.4377 d=-0.0279 B10 negative_bootstrap_support
+           manavgat_2021 -> evia_2021_extended   base=0.6226 therm=0.6540 d=+0.0314 B10 uncertain_ci_overlaps_zero
+           manavgat_2021 -> montiferru_2021      base=0.5340 therm=0.5178 d=-0.0162 B10 uncertain_ci_overlaps_zero
+              bejis_2022 -> manavgat_2021        base=0.2966 therm=0.3142 d=+0.0176 B10 uncertain_ci_overlaps_zero
+              bejis_2022 -> mugla_2021           base=0.5922 therm=0.6185 d=+0.0262 B10 uncertain_ci_overlaps_zero
+              bejis_2022 -> evia_2021_extended   base=0.5305 therm=0.3828 d=-0.1476 B10 negative_bootstrap_support
+              bejis_2022 -> montiferru_2021      base=0.5530 therm=0.5937 d=+0.0407 B10 uncertain_ci_overlaps_zero
+              mugla_2021 -> manavgat_2021        base=0.4223 therm=0.3450 d=-0.0773 B10 negative_bootstrap_support
+              mugla_2021 -> bejis_2022           base=0.4507 therm=0.5832 d=+0.1325 B10 positive_bootstrap_support
+              mugla_2021 -> evia_2021_extended   base=0.5998 therm=0.6534 d=+0.0536 B10 positive_bootstrap_support
+              mugla_2021 -> montiferru_2021      base=0.6105 therm=0.5312 d=-0.0793 B10 uncertain_ci_overlaps_zero
+      evia_2021_extended -> manavgat_2021        base=0.7274 therm=0.6769 d=-0.0505 B10 negative_bootstrap_support
+      evia_2021_extended -> bejis_2022           base=0.3917 therm=0.4480 d=+0.0563 B10 positive_bootstrap_support
+      evia_2021_extended -> mugla_2021           base=0.5125 therm=0.5768 d=+0.0643 B10 positive_bootstrap_support
+      evia_2021_extended -> montiferru_2021      base=0.5494 therm=0.6467 d=+0.0973 B10 positive_bootstrap_support
+         montiferru_2021 -> manavgat_2021        base=0.3379 therm=0.4041 d=+0.0662 B10 positive_bootstrap_support
+         montiferru_2021 -> bejis_2022           base=0.6126 therm=0.5483 d=-0.0643 B10 negative_bootstrap_support
+         montiferru_2021 -> mugla_2021           base=0.6512 therm=0.6194 d=-0.0319 B10 uncertain_ci_overlaps_zero
+         montiferru_2021 -> evia_2021_extended   base=0.5564 therm=0.5862 d=+0.0298 B10 uncertain_ci_overlaps_zero
+reference {'mean_baseline': 0.5193836401333103, 'mean_thermal': 0.5267118880452303, 'mean_delta': 0.007328247911919936, 'B10_positive': 6, 'B10_negative': 5, 'B10_uncertain': 9, 'B2_positive': 12, 'B2_negative': 7, 'B2_uncertain': 1}
+transfer excluded
+           manavgat_2021 -> bejis_2022           base=0.3739 therm=0.3994 d=+0.0255 B10 uncertain_ci_overlaps_zero
+           manavgat_2021 -> mugla_2021           base=0.4639 therm=0.4351 d=-0.0288 B10 negative_bootstrap_support
+           manavgat_2021 -> evia_2021_extended   base=0.6274 therm=0.6552 d=+0.0279 B10 uncertain_ci_overlaps_zero
+           manavgat_2021 -> montiferru_2021      base=0.5286 therm=0.5043 d=-0.0243 B10 uncertain_ci_overlaps_zero
+              bejis_2022 -> manavgat_2021        base=0.3060 therm=0.3046 d=-0.0015 B10 uncertain_ci_overlaps_zero
+              bejis_2022 -> mugla_2021           base=0.5966 therm=0.6190 d=+0.0223 B10 uncertain_ci_overlaps_zero
+              bejis_2022 -> evia_2021_extended   base=0.5478 therm=0.3758 d=-0.1720 B10 negative_bootstrap_support
+              bejis_2022 -> montiferru_2021      base=0.5684 therm=0.5948 d=+0.0264 B10 uncertain_ci_overlaps_zero
+              mugla_2021 -> manavgat_2021        base=0.4196 therm=0.3396 d=-0.0801 B10 negative_bootstrap_support
+              mugla_2021 -> bejis_2022           base=0.4684 therm=0.5708 d=+0.1023 B10 positive_bootstrap_support
+              mugla_2021 -> evia_2021_extended   base=0.5974 therm=0.6501 d=+0.0527 B10 positive_bootstrap_support
+              mugla_2021 -> montiferru_2021      base=0.6219 therm=0.5250 d=-0.0970 B10 uncertain_ci_overlaps_zero
+      evia_2021_extended -> manavgat_2021        base=0.7416 therm=0.6409 d=-0.1006 B10 negative_bootstrap_support
+      evia_2021_extended -> bejis_2022           base=0.3376 therm=0.3779 d=+0.0403 B10 uncertain_ci_overlaps_zero
+      evia_2021_extended -> mugla_2021           base=0.5035 therm=0.5759 d=+0.0724 B10 uncertain_ci_overlaps_zero
+      evia_2021_extended -> montiferru_2021      base=0.5509 therm=0.6616 d=+0.1106 B10 positive_bootstrap_support
+         montiferru_2021 -> manavgat_2021        base=0.3367 therm=0.3897 d=+0.0530 B10 positive_bootstrap_support
+         montiferru_2021 -> bejis_2022           base=0.6024 therm=0.5706 d=-0.0319 B10 uncertain_ci_overlaps_zero
+         montiferru_2021 -> mugla_2021           base=0.6490 therm=0.6434 d=-0.0056 B10 uncertain_ci_overlaps_zero
+         montiferru_2021 -> evia_2021_extended   base=0.5510 therm=0.6145 d=+0.0635 B10 positive_bootstrap_support
+excluded {'mean_baseline': 0.5196364413971527, 'mean_thermal': 0.5224009507688124, 'mean_delta': 0.002764509371659657, 'B10_positive': 5, 'B10_negative': 4, 'B10_uncertain': 11, 'B2_positive': 10, 'B2_negative': 6, 'B2_uncertain': 4}
+frozen columns: ['direction', 'baseline_roc', 'baseline_ci_low', 'baseline_ci_high', 'thermal_roc', 'thermal_ci_low', 'thermal_ci_high', 'delta_roc', 'delta_ci_low', 'delta_ci_high', 'delta_interpretation']
+done

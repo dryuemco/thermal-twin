@@ -1,0 +1,17 @@
+V1 manavgat_2021 {'pixels': 6943860, 'mismatch': 0, 'positive_ee': 803797, 'positive_local': 803797, 'positive_agree': 803797, 'nodata_ee': 0, 'nodata_local': 0}
+V1 bejis_2022 {'pixels': 4535255, 'mismatch': 0, 'positive_ee': 285751, 'positive_local': 285751, 'positive_agree': 285751, 'nodata_ee': 0, 'nodata_local': 0}
+V2 mugla_2021 {'pixels': 21075400, 'mismatch': 0, 'positive_ee': 3590, 'positive_local': 3590, 'positive_agree': 3590, 'nodata_ee': 0, 'nodata_local': 0, 'cells_flagged_ee': 49, 'cells_recorded': 49, 'cells_agree': 49, 'cells_disagree': 0}
+V2 evia_2021_extended {'pixels': 6611963, 'mismatch': 0, 'positive_ee': 1251, 'positive_local': 1251, 'positive_agree': 1251, 'nodata_ee': 0, 'nodata_local': 0, 'cells_flagged_ee': 16, 'cells_recorded': 16, 'cells_agree': 16, 'cells_disagree': 0}
+V2 montiferru_2021 {'pixels': 910955, 'mismatch': 0, 'positive_ee': 6296, 'positive_local': 6296, 'positive_agree': 6296, 'nodata_ee': 0, 'nodata_local': 0, 'cells_flagged_ee': 61, 'cells_recorded': 61, 'cells_agree': 61, 'cells_disagree': 0}
+label rule manavgat_2021 {'cells': 24150, 'disagree': 0}
+label rule bejis_2022 {'cells': 15759, 'disagree': 0}
+label rule mugla_2021 {'cells': 73098, 'disagree': 0}
+label rule evia_2021_extended {'cells': 22925, 'disagree': 0}
+label rule montiferru_2021 {'cells': 3234, 'disagree': 0}
+R1 manavgat_2021 {'window': ['2021-06-01', '2021-07-27'], 'positive_subpixels': 0, 'positive_doys': {}, 'cells_all': 0, 'cells_valid_for_modeling': 0, 'cells_tsg': 0, 'cells_tsg_also_label_burned': 0}
+R1 bejis_2022 {'window': ['2022-06-15', '2022-08-14'], 'positive_subpixels': 6534, 'positive_doys': {'2022-06-19': 1840, '2022-06-20': 300, '2022-07-25': 940, '2022-07-26': 1234, '2022-07-28': 946, '2022-07-29': 320, '2022-08-02': 300, '2022-08-13': 654}, 'cells_all': 49, 'cells_valid_for_modeling': 49, 'cells_tsg': 48, 'cells_tsg_also_label_burned': 10}
+  ref  B= 2 n= 15190 pos= 1100 posblk= 302 base=0.8617 therm=0.9178 d=+0.0561 [+0.0474,+0.0648] positive_bootstrap_support
+  excl B= 2 n= 15142 pos= 1090 posblk= 300 base=0.8627 therm=0.9131 d=+0.0504 [+0.0420,+0.0588] positive_bootstrap_support
+  ref  B=10 n= 15190 pos= 1100 posblk=  19 base=0.7794 therm=0.8245 d=+0.0451 [+0.0183,+0.0678] positive_bootstrap_support
+  excl B=10 n= 15142 pos= 1090 posblk=  19 base=0.7925 therm=0.8540 d=+0.0615 [+0.0372,+0.0875] positive_bootstrap_support
+wrote r1_prelabel.json

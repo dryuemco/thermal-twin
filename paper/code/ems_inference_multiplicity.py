@@ -205,10 +205,15 @@ def diagnostic_family():
 
 
 if __name__ == "__main__":
-    O = diagnostic_family()
-    O.to_csv(E.OUTDIR / "diagnostics_bh.csv", index=False)
-    print(O[["measure", "n_directions", "rho_published", "rho", "ci", "p_boot", "p_boot_bh",
-             "p_iid", "p_iid_bh"]].to_string())
+    # The diagnostic family reads class-B->M files; skipped when the redirected inputs directory
+    # lacks them (labelfix re-run, 2026-09-19). The reversal family below is label-data only.
+    if (E.PAPER / "all_diagnostics_vs_transfer.csv").exists():
+        O = diagnostic_family()
+        O.to_csv(E.OUTDIR / "diagnostics_bh.csv", index=False)
+        print(O[["measure", "n_directions", "rho_published", "rho", "ci", "p_boot", "p_boot_bh",
+                 "p_iid", "p_iid_bh"]].to_string())
+    else:
+        print("diagnostic family SKIPPED: class-B inputs absent from", E.PAPER)
     pr, F = reversal_families()
     pr.to_csv(E.OUTDIR / "reversal_per_region.csv", index=False)
     F.to_csv(E.OUTDIR / "reversal_family_holm.csv", index=False)

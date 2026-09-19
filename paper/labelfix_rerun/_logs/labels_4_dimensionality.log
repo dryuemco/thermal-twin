@@ -1,0 +1,45 @@
+manavgat_2021: n=20511 complete=20158  EVR=[0.717 0.264 0.011 0.006 0.003 0.   ] k90=2 k95=2 PR=1.71
+                      lst_anomaly_mean  current_lst_mean  current_tvdi_mean  tvdi_difference_mean  downscaled_lst_mean  fused_lst_mean
+lst_anomaly_mean                 1.000             0.351              0.384                 0.933                0.319           0.350
+current_lst_mean                 0.351             1.000              0.985                 0.297                0.976           0.999
+current_tvdi_mean                0.384             0.985              1.000                 0.331                0.965           0.984
+tvdi_difference_mean             0.933             0.297              0.331                 1.000                0.264           0.296
+downscaled_lst_mean              0.319             0.976              0.965                 0.264                1.000           0.978
+fused_lst_mean                   0.350             0.999              0.984                 0.296                0.978           1.000
+  fused==current: {'rows': 20511, 'both_finite': 20451, 'exactly_equal': 18895, 'fraction_equal_of_both_finite': 0.9239157009437191, 'fused_only_finite': 60, 'current_only_finite': 0, 'both_missing': 0, 'max_abs_diff_both_finite': 6.679412841796875}
+bejis_2022: n=15190 complete=14210  EVR=[0.729 0.189 0.05  0.026 0.005 0.001] k90=2 k95=3 PR=1.75
+                      lst_anomaly_mean  current_lst_mean  current_tvdi_mean  tvdi_difference_mean  downscaled_lst_mean  fused_lst_mean
+lst_anomaly_mean                 1.000             0.395              0.439                 0.714                0.355           0.392
+current_lst_mean                 0.395             1.000              0.879                 0.484                0.971           0.995
+current_tvdi_mean                0.439             0.879              1.000                 0.598                0.829           0.876
+tvdi_difference_mean             0.714             0.484              0.598                 1.000                0.441           0.482
+downscaled_lst_mean              0.355             0.971              0.829                 0.441                1.000           0.977
+fused_lst_mean                   0.392             0.995              0.876                 0.482                0.977           1.000
+  fused==current: {'rows': 15190, 'both_finite': 14658, 'exactly_equal': 12338, 'fraction_equal_of_both_finite': 0.8417246554782372, 'fused_only_finite': 532, 'current_only_finite': 0, 'both_missing': 0, 'max_abs_diff_both_finite': 4.939964294433594}
+mugla_2021: n=41730 complete=40389  EVR=[0.714 0.259 0.011 0.01  0.005 0.   ] k90=2 k95=2 PR=1.73
+                      lst_anomaly_mean  current_lst_mean  current_tvdi_mean  tvdi_difference_mean  downscaled_lst_mean  fused_lst_mean
+lst_anomaly_mean                 1.000             0.332              0.355                 0.938                0.297           0.331
+current_lst_mean                 0.332             1.000              0.965                 0.349                0.969           0.999
+current_tvdi_mean                0.355             0.965              1.000                 0.369                0.932           0.964
+tvdi_difference_mean             0.938             0.349              0.369                 1.000                0.312           0.347
+downscaled_lst_mean              0.297             0.969              0.932                 0.312                1.000           0.969
+fused_lst_mean                   0.331             0.999              0.964                 0.347                0.969           1.000
+  fused==current: {'rows': 41730, 'both_finite': 41475, 'exactly_equal': 40902, 'fraction_equal_of_both_finite': 0.9861844484629295, 'fused_only_finite': 255, 'current_only_finite': 0, 'both_missing': 0, 'max_abs_diff_both_finite': 12.730051040649414}
+evia_2021_extended: n=9298 complete=8877  EVR=[0.721 0.229 0.038 0.009 0.003 0.   ] k90=2 k95=3 PR=1.74
+                      lst_anomaly_mean  current_lst_mean  current_tvdi_mean  tvdi_difference_mean  downscaled_lst_mean  fused_lst_mean
+lst_anomaly_mean                 1.000             0.283              0.341                 0.758                0.250           0.280
+current_lst_mean                 0.283             1.000              0.964                 0.417                0.984           0.999
+current_tvdi_mean                0.341             0.964              1.000                 0.481                0.945           0.962
+tvdi_difference_mean             0.758             0.417              0.481                 1.000                0.387           0.413
+downscaled_lst_mean              0.250             0.984              0.945                 0.387                1.000           0.985
+fused_lst_mean                   0.280             0.999              0.962                 0.413                0.985           1.000
+  fused==current: {'rows': 9298, 'both_finite': 9275, 'exactly_equal': 8455, 'fraction_equal_of_both_finite': 0.9115902964959569, 'fused_only_finite': 23, 'current_only_finite': 0, 'both_missing': 0, 'max_abs_diff_both_finite': 7.797840118408203}
+montiferru_2021: n=2544 complete=2541  EVR=[0.752 0.218 0.022 0.007 0.002 0.   ] k90=2 k95=2 PR=1.63
+                      lst_anomaly_mean  current_lst_mean  current_tvdi_mean  tvdi_difference_mean  downscaled_lst_mean  fused_lst_mean
+lst_anomaly_mean                 1.000             0.368              0.402                 0.862                0.359           0.366
+current_lst_mean                 0.368             1.000              0.971                 0.486                0.992           1.000
+current_tvdi_mean                0.402             0.971              1.000                 0.503                0.966           0.970
+tvdi_difference_mean             0.862             0.486              0.503                 1.000                0.473           0.484
+downscaled_lst_mean              0.359             0.992              0.966                 0.473                1.000           0.992
+fused_lst_mean                   0.366             1.000              0.970                 0.484                0.992           1.000
+  fused==current: {'rows': 2544, 'both_finite': 2544, 'exactly_equal': 2530, 'fraction_equal_of_both_finite': 0.9944968553459119, 'fused_only_finite': 0, 'current_only_finite': 0, 'both_missing': 0, 'max_abs_diff_both_finite': 4.611997604370117}

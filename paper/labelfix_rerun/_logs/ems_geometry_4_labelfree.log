@@ -1,0 +1,41 @@
+fitted manavgat_2021 10km n=8507 pos=2935
+fitted bejis_2022 10km n=5601 pos=1100
+fitted mugla_2021 10km n=18674 pos=2911
+fitted evia_2021_extended 10km n=5232 pos=2664
+fitted montiferru_2021 10km n=2490 pos=539
+fitted manavgat_2021 full n=20511 pos=2935
+fitted bejis_2022 full n=15190 pos=1100
+fitted mugla_2021 full n=41730 pos=2911
+fitted evia_2021_extended full n=9298 pos=2664
+fitted montiferru_2021 full n=2544 pos=539
+fitted manavgat_2021 win15 n=1054 pos=559
+fitted bejis_2022 win15 n=1092 pos=825
+source mugla_2021 frame win15: single class, no model
+fitted evia_2021_extended win15 n=613 pos=462
+fitted montiferru_2021 win15 n=1010 pos=381
+fitted manavgat_2021 win20 n=1871 pos=865
+fitted bejis_2022 win20 n=1900 pos=1005
+fitted mugla_2021 win20 n=932 pos=27
+fitted evia_2021_extended win20 n=1142 pos=832
+fitted montiferru_2021 win20 n=1732 pos=510
+frame ref_full_full done
+frame ref_10km_10km done
+frame a1_trim_srcfull done
+frame a1_trim_src10km done
+frame a2_aoa_srcfull done
+frame a2_aoa_src10km done
+frame b_win20_win20 done
+frame b_full_win20 done
+frame b_10km_win20 done
+frame b_win15_win15 done
+             frame source_frame target_rule  directions  mean_thermal  above_0_5  below_0_5  mean_baseline  mean_delta                             delta_pair_cluster                            delta_target_cluster  median_target_retained  median_target_pos_retained  median_target_prevalence
+0    ref_full_full         full        full          20        0.5267         13          7         0.5194      0.0073  [-0.021260574983008675, 0.037016547745788234]   [-0.006144455396508245, 0.022440934005801765]                  1.0000                      1.0000                    0.1431
+1    ref_10km_10km         10km        10km          20        0.5891         15          5         0.5653      0.0238  [-0.003470954267018518, 0.050972352733579994]     [0.010526582460142398, 0.04044105520759852]                  0.4475                      1.0000                    0.2165
+2  a1_trim_srcfull         full        trim          20        0.5197         13          7         0.5159      0.0038     [-0.03041251355874162, 0.0376069019401407]   [-0.013861923577408656, 0.021290666140787694]                  0.4662                      0.5301                    0.1632
+3  a1_trim_src10km         10km        trim          20        0.5396         13          7         0.5291      0.0105  [-0.023273425223402894, 0.043441913997772585]    [-0.015421711969780288, 0.03157655996369686]                  0.4502                      0.4762                    0.1626
+4   a2_aoa_srcfull         full         aoa          20        0.5499         13          7         0.5444      0.0055    [-0.03863288473951491, 0.04791092577923255]   [-0.007645706512033607, 0.023934540975581942]                  0.3717                      0.3342                    0.1905
+5   a2_aoa_src10km         10km         aoa          20        0.5736         13          7         0.5562      0.0175  [-0.011902300551137774, 0.043094301305976274]  [-0.0018852354823089613, 0.042935834959464333]                  0.3216                      0.3424                    0.1610
+6    b_win20_win20        win20       win20          20        0.4824          9         11         0.4692      0.0132     [-0.02767489274537176, 0.0471575713527284]    [-0.01685647914492747, 0.043223410297403855]                  0.1228                      0.3123                    0.4623
+7     b_full_win20         full       win20          20        0.4929         12          8         0.4964     -0.0035   [-0.03751026869547737, 0.027517111484041484]     [-0.02768390317385505, 0.02815916018980631]                  0.1228                      0.3123                    0.4623
+8     b_10km_win20         10km       win20          20        0.4896         12          8         0.4971     -0.0075   [-0.058782493383632915, 0.04051201640543469]    [-0.048344091521293396, 0.03334341357762985]                  0.1228                      0.3123                    0.4623
+9    b_win15_win15        win15       win15          12        0.5089          5          7         0.5194     -0.0105    [-0.07855058740307522, 0.05011696331084362]     [-0.04328608386760033, 0.02226195670404335]                  0.0689                      0.4487                    0.6420
