@@ -1,7 +1,7 @@
 {
  "inputs": {
   "matrix": "paper\\labelfix_rerun\\pipeline\\_derived\\matrix_corrected.csv",
-  "block_ci": "paper\\labelfix_rerun\\round3\\transfer_ci_blocksize.csv",
+  "block_ci": "design\\precision\\inputs\\transfer_ci_blocksize.csv",
   "large_block": "paper\\labelfix_rerun\\pipeline\\robustness\\step8_large_block\\manavgat_2021__bejis_2022",
   "ladder": "paper\\labelfix_rerun\\inference\\ladder_summary.json",
   "loro": "paper\\labelfix_rerun\\code\\loro_all.json"

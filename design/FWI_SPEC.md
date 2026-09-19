@@ -1,7 +1,9 @@
 # FWI_SPEC — Canadian Fire Weather Index System from ERA5-Land
 
-Binding specification for STUDY_DESIGN §4 (G5: Drought Code and Duff Moisture Code on 31 May;
-G8: seasonal FWI, in-season explanatory arm only). Written 2026-09-19. Every number marked
+Status: FINAL v1.0 (2026-09-19), annex to PREREGISTRATION.md v1.2; where they differ, PREREGISTRATION.md governs.
+
+Binding specification for PREREGISTRATION §5.2 (G5: Drought Code and Duff Moisture Code on 31 May;
+FWI conventions) and for the in-season explanatory arm (PREREGISTRATION §5.6: seasonal FWI, explanation only). Written 2026-09-19. Every number marked
 **[verified]** was reproduced in a throwaway environment on that date; everything else is a
 convention fixed here, with its reason.
 
@@ -123,7 +125,9 @@ cffdrs `ell02`) are **not** used.
 **3.6 Start-up and overwintering.**
 - Compute continuously, every day of the year ("always-on": `season_method=None`, no shut-down,
   no overwintering, no dry start).
-- Start once, on **2013-01-01**, with FFMC 85, DMC 6 and DC 15.
+- Start once, on **2013-01-01**, with FFMC 85, DMC 6 and DC 15. This is the primary start unless the
+  convergence test T6 (§4) fails, in which case the primary start moves one year earlier (and again,
+  until T6 passes); the final primary start is reported.
 - Run without interruption through 2024-12-31.
 
 This gives two full winters of spin-up before the first predictor date (2015-05-31). The Canadian
@@ -137,14 +141,14 @@ January–March. Snowfall enters P24 as water equivalent on the day it falls. Th
 approximation, because melt is actually delayed.
 
 Flag: `fwi_snow_flag = 1` for cells where ERA5-Land `snow_depth` > 0.01 m at `h_UTC` on any day
-from 1 to 31 May of year *y*. Primary results are reported with and without the flagged cells.
+from 1 to 31 May of year *y*. Snow-affected cells are excluded in sensitivity 13 (PREREGISTRATION §12); primary results include them.
 
 **3.8 Outputs used by the study.**
 - **G5.** DC and DMC for **31 May of year y**, computed from weather up to and including the noon
   observation of 31 May. A label window that starts on or after 1 June is therefore disjoint from
   the predictor.
-- **G8.** The daily FWI series. The seasonal aggregation (for example mean, or days above a
-  threshold) is fixed in STUDY_DESIGN at registration, not here.
+- **The in-season explanatory arm (PREREGISTRATION §5.6).** The daily FWI series. The seasonal
+  aggregation (for example mean, or days above a threshold) is fixed in PREREGISTRATION §5.6, not here.
 
 Values are computed on the 11 km ERA5-Land grid and then assigned to 500 m cells by nearest ERA5-Land
 pixel centre. The codes are nonlinear, so interpolate the **outputs**, never the inputs, and do it
@@ -160,7 +164,7 @@ through the recursion, so it is a hard failure, not something to fill.
 | T3 | Adapters | Hand values: RH(T=20, Td=10 °C) = 52.5198; RH(30, 5) = 20.5553; RH(35, −5) = 7.4964; RH(10, 9.5) = 96.7008; RH(15, 15) = 100; RH(25, 26) = 100 (clipped). Wind (u, v) = (3, 4) m/s → 18.0 km/h. `h_UTC` at lon −9.0 / −7.5 / −7.4 / 0 / 7.5 / 7.6 / 23 / 44 → 13 / 13 / 12 / 12 / 12 / 11 / 10 / 9 | Exact to 1e-4 |
 | T4 | Precipitation window | EE, pixel at (−8.0, 41.5), `h_UTC` = 13: P24 for 2019-11-02 = **30.904 mm** (the 12 UTC window would give 33.196 mm). The sum of hourly values stamped 2019-11-01 00…23 UTC = DAILY_AGGR 2019-11-01 = 45.267 mm | \|d\| ≤ 0.01 mm |
 | T5 | Edge cases | Inputs with RH > 100 before the clip, T < −2.8 °C, P24 = 0 for 60 days, DMC = DC = 0 | No NaN after the clip; BUI = 0 when DMC = DC = 0; codes ≥ 0 |
-| T6 | Spin-up convergence | Full grid; a second run started 2012-01-01 | On every 31 May 2015–2024 and every cell: \|ΔDC\| ≤ 1.0, \|ΔDMC\| ≤ 0.1, \|ΔFFMC\| ≤ 0.1. If any cell fails, move the start one year earlier and repeat; report the final start date. |
+| T6 | Spin-up convergence | Full grid; a second run started one year before the primary start (2012-01-01 for the 2013-01-01 start) | On every 31 May 2015–2024 and every cell: \|ΔDC\| ≤ 1.0, \|ΔDMC\| ≤ 0.1, \|ΔFFMC\| ≤ 0.1. If any cell fails, T6 fails: the primary start moves one year earlier and T6 is repeated against a run started one year before the new primary start, until it passes; report the final primary start date. Sensitivity 12 (PREREGISTRATION §12) then uses a start one year before the final primary start (2012-01-01 if T6 passes at the first attempt). |
 | T7 | Latitude domain | Grid | `min(lat) ≥ 30`, so §3.5 holds |
 
 ## 5. Status of the demonstration (2026-09-19)

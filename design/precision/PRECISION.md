@@ -1,7 +1,7 @@
-# Precision analysis for the pre-registration (STUDY_DESIGN.md §7)
+# Precision analysis for the pre-registration (PREREGISTRATION §11)
 
-**Status:** computed 2026-09-19 from frozen pilot artefacts only (corrected Manavgat labels). No outcome of
-the new study is used. Code: `precision_analysis.py` (seed 42, `.venv-step10`, numpy/scipy/pandas; runtime
+**Status:** computed 2026-09-19 from pilot artefacts on the corrected Manavgat labels (inputs in §1). No
+outcome of the new study is used. Code: `precision_analysis.py` (seed 42, `.venv-step10`, numpy/scipy/pandas; runtime
 about 9 min). Outputs: `pilot_variance_components.{json,csv}`, `precision_table.{csv,json}`,
 `precision_results.json` (assumptions, per-scenario components, REML check), `run.log`.
 
@@ -12,10 +12,19 @@ Reproduce: `<thermal-twin>/.venv-step10/Scripts/python.exe design/precision/prec
 | Input | File |
 |---|---|
 | 20-direction transfer matrix, within-region AUC (1 km blocks) | `paper/labelfix_rerun/pipeline/_derived/matrix_corrected.csv` |
-| Per-direction 10-cell (~5 km) spatial-block CIs, AUC and thermal−baseline delta | `paper/labelfix_rerun/round3/transfer_ci_blocksize.csv` (points asserted equal to the matrix, < 6e-5) |
+| Per-direction 10-cell (~5 km) spatial-block CIs, AUC and thermal−baseline delta | `design/precision/inputs/transfer_ci_blocksize.csv` (points asserted equal to the matrix, < 6e-5) |
 | Within-region at 5 and 10 km blocks (Manavgat, Bejís only) | `paper/labelfix_rerun/pipeline/robustness/step8_large_block/manavgat_2021__bejis_2022/` |
 | Within-region increment at 5 km blocks, all 5 regions; scar-frame ladder | `paper/labelfix_rerun/inference/ladder_summary.json` |
 | Pooled leave-one-region-out transfer | `paper/labelfix_rerun/code/loro_all.json` |
+
+**Provenance.** The within-direction spatial-block sampling SEs come from
+`design/precision/inputs/transfer_ci_blocksize.csv`. That file was produced on the corrected Manavgat labels
+by the paper's `transfer_ci_blocksize` computation during the stopped round-3 re-run, where it is
+git-ignored (`paper/labelfix_rerun/round3/`); it was copied here unchanged, SHA-256
+`33233d2abc2dcf29f7750fb4391daee4f275ecdb7adfc31bdf7d3089fafb4f82`. The other four inputs are committed
+pilot artefacts: `paper/labelfix_rerun/pipeline/_derived/matrix_corrected.csv`,
+`paper/labelfix_rerun/pipeline/robustness/step8_large_block/manavgat_2021__bejis_2022/`,
+`paper/labelfix_rerun/inference/ladder_summary.json` and `paper/labelfix_rerun/code/loro_all.json`.
 
 Sampling SEs are taken from the 10-cell CIs. The 2-cell CIs in the matrix ignore spatial autocorrelation
 and are narrower by a median factor of 3.1, so they are not used.
@@ -92,8 +101,8 @@ effect is AUC − 0.5.
 | Mean V3 (vs 0.5) | boot | 0.054 | 0.995 | .04 | .45 | .99 | .29 / .18 | 0 | 0.069 |
 
 \* Realised coverage when the components are re-estimated by REML in each of 300 simulated studies,
-using the model with the pair term. The same check for **the crossed model as written in §7 (no pair
-term)** gives coverage **0.92 for mean V3 and 0.90 for V1 − V3**, with half-widths 0.032 and 0.044.
+using the model with the pair term. The same check for **the crossed model without the pair term of
+PREREGISTRATION §11.1** gives coverage **0.92 for mean V3 and 0.90 for V1 − V3**, with half-widths 0.032 and 0.044.
 
 **Half-width by number of tiles (central, S = 4; model / boot):**
 
@@ -152,18 +161,18 @@ on V2 − V3 therefore has to be reported as a bound of roughly ±0.08, not as "
      a same-season, label-conditioned frame, not temporal transfer.
    - No external anchor was adopted. No verified published inter-annual AUC variance for this model class
      and grid was available to me, and I did not invent one.
-   - Recommendation: re-run this analysis after the label-free stage using the observed number of
+   - Recommendation (adopted: PREREGISTRATION §4.8(c)): re-run this analysis after the label-free stage using the observed number of
      eligible seasons, and pre-register k = 1.5 as the planning value if a conservative choice is wanted.
 2. **Pilot components come from 5 regions.** Source and target SDs cannot be told apart from 0. The
    pair SD's 95 % interval is [0.04, 0.16]. The p80 scenario shows the cost: +0.013 on V1 − V3, doubled
    group-contribution half-widths.
 3. **The pair (reciprocal) structure is real in the pilot, and it decides which inference is valid.**
-   - The §7 crossed model without a pair term under-covers: 0.90–0.92.
+   - The crossed model without the pair term of PREREGISTRATION §11.1 under-covers: 0.90–0.92.
    - The target-only cluster bootstrap under-covers: 0.79–0.90.
    - The two-way (pigeonhole) tile bootstrap is conservative, 0.98–0.995. It over-counts pair variance,
      which costs about 0.01–0.015 in half-width.
    - The percentile one-way tile bootstrap under-covers at 10 tiles (0.89–0.91) for per-tile contrasts.
-   - **Recommendation for the registration:** add an unordered-pair random effect to the crossed model and
+   - **Recommendation for the registration (adopted: PREREGISTRATION §11.1):** add an unordered-pair random effect to the crossed model and
      make that model primary; keep the two-way tile bootstrap as the conservative check; do not use a
      target-only bootstrap; use t(T − 1) or a bias-corrected interval for per-tile contrasts.
 4. **Group-ablation heterogeneity uses one proxy:** the pilot's thermal-plus-baseline increment. Removing

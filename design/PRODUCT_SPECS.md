@@ -1,6 +1,6 @@
 # Product specifications: quality masks, class mapping, compositing and aggregation
 
-Status: **FINAL v1.0 (2026-09-19), companion to PREREGISTRATION.md v1.1; where they differ
+Status: **FINAL v1.0 (2026-09-19), companion to PREREGISTRATION.md v1.2; where they differ
 PREREGISTRATION.md governs.** Nothing here has been run on labels or outcomes.
 
 **How to read this document.** Each rule is tagged:
@@ -52,7 +52,7 @@ rule.
 | Same 463 m grid | none (native) | Identical grid, so nothing to resample. |
 | Coarser product nested exactly (1 km MODIS) | **parent value**: each 463 m cell takes the value of the 1 km pixel that contains it | Exact containment. Bilinear would mix neighbouring 1 km retrievals with different QC states and dates, and would make up sub-kilometre detail that is not there. |
 | Finer product (30 m, 100 m, 15″, 250 m) | **area-weighted mean** of the fine pixels over the cell footprint (EE `reduceResolution(mean)` onto the 463 m grid; for GHSL, a sum converted to a density, §12) | Preserves the cell mean. It is the only kernel that is consistent with a label defined on the whole cell. |
-| Coarse continuous climate fields (ERA5-Land 11 km, TerraClimate 4.6 km, CHIRPS 5.6 km) | **nearest** (the coarse pixel that contains the cell centre). If that pixel is masked (sea), take the mean of the valid pixels in its 3 × 3 neighbourhood, otherwise leave the cell missing | Keeps the product's own values and effective resolution. Bilinear would imply a sub-pixel gradient the product does not resolve, and would blur the fact that many 463 m cells share one weather value (the reason for the 11 km block-size floor, STUDY_DESIGN §6). Non-linear derived quantities (FWI codes, VPD) are computed on the native grid **before** assignment. |
+| Coarse continuous climate fields (ERA5-Land 11 km, TerraClimate 4.6 km, CHIRPS 5.6 km) | **nearest** (the coarse pixel that contains the cell centre). If that pixel is masked (sea), take the mean of the valid pixels in its 3 × 3 neighbourhood, otherwise leave the cell missing | Keeps the product's own values and effective resolution. Bilinear would imply a sub-pixel gradient the product does not resolve, and would blur the fact that many 463 m cells share one weather value (the reason for the 11 km block-size floor, PREREGISTRATION §6.1). Non-linear derived quantities (FWI codes, VPD) are computed on the native grid **before** assignment. |
 
 **Order of operations [DESIGN]:** quality mask → temporal composite on the product's **native** grid →
 spatial aggregation to 463 m. We never composite after resampling.
@@ -73,7 +73,7 @@ spatial aggregation to 463 m. We never composite after resampling.
     levels.
   - Which form each variable uses is stated in its section.
   - **Burned-cell exclusion (surface products only: MOD13A1, MOD15A2H, MOD16A2GF, MOD11A1)** [DESIGN,
-    implementing STUDY_DESIGN §4]: for each cell, baseline year *b* is dropped if MCD64A1 mapped the cell
+    implementing PREREGISTRATION §5.2]: for each cell, baseline year *b* is dropped if MCD64A1 mapped the cell
     burned at any date from 1 June *b*−1 to 31 May *b*.
   - At least 3 of the 5 baseline years must remain, otherwise the anomaly is missing.
   - Climate fields (ERA5-Land, TerraClimate, CHIRPS) are not burn-filtered, because a fire does not alter
@@ -127,7 +127,7 @@ of the target season contribute no burn to any training season's G7 value or bas
 7. **Shortened mapping period** (bit 2 = 1) and relabelled cells (bit 3 = 1) are kept.
 8. `Uncertainty` is not used as a filter. Its median among burned cells is reported per tile-season.
 
-**Unit tests** (STUDY_DESIGN §3) cover: windows that start mid-month; windows that span months; a
+**Unit tests** of the label rule (PREREGISTRATION §5.1) cover: windows that start mid-month; windows that span months; a
 window that crosses a year boundary; the leap-year DOY shift (2016, 2020, 2024); masked BurnDate with QA
 = 1 (unmapped) versus QA = 3 (unburned); and a water cell.
 
@@ -207,7 +207,7 @@ EE-CHK: an Attica window showed QC 0, 2, 4, 5 and 9, with QC 9 on about 10 % of 
 matters. The number of cells excluded by QC is reported.
 
 **"Dominant class" [SRC + DESIGN]:** MCD12Q1 is native on the analysis grid and carries one class per
-cell. The "dominant class" in STUDY_DESIGN §2–3 is that cell's class; no aggregation is involved.
+cell. The class that defines the population (PREREGISTRATION §4.1) is that cell's class; no aggregation is involved.
 
 **G2 class shares [DESIGN]:**
 - For each analysis cell, the share of each group listed in PREREGISTRATION.md §5.2 (forest 1–5,
@@ -424,7 +424,7 @@ used as inputs."
   (EE catalogue description; MOD11 guide §4.1 "a simple average method").
 - So a per-observation quality rule **cannot be applied** to MOD11A2, and an 8-day value can include
   "other quality" days that its QC byte does not reveal.
-- MOD11A1 lets us fix the mask ourselves (STUDY_DESIGN §4). The extra cost is only compute.
+- MOD11A1 lets us fix the mask ourselves (PREREGISTRATION §5.2, G4). The extra cost is only compute.
 
 **Terra orbit drift [SRC + DESIGN]:**
 - [SRC, NASA Terra orbit page, https://terra.nasa.gov/about/terras-orbit-changes/terra-orbital-drift-information]
@@ -665,8 +665,8 @@ comparison of the tile distributions for 2021 versus 2022 is reported descriptiv
 
 ETH global canopy height 2020 (`users/nlang/ETH_GlobalCanopyHeight_2020_10m_v1`) is **removed from the
 model**. It is built from May–September 2020 imagery, so for every season *y* ≤ 2020 burned cells appear
-in their **post-fire** state, the same defect for which STUDY_DESIGN §3 rejected WorldCover 2021 as a
-predictor. MOD44B *y*−1 (§5) carries tree cover.
+in their **post-fire** state (PREREGISTRATION §5.2). WorldCover 2021 has the same defect and is therefore
+not a predictor; it enters only the population sensitivity (PREREGISTRATION §12, sensitivity 10). MOD44B *y*−1 (§5) carries tree cover.
 
 ---
 
@@ -730,24 +730,28 @@ considered to be of science quality" (EE FIRMS description). **`FIRMS` is not us
 
 ## 19. Sensitivities (registered)
 
-This is the complete list of product-level sensitivity analyses. Each is reported whatever it shows and is
-not used to choose a primary result.
+PREREGISTRATION §12 governs: it is the complete, numbered list of registered sensitivity analyses, and
+where this section differs from it, §12 applies. The items below are the product-level ones, each
+carrying its §12 number; §12.14–§12.18 (block size, season window, other model families, V2 variants,
+training-size matching) are design-level and are specified only in PREREGISTRATION. Each sensitivity is
+reported whatever it shows and is not used to choose a primary result.
 
-1. **MCD64A1 special-condition cells as missing:** unburned cells with QA bits 5–7 ≠ 0 in any season month
-   get a missing label (§1, rule 6).
-2. **FireCCI 5.1 labels, seasons 2015–2020** (§17): majority rule, with any-burn as its variant.
-3. **EFFIS perimeter labels:** perimeters rasterised to the burned fraction of each 463 m cell; majority
-   rule (fraction ≥ 0.5), with any-burn (fraction > 0) as its variant.
-4. **MOD13A1 SummaryQA = 0 only** (§3).
-5. **Pilot LST rule** (§7): QC_Day bits 0–1 = 00 and bits 2–3 = 00.
-6. **G4 on 2015–2022:** every contrast involving G4 repeated on seasons 2015–2022 only (Terra drift, §7).
-7. **TPI radius 10 km** (§11).
-8. **GRIP4 road types 1–3 only** (§13).
-9. **MCD12Q1 class 14 added** to the population (§2).
-10. **WorldCover 2021 population** (static), as in PREREGISTRATION.md §12.
-11. **FWI at 12:00 UTC** everywhere instead of `h_UTC` (FWI_SPEC.md §3.1).
-12. **FWI start 2012-01-01**, as the convergence check of FWI_SPEC.md T6 (§8).
-13. **Snow-affected cells excluded:** cells with `fwi_snow_flag` = 1 (FWI_SPEC.md §3.7).
+- **§12.1 EFFIS perimeter labels:** perimeters rasterised to the burned fraction of each 463 m cell;
+  majority rule (fraction ≥ 0.5), with any-burn (fraction > 0) as its variant.
+- **§12.2 FireCCI 5.1 labels, seasons 2015–2020** (§17): majority rule, with any-burn as its variant.
+- **§12.3 MCD64A1 special-condition cells as missing:** unburned cells with QA bits 5–7 ≠ 0 in any season
+  month get a missing label (§1, rule 6).
+- **§12.4 MOD13A1 SummaryQA = 0 only** (§3).
+- **§12.5 Pilot LST QC rule** (§7): QC_Day bits 0–1 = 00 and bits 2–3 = 00.
+- **§12.6 G4 on 2015–2022:** every contrast involving G4 repeated on seasons 2015–2022 only (Terra drift, §7).
+- **§12.7 TPI radius 10 km** (§11).
+- **§12.8 GRIP4 road types 1–3 only** (§13).
+- **§12.9 MCD12Q1 class 14 added** to the population (§2).
+- **§12.10 WorldCover 2021 population** (static; classes 10, 20, 30 by cell majority).
+- **§12.11 FWI at 12:00 UTC** everywhere instead of `h_UTC` (FWI_SPEC.md §3.1).
+- **§12.12 FWI started one year before the final primary start** (2012-01-01 if the convergence check
+  FWI_SPEC.md T6 passes with the 2013-01-01 start; §8).
+- **§12.13 Snow-affected cells excluded:** cells with `fwi_snow_flag` = 1 (FWI_SPEC.md §3.7).
 
 ---
 

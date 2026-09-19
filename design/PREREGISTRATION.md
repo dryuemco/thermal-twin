@@ -1,9 +1,9 @@
 # Pre-registration: how far do wildfire susceptibility models travel across seasons and regions?
 
-**Version 1.1 (2026-09-19). Status: DRAFT — not yet binding.** Binding when both authors have approved
+**Version 1.2 (2026-09-19). Status: DRAFT — not yet binding.** Binding when both authors have approved
 it, it has been committed to the public registration repository, tagged `prereg-v1.0`, and archived by
-Software Heritage (§19). Revision from v1.0 after an adversarial review; the review's item numbers
-(B1–B5, M1–M11, m1–m13) are cited where a rule answers one.
+Software Heritage (§19). Revised after two adversarial reviews; the first review's item numbers (B1–B5, M1–M11, m1–m13)
+and the second's (R2-1 … R2-23) are cited where a rule answers one.
 
 **Authors and roles.** Emrehan Metin (Earth Engine exports and data pipeline); Yunus Emre Coğurcu
 (analysis, statistics, writing; sole holder of the hold-out unseal step, §15). Both approve this
@@ -28,10 +28,16 @@ registration repository before any outcome. (B5)
 3. **Candidate-fire list of an abandoned extension trial** (branch `ten-region-trial`, commit
    `21d8f52e250cee22ec527d07788e6fb83558737c`, file `trial/candidate_fires.csv`, SHA-256
    `c635a83c42b7c781c6c6f345c21aada2d729496094af0433ab8d1febba6a492f`): MCD64A1 connected-component burned
-   counts, natural-vegetation shares, centroids and burn days for 41 single-season fires in Spain, Greece,
-   Portugal, Italy and Türkiye, 2019–2023. **No model outcome was computed on any of them.**
+   counts, natural-vegetation shares, centroids and burn days for 41 connected components (1–4,707 cells)
+   in Spain, Greece, Portugal and Italy, 2019–2023; also the trial's country-year screen (burned cells and
+   natural share for eight rim countries, 2019–2023), its selection rule `trial/PREREGISTRATION.md`
+   (SHA-256 `d60093e69e39ffa7b4e19377ef021e7572569bb817a7b10ed3c79188c4427d93`) and its selection
+   `trial/selected_regions.json` (SHA-256 `2b8be23a2b6f9f1ebc542018e1f3509dc79813803e7311ac07b390a35c0d36dc`:
+   Portugal 2019, Portugal 2020, Italy 2021, Spain 2022, Greece 2023). **No model outcome was computed on
+   any of them.** (R2-7)
 4. **Pre-season predictors computed for one trial AOI** (Portugal 2019, Vila de Rei; bbox −8.388 to
-   −6.764° E, 39.439 to 40.520° N), pipeline steps 1–3; no label-based analysis, no model.
+   −6.764° E, 39.439 to 40.520° N), pipeline steps 1–3 and the Step 4 Drive exports (18 tasks: Landsat and
+   MODIS LST, NDVI, WorldCover, DEM); no label-based analysis, no model. (R2-7)
 5. **Label-free checks:** dataset availability, product documentation, the FWI reference test.
 
 **Consequences.** Tiles intersecting items 1, 2 and 4 are excluded (§4.5). Tiles containing the item-3
@@ -89,11 +95,12 @@ predictors (§4.2 item 3 for eligibility; §5.4 after selection).
 
 ### 4.2 Tile-season eligibility (all must hold) (B2, B3, m10)
 1. ≥ 100 burned cells in the evaluation population.
-2. Gate: burned cells in the evaluation population ≥ 50 % of the season's burned land cells with a
-   mapped label (water excluded from the denominator).
+2. Gate: burned cells of MCD12Q1 classes 1–10 (year *y* − 1) ≥ 50 % of the season's burned land cells
+   with a mapped label (water excluded from the denominator). (R2-15)
 3. ≥ 80 % of the tile's land cells of MCD12Q1 classes 1–10 (year *y* − 1) have valid predictors, where a
    cell is valid if at most 3 of the **full §5.2 list** (before §5.3) are missing.
-4. ≥ 6 spatial blocks (§6.1, fixed size) contain at least one burned evaluation cell.
+4. ≥ 6 spatial blocks (§6.1, fixed size) contain at least one burned evaluation cell. Blocks with fewer
+   than 50 land cells are merged into the adjacent block of the same block-row. (R2-16)
 
 ### 4.3 Tile eligibility
 ≥ 3 eligible seasons in 2015–2024. Retained seasons: all eligible seasons if ≤ 5, else the 5 most recent.
@@ -102,7 +109,8 @@ predictors (§4.2 item 3 for eligibility; §5.4 after selection).
 Selected tiles are pairwise at Chebyshev distance ≥ 2 in tile units (no shared edge or corner).
 
 ### 4.5 Exclusion (B1)
-Tiles intersecting any of these boxes (lon_min, lat_min, lon_max, lat_max) are excluded:
+Tiles whose interior intersects the interior of any of these boxes (lon_min, lat_min, lon_max, lat_max)
+are excluded (R2-9):
 Manavgat (31.05, 36.72, 31.85, 37.35); Bejís (−1.05, 39.68, −0.35, 40.15); Muğla (27.10, 36.60, 28.90,
 37.45); North Evia (23.05, 38.55, 23.85, 39.15; covers the legacy box); Montiferru (8.45, 40.05, 8.75,
 40.27); Kozan (35.254, 37.001, 36.386, 37.899; 50 km buffer of 35.82° E, 37.45° N); `dogu_akdeniz`
@@ -119,22 +127,30 @@ ties broken by the lexicographically smallest sorted list of tile ids.
 **Hold-out:** 2 further tiles satisfying §4.4 against all selected tiles and sharing ≥ 1 retained season
 with ≥ 3 analysis tiles, chosen by the same objective evaluated on the 12-tile set, same tie-break.
 
-**Negative control (M7):** chosen label-free: among domain tiles satisfying §4.4 against all 12 selected
-tiles and having ≥ 100 burned land cells in at least one season, the tile with the highest share of
-MCD12Q1 (2020) classes 12 + 14. Reported: whether the §4.2.2 gate rejects each of its seasons. No model.
+**Negative control (M7, R2-3):** among domain tiles not excluded by §4.5, satisfying §4.4 against all
+selected tiles, with ≥ 100 burned land cells in at least one season 2015–2024 (a label count; no model
+output), the tile with the highest share of MCD12Q1 (2020) classes 12 + 14 among its land cells; ties by
+smallest tile id. Reported: whether the §4.2.2 gate rejects each of its seasons. No model.
 
 ### 4.7 Fallback and abandonment (M9, m13)
-If fewer than 12 tiles can be selected under §4.4 and §4.6, all selectable tiles are analysed and the
-hold-out is reduced to 1 tile (if 11) or dropped (if ≤ 10), recorded before any outcome. **If fewer than
-6 analysis tiles can be selected, the confirmatory study is abandoned** and the eligibility report is
-published in the registration repository. Separation, block size and all thresholds are unchanged.
+If no 12-tile set satisfies §4.4 and §4.6, the largest feasible set size *n* is determined for analysis
+and hold-out tiles jointly: if *n* = 11, 10 analysis tiles and 1 hold-out; if *n* ≤ 10, all *n* are analysis
+tiles and there is no hold-out; among sets of size *n*, the §4.6 objective and tie-break apply. This is
+recorded before any outcome. **If fewer than 6 analysis tiles can be selected, the confirmatory study is
+abandoned** and the eligibility report is published in the registration repository. Separation, block
+size and all thresholds are unchanged. The number of eligible tiles by country is published with update 1
+(§4.8). (R2-11, R2-23)
 
 ### 4.8 Registered updates before any outcome (M3)
 After selection and export, and before any outcome: (a) the §5.3 predictor list; (b) the realised
-pair-incidence matrix (shared retained seasons); (c) `precision_analysis.py` re-run on the realised
-design, including a coverage simulation of the §11.1 model on the realised incidence matrix. These are
-committed as `prereg-v1.0-update-1` and archived. **If the simulated coverage of the §11.1 interval is
-below 0.93, the tile-cluster bootstrap (§11.2) becomes primary for P1, P3, P4.** The P3 detectability
+pair-incidence matrix (shared retained seasons); (c) `precision_analysis.py`, changed only to accept the
+realised incidence matrix, re-run with the pilot variance components of `precision/PRECISION.md` and a
+temporal-variance ratio k = 1.5 (the least favourable registered value); each simulated study draws
+σ²ₛₜ from a simulated 1,000-replicate joint bootstrap, applies the 10th-percentile floor and fits the
+§11.1 REML model; coverage is computed separately for P1, P3 and P4 (R2-5). These are
+committed as `prereg-v1.0-update-1` and archived. **If the simulated coverage of the §11.1 interval for
+P1, P3 or P4 is below 0.93, the tile-cluster bootstrap (§11.2) becomes primary for that estimand (a switch
+for P1 also applies to S2, for P4 also to S5).** The P3 detectability
 bound of §11.4 is taken from (c).
 
 ## 5. Labels and predictors
@@ -142,7 +158,9 @@ bound of §11.4 is taken from (c).
 ### 5.1 Label
 MCD64A1 BurnDate within the season's day-of-year range, collection queried with month-aligned bounds and
 filtered per pixel; a cell burned more than once counts once. Unmapped (QA) = missing label (excluded);
-special-condition = unburned.
+special-condition = unburned. The query is covered by unit tests, run in continuous integration before
+any export, for windows that start mid-month, span month boundaries and cross calendar years; the
+pilot's label defect was a query of this kind.
 
 ### 5.2 Predictors (window ends 31 May of *y*; anomaly baselines = the same window in the five preceding
 years, a baseline year's value excluded for cells burned between 1 June of the previous year and 31 May
@@ -159,15 +177,18 @@ of that year) (M5)
 
 **Anomalies (z-scores):** z = (x − m)/sd, where m and sd (ddof = 1) are taken over the baseline years with a
 valid value for the cell; the anomaly is missing if fewer than 3 baseline years are valid, or if sd is
-below a floor (NDVI 0.01; LST 0.5 K). Differences (precipitation) and anomalies of ERA5-Land and
-TerraClimate variables use the same baseline and the same 3-year minimum. VPD is computed from
+below a floor (NDVI 0.01; LST 0.5 K). ERA5-Land and TerraClimate anomalies and the CHIRPS precipitation
+terms are differences from the baseline mean, not z-scores, with the same baseline and 3-year
+minimum (R2-21). VPD is computed from
 ERA5-Land daily-mean 2 m temperature and dewpoint (Buck 1981 saturation vapour pressure, as in
 `FWI_SPEC.md`), then averaged over 1 March – 31 May.
 
 FWI: xclim 0.62.0, solar-noon hour per ERA5-Land pixel = floor(12.5 − lon/15) UTC, 24 h precipitation
 ending at that hour, continuous from 2013-01-01 with start values 85/6/15, relative humidity clipped to
-0–100 (`FWI_SPEC.md`). Canopy height is not used (the ETH map is built from 2020 imagery, post-fire for
-2015–2020). Limitations stated in the paper: GHSL epochs interpolate between observations (post-season
+0–100 (`FWI_SPEC.md`). If the convergence test T6 of `FWI_SPEC.md` fails, the start moves one year
+earlier, and sensitivity 12 (§12) uses a start one year before the final primary start (R2-12). Canopy height is not used (the ETH map is built from 2020 imagery, post-fire for
+2015–2020). ESA WorldCover is not a predictor for the same reason (its 2020 and 2021 maps are post-fire
+for earlier seasons); it enters only sensitivity 10 as an alternative population definition. Limitations stated in the paper: GHSL epochs interpolate between observations (post-season
 information within an epoch; m9); GRIP4 source years differ by country.
 
 ### 5.3 Redundancy rule (label-free; once, after selection) (m1)
@@ -203,7 +224,7 @@ sinusoidal grid origin; partial blocks at tile edges are blocks. The 11.12 km fl
 resolution. After selection, the empirical semivariogram range is computed and reported (first three
 principal components of the standardised final G1–G4, G6, G7 predictors; Matheron estimator; 20 equal lag
 bins to 50 km; random sample of 5,000 cells per tile-season, seed 42; exponential model by weighted least
-squares; practical range at 95 % of sill). If the median range exceeds 11.12 km, blocks of that size are a
+squares; practical range at 95 % of sill). If the median range exceeds 11.12 km, blocks of that range rounded up to a whole number of cells are a
 sensitivity. Sensitivity 2: 48 × 48 cells.
 
 ### 6.2 Designs (m7, m8)
@@ -212,7 +233,7 @@ sensitivity. Sensitivity 2: 48 × 48 cells.
 | V1 within | the tile-season; 5-fold spatial-block CV (StratifiedGroupKFold, shuffle, seed 42) | out-of-fold predictions of the tile-season; AUC computed once on pooled out-of-fold predictions |
 | V2 temporal | the tile's other retained seasons (with §5.5) | the tile-season |
 | V3 spatial | source tile, same calendar year *y* (pairs sharing retained season *y*) | the target tile-season *y* |
-| V4 both | source tile, a different retained year | the target tile-season |
+| V4 both | source tile, each of its retained seasons *y*′ ≠ *y* | the target tile-season; AUCs averaged over *y*′, then over target seasons (R2-10) |
 | S1 deployment | all other analysis tiles, all retained seasons | each retained season of the held-out tile |
 
 A target tile with no V3 source contributes to P2, P5, P6 and S1 only; this is reported. Training size
@@ -226,7 +247,7 @@ training data subsampled at random (seed 42) to the V1 training size.
   min_samples_leaf=20, l2_regularization=0.0, class_weight="balanced", early_stopping=False,
   random_state=42)`.
 - Penalised logistic regression: training-fitted standardisation; `SplineTransformer(n_knots=5,
-  degree=3)` per continuous predictor; `LogisticRegression(penalty="l2", C=1.0, class_weight="balanced",
+  degree=3)` per continuous predictor; `LogisticRegression(l1_ratio=0, C=1.0, class_weight="balanced",
   max_iter=5000)`.
 P1–P6 use the random forest; the other two are reported for every primary estimand as robustness (not
 multiplicity-corrected, not used to choose a result).
@@ -246,7 +267,10 @@ blocks (split stratified by positive-carrying blocks, seed 42), Brier score and 
 50 %. Prevalence reported next to every metric.
 
 ## 8. Evaluation frame (P6) (m4)
-Near-field frame of a tile-season: evaluation cells whose centre is within 2 km of a burned cell's centre,
+AUC_V1(near-field) is the AUC of the full-population V1 pooled out-of-fold predictions evaluated on the
+near-field cells only; no model is refitted; placebo and prevalence-matched frames are scored the same
+way (R2-4). Near-field frame of a tile-season: evaluation cells whose centre is within 2 km of a burned
+cell's centre,
 plus the burned cells. **Label-conditioned: a diagnostic of how scoring extent shapes AUC, not an
 achievable skill.** Controls: (a) edge exclusion, cells within 1 and within 2 cells of a burned/unburned
 boundary removed; (b) placebo frames: the season's burned components, each rotated by a uniformly random
@@ -255,23 +279,29 @@ evaluation cells, 50 placements per tile-season (seed 42), each scored with the 
 prevalence-matched random subsamples of the full population (seed 42).
 
 ## 9. Planted-signal check (before real outcomes) (M4)
-Generator: on the real standardised predictors of the analysis tiles, labels ~ Bernoulli(logit⁻¹(α +
-Σ β·x)) with β = 1.0 for elevation, slope, NDVI anomaly, LST anomaly, precipitation difference (12
-months), 0 elsewhere, and α set per tile-season to reproduce its real prevalence; in 3 designated tiles
-(the first three tile ids) the signs of the NDVI and LST coefficients are reversed; in each tile's most
-recent season the NDVI coefficient is halved. Planted quantities are computed from the generator by
-simulation. **Pass rule:** 20 replicates (seeds 42–61); for V1 − V3, V1 − V2 and the G4 contribution to V3,
-coverage of the planted value by the 95 % interval ≥ 0.85 and |mean bias| ≤ 0.02. **On failure:** the
-cause is found and fixed as a code defect, recorded in `DEVIATIONS.md`, and the check re-run; no analysis
-choice registered here may change because of the check. Results committed before any real outcome.
+Generator (R2-2): predictors are z-scored per tile over its retained seasons; labels ~
+Bernoulli(logit⁻¹(α + Σ β·x)) with β = 1.0 for elevation, slope, NDVI anomaly, LST anomaly and the
+12-month precipitation difference (if §5.3 removed one of these, the retained predictor with the highest
+|ρ| to it takes its place), 0 elsewhere, and α set per tile-season to reproduce its real prevalence; in
+the three analysis tiles with the smallest ids the NDVI and LST coefficients change sign; in each tile's
+most recent season the NDVI coefficient is halved. **Planted value** of each checked quantity = the mean
+point estimate over 200 generator replicates (seeds 1000–1199) run through the full pipeline. **Check:**
+50 separate replicates (seeds 42–91). **Pass:** for V1 − V3, V1 − V2 and the G4 contribution to V3, the 95 %
+interval covers the planted value in ≥ 44 of 50 replicates; and the G4 contribution to V3 has opposite
+signs in sign-reversed and non-reversed target tiles in ≥ 45 of 50 replicates. **On failure:** both
+authors review the code; a defect found is fixed, recorded in `DEVIATIONS.md` and the check re-run. If no
+defect is found, the failure is recorded in `DEVIATIONS.md`, the tile-cluster bootstrap (§11.2) becomes
+primary for all pair-level estimands, and that record satisfies §16(b). No analysis choice registered
+here may change because of the check. Results committed before any real outcome.
 
 ## 10. Secondary analyses
 ### 10.1 S1, S2, S5 as in §2 and §6.2.
 ### 10.2 S4 covariate vs concept shift
 Importance-weighted V3 (weights from a domain classifier: the §6.3 gradient-boosting settings, source vs
 target predictors, weights clipped at the 1st and 99th percentiles) minus unweighted V3. Per-feature
-univariate AUC per tile-season; sign agreement across tile pairs with tile-cluster intervals. Family F4 =
-the final predictor list of §5.3.
+univariate AUC per tile-season; for each feature, the mean pairwise sign agreement (both AUCs on the same
+side of 0.5) across tile pairs, tested against 0.5 by a tile-cluster bootstrap (2,000 replicates, seed
+42) (R2-17). Family F4 = the final predictor list of §5.3.
 ### 10.3 S3 anticipation diagnostics (F3) (M10)
 Over ordered tile pairs: mean standardised Euclidean predictor distance; domain-classifier AUC; share of
 target cells inside the source's area of applicability (Meyer & Pebesma 2021, random-forest importance
@@ -302,8 +332,9 @@ depends on the unit is stated as such.
 ### 11.4 Equivalence, bounds and the P3 decision rule (m5)
 Margins ±0.02 and ±0.05 ROC-AUC; equivalence when the 90 % interval lies inside the margin. An interval
 including 0 is reported as "no effect larger than the interval's bound". **P3 is "undetected" if its 95 %
-interval contains 0 and its half-width exceeds the minimum detectable effect from §4.8(c);** it is then
-reported with that bound, never as "no difference".
+interval contains 0 and its 90 % interval does not lie inside ±0.05; it is then reported with the 80 %-power
+minimum detectable effect of §4.8(c) at k = 1.5, never as "no difference". If its 90 % interval lies inside
+±0.05, P3 is reported as equivalent at ±0.05.** (R2-1)
 
 ### 11.5 Multiplicity (m6)
 Holm, α = 0.05, within F1 (P4), F2 (P5), F3 (S3), F4 (S4), F5 (S5), on p-values of the primary inference
@@ -316,7 +347,8 @@ is selected from the others.
 3. MCD64A1 special-condition pixels as missing. 4. MOD13 SummaryQA = 0 only. 5. Pilot LST QC rule.
 6. Every contrast involving G4 on seasons 2015–2022 (Terra orbit drift). 7. TPI radius 10 km. 8. GRIP4
 road types 1–3 only. 9. Population with MCD12Q1 class 14 added. 10. Population from WorldCover 2021 (classes 10 tree cover, 20 shrubland, 30 grassland, by cell majority).
-11. FWI at 12:00 UTC. 12. FWI started 2012-01-01. 13. Snow-affected cells excluded. 14. Block size from
+11. FWI at 12:00 UTC. 12. FWI started one year before the final primary start (2012-01-01 if the §5.2 convergence test passes
+at the first attempt). 13. Snow-affected cells excluded. 14. Block size from
 the semivariogram (if > 11.12 km) and 48 × 48 cells. 15. Season window July–September. 16. The other two
 model families. 17. V2 variants of §5.5. 18. Training-size-matched V2 and V3 (§6.2).
 The cohort and retained seasons are fixed by the primary rule. In a sensitivity, a tile-season with < 20
@@ -324,15 +356,16 @@ burned evaluation cells or < 5 positive-carrying blocks is dropped and counted; 
 ≥ 6 tiles remain, otherwise reported as not estimable. Sensitivities are reported whatever they show and
 never used to choose a primary result.
 **EFFIS (M9):** the EFFIS burnt-area perimeters are obtained from the EFFIS data service; the version date
-and SHA-256 are recorded in the manifest before the outcome lock; perimeters are rasterised to the
-analysis grid by majority of cell area. If EFFIS cannot be obtained before the lock, sensitivity 1 is
+and SHA-256 are recorded in the manifest before the outcome lock; perimeters with a fire date inside the season window
+are rasterised to the analysis grid by majority of cell area (R2-18). If EFFIS cannot be obtained before the lock, sensitivity 1 is
 dropped and recorded before any outcome.
 
 ## 13. Data failures and exclusions (M9)
 A **data failure** is a product with zero valid observations in its window for more than 20 % of the
 evaluation cells of a tile-season. It is recorded in `DEVIATIONS.md` with product and dates, before
-outcomes; the tile-season is dropped from analyses needing that product. No tile or season is removed
-for any other reason after selection.
+outcomes. Every model uses every product, so the tile-season is removed from all designs; pairs that
+lose all shared seasons leave P1, P3 and P4; the §12 estimability rule (≥ 6 tiles) applies (R2-8). No
+tile or season is removed for any other reason after selection.
 
 ## 14. Freezing of data (M9)
 Every Earth Engine asset ID with its `system:version` and image IDs, and the SHA-256 of every exported
@@ -345,8 +378,11 @@ V3/V4 with the 10 analysis tiles as sources, S1 with all 10 as training data. Be
 SHA-256 of the committed results and conclusions sections of the manuscript is pushed as annotated tag
 `prereg-v1.0-unseal` to the public registration repository and archived by Software Heritage; the code
 refuses to compute any outcome on hold-out tiles until that tag exists and its hashes match. Once
-unsealed, P1–P6 and S1 are computed once on them, with target-level block-bootstrap intervals, and
-reported as they come out.
+unsealed, for each hold-out tile *h*: P1_h = mean over analysis sources *s* sharing a season of *d*ₛ,ₕ;
+P3_h and P4_h analogously; P2_h, P5_h and P6_h at tile level; intervals by a 1,000-replicate target-block
+bootstrap (seed 42). **A conclusion "replicates"** if each hold-out point estimate lies inside the 95 %
+prediction interval for a new target from the §11.1 fit (per-tile estimands: mean ± t₀.₉₇₅,ₙ₋₁·SD·√(1 + 1/n)
+over analysis tiles). Both outcomes are reported, as they come out (R2-6).
 
 ## 16. Outcome lock
 The analysis code refuses to compute any outcome metric unless (a) the SHA-256 of this file and every

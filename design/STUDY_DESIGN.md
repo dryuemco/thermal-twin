@@ -1,13 +1,13 @@
 # Study design rationale (v1.0, 2026-09-19)
 
 **This document states no rules.** Every binding rule, threshold and parameter is in
-`PREREGISTRATION.md` (v1.1), which is the single source. Keeping rules in one place is itself a design
+`PREREGISTRATION.md` (v1.2), which is the single source. Keeping rules in one place is itself a design
 decision: in draft v0.4 the same rules were written in several documents and an adversarial review
 found eleven conflicts between them. This file records *why* each decision was taken, so a reader can
 judge it; `PREREGISTRATION.md` records *what* will be done.
 
 Revision history: v0.1–v0.4 (drafts, 2026-09-19); adversarial review of the registration (5 blockers,
-11 major, 13 minor items, all addressed in `PREREGISTRATION.md` v1.1); v1.0 (this rationale).
+11 major, 13 minor items, all addressed in `PREREGISTRATION.md` v1.1); second adversarial review (no blockers; 8 major and 15 minor items, all addressed in v1.2); v1.0 (this rationale).
 
 ## Why this study
 
@@ -40,7 +40,7 @@ The use case is a pre-season susceptibility map used to prioritise prevention.
 | Weather, drought, FWI, human access, fire history (§5.2) | The pilot had none; transfer failure could not be attributed. |
 | Redundancy rule (§5.3) | The pilot's six thermal channels were two dimensions, inflating one group. |
 | V2 leakage rule (§5.5) | A model trained on later seasons would otherwise see the target season through fire-history predictors. |
-| Fixed block size at the weather resolution (§6.1) | Removes a circularity in the draft and stops a weather pixel spanning training and test blocks. |
+| Fixed block size at the weather resolution (§6.1) | Removes a circularity in the draft and limits (the 0.1° weather lattice is not aligned with the analysis grid, so it cannot prevent) a weather pixel spanning training and test blocks. |
 | Three model families with fixed settings (§6.3) | No tuning on evaluation data; robustness to model choice. |
 | Crossed model with a pair effect (§11.1) | The pilot's transfer heterogeneity is reciprocal; without the pair term, simulated interval coverage is 0.90–0.92. |
 | Equivalence margins and the P3 bound (§11.4) | At 10 tiles the temporal-versus-spatial difference is detectable only above about 0.12; a null must be read as a bound. |

@@ -1,6 +1,7 @@
-"""Pre-registered precision analysis for the multi-tile, multi-season study (STUDY_DESIGN.md s2, s6, s7).
+"""Pre-registered precision analysis for the multi-tile, multi-season study (PREREGISTRATION §2, §6, §11).
 
-Reads only frozen pilot artefacts under paper/labelfix_rerun/ (corrected Manavgat labels), estimates the
+Reads pilot artefacts on the corrected Manavgat labels (committed files under paper/labelfix_rerun/, plus
+design/precision/inputs/transfer_ci_blocksize.csv; provenance in PRECISION.md), estimates the
 pilot's variance components, and projects expected 95 % interval half-widths, power, equivalence
 probabilities and minimum detectable effects for the new design's primary contrasts.
 
@@ -29,7 +30,7 @@ PILOT = ROOT / "paper" / "labelfix_rerun"
 OUT = Path(__file__).resolve().parent
 
 F_MATRIX = PILOT / "pipeline" / "_derived" / "matrix_corrected.csv"
-F_BLOCKCI = PILOT / "round3" / "transfer_ci_blocksize.csv"
+F_BLOCKCI = OUT / "inputs" / "transfer_ci_blocksize.csv"   # design/precision/inputs/
 F_LARGE = PILOT / "pipeline" / "robustness" / "step8_large_block" / "manavgat_2021__bejis_2022"
 F_LADDER = PILOT / "inference" / "ladder_summary.json"
 F_LORO = PILOT / "code" / "loro_all.json"
@@ -279,7 +280,7 @@ def pilot_components(df, rng):
         "auc_se_2cell_median": float(df["se2"].median()),
         "ratio_10cell_over_2cell_median": float((df["se10"] / df["se2"]).median()),
         "delta_se_10cell_median": float(df["dse10"].median()),
-        "note": "Spatial-block (10 cell ~ 5 km) bootstrap CIs from round3/transfer_ci_blocksize.csv; the 2-cell "
+        "note": "Spatial-block (10 cell ~ 5 km) bootstrap CIs from design/precision/inputs/transfer_ci_blocksize.csv; the 2-cell "
                 "CIs in matrix_corrected.csv ignore autocorrelation and are ~3x too narrow.",
     }
     # --- crossed random-effects decomposition ---
