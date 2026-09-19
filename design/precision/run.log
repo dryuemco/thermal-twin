@@ -1,0 +1,71 @@
+pilot components done 251s
+central T=8 S=3 done 256s
+central T=8 S=4 done 260s
+central T=8 S=5 done 264s
+central T=10 S=3 done 268s
+central T=10 S=4 done 273s
+central T=10 S=5 done 278s
+central T=12 S=3 done 284s
+central T=12 S=4 done 289s
+central T=12 S=5 done 295s
+central T=15 S=3 done 302s
+central T=15 S=4 done 309s
+central T=15 S=5 done 316s
+k=0.5 T=10 S=4 done 320s
+k=1.5 T=10 S=4 done 325s
+pi=1.0 T=10 S=4 done 330s
+persist=0.5 T=10 S=4 done 335s
+g=0.7 T=10 S=4 done 340s
+g=1.5 T=10 S=4 done 344s
+g=2.0 T=10 S=4 done 349s
+rho=0.5 T=10 S=4 done 354s
+pessimistic_components_p80 T=10 S=4 done 359s
+pessimistic_p80+k=1.5+g=1.5 T=10 S=4 done 364s
+k=0.5 T=8 S=4 done 368s
+k=0.5 T=12 S=4 done 373s
+k=0.5 T=15 S=4 done 380s
+k=1.5 T=8 S=4 done 384s
+k=1.5 T=12 S=4 done 390s
+k=1.5 T=15 S=4 done 397s
+{
+ "mean_V3": {
+  "crossed_pair": {
+   "nsim": 300,
+   "mean_hw95": 0.03916659031533467,
+   "coverage95": 0.9966666666666667
+  },
+  "crossed": {
+   "nsim": 300,
+   "mean_hw95": 0.03201112735721131,
+   "coverage95": 0.9233333333333333
+  },
+  "analytic_hw95_known_components": 0.03920607213410905
+ },
+ "V1_minus_V3": {
+  "crossed_pair": {
+   "nsim": 300,
+   "mean_hw95": 0.04935217296769192,
+   "coverage95": 0.95
+  },
+  "crossed": {
+   "nsim": 300,
+   "mean_hw95": 0.04350385874847676,
+   "coverage95": 0.8966666666666666
+  },
+  "analytic_hw95_known_components": 0.050010045729143915
+ },
+ "group_contribution_V3": {
+  "crossed_pair": {
+   "nsim": 300,
+   "mean_hw95": 0.017758995490712273,
+   "coverage95": 0.9933333333333333
+  },
+  "crossed": {
+   "nsim": 300,
+   "mean_hw95": 0.017174907717683326,
+   "coverage95": 0.9933333333333333
+  },
+  "analytic_hw95_known_components": 0.015326528713392497
+ }
+}
+done 529s

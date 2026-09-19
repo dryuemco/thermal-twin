@@ -1,0 +1,1351 @@
+{
+ "inputs": {
+  "matrix": "paper\\labelfix_rerun\\pipeline\\_derived\\matrix_corrected.csv",
+  "block_ci": "paper\\labelfix_rerun\\round3\\transfer_ci_blocksize.csv",
+  "large_block": "paper\\labelfix_rerun\\pipeline\\robustness\\step8_large_block\\manavgat_2021__bejis_2022",
+  "ladder": "paper\\labelfix_rerun\\inference\\ladder_summary.json",
+  "loro": "paper\\labelfix_rerun\\code\\loro_all.json"
+ },
+ "within_region": {
+  "per_region_block2": {
+   "bejis_2022": {
+    "within_thermal_roc": 0.9178,
+    "within_baseline_roc": 0.8617,
+    "within_thermal_roc_lo": 0.9072,
+    "within_thermal_roc_hi": 0.9278,
+    "inc": 0.0561
+   },
+   "evia_2021_extended": {
+    "within_thermal_roc": 0.9122,
+    "within_baseline_roc": 0.759,
+    "within_thermal_roc_lo": 0.9033,
+    "within_thermal_roc_hi": 0.9213,
+    "inc": 0.1533
+   },
+   "manavgat_2021": {
+    "within_thermal_roc": 0.9081,
+    "within_baseline_roc": 0.8412,
+    "within_thermal_roc_lo": 0.8998,
+    "within_thermal_roc_hi": 0.9155,
+    "inc": 0.0669
+   },
+   "montiferru_2021": {
+    "within_thermal_roc": 0.8826,
+    "within_baseline_roc": 0.7812,
+    "within_thermal_roc_lo": 0.8608,
+    "within_thermal_roc_hi": 0.9029,
+    "inc": 0.1014
+   },
+   "mugla_2021": {
+    "within_thermal_roc": 0.859,
+    "within_baseline_roc": 0.7433,
+    "within_thermal_roc_lo": 0.8481,
+    "within_thermal_roc_hi": 0.8699,
+    "inc": 0.1157
+   }
+  },
+  "increment_block10_per_region": {
+   "manavgat_2021": 0.0619,
+   "bejis_2022": 0.0451,
+   "mugla_2021": 0.0793,
+   "evia_2021_extended": 0.1482,
+   "montiferru_2021": 0.0995
+  },
+  "sd_within_thermal_auc_block2": {
+   "sd": 0.02466785761811229,
+   "chi2_95ci": [
+    0.014779330970453647,
+    0.07088446123916588
+   ],
+   "n": 5,
+   "denoised_sd": 0.023918492200694155,
+   "mean_sampling_se_2cell": 0.006033981298677789
+  },
+  "sd_within_baseline_auc_block2": {
+   "sd": 0.05175343776119974,
+   "chi2_95ci": [
+    0.031007199626850987,
+    0.14871638266161197
+   ]
+  },
+  "sd_within_increment_block2": {
+   "sd": 0.039045982479080504,
+   "chi2_95ci": [
+    0.023393742053268166,
+    0.11220080294088121
+   ]
+  },
+  "sd_within_increment_block10": {
+   "sd": 0.039832147820573274,
+   "chi2_95ci": [
+    0.023864759762195195,
+    0.11445989278724478
+   ],
+   "denoised_sd": 0.03799963799825814
+  },
+  "sampling_se_within_auc_block10_mean_man_bej": 0.023954837609506285,
+  "sampling_se_within_auc_block20_mean_man_bej": 0.037544979031372765,
+  "sampling_se_within_increment_block10": 0.011942676082073755,
+  "sampling_se_within_increment_block20": 0.015796343552358153,
+  "se_ratio_block20_over_block10_auc": 1.5673234627344474,
+  "se_ratio_block20_over_block10_increment": 1.3226803979108874,
+  "note": "Only Manavgat and Bejis have within-region runs at 5 and 10 km blocks; the between-region SD of within AUC is from 1 km blocks (5 regions). chi2 intervals assume normality, n = 5."
+ },
+ "direction_sampling_se": {
+  "auc_se_10cell_median": 0.0315949683200592,
+  "auc_se_10cell_iqr": [
+   0.0275068829964504,
+   0.038138455905117885
+  ],
+  "auc_se_2cell_median": 0.010180418584762945,
+  "ratio_10cell_over_2cell_median": 3.130276258774492,
+  "delta_se_10cell_median": 0.02167131658287468,
+  "note": "Spatial-block (10 cell ~ 5 km) bootstrap CIs from round3/transfer_ci_blocksize.csv; the 2-cell CIs in matrix_corrected.csv ignore autocorrelation and are ~3x too narrow."
+ },
+ "crossed_re": {
+  "raw_thermal_auc": {
+   "mean": 0.5267118880452302,
+   "sd_observed": 0.11368520699528346,
+   "mean_sampling_var": 0.001269269528215057,
+   "crossed": {
+    "mu": 0.5258026435679578,
+    "se_mu": 0.027310369225791314,
+    "neg_reml_loglik": -30.15312558277831,
+    "sd_source": 0.0,
+    "sd_target": 0.021895692603478522,
+    "sd_dyad": 0.10846753676969087,
+    "sd_total_heterogeneity": 0.11065544671397909,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.08301418269217857
+     ],
+     "sd_target": [
+      0.0,
+      0.08513415345663768
+     ],
+     "sd_dyad": [
+      0.05663789488985764,
+      0.1410718338530933
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.04602051319717243,
+     "sd_target": 0.05326921018077832,
+     "sd_dyad": 0.11666603769141794
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.494,
+     "sd_target": 0.449,
+     "sd_dyad": 0.0
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.07645900254575291
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.014229030549513565,
+      "sd_dyad": 0.10540339360439106
+     },
+     "mugla_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.11820080990862178
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.06023303696135669,
+      "sd_target": 0.11006095202773913,
+      "sd_dyad": 0.03520657927873617
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.12972619887821593
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.06023303696135669
+     ],
+     "sd_target": [
+      0.0,
+      0.11006095202773913
+     ],
+     "sd_dyad": [
+      0.03520657927873617,
+      0.12972619887821593
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.012055810320950601,
+     "bejis_2022": -0.003950710901953926,
+     "mugla_2021": 0.00508520376848801,
+     "evia_2021_extended": 0.005414973043423723,
+     "montiferru_2021": 0.005506344410992812
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    },
+    "descriptive_dyadic_reciprocity": 0.816600259135336,
+    "descriptive_source_target_corr": null
+   },
+   "crossed_pair": {
+    "mu": 0.5238162659729624,
+    "se_mu": 0.03625107625461344,
+    "neg_reml_loglik": -35.128089813535155,
+    "sd_source": 0.0,
+    "sd_target": 0.016344783625234893,
+    "sd_pair": 0.106307694806403,
+    "sd_dyad": 0.03759679027918355,
+    "sd_total_heterogeneity": 0.1139385648764455,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.046607028538794976
+     ],
+     "sd_target": [
+      0.0,
+      0.05383414907924121
+     ],
+     "sd_pair": [
+      0.04153684221516535,
+      0.16060341788565374
+     ],
+     "sd_dyad": [
+      0.0,
+      0.06176108325681312
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.02337684173727302,
+     "sd_target": 0.02906775806317654,
+     "sd_pair": 0.12499983807263033,
+     "sd_dyad": 0.04325908235697429
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.618,
+     "sd_target": 0.562,
+     "sd_pair": 0.007,
+     "sd_dyad": 0.176
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.07036936946598712,
+      "sd_dyad": 0.03367711048228746
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.10200436391832285,
+      "sd_dyad": 0.04686656787530401
+     },
+     "mugla_2021": {
+      "sd_source": 0.0381733573445569,
+      "sd_target": 0.0,
+      "sd_pair": 0.11941470696305526,
+      "sd_dyad": 0.0
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.0,
+      "sd_target": 0.05155736248006269,
+      "sd_pair": 0.0818316125102142,
+      "sd_dyad": 0.0
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.13338047884335408,
+      "sd_dyad": 0.03776904610522981
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.0381733573445569
+     ],
+     "sd_target": [
+      0.0,
+      0.05155736248006269
+     ],
+     "sd_pair": [
+      0.07036936946598712,
+      0.13338047884335408
+     ],
+     "sd_dyad": [
+      0.0,
+      0.04686656787530401
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.012491960374014234,
+     "bejis_2022": 0.002430306768427241,
+     "mugla_2021": 0.007087168613313467,
+     "evia_2021_extended": -0.0010646913288369772,
+     "montiferru_2021": 0.0040391763211104995
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    }
+   },
+   "lrt_pair_term": {
+    "stat": 9.949928461513693,
+    "p_boundary_mixture": 0.0008042782416607739
+   }
+  },
+  "z_thermal_auc": {
+   "mean": 0.5096231412749328,
+   "sd_observed": 0.07959262491193099,
+   "mean_sampling_var": 0.001269269528215057,
+   "crossed": {
+    "mu": 0.5106842020829703,
+    "se_mu": 0.03623513265659273,
+    "neg_reml_loglik": -41.27356819683449,
+    "sd_source": 0.037785576371862716,
+    "sd_target": 0.06781938926343228,
+    "sd_dyad": 0.030674123307155198,
+    "sd_total_heterogeneity": 0.0834752728805446,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.07012942995217135
+     ],
+     "sd_target": [
+      0.013305939615335074,
+      0.1170028232063424
+     ],
+     "sd_dyad": [
+      0.0,
+      0.052480752571487606
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.04764644005013536,
+     "sd_target": 0.0857997038884553,
+     "sd_dyad": 0.03892564338912939
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.106,
+     "sd_target": 0.016,
+     "sd_dyad": 0.114
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.022929622293762334,
+      "sd_target": 0.006490389398219667,
+      "sd_dyad": 0.0
+     },
+     "bejis_2022": {
+      "sd_source": 0.024100233268801473,
+      "sd_target": 0.06257445189100767,
+      "sd_dyad": 0.038896093000334954
+     },
+     "mugla_2021": {
+      "sd_source": 0.04656176950029778,
+      "sd_target": 0.09975951176299619,
+      "sd_dyad": 0.0
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.04724155597706596,
+      "sd_target": 0.07151744319545078,
+      "sd_dyad": 0.04199010173037589
+     },
+     "montiferru_2021": {
+      "sd_source": 0.023941886946218474,
+      "sd_target": 0.05600442505596102,
+      "sd_dyad": 0.044795768758837715
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.022929622293762334,
+      0.04724155597706596
+     ],
+     "sd_target": [
+      0.006490389398219667,
+      0.09975951176299619
+     ],
+     "sd_dyad": [
+      0.0,
+      0.044795768758837715
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.10903028578393684,
+     "bejis_2022": 0.010430334181292081,
+     "mugla_2021": 0.004933124176819916,
+     "evia_2021_extended": 0.047658779781329555,
+     "montiferru_2021": 0.04600804764449552
+    },
+    "blup_source": {
+     "manavgat_2021": -0.03876703132301488,
+     "bejis_2022": -0.027115912830444712,
+     "mugla_2021": 0.028092000824826983,
+     "evia_2021_extended": 0.005020503618746562,
+     "montiferru_2021": 0.032770439709886114
+    },
+    "descriptive_dyadic_reciprocity": -0.15985641584699165,
+    "descriptive_source_target_corr": 0.7084452122766532
+   },
+   "crossed_pair": {
+    "mu": 0.51068420322247,
+    "se_mu": 0.036235104011604576,
+    "neg_reml_loglik": -41.27356587171931,
+    "sd_source": 0.037785586723824045,
+    "sd_target": 0.06781931534312358,
+    "sd_pair": 0.0,
+    "sd_dyad": 0.030674050800135338,
+    "sd_total_heterogeneity": 0.08347519086628642,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.07482491802672434
+     ],
+     "sd_target": [
+      0.0,
+      0.11498641483462681
+     ],
+     "sd_pair": [
+      0.0,
+      0.04521354276526395
+     ],
+     "sd_dyad": [
+      0.0,
+      0.0501964948237477
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.05018515710803541,
+     "sd_target": 0.08368943283277676,
+     "sd_pair": 0.024531196525265014,
+     "sd_dyad": 0.03572556459872158
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.155,
+     "sd_target": 0.031,
+     "sd_pair": 0.529,
+     "sd_dyad": 0.247
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.022931460194881317,
+      "sd_target": 0.00648209156242946,
+      "sd_pair": 0.0,
+      "sd_dyad": 0.0
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.04872307733910033,
+      "sd_pair": 0.038858596220323664,
+      "sd_dyad": 0.03317616866807852
+     },
+     "mugla_2021": {
+      "sd_source": 0.0465616627627234,
+      "sd_target": 0.09975944920161456,
+      "sd_pair": 0.0,
+      "sd_dyad": 0.0
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.0,
+      "sd_target": 0.037908139136290764,
+      "sd_pair": 0.060761000060052285,
+      "sd_dyad": 0.04034826249637955
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.044276655142233674,
+      "sd_pair": 0.04264310520965708,
+      "sd_dyad": 0.0356485875734818
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.0465616627627234
+     ],
+     "sd_target": [
+      0.00648209156242946,
+      0.09975944920161456
+     ],
+     "sd_pair": [
+      0.0,
+      0.060761000060052285
+     ],
+     "sd_dyad": [
+      0.0,
+      0.04034826249637955
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.10903028204882659,
+     "bejis_2022": 0.010430327686269492,
+     "mugla_2021": 0.004933135648201515,
+     "evia_2021_extended": 0.04765877796179014,
+     "montiferru_2021": 0.046008040752565676
+    },
+    "blup_source": {
+     "manavgat_2021": -0.03876706229806223,
+     "bejis_2022": -0.027115939642786444,
+     "mugla_2021": 0.028092031951653544,
+     "evia_2021_extended": 0.00502050616386761,
+     "montiferru_2021": 0.03277046382532759
+    }
+   },
+   "lrt_pair_term": {
+    "stat": -4.650230351899154e-06,
+    "p_boundary_mixture": 0.5
+   }
+  },
+  "coral_thermal_auc": {
+   "mean": 0.5166799395098305,
+   "sd_observed": 0.06380801005138884,
+   "mean_sampling_var": 0.001269269528215057,
+   "crossed": {
+    "mu": 0.5164757297255611,
+    "se_mu": 0.03052185375749931,
+    "neg_reml_loglik": -47.034267578335765,
+    "sd_source": 0.04079334469521374,
+    "sd_target": 0.05196016753478408,
+    "sd_dyad": 0.0,
+    "sd_total_heterogeneity": 0.06606024509238027,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.07210551253951955
+     ],
+     "sd_target": [
+      0.009292677144614098,
+      0.09064454943559276
+     ],
+     "sd_dyad": [
+      0.0,
+      0.031769271837212884
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.05130820142276805,
+     "sd_target": 0.06440993549655642,
+     "sd_dyad": 0.018560147536262027
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.051,
+     "sd_target": 0.016,
+     "sd_dyad": 0.551
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.02585783056719457,
+      "sd_target": 0.0,
+      "sd_dyad": 0.0
+     },
+     "bejis_2022": {
+      "sd_source": 0.044899044698033255,
+      "sd_target": 0.06059678284383503,
+      "sd_dyad": 0.008900789857319244
+     },
+     "mugla_2021": {
+      "sd_source": 0.03662735544690267,
+      "sd_target": 0.06707386192099817,
+      "sd_dyad": 0.0
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.04770163725919055,
+      "sd_target": 0.054378740717637625,
+      "sd_dyad": 0.0
+     },
+     "montiferru_2021": {
+      "sd_source": 0.03561352027068816,
+      "sd_target": 0.045673848274525794,
+      "sd_dyad": 0.0
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.02585783056719457,
+      0.04770163725919055
+     ],
+     "sd_target": [
+      0.0,
+      0.06707386192099817
+     ],
+     "sd_dyad": [
+      0.0,
+      0.008900789857319244
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.08399066574333418,
+     "bejis_2022": 0.015562309071622822,
+     "mugla_2021": 0.0007852359338140621,
+     "evia_2021_extended": 0.025471670609864813,
+     "montiferru_2021": 0.04217145012803247
+    },
+    "blup_source": {
+     "manavgat_2021": -0.052807896066011384,
+     "bejis_2022": -0.02176357921512797,
+     "mugla_2021": 0.02994682068092586,
+     "evia_2021_extended": 0.005870379802074955,
+     "montiferru_2021": 0.03875427479813854
+    },
+    "descriptive_dyadic_reciprocity": null,
+    "descriptive_source_target_corr": 0.79332483657366
+   },
+   "crossed_pair": {
+    "mu": 0.5164757300355436,
+    "se_mu": 0.030521822775468718,
+    "neg_reml_loglik": -47.034235983917455,
+    "sd_source": 0.04079329445044339,
+    "sd_target": 0.05196011614732886,
+    "sd_pair": 0.0,
+    "sd_dyad": 0.0,
+    "sd_total_heterogeneity": 0.06606017364618777,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.0717860355943423
+     ],
+     "sd_target": [
+      0.0,
+      0.08602123843446616
+     ],
+     "sd_pair": [
+      0.0,
+      0.0328509038926843
+     ],
+     "sd_dyad": [
+      0.0,
+      0.02840873265049134
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.05071079562936183,
+     "sd_target": 0.06464815774876648,
+     "sd_pair": 0.014317524462337762,
+     "sd_dyad": 0.013147422253874594
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.069,
+     "sd_target": 0.031,
+     "sd_pair": 0.64,
+     "sd_dyad": 0.696
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.02585764704721461,
+      "sd_target": 0.0,
+      "sd_pair": 0.0,
+      "sd_dyad": 0.0
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.025759152697769534,
+      "sd_pair": 0.05608910169585191,
+      "sd_dyad": 0.005299772906801716
+     },
+     "mugla_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.04182082657984321,
+      "sd_pair": 0.04661529615322254,
+      "sd_dyad": 0.0
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.00857895811958218,
+      "sd_target": 0.020122766151021824,
+      "sd_pair": 0.054609246087797825,
+      "sd_dyad": 0.0
+     },
+     "montiferru_2021": {
+      "sd_source": 0.035612984762499085,
+      "sd_target": 0.04567343466524865,
+      "sd_pair": 0.0,
+      "sd_dyad": 0.0
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.035612984762499085
+     ],
+     "sd_target": [
+      0.0,
+      0.04567343466524865
+     ],
+     "sd_pair": [
+      0.0,
+      0.05608910169585191
+     ],
+     "sd_dyad": [
+      0.0,
+      0.005299772906801716
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.08399064878571505,
+     "bejis_2022": 0.015562310577911343,
+     "mugla_2021": 0.0007852363738334121,
+     "evia_2021_extended": 0.02547166626240869,
+     "montiferru_2021": 0.04217143557156172
+    },
+    "blup_source": {
+     "manavgat_2021": -0.05280786759272581,
+     "bejis_2022": -0.02176357473871359,
+     "mugla_2021": 0.029946808758665566,
+     "evia_2021_extended": 0.005870374110810603,
+     "montiferru_2021": 0.03875425946196332
+    }
+   },
+   "lrt_pair_term": {
+    "stat": -6.318883662004282e-05,
+    "p_boundary_mixture": 0.5
+   }
+  },
+  "raw_baseline_auc": {
+   "mean": 0.5193836064880928,
+   "sd_observed": 0.11282402872887991,
+   "mean_sampling_var": 0.001269269528215057,
+   "crossed": {
+    "mu": 0.5190864551073404,
+    "se_mu": 0.028397980878889034,
+    "neg_reml_loglik": -30.33878799308684,
+    "sd_source": 0.0,
+    "sd_target": 0.03046711774455282,
+    "sd_dyad": 0.1057391812195064,
+    "sd_total_heterogeneity": 0.11004099103803118,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.07901720919336806
+     ],
+     "sd_target": [
+      0.0,
+      0.09416159566273583
+     ],
+     "sd_dyad": [
+      0.05322244518792707,
+      0.14149106084239133
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.04321869984071124,
+     "sd_target": 0.060914472507717116,
+     "sd_dyad": 0.11427310115056469
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.52,
+     "sd_target": 0.352,
+     "sd_dyad": 0.0
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.04846433431379721,
+      "sd_target": 0.04608692284625255,
+      "sd_dyad": 0.03927294720504475
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.10273385959048036
+     },
+     "mugla_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.12715883699199296
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.05237977916939714,
+      "sd_target": 0.10917803571148522,
+      "sd_dyad": 0.056684380235700715
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.02716491039826625,
+      "sd_dyad": 0.11631637979337917
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.05237977916939714
+     ],
+     "sd_target": [
+      0.0,
+      0.10917803571148522
+     ],
+     "sd_dyad": [
+      0.03927294720504475,
+      0.12715883699199296
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.01706945253566757,
+     "bejis_2022": -0.014661366571255847,
+     "mugla_2021": 0.00884123613258975,
+     "evia_2021_extended": 0.013450414705587251,
+     "montiferru_2021": 0.009439168268746388
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    },
+    "descriptive_dyadic_reciprocity": 0.7353101586578681,
+    "descriptive_source_target_corr": null
+   },
+   "crossed_pair": {
+    "mu": 0.5183777981337673,
+    "se_mu": 0.03321195613611397,
+    "neg_reml_loglik": -32.24677083376449,
+    "sd_source": 0.0,
+    "sd_target": 0.008065497924897644,
+    "sd_pair": 0.08982494640081648,
+    "sd_dyad": 0.06665442158103958,
+    "sd_total_heterogeneity": 0.11214448345321779,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.06974361790457272
+     ],
+     "sd_target": [
+      0.0,
+      0.0625128364824983
+     ],
+     "sd_pair": [
+      0.0,
+      0.14326092176017072
+     ],
+     "sd_dyad": [
+      0.0,
+      0.09577867476322358
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.03497113539169775,
+     "sd_target": 0.03141855552261046,
+     "sd_pair": 0.11086233615150817,
+     "sd_dyad": 0.07212438373213788
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.575,
+     "sd_target": 0.569,
+     "sd_pair": 0.034,
+     "sd_dyad": 0.028
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.04846445483774173,
+      "sd_target": 0.04608665436430314,
+      "sd_pair": 0.0,
+      "sd_dyad": 0.03927300698256423
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.0888939554718232,
+      "sd_dyad": 0.059658322770490275
+     },
+     "mugla_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.11028249732925019,
+      "sd_dyad": 0.0733175762826491
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.0,
+      "sd_target": 0.0591854506802811,
+      "sd_pair": 0.0761206444090333,
+      "sd_dyad": 0.05049384978221357
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.10321545318499438,
+      "sd_dyad": 0.06931776056763049
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.04846445483774173
+     ],
+     "sd_target": [
+      0.0,
+      0.0591854506802811
+     ],
+     "sd_pair": [
+      0.0,
+      0.11028249732925019
+     ],
+     "sd_dyad": [
+      0.03927300698256423,
+      0.0733175762826491
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": -0.0016604324491705698,
+     "bejis_2022": -0.0014757033331485251,
+     "mugla_2021": 0.0010960708312171656,
+     "evia_2021_extended": 0.0012923043773510738,
+     "montiferru_2021": 0.0007477605737508614
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    }
+   },
+   "lrt_pair_term": {
+    "stat": 3.8159656813552942,
+    "p_boundary_mixture": 0.02538316673804526
+   }
+  },
+  "delta_thermal_minus_baseline": {
+   "mean": 0.00732828155713752,
+   "sd_observed": 0.06824277584336826,
+   "mean_sampling_var": 0.0007759723295592631,
+   "crossed": {
+    "mu": 0.006591344055609571,
+    "se_mu": 0.014768528863130587,
+    "neg_reml_loglik": -40.312440263913686,
+    "sd_source": 0.0,
+    "sd_target": 0.0,
+    "sd_dyad": 0.060512677346121785,
+    "sd_total_heterogeneity": 0.060512677346121785,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.04558525904174336
+     ],
+     "sd_target": [
+      0.0,
+      0.048618596637776894
+     ],
+     "sd_dyad": [
+      0.02634121935810669,
+      0.0793129206163591
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.027253146674897505,
+     "sd_target": 0.028267575892365483,
+     "sd_dyad": 0.06390604747509183
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.491,
+     "sd_target": 0.503,
+     "sd_dyad": 0.002
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.02163564068029386,
+      "sd_target": 0.0,
+      "sd_dyad": 0.07026169758138257
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.050381206294028445
+     },
+     "mugla_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.060082894408950455
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.054957464697348156
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.02413574753688666,
+      "sd_dyad": 0.06428140427439472
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.02163564068029386
+     ],
+     "sd_target": [
+      0.0,
+      0.02413574753688666
+     ],
+     "sd_dyad": [
+      0.050381206294028445,
+      0.07026169758138257
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    },
+    "descriptive_dyadic_reciprocity": 0.015330485040546916,
+    "descriptive_source_target_corr": null
+   },
+   "crossed_pair": {
+    "mu": 0.006588818136457489,
+    "se_mu": 0.015208058354231929,
+    "neg_reml_loglik": -40.32886276482954,
+    "sd_source": 0.0,
+    "sd_target": 0.0,
+    "sd_pair": 0.015824462965427055,
+    "sd_dyad": 0.05852386424463148,
+    "sd_total_heterogeneity": 0.06062554176473994,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.04608699971295367
+     ],
+     "sd_target": [
+      0.0,
+      0.044506211436210114
+     ],
+     "sd_pair": [
+      0.0,
+      0.056470501334139694
+     ],
+     "sd_dyad": [
+      0.0141038752641225,
+      0.07473702485217389
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.027517178830297268,
+     "sd_target": 0.026046742407462006,
+     "sd_pair": 0.03957215181403129,
+     "sd_dyad": 0.05878513541844145
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.53,
+     "sd_target": 0.529,
+     "sd_pair": 0.382,
+     "sd_dyad": 0.015
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.026513047904960174,
+      "sd_target": 0.0,
+      "sd_pair": 0.025339623843980013,
+      "sd_dyad": 0.06473283275999359
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.03948325365393305,
+      "sd_dyad": 0.033005832358545664
+     },
+     "mugla_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.0,
+      "sd_dyad": 0.06008288398199533
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_pair": 0.036259340559127134,
+      "sd_dyad": 0.041986964905963306
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.027277573703252688,
+      "sd_pair": 0.025300986209850974,
+      "sd_dyad": 0.05854204400459393
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.026513047904960174
+     ],
+     "sd_target": [
+      0.0,
+      0.027277573703252688
+     ],
+     "sd_pair": [
+      0.0,
+      0.03948325365393305
+     ],
+     "sd_dyad": [
+      0.033005832358545664,
+      0.06473283275999359
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    }
+   },
+   "lrt_pair_term": {
+    "stat": 0.0328450018317028,
+    "p_boundary_mixture": 0.42809277802098644
+   }
+  },
+  "gap_within_minus_transfer": {
+   "mean": 0.3692360533459345,
+   "sd_observed": 0.1213978528990662,
+   "mean_sampling_var": 0.001269269528215057,
+   "crossed": {
+    "mu": 0.3699190990584584,
+    "se_mu": 0.03433573635467154,
+    "neg_reml_loglik": -29.22663194026064,
+    "sd_source": 0.0,
+    "sd_target": 0.05135064240218367,
+    "sd_dyad": 0.10857941574950973,
+    "sd_total_heterogeneity": 0.12010985804513227,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.08335166233142718
+     ],
+     "sd_target": [
+      0.0,
+      0.11847688706772457
+     ],
+     "sd_dyad": [
+      0.05278065326950675,
+      0.1439624194053614
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.046111632235462136,
+     "sd_target": 0.07853357572034352,
+     "sd_dyad": 0.11736117125899113
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.511,
+     "sd_target": 0.27,
+     "sd_dyad": 0.0
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.04247769537154577,
+      "sd_dyad": 0.08164550384276924
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.0234332026912705,
+      "sd_dyad": 0.1056176439396933
+     },
+     "mugla_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.12336250904740387
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.061001796241498436,
+      "sd_target": 0.12721034310310808,
+      "sd_dyad": 0.03455062842269698
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.0,
+      "sd_dyad": 0.13595666813702428
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.061001796241498436
+     ],
+     "sd_target": [
+      0.0,
+      0.12721034310310808
+     ],
+     "sd_dyad": [
+      0.03455062842269698,
+      0.13595666813702428
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": 0.04713369540468982,
+     "bejis_2022": 0.023640134972090738,
+     "mugla_2021": -0.0342270951671903,
+     "evia_2021_extended": -0.011280003977629894,
+     "montiferru_2021": -0.025266731231960226
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    },
+    "descriptive_dyadic_reciprocity": 0.7758000880180612,
+    "descriptive_source_target_corr": null
+   },
+   "crossed_pair": {
+    "mu": 0.3711317524088748,
+    "se_mu": 0.03996933109783734,
+    "neg_reml_loglik": -33.47605842352588,
+    "sd_source": 0.0,
+    "sd_target": 0.043542723909100155,
+    "sd_pair": 0.10402485002762801,
+    "sd_dyad": 0.03866437845205043,
+    "sd_total_heterogeneity": 0.11921439673872448,
+    "param_boot_95ci": {
+     "sd_source": [
+      0.0,
+      0.06343674106796744
+     ],
+     "sd_target": [
+      0.0,
+      0.0778591389107349
+     ],
+     "sd_pair": [
+      0.037632528242740014,
+      0.1534183765504436
+     ],
+     "sd_dyad": [
+      0.0,
+      0.0671187127392637
+     ]
+    },
+    "param_boot_p80": {
+     "sd_source": 0.034659888453198055,
+     "sd_target": 0.05133464470511929,
+     "sd_pair": 0.11932340511125301,
+     "sd_dyad": 0.04743389946721838
+    },
+    "param_boot_share_at_zero": {
+     "sd_source": 0.547,
+     "sd_target": 0.267,
+     "sd_pair": 0.004,
+     "sd_dyad": 0.15
+    },
+    "loro_refits": {
+     "manavgat_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.023825004351755837,
+      "sd_pair": 0.0751765731273205,
+      "sd_dyad": 0.04269958639754061
+     },
+     "bejis_2022": {
+      "sd_source": 0.0,
+      "sd_target": 0.02847398038587101,
+      "sd_pair": 0.0924610091182504,
+      "sd_dyad": 0.057367973188935224
+     },
+     "mugla_2021": {
+      "sd_source": 0.03755213433474887,
+      "sd_target": 0.028978605272842593,
+      "sd_pair": 0.12352935754742156,
+      "sd_dyad": 0.0
+     },
+     "evia_2021_extended": {
+      "sd_source": 0.0,
+      "sd_target": 0.07332093148025846,
+      "sd_pair": 0.0793236699496157,
+      "sd_dyad": 0.0
+     },
+     "montiferru_2021": {
+      "sd_source": 0.0,
+      "sd_target": 0.023746489930973246,
+      "sd_pair": 0.13426882118094768,
+      "sd_dyad": 0.04466036771504637
+     }
+    },
+    "loro_range": {
+     "sd_source": [
+      0.0,
+      0.03755213433474887
+     ],
+     "sd_target": [
+      0.023746489930973246,
+      0.07332093148025846
+     ],
+     "sd_pair": [
+      0.0751765731273205,
+      0.13426882118094768
+     ],
+     "sd_dyad": [
+      0.0,
+      0.057367973188935224
+     ]
+    },
+    "blup_target": {
+     "manavgat_2021": 0.046474707193335615,
+     "bejis_2022": 0.0072942168105482996,
+     "mugla_2021": -0.04559091279895796,
+     "evia_2021_extended": 0.0135616649281462,
+     "montiferru_2021": -0.0217396761330721
+    },
+    "blup_source": {
+     "manavgat_2021": 0.0,
+     "bejis_2022": 0.0,
+     "mugla_2021": 0.0,
+     "evia_2021_extended": 0.0,
+     "montiferru_2021": 0.0
+    }
+   },
+   "lrt_pair_term": {
+    "stat": 8.498852966530478,
+    "p_boundary_mixture": 0.001776852188082552
+   }
+  }
+ },
+ "crossed_re_method": "REML implemented directly (scipy L-BFGS-B, multi-start, log-SD bounds [1e-4, 0.6]); known sampling variance per direction = (10-cell ~5 km spatial-block CI width / 3.92)^2. Two specifications: 'crossed' (source, target, dyad) and 'crossed_pair' (adds an unordered-pair effect shared by i->j and j->i). Uncertainty: parametric bootstrap (1000 refits from the fitted model) and leave-one-region-out refits.",
+ "temporal_proxy_scar_frame": {
+  "n_scars": 7,
+  "regions": [
+   "evia_2021_extended",
+   "montiferru_2021",
+   "mugla_2021"
+  ],
+  "loso_thermal_auc_mean": 0.5459571428571428,
+  "loso_thermal_auc_sd": 0.0625372650809861,
+  "foreign_thermal_auc_mean": 0.5528142857142857,
+  "foreign_thermal_auc_sd": 0.06269652910572292,
+  "sd_ratio_loso_over_foreign": 0.9974597632913896,
+  "caveat": "Another fire in the same region and SAME season, in a label-conditioned frame, 7 scars in 3 regions. It is not temporal transfer; it only shows that 'same region, different event' is not obviously less variable than 'different region'. Used to motivate k around 1, not to estimate it."
+ },
+ "pooled_loro_check": {
+  "raw_thermal_auc_by_target": [
+   0.42620874911506246,
+   0.458380347119169,
+   0.5058464262821856,
+   0.7147740708752165,
+   0.5598850739570369
+  ],
+  "sd": 0.1134398504485046,
+  "note": "Pooled leave-one-region-out V3; its SD across targets should be close to the REML target SD (plus sampling) if the target component dominates."
+ }
+}

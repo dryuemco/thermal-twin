@@ -1,0 +1,1539 @@
+{
+ "seed": 42,
+ "nsim": 2000,
+ "nboot": 1000,
+ "nparboot": 1000,
+ "assumptions": {
+  "A1_temporal_sd_ratio_k": {
+   "central": 1.0,
+   "range": [
+    0.5,
+    1.0,
+    1.5
+   ],
+   "what": "SD of the true temporal transfer gap (V1 - V2) across tile-seasons, as a multiple k of the SD of the true spatial gap (V1 - V3) across directions estimated from the pilot. The pilot has one season per region, so k is NOT estimated. Pilot-internal proxy only: in the scar frame the leave-one-scar-out (same region, another fire) AUCs are about as dispersed as the foreign-region AUCs (ratio reported in pilot_variance_components.json), which argues against k << 1."
+  },
+  "A2_temporal_tile_share_pi": {
+   "central": 0.5,
+   "range": [
+    0.5,
+    1.0
+   ],
+   "what": "Share of the temporal-gap variance that is persistent per tile (does not average over seasons); the rest is season-specific and averages over the S seasons. pi = 1 is the worst case."
+  },
+  "A3_spatial_persistence": {
+   "central": 1.0,
+   "range": [
+    1.0,
+    0.5
+   ],
+   "what": "Share of the pilot's target and dyad variance that is persistent across seasons. The pilot cannot separate tile from tile-season, so the central choice treats all of it as persistent (conservative: season averaging does not shrink it)."
+  },
+  "A4_sampling_multiplier_g": {
+   "central": 1.0,
+   "range": [
+    0.7,
+    1.0,
+    1.5,
+    2.0
+   ],
+   "what": "Multiplier on the per-tile-season sampling SEs projected from the pilot (after the 5 km -> 10 km block-size scaling estimated from Manavgat and Bejis). >1 covers tiles with far fewer burned cells than the pilot AOIs (the gate admits >= 100; pilot targets had 539-2,935)."
+  },
+  "A5_rho_temporal_spatial": {
+   "central": 0.0,
+   "range": [
+    0.0,
+    0.5
+   ],
+   "what": "Correlation, across tiles, between a tile's temporal gap and its spatial (target) gap. Enters V2 - V3 only; positive values shrink its variance, so 0 is the conservative central value."
+  },
+  "A6_group_proxy": {
+   "central": "pilot thermal-minus-baseline paired delta",
+   "what": "Heterogeneity of a predictor group's paired contribution is taken from the pilot's only group contrast (6 thermal variables added to 4 baseline variables). The new study removes one of seven groups from a larger stack; its contributions may be smaller and less variable."
+  },
+  "A7_df": {
+   "central": "t with T - 1 df",
+   "what": "Model-based (crossed random-effects) intervals use the GLS variance of the mean at the stated components and a t quantile with T - 1 df (tile count), not Kenward-Roger. Checked by a REML plug-in simulation at T = 10."
+  },
+  "A8_constant_shift": {
+   "central": "additive",
+   "what": "Power and equivalence are computed by shifting the simulated null by the true effect (a common additive effect on every direction/tile; the heterogeneity does not change with the effect)."
+  },
+  "A9_pairwise_V3": {
+   "central": "pairwise directions",
+   "what": "V3 is projected as the mean over the T(T-1) pairwise directions, the only structure the pilot measures. Pooled leave-one-tile-out V3 averages sources and should be at least as precise."
+  }
+ },
+ "scenario_components": {
+  "central|T8|S3": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.028590116950371936
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04863994197755101,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.1103996309739246,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.016549298389995193
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.10373998681275229
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03907873221084208
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T8|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10673125193429679,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09923707823517763
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T8|S5": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.022145809362982573
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04666791076872165,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10446841202790674,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.012819031411173718
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09643446166335773
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03865070997955263
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T10|S3": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.028590116950371936
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04863994197755101,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.1103996309739246,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.016549298389995193
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.10373998681275229
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03907873221084208
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10673125193429679,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09923707823517763
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T10|S5": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.022145809362982573
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04666791076872165,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10446841202790674,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.012819031411173718
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09643446166335773
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03865070997955263
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T12|S3": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.028590116950371936
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04863994197755101,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.1103996309739246,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.016549298389995193
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.10373998681275229
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03907873221084208
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T12|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10673125193429679,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09923707823517763
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T12|S5": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.022145809362982573
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04666791076872165,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10446841202790674,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.012819031411173718
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09643446166335773
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03865070997955263
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T15|S3": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.028590116950371936
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04863994197755101,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.1103996309739246,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.028590116950371936
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.016549298389995193
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.10373998681275229
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03907873221084208
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T15|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10673125193429679,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09923707823517763
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "central|T15|S5": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.022145809362982573
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04666791076872165,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.10446841202790674,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.022145809362982573
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.012819031411173718
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09643446166335773
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03865070997955263
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "k=0.5|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.06877245965322087,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.05644544945295703
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.05960719836936224,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "k=1.5|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.14998247128906897,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.14474522185954475
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.17882159510808673,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "pi=1.0|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.12931004325120724,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.12319709754219665
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "persist=0.5|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.01292168602959156,
+    "sd_p": 0.08404361209757157,
+    "sd_d": 0.029722872498474457,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.039209525194863454,
+    "sd_p": 0.08223886483618352,
+    "sd_d": 0.03056687505580369,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.1033468520924962,
+    "sd_p": 0.08223886483618352,
+    "sd_d": 0.03056687505580369,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.012510336429932961,
+    "sd_d": 0.046267177121881276,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09923707823517763
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "g=0.7|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.017331837303333122
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04548239135210718,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.017331837303333122
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.105256385237878,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.017331837303333122
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.010032478974381321
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09672443820256892
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.03839972962831404
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.034663674606666244,
+    "se_delta_direction_season": 0.020064957948762643,
+    "se_V1_tile_season": 0.026281485321960934,
+    "se_increment_tile_season": 0.011057440486650706,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "g=1.5|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.037139651364285264
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.05185444167389493,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.037139651364285264
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.11026272149958947,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.037139651364285264
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.02149816923081712
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.10514187207273397
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.039803643076510416
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.07427930272857053,
+    "se_delta_direction_season": 0.04299633846163424,
+    "se_V1_tile_season": 0.056317468547059144,
+    "se_increment_tile_season": 0.02369451532853723,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "g=2.0|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.049519535152380355
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.057494297594547085,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.049519535152380355
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.11502477303060939,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.049519535152380355
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.028664225641089492
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.11289089890591406
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.04115211972210898
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.09903907030476071,
+    "se_delta_direction_season": 0.057328451282178984,
+    "se_V1_tile_season": 0.07508995806274553,
+    "se_increment_tile_season": 0.031592687104716306,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "rho=0.5|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.087869367334361,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.09923707823517763
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.11921439673872448,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "pessimistic_components_p80|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.02337684173727302,
+    "sd_t": 0.02906775806317654,
+    "sd_p": 0.12499983807263033,
+    "sd_d": 0.04325908235697429,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.034659888453198055,
+    "sd_t": 0.05465941922136922,
+    "sd_p": 0.11932340511125301,
+    "sd_d": 0.04743389946721838,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.034659888453198055,
+    "sd_t": 0.12629793738538403,
+    "sd_p": 0.11932340511125301,
+    "sd_d": 0.04743389946721838,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.027517178830297268,
+    "sd_t": 0.026046742407462006,
+    "sd_p": 0.03957215181403129,
+    "sd_d": 0.05878513541844145,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.11691163160018811
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.11473207125417723
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.1425643834925096,
+    "temporal_gap_total_sd": 0.1425643834925096,
+    "increment_tile_sd": 0.11445989278724478
+   }
+  },
+  "pessimistic_p80+k=1.5+g=1.5|T10|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.02337684173727302,
+    "sd_t": 0.02906775806317654,
+    "sd_p": 0.12499983807263033,
+    "sd_d": 0.04325908235697429,
+    "se_e": 0.037139651364285264
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.034659888453198055,
+    "sd_t": 0.05855049156828729,
+    "sd_p": 0.11932340511125301,
+    "sd_d": 0.04743389946721838,
+    "se_e": 0.037139651364285264
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.034659888453198055,
+    "sd_t": 0.18054382581191833,
+    "sd_p": 0.11932340511125301,
+    "sd_d": 0.04743389946721838,
+    "se_e": 0.037139651364285264
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.027517178830297268,
+    "sd_t": 0.026046742407462006,
+    "sd_p": 0.03957215181403129,
+    "sd_d": 0.05878513541844145,
+    "se_e": 0.02149816923081712
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.17536744740028218
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.1150713890201693
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.07427930272857053,
+    "se_delta_direction_season": 0.04299633846163424,
+    "se_V1_tile_season": 0.056317468547059144,
+    "se_increment_tile_season": 0.02369451532853723,
+    "spatial_gap_total_sd": 0.1425643834925096,
+    "temporal_gap_total_sd": 0.2138465752387644,
+    "increment_tile_sd": 0.11445989278724478
+   }
+  },
+  "k=0.5|T8|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.06877245965322087,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.05644544945295703
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.05960719836936224,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "k=0.5|T12|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.06877245965322087,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.05644544945295703
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.05960719836936224,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "k=0.5|T15|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.06877245965322087,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.05644544945295703
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.05960719836936224,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "k=1.5|T8|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.14998247128906897,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.14474522185954475
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.17882159510808673,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "k=1.5|T12|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.14998247128906897,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.14474522185954475
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.17882159510808673,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  },
+  "k=1.5|T15|S4": {
+   "mean_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.016344783625234893,
+    "sd_p": 0.106307694806403,
+    "sd_d": 0.03759679027918355,
+    "se_e": 0.024759767576190177
+   },
+   "V1_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.04741703457662317,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "V2_minus_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.14998247128906897,
+    "sd_p": 0.10402485002762801,
+    "sd_d": 0.03866437845205043,
+    "se_e": 0.024759767576190177
+   },
+   "group_contribution_V3": {
+    "level": "direction",
+    "sd_s": 0.0,
+    "sd_t": 0.0,
+    "sd_p": 0.015824462965427055,
+    "sd_d": 0.05852386424463148,
+    "se_e": 0.014332112820544746
+   },
+   "V1_minus_V2": {
+    "level": "tile",
+    "sd_tile": 0.14474522185954475
+   },
+   "group_contribution_V1": {
+    "level": "tile",
+    "sd_tile": 0.0388117714798577
+   },
+   "_inputs": {
+    "se_transfer_direction_season": 0.049519535152380355,
+    "se_delta_direction_season": 0.028664225641089492,
+    "se_V1_tile_season": 0.037544979031372765,
+    "se_increment_tile_season": 0.015796343552358153,
+    "spatial_gap_total_sd": 0.11921439673872448,
+    "temporal_gap_total_sd": 0.17882159510808673,
+    "increment_tile_sd": 0.03799963799825814
+   }
+  }
+ },
+ "reml_plugin_check_T10_S4": {
+  "mean_V3": {
+   "crossed_pair": {
+    "nsim": 300,
+    "mean_hw95": 0.03916659031533467,
+    "coverage95": 0.9966666666666667
+   },
+   "crossed": {
+    "nsim": 300,
+    "mean_hw95": 0.03201112735721131,
+    "coverage95": 0.9233333333333333
+   },
+   "analytic_hw95_known_components": 0.03920607213410905
+  },
+  "V1_minus_V3": {
+   "crossed_pair": {
+    "nsim": 300,
+    "mean_hw95": 0.04935217296769192,
+    "coverage95": 0.95
+   },
+   "crossed": {
+    "nsim": 300,
+    "mean_hw95": 0.04350385874847676,
+    "coverage95": 0.8966666666666666
+   },
+   "analytic_hw95_known_components": 0.050010045729143915
+  },
+  "group_contribution_V3": {
+   "crossed_pair": {
+    "nsim": 300,
+    "mean_hw95": 0.017758995490712273,
+    "coverage95": 0.9933333333333333
+   },
+   "crossed": {
+    "nsim": 300,
+    "mean_hw95": 0.017174907717683326,
+    "coverage95": 0.9933333333333333
+   },
+   "analytic_hw95_known_components": 0.015326528713392497
+  }
+ },
+ "runtime_s": 528.775089263916
+}
