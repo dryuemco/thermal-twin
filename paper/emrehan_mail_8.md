@@ -19,7 +19,25 @@ Senden istediklerim:
 2. Envantere bu hatayı ve düzeltmeyi bir madde olarak ekler misin?
 3. Kendi pipeline çıktılarında Manavgat'ı yeniden üretmek istersen düzeltme komutları dosyada; ama makale için gerekli değil.
 
-Metin bittiğinde son hâlini onayına göndereceğim.
+Bir de yön değişikliği var. Hakem simülasyonu ve bu düzeltmeler, mevcut beş bölgelik tasarımın yapısal
+sınırlarını netleştirdi: elle çizilmiş AOI'ler, bölge başına tek yangın sezonu (bölge ile olay ayrılamıyor),
+hava durumu ve insan etkisi değişkenlerinin olmaması. Bu makaleyi göndermek yerine pilot olarak
+dondurduk (`paper/PILOT_FROZEN.md`, tag `pilot-v1-frozen`) ve çalışmayı baştan tasarlıyoruz:
+
+- Sabit bir gridden kuralla seçilen ~10 karo (0.5°), her birinde 3–5 yangın sezonu (2015–2024), 2 mühürlü
+  dış doğrulama karosu ve 1 negatif kontrol karosu;
+- MCD64A1'in kendi 463 m gridi (etiket yeniden örneklenmiyor), testli sorgu, EFFIS ile bağımsız doğrulama;
+- sezon öncesi (31 Mayıs'a kadar) predictor'lar: arazi, yakıt, vejetasyon, termal (iki kanal), öncül hava
+  durumu ve ERA5-Land'den hesaplanan FWI kodları, insan erişimi, yangın geçmişi;
+- sezon içi / yıllar arası / bölgeler arası transferin ayrı ölçüldüğü, sonuçlar görülmeden kaydedilen bir
+  analiz planı;
+- testli, hash doğrulamalı, konteynerli yeni bir altyapı. Senin doğrulanmış parçaların (düzeltilmiş
+  MCD64A1 sorgusu, gate, blok ataması) atıfla yeniden kullanılacak.
+
+Tasarım `design/STUDY_DESIGN.md`'de (v0.3). Bu çalışmada katkı veren ortak yazar olmanı istiyoruz; özellikle
+Earth Engine export'ları ve pipeline tarafında. Ön kayıt birkaç gün içinde hazır olacak; yayımlanmadan
+önce senin de okumanı ve itirazın varsa belirtmeni isterim, çünkü yayımlandıktan sonra değişiklikler
+ancak sapma olarak kaydedilebiliyor. Hedef, yaklaşık iki ay içinde EMS'e göndermek.
 
 İyi çalışmalar.
 Yunus Emre
