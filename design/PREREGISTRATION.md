@@ -157,6 +157,13 @@ of that year) (M5)
 | G6 human access | GHSL population and built-up surface, latest epoch ≤ *y* − 1 (no projections); distance to nearest GRIP4 road (all types); VIIRS night-light level of *y* − 1 |
 | G7 fire history | years since last burn = *y* − latest calendar year with an MCD64A1 burn before 1 June *y*, capped at 14; burn count = distinct calendar years with a burn from 1 January *y* − 10 to 31 May *y* |
 
+**Anomalies (z-scores):** z = (x − m)/sd, where m and sd (ddof = 1) are taken over the baseline years with a
+valid value for the cell; the anomaly is missing if fewer than 3 baseline years are valid, or if sd is
+below a floor (NDVI 0.01; LST 0.5 K). Differences (precipitation) and anomalies of ERA5-Land and
+TerraClimate variables use the same baseline and the same 3-year minimum. VPD is computed from
+ERA5-Land daily-mean 2 m temperature and dewpoint (Buck 1981 saturation vapour pressure, as in
+`FWI_SPEC.md`), then averaged over 1 March – 31 May.
+
 FWI: xclim 0.62.0, solar-noon hour per ERA5-Land pixel = floor(12.5 − lon/15) UTC, 24 h precipitation
 ending at that hour, continuous from 2013-01-01 with start values 85/6/15, relative humidity clipped to
 0–100 (`FWI_SPEC.md`). Canopy height is not used (the ETH map is built from 2020 imagery, post-fire for
@@ -305,10 +312,10 @@ not a family and are not corrected jointly, because each is reported in full wha
 is selected from the others.
 
 ## 12. Pre-declared sensitivity analyses (M6)
-1. EFFIS perimeter labels (majority rule; any-burn as sub-sensitivity). 2. FireCCI 5.1 labels, 2015–2020.
+1. EFFIS perimeter labels (majority rule; any-burn as sub-sensitivity). 2. FireCCI 5.1 labels, 2015–2020 (majority rule; any-burn as sub-sensitivity).
 3. MCD64A1 special-condition pixels as missing. 4. MOD13 SummaryQA = 0 only. 5. Pilot LST QC rule.
 6. Every contrast involving G4 on seasons 2015–2022 (Terra orbit drift). 7. TPI radius 10 km. 8. GRIP4
-road types 1–3 only. 9. Population with MCD12Q1 class 14 added. 10. Population from WorldCover 2021.
+road types 1–3 only. 9. Population with MCD12Q1 class 14 added. 10. Population from WorldCover 2021 (classes 10 tree cover, 20 shrubland, 30 grassland, by cell majority).
 11. FWI at 12:00 UTC. 12. FWI started 2012-01-01. 13. Snow-affected cells excluded. 14. Block size from
 the semivariogram (if > 11.12 km) and 48 × 48 cells. 15. Season window July–September. 16. The other two
 model families. 17. V2 variants of §5.5. 18. Training-size-matched V2 and V3 (§6.2).
