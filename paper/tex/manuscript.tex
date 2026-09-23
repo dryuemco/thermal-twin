@@ -623,14 +623,17 @@ Six further arms bear on the findings above without changing them. They are the 
   for four feature configurations: the full thermal set, the set without the
   LST anomaly, without elevation, and without both. Each configuration has its
   own marker and is named in the key; the grey path connects them in that
-  order. Moving left along the path, transfer rises monotonically
-  (0.541 $\rightarrow$ 0.556) while within-region skill falls monotonically
-  (0.888 $\rightarrow$ 0.807). Both monotonicities are verified when the
-  figure is built, so the figure cannot silently contradict the claim. The
-  within-region cost is 0.081 AUC and is supported in every region. The change
-  in transfer is $+$0.014 AUC on an interval that spans zero, so no exchange
-  between the two is demonstrated: a local cost is measured and no compensating
-  transfer gain is.}
+  order. Moving left along the path, within-region skill falls monotonically
+  (0.896 $\rightarrow$ 0.820) while the transfer mean rises monotonically
+  (0.527 $\rightarrow$ 0.541). Both monotonicities are verified when the figure
+  is built. The within-region cost is 0.076 AUC and is supported in every region.
+  The change in transfer is near zero: $+$0.014 AUC, with a pair-$t$ interval
+  over the ten region pairs of [$-$0.028, $+$0.056] that spans zero. No exchange
+  between the two is demonstrated, since a local cost is measured and no
+  compensating transfer gain is. The vertical whisker at the ``without both''
+  point is that interval, drawn about the full-set transfer level (dotted line,
+  no change), so its crossing of the no-change level can be read directly.
+  Manavgat values are on the corrected label (Section~\ref{sec:3.2}).}
   \label{fig:feature-drop}
 \end{figure}
 
