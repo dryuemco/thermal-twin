@@ -28,3 +28,6 @@ paper/labelfix_rerun/round3/**  -text
 paper/labelfix_rerun/round4/**  -text
 paper/labelfix_rerun/round5/**  -text
 paper/labelfix_rerun/round6/**  -text
+
+# Figure data are hashed in the provenance sidecars: keep their bytes exactly (no EOL conversion).
+paper/figures/data/*.json -text
