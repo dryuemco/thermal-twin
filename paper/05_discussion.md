@@ -119,7 +119,8 @@ separate terrain from surface temperature.
 weight only interval-supported features are structurally sensitive to flags on a knife edge. Under
 both labels, five to six of the pipeline's interval bounds lie within 0.01 of 0.5. A single such flag,
 Manavgat's NDVI, moved the full-frame supported-feature cosine from ρ = 0.49 to 0.70 when two equally
-valid bootstrap streams disagreed on it. A threshold on the interval turns small shifts in the inputs
+valid bootstrap streams disagreed on it: its interval is [0.499, 0.628] in the pipeline's bootstrap
+and [0.502, 0.624] in ours, one side of 0.5 or the other by less than 0.003. A threshold on the interval turns small shifts in the inputs
 into discrete changes in the feature set. This partly explains why the conditional-similarity result
 fell from +0.84 to +0.52 [−0.27, +0.87] under the corrected label. Work that uses such measures should
 report how many bounds lie near the threshold, and should repeat the calculation across bootstrap
@@ -157,8 +158,10 @@ that closes the gap is target labels (Appendix A(u)): a real answer, but not a c
 
 The results also bound what unsupervised alignment can be asked to do. Even the oracle selection,
 which uses the target labels the protocol forbids, only reaches the reference a model can reach on an
-unseen scar (Section 4.5). Alignment is not failing far below an achievable target; it is regressing
-the matrix onto it, at the cost of the directions that already worked. A sign reversal is not a
+unseen scar (Section 4.5). Alignment is not failing far below an achievable target; it is regressing the matrix onto it, at
+the cost of the directions that already worked. The compression is not uniform: under z-scoring
+Bejís to Manavgat moves further below chance, from 0.314 to 0.302, and Evia to Manavgat crosses to
+the other side of it, from 0.677 to 0.404. A sign reversal is not a
 distribution mismatch that realigning inputs repairs.
 
 ## 5.7 Limitations

@@ -89,11 +89,15 @@ in Section 5.2.
 
 **(e) Quality screening of the coarse thermal input.** Two of the five regions' MODIS inputs are
 quality-screened and three are not. The split follows export date rather than design, and it induces
-an elevation-correlated change at the input, at r = +0.615 in Manavgat. Manavgat's entire downstream
-chain was rebuilt from a quality-screened input. That changes the downscaled surface on 22,304 of
-24,150 cells, by up to 10.9 °C. No signed univariate association moves by more than +0.0003.
-Elevation is identical in both arms, at 0.374, the population is unchanged, and the
-within-region increment moves from [+0.055, +0.079] to [+0.054, +0.077]. The reason is structural.
+an elevation-correlated change at the input, at r = +0.615 in Manavgat. On 14 August 2026, under
+the frozen label, Manavgat's downstream chain was rebuilt from a quality-screened input. That changes
+the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
+moved by more than +0.0003. Elevation was identical in both arms, at 0.374, the population was
+unchanged, and the within-region increment moved from [+0.055, +0.079] to [+0.054, +0.077]. The
+description of that run as rebuilding both arms with the same code was almost certainly inaccurate:
+the current step7 refuses the unscreened raster, so the unscreened arm ran the step7 of export time
+and the two arms differed in code version as well as in screening (Section 3.4). Its Muğla arm was
+not re-examined. On the corrected label the comparison is reported in Section 3.4. The reason is structural.
 Elevation is a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived
 surface across only 2.14 percentage points of coverage. Details are in
 `paper/modis_qc_downstream_propagation.md`.
@@ -677,10 +681,12 @@ four and seven. Support is removed from seven verdicts and added to none.
 The point estimates are unchanged, but that is an identity rather than a result. The blocking scale
 is the resampling unit, and it cannot move an estimate computed once over all target cells.
 
-Manavgat's whole downstream chain was then rebuilt from a quality-screened MODIS input. That changes
-the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C. No signed univariate association
-moves by more than +0.0003. This closes the one processing-artefact candidate for that region's
-behaviour. Appendix A reports all eight arms, including one that tests a claim of Section 1.2 and does not uphold it.
+Manavgat's downstream chain was rebuilt from a quality-screened MODIS input on 14 August 2026, under
+the frozen label. That changed the downscaled surface on 22,304 of 24,150 cells, by up to 10.9 °C,
+and no signed univariate association by more than +0.0003. The two arms differed in code version as
+well as in screening, and its Muğla arm was not re-examined (Section 3.4). On the corrected label the
+comparison is reported in Section 3.4. Either way, it closes the one processing-artefact candidate
+for that region's behaviour. Appendix A reports all eight arms, including one that tests a claim of Section 1.2 and does not uphold it.
 
 ## A(t). Distance within a region
 
@@ -975,26 +981,26 @@ this cohort rather than of the method.
 Section 4.5 states these results; the paragraphs it condensed are here.
 
 **Raw transfer is heterogeneous and includes anti-predictive directions.** Raw target AUC spans
-0.326 to 0.686 (Fig. 4). Twelve of 20 directions are above chance with CI support. Six are *below*
-chance with CI support: both directions of Manavgat to Bejís and of Manavgat to Muğla, plus Bejís to
-Evia and Evia to Bejís — of which only Manavgat to Bejís survives frame equalisation. Two intervals
-span 0.5. Even the best raw transfer, Evia to Manavgat at 0.686, stays far below that target's own
-within-region thermal performance of 0.870. Across all directions the raw deficit against the
-within-region reference is 0.184 to 0.592 AUC. That reference is a region-level blocked estimate,
+0.314 to 0.677 (Fig. 4). Eleven of 20 directions are above chance with CI support. Seven are *below*
+chance with CI support: both directions between Manavgat and Bejís, both between Manavgat and Muğla,
+both between Bejís and Evia, and Montiferru to Manavgat. Of these, Manavgat to Bejís
+and Muğla to Manavgat keep interval support after frame equalisation. Two intervals span 0.5. Even the
+best raw transfer, Evia to Manavgat at 0.677, stays far below that target's own within-region thermal
+performance of 0.908. Across all directions the raw deficit against the within-region reference is
+0.231 to 0.594 AUC. That reference is a region-level blocked estimate,
 and Section 4.3 shows it is not matched to a transfer evaluation.
 
 Those counts belong to the 2-cell blocking of Table B9. At the more conservative 10-cell blocking the
-same points give 9 above, 4 below and 7 uncertain, and no direction changes side of the chance line
-(Appendix A(v)). Four of the six below-chance directions keep their support there. Bejís to Manavgat
-and Manavgat to Muğla lose it and carry no verdict. The qualitative statement is unchanged. The
+same points give 9 above, 6 below and 5 uncertain, and no direction changes side of the chance line
+(Appendix A(v)). Six of the seven below-chance directions keep their support there. Manavgat to Muğla
+loses it and carries no verdict. The qualitative statement is unchanged. The
 counts should not be read as exact.
 
 **In precision terms the transfer is worse than the ROC figures suggest.** A susceptibility surface
 is used as a ranked area budget, so precision-recall is the operational quantity. Across the twenty
-directions the thermal model's PR-AUC averages **0.156 against a no-skill baseline of 0.136**. **Six
-of the twenty fall below their own no-skill baseline at the point estimate, five of them with
-intervals entirely below it**; the exception is Bejís to Manavgat, whose interval covers its
-baseline. Only one direction exceeds twice its baseline. These are frame-as-drawn quantities and the
+directions the thermal model's PR-AUC averages **0.181 against a no-skill baseline of 0.157**. **Seven
+of the twenty fall below their own no-skill baseline at the point estimate, all seven with intervals
+entirely below it.** Only one direction, Evia to Manavgat, exceeds twice its baseline. These are frame-as-drawn quantities and the
 PR arm was not recomputed on the collar. Per-direction values are in Appendix B, Table B4.
 
 **The static baseline does not transfer either.** The same twenty directions were run with the
@@ -1366,8 +1372,9 @@ Spatial blocking prevents a cell from sharing a fold with its own neighbours.
 The transfer and adaptation analysis runs in an environment separate from the upstream pipeline's.
 Every within-region model was therefore refitted there and compared against the frozen upstream
 output, and the independently implemented adaptation was compared against the pipeline's own. The
-within-region comparisons agree exactly and the twenty transfer directions to within
-1.6×10⁻⁷. All numbers here were produced under scikit-learn 1.9.0 or verified against it; the
+within-region comparisons agree exactly and the twenty directed CORAL transfers to within 1.3×10⁻⁸
+against the re-frozen outputs (1.6×10⁻⁷ against the frozen ones), under the repository's
+pre-existing tolerance of 10⁻⁶ (Section 3.13). All numbers here were produced under scikit-learn 1.9.0 or verified against it; the
 implementation tolerance that applies if the version is not fixed is stated in Appendix C.5(vi), and
 the companion paper reports the version sensitivity and the reproduction check in full.
 
@@ -1397,7 +1404,7 @@ it is recorded as a point reversal only. Appendix B states the rule again beside
 
 ---
 
-# Appendix D. Transferability diagnostics: the result withdrawn from the paper
+# Appendix D. Transferability diagnostics: the record behind Contribution 3
 
 > **Updated 2026-09-23: the result returns to the paper as Contribution 3, in its negative form.**
 > Under the corrected label, no interpretable measure of the twenty has an interval excluding zero.
@@ -1405,10 +1412,11 @@ it is recorded as a point reversal only. Appendix B states the rule again beside
 > the power argument below had to set aside is gone. What the paper claims is the failure to show
 > ordering, stated with its power: ten effective pairs, not proof that no ordering exists (Section
 > 1.3, Contribution 3; Appendix C.5(xiii)). The status paragraph below records the earlier decision.
-> It, the section title and the reproduced passages are rewritten in this document's label-correction
-> update.
+> The section title was changed the same day. The status paragraph and the reproduced passages are
+> kept as a dated record: they were written under the frozen label and are **superseded**. Where they
+> disagree with Sections 1.3, 4.4 and 4.6, those sections hold.
 
-**Status.** This was Contribution 3 of an earlier version: twenty candidate diagnostics from five
+**Status (2026-08-16; frozen label, superseded).** This was Contribution 3 of an earlier version: twenty candidate diagnostics from five
 families, each rank-correlated with observed transfer, none shown to order it. It is released here
 rather than printed because it rests on an effective sample of **eight region pairs** — the two
 Montiferru pairs carry no jointly supported feature — and a null on eight pairs cannot carry a claim
@@ -1426,6 +1434,7 @@ regions. At ten regions the pair count rises from eight to forty-five, and the s
 carry a claim.
 
 The material below is reproduced as it stood in the paper, with its section numbers as they were.
+**It was written under the frozen label and is superseded**; it is kept so the change is traceable.
 
 ### From 01_introduction.md
 ## 1.3 Why the loss is invisible to the diagnostics in use
