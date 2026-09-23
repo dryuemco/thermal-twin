@@ -1,8 +1,13 @@
 {
  "figure": "Figure 3 - within-region increment and block robustness",
  "script": "paper/figures/fig3_within_robustness.py",
- "data": "paper/figures/data/fig_data.json (step8c + robustness outputs; per-source sha256 inside)",
- "asserts": "spot values vs 04 Table 3; every delta CI lower bound > 0 (15 region-block cells); dodge half-spread < half block spacing so groups cannot merge",
+ "data": {
+  "path": "paper/figures/data/fig_data_corrected.json",
+  "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
+  "note": "step8c + robustness outputs of the corrected-label overlay; per-source sha256 inside"
+ },
+ "asserts": "all 75 printed values of 04 Table 1 equal the source rounded to 3 dp, zero tolerance; every delta CI lower bound > 0 (15 region-block cells); every plotted value inside its axis view; dodge half-spread < half block spacing so groups cannot merge",
+ "greyscale": "fig3_within_robustness_greyscale.png (luminance conversion); regions carry distinct markers as well as Okabe-Ito hues",
  "panel_a_labels": "delta and 95% CI in a fixed aligned column at x=1.005/1.055, outside the plotted range (ticks and bottom spine stop at 0.96); label text is checked against every dumbbell artist by the collision checker",
  "panel_c_dodge": {
   "cells": 0.15,
@@ -19,5 +24,5 @@
   "minimum": 8.0
  },
  "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
- "environment": "matplotlib 3.11.1"
+ "environment": "matplotlib 3.11.0"
 }

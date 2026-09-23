@@ -8,7 +8,13 @@
 (c) Thermal ΔAUC vs block size with 95% CIs: stays above zero everywhere.
 
 Okabe-Ito colours + distinct markers (greyscale-safe); vector.
-Data: paper/figures/data/fig_data.json. Asserts vs 04_results Table 3.
+Data: paper/figures/data/fig_data_corrected.json (corrected Manavgat label; extracted by
+extract_fig_data.mjs from the official overlay rerun_labelfix/_round5/ov_official).
+Asserts: every cell of 04_results Table 1 (45 values plus 15 intervals, to the printed 3 dp).
+
+2026-09-23 revision (corrected Manavgat label): Manavgat rows 0.841/0.908 (2), 0.820/0.882
+(10), 0.798/0.845 (20); the other four regions unchanged; every value asserted inside its
+axis view; greyscale proof added.
 
 2026-08-08 typography/space revision:
   - body 9 pt, minimum 8 pt (was 7 pt); canvas 190 x 92 mm (was 190 x 72);
@@ -32,10 +38,11 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _layout_check import check as layout_check
+from _layout_check import check as layout_check, assert_inside
 
 HERE = Path(__file__).resolve().parent
-DATA = json.loads((HERE / "data" / "fig_data.json").read_text())
+DATA_PATH = HERE / "data" / "fig_data_corrected.json"
+DATA = json.loads(DATA_PATH.read_text())
 fig34 = DATA["fig34"]
 
 REGIONS = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021"]
@@ -53,12 +60,25 @@ FS_BODY = 9.0    # axis labels, titles, numeric column
 FS_TICK = 8.0    # tick labels, legend, column header  (minimum in this figure)
 DODGE = 0.15     # panel (c) horizontal offset per region, in x-units (cosmetic)
 
-# ---- asserts vs 04_results Table 3 ----
-assert abs(fig34["manavgat_2021"]["2"]["baseline"] - 0.8027) < 5e-4
-assert abs(fig34["manavgat_2021"]["2"]["thermal"] - 0.8696) < 5e-4
-assert abs(fig34["evia_2021_extended"]["2"]["delta"] - 0.1533) < 5e-4
-assert abs(fig34["montiferru_2021"]["20"]["delta"] - 0.1262) < 5e-4
-assert abs(fig34["mugla_2021"]["10"]["delta"] - 0.0793) < 5e-4
+# ---- asserts vs 04_results Table 1: baseline, thermal, delta, CI low, CI high ----
+TABLE1 = {
+    "manavgat_2021": {"2": (0.841, 0.908, 0.067, 0.060, 0.073), "10": (0.820, 0.882, 0.062, 0.040, 0.082),
+                      "20": (0.798, 0.845, 0.047, 0.016, 0.081)},
+    "bejis_2022": {"2": (0.862, 0.918, 0.056, 0.048, 0.065), "10": (0.779, 0.824, 0.045, 0.018, 0.069),
+                   "20": (0.739, 0.795, 0.057, 0.031, 0.090)},
+    "mugla_2021": {"2": (0.743, 0.859, 0.116, 0.106, 0.125), "10": (0.698, 0.777, 0.079, 0.050, 0.105),
+                   "20": (0.673, 0.733, 0.061, 0.030, 0.094)},
+    "evia_2021_extended": {"2": (0.759, 0.912, 0.153, 0.142, 0.166), "10": (0.716, 0.864, 0.148, 0.119, 0.182),
+                           "20": (0.679, 0.833, 0.154, 0.124, 0.189)},
+    "montiferru_2021": {"2": (0.781, 0.883, 0.101, 0.080, 0.125), "10": (0.620, 0.720, 0.099, 0.017, 0.186),
+                        "20": (0.555, 0.681, 0.126, 0.053, 0.228)},
+}
+for reg, rows in TABLE1.items():
+    for b, want in rows.items():
+        v = fig34[reg][b]
+        got = (v["baseline"], v["thermal"], v["delta"], v["delta_ci"][0], v["delta_ci"][1])
+        for i, (g, w) in enumerate(zip(got, want)):
+            assert round(g, 3) == w, f"Table 1 mismatch {reg} block {b} col {i}: {g:.5f} vs {w}"
 for reg in REGIONS:
     for b in BLOCKS:
         lo, hi = fig34[reg][b]["delta_ci"]
@@ -158,6 +178,10 @@ fig.legend(handles=handles, loc="lower center", ncol=len(REGIONS),
 
 fig.subplots_adjust(left=0.118, right=0.99, top=0.935, bottom=0.255, wspace=0.32)
 
+assert_inside(axA, "Fig. 3a", xs=[fig34[r]["2"][k] for r in REGIONS for k in ("baseline", "thermal")])
+assert_inside(axB, "Fig. 3b", ys=[fig34[r][b]["thermal"] for r in REGIONS for b in BLOCKS])
+assert_inside(axC, "Fig. 3c", ys=[c for r in REGIONS for b in BLOCKS for c in fig34[r][b]["delta_ci"]])
+
 problems = layout_check(fig, "Fig. 3 - within-region robustness",
                         min_gap_pt=2.0, min_font_pt=8.0,
                         data_artists=data_artists)
@@ -165,14 +189,23 @@ problems = layout_check(fig, "Fig. 3 - within-region robustness",
 fig.savefig(HERE / "fig3_within_robustness.pdf")
 fig.savefig(HERE / "fig3_within_robustness.svg")
 if "--preview" in sys.argv:
-    fig.savefig(HERE / "fig3_within_robustness_preview.png", dpi=300)
+    png = HERE / "fig3_within_robustness_preview.png"
+    fig.savefig(png, dpi=300)
+    rgb = plt.imread(png)[:, :, :3]
+    grey = 0.2126 * rgb[:, :, 0] + 0.7152 * rgb[:, :, 1] + 0.0722 * rgb[:, :, 2]
+    plt.imsave(HERE / "fig3_within_robustness_greyscale.png", grey, cmap="gray", vmin=0.0, vmax=1.0)
 
 (HERE / "fig3_provenance.json").write_text(json.dumps({
     "figure": "Figure 3 - within-region increment and block robustness",
     "script": "paper/figures/fig3_within_robustness.py",
-    "data": "paper/figures/data/fig_data.json (step8c + robustness outputs; per-source sha256 inside)",
-    "asserts": "spot values vs 04 Table 3; every delta CI lower bound > 0 (15 region-block "
-               "cells); dodge half-spread < half block spacing so groups cannot merge",
+    "data": {"path": "paper/figures/data/fig_data_corrected.json",
+             "sha256": __import__("hashlib").sha256(DATA_PATH.read_bytes()).hexdigest(),
+             "note": "step8c + robustness outputs of the corrected-label overlay; per-source sha256 inside"},
+    "asserts": "all 75 printed values of 04 Table 1 equal the source rounded to 3 dp, zero tolerance; every delta CI lower bound > 0 "
+               "(15 region-block cells); every plotted value inside its axis view; dodge "
+               "half-spread < half block spacing so groups cannot merge",
+    "greyscale": "fig3_within_robustness_greyscale.png (luminance conversion); regions carry "
+                 "distinct markers as well as Okabe-Ito hues",
     "panel_a_labels": "delta and 95% CI in a fixed aligned column at x=1.005/1.055, outside "
                       "the plotted range (ticks and bottom spine stop at 0.96); label text is "
                       "checked against every dumbbell artist by the collision checker",
