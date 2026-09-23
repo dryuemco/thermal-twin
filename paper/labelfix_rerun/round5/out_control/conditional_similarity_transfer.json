@@ -1,0 +1,752 @@
+{
+  "meta": {
+    "created": "2026-08-08",
+    "analysis": "Analysis 1 — conditional similarity (signed univariate AUC agreement) vs raw thermal transfer ROC-AUC",
+    "theoretical_frame": "Moreno-Torres et al. 2012: covariate shift = P(x) change, concept shift = P(y|x) change. The eight marginal (P(x)-side) diagnostics fail (paper/regime_transfer_correlation.*); these six candidates measure P(y|x) direction similarity.",
+    "candidate_set_fixed_in_advance": true,
+    "population": "burnable_tree_shrub_grass",
+    "transfer_metric": "raw thermal ROC-AUC on target, source-only RF (step9b), TSG, 20 ordered directions",
+    "bootstrap": {
+      "scheme": "unordered pairs resampled with replacement, both directions carried",
+      "n_replicates": 2000,
+      "seed": 42,
+      "prng": "mulberry32",
+      "ci": "equal-tailed percentile 95%"
+    },
+    "provenance": {
+      "signed_auc_source": {
+        "path": "drive_new/diagnostics/multi_aoi_transfer_synthesis/bejis_2022__evia_2021_extended__manavgat_2021__montiferru_2021__mugla_2021/multi_aoi_feature_stability.csv",
+        "sha256": "02a5e8be89ca0dfbc8f4f82bf977dc23a1923099cdfeba26b2d76916be766f47"
+      },
+      "transfer_source": "drive_new/cross_region/<pair>/step9b/cross_region_transfer_metrics.json (bidirectional)",
+      "consistency_checks": [
+        "per-region signed AUC identical across every pair row it appears in (enforced)",
+        "agreement counts reproduce RESULTS_INVENTORY 5b.1: Bejis~Mugla 7/9, Manavgat~Mugla 4/9, Manavgat~Bejis 4/9 (enforced)",
+        "supported-reversal set matches Emrehan reversal_status flags exactly (enforced)"
+      ]
+    },
+    "supported_reversal_criterion": "both regions CIs exclude 0.5, point estimates on opposite sides (Emrehan step9g criterion; stricter than disjoint-CIs)",
+    "bootstrap_supported_reversals": [
+      {
+        "feature": "elevation_mean",
+        "region_a": "manavgat_2021",
+        "region_b": "bejis_2022",
+        "auc_a": 0.37410755666893913,
+        "ci_a": [
+          0.2890796631009303,
+          0.4711534398242251
+        ],
+        "auc_b": 0.6432824053164721,
+        "ci_b": [
+          0.5583150457861116,
+          0.7290055219147464
+        ]
+      },
+      {
+        "feature": "elevation_mean",
+        "region_a": "manavgat_2021",
+        "region_b": "mugla_2021",
+        "auc_a": 0.37410755666893913,
+        "ci_a": [
+          0.2890796631009303,
+          0.4711534398242251
+        ],
+        "auc_b": 0.6114025048859928,
+        "ci_b": [
+          0.5319021930545539,
+          0.6904319830630276
+        ]
+      },
+      {
+        "feature": "lst_anomaly_mean",
+        "region_a": "bejis_2022",
+        "region_b": "evia_2021_extended",
+        "auc_a": 0.4179915266529903,
+        "ci_a": [
+          0.3637850507544111,
+          0.4795630994864565
+        ],
+        "auc_b": 0.6400549435604515,
+        "ci_b": [
+          0.5671047052827075,
+          0.710175869871198
+        ]
+      }
+    ],
+    "reversal_feature_set_for_analysis3": [
+      "elevation_mean",
+      "lst_anomaly_mean"
+    ]
+  },
+  "signed_auc_by_region": {
+    "bejis_2022": {
+      "ndvi_mean": {
+        "auc": 0.5587527905026131,
+        "lo": 0.4971818582643429,
+        "hi": 0.619346637555737
+      },
+      "elevation_mean": {
+        "auc": 0.6432824053164721,
+        "lo": 0.5583150457861116,
+        "hi": 0.7290055219147464
+      },
+      "slope_mean": {
+        "auc": 0.5207878895412608,
+        "lo": 0.4393212094762653,
+        "hi": 0.605295958421595
+      },
+      "lst_anomaly_mean": {
+        "auc": 0.4179915266529903,
+        "lo": 0.3637850507544111,
+        "hi": 0.4795630994864565
+      },
+      "current_lst_mean": {
+        "auc": 0.4767477506934928,
+        "lo": 0.4011532923534438,
+        "hi": 0.5474889652503846
+      },
+      "current_tvdi_mean": {
+        "auc": 0.5172782323463783,
+        "lo": 0.4290091381060553,
+        "hi": 0.595208856020078
+      },
+      "tvdi_difference_mean": {
+        "auc": 0.5124941631737097,
+        "lo": 0.4431549328523628,
+        "hi": 0.5829402577021532
+      },
+      "downscaled_lst_mean": {
+        "auc": 0.4836430737466933,
+        "lo": 0.4003605903074035,
+        "hi": 0.5598325680030973
+      },
+      "fused_lst_mean": {
+        "auc": 0.4806129105103555,
+        "lo": 0.4039472512732557,
+        "hi": 0.5514025133468518
+      }
+    },
+    "evia_2021_extended": {
+      "ndvi_mean": {
+        "auc": 0.6391494562092995,
+        "lo": 0.5749285449525442,
+        "hi": 0.7006046421340476
+      },
+      "elevation_mean": {
+        "auc": 0.540559580910425,
+        "lo": 0.4483537317612215,
+        "hi": 0.626146085073554
+      },
+      "slope_mean": {
+        "auc": 0.486543098344048,
+        "lo": 0.41769297357779134,
+        "hi": 0.554042450008236
+      },
+      "lst_anomaly_mean": {
+        "auc": 0.6400549435604515,
+        "lo": 0.5671047052827075,
+        "hi": 0.710175869871198
+      },
+      "current_lst_mean": {
+        "auc": 0.37651907667348405,
+        "lo": 0.3012790089007279,
+        "hi": 0.45585820887246337
+      },
+      "current_tvdi_mean": {
+        "auc": 0.36188826587369816,
+        "lo": 0.2852365355103699,
+        "hi": 0.44217142834635265
+      },
+      "tvdi_difference_mean": {
+        "auc": 0.5191031776643451,
+        "lo": 0.4444187250619392,
+        "hi": 0.5889301019447588
+      },
+      "downscaled_lst_mean": {
+        "auc": 0.3765491129362415,
+        "lo": 0.29685914048213763,
+        "hi": 0.4593307010841324
+      },
+      "fused_lst_mean": {
+        "auc": 0.37566126384147186,
+        "lo": 0.30015191434549077,
+        "hi": 0.4556221037116367
+      }
+    },
+    "manavgat_2021": {
+      "ndvi_mean": {
+        "auc": 0.6359169371099176,
+        "lo": 0.5872285206570871,
+        "hi": 0.6762849193685545
+      },
+      "elevation_mean": {
+        "auc": 0.37410755666893913,
+        "lo": 0.2890796631009303,
+        "hi": 0.4711534398242251
+      },
+      "slope_mean": {
+        "auc": 0.5309574867864721,
+        "lo": 0.4228454993639831,
+        "hi": 0.641707826568334
+      },
+      "lst_anomaly_mean": {
+        "auc": 0.4823529005017941,
+        "lo": 0.4279530417105843,
+        "hi": 0.5299474237983043
+      },
+      "current_lst_mean": {
+        "auc": 0.5382779853437281,
+        "lo": 0.45176227230170396,
+        "hi": 0.620503038933485
+      },
+      "current_tvdi_mean": {
+        "auc": 0.5520208992479892,
+        "lo": 0.4602480293883392,
+        "hi": 0.6410618349429631
+      },
+      "tvdi_difference_mean": {
+        "auc": 0.44939202798988004,
+        "lo": 0.3905414223569665,
+        "hi": 0.5051782545937413
+      },
+      "downscaled_lst_mean": {
+        "auc": 0.5520694210669516,
+        "lo": 0.4659633972389294,
+        "hi": 0.637150621852662
+      },
+      "fused_lst_mean": {
+        "auc": 0.5400826188182982,
+        "lo": 0.4542805043929701,
+        "hi": 0.6218679874478806
+      }
+    },
+    "montiferru_2021": {
+      "ndvi_mean": {
+        "auc": 0.5862731853113042,
+        "lo": 0.45014383161602317,
+        "hi": 0.7043832813462082
+      },
+      "elevation_mean": {
+        "auc": 0.5837706290859124,
+        "lo": 0.3953155499799928,
+        "hi": 0.7623088314675833
+      },
+      "slope_mean": {
+        "auc": 0.6519721105399766,
+        "lo": 0.5059965620455151,
+        "hi": 0.7705472817222545
+      },
+      "lst_anomaly_mean": {
+        "auc": 0.39519013227598904,
+        "lo": 0.285145350453144,
+        "hi": 0.5345227829044743
+      },
+      "current_lst_mean": {
+        "auc": 0.3704643770906685,
+        "lo": 0.24782684782865552,
+        "hi": 0.5129602234841384
+      },
+      "current_tvdi_mean": {
+        "auc": 0.3555286181577596,
+        "lo": 0.2331671304845549,
+        "hi": 0.4990539748344443
+      },
+      "tvdi_difference_mean": {
+        "auc": 0.37762180818824925,
+        "lo": 0.2821229847499818,
+        "hi": 0.49651149112782955
+      },
+      "downscaled_lst_mean": {
+        "auc": 0.364736376795746,
+        "lo": 0.24025899649425494,
+        "hi": 0.5110558445055425
+      },
+      "fused_lst_mean": {
+        "auc": 0.37047270506479624,
+        "lo": 0.247836825343333,
+        "hi": 0.5130079558295708
+      }
+    },
+    "mugla_2021": {
+      "ndvi_mean": {
+        "auc": 0.6616527794184797,
+        "lo": 0.6156274522323434,
+        "hi": 0.7035074327376446
+      },
+      "elevation_mean": {
+        "auc": 0.6114025048859928,
+        "lo": 0.5319021930545539,
+        "hi": 0.6904319830630276
+      },
+      "slope_mean": {
+        "auc": 0.6368180084143384,
+        "lo": 0.5819257681498503,
+        "hi": 0.68641744780742
+      },
+      "lst_anomaly_mean": {
+        "auc": 0.4845735569026068,
+        "lo": 0.3945167019229775,
+        "hi": 0.5660732073894761
+      },
+      "current_lst_mean": {
+        "auc": 0.324818209196232,
+        "lo": 0.2713831954453114,
+        "hi": 0.3821312123411832
+      },
+      "current_tvdi_mean": {
+        "auc": 0.3357699119089857,
+        "lo": 0.27535685410747573,
+        "hi": 0.39757500369355586
+      },
+      "tvdi_difference_mean": {
+        "auc": 0.49002459954410754,
+        "lo": 0.3964138391440796,
+        "hi": 0.5747477756769651
+      },
+      "downscaled_lst_mean": {
+        "auc": 0.30697725296436723,
+        "lo": 0.25320481926586585,
+        "hi": 0.36583706101459185
+      },
+      "fused_lst_mean": {
+        "auc": 0.32521434622074175,
+        "lo": 0.2720012810467721,
+        "hi": 0.3827633213333897
+      }
+    }
+  },
+  "per_direction": [
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "raw_thermal_roc_auc": 0.3258336344280276,
+      "agree_count_9": 4,
+      "vector_spearman_9": -0.016666666666666666,
+      "cosine_9": -0.26123025140275213,
+      "n_supported": 1,
+      "supported_features": [
+        "elevation_mean"
+      ],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": 0,
+      "vector_spearman_supported": null,
+      "cosine_supported": -1
+    },
+    {
+      "direction": "manavgat_2021_to_mugla_2021",
+      "raw_thermal_roc_auc": 0.47015987108700774,
+      "agree_count_9": 4,
+      "vector_spearman_9": -0.23333333333333334,
+      "cosine_9": -0.2093633346685748,
+      "n_supported": 2,
+      "supported_features": [
+        "ndvi_mean",
+        "elevation_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 0.5,
+      "vector_spearman_supported": null,
+      "cosine_supported": 0.2184872286368574
+    },
+    {
+      "direction": "manavgat_2021_to_evia_2021_extended",
+      "raw_thermal_roc_auc": 0.6125620551965896,
+      "agree_count_9": 1,
+      "vector_spearman_9": -0.35,
+      "cosine_9": -0.18999495861064872,
+      "n_supported": 1,
+      "supported_features": [
+        "ndvi_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 1
+    },
+    {
+      "direction": "manavgat_2021_to_montiferru_2021",
+      "raw_thermal_roc_auc": 0.5332600780053577,
+      "agree_count_9": 4,
+      "vector_spearman_9": -0.3333333333333333,
+      "cosine_9": -0.1352459076975506,
+      "n_supported": 0,
+      "supported_features": [],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": null,
+      "vector_spearman_supported": null,
+      "cosine_supported": null
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "raw_thermal_roc_auc": 0.44352842964630473,
+      "agree_count_9": 4,
+      "vector_spearman_9": -0.016666666666666666,
+      "cosine_9": -0.26123025140275213,
+      "n_supported": 1,
+      "supported_features": [
+        "elevation_mean"
+      ],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": 0,
+      "vector_spearman_supported": null,
+      "cosine_supported": -1
+    },
+    {
+      "direction": "bejis_2022_to_mugla_2021",
+      "raw_thermal_roc_auc": 0.6184747489978263,
+      "agree_count_9": 7,
+      "vector_spearman_9": 0.7,
+      "cosine_9": 0.4805606399292804,
+      "n_supported": 1,
+      "supported_features": [
+        "elevation_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 1
+    },
+    {
+      "direction": "bejis_2022_to_evia_2021_extended",
+      "raw_thermal_roc_auc": 0.38282143313044736,
+      "agree_count_9": 6,
+      "vector_spearman_9": 0.16666666666666666,
+      "cosine_9": 0.1250022073317288,
+      "n_supported": 1,
+      "supported_features": [
+        "lst_anomaly_mean"
+      ],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": 0,
+      "vector_spearman_supported": null,
+      "cosine_supported": -1
+    },
+    {
+      "direction": "bejis_2022_to_montiferru_2021",
+      "raw_thermal_roc_auc": 0.5937253341599618,
+      "agree_count_9": 7,
+      "vector_spearman_9": 0.4666666666666667,
+      "cosine_9": 0.4868821436161877,
+      "n_supported": 0,
+      "supported_features": [],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": null,
+      "vector_spearman_supported": null,
+      "cosine_supported": null
+    },
+    {
+      "direction": "mugla_2021_to_manavgat_2021",
+      "raw_thermal_roc_auc": 0.40099966584697444,
+      "agree_count_9": 4,
+      "vector_spearman_9": -0.23333333333333334,
+      "cosine_9": -0.2093633346685748,
+      "n_supported": 2,
+      "supported_features": [
+        "ndvi_mean",
+        "elevation_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 0.5,
+      "vector_spearman_supported": null,
+      "cosine_supported": 0.2184872286368574
+    },
+    {
+      "direction": "mugla_2021_to_bejis_2022",
+      "raw_thermal_roc_auc": 0.5831912381443964,
+      "agree_count_9": 7,
+      "vector_spearman_9": 0.7,
+      "cosine_9": 0.4805606399292804,
+      "n_supported": 1,
+      "supported_features": [
+        "elevation_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 1
+    },
+    {
+      "direction": "mugla_2021_to_evia_2021_extended",
+      "raw_thermal_roc_auc": 0.6534051763551312,
+      "agree_count_9": 6,
+      "vector_spearman_9": 0.6166666666666667,
+      "cosine_9": 0.8082683241259495,
+      "n_supported": 5,
+      "supported_features": [
+        "ndvi_mean",
+        "current_lst_mean",
+        "current_tvdi_mean",
+        "downscaled_lst_mean",
+        "fused_lst_mean"
+      ],
+      "agree_count_supported": 5,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": 0,
+      "cosine_supported": 0.9934924580278877
+    },
+    {
+      "direction": "mugla_2021_to_montiferru_2021",
+      "raw_thermal_roc_auc": 0.5312433202707516,
+      "agree_count_9": 9,
+      "vector_spearman_9": 0.8666666666666667,
+      "cosine_9": 0.8996205722937118,
+      "n_supported": 2,
+      "supported_features": [
+        "slope_mean",
+        "current_tvdi_mean"
+      ],
+      "agree_count_supported": 2,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 0.9932677223239516
+    },
+    {
+      "direction": "evia_2021_extended_to_manavgat_2021",
+      "raw_thermal_roc_auc": 0.6857777670301659,
+      "agree_count_9": 1,
+      "vector_spearman_9": -0.35,
+      "cosine_9": -0.18999495861064872,
+      "n_supported": 1,
+      "supported_features": [
+        "ndvi_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 1
+    },
+    {
+      "direction": "evia_2021_extended_to_bejis_2022",
+      "raw_thermal_roc_auc": 0.4480079359958707,
+      "agree_count_9": 6,
+      "vector_spearman_9": 0.16666666666666666,
+      "cosine_9": 0.1250022073317288,
+      "n_supported": 1,
+      "supported_features": [
+        "lst_anomaly_mean"
+      ],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": 0,
+      "vector_spearman_supported": null,
+      "cosine_supported": -1
+    },
+    {
+      "direction": "evia_2021_extended_to_mugla_2021",
+      "raw_thermal_roc_auc": 0.576836486299561,
+      "agree_count_9": 6,
+      "vector_spearman_9": 0.6166666666666667,
+      "cosine_9": 0.8082683241259495,
+      "n_supported": 5,
+      "supported_features": [
+        "ndvi_mean",
+        "current_lst_mean",
+        "current_tvdi_mean",
+        "downscaled_lst_mean",
+        "fused_lst_mean"
+      ],
+      "agree_count_supported": 5,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": 0,
+      "cosine_supported": 0.9934924580278877
+    },
+    {
+      "direction": "evia_2021_extended_to_montiferru_2021",
+      "raw_thermal_roc_auc": 0.6467042042389389,
+      "agree_count_9": 6,
+      "vector_spearman_9": 0.7166666666666667,
+      "cosine_9": 0.541165020981191,
+      "n_supported": 1,
+      "supported_features": [
+        "current_tvdi_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 1
+    },
+    {
+      "direction": "montiferru_2021_to_manavgat_2021",
+      "raw_thermal_roc_auc": 0.5670426836522615,
+      "agree_count_9": 4,
+      "vector_spearman_9": -0.3333333333333333,
+      "cosine_9": -0.1352459076975506,
+      "n_supported": 0,
+      "supported_features": [],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": null,
+      "vector_spearman_supported": null,
+      "cosine_supported": null
+    },
+    {
+      "direction": "montiferru_2021_to_bejis_2022",
+      "raw_thermal_roc_auc": 0.5483011162010453,
+      "agree_count_9": 7,
+      "vector_spearman_9": 0.4666666666666667,
+      "cosine_9": 0.4868821436161877,
+      "n_supported": 0,
+      "supported_features": [],
+      "agree_count_supported": 0,
+      "agree_fraction_supported": null,
+      "vector_spearman_supported": null,
+      "cosine_supported": null
+    },
+    {
+      "direction": "montiferru_2021_to_mugla_2021",
+      "raw_thermal_roc_auc": 0.6193519007685069,
+      "agree_count_9": 9,
+      "vector_spearman_9": 0.8666666666666667,
+      "cosine_9": 0.8996205722937118,
+      "n_supported": 2,
+      "supported_features": [
+        "slope_mean",
+        "current_tvdi_mean"
+      ],
+      "agree_count_supported": 2,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 0.9932677223239516
+    },
+    {
+      "direction": "montiferru_2021_to_evia_2021_extended",
+      "raw_thermal_roc_auc": 0.5861929535806533,
+      "agree_count_9": 6,
+      "vector_spearman_9": 0.7166666666666667,
+      "cosine_9": 0.541165020981191,
+      "n_supported": 1,
+      "supported_features": [
+        "current_tvdi_mean"
+      ],
+      "agree_count_supported": 1,
+      "agree_fraction_supported": 1,
+      "vector_spearman_supported": null,
+      "cosine_supported": 1
+    }
+  ],
+  "correlations": [
+    {
+      "key": "agree_count_9",
+      "label": "Sign-agreement count, all 9 features",
+      "expected": "positive",
+      "full_set": {
+        "n_directions": 20,
+        "n_pairs": 10,
+        "spearman_rho": 0.17852322464867923,
+        "spearman_ci95": [
+          -0.40012959748817145,
+          0.7183144468264274
+        ],
+        "kendall_tau_b": 0.14122534594735514,
+        "kendall_ci95": [
+          -0.3079463044304261,
+          0.5781154786297455
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "vector_spearman_9",
+      "label": "Signed-AUC vector Spearman, all 9 features",
+      "expected": "positive",
+      "full_set": {
+        "n_directions": 20,
+        "n_pairs": 10,
+        "spearman_rho": 0.2686811582920242,
+        "spearman_ci95": [
+          -0.3631375886821634,
+          0.7651469334715999
+        ],
+        "kendall_tau_b": 0.19466570535691505,
+        "kendall_ci95": [
+          -0.28956801083017775,
+          0.6010407640085653
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "cosine_9",
+      "label": "Signed-AUC (AUC-0.5) cosine similarity, all 9 features",
+      "expected": "positive",
+      "full_set": {
+        "n_directions": 20,
+        "n_pairs": 10,
+        "spearman_rho": 0.5041545329749219,
+        "spearman_ci95": [
+          -0.1668430636091617,
+          0.8253247305522816
+        ],
+        "kendall_tau_b": 0.3677018878963951,
+        "kendall_ci95": [
+          -0.12246292816628972,
+          0.6847800243941174
+        ],
+        "n_valid_replicates": 2000,
+        "n_degenerate_replicates": 0
+      }
+    },
+    {
+      "key": "agree_fraction_supported",
+      "label": "Sign-agreement fraction, features with both CIs excluding 0.5",
+      "expected": "positive",
+      "full_set": {
+        "n_directions": 16,
+        "n_pairs": 8,
+        "spearman_rho": 0.8404180632330576,
+        "spearman_ci95": [
+          0.5764930300097753,
+          0.87635999649456
+        ],
+        "kendall_tau_b": 0.7084919084320762,
+        "kendall_ci95": [
+          0.49559462778335206,
+          0.7670346876014739
+        ],
+        "n_valid_replicates": 1956,
+        "n_degenerate_replicates": 44
+      }
+    },
+    {
+      "key": "vector_spearman_supported",
+      "label": "Signed-AUC vector Spearman, supported features only (n>=3)",
+      "expected": "positive",
+      "full_set": {
+        "n_directions": 2,
+        "n_pairs": 1,
+        "spearman_rho": null,
+        "spearman_ci95": [
+          null,
+          null
+        ],
+        "kendall_tau_b": null,
+        "kendall_ci95": [
+          null,
+          null
+        ],
+        "n_valid_replicates": 0,
+        "n_degenerate_replicates": 2000
+      }
+    },
+    {
+      "key": "cosine_supported",
+      "label": "Signed-AUC cosine, supported features only",
+      "expected": "positive",
+      "full_set": {
+        "n_directions": 16,
+        "n_pairs": 8,
+        "spearman_rho": 0.8054172503325737,
+        "spearman_ci95": [
+          0.3294754314388876,
+          0.8774024363708867
+        ],
+        "kendall_tau_b": 0.6708203932499369,
+        "kendall_ci95": [
+          0.3067309007332399,
+          0.7680003654969891
+        ],
+        "n_valid_replicates": 1997,
+        "n_degenerate_replicates": 3
+      }
+    }
+  ]
+}

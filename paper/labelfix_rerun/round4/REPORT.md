@@ -44,8 +44,10 @@ control = `rerun_labelfix/control` (frozen Manavgat label `054a1961…`); correc
   **Not used:** `vector_spearman_supported` came out significant (ρ = 0.96, BH 0.001), but it rests on 6
   directions with a degenerate bootstrap interval (upper bound = point estimate, [0.853, 0.956]). It was not
   computable under the frozen label. Promoting it after the other measures failed would be a forking path,
-  so it is not used, not tabled and not cited (user decision, 2026-09-23). The candidate set of diagnostics
-  was fixed before computation and stays fixed.
+  so it is not interpreted and not cited as evidence. **Superseded the same day (stage D):** it is one of the 20
+  pre-fixed candidates, so it stays in the diagnostics table, flagged (6 directions, degenerate interval, not
+  comparable with the other 19). Dropping a fixed candidate after seeing its result would itself be a forking
+  path. The candidate set was fixed before computation and stays fixed.
 - **Within-region robustness, Manavgat (TSG):** ΔAUC at blocks 2/10/20 is +0.067 [+0.061, +0.073],
   +0.062 [+0.041, +0.082] and +0.047 [+0.016, +0.081]. It is positive at every block, the same verdict
   as frozen (+0.067/+0.050/+0.049). all_valid is also positive at every block.

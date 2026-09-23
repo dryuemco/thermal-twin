@@ -1,0 +1,274 @@
+{
+ "meta": {
+  "created": "2026-08-08",
+  "analysis": "Analysis 5 - is niche overlap (P(x|y=1)) the same quantity as sign agreement (P(y|x)), and which predicts transfer?",
+  "primary_evidence_note": "Primary evidence = the two contrast pairs (logical: high overlap + failed transfer AND low overlap + working transfer together show overlap is neither sufficient nor necessary, independent of n). Partial correlations are SUPPORTIVE ONLY (n=10/8 effective pairs).",
+  "environment": "python 3.12.13, scikit-learn 1.9.0, numpy 2.5.1, pandas 3.0.5 (WSL micromamba mm-thermal)",
+  "bootstrap": "pair resampling with replacement, 2000 replicates, mulberry32 seed 42 (+offsets), percentile 95% CI",
+  "parquet_sha256_prefixes": {
+   "manavgat_2021": "054a1961",
+   "bejis_2022": "3dec785a",
+   "mugla_2021": "c4ab107d",
+   "evia_2021_extended": "bdce859c",
+   "montiferru_2021": "ffb008f9"
+  }
+ },
+ "pair_level_dataset": [
+  {
+   "pair": "bejis_2022|manavgat_2021",
+   "region_a": "bejis_2022",
+   "region_b": "manavgat_2021",
+   "schoener_d_mean1d": 0.5748587317530736,
+   "agree_count_9": 4,
+   "cosine_9": -0.26123025140275213,
+   "n_supported": 1,
+   "agree_fraction_supported": 0,
+   "cosine_supported": -1,
+   "mean_transfer": 0.3846810320371662,
+   "transfer_dirs": {
+    "bejis_2022_to_manavgat_2021": 0.44352842964630473,
+    "manavgat_2021_to_bejis_2022": 0.3258336344280276
+   }
+  },
+  {
+   "pair": "manavgat_2021|mugla_2021",
+   "region_a": "manavgat_2021",
+   "region_b": "mugla_2021",
+   "schoener_d_mean1d": 0.8258756788390794,
+   "agree_count_9": 4,
+   "cosine_9": -0.2093633346685748,
+   "n_supported": 2,
+   "agree_fraction_supported": 0.5,
+   "cosine_supported": 0.2184872286368574,
+   "mean_transfer": 0.4355797684669911,
+   "transfer_dirs": {
+    "manavgat_2021_to_mugla_2021": 0.47015987108700774,
+    "mugla_2021_to_manavgat_2021": 0.40099966584697444
+   }
+  },
+  {
+   "pair": "evia_2021_extended|manavgat_2021",
+   "region_a": "evia_2021_extended",
+   "region_b": "manavgat_2021",
+   "schoener_d_mean1d": 0.7087095942591652,
+   "agree_count_9": 1,
+   "cosine_9": -0.18999495861064872,
+   "n_supported": 1,
+   "agree_fraction_supported": 1,
+   "cosine_supported": 1,
+   "mean_transfer": 0.6491699111133777,
+   "transfer_dirs": {
+    "evia_2021_extended_to_manavgat_2021": 0.6857777670301659,
+    "manavgat_2021_to_evia_2021_extended": 0.6125620551965896
+   }
+  },
+  {
+   "pair": "manavgat_2021|montiferru_2021",
+   "region_a": "manavgat_2021",
+   "region_b": "montiferru_2021",
+   "schoener_d_mean1d": 0.6786014468267783,
+   "agree_count_9": 4,
+   "cosine_9": -0.1352459076975506,
+   "n_supported": 0,
+   "agree_fraction_supported": null,
+   "cosine_supported": null,
+   "mean_transfer": 0.5501513808288097,
+   "transfer_dirs": {
+    "manavgat_2021_to_montiferru_2021": 0.5332600780053577,
+    "montiferru_2021_to_manavgat_2021": 0.5670426836522615
+   }
+  },
+  {
+   "pair": "bejis_2022|mugla_2021",
+   "region_a": "bejis_2022",
+   "region_b": "mugla_2021",
+   "schoener_d_mean1d": 0.5805617051269046,
+   "agree_count_9": 7,
+   "cosine_9": 0.4805606399292804,
+   "n_supported": 1,
+   "agree_fraction_supported": 1,
+   "cosine_supported": 1,
+   "mean_transfer": 0.6008329935711113,
+   "transfer_dirs": {
+    "bejis_2022_to_mugla_2021": 0.6184747489978262,
+    "mugla_2021_to_bejis_2022": 0.5831912381443964
+   }
+  },
+  {
+   "pair": "bejis_2022|evia_2021_extended",
+   "region_a": "bejis_2022",
+   "region_b": "evia_2021_extended",
+   "schoener_d_mean1d": 0.5238179101294864,
+   "agree_count_9": 6,
+   "cosine_9": 0.1250022073317288,
+   "n_supported": 1,
+   "agree_fraction_supported": 0,
+   "cosine_supported": -1,
+   "mean_transfer": 0.415414684563159,
+   "transfer_dirs": {
+    "bejis_2022_to_evia_2021_extended": 0.38282143313044736,
+    "evia_2021_extended_to_bejis_2022": 0.4480079359958707
+   }
+  },
+  {
+   "pair": "bejis_2022|montiferru_2021",
+   "region_a": "bejis_2022",
+   "region_b": "montiferru_2021",
+   "schoener_d_mean1d": 0.4785862730200658,
+   "agree_count_9": 7,
+   "cosine_9": 0.4868821436161877,
+   "n_supported": 0,
+   "agree_fraction_supported": null,
+   "cosine_supported": null,
+   "mean_transfer": 0.5710132251805036,
+   "transfer_dirs": {
+    "bejis_2022_to_montiferru_2021": 0.5937253341599618,
+    "montiferru_2021_to_bejis_2022": 0.5483011162010453
+   }
+  },
+  {
+   "pair": "evia_2021_extended|mugla_2021",
+   "region_a": "evia_2021_extended",
+   "region_b": "mugla_2021",
+   "schoener_d_mean1d": 0.7298138241853114,
+   "agree_count_9": 6,
+   "cosine_9": 0.8082683241259495,
+   "n_supported": 5,
+   "agree_fraction_supported": 1,
+   "cosine_supported": 0.9934924580278877,
+   "mean_transfer": 0.6151208313273461,
+   "transfer_dirs": {
+    "evia_2021_extended_to_mugla_2021": 0.576836486299561,
+    "mugla_2021_to_evia_2021_extended": 0.6534051763551312
+   }
+  },
+  {
+   "pair": "montiferru_2021|mugla_2021",
+   "region_a": "montiferru_2021",
+   "region_b": "mugla_2021",
+   "schoener_d_mean1d": 0.6887242267965478,
+   "agree_count_9": 9,
+   "cosine_9": 0.8996205722937118,
+   "n_supported": 2,
+   "agree_fraction_supported": 1,
+   "cosine_supported": 0.9932677223239516,
+   "mean_transfer": 0.5752976105196292,
+   "transfer_dirs": {
+    "montiferru_2021_to_mugla_2021": 0.6193519007685069,
+    "mugla_2021_to_montiferru_2021": 0.5312433202707516
+   }
+  },
+  {
+   "pair": "evia_2021_extended|montiferru_2021",
+   "region_a": "evia_2021_extended",
+   "region_b": "montiferru_2021",
+   "schoener_d_mean1d": 0.6480277581942411,
+   "agree_count_9": 6,
+   "cosine_9": 0.541165020981191,
+   "n_supported": 1,
+   "agree_fraction_supported": 1,
+   "cosine_supported": 1,
+   "mean_transfer": 0.6164485789097961,
+   "transfer_dirs": {
+    "evia_2021_extended_to_montiferru_2021": 0.6467042042389389,
+    "montiferru_2021_to_evia_2021_extended": 0.5861929535806533
+   }
+  }
+ ],
+ "measure_vs_measure": [
+  {
+   "x": "schoener_d_mean1d",
+   "y": "agree_fraction_supported",
+   "n_pairs": 8,
+   "spearman_rho": 0.45363235436327737,
+   "ci95": [
+    -0.7844645405527361,
+    0.9000703207408192
+   ],
+   "n_valid_replicates": 1950
+  },
+  {
+   "x": "schoener_d_mean1d",
+   "y": "cosine_supported",
+   "n_pairs": 8,
+   "spearman_rho": 0.30689288508764767,
+   "ci95": [
+    -0.8819171036881969,
+    0.8606629658238705
+   ],
+   "n_valid_replicates": 1999
+  },
+  {
+   "x": "schoener_d_mean1d",
+   "y": "cosine_9",
+   "n_pairs": 10,
+   "spearman_rho": 0.006060606060606061,
+   "ci95": [
+    -0.7272727272727273,
+    0.7307692307692307
+   ],
+   "n_valid_replicates": 2000
+  },
+  {
+   "x": "schoener_d_mean1d",
+   "y": "agree_count_9",
+   "n_pairs": 10,
+   "spearman_rho": -0.36151283613660345,
+   "ci95": [
+    -0.8561715433015248,
+    0.30114474578384315
+   ],
+   "n_valid_replicates": 2000
+  }
+ ],
+ "partial_correlations_supportive": [
+  {
+   "conditional_measure": "cosine_9",
+   "n_directions": 20,
+   "n_pairs": 10,
+   "partial_conditional_given_niche": {
+    "rho": 0.5180349082711138,
+    "ci95": [
+     -0.1885809930109754,
+     0.8253335828606158
+    ],
+    "n_valid": 1996
+   },
+   "partial_niche_given_conditional": {
+    "rho": 0.2761189609069924,
+    "ci95": [
+     -0.36289291925038175,
+     0.7051078541222345
+    ],
+    "n_valid": 1996
+   }
+  },
+  {
+   "conditional_measure": "agree_fraction_supported",
+   "n_directions": 16,
+   "n_pairs": 8,
+   "partial_conditional_given_niche": {
+    "rho": 0.8167107352660605,
+    "ci95": [
+     0.39478228074615146,
+     0.8782272882098645
+    ],
+    "n_valid": 1945
+   },
+   "partial_niche_given_conditional": {
+    "rho": -0.06650994190093594,
+    "ci95": [
+     -0.3918772324136753,
+     0.3668612414465172
+    ],
+    "n_valid": 1945
+   }
+  }
+ ],
+ "combined_table_counts": {
+  "total_diagnostic_rows": 20,
+  "ci_excludes_zero": 2,
+  "ci_spans_zero": 17,
+  "not_computable": 1
+ }
+}

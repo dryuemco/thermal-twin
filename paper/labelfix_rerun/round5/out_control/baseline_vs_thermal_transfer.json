@@ -1,0 +1,466 @@
+{
+ "meta": {
+  "created": "2026-08-08",
+  "purpose": "POSITIONING §3 direct evidence: per-direction paired baseline-vs-thermal raw transfer contrast. The thermal block is the swing factor: where it gains within-region it can push transfer below chance, and vice versa.",
+  "population": "burnable_tree_shrub_grass",
+  "source": "drive_new/cross_region/<pair>/step9b (points) + step9c (target spatial-block bootstrap, 1000 replicates, seed 42, paired delta = thermal - baseline on identical resampled blocks)",
+  "no_new_model_runs": true,
+  "summary": {
+   "mean_baseline": 0.5371304058579334,
+   "mean_thermal": 0.541371001651789,
+   "mean_delta": 0.004240595793855545,
+   "delta_ci_positive": [
+    "manavgat_2021_to_evia_2021_extended",
+    "bejis_2022_to_mugla_2021",
+    "bejis_2022_to_montiferru_2021",
+    "mugla_2021_to_bejis_2022",
+    "mugla_2021_to_evia_2021_extended",
+    "evia_2021_extended_to_bejis_2022",
+    "evia_2021_extended_to_mugla_2021",
+    "evia_2021_extended_to_montiferru_2021",
+    "montiferru_2021_to_manavgat_2021",
+    "montiferru_2021_to_evia_2021_extended"
+   ],
+   "delta_ci_negative": [
+    "manavgat_2021_to_mugla_2021",
+    "manavgat_2021_to_montiferru_2021",
+    "bejis_2022_to_evia_2021_extended",
+    "mugla_2021_to_manavgat_2021",
+    "mugla_2021_to_montiferru_2021",
+    "montiferru_2021_to_bejis_2022",
+    "montiferru_2021_to_mugla_2021"
+   ],
+   "delta_ci_uncertain_count": 3,
+   "thermal_drags_below_chance": [
+    "manavgat_2021_to_mugla_2021",
+    "bejis_2022_to_evia_2021_extended",
+    "mugla_2021_to_manavgat_2021"
+   ],
+   "thermal_lifts_above_chance": [
+    "mugla_2021_to_bejis_2022"
+   ]
+  }
+ },
+ "per_direction": [
+  {
+   "direction": "manavgat_2021_to_bejis_2022",
+   "baseline_roc": 0.33218736692689854,
+   "thermal_roc": 0.3258336344280276,
+   "delta_roc": -0.006353732498870945,
+   "baseline_ci": [
+    0.311506537981002,
+    0.3553297706734864
+   ],
+   "thermal_ci": [
+    0.30428042631795843,
+    0.3477095901264187
+   ],
+   "delta_ci": [
+    -0.023498794765919567,
+    0.009665901714418258
+   ],
+   "delta_interpretation": "uncertain",
+   "n_replicates": 1000,
+   "folder": "manavgat_2021__bejis_2022"
+  },
+  {
+   "direction": "manavgat_2021_to_mugla_2021",
+   "baseline_roc": 0.5079294316533508,
+   "thermal_roc": 0.47015987108700774,
+   "delta_roc": -0.03776956056634306,
+   "baseline_ci": [
+    0.48953578300322836,
+    0.525514814468147
+   ],
+   "thermal_ci": [
+    0.4542465618239862,
+    0.4860635558611139
+   ],
+   "delta_ci": [
+    -0.05123946119000268,
+    -0.02440564831046183
+   ],
+   "delta_interpretation": "negative_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "manavgat_2021__mugla_2021"
+  },
+  {
+   "direction": "manavgat_2021_to_evia_2021_extended",
+   "baseline_roc": 0.5938704664115426,
+   "thermal_roc": 0.6125620551965896,
+   "delta_roc": 0.018691588785046953,
+   "baseline_ci": [
+    0.5747483234388842,
+    0.614202620526644
+   ],
+   "thermal_ci": [
+    0.5930456686156583,
+    0.6328165006162235
+   ],
+   "delta_ci": [
+    0.0027186054103928966,
+    0.03443470421527556
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "manavgat_2021__evia_2021_extended"
+  },
+  {
+   "direction": "manavgat_2021_to_montiferru_2021",
+   "baseline_roc": 0.5779257792439125,
+   "thermal_roc": 0.5332600780053577,
+   "delta_roc": -0.044665701238554845,
+   "baseline_ci": [
+    0.5398535650028882,
+    0.6204032750337775
+   ],
+   "thermal_ci": [
+    0.4874208787171995,
+    0.578247426223025
+   ],
+   "delta_ci": [
+    -0.07748495906629359,
+    -0.01015295918015527
+   ],
+   "delta_interpretation": "negative_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__manavgat_2021"
+  },
+  {
+   "direction": "bejis_2022_to_manavgat_2021",
+   "baseline_roc": 0.4209081190391704,
+   "thermal_roc": 0.44352842964630473,
+   "delta_roc": 0.02262031060713432,
+   "baseline_ci": [
+    0.3850726024194911,
+    0.45684608150123085
+   ],
+   "thermal_ci": [
+    0.4094593699801425,
+    0.477211702682694
+   ],
+   "delta_ci": [
+    -0.0004502040620575576,
+    0.04383313062333805
+   ],
+   "delta_interpretation": "uncertain",
+   "n_replicates": 1000,
+   "folder": "manavgat_2021__bejis_2022"
+  },
+  {
+   "direction": "bejis_2022_to_mugla_2021",
+   "baseline_roc": 0.5922389820175834,
+   "thermal_roc": 0.6184747489978263,
+   "delta_roc": 0.02623576698024288,
+   "baseline_ci": [
+    0.5748523199735693,
+    0.6087669880083553
+   ],
+   "thermal_ci": [
+    0.6018820206575639,
+    0.6339296032012157
+   ],
+   "delta_ci": [
+    0.013964379073478531,
+    0.038417779315220786
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "bejis_2022__mugla_2021"
+  },
+  {
+   "direction": "bejis_2022_to_evia_2021_extended",
+   "baseline_roc": 0.5304609987587828,
+   "thermal_roc": 0.38282143313044736,
+   "delta_roc": -0.14763956562833547,
+   "baseline_ci": [
+    0.5129199780310209,
+    0.5490856086052576
+   ],
+   "thermal_ci": [
+    0.3640085190659917,
+    0.4028624271179902
+   ],
+   "delta_ci": [
+    -0.16823585193219767,
+    -0.12625328129488408
+   ],
+   "delta_interpretation": "negative_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "bejis_2022__evia_2021_extended"
+  },
+  {
+   "direction": "bejis_2022_to_montiferru_2021",
+   "baseline_roc": 0.5530357779021833,
+   "thermal_roc": 0.5937253341599618,
+   "delta_roc": 0.04068955625777848,
+   "baseline_ci": [
+    0.5156064147559003,
+    0.590802378258467
+   ],
+   "thermal_ci": [
+    0.5582346202014172,
+    0.6301024410063059
+   ],
+   "delta_ci": [
+    0.005413702712890991,
+    0.07302125389835473
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__bejis_2022"
+  },
+  {
+   "direction": "mugla_2021_to_manavgat_2021",
+   "baseline_roc": 0.52151982986128,
+   "thermal_roc": 0.40099966584697444,
+   "delta_roc": -0.12052016401430554,
+   "baseline_ci": [
+    0.4955363498507981,
+    0.5483762903099073
+   ],
+   "thermal_ci": [
+    0.3760612733167423,
+    0.4254658182180906
+   ],
+   "delta_ci": [
+    -0.14577701437441995,
+    -0.09781475136540495
+   ],
+   "delta_interpretation": "negative_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "manavgat_2021__mugla_2021"
+  },
+  {
+   "direction": "mugla_2021_to_bejis_2022",
+   "baseline_roc": 0.4507383379572875,
+   "thermal_roc": 0.5831912381443964,
+   "delta_roc": 0.13245290018710892,
+   "baseline_ci": [
+    0.4266875376399474,
+    0.477101478351293
+   ],
+   "thermal_ci": [
+    0.55872824290063,
+    0.6052683918305165
+   ],
+   "delta_ci": [
+    0.10482301635938292,
+    0.15830138925743323
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "bejis_2022__mugla_2021"
+  },
+  {
+   "direction": "mugla_2021_to_evia_2021_extended",
+   "baseline_roc": 0.5997551855443022,
+   "thermal_roc": 0.6534051763551312,
+   "delta_roc": 0.053649990810828996,
+   "baseline_ci": [
+    0.581852008386371,
+    0.6188755939140989
+   ],
+   "thermal_ci": [
+    0.6336116945654386,
+    0.6721536120365013
+   ],
+   "delta_ci": [
+    0.0388474820060491,
+    0.06744306947355341
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "mugla_2021__evia_2021_extended"
+  },
+  {
+   "direction": "mugla_2021_to_montiferru_2021",
+   "baseline_roc": 0.6105251713018012,
+   "thermal_roc": 0.5312433202707516,
+   "delta_roc": -0.07928185103104957,
+   "baseline_ci": [
+    0.5716371489278045,
+    0.6512143257271659
+   ],
+   "thermal_ci": [
+    0.49789653632795755,
+    0.5669237816929328
+   ],
+   "delta_ci": [
+    -0.11681152119212697,
+    -0.03739684566491012
+   ],
+   "delta_interpretation": "negative_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__mugla_2021"
+  },
+  {
+   "direction": "evia_2021_extended_to_manavgat_2021",
+   "baseline_roc": 0.6757598037187196,
+   "thermal_roc": 0.6857777670301659,
+   "delta_roc": 0.010017963311446332,
+   "baseline_ci": [
+    0.6408754147640819,
+    0.7099677168569778
+   ],
+   "thermal_ci": [
+    0.651483434912973,
+    0.71707037508345
+   ],
+   "delta_ci": [
+    -0.01195697730073599,
+    0.03213401224409804
+   ],
+   "delta_interpretation": "uncertain",
+   "n_replicates": 1000,
+   "folder": "manavgat_2021__evia_2021_extended"
+  },
+  {
+   "direction": "evia_2021_extended_to_bejis_2022",
+   "baseline_roc": 0.39173411187818563,
+   "thermal_roc": 0.4480079359958707,
+   "delta_roc": 0.056273824117685056,
+   "baseline_ci": [
+    0.3678374129516898,
+    0.4145198763133989
+   ],
+   "thermal_ci": [
+    0.4265929383108709,
+    0.4684725774992342
+   ],
+   "delta_ci": [
+    0.03705639703252005,
+    0.07722691443499377
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "bejis_2022__evia_2021_extended"
+  },
+  {
+   "direction": "evia_2021_extended_to_mugla_2021",
+   "baseline_roc": 0.5125008374843694,
+   "thermal_roc": 0.576836486299561,
+   "delta_roc": 0.0643356488151916,
+   "baseline_ci": [
+    0.4927273257012036,
+    0.53049263180613
+   ],
+   "thermal_ci": [
+    0.5597937684326241,
+    0.5940689575690627
+   ],
+   "delta_ci": [
+    0.044362560924691645,
+    0.08288785411034678
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "mugla_2021__evia_2021_extended"
+  },
+  {
+   "direction": "evia_2021_extended_to_montiferru_2021",
+   "baseline_roc": 0.5494242131221113,
+   "thermal_roc": 0.6467042042389389,
+   "delta_roc": 0.09727999111682761,
+   "baseline_ci": [
+    0.5073955517163856,
+    0.5884350644201087
+   ],
+   "thermal_ci": [
+    0.6090080065790465,
+    0.6827904013964046
+   ],
+   "delta_ci": [
+    0.05429955158335545,
+    0.13848948017870333
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__evia_2021_extended"
+  },
+  {
+   "direction": "montiferru_2021_to_manavgat_2021",
+   "baseline_roc": 0.5018395227508553,
+   "thermal_roc": 0.5670426836522615,
+   "delta_roc": 0.06520316090140621,
+   "baseline_ci": [
+    0.4709706431405402,
+    0.5331049519777195
+   ],
+   "thermal_ci": [
+    0.5398059157030237,
+    0.5955056159221729
+   ],
+   "delta_ci": [
+    0.0407867627575933,
+    0.09127482788442369
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__manavgat_2021"
+  },
+  {
+   "direction": "montiferru_2021_to_bejis_2022",
+   "baseline_roc": 0.6126267823730563,
+   "thermal_roc": 0.5483011162010453,
+   "delta_roc": -0.06432566617201108,
+   "baseline_ci": [
+    0.5865565913820214,
+    0.6372696394696381
+   ],
+   "thermal_ci": [
+    0.5210023743179294,
+    0.5780665350030779
+   ],
+   "delta_ci": [
+    -0.08230193094103318,
+    -0.04402132795870333
+   ],
+   "delta_interpretation": "negative_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__bejis_2022"
+  },
+  {
+   "direction": "montiferru_2021_to_mugla_2021",
+   "baseline_roc": 0.6512032576312359,
+   "thermal_roc": 0.6193519007685069,
+   "delta_roc": -0.031851356862729,
+   "baseline_ci": [
+    0.6341244893595136,
+    0.6679536959189739
+   ],
+   "thermal_ci": [
+    0.6031072876020175,
+    0.6345504281264537
+   ],
+   "delta_ci": [
+    -0.047632575752320466,
+    -0.017027822415045038
+   ],
+   "delta_interpretation": "negative_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__mugla_2021"
+  },
+  {
+   "direction": "montiferru_2021_to_evia_2021_extended",
+   "baseline_roc": 0.5564241415820402,
+   "thermal_roc": 0.5861929535806533,
+   "delta_roc": 0.02976881199861303,
+   "baseline_ci": [
+    0.5348964477807642,
+    0.5757314724264522
+   ],
+   "thermal_ci": [
+    0.5646001388689521,
+    0.6065158361306496
+   ],
+   "delta_ci": [
+    0.013232776303930462,
+    0.04571072549302371
+   ],
+   "delta_interpretation": "positive_bootstrap_support",
+   "n_replicates": 1000,
+   "folder": "montiferru_2021__evia_2021_extended"
+  }
+ ]
+}

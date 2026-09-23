@@ -1,0 +1,213 @@
+{
+  "transfer": {
+    "bejis_2022_to_evia_2021": {
+      "thermal": 0.3969913034163206,
+      "baseline": 0.4857448672360973,
+      "_source": "bejis_2022__evia_2021/step9b"
+    },
+    "evia_2021_to_bejis_2022": {
+      "thermal": 0.37776230724562876,
+      "baseline": 0.36952974385444226,
+      "_source": "bejis_2022__evia_2021/step9b"
+    },
+    "bejis_2022_to_evia_2021_extended": {
+      "thermal": 0.38282143313044736,
+      "baseline": 0.5304609987587828,
+      "_source": "bejis_2022__evia_2021_extended/step9b"
+    },
+    "evia_2021_extended_to_bejis_2022": {
+      "thermal": 0.4480079359958707,
+      "baseline": 0.39173411187818563,
+      "_source": "bejis_2022__evia_2021_extended/step9b"
+    },
+    "bejis_2022_to_mugla_2021": {
+      "thermal": 0.6184747489978262,
+      "baseline": 0.5922390528127224,
+      "_source": "mugla_2021__bejis_2022/step9b"
+    },
+    "mugla_2021_to_bejis_2022": {
+      "thermal": 0.5831912381443964,
+      "baseline": 0.4507383379572875,
+      "_source": "mugla_2021__bejis_2022/step9b"
+    },
+    "manavgat_2021_to_bejis_2022": {
+      "thermal": 0.3258336344280276,
+      "baseline": 0.33218736692689854,
+      "_source": "manavgat_2021__bejis_2022/step9b"
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "thermal": 0.44352842964630473,
+      "baseline": 0.4209081190391704,
+      "_source": "manavgat_2021__bejis_2022/step9b"
+    },
+    "manavgat_2021_to_evia_2021": {
+      "thermal": 0.6623291554336159,
+      "baseline": 0.7008481166670422,
+      "_source": "manavgat_2021__evia_2021/step9b"
+    },
+    "evia_2021_to_manavgat_2021": {
+      "thermal": 0.6697169553176368,
+      "baseline": 0.7079332829345051,
+      "_source": "manavgat_2021__evia_2021/step9b"
+    },
+    "manavgat_2021_to_evia_2021_extended": {
+      "thermal": 0.6125620551965896,
+      "baseline": 0.5938704664115426,
+      "_source": "manavgat_2021__evia_2021_extended/step9b"
+    },
+    "evia_2021_extended_to_manavgat_2021": {
+      "thermal": 0.6857777670301659,
+      "baseline": 0.6757598037187196,
+      "_source": "manavgat_2021__evia_2021_extended/step9b"
+    },
+    "manavgat_2021_to_mugla_2021": {
+      "thermal": 0.47015987108700774,
+      "baseline": 0.5079294316533508,
+      "_source": "mugla_2021__manavgat_2021/step9b"
+    },
+    "mugla_2021_to_manavgat_2021": {
+      "thermal": 0.40099966584697444,
+      "baseline": 0.52151982986128,
+      "_source": "mugla_2021__manavgat_2021/step9b"
+    },
+    "montiferru_2021_to_bejis_2022": {
+      "thermal": 0.5483011162010453,
+      "baseline": 0.6126267823730563,
+      "_source": "montiferru_2021__bejis_2022/step9b"
+    },
+    "bejis_2022_to_montiferru_2021": {
+      "thermal": 0.5937253341599618,
+      "baseline": 0.5530357779021833,
+      "_source": "montiferru_2021__bejis_2022/step9b"
+    },
+    "montiferru_2021_to_evia_2021_extended": {
+      "thermal": 0.5861929535806533,
+      "baseline": 0.5564241415820402,
+      "_source": "montiferru_2021__evia_2021_extended/step9b"
+    },
+    "evia_2021_extended_to_montiferru_2021": {
+      "thermal": 0.6467042042389389,
+      "baseline": 0.5494242131221113,
+      "_source": "montiferru_2021__evia_2021_extended/step9b"
+    },
+    "montiferru_2021_to_manavgat_2021": {
+      "thermal": 0.5670426836522615,
+      "baseline": 0.5018395227508553,
+      "_source": "montiferru_2021__manavgat_2021/step9b"
+    },
+    "manavgat_2021_to_montiferru_2021": {
+      "thermal": 0.5332600780053577,
+      "baseline": 0.5779257792439125,
+      "_source": "montiferru_2021__manavgat_2021/step9b"
+    },
+    "montiferru_2021_to_mugla_2021": {
+      "thermal": 0.6193519007685069,
+      "baseline": 0.6512032576312359,
+      "_source": "montiferru_2021__mugla_2021/step9b"
+    },
+    "mugla_2021_to_montiferru_2021": {
+      "thermal": 0.5312433202707516,
+      "baseline": 0.6105251713018012,
+      "_source": "montiferru_2021__mugla_2021/step9b"
+    },
+    "mugla_2021_to_evia_2021": {
+      "thermal": 0.6300344579408534,
+      "baseline": 0.6520901157251784,
+      "_source": "mugla_2021__evia_2021/step9b"
+    },
+    "evia_2021_to_mugla_2021": {
+      "thermal": 0.5718565748184399,
+      "baseline": 0.5010499804034632,
+      "_source": "mugla_2021__evia_2021/step9b"
+    },
+    "mugla_2021_to_evia_2021_extended": {
+      "thermal": 0.6534051763551312,
+      "baseline": 0.5997551855443022,
+      "_source": "mugla_2021__evia_2021_extended/step9b"
+    },
+    "evia_2021_extended_to_mugla_2021": {
+      "thermal": 0.576836486299561,
+      "baseline": 0.5125008374843694,
+      "_source": "mugla_2021__evia_2021_extended/step9b"
+    },
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "thermal": 0.5588060231914883,
+      "baseline": 0.6421276976485887,
+      "_source": "mugla_2021__mugla_2022_event_relative/step9b"
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "thermal": 0.6692151604002363,
+      "baseline": 0.5809242374405595,
+      "_source": "mugla_2021__mugla_2022_event_relative/step9b"
+    }
+  },
+  "within": {
+    "manavgat_2021": {
+      "thermal_auc": 0.8696419777927898,
+      "baseline_auc": 0.8027358197042693,
+      "_source": "manavgat_2021/step8c/step8c_bootstrap_metrics.json overall_point_estimates_from_predictions.burnable_tree_shrub_grass.auc_thermal/auc_baseline"
+    },
+    "bejis_2022": {
+      "thermal_auc": 0.9178110845861024,
+      "baseline_auc": 0.8616776566230079,
+      "_source": "bejis_2022/step8c/step8c_bootstrap_metrics.json overall_point_estimates_from_predictions.burnable_tree_shrub_grass.auc_thermal/auc_baseline"
+    },
+    "mugla_2021": {
+      "thermal_auc": 0.8589830389802724,
+      "baseline_auc": 0.7433200295403336,
+      "_source": "mugla_2021/step8c/step8c_bootstrap_metrics.json overall_point_estimates_from_predictions.burnable_tree_shrub_grass.auc_thermal/auc_baseline"
+    },
+    "evia_2021_extended": {
+      "thermal_auc": 0.9122372202621674,
+      "baseline_auc": 0.7589523122760988,
+      "_source": "evia_2021_extended/step8c/step8c_bootstrap_metrics.json overall_point_estimates_from_predictions.burnable_tree_shrub_grass.auc_thermal/auc_baseline"
+    },
+    "montiferru_2021": {
+      "thermal_auc": 0.8826347859479317,
+      "baseline_auc": 0.7811972850804343,
+      "_source": "montiferru_2021/step8c/step8c_bootstrap_metrics.json overall_point_estimates_from_predictions.burnable_tree_shrub_grass.auc_thermal/auc_baseline"
+    }
+  },
+  "conditional_by_pair": {
+    "bejis_2022|manavgat_2021": {
+      "cosine_9": -0.26123025140275213,
+      "agree_count_9": 4
+    },
+    "manavgat_2021|mugla_2021": {
+      "cosine_9": -0.2093633346685748,
+      "agree_count_9": 4
+    },
+    "evia_2021_extended|manavgat_2021": {
+      "cosine_9": -0.18999495861064872,
+      "agree_count_9": 1
+    },
+    "manavgat_2021|montiferru_2021": {
+      "cosine_9": -0.1352459076975506,
+      "agree_count_9": 4
+    },
+    "bejis_2022|mugla_2021": {
+      "cosine_9": 0.4805606399292804,
+      "agree_count_9": 7
+    },
+    "bejis_2022|evia_2021_extended": {
+      "cosine_9": 0.1250022073317288,
+      "agree_count_9": 6
+    },
+    "bejis_2022|montiferru_2021": {
+      "cosine_9": 0.4868821436161877,
+      "agree_count_9": 7
+    },
+    "evia_2021_extended|mugla_2021": {
+      "cosine_9": 0.8082683241259495,
+      "agree_count_9": 6
+    },
+    "montiferru_2021|mugla_2021": {
+      "cosine_9": 0.8996205722937118,
+      "agree_count_9": 9
+    },
+    "evia_2021_extended|montiferru_2021": {
+      "cosine_9": 0.541165020981191,
+      "agree_count_9": 6
+    }
+  }
+}
