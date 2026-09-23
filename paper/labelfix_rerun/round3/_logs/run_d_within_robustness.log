@@ -1,0 +1,63 @@
+
+########################################################################
+# POPULATION: burnable_tree_shrub_grass (primary) — Doğal vejetasyon (tree+shrub+grass)
+########################################################################
+
+[region] manavgat_2021 (burnable_tree_shrub_grass): n=20511, burned=2935
+  blok= 2 (  ~1km) n_blocks= 5439 | base=0.8412 therm=0.9081 dAUC=+0.0669 CI=[+0.0606,+0.0733] -> positive_bootstrap_support
+  blok=10 (  ~5km) n_blocks=  237 | base=0.8203 therm=0.8822 dAUC=+0.0619 CI=[+0.0413,+0.0822] -> positive_bootstrap_support
+  blok=20 ( ~10km) n_blocks=   60 | base=0.7976 therm=0.8445 dAUC=+0.0469 CI=[+0.0157,+0.0807] -> positive_bootstrap_support
+  [repro blok=2 burnable_tree_shrub_grass] base 0.8412 vs 0.8412 (dev 0.0000); therm 0.9081 vs 0.9081 (dev 0.0000) -> PASS
+
+[region] bejis_2022 (burnable_tree_shrub_grass): n=15190, burned=1100
+  blok= 2 (  ~1km) n_blocks= 3967 | base=0.8617 therm=0.9178 dAUC=+0.0561 CI=[+0.0474,+0.0648] -> positive_bootstrap_support
+  blok=10 (  ~5km) n_blocks=  176 | base=0.7794 therm=0.8245 dAUC=+0.0451 CI=[+0.0183,+0.0678] -> positive_bootstrap_support
+  blok=20 ( ~10km) n_blocks=   48 | base=0.7386 therm=0.7952 dAUC=+0.0566 CI=[+0.0310,+0.0899] -> positive_bootstrap_support
+  [repro blok=2 burnable_tree_shrub_grass] base 0.8617 vs 0.8617 (dev 0.0000); therm 0.9178 vs 0.9178 (dev 0.0000) -> PASS
+
+########################################################################
+# POPULATION: all_valid (sensitivity) — Tüm valid_for_modeling hücreleri (cropland/çıplak dahil)
+########################################################################
+
+[region] manavgat_2021 (all_valid): n=24087, burned=3046
+  blok= 2 (  ~1km) n_blocks= 6070 | base=0.8647 therm=0.9212 dAUC=+0.0565 CI=[+0.0509,+0.0621] -> positive_bootstrap_support
+  blok=10 (  ~5km) n_blocks=  252 | base=0.8492 therm=0.9003 dAUC=+0.0511 CI=[+0.0334,+0.0692] -> positive_bootstrap_support
+  blok=20 ( ~10km) n_blocks=   63 | base=0.8136 therm=0.8632 dAUC=+0.0496 CI=[+0.0197,+0.0806] -> positive_bootstrap_support
+  [repro blok=2 all_valid] base 0.8647 vs 0.8647 (dev 0.0000); therm 0.9212 vs 0.9212 (dev 0.0000) -> PASS
+
+[region] bejis_2022 (all_valid): n=15759, burned=1103
+  blok= 2 (  ~1km) n_blocks= 4004 | base=0.8688 therm=0.9171 dAUC=+0.0482 CI=[+0.0398,+0.0571] -> positive_bootstrap_support
+  blok=10 (  ~5km) n_blocks=  176 | base=0.7904 therm=0.8461 dAUC=+0.0557 CI=[+0.0322,+0.0790] -> positive_bootstrap_support
+  blok=20 ( ~10km) n_blocks=   48 | base=0.7152 therm=0.7765 dAUC=+0.0613 CI=[+0.0397,+0.0871] -> positive_bootstrap_support
+  [repro blok=2 all_valid] base 0.8688 vs 0.8688 (dev 0.0000); therm 0.9171 vs 0.9171 (dev 0.0000) -> PASS
+
+========================================================================
+IS4 REPRODUCTION (blok=2 vs step8e, popülasyon bazli):
+  burnable_tree_shrub_grass  manavgat_2021: base dev 0.0000, therm dev 0.0000 -> PASS
+  burnable_tree_shrub_grass  bejis_2022: base dev 0.0000, therm dev 0.0000 -> PASS
+  all_valid                  manavgat_2021: base dev 0.0000, therm dev 0.0000 -> PASS
+  all_valid                  bejis_2022: base dev 0.0000, therm dev 0.0000 -> PASS
+========================================================================
+
+BLOK BUYUDUKCE TERMAL delta_auc CI (asil soru):
+[burnable_tree_shrub_grass]
+  manavgat_2021:
+    blok= 2 (  ~1km): dAUC=+0.0669 CI=[+0.0606,+0.0733] -> positive_bootstrap_support
+    blok=10 (  ~5km): dAUC=+0.0619 CI=[+0.0413,+0.0822] -> positive_bootstrap_support
+    blok=20 ( ~10km): dAUC=+0.0469 CI=[+0.0157,+0.0807] -> positive_bootstrap_support
+  bejis_2022:
+    blok= 2 (  ~1km): dAUC=+0.0561 CI=[+0.0474,+0.0648] -> positive_bootstrap_support
+    blok=10 (  ~5km): dAUC=+0.0451 CI=[+0.0183,+0.0678] -> positive_bootstrap_support
+    blok=20 ( ~10km): dAUC=+0.0566 CI=[+0.0310,+0.0899] -> positive_bootstrap_support
+[all_valid]
+  manavgat_2021:
+    blok= 2 (  ~1km): dAUC=+0.0565 CI=[+0.0509,+0.0621] -> positive_bootstrap_support
+    blok=10 (  ~5km): dAUC=+0.0511 CI=[+0.0334,+0.0692] -> positive_bootstrap_support
+    blok=20 ( ~10km): dAUC=+0.0496 CI=[+0.0197,+0.0806] -> positive_bootstrap_support
+  bejis_2022:
+    blok= 2 (  ~1km): dAUC=+0.0482 CI=[+0.0398,+0.0571] -> positive_bootstrap_support
+    blok=10 (  ~5km): dAUC=+0.0557 CI=[+0.0322,+0.0790] -> positive_bootstrap_support
+    blok=20 ( ~10km): dAUC=+0.0613 CI=[+0.0397,+0.0871] -> positive_bootstrap_support
+
+[done] Cikti: experiments/<bolge>/step10/within_robustness.json
+       C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\_round3\step10_exp\cross_region\step10\within_robustness_summary.csv

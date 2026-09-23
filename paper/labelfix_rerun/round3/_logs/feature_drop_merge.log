@@ -1,0 +1,7 @@
+drop_elev: supported gains 4 [manavgat_2021_to_bejis_2022, bejis_2022_to_manavgat_2021, evia_2021_extended_to_bejis_2022, montiferru_2021_to_manavgat_2021]
+drop_elev: supported losses 5 [manavgat_2021_to_evia_2021_extended, mugla_2021_to_bejis_2022, mugla_2021_to_evia_2021_extended, evia_2021_extended_to_manavgat_2021, montiferru_2021_to_bejis_2022]
+drop_anom: supported gains 4 [bejis_2022_to_evia_2021_extended, mugla_2021_to_manavgat_2021, evia_2021_extended_to_manavgat_2021, montiferru_2021_to_mugla_2021]
+drop_anom: supported losses 3 [manavgat_2021_to_evia_2021_extended, bejis_2022_to_manavgat_2021, montiferru_2021_to_manavgat_2021]
+drop_both: supported gains 5 [manavgat_2021_to_bejis_2022, bejis_2022_to_manavgat_2021, bejis_2022_to_evia_2021_extended, evia_2021_extended_to_bejis_2022, montiferru_2021_to_manavgat_2021]
+drop_both: supported losses 3 [manavgat_2021_to_evia_2021_extended, mugla_2021_to_evia_2021_extended, evia_2021_extended_to_manavgat_2021]
+max step9b parity diff: 0

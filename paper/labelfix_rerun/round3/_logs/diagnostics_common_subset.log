@@ -1,0 +1,48 @@
+reproduction: 20 published rows, max |diff| = 4.98e-5; n matches on 20/20
+four-AOI subset seed variant: 6 rows, max |diff| = 4.82e-5
+
+SUBSET A — 12 directions / 6 pairs (four regions)
+measure                              fam            n  pairs  rho     [95% CI]           excl0
+agree_fraction_supported             P(y|x) condi   12     6   +0.41  [-0.42,+0.88]  -
+cosine_supported                     P(y|x) condi   12     6   +0.46  [-0.56,+0.84]  -
+cosine_9                             P(y|x) condi   12     6   +0.25  [-0.75,+0.84]  -
+vector_spearman_9                    P(y|x) condi   12     6   +0.25  [-0.75,+0.85]  -
+agree_count_9                        P(y|x) condi   12     6   +0.48  [-0.70,+0.88]  -
+schoener_d_mean1d                    P(x|y=1) nic   12     6   +0.06  [-0.76,+0.82]  -
+warren_i_mean1d                      P(x|y=1) nic   12     6   +0.06  [-0.76,+0.82]  -
+schoener_d_pca2d                     P(x|y=1) nic   12     6   +0.28  [-0.76,+0.93]  -
+warren_i_pca2d                       P(x|y=1) nic   12     6   +0.28  [-0.76,+0.92]  -
+mahalanobis_burned                   P(x|y=1) nic   12     6   -0.14  [-0.93,+0.72]  -
+domain_classifier_auc                P(x) margina   12     6   -0.37  [-0.85,+0.70]  -
+target_mean_dissimilarity            P(x) margina   12     6   -0.13  [-0.67,+0.37]  -
+target_p95_dissimilarity             P(x) margina   12     6   -0.15  [-0.68,+0.24]  -
+fraction_inside_weighted_aoa         P(x) margina   12     6   +0.21  [-0.48,+0.62]  -
+unweighted_fraction_inside_support   P(x) margina   12     6   +0.08  [-0.92,+0.76]  -
+climate_distance                     P(x) margina   12     6   +0.03  [-0.84,+0.84]  -
+geographic_distance_km               geographic     12     6   -0.17  [-0.87,+0.84]  -
+regime_dist_log_effn                 P(y) spatial   12     6   +0.14  [-0.85,+0.84]  -
+regime_dist_largest_share            P(y) spatial   12     6   +0.14  [-0.85,+0.84]  -
+vector_spearman_supported            P(y|x) condi    6     3   +0.96  [+0.85,+0.96]  YES
+
+SUBSET B — 16 directions / 8 pairs (supported set)
+measure                              fam            n  pairs  rho     [95% CI]           excl0
+agree_fraction_supported             P(y|x) condi   18     9   +0.52  [-0.27,+0.87]  -
+cosine_supported                     P(y|x) condi   18     9   +0.49  [-0.24,+0.87]  -
+cosine_9                             P(y|x) condi   18     9   +0.42  [-0.37,+0.81]  -
+vector_spearman_9                    P(y|x) condi   18     9   +0.40  [-0.30,+0.80]  -
+agree_count_9                        P(y|x) condi   18     9   +0.49  [-0.26,+0.81]  -
+schoener_d_mean1d                    P(x|y=1) nic   18     9   +0.17  [-0.45,+0.74]  -
+warren_i_mean1d                      P(x|y=1) nic   18     9   +0.28  [-0.39,+0.86]  -
+schoener_d_pca2d                     P(x|y=1) nic   18     9   +0.09  [-0.61,+0.78]  -
+warren_i_pca2d                       P(x|y=1) nic   18     9   +0.02  [-0.65,+0.66]  -
+mahalanobis_burned                   P(x|y=1) nic   18     9   -0.32  [-0.91,+0.37]  -
+domain_classifier_auc                P(x) margina   18     9   -0.45  [-0.91,+0.21]  -
+target_mean_dissimilarity            P(x) margina   12     6   -0.13  [-0.67,+0.37]  -
+target_p95_dissimilarity             P(x) margina   12     6   -0.15  [-0.68,+0.24]  -
+fraction_inside_weighted_aoa         P(x) margina   12     6   +0.21  [-0.48,+0.62]  -
+unweighted_fraction_inside_support   P(x) margina   12     6   +0.08  [-0.92,+0.76]  -
+climate_distance                     P(x) margina   12     6   +0.03  [-0.84,+0.84]  -
+geographic_distance_km               geographic     12     6   -0.17  [-0.87,+0.84]  -
+regime_dist_log_effn                 P(y) spatial   18     9   +0.10  [-0.71,+0.77]  -
+regime_dist_largest_share            P(y) spatial   18     9   +0.10  [-0.73,+0.79]  -
+vector_spearman_supported            P(y|x) condi    6     3   +0.96  [+0.85,+0.96]  YES

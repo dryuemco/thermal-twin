@@ -81,6 +81,4 @@ paper/tex/*.spl
 !paper/data/**/*.parquet
 !paper/data/**/*.tif
 
-# Stopped, partial round-3 re-run of the frozen pilot (2026-09-19); not results. See paper/PILOT_FROZEN.md.
-paper/labelfix_rerun/round3/
 .venv-fire2/

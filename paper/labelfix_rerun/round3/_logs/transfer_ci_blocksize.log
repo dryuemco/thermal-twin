@@ -1,0 +1,44 @@
+Manavgat->Bejis         lvl 0.3964 2c [0.3707,0.4212] 10c [0.3093,0.4783] | dlt +0.0257 2c [0.0091,0.0420] ref [0.0101,0.0420] 10c [-0.0123,0.0664] positive/uncertain
+Bejis->Manavgat         lvl 0.3142 2c [0.2984,0.3312] 10c [0.2577,0.3717] | dlt +0.0176 2c [0.0060,0.0290] ref [0.0065,0.0291] 10c [-0.0135,0.0488] positive/uncertain
+Manavgat->Mugla         lvl 0.4377 2c [0.4191,0.4586] 10c [0.3640,0.5063] | dlt -0.0279 2c [-0.0389,-0.0175] ref [-0.0396,-0.0161] 10c [-0.0564,-0.0019] negative/negative
+Mugla->Manavgat         lvl 0.3450 2c [0.3314,0.3587] 10c [0.3065,0.3863] | dlt -0.0773 2c [-0.0890,-0.0645] ref [-0.0894,-0.0652] 10c [-0.1065,-0.0487] negative/negative
+Manavgat->Evia          lvl 0.6540 2c [0.6339,0.6758] 10c [0.5825,0.7287] | dlt +0.0314 2c [0.0148,0.0471] ref [0.0162,0.0454] 10c [-0.0060,0.0709] positive/uncertain
+Evia->Manavgat          lvl 0.6769 2c [0.6586,0.6958] 10c [0.6206,0.7295] | dlt -0.0505 2c [-0.0657,-0.0341] ref [-0.0662,-0.0344] 10c [-0.0973,-0.0054] negative/negative
+Bejis->Mugla            lvl 0.6185 2c [0.6020,0.6339] 10c [0.5617,0.6751] | dlt +0.0262 2c [0.0134,0.0391] ref [0.0140,0.0384] 10c [-0.0156,0.0679] positive/uncertain
+Mugla->Bejis            lvl 0.5832 2c [0.5584,0.6070] 10c [0.5318,0.6364] | dlt +0.1325 2c [0.1039,0.1579] ref [0.1048,0.1583] 10c [0.0654,0.1922] positive/positive
+Bejis->Evia             lvl 0.3828 2c [0.3634,0.4020] 10c [0.3304,0.4306] | dlt -0.1476 2c [-0.1722,-0.1249] ref [-0.1682,-0.1263] 10c [-0.2018,-0.0948] negative/negative
+Evia->Bejis             lvl 0.4480 2c [0.4259,0.4696] 10c [0.3942,0.4973] | dlt +0.0563 2c [0.0364,0.0765] ref [0.0371,0.0772] 10c [0.0187,0.1014] positive/positive
+Mugla->Evia             lvl 0.6534 2c [0.6338,0.6721] 10c [0.5900,0.7091] | dlt +0.0536 2c [0.0391,0.0690] ref [0.0388,0.0674] 10c [0.0231,0.0833] positive/positive
+Evia->Mugla             lvl 0.5768 2c [0.5597,0.5939] 10c [0.5202,0.6344] | dlt +0.0643 2c [0.0444,0.0830] ref [0.0444,0.0829] 10c [0.0045,0.1291] positive/positive
+Montiferru->Manavgat    lvl 0.4041 2c [0.3864,0.4224] 10c [0.3361,0.4704] | dlt +0.0662 2c [0.0523,0.0796] ref [0.0533,0.0796] 10c [0.0222,0.1086] positive/positive
+Manavgat->Montiferru    lvl 0.5178 2c [0.4724,0.5629] 10c [0.4242,0.6328] | dlt -0.0162 2c [-0.0460,0.0128] ref [-0.0466,0.0126] 10c [-0.0895,0.0579] uncertain/uncertain
+Montiferru->Bejis       lvl 0.5483 2c [0.5206,0.5752] 10c [0.4789,0.6356] | dlt -0.0643 2c [-0.0845,-0.0448] ref [-0.0823,-0.0440] 10c [-0.0987,-0.0255] negative/negative
+Bejis->Montiferru       lvl 0.5937 2c [0.5545,0.6287] 10c [0.4669,0.6870] | dlt +0.0407 2c [0.0074,0.0739] ref [0.0054,0.0730] 10c [-0.0455,0.1207] positive/uncertain
+Montiferru->Mugla       lvl 0.6194 2c [0.6034,0.6336] 10c [0.5704,0.6684] | dlt -0.0319 2c [-0.0487,-0.0162] ref [-0.0476,-0.0170] 10c [-0.0867,0.0240] negative/uncertain
+Mugla->Montiferru       lvl 0.5312 2c [0.4968,0.5667] 10c [0.4568,0.6039] | dlt -0.0793 2c [-0.1194,-0.0375] ref [-0.1168,-0.0374] 10c [-0.1695,0.0220] negative/uncertain
+Montiferru->Evia        lvl 0.5862 2c [0.5653,0.6062] 10c [0.5204,0.6490] | dlt +0.0298 2c [0.0139,0.0439] ref [0.0132,0.0457] 10c [-0.0080,0.0681] positive/uncertain
+Evia->Montiferru        lvl 0.6467 2c [0.6109,0.6813] 10c [0.5516,0.7377] | dlt +0.0973 2c [0.0543,0.1356] ref [0.0543,0.1385] 10c [0.0130,0.1872] positive/positive
+
+max |point - step9b point| = 1.1102230246251565e-16
+max |2c lo - step10 lo| = 0.00546   max |2c hi - step10 hi| = 0.00297
+mean |lo diff| = 0.00150   mean |hi diff| = 0.00089
+verdict agreement 2c mine vs step10: 20/20
+2-cell (step10 ref): above 11 below 7 uncertain 2
+2-cell (mine)      : above 11 below 7 uncertain 2
+10-cell            : above 9 below 6 uncertain 5
+median width 2c 0.0401  10c 0.1239
+mean width ratio 10c/2c 2.994
+
+--- paired delta (thermal minus baseline) ---
+max |baseline point - step9b| = 1.1102230246251565e-16
+max |delta point - step9b| = 1.6653345369377348e-16
+max |2c delta lo - step9c lo| = 0.00393   max |2c delta hi - step9c hi| = 0.00284
+mean |delta lo diff| = 0.00105   mean |delta hi diff| = 0.00083
+delta verdict agreement 2c mine vs step9c: 20/20
+delta 2-cell (step9c ref): pos 12 neg 7 uncertain 1
+delta 2-cell (mine)      : pos 12 neg 7 uncertain 1
+delta 10-cell            : pos 6 neg 5 uncertain 9
+delta point sign flips 2c vs 10c: 0 by construction (points do not depend on blocking)
+delta median width 2c 0.0327  10c 0.0849
+delta mean width ratio 10c/2c 2.546
+delta changed verdict: Manavgat->Bejis positive->uncertain; Bejis->Manavgat positive->uncertain; Manavgat->Evia positive->uncertain; Bejis->Mugla positive->uncertain; Bejis->Montiferru positive->uncertain; Montiferru->Mugla negative->uncertain; Mugla->Montiferru negative->uncertain; Montiferru->Evia positive->uncertain

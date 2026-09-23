@@ -1,0 +1,44 @@
+============================================================================
+ITEM 9  WITHIN-REGION INCREMENT ON THE EQUALISED FRAME
+============================================================================
+  full  manavgat_2021          thermal 0.882  baseline 0.820  increment +0.062
+  full  bejis_2022             thermal 0.824  baseline 0.779  increment +0.045
+  full  mugla_2021             thermal 0.777  baseline 0.698  increment +0.079
+  full  evia_2021_extended     thermal 0.864  baseline 0.716  increment +0.148
+  full  montiferru_2021        thermal 0.720  baseline 0.620  increment +0.099
+  full  MEAN increment +0.0868  (positive in 5/5)
+
+  10km  manavgat_2021          thermal 0.813  baseline 0.740  increment +0.073
+  10km  bejis_2022             thermal 0.740  baseline 0.710  increment +0.030
+  10km  mugla_2021             thermal 0.763  baseline 0.676  increment +0.088
+  10km  evia_2021_extended     thermal 0.895  baseline 0.761  increment +0.134
+  10km  montiferru_2021        thermal 0.720  baseline 0.631  increment +0.090
+  10km  MEAN increment +0.0827  (positive in 5/5)
+
+  5km   manavgat_2021          thermal 0.769  baseline 0.735  increment +0.035
+  5km   bejis_2022             thermal 0.702  baseline 0.684  increment +0.017
+  5km   mugla_2021             thermal 0.727  baseline 0.678  increment +0.049
+  5km   evia_2021_extended     thermal 0.882  baseline 0.811  increment +0.071
+  5km   montiferru_2021        thermal 0.716  baseline 0.677  increment +0.040
+  5km   MEAN increment +0.0423  (positive in 5/5)
+
+============================================================================
+ITEM 4  AN INTERVAL ON THE MATCHED SHORTFALL, PAIRED BY TARGET REGION
+============================================================================
+  manavgat_2021          within 0.813  mean transfer in 0.494  shortfall +0.319
+  bejis_2022             within 0.740  mean transfer in 0.538  shortfall +0.202
+  mugla_2021             within 0.763  mean transfer in 0.591  shortfall +0.172
+  evia_2021_extended     within 0.895  mean transfer in 0.684  shortfall +0.211
+  montiferru_2021        within 0.720  mean transfer in 0.639  shortfall +0.081
+
+  mean shortfall +0.1972  [+0.0912, +0.3033]  (t over 5 target regions)
+
+============================================================================
+ITEM 6  THE SUPPORTED-SUBSET COSINE ON THE COLLAR (never tested)
+============================================================================
+  full      defined in 18/20 directions, 7 distinct values, variance 0.952774
+            Spearman rho vs transfer = +0.6984 (p=0.0013)
+  collar10  defined in 16/20 directions, 5 distinct values, variance 0.791613
+            Spearman rho vs transfer = +0.4027 (p=0.1220)
+
+wrote C:/Users/CORSAIR/projects/thermal-twin-main/paper/labelfix_rerun/round3/collar_increment_and_cosine.csv

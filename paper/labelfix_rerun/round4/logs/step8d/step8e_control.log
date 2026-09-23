@@ -1,0 +1,22 @@
+2026-09-23 00:50:12,063 INFO     [ExperimentContext] experiment_id: manavgat_2021
+2026-09-23 00:50:12,063 INFO     [ExperimentContext] region_key: manavgat_aoi
+2026-09-23 00:50:12,063 INFO     [ExperimentContext] role: anchor_wildfire
+2026-09-23 00:50:12,063 INFO     [ExperimentContext] Predictor window: 2021-06-01 -> 2021-07-27
+2026-09-23 00:50:12,063 INFO     [ExperimentContext] current_period_end_date=2021-07-27, current_period_days=56 (plain date-diff, NOT inclusive count)
+2026-09-23 00:50:12,063 INFO     [ExperimentContext] Label window: 2021-07-28 -> 2021-08-31
+2026-09-23 00:50:12,066 INFO     [ExperimentContext] Baseline years: [2017, 2018, 2019, 2020]
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] Baseline date bounds (year-bounding, not exact window): 2017-01-01 -> 2020-12-31
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] output_root: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] data_root: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\data
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] step5_output_dir: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step5
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] step5c_output_dir: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step5c
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] gate_labels_dir: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\validation\labels
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] exclude_pre_label_burns=False exclude_historical_burns=False
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] dem_input_dir (namespaced): C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\data\dem
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] landcover_aligned_path: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 00:50:12,067 INFO     [ExperimentContext] step7 output dirs: a=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step7a b=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step7b c=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step7c d=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step7d e=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step7e
+2026-09-23 00:50:12,426 INFO     [manavgat_2021] --report-only: SADECE final rapor yeniden üretiliyor; Step8A/8B/8C/8D ÇALIŞTIRILMIYOR/DEĞİŞTİRİLMİYOR (zaten diskteki tamamlanmış çıktılar okunur).
+2026-09-23 00:50:12,469 INFO     Final rapor: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step8e\final_step8_report.json, C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step8e\final_step8_report.md
+2026-09-23 00:50:12,469 INFO     ============================================================
+2026-09-23 00:50:12,469 INFO     STEP8E (report-only) TAMAMLANDI [experiment=manavgat_2021]
+2026-09-23 00:50:12,469 INFO     ============================================================

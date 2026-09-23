@@ -1,5 +1,16 @@
 # Muğla matched to Manavgat on population size and positive count
 
+> **WITHDRAWN 2026-09-23. Not re-specified.** This arm matched Muğla to Manavgat's *frozen* TSG positive
+> count: 784 burned and 19,727 unburned cells, 10 stratified draws of 20,511 rows (design block of
+> `mugla_positive_matched.json`, kept unchanged). The frozen Manavgat label missed the fire's first four
+> days (MCD64A1 queried month-aligned, so DOY 209–212 were dropped). Under the corrected label, Manavgat
+> has 2,935 TSG positives. That exceeds Muğla's own 2,911, so the design cannot be drawn as specified.
+> Re-specifying it now (capping at 2,911, or subsampling Manavgat instead) would change the design after
+> seeing the result, which this study does not do. The arm is withdrawn and no replacement is offered.
+> The text and numbers below are kept as the historical record of the frozen-label analysis and must not
+> be cited as current. No producer script for this arm exists in the project.
+> Record: `paper/labelfix_rerun/round4/REPORT.md` (Decisions §5).
+
 The frozen `mugla_subsampling` diagnostic cuts Muğla to Manavgat's total cell count while preserving
 prevalence, and states its own limitation plainly: "Prevalence is preserved, not equalised. Muğla's
 positive count remains far above Manavgat's. Any residual difference between regions may still be a

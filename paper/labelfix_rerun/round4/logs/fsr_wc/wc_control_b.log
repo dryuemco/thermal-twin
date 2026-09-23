@@ -1,0 +1,153 @@
+2026-09-22 23:54:59,863 INFO     ============================================================
+2026-09-22 23:54:59,863 INFO     STEP 5 BAŞLIYOR (windowed/chunked işleme) [experiment=manavgat_2021]
+2026-09-22 23:54:59,864 INFO     ============================================================
+2026-09-22 23:54:59,864 INFO     Baseline LST listesi EXPLICIT olarak verildi (4 dosya); Step4 metadata araması ve klasör taraması atlandı.
+2026-09-22 23:54:59,867 INFO     Baseline sahne sayısı: 4
+2026-09-22 23:54:59,867 INFO     Raster boyutu: 2970x2338
+2026-09-22 23:54:59,867 INFO     Pencere boyutu: 512 px (30 pencere)
+2026-09-22 23:54:59,868 INFO     Minimum geçerli baseline gözlem sayısı: 3
+2026-09-22 23:54:59,868 INFO     Pencere başına yaklaşık baseline stack belleği: 4.0 MB
+2026-09-22 23:54:59,968 INFO     Pencere işlendi: 1/30
+2026-09-22 23:55:00,680 INFO     Pencere işlendi: 10/30
+2026-09-22 23:55:01,455 INFO     Pencere işlendi: 20/30
+2026-09-22 23:55:02,040 INFO     Pencere işlendi: 30/30
+2026-09-22 23:55:02,060 INFO     Baseline ortalaması: 34.65 C
+2026-09-22 23:55:02,060 INFO     Baseline standart sapması: 1.61 C
+2026-09-22 23:55:02,060 INFO     Current period ortalaması: 34.53 C
+2026-09-22 23:55:02,060 INFO     Geçerli anomali kapsaması: 70.1%
+2026-09-22 23:55:02,060 INFO     Anomali ortalaması: -0.07 sigma
+2026-09-22 23:55:02,060 INFO     Anomali aralığı: [-10.53, 15.70] sigma
+2026-09-22 23:55:02,060 INFO     Metadata kaydedildi: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\step5_metadata.json
+2026-09-22 23:55:02,060 INFO     Çıktı klasörü: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5
+2026-09-22 23:55:02,060 INFO     ============================================================
+2026-09-22 23:55:02,060 INFO     STEP 5 TAMAMLANDI
+2026-09-22 23:55:02,060 INFO     [experiment=manavgat_2021] Step5C ctx override aktif. OUTPUT_DIR=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5c, CURRENT_LST_PATH=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif
+2026-09-22 23:55:02,061 INFO     ============================================================
+2026-09-22 23:55:02,064 INFO     STEP 5C BAŞLIYOR (TVDI - basit/ilk sürüm)
+2026-09-22 23:55:02,064 INFO     ============================================================
+2026-09-22 23:55:02,064 INFO     Current LST: current_period_median_celsius.tif
+2026-09-22 23:55:02,064 INFO     Current NDVI: current_ndvi_median.tif
+2026-09-22 23:55:02,064 INFO     Baseline NDVI pencere sayısı: 4
+2026-09-22 23:55:02,064 INFO     Birinci geçiş: LST-NDVI scatter edge örnekleri toplanıyor.
+2026-09-22 23:55:02,556 INFO     Geçerli edge üretilen NDVI bin sayısı: 18/20
+2026-09-22 23:55:02,556 INFO     TVDI edge diagnostik CSV: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5c\tvdi_edge_diagnostics.csv
+2026-09-22 23:55:02,556 INFO     TVDI edge diagnostik plot: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5c\tvdi_edge_diagnostics.png
+2026-09-22 23:55:02,556 INFO     Edge span sorunlu binler: dry<=wet=0, span<1.00C=0
+2026-09-22 23:55:02,556 INFO     İkinci geçiş: current TVDI hesaplanıyor.
+2026-09-22 23:55:03,347 INFO     Baseline TVDI mean/std ve z-score hesaplanıyor.
+2026-09-22 23:55:06,198 INFO     Current TVDI ortalaması: 0.482
+2026-09-22 23:55:06,198 INFO     TVDI z-score ortalaması: -1.067
+2026-09-22 23:55:06,199 INFO     Metadata: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5c\step5c_metadata.json
+2026-09-22 23:55:06,199 INFO     Çıktı klasörü: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5c
+2026-09-22 23:55:06,199 INFO     ============================================================
+2026-09-22 23:55:06,199 INFO     STEP 5C TAMAMLANDI
+2026-09-22 23:55:06,201 INFO     [experiment=manavgat_2021] Step7A ctx override aktif. output_dir=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7a, reference_raster=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif
+2026-09-22 23:55:06,201 INFO     ============================================================
+2026-09-22 23:55:06,204 INFO     STEP 7A BAŞLIYOR (tiling infrastructure test)
+2026-09-22 23:55:06,204 INFO     ============================================================
+2026-09-22 23:55:06,204 INFO     Referans raster: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif
+2026-09-22 23:55:06,938 INFO     Yeniden birleştirme tamamlandı: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7a\tiling_test_reconstructed.tif
+2026-09-22 23:55:07,400 INFO     Tiling testi tamamlandı: passed=True
+2026-09-22 23:55:07,400 INFO     Özet: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7a\tiling_test_summary.md
+2026-09-22 23:55:07,400 INFO     ============================================================
+2026-09-22 23:55:07,400 INFO     STEP 7A TAMAMLANDI
+2026-09-22 23:55:07,400 INFO     [experiment=manavgat_2021] Step7B ctx override aktif. output_dir=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7b
+2026-09-22 23:55:07,400 INFO     ============================================================
+2026-09-22 23:55:07,400 INFO     STEP 7B BAŞLIYOR (MODIS downscaling training dataset) [experiment=manavgat_2021]
+2026-09-22 23:55:07,400 INFO     ============================================================
+2026-09-22 23:55:07,401 INFO     Target: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif (band 1)
+2026-09-22 23:55:07,402 INFO     Core features: ['modis_lst_mean_celsius', 'modis_lst_std_celsius', 'ndvi', 'elevation', 'slope', 'landcover'] | Optional used: ['anomaly_zscore', 'current_tvdi', 'tvdi_difference'] | Optional missing: []
+2026-09-22 23:55:07,405 INFO     Deney-farkında girdi hizalama başlıyor (aligned_inputs/)...
+2026-09-22 23:55:07,964 INFO     [align] modis_lst_mean_celsius: kaynak 71x90 (EPSG:4326) -> referans 2338x2970, resampling=bilinear, hizalı geçerli piksel oranı=0.9215 -> C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7b\aligned_inputs\modis_lst_mean_celsius.tif
+2026-09-22 23:55:08,540 INFO     [align] modis_lst_std_celsius: kaynak 71x90 (EPSG:4326) -> referans 2338x2970, resampling=bilinear, hizalı geçerli piksel oranı=0.9215 -> C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7b\aligned_inputs\modis_lst_std_celsius.tif
+2026-09-22 23:55:09,389 INFO     [align-overlap] modis_lst_mean_celsius: target ile örtüşen geçerli piksel=6142901 (target geçerli piksellerinin 0.9185'ü)
+2026-09-22 23:55:09,522 INFO     [align-overlap] modis_lst_std_celsius: target ile örtüşen geçerli piksel=6142901 (target geçerli piksellerinin 0.9185'ü)
+2026-09-22 23:55:09,595 INFO     [align-overlap] ndvi: target ile örtüşen geçerli piksel=6688247 (target geçerli piksellerinin 1.0000'ü)
+2026-09-22 23:55:09,703 INFO     [align-overlap] elevation: target ile örtüşen geçerli piksel=6688247 (target geçerli piksellerinin 1.0000'ü)
+2026-09-22 23:55:09,808 INFO     [align-overlap] slope: target ile örtüşen geçerli piksel=6688247 (target geçerli piksellerinin 1.0000'ü)
+2026-09-22 23:55:09,846 INFO     [align-overlap] landcover: target ile örtüşen geçerli piksel=6688247 (target geçerli piksellerinin 1.0000'ü)
+2026-09-22 23:55:09,964 INFO     [align-overlap] anomaly_zscore: target ile örtüşen geçerli piksel=4869605 (target geçerli piksellerinin 0.7281'ü)
+2026-09-22 23:55:10,085 INFO     [align-overlap] current_tvdi: target ile örtüşen geçerli piksel=6557854 (target geçerli piksellerinin 0.9805'ü)
+2026-09-22 23:55:10,218 INFO     [align-overlap] tvdi_difference: target ile örtüşen geçerli piksel=6544069 (target geçerli piksellerinin 0.9784'ü)
+2026-09-22 23:55:23,703 INFO     Final sample count: 500000
+2026-09-22 23:55:23,703 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7b\downscaling_dataset_stats.json
+2026-09-22 23:55:23,703 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7b\downscaling_dataset_summary.md
+2026-09-22 23:55:23,703 INFO     ============================================================
+2026-09-22 23:55:23,703 INFO     STEP 7B TAMAMLANDI (no model trained)
+2026-09-22 23:55:23,703 INFO     ============================================================
+2026-09-22 23:55:23,709 INFO     [experiment=manavgat_2021] Step7C ctx override aktif. output_dir=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7c, input_path=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7b\downscaling_training_samples.parquet
+2026-09-22 23:55:23,709 INFO     ============================================================
+2026-09-22 23:55:23,710 INFO     STEP 7C BAŞLIYOR (pure MODIS->Landsat LST downscaling model)
+2026-09-22 23:55:23,710 INFO     ============================================================
+2026-09-22 23:55:23,735 INFO     Özel girdi kullanıldı: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7b\downscaling_training_samples.parquet (500000 satır)
+2026-09-22 23:55:23,758 INFO     Doğrulama sonrası: 500000 -> 459136 satır (target_nan=0, target_range=0, feature_nan=40864).
+2026-09-22 23:55:24,008 INFO     Split (spatial_block, group_col=spatial_block_id): train=323721 val=66568 test=68847 (groups: {'train': 1129, 'val': 241, 'test': 241}) samples_per_group={'min': 1, 'median': 303.0, 'mean': 285.0006207324643, 'max': 362} split_integrity={'all_rows_assigned_exactly_once': True, 'assigned_row_count': 459136, 'total_row_count': 459136, 'train_val_test_groups_disjoint': True, 'union_group_count': 1611, 'total_unique_group_count': 1611}
+2026-09-22 23:55:24,011 INFO     Model eğitimi: type=random_forest fast=False features=['modis_lst_mean_celsius', 'modis_lst_std_celsius', 'ndvi', 'elevation', 'slope', 'landcover', 'lon', 'lat', 'row', 'col', 'row_norm', 'col_norm']
+2026-09-22 23:57:16,249 INFO     Model: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7c\downscaling_model.joblib
+2026-09-22 23:57:16,249 INFO     Metrics: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7c\downscaling_model_metrics.json
+2026-09-22 23:57:16,249 INFO     Metadata: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7c\downscaling_model_metadata.json
+2026-09-22 23:57:16,249 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7c\downscaling_model_summary.md
+2026-09-22 23:57:16,249 INFO     Test RMSE=2.072 vs MODIS baseline RMSE=3.534
+2026-09-22 23:57:16,249 INFO     ============================================================
+2026-09-22 23:57:16,250 INFO     STEP 7C TAMAMLANDI (no fire-risk model trained)
+2026-09-22 23:57:16,250 INFO     ============================================================
+2026-09-22 23:57:16,307 INFO     [experiment=manavgat_2021] Step7D ctx override aktif. model_path=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7c\downscaling_model.joblib, output_dir=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d
+2026-09-22 23:57:16,307 INFO     ============================================================
+2026-09-22 23:57:16,307 INFO     STEP 7D BASLIYOR (Step7C modeli tam raster gridine uygulaniyor) [experiment=manavgat_2021]
+2026-09-22 23:57:16,307 INFO     ============================================================
+2026-09-22 23:57:17,643 INFO     Model yuklendi: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7c\downscaling_model.joblib (type=random_forest)
+2026-09-22 23:57:17,643 INFO     Leakage guard dogrulandi: leakage_guard_enabled=True, excluded features (['anomaly_zscore', 'current_tvdi', 'tvdi_difference', 'modis_context_zscore']) ozellik setinde yok.
+2026-09-22 23:57:17,643 INFO     Referans grid: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif (band 1)
+2026-09-22 23:57:17,643 INFO     Feature rasterlari cozuldu: {'modis_lst_mean_celsius': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\downstream\\step7b\\aligned_inputs\\modis_lst_mean_celsius.tif', 'modis_lst_std_celsius': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\downstream\\step7b\\aligned_inputs\\modis_lst_std_celsius.tif', 'ndvi': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\downstream\\step7b\\aligned_inputs\\ndvi.tif', 'elevation': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\downstream\\step7b\\aligned_inputs\\elevation.tif', 'slope': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\downstream\\step7b\\aligned_inputs\\slope.tif', 'landcover': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\downstream\\step7b\\aligned_inputs\\landcover.tif'}
+2026-09-22 23:57:17,647 INFO     Tum feature rasterlari referans grid ile hizali dogrulandi.
+2026-09-22 23:57:39,423 INFO     Tahmin: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaled_lst_celsius.tif
+2026-09-22 23:57:39,423 INFO     Gecerli maske: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaled_lst_valid_mask.tif
+2026-09-22 23:57:39,423 INFO     Metadata: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaling_prediction_metadata.json
+2026-09-22 23:57:39,423 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaling_prediction_stats.json
+2026-09-22 23:57:39,423 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaling_prediction_summary.md
+2026-09-22 23:57:39,423 INFO     Kapsam: 91.38% (6345310/6943860 piksel)
+2026-09-22 23:57:39,423 INFO     ============================================================
+2026-09-22 23:57:39,423 INFO     STEP 7D TAMAMLANDI (no fire-risk model, no burned-area/FIRMS labels used)
+2026-09-22 23:57:39,423 INFO     ============================================================
+2026-09-22 23:57:39,477 INFO     [experiment=manavgat_2021] Step7E ctx override aktif. observed=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif, downscaled=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaled_lst_celsius.tif, output_dir=C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7e
+2026-09-22 23:57:39,477 INFO     ============================================================
+2026-09-22 23:57:39,477 INFO     STEP 7E BASLIYOR (gozlemlenen Landsat + Step7D downscaled LST fusion) [experiment=manavgat_2021]
+2026-09-22 23:57:39,477 INFO     ============================================================
+2026-09-22 23:57:39,477 INFO     Gozlemlenen (referans) grid: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif
+2026-09-22 23:57:39,477 INFO     Downscaled LST: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaled_lst_celsius.tif
+2026-09-22 23:57:39,477 INFO     Downscaled valid mask: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7d\downscaled_lst_valid_mask.tif
+2026-09-22 23:57:39,487 INFO     Tum rasterlar (downscaled LST, valid mask) referans gridle hizali dogrulandi.
+2026-09-22 23:57:40,784 INFO     Fused LST: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7e\fused_lst_celsius.tif
+2026-09-22 23:57:40,784 INFO     Source mask: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7e\fused_lst_source_mask.tif
+2026-09-22 23:57:40,784 INFO     Metadata: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7e\fused_lst_metadata.json
+2026-09-22 23:57:40,784 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7e\fused_lst_stats.json
+2026-09-22 23:57:40,784 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step7e\fused_lst_summary.md
+2026-09-22 23:57:40,784 INFO     Gozlem kapsami: 96.32% -> Fused kapsam: 99.23% (kazanim: 2.91 puan, 202409 gap-fill piksel)
+2026-09-22 23:57:40,784 INFO     ============================================================
+2026-09-22 23:57:40,784 INFO     STEP 7E TAMAMLANDI (no model trained, no fire-risk/burned-area labels used)
+2026-09-22 23:57:40,784 INFO     ============================================================
+2026-09-22 23:57:40,784 INFO     ============================================================
+2026-09-22 23:57:40,784 INFO     STEP 8A BASLIYOR (native ~500 m MCD64A1-grid modeling dataset) [experiment=manavgat_2021]
+2026-09-22 23:57:40,784 INFO     ============================================================
+2026-09-22 23:57:40,785 INFO     MCD64A1 etiket rasteri (explicit): C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\inputs\labels\mcd64a1_raw.tif (kind=raw_burndate)
+2026-09-22 23:57:40,787 INFO     Hizalanmis landcover (explicit) kullaniliyor: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\inputs\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-22 23:57:40,795 INFO     Tum zorunlu/opsiyonel predictor rasterlari referans gridle hizali dogrulandi.
+2026-09-22 23:57:40,795 INFO     Label source description: reconstructed_from_30m_raw_burndate
+2026-09-22 23:57:40,922 INFO     Label raster diagnostics: kind=raw_burndate dtype=int16 min=0.0 max=241.0 zero=6764193 one=0 gt_one=179667 in_DOY_range=179667 finite=6943860 masked=0
+2026-09-22 23:57:40,923 INFO     MCD64A1 etiket rasteri zaten referans gridle hizali: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\inputs\labels\mcd64a1_raw.tif
+2026-09-22 23:57:40,928 INFO     Tum zorunlu/opsiyonel predictor rasterlari referans gridle hizali dogrulandi.
+2026-09-22 23:57:40,928 INFO     Referans 30 m grid: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step5\current_period_median_celsius.tif (2970x2338)
+2026-09-22 23:57:40,928 INFO     MCD64A1 etiket rasteri (hizali): C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\inputs\labels\mcd64a1_raw.tif (label_kind=raw_burndate)
+2026-09-22 23:57:40,928 INFO     Landcover rasteri (hizali): C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\inputs\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-22 23:57:40,928 INFO     Cozulmus predictor sayisi: 9 (eksik/opsiyonel: [])
+2026-09-22 23:57:40,929 INFO     Native ~500 m grid: referans 30 m piksel = 30.0 m, block_size_pixels = 17 (=> yaklasik hucre boyutu 510.0 m).
+2026-09-22 23:57:40,944 INFO     Toplam 500 m hucre sayisi (yaklasik): 24150 (138 satir x 175 sutun, 30 m grid 2970x2338)
+2026-09-22 23:58:00,599 INFO     CSV yazildi: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step8a\step8a_500m_modeling_dataset.csv
+2026-09-22 23:58:00,599 INFO     Parquet yazildi: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step8a\step8a_500m_modeling_dataset.parquet
+2026-09-22 23:58:00,608 INFO     Dataset satir sayisi: 24150 (valid_for_modeling=24049)
+2026-09-22 23:58:00,608 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step8a\step8a_dataset_stats.json
+2026-09-22 23:58:00,608 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\window_closure_sensitivity\manavgat_2021\variants\close_7d_earlier\downstream\step8a\step8a_dataset_summary.md
+2026-09-22 23:58:00,608 INFO     ============================================================
+2026-09-22 23:58:00,608 INFO     STEP 8A TAMAMLANDI (no model trained, no FIRMS label used, MCD64A1 primary label)
+2026-09-22 23:58:00,608 INFO     ============================================================
+Step8A column(s) ['historical_burn_excluded'] could not be classified as key, label, population, static-predictor, grid-support, timing-derived predictor or timing-derived support. The production Step8A schema has changed, so the static/timing split must be re-derived from the production lineage before this stage may run.

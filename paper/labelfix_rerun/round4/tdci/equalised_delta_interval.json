@@ -1,0 +1,56 @@
+{
+ "what": "Paired thermal-minus-baseline contribution to transfer, by evaluation frame, with the resampling units of Appendix A(o). Source aoi_frame_transfer.csv regenerated on canonical inputs. 1000 replicates, seed 42 (the published file used 20000; see transfer_delta_ci.json for both).",
+ "results": {
+  "as drawn": {
+   "mean": 0.0073,
+   "n": 20,
+   "ci_pair_cluster": [
+    -0.0202,
+    0.0384
+   ],
+   "ci_target_region_cluster": [
+    -0.0061,
+    0.0224
+   ],
+   "ci_naive_t": [
+    -0.0246,
+    0.0393
+   ],
+   "spans_zero_pair_cluster": true
+  },
+  "equalised 10 km": {
+   "mean": 0.0238,
+   "n": 20,
+   "ci_pair_cluster": [
+    -0.0041,
+    0.0492
+   ],
+   "ci_target_region_cluster": [
+    0.0105,
+    0.0404
+   ],
+   "ci_naive_t": [
+    -0.0033,
+    0.0509
+   ],
+   "spans_zero_pair_cluster": true
+  },
+  "equalised 5 km": {
+   "mean": 0.0168,
+   "n": 20,
+   "ci_pair_cluster": [
+    -0.004,
+    0.0361
+   ],
+   "ci_target_region_cluster": [
+    0.0023,
+    0.0334
+   ],
+   "ci_naive_t": [
+    -0.002,
+    0.0356
+   ],
+   "spans_zero_pair_cluster": true
+  }
+ }
+}

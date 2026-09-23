@@ -1,0 +1,55 @@
+
+== Q1_asdrawn_delta: mean +0.0073 (null 0.0)
+  naive_directions_boot    [-0.0223, +0.0357]  n_eff 21.0  spans
+  pair_cluster_boot        [-0.0217, +0.0366]  n_eff 20.7  spans
+  target_cluster_boot      [-0.0061, +0.0224]  n_eff 77.6  spans
+  source_cluster_boot      [-0.0080, +0.0264]  n_eff 65.2  spans
+  pigeonhole_boot          [-0.0276, +0.0452]  n_eff 14.3  spans
+  cgm_twoway_t4            [+nan, +nan]  n_eff None  undefined
+  dyadic_robust_t4         [+nan, +nan]  n_eff None  undefined
+  loro_jackknife_t4        [-0.0179, +0.0326]  n_eff 56.3  spans
+  LORO means {'Manavgat': 0.0148, 'Bejis': 0.005, 'Mugla': 0.0072, 'Evia': 0.001, 'Montiferru': 0.0087}
+
+== Q2_equalised10_delta: mean +0.0238 (null 0.0)
+  naive_directions_boot    [-0.0012, +0.0485]  n_eff 21.2  spans
+  pair_cluster_boot        [-0.0034, +0.0512]  n_eff 17.1  spans
+  target_cluster_boot      [+0.0098, +0.0404]  n_eff 60.6  excludes
+  source_cluster_boot      [+0.0100, +0.0424]  n_eff 50.5  excludes
+  pigeonhole_boot          [-0.0047, +0.0596]  n_eff 13.2  spans
+  cgm_twoway_t4            [+nan, +nan]  n_eff None  undefined
+  dyadic_robust_t4         [+nan, +nan]  n_eff None  undefined
+  loro_jackknife_t4        [-0.0172, +0.0648]  n_eff 15.3  spans
+  LORO means {'Manavgat': 0.0322, 'Bejis': 0.0239, 'Mugla': 0.0317, 'Evia': 0.0146, 'Montiferru': 0.0165}
+
+== Q3_equalised10_mean_transfer: mean +0.5891 (null 0.5)
+  naive_directions_boot    [+0.5475, +0.6298]  n_eff 20.8  excludes
+  pair_cluster_boot        [+0.5337, +0.6394]  n_eff 12.5  excludes
+  target_cluster_boot      [+0.5310, +0.6472]  n_eff 9.9  excludes
+  source_cluster_boot      [+0.5714, +0.6063]  n_eff 109.9  excludes
+  pigeonhole_boot          [+0.5145, +0.6546]  n_eff 7.1  excludes
+  cgm_twoway_t4            [+0.5227, +0.6555]  n_eff 16.0  excludes
+  dyadic_robust_t4         [+0.5114, +0.6667]  n_eff 11.7  excludes
+  loro_jackknife_t4        [+0.4282, +0.7500]  n_eff 2.7  spans
+  LORO means {'Manavgat': 0.6313, 'Bejis': 0.6063, 'Mugla': 0.5922, 'Evia': 0.5489, 'Montiferru': 0.5668}
+
+== S_asdrawn_delta_frozen_refit: mean +0.0073 (null 0.0)
+  naive_directions_boot    [-0.0221, +0.0361]  n_eff 21.3  spans
+  pair_cluster_boot        [-0.0217, +0.0366]  n_eff 20.7  spans
+  target_cluster_boot      [-0.0061, +0.0224]  n_eff 77.6  spans
+  source_cluster_boot      [-0.0080, +0.0264]  n_eff 65.2  spans
+  pigeonhole_boot          [-0.0276, +0.0452]  n_eff 14.3  spans
+  cgm_twoway_t4            [+nan, +nan]  n_eff None  undefined
+  dyadic_robust_t4         [+nan, +nan]  n_eff None  undefined
+  loro_jackknife_t4        [-0.0179, +0.0326]  n_eff 56.3  spans
+  LORO means {'Manavgat': 0.0148, 'Bejis': 0.005, 'Mugla': 0.0072, 'Evia': 0.001, 'Montiferru': 0.0087}
+
+== S_equalised5_delta: mean +0.0168 (null 0.0)
+  naive_directions_boot    [-0.0004, +0.0341]  n_eff 21.0  spans
+  pair_cluster_boot        [-0.0032, +0.0368]  n_eff 15.3  spans
+  target_cluster_boot      [+0.0024, +0.0331]  n_eff 25.5  excludes
+  source_cluster_boot      [+0.0068, +0.0267]  n_eff 64.7  excludes
+  pigeonhole_boot          [-0.0061, +0.0427]  n_eff 10.9  spans
+  cgm_twoway_t4            [+0.0070, +0.0266]  n_eff 129.8  excludes
+  dyadic_robust_t4         [+0.0070, +0.0265]  n_eff 130.7  excludes
+  loro_jackknife_t4        [-0.0282, +0.0618]  n_eff 6.1  spans
+  LORO means {'Manavgat': 0.0281, 'Bejis': 0.0094, 'Mugla': 0.0246, 'Evia': 0.0138, 'Montiferru': 0.008}

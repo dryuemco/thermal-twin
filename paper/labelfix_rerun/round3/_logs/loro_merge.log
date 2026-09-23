@@ -1,0 +1,16 @@
+target             bestPW  meanPW  LOROraw [CI]            LOROz   within  | meanCos maxCos
+manavgat_2021      0.6769  0.4350  0.4262 [0.369,0.486] 0.4872  0.9081 | -0.665 -0.545
+bejis_2022         0.5832  0.4940  0.4584 [0.396,0.522] 0.4758  0.9178 |  0.137  0.487
+mugla_2021         0.6194  0.5631  0.5058 [0.428,0.587] 0.4900  0.8590 |  0.348  0.900
+evia_2021_extended 0.6540  0.5691  0.7148 [0.668,0.757] 0.4421  0.9122 |  0.220  0.808
+montiferru_2021    0.6467  0.5724  0.5599 [0.483,0.633] 0.4956  0.8826 |  0.301  0.900
+
+linkage (n=5, descriptive):
+  mean_cosine_9 vs loro_raw_thermal: rho=0.6
+  mean_cosine_9 vs loro_z_thermal: rho=0.5
+  max_cosine_9 vs loro_raw_thermal: rho=0.667
+  max_cosine_9 vs loro_z_thermal: rho=0.564
+  mean_agree_count_9 vs loro_raw_thermal: rho=0.359
+  mean_agree_count_9 vs loro_z_thermal: rho=0.667
+  max_agree_count_9 vs loro_raw_thermal: rho=0.359
+  max_agree_count_9 vs loro_z_thermal: rho=0.667

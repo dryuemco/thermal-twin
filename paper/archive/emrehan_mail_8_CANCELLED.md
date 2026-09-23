@@ -1,3 +1,8 @@
+> **CANCELLED 2026-09-23. Never sent.** Emrehan is no longer active on the project, so this draft is
+> withdrawn and archived unchanged below. Its item 3 ("re-running Manavgat is not needed for the paper")
+> is superseded: the Manavgat re-freeze on the corrected label is to be done on this side
+> (`paper/labelfix_rerun/round4/`). Nothing in this file is a current statement.
+
 # Emrehan'a cevap — 19 Eylül (taslak; GÖNDERİLMEDİ)
 
 Merhaba Emrehan,

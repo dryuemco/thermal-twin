@@ -1,0 +1,92 @@
+cross-check max |AoA - matrix| ROC 5.551115123125783e-17 PR 8.326672684688674e-17
+missing matrix cells: 0
+AoA directions: 12 bejis_2022_to_evia_2021_extended, bejis_2022_to_manavgat_2021, bejis_2022_to_mugla_2021, evia_2021_extended_to_bejis_2022, evia_2021_extended_to_manavgat_2021, evia_2021_extended_to_mugla_2021, manavgat_2021_to_bejis_2022, manavgat_2021_to_evia_2021_extended, manavgat_2021_to_mugla_2021, mugla_2021_to_bejis_2022, mugla_2021_to_evia_2021_extended, mugla_2021_to_manavgat_2021
+AoA missing 8: manavgat_2021_to_montiferru_2021, bejis_2022_to_montiferru_2021, mugla_2021_to_montiferru_2021, evia_2021_extended_to_montiferru_2021, montiferru_2021_to_manavgat_2021, montiferru_2021_to_bejis_2022, montiferru_2021_to_mugla_2021, montiferru_2021_to_evia_2021_extended
+written md lines 337 csv rows 415
+summary {
+ "baseline": {
+  "mean": 0.5193800000000001,
+  "min": 0.2966,
+  "minDir": "bejis_2022_to_manavgat_2021",
+  "max": 0.7274,
+  "maxDir": "evia_2021_extended_to_manavgat_2021",
+  "belowPt": [
+   "manavgat_2021_to_bejis_2022",
+   "manavgat_2021_to_mugla_2021",
+   "bejis_2022_to_manavgat_2021",
+   "mugla_2021_to_manavgat_2021",
+   "mugla_2021_to_bejis_2022",
+   "evia_2021_extended_to_bejis_2022",
+   "montiferru_2021_to_manavgat_2021"
+  ],
+  "ciBelow": [
+   "manavgat_2021_to_bejis_2022",
+   "manavgat_2021_to_mugla_2021",
+   "bejis_2022_to_manavgat_2021",
+   "mugla_2021_to_manavgat_2021",
+   "mugla_2021_to_bejis_2022",
+   "evia_2021_extended_to_bejis_2022",
+   "montiferru_2021_to_manavgat_2021"
+  ],
+  "ciAbove": [
+   "manavgat_2021_to_evia_2021_extended",
+   "bejis_2022_to_mugla_2021",
+   "bejis_2022_to_evia_2021_extended",
+   "bejis_2022_to_montiferru_2021",
+   "mugla_2021_to_evia_2021_extended",
+   "mugla_2021_to_montiferru_2021",
+   "evia_2021_extended_to_manavgat_2021",
+   "evia_2021_extended_to_montiferru_2021",
+   "montiferru_2021_to_bejis_2022",
+   "montiferru_2021_to_mugla_2021",
+   "montiferru_2021_to_evia_2021_extended"
+  ],
+  "ciStraddle": [
+   "manavgat_2021_to_montiferru_2021",
+   "evia_2021_extended_to_mugla_2021"
+  ]
+ },
+ "thermal": {
+  "mean": 0.526715,
+  "min": 0.3142,
+  "minDir": "bejis_2022_to_manavgat_2021",
+  "max": 0.6769,
+  "maxDir": "evia_2021_extended_to_manavgat_2021",
+  "belowPt": [
+   "manavgat_2021_to_bejis_2022",
+   "manavgat_2021_to_mugla_2021",
+   "bejis_2022_to_manavgat_2021",
+   "bejis_2022_to_evia_2021_extended",
+   "mugla_2021_to_manavgat_2021",
+   "evia_2021_extended_to_bejis_2022",
+   "montiferru_2021_to_manavgat_2021"
+  ],
+  "ciBelow": [
+   "manavgat_2021_to_bejis_2022",
+   "manavgat_2021_to_mugla_2021",
+   "bejis_2022_to_manavgat_2021",
+   "bejis_2022_to_evia_2021_extended",
+   "mugla_2021_to_manavgat_2021",
+   "evia_2021_extended_to_bejis_2022",
+   "montiferru_2021_to_manavgat_2021"
+  ],
+  "ciAbove": [
+   "manavgat_2021_to_evia_2021_extended",
+   "bejis_2022_to_mugla_2021",
+   "bejis_2022_to_montiferru_2021",
+   "mugla_2021_to_bejis_2022",
+   "mugla_2021_to_evia_2021_extended",
+   "evia_2021_extended_to_manavgat_2021",
+   "evia_2021_extended_to_mugla_2021",
+   "evia_2021_extended_to_montiferru_2021",
+   "montiferru_2021_to_bejis_2022",
+   "montiferru_2021_to_mugla_2021",
+   "montiferru_2021_to_evia_2021_extended"
+  ],
+  "ciStraddle": [
+   "manavgat_2021_to_montiferru_2021",
+   "mugla_2021_to_montiferru_2021"
+  ]
+ }
+}
+prAbove 11 prBelow 7 prStrad 2

@@ -1,0 +1,24 @@
+2026-09-23 00:47:03,256 INFO     ============================================================
+2026-09-23 00:47:03,256 INFO     STEP 8D BASLIYOR (thermal feature ablation, spatial-block CV)
+2026-09-23 00:47:03,256 INFO     ============================================================
+2026-09-23 00:47:03,282 INFO     Step8A veri seti okundu (parquet): C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step8a\step8a_500m_modeling_dataset.parquet (24150 satir)
+2026-09-23 00:47:03,298 INFO     Ozellik eksik-deger sayimlari: {'lst_anomaly_mean': 2048, 'current_lst_mean': 75, 'current_tvdi_mean': 77, 'tvdi_difference_mean': 81, 'downscaled_lst_mean': 0, 'fused_lst_mean': 0}
+2026-09-23 00:47:03,858 INFO     Populasyon: all_valid (n=24087, burned=796)
+2026-09-23 00:47:04,413 INFO       all_valid: 11 model egitiliyor (n=24087, burned=796, folds=5)...
+2026-09-23 00:48:12,135 INFO     all_valid: en iyi grup (delta_pr_auc)=all_thermal, all_thermal rank=#1
+2026-09-23 00:48:12,136 INFO     Populasyon: cropland_dominant (n=1260, burned=2)
+2026-09-23 00:48:12,136 WARNING  cropland_dominant atlandi: insufficient_positives_or_negatives (positives=2, negatives=1258, min_required=30)
+2026-09-23 00:48:12,139 INFO     Populasyon: burnable_tree_shrub_grass (n=20511, burned=784)
+2026-09-23 00:48:12,937 INFO       burnable_tree_shrub_grass: 11 model egitiliyor (n=20511, burned=784, folds=5)...
+2026-09-23 00:49:14,778 INFO     burnable_tree_shrub_grass: en iyi grup (delta_pr_auc)=all_thermal, all_thermal rank=#1
+2026-09-23 00:49:14,782 INFO     Populasyon: burnable_tree_shrub (n=15538, burned=706)
+2026-09-23 00:49:15,442 INFO       burnable_tree_shrub: 11 model egitiliyor (n=15538, burned=706, folds=5)...
+2026-09-23 00:50:07,501 INFO     burnable_tree_shrub: en iyi grup (delta_pr_auc)=all_thermal, all_thermal rank=#1
+2026-09-23 00:50:11,251 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step8d\step8d_ablation_metrics.json
+2026-09-23 00:50:11,251 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step8d\step8d_ablation_summary.md
+2026-09-23 00:50:11,251 INFO     Predictions: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\experiments\manavgat_2021\step8d\step8d_ablation_predictions.csv (parquet_written=True)
+2026-09-23 00:50:11,251 INFO     ============================================================
+2026-09-23 00:50:11,251 INFO     STEP 8D TAMAMLANDI (no FIRMS, no 30m pixels, spatial-block CV, point estimates only)
+2026-09-23 00:50:11,251 INFO     ============================================================
+{'stats_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_metrics.json', 'summary_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_summary.md', 'predictions_csv': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_predictions.csv', 'predictions_parquet': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_predictions.parquet', 'fold_metrics_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_fold_metrics.csv', 'feature_importance_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_feature_importance.csv', 'delta_auc_csv': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_delta_auc_by_population.csv', 'delta_pr_csv': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_delta_pr_auc_by_population.csv', 'barplot_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\control\\outputs\\experiments\\manavgat_2021\\step8d\\step8d_ablation_barplot.png', 'experiment_id': 'manavgat_2021'}
+STEP8D_DONE
