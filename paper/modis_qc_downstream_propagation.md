@@ -18,6 +18,7 @@ Either it propagates and the mechanism is in question, or it does not and the ca
 Run 2026-08-14. Driver `run_qc_propagation.ps1`; comparison `qc_compare.py`; machine-readable
 output `modis_qc_downstream_propagation.json`.
 
+
 ## Design: two arms, both rebuilt here
 
 The frozen outputs were produced on another machine by another operator. Comparing a screened arm
