@@ -1,0 +1,66 @@
+\contentsline {section}{Supplementary Material}{1}{}%
+\contentsline {section}{S1 Sensitivity analyses}{4}{}%
+\contentsline {subsection}{S1.1 Evia AOI and prevalence}{4}{}%
+\contentsline {subsection}{S1.2 CORAL regularisation, including the canonical $\lambda $ = 1}{4}{}%
+\contentsline {subsection}{S1.3 Blocking scale}{5}{}%
+\contentsline {subsection}{S1.4 Predictor-window closure}{5}{}%
+\contentsline {subsection}{S1.5 Quality screening of the coarse thermal input}{6}{}%
+\contentsline {subsection}{S1.6 Normalised against absolute dryness channels}{7}{}%
+\contentsline {subsection}{S1.7 The coordinate-informed channels}{8}{}%
+\contentsline {subsection}{S1.8 Model capacity}{9}{}%
+\contentsline {subsection}{S1.9 The four evaluations of Section~\ref {M-sec:4.3}, in full}{10}{}%
+\contentsline {subsubsection}{S1.9.1 Where the skill is lost, on a matched comparison}{10}{}%
+\contentsline {subsubsection}{S1.9.2 The seven scars and the resampling unit}{11}{}%
+\contentsline {subsubsection}{S1.9.3 Controls, full specification}{11}{}%
+\contentsline {subsection}{S1.10 The transfer-gap decomposition, in full}{15}{}%
+\contentsline {subsection}{S1.11 The thermal sign, stratified}{15}{}%
+\contentsline {subsection}{S1.12 The LST anomaly under the difference instrument}{17}{}%
+\contentsline {subsection}{S1.13 The same-geography event pair}{18}{}%
+\contentsline {subsection}{S1.14 The two interventions, in full}{19}{}%
+\contentsline {subsubsection}{S1.14.1 Pooling helps Evia: an observation}{20}{}%
+\contentsline {subsection}{S1.15 The thermal sign and the anomaly difference, in full}{20}{}%
+\contentsline {subsection}{S1.16 The contrast pair, in full}{25}{}%
+\contentsline {subsection}{S1.17 The sensitivity arms, summarised}{26}{}%
+\contentsline {subsection}{S1.18 Distance within a region}{27}{}%
+\contentsline {subsection}{S1.19 What target labels cost}{28}{}%
+\contentsline {subsection}{S1.20 The frame test, elaborated}{31}{}%
+\contentsline {subsubsection}{S1.20.1 Under an equalised frame four regions agree, and Manavgat does not}{31}{}%
+\contentsline {subsubsection}{S1.20.2 Two further arms move with the frame}{33}{}%
+\contentsline {subsubsection}{S1.20.3 The transfer matrix moves as well}{34}{}%
+\contentsline {subsection}{S1.21 The transfer matrix and adaptation, elaborated}{35}{}%
+\contentsline {subsection}{S1.22 The diagnostics, elaborated}{38}{}%
+\contentsline {subsection}{S1.23 The four evaluations, elaborated}{39}{}%
+\contentsline {subsection}{S1.24 The six further arms, summarised}{42}{}%
+\contentsline {section}{S2 Supporting tables}{43}{}%
+\contentsline {subsection}{S2.1 The transfer matrix in precision-recall terms}{44}{}%
+\contentsline {subsection}{S2.2 The same-geography event pair, in full}{44}{}%
+\contentsline {subsection}{S2.3 The evaluation frames, and the signed associations they produce}{47}{}%
+\contentsline {subsection}{S2.4 The transferability-diagnostics tables}{50}{}%
+\contentsline {section}{S3 Protocol detail and limitations}{50}{}%
+\contentsline {subsection}{S3.1 Burned-area label, the reconstructed analysis grid, and the admissibility gate}{52}{}%
+\contentsline {subsubsection}{S3.1.1 Pre-label and historical burning, by region}{53}{}%
+\contentsline {subsubsection}{S3.1.2 The Manavgat label correction}{53}{}%
+\contentsline {subsubsection}{S3.1.3 Effect on Table~\ref {M-tab:1}}{54}{}%
+\contentsline {subsection}{S3.2 Transferability diagnostics versus transfer}{54}{}%
+\contentsline {subsection}{S3.3 Same-geography event-to-event comparison (Muğla 2021 versus 2022)}{55}{}%
+\contentsline {subsection}{S3.4 Predictor provenance, compositing and the downscaler}{56}{}%
+\contentsline {subsection}{S3.5 Limitations, in full}{57}{}%
+\contentsline {subsection}{S3.6 Leakage control and reproducibility, in full}{60}{}%
+\contentsline {subsubsection}{S3.6.1 Resampling units}{61}{}%
+\contentsline {subsubsection}{S3.6.2 Reproduction of the re-frozen outputs}{62}{}%
+\contentsline {subsection}{S3.7 Transfer-gap decomposition and the concept-shift diagnostic, in full}{62}{}%
+\contentsline {subsubsection}{S3.7.1 Degenerate replicates}{63}{}%
+\contentsline {subsection}{S3.8 Label-blind adaptation, full specification}{63}{}%
+\contentsline {section}{S4 Transferability diagnostics: the record behind Contribution 3}{64}{}%
+\contentsline {subsection}{S4.1 Why the loss is invisible to the diagnostics in use (former Section~\ref {M-sec:1.3})}{64}{}%
+\contentsline {subsection}{S4.2 Transferability diagnostics versus transfer (former Section~\ref {M-sec:3.11})}{65}{}%
+\contentsline {subsection}{S4.3 Transferability diagnostics: what appears to order transfer, and why it does not (former Section~\ref {M-sec:4.6})}{67}{}%
+\contentsline {subsection}{S4.4 Why the diagnostics fail, and what the conditional one is not (former Section~\ref {M-sec:5.3})}{69}{}%
+\contentsline {subsection}{S4.5 The signed univariate associations the reversal claim rests on (former note to Table~\ref {tab:S9})}{70}{}%
+\contentsline {subsection}{S4.6 The contrast-pair figure}{70}{}%
+\contentsline {section}{S5 Target-label recovery curve: what a small labelled budget buys}{71}{}%
+\contentsline {subsection}{S5.1 Purpose and status}{71}{}%
+\contentsline {subsection}{S5.2 Design}{72}{}%
+\contentsline {subsection}{S5.3 Result}{73}{}%
+\contentsline {subsection}{S5.4 Methodological limits}{74}{}%
+\contentsline {subsection}{S5.5 Figure}{75}{}%

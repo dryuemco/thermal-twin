@@ -13,7 +13,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve('paper');
 const DEFAULT = ['00_abstract', '01_introduction', '02_related_work', '03_methods',
-                 '04_results', '05_discussion', '06_conclusions', 'S1_few_shot_recovery'];
+                 '04_results', '05_discussion', '06_conclusions', 'supplementary'];
 
 const files = process.argv.length > 2 ? process.argv.slice(2) : DEFAULT;
 

@@ -83,8 +83,8 @@ frame = tuple(float(g) for g in m.groups())
 assert frame == (0.133, 0.059, 0.207), frame
 # equalised transfer (Appendix Table A(w).1, formerly Table 3) and the as-drawn baseline control (Section 4.5)
 FLAT = " ".join(RESULTS.split())
-SUPP = " ".join((HERE.parent / "supplementary_appendices.md").read_text(encoding="utf-8").split())
-assert "| full | full (**Table B9**) | 0.527 |" in SUPP and "| **10 km** | **10 km** | **0.589** |" in SUPP
+SUPP = " ".join((HERE.parent / "supplementary.md").read_text(encoding="utf-8").split())
+assert "| full | full (**Table S16**) | 0.527 |" in SUPP and "| **10 km** | **10 km** | **0.589** |" in SUPP
 assert "at a mean of **0.519** against **0.527** for the thermal model" in FLAT
 
 # ---- the contrast pair (Contribution 3): the same data and checks as Fig. 8 ----------------
@@ -196,7 +196,7 @@ plt.imsave(HERE / "graphical_abstract_greyscale.png",
     "panels": ["C1 evaluation geometry", "C2 local skill does not travel",
                "C3 similarity neither sufficient nor necessary"],
     "data": {"04_results.md": "Table 1 (block 10), the Section 4.3 hardening sentence, the frame-cost "
-                              "sentence and the Section 4.5 baseline control (parsed at build time); supplementary_appendices.md: Table A(w).1",
+                              "sentence and the Section 4.5 baseline control (parsed at build time); supplementary.md: Table S8",
              "contrast_pairs": {"path": "paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json",
                                 "sha256": hashlib.sha256(CP_PATH.read_bytes()).hexdigest()},
              "s7": {"path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",

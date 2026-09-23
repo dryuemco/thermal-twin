@@ -26,7 +26,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve('paper');
 const FILES = ['00_abstract', '01_introduction', '02_related_work', '03_methods',
-               '04_results', '05_discussion', '06_conclusions', 'S1_few_shot_recovery'];
+               '04_results', '05_discussion', '06_conclusions', 'supplementary'];
 
 // Abbreviations that legitimately end in a full stop mid-sentence.
 const ABBREV = /(e\.g|i\.e|cf|vs|al|etc|approx|Fig|Eq|St|No|Dr|Prof|Sect)\.$/;

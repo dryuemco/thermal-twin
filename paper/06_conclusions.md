@@ -47,7 +47,7 @@ similar pair failed in both directions while the least similar transferred above
 labels from the target region, a model's skill there is unknown, and no measure computed beforehand
 stands in for it. With them, skill can be measured and the model recalibrated, but the price depends
 on the direction. Thirty-two labelled 5 km blocks recover 83 to 89 % of the target's matched ceiling
-in three of six directions, and only 30 to 52 % in the other three (Appendix A(u)). Those labels
+in three of six directions, and only 30 to 52 % in the other three (Section S1.19). Those labels
 came from the event being predicted, so the curve prices the gap rather than offering a way to close
 it before a fire. Whether labels from earlier fires in the same region would serve is not tested
 here. Three extensions are left for future work: temporal transfer, meteorological covariates, and

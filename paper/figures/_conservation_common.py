@@ -46,8 +46,8 @@ def dirlabel(d):
 # Fig. 5: every arrow against Table B9 as printed, every within tick against Table 1
 B9_NAME = {"Manavgat": "manavgat_2021", "Bejís": "bejis_2022", "Muğla": "mugla_2021",
            "Evia": "evia_2021_extended", "Montiferru": "montiferru_2021"}
-_md = (HERE.parent / "A2_diagnostics.md").read_text(encoding="utf-8")
-_md = _md[_md.index("**Table B9."):]
+_md = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
+_md = _md[_md.index("**Table S16."):]
 B9 = {f"{B9_NAME[s]}_to_{B9_NAME[t]}": {"raw": r, "zscore": z, "coral": c}
       for s, t, r, z, c in re.findall(
           r"^\| (\w+)→(\w+) \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \|$",
