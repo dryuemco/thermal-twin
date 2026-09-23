@@ -18,8 +18,8 @@ record for every number reported here is `6381f4c`. The modelling dataset behind
 identified by SHA-256 in the pipeline's canonical-input record, and every analysis script verifies
 that hash on load.
 
-The analysis code, the frozen numeric outputs and the Supplementary Material are at [repository URL
-to be added]. Figs. 1–8 and the graphical abstract are drawn by the scripts in `paper/figures/`,
+The analysis code, the frozen numeric outputs and the Supplementary Material are at
+<https://github.com/dryuemco/thermal-twin>. Figs. 1–8 and the graphical abstract are drawn by the scripts in `paper/figures/`,
 which also assert Table 1 and every plotted value against the frozen outputs. Sixteen of the
 twenty-two supplementary tables (S2–S7, S9–S18) are rebuilt row by row by
 `paper/code/appendix_tables.py` from source files whose SHA-256 values are pinned in
@@ -27,10 +27,6 @@ twenty-two supplementary tables (S2–S7, S9–S18) are rebuilt row by row by
 captions. `paper/figures/check_all.py` runs all of these checks. Software: Python 3.12.10 with NumPy
 2.4.4, pandas 3.0.2 and scikit-learn 1.9.0; the cross-region tolerance between scikit-learn versions
 is about ±0.02 to 0.03 (Section S3.5(vi)).
-
-<!-- NEEDS AUTHOR INPUT: the analysis repository is PRIVATE and has no licence (checked 2026-09-23).
-A cleaned public copy with a licence must exist, and its URL replace the placeholder above, before
-submission. The corresponding author will open it. -->
 
 ## Funding
 
