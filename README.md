@@ -41,6 +41,10 @@ pandas 3.0.2 and scikit-learn 1.9.0. Use those pins rather than the pipeline's `
 scikit-learn versions differ by about ±0.02 to 0.03 AUC across regions. Run everything from the
 repository root.
 
+On Windows, clone to a short path (e.g. `C:\tt`); paths over 260 characters cause spurious check
+failures. Some tracked files have long paths, so clone with
+`git clone -c core.longpaths=true <url> C:\tt`, or the checkout itself stops partway.
+
 | Command | What it does |
 |---|---|
 | `python paper/figures/check_all.py` | Runs every figure script, each asserting its plotted values against the frozen outputs and the manuscript text and checking its layout, and `appendix_tables.py`. Committed outputs are restored byte for byte. Exit 0: all pass; 1: a failure; 2: something skipped (Fig. 1 needs cartopy). |
