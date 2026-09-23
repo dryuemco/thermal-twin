@@ -39,8 +39,6 @@ Section 4.4 reports the associations running the other way.
 ## 1.3 Contributions
 
 
-Three findings carry this paper, stated here as claims and established in Section 4, which carries
-every interval.
 
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in

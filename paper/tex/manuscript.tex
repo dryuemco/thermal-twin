@@ -1,5 +1,5 @@
 % =============================================================================
-% manuscript.tex — Environmental Modelling & Software (Elsevier), elsarticle class
+% manuscript.tex — Ecological Informatics (Elsevier), elsarticle class
 %
 % GENERATED FILE. Do not edit by hand: it is produced from the Markdown sources
 % by paper/tex/build_tex.mjs. Edit the Markdown and re-run the script, or the
@@ -123,8 +123,6 @@ A predictor block is adopted on the increment it delivers inside its training fo
 Pre-fire thermal dryness is the dynamic class most plausibly \emph{expected} to transfer. Standard predictors are static or near-static over the timescale at which fire danger varies, so they explain poorly why one summer burned and the preceding one did not. What changes is the state of the surface, to which satellite thermal observation gives partial access (Section~\ref{sec:2.2}). The physics linking moisture stress to combustion is universal, which makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally defined covariate. The expectation is sharpest for the internally normalised channels, which should be least exposed to absolute-temperature offsets between regions; \textbf{they transfer no better than the absolute ones} (Section S1.6). The expectation motivates the design and is not a finding of it. Section~\ref{sec:4.4} reports the associations running the other way.
 
 \subsection{Contributions}\label{sec:1.3}
-
-Three findings carry this paper, stated here as claims and established in Section~\ref{sec:4}, which carries every interval.
 
 \textbf{Contribution 1. Where a model is scored decides what it appears to know, and the effect is large enough to dissolve findings of our own.} That evaluation extent inflates AUC is established in species distribution modelling (Section~\ref{sec:2.4}). What is new is a magnitude under a controlled design. Holding model, predictors and fitting fixed and changing only which cells are scored costs \textbf{0.133 ROC-AUC}, the size of the increments this design measures for a predictor block. The cause is measured as the composition of the negative pool rather than class balance (Section~\ref{sec:4.3}), and the cost holds with the region as the resampling unit. Applied between regions, the same test shows four of our own quantities to be properties of the frames, including the one arm that held place fixed (Section~\ref{sec:4.4}). One reversal survives it, Manavgat's elevation. The practical consequence is a reporting standard (Section~\ref{sec:5.6}).
 
@@ -392,7 +390,7 @@ Adding the six thermal predictors to the baseline raises spatially blocked out-o
   \end{tabularx}
 \end{table}
 
-\emph{Table note (resampling units).} The 20-cell row is indicative (above). The 10-cell row, with 16 to 70 positive-carrying blocks in every region, is the coarsest blocking this design supports properly. The block counts and the coverage argument are in Section S1.3, \emph{Table~\ref{tab:1} note (resampling units)}.
+\emph{Table note (resampling units).} The 10-cell row, with 16 to 70 positive-carrying blocks in every region, is the coarsest blocking this design supports properly. The block counts and the coverage argument are in Section S1.3, \emph{Table~\ref{tab:1} note (resampling units)}.
 
 The Manavgat rows are computed on the corrected label (Section~\ref{sec:3.2}). The rows strengthen rather than weaken; the change row by row is in Section S3.1.3.
 
@@ -590,7 +588,7 @@ No diagnostic among the twenty fixed in advance orders transfer with an interval
 
 \subsection{Reading the three findings together}\label{sec:5.1}
 
-Section~\ref{sec:1.3} states the three findings and Section~\ref{sec:4} establishes them; this section argues from them.  The first is not a caveat attached to the second; it is the instrument that sets its size. Applied to our own matrix, it identified four quantities as properties of the frames rather than of the relationship between predictors and burning. What it left standing is a shortfall in transferred skill and one reversed relationship, Manavgat's elevation. The third closes the obvious way around the second. If transfer cannot be assumed, it might still be anticipated from how similar two regions are, and no diagnostic in the set fixed in advance was shown to do that.
+The first finding is not a caveat attached to the second; it is the instrument that sets its size. Applied to our own matrix, it identified four quantities as properties of the frames rather than of the relationship between predictors and burning. What it left standing is a shortfall in transferred skill and one reversed relationship, Manavgat's elevation. The third closes the obvious way around the second. If transfer cannot be assumed, it might still be anticipated from how similar two regions are, and no diagnostic in the set fixed in advance was shown to do that.
 
 \subsection{Why the thermal increment is real but local}\label{sec:5.2}
 
@@ -659,11 +657,11 @@ The remaining six, from the absent meteorological covariates to the classifier c
 
 \section{Conclusions}\label{sec:6}
 
-Where a fire model is scored decides what it appears to know. Model, predictors and fitting were held fixed, and only the scored cells changed. Moving from a whole study region to the burn scar and its 2 km collar costs \textbf{0.133 ROC-AUC}. A control measures the cause as the composition of the negative pool rather than class balance. That is the size of the predictor-block increments this design itself measures. A region-wide validation figure should therefore be read as an upper bound on what a model achieves where fire actually occurs, and reported as one.
+Where a fire model is scored decides what it appears to know. Model, predictors and fitting were held fixed, and only the scored cells changed. Moving from a whole study region to the burn scar and its 2 km collar costs \textbf{0.133 ROC-AUC}. A control measures the cause as the composition of the negative pool rather than class balance. A region-wide validation figure should therefore be read as an upper bound on what a model achieves where fire actually occurs, and reported as one.
 
 That correction is not only other people's problem. Applied to our own five-region matrix, it shows four of our own quantities to be properties of the frames. The study areas enclose very unequal far fields. Equalising them to a 10 km collar lifts mean transfer from 0.527 to 0.589 and reduces the directions below chance. It removes every supported elevation reversal but one, Manavgat's, which survives. The same correction applies to the one arm that held place fixed, two fires in one study area eleven months apart. We had wrongly exempted it, because its geography was constant while its evaluation frame was not. Its elevation reversal does not survive equalisation, and that arm can speak only for the year-invariant channels. Much of what had looked like a reversed predictor-burning relationship was a statement about how five rectangles were drawn.
 
-What survives is the central result. Pre-fire thermal predictors add a real and repeatable within-region increment in all five regions. It survives spatial blocking at about 5 km, and a predictor window closed up to two weeks before the first labelled burning. It does not travel. On matched frames and blocking, equalised transfer of 0.589 falls 0.197 short of the within-region reference. The paired cross-region contribution spans zero on both frames under the resampling unit we treat as primary, though not when clustered by target region (Section~\ref{sec:4.4}), and its sign varies by pair. The static baseline transfers no better on either frame, so this is not a peculiarity of thermal predictors. Label-free alignment compresses most directions towards chance rather than repairing them.
+What survives is the central result. Pre-fire thermal predictors add a real and repeatable within-region increment in all five regions. It survives spatial blocking at about 5 km, and a predictor window closed up to two weeks before the first labelled burning. It does not travel. On matched frames and blocking, equalised transfer of 0.589 falls 0.197 short of the within-region reference. The paired cross-region contribution spans zero on both frames under the resampling unit we treat as primary, though not when clustered by target region (Section~\ref{sec:4.4}), and its sign varies by pair. Label-free alignment compresses most directions towards chance rather than repairing them.
 
 Two limits belong with all of this. The thermal direction shared by most regions is the opposite of the one the dryness framing predicts. Hotter pre-fire surfaces burned less in four of five regions, and holding greenness does not remove it, while holding temperature reverses greenness in two regions. On this cohort the absolute channels therefore behave as static land-surface descriptors rather than as a dryness index. Manavgat is the exception, and there its thermal sign cannot be separated from its terrain. And with one fire per region, and the single arm that held place fixed now withdrawn, this design measures a transfer shortfall but cannot attribute it to region rather than to event.
 

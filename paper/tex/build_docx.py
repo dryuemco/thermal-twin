@@ -221,6 +221,8 @@ ms_md = ms_md.replace("@@WORDCOUNT@@", WORDLINE)
 ms_doc = to_docx(ms_md, OUT / "manuscript.docx")
 assert main_text_words(ms_doc) == WORDS
 sup_doc = to_docx(sup_md, OUT / "supplementary_material.docx")
+# the highlights are a separate, editable submission file
+(OUT / "highlights.tex").write_bytes((P / "highlights.tex").read_bytes())
 
 for name, doc, eqs in (("manuscript.docx", ms_doc, EQ), ("supplementary_material.docx", sup_doc, SEQ)):
     print(f"{name}: {len(doc.paragraphs)} paragraphs, {len(doc.tables)} tables, {len(eqs)} numbered equations")
