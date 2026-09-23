@@ -62,8 +62,13 @@ REGIONS = tuple(CANONICAL_SHA256)
 # Label-corrected tables (primary). Paths relative to the thermal-twin-main tree.
 TREE = Path(__file__).resolve().parents[2]
 CORRECTED = {
-    "manavgat_2021": ("paper/data/manavgat_2021/step8a_500m_modeling_dataset_labelfix.parquet",
-                      "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49"),
+    # The official re-freeze on the corrected label (pipeline 6381f4c). It equals the 2026-09-19
+    # corrected table (e4ab8b85) in all 79 shared columns, row for row, and adds
+    # historical_burn_excluded, all False and in FORBIDDEN. It is the only Manavgat file in the
+    # repository; the original-label export (054a1961) is not, so labels="frozen" for Manavgat needs
+    # THERMAL_TWIN_DATA pointing at a pipeline output tree.
+    "manavgat_2021": ("paper/data/manavgat_2021/step8a_500m_modeling_dataset.parquet",
+                      "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb"),
 }
 LABEL_SETTINGS = ("corrected", "frozen")
 LABELS_ENV = "THERMAL_TWIN_LABELS"
