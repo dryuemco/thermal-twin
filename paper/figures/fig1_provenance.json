@@ -1,12 +1,50 @@
 {
  "figure": "Fig. 1 - study-area location map",
  "script": "paper/figures/fig1_study_map.py",
- "aoi_data": "paper/figures/data/fig1_aoi.json (step0 geojson / 30m-grid-derived; sha256 per source inside)",
+ "aoi_data": {
+  "path": "paper/figures/data/fig1_aoi.json",
+  "sha256": "9484187f0677ef845018a3b189b5f7c92bbb0f7163cda9636bbf6f02cb4c5636",
+  "note": "step0 geojson / 30m-grid-derived; sha256 per source inside"
+ },
  "basemap": {
   "dataset": "Natural Earth 1:50m physical: coastline + land",
-  "fetched_via": "cartopy 0.25.0 downloader at build time",
-  "note": "Natural Earth is public domain; version as shipped by NACIS CDN at build date 2026-08-08"
+  "fetched_via": "cartopy 0.25.0 downloader; files read from the cartopy cache",
+  "note": "Natural Earth is public domain; version as shipped by NACIS CDN on the download date below (the cache files carry no version string)",
+  "files": {
+   "ne_50m_land.shp": {
+    "sha256": "140d1419f7ace66bf0ea8ceb068cab544d413170f4e8c48e0a11bde6c978b319",
+    "downloaded": "2026-08-08T20:03:42"
+   },
+   "ne_50m_land.shx": {
+    "sha256": "c1b93ee40fe83d6322197251517c141c2c91970915ac61d7bf7a4821fc2a68d7",
+    "downloaded": "2026-08-08T20:03:42"
+   },
+   "ne_50m_land.dbf": {
+    "sha256": "d082add78c82e01b9bf422df3143ad6fbe43ca1bcb798d12a334f9e001b67bc0",
+    "downloaded": "2026-08-08T20:03:42"
+   },
+   "ne_50m_coastline.shp": {
+    "sha256": "797d675af9613f80b51ab6049fa32e589974d7a97c6497ca56772965f179ed26",
+    "downloaded": "2026-08-08T20:03:44"
+   },
+   "ne_50m_coastline.shx": {
+    "sha256": "0ff1792f2d16b58246d074215edd9d12fa280880ecaad61a91b9382fee854065",
+    "downloaded": "2026-08-08T20:03:44"
+   },
+   "ne_50m_coastline.dbf": {
+    "sha256": "f100fa5a99786c63ec9eb2cd430e389bc6235b8e26d2712d33f9bfd6cb6aadfc",
+    "downloaded": "2026-08-08T20:03:44"
+   }
+  }
  },
+ "geo_stack": {
+  "cartopy": "0.25.0",
+  "shapely": "2.1.2",
+  "geos": "3.14.1",
+  "pyproj": "3.7.2",
+  "proj": "9.8.1"
+ },
+ "reproducibility": "Checked 2026-09-23. The committed fig1_study_map.pdf/.svg (rendered 2026-08-08) are NOT reproduced exactly by this script with the Natural Earth files, the AOI file and the geo stack recorded here, although all three predate that render. A rebuild is deterministic (two rebuilds are identical once matplotlib ids are normalised) and differs from the committed SVG by two extra paths, one land fill and its coastline, at the top-left edge of the map. The cause was not identified. An earlier commit message (67790d8) attributed the difference to cartopy re-fetching its coastline data; that was wrong, since the cache files date from 2026-08-08.",
  "asserts": "all five AOI bboxes match 03_methods Table 1 to 5e-3 deg",
  "design": "single AOI colour across the five study regions (no regime grouping implied); no topography/satellite; Kozan 2023 drawn as gate control in a distinct style (grey + dashed edge + square marker + role in label + separate legend entry) so its location is findable from Methods 3.3 / Results 4.1 without implying it entered any model",
  "kozan_bbox_source": "drive_new/kozan-legacy/step8a/step8a_dataset_stats.json (30 m reference-grid transform); cross-checked in-script against the independent step2b_dem_metadata.json AOI polygon to 5e-3 deg",
