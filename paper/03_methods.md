@@ -6,6 +6,11 @@
 > quality screening, index normalisation, label omission and the version and reproduction audits, is
 > the subject of the companion paper and is summarised here only where a Paper 1 claim depends on it.
 > The released repository remains the authoritative source for file and line references.
+>
+> **Updated 2026-09-23 for the corrected Manavgat label.** §3.13: the reproduction sentence now
+> reports the check against the re-frozen outputs (1.3×10⁻⁸, formerly 1.6×10⁻⁷), names who carried it
+> out, and states the one-line window-closure patch. The seed-stability sentence follows the new
+> seed sweep.
 
 ## 3.1 Study regions and temporal windows
 
@@ -286,12 +291,18 @@ the agreement fraction are excluded from all feature sets. The natural-vegetatio
 population and is never a predictor. All randomness uses seed 42 and the bootstrap 1000
 replicates, with one qualification: the diagnostic bootstraps of the released appendices use
 per-measure offsets from that seed rather than the seed itself, so that independent measures do not
-share a resampling draw. Two of the twenty transfer verdicts are not stable across seeds and are
-identified in Section 4.5.
-Because the transfer analysis runs in an environment separate from the upstream pipeline's, every
-within-region model was refitted against the frozen upstream output: the within-region comparisons
-agree exactly and the twenty transfer directions to within 1.6×10⁻⁷, with the tolerance that applies
-if the library version is not pinned in Appendix C.5(vi). Headline results are repeated across two
+share a resampling draw. Across five seeds every transfer verdict at 1 km blocking is stable; at
+5 km one level verdict and two paired-delta verdicts are not, and Section 4.5 identifies them.
+The transfer analysis runs in an environment separate from the upstream pipeline's. The
+repository's own reproduction check therefore refitted every within-region model and all twenty
+directed CORAL transfers against the frozen upstream output. For Manavgat that output is the one
+re-frozen on the corrected label (Section 3.2), produced with the upstream pipeline at commit
+6381f4c, run unchanged apart from a one-line patch. That patch lets the window-closure module accept
+a population column the corrected label adds, and its diff is released with the re-freeze. The
+within-region comparisons agree exactly, and the transfer directions to within 1.3×10⁻⁸, under the
+repository's pre-existing tolerance of 10⁻⁶. The tolerance that applies if the library version is
+not pinned is given in Appendix C.5(vi). The re-freeze and this check were carried out by the
+manuscript authors rather than independently by the pipeline's original author. Headline results are repeated across two
 populations, three block sizes, the CORAL sweep, both feature sets and four classifier capacities,
 and where a conclusion depends on one of those choices **the dependence is reported rather than
 resolved by choosing the favourable setting** (Appendices A, C.6).
