@@ -1,0 +1,67 @@
+{
+  "ran": true,
+  "dry_run": false,
+  "requested_experiment_ids": [
+    "bejis_2022",
+    "evia_2021",
+    "evia_2021_extended",
+    "kozan_2023",
+    "manavgat_2021",
+    "montiferru_2021",
+    "mugla_2021",
+    "mugla_2022",
+    "mugla_2022_event_relative"
+  ],
+  "resolved_experiment_ids": [
+    "bejis_2022",
+    "evia_2021_extended",
+    "manavgat_2021",
+    "montiferru_2021",
+    "mugla_2021"
+  ],
+  "selection_mode": "all_enabled",
+  "excluded": {
+    "evia_2021": "superseded_by_evia_2021_extended",
+    "kozan_2023": "negative_control",
+    "mugla_2022": "superseded_by_mugla_2022_event_relative",
+    "mugla_2022_event_relative": "temporal_transfer_wildfire"
+  },
+  "allow_superseded_sensitivity": false,
+  "superseded_pairs": [],
+  "superseded_sensitivity_note": null,
+  "comparison": {
+    "ran": true,
+    "dry_run": false,
+    "analysis_id": "cd6a39a0e51b0e350d47c2087da9ad5a59630ea3cddb7758247ccbd6d033016e",
+    "requested_experiment_ids": [
+      "bejis_2022",
+      "evia_2021",
+      "evia_2021_extended",
+      "kozan_2023",
+      "manavgat_2021",
+      "montiferru_2021",
+      "mugla_2021",
+      "mugla_2022",
+      "mugla_2022_event_relative"
+    ],
+    "resolved_experiment_ids": [
+      "bejis_2022",
+      "evia_2021_extended",
+      "manavgat_2021",
+      "montiferru_2021",
+      "mugla_2021"
+    ],
+    "selection_mode": "all_enabled",
+    "allow_superseded_sensitivity": false,
+    "superseded_pairs": [],
+    "superseded_sensitivity_note": null,
+    "output_dir": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_control_frozenlabel\\outputs\\diagnostics\\burned_pattern_audit\\comparison",
+    "per_experiment_results": {
+      "bejis_2022": "e8ed11c14069a78094cd7d0789db0aa36ed574d99f3da13eb790f5e045316cea",
+      "evia_2021_extended": "532da4bacacaca85246882e00823698cf5cba2ee665d59a76481d3ab3a1d2aa9",
+      "manavgat_2021": "d9a792c2e31d6e1cc48f184e68f99d9adf0aca995314980e112d9486d7dfb197",
+      "montiferru_2021": "621074b859fa8c2536d717bf89c264edb965db900f0b806e7c01c842c45dcd14",
+      "mugla_2021": "fe79ac08df791d10a5ab9a169d36cc4ad795397dae683aab29cffd41e71098bc"
+    }
+  }
+}
