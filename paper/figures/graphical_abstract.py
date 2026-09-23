@@ -107,7 +107,7 @@ assert max(T_HI) < 0.5 < min(T_LO)
 # the abstract's contrast sentence and Highlight 5 carry the same values
 _abs = " ".join((HERE.parent / "00_abstract.md").read_text(encoding="utf-8").split())
 assert "neither sufficient nor necessary" in _abs and "(0.438, 0.345)" in _abs and "(0.594, 0.548)" in _abs
-_hl = (HERE.parent / "highlights.md").read_text(encoding="utf-8")
+_hl = (HERE.parent / "highlights.tex").read_text(encoding="utf-8")
 assert "Highest niche-overlap pair fails both ways; lowest-overlap pair transfers both ways" in _hl
 
 # ---- figure: three panels, C1 | C2 | C3, at 130 x 50 mm (Elsevier's 13 x 5 cm) -------------

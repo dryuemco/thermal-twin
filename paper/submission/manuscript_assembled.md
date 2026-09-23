@@ -9,7 +9,7 @@ Emrehan Metin^a^, Yunus Emre Cogurcu^a,\*^
 
 ^\*^ Corresponding author. E-mail: ycogurcu@cu.edu.tr
 
-**Word count:** 10,035 words in the main text, excluding references, tables, figure captions and declarations.
+**Word count:** 9,966 words in the main text, excluding references, tables, figure captions and declarations.
 
 # Abstract
 
@@ -58,8 +58,6 @@ Section 4.4 reports the associations running the other way.
 ## 1.3 Contributions
 
 
-Three findings carry this paper, stated here as claims and established in Section 4, which carries
-every interval.
 
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
@@ -481,7 +479,7 @@ replicates. Block sizes 2/10/20 cells ≈ 1/5/10 km. Baseline and Thermal column
 | | 10 | 0.620 | 0.720 | +0.099 | [+0.017, +0.186] |
 | | 20 | 0.555 | 0.681 | +0.126 | [+0.053, +0.228] |
 
-*Table note (resampling units).* The 20-cell row is indicative (above). The 10-cell row, with 16
+*Table note (resampling units).* The 10-cell row, with 16
 to 70 positive-carrying blocks in every region, is the coarsest blocking this design supports
 properly. The block counts and the coverage argument are in Section S1.3, *Table 1 note (resampling
 units)*.
@@ -703,8 +701,7 @@ and was not evaluated as a diagnostic.
 
 ## 5.1 Reading the three findings together
 
-Section 1.3 states the three findings and Section 4 establishes them; this section argues from them.
- The first is not a caveat attached to the
+The first finding is not a caveat attached to the
 second; it is the instrument that sets its size. Applied to our own matrix, it identified four
 quantities as properties of the frames rather than of the relationship between predictors and
 burning. What it left standing is a shortfall in transferred skill and one reversed relationship,
@@ -881,8 +878,7 @@ point estimate only (Section S1.8), bear on scope rather than on the conclusions
 Where a fire model is scored decides what it appears to know. Model, predictors and fitting were
 held fixed, and only the scored cells changed. Moving from a whole study region to the burn scar and
 its 2 km collar costs **0.133 ROC-AUC**. A control measures the cause as the composition of the
-negative pool rather than class balance. That is the size of the predictor-block increments this
-design itself measures. A region-wide validation figure should therefore be read as an upper bound
+negative pool rather than class balance. A region-wide validation figure should therefore be read as an upper bound
 on what a model achieves where fire actually occurs, and reported as one.
 
 That correction is not only other people's problem. Applied to our own five-region matrix, it shows
@@ -901,8 +897,7 @@ predictor window closed up to two weeks before the first labelled burning. It do
 matched frames and blocking, equalised transfer of 0.589 falls 0.197 short of the within-region
 reference. The paired cross-region contribution spans zero on both frames under the resampling unit
 we treat as primary, though not when clustered by target region (Section 4.4), and its sign varies
-by pair. The static baseline transfers no better on either frame, so this is not a peculiarity of
-thermal predictors. Label-free alignment compresses most directions towards chance rather than
+by pair. Label-free alignment compresses most directions towards chance rather than
 repairing them.
 
 Two limits belong with all of this. The thermal direction shared by most regions is the opposite of

@@ -42,8 +42,7 @@
 Where a fire model is scored decides what it appears to know. Model, predictors and fitting were
 held fixed, and only the scored cells changed. Moving from a whole study region to the burn scar and
 its 2 km collar costs **0.133 ROC-AUC**. A control measures the cause as the composition of the
-negative pool rather than class balance. That is the size of the predictor-block increments this
-design itself measures. A region-wide validation figure should therefore be read as an upper bound
+negative pool rather than class balance. A region-wide validation figure should therefore be read as an upper bound
 on what a model achieves where fire actually occurs, and reported as one.
 
 That correction is not only other people's problem. Applied to our own five-region matrix, it shows
@@ -62,8 +61,7 @@ predictor window closed up to two weeks before the first labelled burning. It do
 matched frames and blocking, equalised transfer of 0.589 falls 0.197 short of the within-region
 reference. The paired cross-region contribution spans zero on both frames under the resampling unit
 we treat as primary, though not when clustered by target region (Section 4.4), and its sign varies
-by pair. The static baseline transfers no better on either frame, so this is not a peculiarity of
-thermal predictors. Label-free alignment compresses most directions towards chance rather than
+by pair. Label-free alignment compresses most directions towards chance rather than
 repairing them.
 
 Two limits belong with all of this. The thermal direction shared by most regions is the opposite of

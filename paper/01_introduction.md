@@ -93,8 +93,6 @@ Section 4.4 reports the associations running the other way.
 > diagnostics result returns in its negative form, and "Two findings" becomes "Three findings".
 > Style pass the same day: the six sentences over 40 words were split, and nothing else changed.
 
-Three findings carry this paper, stated here as claims and established in Section 4, which carries
-every interval.
 
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in

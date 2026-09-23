@@ -65,7 +65,7 @@ replicates. Block sizes 2/10/20 cells ≈ 1/5/10 km. Baseline and Thermal column
 | | 10 | 0.620 | 0.720 | +0.099 | [+0.017, +0.186] |
 | | 20 | 0.555 | 0.681 | +0.126 | [+0.053, +0.228] |
 
-*Table note (resampling units).* The 20-cell row is indicative (above). The 10-cell row, with 16
+*Table note (resampling units).* The 10-cell row, with 16
 to 70 positive-carrying blocks in every region, is the coarsest blocking this design supports
 properly. The block counts and the coverage argument are in Section S1.3, *Table 1 note (resampling
 units)*.

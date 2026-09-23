@@ -727,12 +727,14 @@ for (const lab of FIGBLOCKS.keys()) {
 }
 
 // Highlights (Elsevier wants them as a separate item, but keep them in the file).
-const highlights = readOpt('highlights.md', '').split(/\r?\n/)
-  .filter(l => /^\s*[-*]\s+/.test(l))
-  .map(l => '  \\item ' + l.replace(/^\s*[-*]\s+/, '').trim());
+// Source: highlights.tex (since 2026-09-24), the file submitted on its own; its \item lines are
+// carried into the front matter unchanged.
+const highlights = readOpt('highlights.tex', '').split(/\r?\n/)
+  .filter(l => /^\s*\\item\s+/.test(l))
+  .map(l => '  ' + l.trim());
 
 const preamble = `% =============================================================================
-% manuscript.tex — Environmental Modelling & Software (Elsevier), elsarticle class
+% manuscript.tex — Ecological Informatics (Elsevier), elsarticle class
 %
 % GENERATED FILE. Do not edit by hand: it is produced from the Markdown sources
 % by paper/tex/build_tex.mjs. Edit the Markdown and re-run the script, or the
