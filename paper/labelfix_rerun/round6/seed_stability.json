@@ -1,0 +1,258 @@
+{
+ "control": {
+  "v2": {
+   "unstable": [],
+   "counts_by_seed": {
+    "42": {
+     "above": 12,
+     "below": 6,
+     "uncertain": 2
+    },
+    "43": {
+     "above": 12,
+     "below": 6,
+     "uncertain": 2
+    },
+    "44": {
+     "above": 12,
+     "below": 6,
+     "uncertain": 2
+    },
+    "45": {
+     "above": 12,
+     "below": 6,
+     "uncertain": 2
+    },
+    "46": {
+     "above": 12,
+     "below": 6,
+     "uncertain": 2
+    }
+   }
+  },
+  "v10": {
+   "unstable": [
+    "Evia->Bej"
+   ],
+   "counts_by_seed": {
+    "42": {
+     "above": 9,
+     "uncertain": 7,
+     "below": 4
+    },
+    "43": {
+     "above": 9,
+     "uncertain": 8,
+     "below": 3
+    },
+    "44": {
+     "above": 9,
+     "uncertain": 8,
+     "below": 3
+    },
+    "45": {
+     "above": 9,
+     "uncertain": 7,
+     "below": 4
+    },
+    "46": {
+     "above": 9,
+     "uncertain": 7,
+     "below": 4
+    }
+   }
+  },
+  "dv2": {
+   "unstable": [
+    "Bej->Man"
+   ],
+   "counts_by_seed": {
+    "42": {
+     "positive": 11,
+     "negative": 7,
+     "uncertain": 2
+    },
+    "43": {
+     "positive": 11,
+     "negative": 7,
+     "uncertain": 2
+    },
+    "44": {
+     "positive": 11,
+     "negative": 7,
+     "uncertain": 2
+    },
+    "45": {
+     "positive": 11,
+     "negative": 7,
+     "uncertain": 2
+    },
+    "46": {
+     "positive": 10,
+     "negative": 7,
+     "uncertain": 3
+    }
+   }
+  },
+  "dv10": {
+   "unstable": [
+    "Man->Mug",
+    "Evia->Mont"
+   ],
+   "counts_by_seed": {
+    "42": {
+     "uncertain": 10,
+     "positive": 6,
+     "negative": 4
+    },
+    "43": {
+     "uncertain": 11,
+     "positive": 5,
+     "negative": 4
+    },
+    "44": {
+     "uncertain": 11,
+     "positive": 6,
+     "negative": 3
+    },
+    "45": {
+     "uncertain": 10,
+     "positive": 6,
+     "negative": 4
+    },
+    "46": {
+     "uncertain": 10,
+     "positive": 6,
+     "negative": 4
+    }
+   }
+  }
+ },
+ "official": {
+  "v2": {
+   "unstable": [],
+   "counts_by_seed": {
+    "42": {
+     "above": 11,
+     "below": 7,
+     "uncertain": 2
+    },
+    "43": {
+     "above": 11,
+     "below": 7,
+     "uncertain": 2
+    },
+    "44": {
+     "above": 11,
+     "below": 7,
+     "uncertain": 2
+    },
+    "45": {
+     "above": 11,
+     "below": 7,
+     "uncertain": 2
+    },
+    "46": {
+     "above": 11,
+     "below": 7,
+     "uncertain": 2
+    }
+   }
+  },
+  "v10": {
+   "unstable": [
+    "Evia->Bej"
+   ],
+   "counts_by_seed": {
+    "42": {
+     "above": 9,
+     "below": 6,
+     "uncertain": 5
+    },
+    "43": {
+     "above": 9,
+     "uncertain": 6,
+     "below": 5
+    },
+    "44": {
+     "above": 9,
+     "uncertain": 6,
+     "below": 5
+    },
+    "45": {
+     "above": 9,
+     "below": 6,
+     "uncertain": 5
+    },
+    "46": {
+     "above": 9,
+     "below": 6,
+     "uncertain": 5
+    }
+   }
+  },
+  "dv2": {
+   "unstable": [],
+   "counts_by_seed": {
+    "42": {
+     "positive": 12,
+     "negative": 7,
+     "uncertain": 1
+    },
+    "43": {
+     "positive": 12,
+     "negative": 7,
+     "uncertain": 1
+    },
+    "44": {
+     "positive": 12,
+     "negative": 7,
+     "uncertain": 1
+    },
+    "45": {
+     "positive": 12,
+     "negative": 7,
+     "uncertain": 1
+    },
+    "46": {
+     "positive": 12,
+     "negative": 7,
+     "uncertain": 1
+    }
+   }
+  },
+  "dv10": {
+   "unstable": [
+    "Man->Mug",
+    "Evia->Mont"
+   ],
+   "counts_by_seed": {
+    "42": {
+     "uncertain": 9,
+     "positive": 6,
+     "negative": 5
+    },
+    "43": {
+     "uncertain": 11,
+     "positive": 5,
+     "negative": 4
+    },
+    "44": {
+     "uncertain": 10,
+     "positive": 6,
+     "negative": 4
+    },
+    "45": {
+     "uncertain": 9,
+     "positive": 6,
+     "negative": 5
+    },
+    "46": {
+     "uncertain": 9,
+     "positive": 6,
+     "negative": 5
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,96 @@
+manavgat step8a sha256 (computed): 607a6359af6c6ba0378bfb11665f21c22c279ef71af7de4fb85c7515d4cda2e4 | repo literal: 054a1961fc0582a33d36413263668b63074b21ae8b03d12269b6e228787f3439
+{
+ "ran": true,
+ "dry_run": false,
+ "schema_version": "mugla_subsampling.v1",
+ "analysis_id": "9537d90529a0f127e7bf04ccd19b841d27ca9fa543e4253ede2a0494f0fab7ae",
+ "diagnostic_class": "population_size_matched_subsampling_sensitivity",
+ "experiments": [
+  "manavgat_2021",
+  "bejis_2022",
+  "mugla_2021"
+ ],
+ "arm_id": "size_matched_to_manavgat",
+ "target_sample_size": 20511,
+ "n_repeats": 20,
+ "stages_executed": [
+  "plan",
+  "fit",
+  "summarize"
+ ],
+ "stage_results": [
+  {
+   "stage": "plan",
+   "selected_rows": 410220,
+   "n_strata": 636,
+   "marker": {
+    "schema_version": "mugla_subsampling.v1",
+    "analysis_id": "9537d90529a0f127e7bf04ccd19b841d27ca9fa543e4253ede2a0494f0fab7ae",
+    "stage": "plan",
+    "status": "pass",
+    "completed_at_utc": "2026-09-23T12:14:42.825878+00:00",
+    "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+    "requires": [],
+    "files": {
+     "config.json": "a499d66d81e73e12f6babc37ca6a7d9cb29f2ec31b35834cbee5eff790a938d5",
+     "input_hashes.json": "4a101f6921ec79ff8bccbd55b91c562956235ef9da2d719a25744c9a474470ef",
+     "sampling_inventory.csv": "faefe819b396b5ba620d9ca9edd1f2c914a949f50fdbc9deece25b7e0464c666",
+     "stratum_allocation.csv": "2de1fded802c4ff54d22995d32cd7fafc46c44bd657711847ebc7a86e6a2f31c",
+     "selected_cells.parquet": "80085e5fe69838956b098ff45495dd6c70c2b6cf877e5b0f5898d45eff20a3d0",
+     "fold_mapping.parquet": "44fab9cddb5905d1a7ed8011fe9a7d83eeb780650b73ae4a99f5ffcf3956a217",
+     "reference_metrics.csv": "6d7f6853bfaa520c780401be11047bed4ad98349e23e8386379ca20eca8911b8"
+    },
+    "n_repeats": 20,
+    "target_sample_size": 20511,
+    "n_strata": 636,
+    "n_blocks": 576,
+    "allocation_accounting": {
+     "population_total": 41730,
+     "target_total": 20511,
+     "floor_total": 20211,
+     "remainder_units": 300,
+     "cut_remainder_numerator": 19095,
+     "strata_above_cut": 295,
+     "strata_tied_at_cut": 12,
+     "tie_units_awarded": 5
+    },
+    "prevalence_accounting": {
+     "population_total": 41730,
+     "population_positives": 2911,
+     "population_negatives": 38819,
+     "prevalence_full": 0.06975796788880902,
+     "sampled_positives": 1438,
+     "sampled_negatives": 19073,
+     "prevalence_subsample": 0.07010872214909074,
+     "prevalence_absolute_drift": 0.0003507542602817215,
+     "prevalence_relative_drift": 0.00502816052269194,
+     "exact_proportional_positives": 1430.8056793673616,
+     "n_positive_strata": 70,
+     "prevalence_drift_bound": 0.003412802886256155,
+     "prevalence_within_bound": true
+    },
+    "fold_accounting": {
+     "n_cells": 41730,
+     "n_blocks": 576,
+     "folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "blocks_spanning_folds": 0,
+     "artifact_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_control_frozenlabel\\outputs\\experiments\\mugla_2021\\robustness\\step8_big_blocks\\block_10_cells\\oof_predictions.parquet",
+     "artifact_sha256": "e16e6b18020b745da6e91a9e59664778b7a2887c8227729048fc459bc9d
+VALIDATION: {"overall_status": "PASS", "status": null, "n_pass": null, "n_fail": null}
+[
+ {
+  "check_id": "L5",
+  "status": "SKIPPED",
+  "expected": "independent re-fit is bit-identical",
+  "observed": "not requested (pass --deep)",
+  "evidence_path": null,
+  "note": null
+ }
+]
+MUGLA_DRIVER_DONE

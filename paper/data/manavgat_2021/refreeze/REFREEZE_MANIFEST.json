@@ -1,7 +1,7 @@
 {
  "schema": "manavgat_refreeze_manifest.v1",
- "created_utc": "2026-09-23T11:48:22.006423+00:00",
- "provenance_statement": "The re-freeze tree was built from the pipeline repository at commit 6381f4c (6381f4cd752d77a3069fcaa2364d10109b5adaf7), run unchanged. Manavgat's original label raster was exported on 2026-07-08; the month-boundary alignment fix of the MCD64A1 query is commit 183be42 of 2026-07-11. The label defect was therefore not a code defect at the time of this re-freeze: it was an export made before the fix and never renewed.",
+ "created_utc": "2026-09-23T12:28:58.923804+00:00",
+ "provenance_statement": "The re-freeze tree was built from the pipeline repository at commit 6381f4c (6381f4cd752d77a3069fcaa2364d10109b5adaf7), run unchanged. Manavgat's original label raster was exported on 2026-07-08; the month-boundary alignment fix of the MCD64A1 query is commit 183be42 of 2026-07-11. The label defect was therefore not a code defect at the time of this re-freeze: it was an export made before the fix and never renewed. The re-freeze chain (label, gate, step8a-8e, robustness, step9/step10 and the diagnostics) ran unchanged. Only the window-closure diagnostic carries a one-line patch (see code_patches), because its Step8A column contract predates the historical_burn_excluded column.",
  "repo_commit": "6381f4cd752d77a3069fcaa2364d10109b5adaf7",
  "label_fix_commit": {
   "sha": "183be42488cf12a1ebc9b3e8c8fee98be8f649e2",
@@ -79,7 +79,9 @@
   "outputs/diagnostics/multi_aoi_transfer_synthesis",
   "outputs/diagnostics/burned_pattern_audit",
   "outputs/diagnostics/reproduction_check",
-  "outputs/diagnostics/marginal_aoa_completion"
+  "outputs/diagnostics/marginal_aoa_completion",
+  "outputs/diagnostics/window_closure_sensitivity",
+  "outputs/diagnostics/mugla_subsampling"
  ],
  "untouched": "The other four regions' inputs are copied from drive_new with canonical hashes; none is rebuilt.",
  "commands": "refreeze/_runners/run_tree.sh (and build_trees.sh, step6_label.py, bigblock.py, largeblock.py)",
@@ -312,13 +314,22 @@
   },
   "g1_acceptance": "ACCEPTED by the user on 2026-09-23: legacy manavgat_2021__evia_2021 exceeds the 1e-5 tolerance (metrics 1.3e-5, bootstrap samples 1.2e-4, calibration bin counts +/-1). RF parallel nondeterminism; the 2026-09-19 control showed the same magnitude on the same pair; the pair is outside the eight modern directions. The step8e and large_block input_audit differences are file paths and a column list shifted by the 80th column, with numbers equal to 2.2e-16. The tolerance itself was not changed."
  },
- "file_count": 538,
+ "file_count": 823,
  "sha256sums": "SHA256SUMS.txt",
  "copied_inputs": {
   "file": "COPIED_INPUTS.txt",
   "count": 1080,
   "note": "The other regions' inputs, the 10 non-Manavgat pair folders and the non-Manavgat Step9G reports, copied from drive_new; label-unaffected, not rebuilt."
  },
+ "code_patches": [
+  {
+   "file": "src/window_closure_sensitivity.py",
+   "diff": "refreeze/_runners/patches/window_closure_accept_historical_burn_excluded.diff",
+   "change": "one line: 'historical_burn_excluded' added to STEP8A_POPULATION_COLUMNS (a closure-invariant population attribute that Step8A at 6381f4c writes)",
+   "scope": "both re-freeze trees; repo/ unchanged",
+   "check": "control arm (frozen label) reproduces drive_new window_closure compare tables to <= 1e-16"
+  }
+ ],
  "stage_b": {
   "reproduction_check": "outputs/diagnostics/reproduction_check/reproduction_check.json",
   "note": "scripts/run_reproduction_check.py at repo 6381f4c, unchanged. The re-freeze and this reproduction check come from the same side; the pipeline author did not independently verify them. Tolerance: the repository's own 1e-6 (Step10C)."

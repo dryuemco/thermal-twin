@@ -1,0 +1,5 @@
+mugla_control rc=0
+mugla_official rc=0
+wc_control rc=0
+wc_official rc=0
+R6_DONE

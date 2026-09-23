@@ -1,0 +1,126 @@
+2026-09-23 15:18:47,713 INFO     [ExperimentContext] experiment_id: manavgat_2021
+2026-09-23 15:18:47,714 INFO     [ExperimentContext] region_key: manavgat_aoi
+2026-09-23 15:18:47,714 INFO     [ExperimentContext] role: anchor_wildfire
+2026-09-23 15:18:47,714 INFO     [ExperimentContext] Predictor window: 2021-06-01 -> 2021-07-27
+2026-09-23 15:18:47,714 INFO     [ExperimentContext] current_period_end_date=2021-07-27, current_period_days=56 (plain date-diff, NOT inclusive count)
+2026-09-23 15:18:47,714 INFO     [ExperimentContext] Label window: 2021-07-28 -> 2021-08-31
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] Baseline years: [2017, 2018, 2019, 2020]
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] Baseline date bounds (year-bounding, not exact window): 2017-01-01 -> 2020-12-31
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] output_root: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] data_root: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] step5_output_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] step5c_output_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5c
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] gate_labels_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\validation\labels
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] exclude_pre_label_burns=False exclude_historical_burns=False
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] dem_input_dir (namespaced): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\dem
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] landcover_aligned_path: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 15:18:47,717 INFO     [ExperimentContext] step7 output dirs: a=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7a b=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b c=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c d=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d e=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e
+2026-09-23 15:18:49,782 WARNING  MODIS export başarısız/atlandı: EEException: Caller does not have required permission to use project b7-thermal-digital-twin. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=b7-thermal-digital-twin and then retry. Propagation of the new permission may take a few minutes.
+2026-09-23 15:18:49,783 INFO     MODIS mevcut (namespaced): Step7B/7D normal downscaling modunda çalışacak.
+2026-09-23 15:18:49,783 INFO     DEM mevcut (namespaced): Step7B normal şekilde devam edecek.
+2026-09-23 15:18:49,783 INFO     ======================================================================
+2026-09-23 15:18:49,783 INFO     ÇALIŞIYOR: step7a [experiment=manavgat_2021]
+2026-09-23 15:18:49,783 INFO     ======================================================================
+2026-09-23 15:18:49,933 INFO     [experiment=manavgat_2021] Step7A ctx override aktif. output_dir=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7a, reference_raster=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5\current_period_median_celsius.tif
+2026-09-23 15:18:49,933 INFO     ============================================================
+2026-09-23 15:18:49,933 INFO     STEP 7A BAŞLIYOR (tiling infrastructure test)
+2026-09-23 15:18:49,933 INFO     ============================================================
+2026-09-23 15:18:49,935 INFO     Referans raster: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5\current_period_median_celsius.tif
+2026-09-23 15:18:50,814 INFO     Yeniden birleştirme tamamlandı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7a\tiling_test_reconstructed.tif
+2026-09-23 15:18:51,345 INFO     Tiling testi tamamlandı: passed=True
+2026-09-23 15:18:51,345 INFO     Özet: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7a\tiling_test_summary.md
+2026-09-23 15:18:51,345 INFO     ============================================================
+2026-09-23 15:18:51,345 INFO     STEP 7A TAMAMLANDI
+2026-09-23 15:18:51,350 INFO     Metadata deney bağlamıyla zenginleştirildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7a\tiling_test_summary.json
+2026-09-23 15:18:51,351 INFO     ======================================================================
+2026-09-23 15:18:51,351 INFO     ÇALIŞIYOR: step7b [experiment=manavgat_2021]
+2026-09-23 15:18:51,351 INFO     ======================================================================
+2026-09-23 15:18:51,361 INFO     [experiment=manavgat_2021] Step7B ctx override aktif. output_dir=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b
+2026-09-23 15:18:51,362 INFO     ============================================================
+2026-09-23 15:18:51,362 INFO     STEP 7B BAŞLIYOR (MODIS downscaling training dataset) [experiment=manavgat_2021]
+2026-09-23 15:18:51,362 INFO     ============================================================
+2026-09-23 15:18:51,362 INFO     Target: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5\current_period_median_celsius.tif (band 1)
+2026-09-23 15:18:51,363 INFO     Core features: ['modis_lst_mean_celsius', 'modis_lst_std_celsius', 'ndvi', 'elevation', 'slope', 'landcover'] | Optional used: ['anomaly_zscore', 'current_tvdi', 'tvdi_difference'] | Optional missing: []
+2026-09-23 15:18:51,367 INFO     Deney-farkında girdi hizalama başlıyor (aligned_inputs/)...
+2026-09-23 15:18:51,981 INFO     [align] modis_lst_mean_celsius: kaynak 71x90 (EPSG:4326) -> referans 2338x2970, resampling=bilinear, hizalı geçerli piksel oranı=0.9216 -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b\aligned_inputs\modis_lst_mean_celsius.tif
+2026-09-23 15:18:52,617 INFO     [align] modis_lst_std_celsius: kaynak 71x90 (EPSG:4326) -> referans 2338x2970, resampling=bilinear, hizalı geçerli piksel oranı=0.9216 -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b\aligned_inputs\modis_lst_std_celsius.tif
+2026-09-23 15:18:53,648 INFO     [align-overlap] modis_lst_mean_celsius: target ile örtüşen geçerli piksel=6207713 (target geçerli piksellerinin 0.9194'ü)
+2026-09-23 15:18:53,792 INFO     [align-overlap] modis_lst_std_celsius: target ile örtüşen geçerli piksel=6207713 (target geçerli piksellerinin 0.9194'ü)
+2026-09-23 15:18:53,964 INFO     [align-overlap] ndvi: target ile örtüşen geçerli piksel=6751936 (target geçerli piksellerinin 1.0000'ü)
+2026-09-23 15:18:54,083 INFO     [align-overlap] elevation: target ile örtüşen geçerli piksel=6751937 (target geçerli piksellerinin 1.0000'ü)
+2026-09-23 15:18:54,197 INFO     [align-overlap] slope: target ile örtüşen geçerli piksel=6751937 (target geçerli piksellerinin 1.0000'ü)
+2026-09-23 15:18:54,238 INFO     [align-overlap] landcover: target ile örtüşen geçerli piksel=6751937 (target geçerli piksellerinin 1.0000'ü)
+2026-09-23 15:18:54,367 INFO     [align-overlap] anomaly_zscore: target ile örtüşen geçerli piksel=4832246 (target geçerli piksellerinin 0.7157'ü)
+2026-09-23 15:18:54,499 INFO     [align-overlap] current_tvdi: target ile örtüşen geçerli piksel=6664649 (target geçerli piksellerinin 0.9871'ü)
+2026-09-23 15:18:54,634 INFO     [align-overlap] tvdi_difference: target ile örtüşen geçerli piksel=6648256 (target geçerli piksellerinin 0.9846'ü)
+2026-09-23 15:19:10,787 INFO     Final sample count: 500000
+2026-09-23 15:19:10,787 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b\downscaling_dataset_stats.json
+2026-09-23 15:19:10,787 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b\downscaling_dataset_summary.md
+2026-09-23 15:19:10,787 INFO     ============================================================
+2026-09-23 15:19:10,787 INFO     STEP 7B TAMAMLANDI (no model trained)
+2026-09-23 15:19:10,787 INFO     ============================================================
+2026-09-23 15:19:10,798 INFO     Metadata deney bağlamıyla zenginleştirildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b\downscaling_dataset_stats.json
+2026-09-23 15:19:10,804 INFO     ======================================================================
+2026-09-23 15:19:10,805 INFO     ÇALIŞIYOR: step7c [experiment=manavgat_2021]
+2026-09-23 15:19:10,805 INFO     ======================================================================
+2026-09-23 15:19:11,629 INFO     [experiment=manavgat_2021] Step7C ctx override aktif. output_dir=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c, input_path=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b\downscaling_training_samples.parquet
+2026-09-23 15:19:11,630 INFO     ============================================================
+2026-09-23 15:19:11,630 INFO     STEP 7C BAŞLIYOR (pure MODIS->Landsat LST downscaling model)
+2026-09-23 15:19:11,630 INFO     ============================================================
+2026-09-23 15:19:11,668 INFO     Özel girdi kullanıldı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b\downscaling_training_samples.parquet (500000 satır)
+2026-09-23 15:19:11,692 INFO     Doğrulama sonrası: 500000 -> 459812 satır (target_nan=0, target_range=0, feature_nan=40188).
+2026-09-23 15:19:11,941 INFO     Split (spatial_block, group_col=spatial_block_id): train=323447 val=69064 test=67301 (groups: {'train': 1133, 'val': 242, 'test': 242}) samples_per_group={'min': 2, 'median': 300.0, 'mean': 284.36116264687695, 'max': 369} split_integrity={'all_rows_assigned_exactly_once': True, 'assigned_row_count': 459812, 'total_row_count': 459812, 'train_val_test_groups_disjoint': True, 'union_group_count': 1617, 'total_unique_group_count': 1617}
+2026-09-23 15:19:11,944 INFO     Model eğitimi: type=random_forest fast=False features=['modis_lst_mean_celsius', 'modis_lst_std_celsius', 'ndvi', 'elevation', 'slope', 'landcover', 'lon', 'lat', 'row', 'col', 'row_norm', 'col_norm']
+2026-09-23 15:20:19,914 INFO     Model: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c\downscaling_model.joblib
+2026-09-23 15:20:19,914 INFO     Metrics: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c\downscaling_model_metrics.json
+2026-09-23 15:20:19,914 INFO     Metadata: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c\downscaling_model_metadata.json
+2026-09-23 15:20:19,914 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c\downscaling_model_summary.md
+2026-09-23 15:20:19,914 INFO     Test RMSE=2.059 vs MODIS baseline RMSE=3.881
+2026-09-23 15:20:19,914 INFO     ============================================================
+2026-09-23 15:20:19,914 INFO     STEP 7C TAMAMLANDI (no fire-risk model trained)
+2026-09-23 15:20:19,914 INFO     ============================================================
+2026-09-23 15:20:20,010 INFO     Metadata deney bağlamıyla zenginleştirildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c\downscaling_model_metadata.json
+2026-09-23 15:20:20,015 INFO     ======================================================================
+2026-09-23 15:20:20,016 INFO     ÇALIŞIYOR: step7d [experiment=manavgat_2021]
+2026-09-23 15:20:20,016 INFO     ======================================================================
+2026-09-23 15:20:20,022 INFO     [experiment=manavgat_2021] Step7D ctx override aktif. model_path=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c\downscaling_model.joblib, output_dir=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d
+2026-09-23 15:20:20,023 INFO     ============================================================
+2026-09-23 15:20:20,023 INFO     STEP 7D BASLIYOR (Step7C modeli tam raster gridine uygulaniyor) [experiment=manavgat_2021]
+2026-09-23 15:20:20,023 INFO     ============================================================
+2026-09-23 15:20:21,608 INFO     Model yuklendi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c\downscaling_model.joblib (type=random_forest)
+2026-09-23 15:20:21,609 INFO     Leakage guard dogrulandi: leakage_guard_enabled=True, excluded features (['anomaly_zscore', 'current_tvdi', 'tvdi_difference', 'modis_context_zscore']) ozellik setinde yok.
+2026-09-23 15:20:21,609 INFO     Referans grid: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5\current_period_median_celsius.tif (band 1)
+2026-09-23 15:20:21,609 INFO     Feature rasterlari cozuldu: {'modis_lst_mean_celsius': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\step7b\\aligned_inputs\\modis_lst_mean_celsius.tif', 'modis_lst_std_celsius': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\step7b\\aligned_inputs\\modis_lst_std_celsius.tif', 'ndvi': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\step7b\\aligned_inputs\\ndvi.tif', 'elevation': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\step7b\\aligned_inputs\\elevation.tif', 'slope': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\step7b\\aligned_inputs\\slope.tif', 'landcover': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\step7b\\aligned_inputs\\landcover.tif'}
+2026-09-23 15:20:21,614 INFO     Tum feature rasterlari referans grid ile hizali dogrulandi.
+2026-09-23 15:20:37,303 INFO     Tahmin: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaled_lst_celsius.tif
+2026-09-23 15:20:37,303 INFO     Gecerli maske: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaled_lst_valid_mask.tif
+2026-09-23 15:20:37,303 INFO     Metadata: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaling_prediction_metadata.json
+2026-09-23 15:20:37,304 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaling_prediction_stats.json
+2026-09-23 15:20:37,304 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaling_prediction_summary.md
+2026-09-23 15:20:37,304 INFO     Kapsam: 91.53% (6356042/6943860 piksel)
+2026-09-23 15:20:37,304 INFO     ============================================================
+2026-09-23 15:20:37,304 INFO     STEP 7D TAMAMLANDI (no fire-risk model, no burned-area/FIRMS labels used)
+2026-09-23 15:20:37,304 INFO     ============================================================
+2026-09-23 15:20:37,420 INFO     Metadata deney bağlamıyla zenginleştirildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaling_prediction_metadata.json
+2026-09-23 15:20:37,426 INFO     ======================================================================
+2026-09-23 15:20:37,426 INFO     ÇALIŞIYOR: step7e [experiment=manavgat_2021]
+2026-09-23 15:20:37,426 INFO     ======================================================================
+2026-09-23 15:20:37,432 INFO     [experiment=manavgat_2021] Step7E ctx override aktif. observed=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5\current_period_median_celsius.tif, downscaled=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaled_lst_celsius.tif, output_dir=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e
+2026-09-23 15:20:37,432 INFO     ============================================================
+2026-09-23 15:20:37,432 INFO     STEP 7E BASLIYOR (gozlemlenen Landsat + Step7D downscaled LST fusion) [experiment=manavgat_2021]
+2026-09-23 15:20:37,432 INFO     ============================================================
+2026-09-23 15:20:37,432 INFO     Gozlemlenen (referans) grid: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5\current_period_median_celsius.tif
+2026-09-23 15:20:37,432 INFO     Downscaled LST: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaled_lst_celsius.tif
+2026-09-23 15:20:37,432 INFO     Downscaled valid mask: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d\downscaled_lst_valid_mask.tif
+2026-09-23 15:20:37,441 INFO     Tum rasterlar (downscaled LST, valid mask) referans gridle hizali dogrulandi.
+2026-09-23 15:20:38,855 INFO     Fused LST: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e\fused_lst_celsius.tif
+2026-09-23 15:20:38,855 INFO     Source mask: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e\fused_lst_source_mask.tif
+2026-09-23 15:20:38,855 INFO     Metadata: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e\fused_lst_metadata.json
+2026-09-23 15:20:38,855 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e\fused_lst_stats.json
+2026-09-23 15:20:38,855 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e\fused_lst_summary.md
+2026-09-23 15:20:38,855 INFO     Gozlem kapsami: 97.24% -> Fused kapsam: 99.37% (kazanim: 2.14 puan, 148330 gap-fill piksel)
+2026-09-23 15:20:38,855 INFO     ============================================================
+2026-09-23 15:20:38,855 INFO     STEP 7E TAMAMLANDI (no model trained, no fire-risk/burned-area labels used)
+2026-09-23 15:20:38,855 INFO     ============================================================
+2026-09-23 15:20:38,862 INFO     Metadata deney bağlamıyla zenginleştirildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e\fused_lst_metadata.json
+2026-09-23 15:20:38,867 INFO     Step7 zinciri tamamlandı: ['step7a', 'step7b', 'step7c', 'step7d', 'step7e']

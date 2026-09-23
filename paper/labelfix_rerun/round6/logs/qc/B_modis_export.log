@@ -1,0 +1,61 @@
+2026-09-23 15:18:33,366 INFO     [ExperimentContext] experiment_id: manavgat_2021
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] region_key: manavgat_aoi
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] role: anchor_wildfire
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] Predictor window: 2021-06-01 -> 2021-07-27
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] current_period_end_date=2021-07-27, current_period_days=56 (plain date-diff, NOT inclusive count)
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] Label window: 2021-07-28 -> 2021-08-31
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] Baseline years: [2017, 2018, 2019, 2020]
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] Baseline date bounds (year-bounding, not exact window): 2017-01-01 -> 2020-12-31
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] output_root: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] data_root: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] step5_output_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] step5c_output_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step5c
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] gate_labels_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\validation\labels
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] exclude_pre_label_burns=False exclude_historical_burns=False
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] dem_input_dir (namespaced): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\dem
+2026-09-23 15:18:33,367 INFO     [ExperimentContext] landcover_aligned_path: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 15:18:33,368 INFO     [ExperimentContext] step7 output dirs: a=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7a b=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7b c=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7c d=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7d e=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\step7e
+*** Earth Engine *** Share your feedback by taking our Annual Developer Satisfaction Survey: https://google.qualtrics.com/jfe/form/SV_9oS0DRcPvElRMNw?source=python
+2026-09-23 15:18:36,750 INFO     MODIS LST mean/std/valid-count hesaplanıyor (QC-maskeli): region=manavgat_aoi, pencere=2021-06-01 -> 2021-07-27 (deneyin PREDICTOR penceresi; çoklu-yıl baseline DEĞİL)
+2026-09-23 15:18:39,062 INFO     [modis_lst_mean] On-filtre boyut tahmini: ~25560 bytes (esik=40265318 bytes) -> direct denenecek
+2026-09-23 15:18:39,062 INFO     Direct export attempt: [modis_lst_mean] tam AOI, tiled olmayan export -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\modis_lst_mean_celsius.tif
+Generating URL ...
+Downloading data from https://earthengine.googleapis.com/v1/projects/thermaltwin/thumbnails/590030478e72bde613f060c1f4a77b4d-e5c3e9b002fcd1d8f18c7502052edd83:getPixels
+Please wait ...
+Data downloaded to C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\.modis_lst_mean_celsius.direct.tmp.tif
+2026-09-23 15:18:40,178 INFO     [modis_lst_mean] direkt export başarılı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\modis_lst_mean_celsius.tif (36584 bytes)
+2026-09-23 15:18:40,697 INFO     [modis_lst_std] On-filtre boyut tahmini: ~25560 bytes (esik=40265318 bytes) -> direct denenecek
+2026-09-23 15:18:40,697 INFO     Direct export attempt: [modis_lst_std] tam AOI, tiled olmayan export -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\modis_lst_std_celsius.tif
+Generating URL ...
+Downloading data from https://earthengine.googleapis.com/v1/projects/thermaltwin/thumbnails/814568eda23efd4fbf2f6fb7b513ac9a-08ffbd8d3c9d3858c4502df249f60cf4:getPixels
+Please wait ...
+Data downloaded to C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\.modis_lst_std_celsius.direct.tmp.tif
+2026-09-23 15:18:42,664 INFO     [modis_lst_std] direkt export başarılı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\modis_lst_std_celsius.tif (40594 bytes)
+2026-09-23 15:18:43,226 INFO     [modis_valid_observation_count] On-filtre boyut tahmini: ~25560 bytes (esik=40265318 bytes) -> direct denenecek
+2026-09-23 15:18:43,226 INFO     Direct export attempt: [modis_valid_observation_count] tam AOI, tiled olmayan export -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\modis_valid_observation_count.tif
+Generating URL ...
+Downloading data from https://earthengine.googleapis.com/v1/projects/thermaltwin/thumbnails/f82af07d8b211bdb7b74c9c9d0ce373e-c65d0e27220c0f0b8f7fa3b49fa71c2d:getPixels
+Please wait ...
+Data downloaded to C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\.modis_valid_observation_count.direct.tmp.tif
+2026-09-23 15:18:46,087 INFO     [modis_valid_observation_count] direkt export başarılı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\modis_valid_observation_count.tif (4705 bytes)
+2026-09-23 15:18:46,390 INFO     MODIS export tamamlandı: mean_transport=direct std_transport=direct count_transport=direct
+2026-09-23 15:18:46,396 INFO     MODIS metadata yazıldı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_qc_manavgat\outputs\experiments\manavgat_2021\data\modis\modis_metadata.json
+2026-09-23 15:18:46,396 INFO     TAMAMLANDI: {'status': 'exported', 'mean_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_lst_mean_celsius.tif', 'std_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_lst_std_celsius.tif', 'valid_count_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_valid_observation_count.tif', 'metadata_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_metadata.json', 'mean_transport': 'direct', 'std_transport': 'direct', 'count_transport': 'direct'}
+{
+ "experiment_id": "manavgat_2021",
+ "ran": true,
+ "result": {
+  "status": "exported",
+  "mean_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_lst_mean_celsius.tif",
+  "std_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_lst_std_celsius.tif",
+  "valid_count_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_valid_observation_count.tif",
+  "metadata_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\_qc_manavgat\\outputs\\experiments\\manavgat_2021\\data\\modis\\modis_metadata.json",
+  "mean_transport": "direct",
+  "std_transport": "direct",
+  "count_transport": "direct"
+ }
+}
+MODIS_EXPORT_DONE
+modis_lst_mean_celsius.tif nodata new -9999.0 | pixel-identical to 2026-08-14 screened raster: True
+modis_lst_std_celsius.tif nodata new -9999.0 | pixel-identical to 2026-08-14 screened raster: True
+modis_valid_observation_count.tif nodata new None | pixel-identical to 2026-08-14 screened raster: True

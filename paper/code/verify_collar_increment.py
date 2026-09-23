@@ -156,12 +156,29 @@ def signed(sub, f, seed=SEED):
     return pt, bool(lo > 0.5 or hi < 0.5)
 
 
+# Full-frame support flags come from the pipeline's Step9G signed-AUC CIs (5-AOI synthesis), the same source as
+# Table B2 and the registered diagnostic family (conditional_similarity.mjs). Before 2026-09-23 this script
+# used its own bootstrap for the full frame too. The two bootstraps are both valid 10-cell block resamples with
+# different RNG streams. Under the corrected Manavgat label they disagree on one knife-edge flag (Manavgat
+# ndvi_mean: [0.5022, 0.6237] here vs [0.4993, 0.6278] in Step9G), and that single flag moved the full-frame
+# rho from +0.493 to +0.698. The collar has no Step9G run, so it keeps this script's bootstrap.
+SYNTH = ("drive_new/diagnostics/multi_aoi_transfer_synthesis/"
+         "bejis_2022__evia_2021_extended__manavgat_2021__montiferru_2021__mugla_2021/multi_aoi_feature_stability.csv")
+_fs = pd.read_csv(SYNTH)
+S9G = {}
+for side in ("a", "b"):
+    for _, rr in _fs.iterrows():
+        lo, hi = rr[f"experiment_{side}_ci_low"], rr[f"experiment_{side}_ci_high"]
+        S9G[(rr[f"experiment_{side}"], rr["feature"])] = bool(lo > 0.5 or hi < 0.5)
+
 for frame, collar in [("full", None), ("collar10", 10)]:
     prof = {}
     for r in REG:
         sub = data[r] if collar is None else data[r][data[r].dist_km <= collar]
         for f in FEATS9:
             prof[(r, f)] = signed(sub, f)
+            if collar is None:
+                prof[(r, f)] = (prof[(r, f)][0], S9G[(r, f)])
     tv = {}
     src = pd.read_csv("paper/baseline_vs_thermal_transfer.csv") if frame == "full" else tr_c
     col = "thermal_roc" if frame == "full" else "thermal"

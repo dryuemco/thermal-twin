@@ -15,7 +15,8 @@ SCOPE = [O / "experiments/manavgat_2021/validation/labels"] + \
         [O / "cross_region" / p for p in PAIRS] +         [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal" / p for p in PAIRS] +         [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal/comparison",
          O / "diagnostics/four_aoi_transfer_decomposition", O / "diagnostics/multi_aoi_transfer_synthesis",
          O / "diagnostics/burned_pattern_audit", O / "diagnostics/reproduction_check",
-         O / "diagnostics/marginal_aoa_completion"]
+         O / "diagnostics/marginal_aoa_completion", O / "diagnostics/window_closure_sensitivity",
+         O / "diagnostics/mugla_subsampling"]
 COPIED = [O / "cross_region" / p for p in ("bejis_2022__evia_2021", "bejis_2022__evia_2021_extended", "bejis_2022__mugla_2021",
           "montiferru_2021__bejis_2022", "montiferru_2021__evia_2021_extended", "montiferru_2021__mugla_2021", "mugla_2021__bejis_2022",
           "mugla_2021__evia_2021", "mugla_2021__evia_2021_extended", "mugla_2021__mugla_2022_event_relative")] +          [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal" / p for p in ("bejis_2022__evia_2021",
@@ -52,7 +53,9 @@ m = {
         "(6381f4cd752d77a3069fcaa2364d10109b5adaf7), run unchanged. Manavgat's original label raster was exported "
         "on 2026-07-08; the month-boundary alignment fix of the MCD64A1 query is commit 183be42 of 2026-07-11. "
         "The label defect was therefore not a code defect at the time of this re-freeze: it was an export made "
-        "before the fix and never renewed."),
+        "before the fix and never renewed. The re-freeze chain (label, gate, step8a-8e, robustness, step9/step10 and "
+        "the diagnostics) ran unchanged. Only the window-closure diagnostic carries a one-line patch (see "
+        "code_patches), because its Step8A column contract predates the historical_burn_excluded column."),
     "repo_commit": (tree / "REPO_COMMIT.txt").read_text().strip(),
     "label_fix_commit": {"sha": "183be42488cf12a1ebc9b3e8c8fee98be8f649e2", "date": "2026-07-11",
                          "function": "src/step6_validate_fire_relation.py:_mcd64a1_collection_query_bounds"},
@@ -98,6 +101,10 @@ m = {
     "file_count": len(sums), "sha256sums": "SHA256SUMS.txt",
     "copied_inputs": {"file": "COPIED_INPUTS.txt", "count": len(cfiles),
                       "note": "The other regions' inputs, the 10 non-Manavgat pair folders and the non-Manavgat Step9G reports, copied from drive_new; label-unaffected, not rebuilt."},
+    "code_patches": [{"file": "src/window_closure_sensitivity.py", "diff": "refreeze/_runners/patches/window_closure_accept_historical_burn_excluded.diff",
+                      "change": "one line: 'historical_burn_excluded' added to STEP8A_POPULATION_COLUMNS (a closure-invariant population attribute that Step8A at 6381f4c writes)",
+                      "scope": "both re-freeze trees; repo/ unchanged",
+                      "check": "control arm (frozen label) reproduces drive_new window_closure compare tables to <= 1e-16"}],
     "stage_b": {"reproduction_check": "outputs/diagnostics/reproduction_check/reproduction_check.json",
                 "note": ("scripts/run_reproduction_check.py at repo 6381f4c, unchanged. The re-freeze and this reproduction "
                          "check come from the same side; the pipeline author did not independently verify them. "
