@@ -21,40 +21,62 @@ every claim can be checked against the values it rests on rather than against a 
 natural-vegetation population; 10-cell (~5 km) spatial-block bootstrap, 1000 replicates, seed 42.
 The AUC is never folded to max(AUC, 1 − AUC), so a value below 0.5 means lower values rank burned
 and is a direction rather than weakness. **Bold** marks a region whose own interval excludes 0.5.
+Corrected Manavgat label; source `paper/labelfix_rerun/round5/tables/step9g_multi_aoi_feature_stability.csv`
+(the pipeline's Step9G five-region synthesis, sha256 c864cd7d…), checked row by row by
+`paper/code/appendix_tables.py`. Only the Manavgat column differs from the frozen table.
 
 | Feature | Manavgat | Bejís | Muğla | Evia | Montiferru |
 |---|---|---|---|---|---|
-| `elevation_mean` | **0.374** [0.289, 0.471] | **0.643** [0.558, 0.729] | **0.611** [0.532, 0.690] | 0.541 [0.448, 0.626] | 0.584 [0.395, 0.762] |
-| `slope_mean` | 0.531 [0.423, 0.642] | 0.521 [0.439, 0.605] | **0.637** [0.582, 0.686] | 0.487 [0.418, 0.554] | **0.652** [0.506, 0.771] |
-| `ndvi_mean` | **0.636** [0.587, 0.676] | 0.559 [0.497, 0.619] | **0.662** [0.616, 0.704] | **0.639** [0.575, 0.701] | 0.586 [0.450, 0.704] |
-| `lst_anomaly_mean` | 0.482 [0.428, 0.530] | **0.418** [0.364, 0.480] | 0.485 [0.395, 0.566] | **0.640** [0.567, 0.710] | 0.395 [0.285, 0.535] |
-| `current_lst_mean` | 0.538 [0.452, 0.621] | 0.477 [0.401, 0.547] | **0.325** [0.271, 0.382] | **0.377** [0.301, 0.456] | 0.370 [0.248, 0.513] |
-| `current_tvdi_mean` | 0.552 [0.460, 0.641] | 0.517 [0.429, 0.595] | **0.336** [0.275, 0.398] | **0.362** [0.285, 0.442] | **0.356** [0.233, 0.499] |
-| `tvdi_difference_mean` | 0.449 [0.391, 0.505] | 0.512 [0.443, 0.583] | 0.490 [0.396, 0.575] | 0.519 [0.444, 0.589] | **0.378** [0.282, 0.497] |
-| `downscaled_lst_mean` | 0.552 [0.466, 0.637] | 0.484 [0.400, 0.560] | **0.307** [0.253, 0.366] | **0.377** [0.297, 0.459] | 0.365 [0.240, 0.511] |
-| `fused_lst_mean` | 0.540 [0.454, 0.622] | 0.481 [0.404, 0.551] | **0.325** [0.272, 0.383] | **0.376** [0.300, 0.456] | 0.370 [0.248, 0.513] |
+| `elevation_mean` | **0.232** [0.179, 0.288] | **0.643** [0.558, 0.729] | **0.611** [0.532, 0.690] | 0.541 [0.448, 0.626] | 0.584 [0.395, 0.762] |
+| `slope_mean` | **0.400** [0.340, 0.459] | 0.521 [0.439, 0.605] | **0.637** [0.582, 0.686] | 0.487 [0.418, 0.554] | **0.652** [0.506, 0.771] |
+| `ndvi_mean` | 0.564 [0.499, 0.628] | 0.559 [0.497, 0.619] | **0.662** [0.616, 0.704] | **0.639** [0.575, 0.701] | 0.586 [0.450, 0.704] |
+| `lst_anomaly_mean` | 0.509 [0.460, 0.560] | **0.418** [0.364, 0.480] | 0.485 [0.395, 0.566] | **0.640** [0.567, 0.710] | 0.395 [0.285, 0.535] |
+| `current_lst_mean` | **0.665** [0.608, 0.719] | 0.477 [0.401, 0.547] | **0.325** [0.271, 0.382] | **0.377** [0.301, 0.456] | 0.370 [0.248, 0.513] |
+| `current_tvdi_mean` | **0.677** [0.622, 0.733] | 0.517 [0.429, 0.595] | **0.336** [0.275, 0.398] | **0.362** [0.285, 0.442] | **0.356** [0.233, 0.499] |
+| `tvdi_difference_mean` | 0.460 [0.409, 0.510] | 0.512 [0.443, 0.583] | 0.490 [0.396, 0.575] | 0.519 [0.444, 0.589] | **0.378** [0.282, 0.497] |
+| `downscaled_lst_mean` | **0.683** [0.626, 0.739] | 0.484 [0.400, 0.560] | **0.307** [0.253, 0.366] | **0.377** [0.297, 0.459] | 0.365 [0.240, 0.511] |
+| `fused_lst_mean` | **0.666** [0.610, 0.721] | 0.481 [0.404, 0.551] | **0.325** [0.272, 0.383] | **0.376** [0.300, 0.456] | 0.370 [0.248, 0.513] |
 
 **What counts as a reversal.** A pair of regions is called a reversal only when their signed
 associations point to opposite sides of 0.5 **and each region's own interval excludes 0.5**. That is
 stricter than requiring the two regions' intervals to be disjoint, and the difference matters: for
-`current_lst_mean` between Manavgat and Muğla the two intervals are disjoint, but Manavgat's own
-interval, [0.452, 0.621], includes 0.5, so Manavgat has no established direction to reverse from.
-That pair is a point reversal, not a supported one.
+`current_lst_mean` between Manavgat and Bejís the two intervals are disjoint, [0.608, 0.719] against
+[0.401, 0.547], but Bejís's own interval includes 0.5, so Bejís has no established direction to
+reverse from. That pair is a point reversal, not a supported one.
 
-**Table B3. The cross-region reversals that meet the stricter criterion.** Difference intervals are
-from the same paired bootstrap.
+**Table B3. The cross-region reversals that meet the stricter criterion.** Corrected Manavgat label.
+The strict criterion is applied to Table B2's intervals. Difference intervals are the paired 10-cell
+block bootstrap of `paper/code/ems_inference_multiplicity.py`
+(`paper/labelfix_rerun/inference/reversal_family_holm.csv`, 1000 replicates), which flags the same
+fourteen pairs. The frozen table's intervals came from `paper/signed_auc_bootstrap.mjs`, a different
+resampling stream that differs from this one by at most 0.007 on the frozen data. Checked row by row
+by `paper/code/appendix_tables.py`.
 
 | Feature | Region A | AUC | Region B | AUC | Difference [95 % CI] |
 |---|---|---:|---|---:|---|
-| `elevation_mean` | Manavgat | 0.374 | Bejís | 0.643 | +0.269 [+0.138, +0.397] |
-| `elevation_mean` | Manavgat | 0.374 | Muğla | 0.611 | +0.235 [+0.102, +0.360] |
-| `lst_anomaly_mean` | Bejís | 0.418 | Evia | 0.640 | +0.221 [+0.123, +0.313] |
+| `elevation_mean` | Manavgat | 0.232 | Bejís | 0.643 | +0.411 [+0.312, +0.509] |
+| `elevation_mean` | Manavgat | 0.232 | Muğla | 0.611 | +0.379 [+0.274, +0.476] |
+| `slope_mean` | Manavgat | 0.400 | Muğla | 0.637 | +0.237 [+0.158, +0.313] |
+| `slope_mean` | Manavgat | 0.400 | Montiferru | 0.652 | +0.252 [+0.100, +0.389] |
+| `lst_anomaly_mean` | Bejís | 0.418 | Evia | 0.640 | +0.222 [+0.129, +0.316] |
+| `current_lst_mean` | Muğla | 0.325 | Manavgat | 0.665 | +0.340 [+0.260, +0.413] |
+| `current_lst_mean` | Evia | 0.377 | Manavgat | 0.665 | +0.288 [+0.195, +0.384] |
+| `current_tvdi_mean` | Muğla | 0.336 | Manavgat | 0.677 | +0.341 [+0.253, +0.422] |
+| `current_tvdi_mean` | Evia | 0.362 | Manavgat | 0.677 | +0.315 [+0.221, +0.413] |
+| `current_tvdi_mean` | Montiferru | 0.356 | Manavgat | 0.677 | +0.322 [+0.161, +0.453] |
+| `downscaled_lst_mean` | Muğla | 0.307 | Manavgat | 0.683 | +0.376 [+0.295, +0.451] |
+| `downscaled_lst_mean` | Evia | 0.377 | Manavgat | 0.683 | +0.307 [+0.209, +0.405] |
+| `fused_lst_mean` | Muğla | 0.325 | Manavgat | 0.666 | +0.341 [+0.261, +0.413] |
+| `fused_lst_mean` | Evia | 0.376 | Manavgat | 0.666 | +0.291 [+0.198, +0.386] |
 
-Three pair-level reversals across **two** features, which is why Section 3.11 removes exactly those
-two. Twenty-nine further pairs reverse at the point estimate only, spread across eight of the nine
-features, and they are not counted. The conservative criterion costs the paper findings rather than
-manufacturing them: a difference interval on the pair, which is the instrument Appendix A(m) uses,
-would support more reversals than the three listed here.
+Fourteen pair-level reversals across **seven** features, thirteen of them involving Manavgat. Under
+the frozen label there were three, across two features, elevation and the LST anomaly. Section 3.11
+removes exactly those two, and that selection was fixed under the frozen label and is kept, not
+re-selected (Section 4.6). Twenty-six further pairs reverse at the point estimate only, and they are
+not counted. The frozen text gave twenty-nine for that count, but the frozen Step9G values give
+thirty-three: a pre-existing count error, independent of the label. The conservative criterion costs
+the paper findings rather than manufacturing them: a difference interval on the pair, which is the
+instrument Appendix A(m) uses, would support seventeen further reversals.
 
 ## B4. The transfer matrix in precision-recall terms
 

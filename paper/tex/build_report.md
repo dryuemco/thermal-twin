@@ -43,14 +43,14 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 35
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 51
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 92
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 126
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 142
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 157
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 171
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 200
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 38
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 70
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 114
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 148
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 164
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 179
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 193
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 222
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
 
 ## stripped (5)
@@ -69,8 +69,8 @@ converter made is listed so it can be reviewed.
 - : 6 cols, est. width 157 chars -> scriptsize, 6 wrapping
 - : 6 of 6 columns wrap (widest cell 24 chars)
 - no caption; emitted unnumbered so it does not consume a table number _(x8)_
-- : 6 cols, est. width 82 chars -> small, 1 wrapping
-- : 1 of 6 columns wrap (widest cell 23 chars)
+- : 6 cols, est. width 89 chars -> small, 2 wrapping
+- : 2 of 6 columns wrap (widest cell 23 chars)
 - : 5 cols, est. width 69 chars -> small, 1 wrapping
 - : 1 of 5 columns wrap (widest cell 21 chars)
 - : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping
