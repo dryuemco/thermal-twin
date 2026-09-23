@@ -946,7 +946,8 @@ record for every number reported here is `6381f4c`. The modelling dataset behind
 identified by SHA-256 in the pipeline's canonical-input record, and every analysis script verifies
 that hash on load.
 
-The analysis code, the frozen numeric outputs and the Supplementary Material are at
+The analysis code, the five modelling datasets, the frozen numeric outputs and the Supplementary
+Material are at
 <https://github.com/dryuemco/thermal-twin>. Figs. 1–8 and the graphical abstract are drawn by the scripts in `paper/figures/`,
 which also assert Table 1 and every plotted value against the frozen outputs. Sixteen of the
 twenty-two supplementary tables (S2–S7, S9–S18) are rebuilt row by row by

@@ -38,9 +38,16 @@ from pathlib import Path
 
 import pandas as pd
 
-DATA_ROOT = Path(os.environ.get(
-    "THERMAL_TWIN_DATA", r"C:\Users\CORSAIR\projects\thermal-twin\drive_new"))
-STEP8A = "experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
+# The five frozen step8a tables are tracked in the repository, at paper/data/<region>/, so a clone
+# runs without the pipeline's output tree. THERMAL_TWIN_DATA points instead at a pipeline output
+# tree (experiments/<region>/step8a/...); either way the SHA-256 below must match.
+_ENV_DATA = os.environ.get("THERMAL_TWIN_DATA")
+if _ENV_DATA:
+    DATA_ROOT = Path(_ENV_DATA)
+    STEP8A = "experiments/{}/step8a/step8a_500m_modeling_dataset.parquet"
+else:
+    DATA_ROOT = Path(__file__).resolve().parents[1] / "data"
+    STEP8A = "{}/step8a_500m_modeling_dataset.parquet"
 
 # repo/src/multi_region_window_closure/inputs.py, CANONICAL_STEP8A_SHA256 (commit 6381f4c)
 CANONICAL_SHA256 = {
