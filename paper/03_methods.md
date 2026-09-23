@@ -10,7 +10,7 @@
 > **Updated 2026-09-23 for the corrected Manavgat label.** §3.13: the reproduction sentence now
 > reports the check against the re-frozen outputs (1.3×10⁻⁸, formerly 1.6×10⁻⁷), names who carried it
 > out, and states the one-line window-closure patch. The seed-stability sentence follows the new
-> seed sweep.
+> seed sweep. §3.2 gains a paragraph on the corrected Manavgat label.
 
 ## 3.1 Study regions and temporal windows
 
@@ -53,6 +53,21 @@ cells burning before the label window opens are removed, which ran for three of 
 excluded 49 cells in Muğla, 16 in North Evia and 61 in Montiferru, with none arising in Manavgat or
 Bejís, and burning in earlier years is screened for none. Appendix C.1 gives the
 full specification, including what follows from the grid's shape.
+
+**The Manavgat 2021 label is a corrected one.** The label first used for Manavgat was exported on
+8 July 2026. That was before the month-alignment fix to the MCD64A1 query (commit 183be42, 11 July),
+and the export was never renewed. It therefore missed the fire's first four days, 28 to 31 July.
+The defect was a stale export, not a code error. The corrected label only adds burned cells. No
+cell burned under the original label becomes unburned, and no predictor or validity flag changes.
+In the primary population the burned count rises from 784 to 2,935. The Manavgat outputs were
+re-frozen with the upstream pipeline at commit 6381f4c, through the Earth Engine project
+`thermaltwin`, in Python 3.12.10 with scikit-learn 1.9.0 (pins in `ENVIRONMENT.md`). That pipeline version
+writes one extra column, a flag for burning in earlier years, and it excludes no Manavgat cell. A
+control arm re-froze the original label with the same code and environment and reproduced the
+published outputs to within 10⁻⁵. The exceptions are listed in the manifest: file paths, the column
+list, and one legacy pair that differs at the level of random-forest thread nondeterminism. Differences between the two arms are therefore attributable to the label alone.
+The reproduction check of Section 3.13 covers the re-frozen outputs. The manifest, hashes and
+runner scripts are released under `paper/data/manavgat_2021/refreeze/`.
 
 ## 3.3 Burned-landcover admissibility gate
 
