@@ -59,8 +59,8 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in supplementary near md line 666
 - TABLE WITHOUT CAPTION in supplementary near md line 716
 - TABLE WITHOUT CAPTION in supplementary near md line 832
-- TABLE WITHOUT CAPTION in supplementary near md line 1088
-- TABLE WITHOUT CAPTION in supplementary near md line 1330
+- TABLE WITHOUT CAPTION in supplementary near md line 1091
+- TABLE WITHOUT CAPTION in supplementary near md line 1333
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23: the result returns to the paper as Contribution 3, in its negative form.** > Under the
 

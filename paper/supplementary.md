@@ -1087,7 +1087,10 @@ SHA-256 for each region's modelling dataset, and that hash identifies the frozen
 difference is the data and not the fitting, since both files give a within-region baseline of 0.6980
 at 10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773, which is Table 1's
 value. Every arm of Section 4.4 now reads each region through `paper/code/_canonical.py`, which
-verifies the recorded hash on load, and reads Manavgat from the corrected table (Section 3.2). An
+verifies the recorded hash on load, and reads Manavgat from the corrected table (Section 3.2). That table is the official re-freeze
+(SHA-256 `5a5e876c…`), the only Manavgat file in the repository. The original-label table
+(SHA-256 `054a1961…`), built on the burned-area label exported on 8 July 2026, is not in the
+repository; the pipeline regenerates it. An
 earlier version of this paragraph sized the correction after re-reading Muğla alone, and stated that
 Manavgat's replacement agreed with the published file. The second statement was wrong, so that size
 estimate is withdrawn rather than restated (A(kk) in `paper/superseded_passages.md`). The round-5
