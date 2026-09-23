@@ -64,25 +64,23 @@ spatial autocorrelation inflate it further. The problem is documented across eco
 [@Roberts2017; @Ploton2020] and addressed by spatially blocked cross-validation [@Valavi2019;
 @Meyer2018], but blocking does not make the estimate honest about a fire the model has not seen.
 
-Because only that side of the ledger is reported, portability is never entered. A predictor block
-is adopted on the increment it delivers inside its training footprint, and whether that survives a
-change of region is not asked. Yet any regional product built from locally trained models implicitly
+A predictor block is adopted on the increment it delivers inside its training footprint; whether
+that survives a change of region is not asked. Yet any regional product built from locally trained models implicitly
 promises generalisation beyond it. Meteorological fire-danger indices are known not to port cleanly in a Peruvian case study
 [@Podschwit2022]. The two studies that test transfer systematically [@Dimarco2026; @Liu2025] both
 report that it largely succeeds between similar regions. Both transfer models whose dominant
-predictors are *spatially stationary*. Whether a
-dynamic, season-specific class behaves the same way is this paper's question.
+predictors are *spatially stationary*. Whether a dynamic, season-specific class behaves the same way
+is this paper's question.
 
 ## 1.2 Pre-fire thermal dryness is the natural test case
 
 Pre-fire thermal dryness is the dynamic class most plausibly *expected* to transfer. Standard predictors are static or near-static over the timescale at which fire danger varies, so
 they explain poorly why one summer burned and the preceding one did not. What changes is the state
 of the surface, to which satellite thermal observation gives partial access (Section 2.2). The physics
-linking moisture stress to combustion is universal, so portability should be most expected here,
-which makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally defined
+linking moisture stress to combustion is universal, which makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally defined
 covariate. The expectation is sharpest for the internally normalised channels, which should
 be least exposed to absolute-temperature offsets between regions; **they transfer no better than the
-absolute ones** (Appendix A(f)). The expectation motivates the design and is not a finding of it —
+absolute ones** (Appendix A(f)). The expectation motivates the design and is not a finding of it.
 Section 4.4 reports the associations running the other way.
 
 ## 1.3 Contributions
