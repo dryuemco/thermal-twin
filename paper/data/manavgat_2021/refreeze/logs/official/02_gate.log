@@ -1,0 +1,31 @@
+2026-09-23 10:20:10,326 INFO     [Step0] Active experiment: manavgat_2021
+2026-09-23 10:20:10,326 INFO     [Step0] Display name: Manavgat / Antalya 2021
+2026-09-23 10:20:10,326 INFO     [Step0] Region: manavgat_aoi
+2026-09-23 10:20:10,326 INFO     [Step0] Role: anchor_wildfire
+2026-09-23 10:20:10,326 INFO     [Step0] Predictor window: 2021-06-01 -> 2021-07-27
+2026-09-23 10:20:10,326 INFO     [Step0] Label window: 2021-07-28 -> 2021-08-31
+2026-09-23 10:20:10,326 INFO     [Step0] Baseline years: 2017, 2018, 2019, 2020
+2026-09-23 10:20:10,326 INFO     [Step0] Output root: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021
+2026-09-23 10:20:10,554 INFO     Step6A gate-input hazirlama calistiriliyor (namespaced, termal predictor DEGIL)...
+2026-09-23 10:20:10,604 INFO     Gate girdileri zaten mevcut (C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\gate_inputs); --force verilmedigi icin yeniden export YAPILMADI.
+2026-09-23 10:20:10,604 INFO     Step6A tamamlandi: {'gate_inputs_dir': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\gate_inputs', 'reference_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\gate_inputs\\reference_30m.tif', 'landcover_source_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\gate_inputs\\landcover_esa_worldcover_v200.tif', 'landcover_aligned_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\gate_inputs\\landcover_esa_worldcover_v200_aligned_to_reference.tif', 'metadata_path': 'C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\gate_inputs\\gate_inputs_metadata.json', 'created': False}
+2026-09-23 10:20:10,604 INFO     Raw BurnDate export ATLANDI (--skip-export ya da varsayilan). Gate mevcut C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif dosyasini kullanacak (yoksa gate net bir hata verecektir).
+2026-09-23 10:20:10,604 INFO     Step6B burned-landcover gate calistiriliyor...
+2026-09-23 10:20:10,637 INFO     ============================================================
+2026-09-23 10:20:10,637 INFO     STEP 6B BASLIYOR (burned-landcover diagnostic gate)
+2026-09-23 10:20:10,637 INFO     ============================================================
+2026-09-23 10:20:10,638 INFO     MCD64A1 etiket rasteri (explicit): C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif (kind=raw_burndate)
+2026-09-23 10:20:10,763 INFO     Label raster diagnostics: kind=raw_burndate min=0.0 max=241.0 count_one=0 count_gt_one=803797 in_DOY_range=803797
+2026-09-23 10:20:10,765 INFO     Explicit landcover referans gridle zaten hizali: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 10:20:10,765 INFO     Landcover rasteri (hizali): C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 10:20:10,766 INFO     MCD64A1 etiket rasteri zaten referans gridle hizali: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif
+2026-09-23 10:20:10,804 INFO     500 m hucre rekonstruksiyonu (Step8A ile ayni block/tile mantigi): block_size_pixels=17, toplam hucre (yaklasik)=24150
+2026-09-23 10:20:12,662 INFO     JSON yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\burned_landcover_gate.json
+2026-09-23 10:20:12,663 INFO     Markdown yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\burned_landcover_gate.md
+2026-09-23 10:20:12,663 INFO     CSV yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\burned_landcover_gate.csv
+2026-09-23 10:20:12,663 INFO     Karar: wildfire_candidate_pass (burned_count=3046, natural_fraction=0.9553512803676953, cropland_fraction=0.01772816808929744)
+2026-09-23 10:20:12,663 INFO     ============================================================
+2026-09-23 10:20:12,663 INFO     STEP 6B TAMAMLANDI (diagnostic only; pipeline durdurulmadi)
+2026-09-23 10:20:12,663 INFO     ============================================================
+2026-09-23 10:20:12,663 INFO     TAMAMLANDI. Gate karari: wildfire_candidate_pass (burned_count=3046). JSON: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\burned_landcover_gate.json
+2026-09-23 10:20:12,694 INFO     Gate manifest yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\manavgat_2021_gate_manifest.json (analysis_id=915c33db2d8f07df2a9846c263f0f1787b1a0a591d5c3174095e6703980d359c, downstream_authorized=False)

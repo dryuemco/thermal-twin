@@ -1,0 +1,48 @@
+2026-09-23 10:43:08,743 INFO     ======================================================================
+2026-09-23 10:43:08,743 INFO     STEP9A: cross-region girdi uygunluk denetimi
+2026-09-23 10:43:08,743 INFO     ======================================================================
+2026-09-23 10:43:08,743 INFO     Step9A audit basliyor: source=manavgat_2021, target=evia_2021_extended
+2026-09-23 10:43:08,801 INFO     Step9A tamamlandi: passed=True (C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9a\cross_region_input_audit.json, C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9a\cross_region_input_audit.md)
+2026-09-23 10:43:08,801 INFO     ======================================================================
+2026-09-23 10:43:08,802 INFO     STEP9B: iki yonlu cross-region transfer
+2026-09-23 10:43:08,802 INFO     ======================================================================
+2026-09-23 10:43:08,802 INFO     Step9B: manavgat_2021 <-> evia_2021_extended icin veri setleri yukleniyor...
+2026-09-23 10:43:08,834 INFO     [manavgat_2021 -> evia_2021_extended] populasyon=burnable_tree_shrub_grass calisiyor...
+2026-09-23 10:43:18,842 INFO     [manavgat_2021 -> evia_2021_extended / burnable_tree_shrub_grass] delta_auc=0.018691588785046953 delta_pr_auc=-0.010153629440716183 delta_brier=-0.0034097537046119397
+2026-09-23 10:43:18,842 INFO     [manavgat_2021 -> evia_2021_extended] populasyon=all_valid calisiyor...
+2026-09-23 10:43:29,567 INFO     [manavgat_2021 -> evia_2021_extended / all_valid] delta_auc=-0.3169514801694394 delta_pr_auc=-0.1703624438908325 delta_brier=0.02020537835596377
+2026-09-23 10:43:29,567 INFO     [manavgat_2021 -> evia_2021_extended] populasyon=burnable_tree_shrub calisiyor...
+2026-09-23 10:43:38,422 INFO     [manavgat_2021 -> evia_2021_extended / burnable_tree_shrub] delta_auc=0.034614041424446795 delta_pr_auc=-0.004047163241902074 delta_brier=-0.005973125455992961
+2026-09-23 10:43:38,422 INFO     [evia_2021_extended -> manavgat_2021] populasyon=burnable_tree_shrub_grass calisiyor...
+2026-09-23 10:43:45,758 INFO     [evia_2021_extended -> manavgat_2021 / burnable_tree_shrub_grass] delta_auc=0.010017963311446332 delta_pr_auc=0.01701259765086291 delta_brier=-0.030688387518169047
+2026-09-23 10:43:45,758 INFO     [evia_2021_extended -> manavgat_2021] populasyon=all_valid calisiyor...
+2026-09-23 10:43:57,562 INFO     [evia_2021_extended -> manavgat_2021 / all_valid] delta_auc=0.022948131236233626 delta_pr_auc=0.024188200495268958 delta_brier=-0.05450190494774228
+2026-09-23 10:43:57,562 INFO     [evia_2021_extended -> manavgat_2021] populasyon=burnable_tree_shrub calisiyor...
+2026-09-23 10:44:04,146 INFO     [evia_2021_extended -> manavgat_2021 / burnable_tree_shrub] delta_auc=0.01571314491903275 delta_pr_auc=0.01706363840058843 delta_brier=-0.036700227480117184
+2026-09-23 10:44:04,571 INFO     Metrics JSON yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9b\cross_region_transfer_metrics.json
+2026-09-23 10:44:04,571 INFO     Predictions yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9b\cross_region_transfer_predictions.parquet, C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9b\cross_region_transfer_predictions.csv
+2026-09-23 10:44:04,903 INFO     ROC/PR eğrileri yazıldı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9b
+2026-09-23 10:44:04,905 INFO     ======================================================================
+2026-09-23 10:44:04,905 INFO     STEP9C: hedef-bolge spatial-block bootstrap
+2026-09-23 10:44:04,905 INFO     ======================================================================
+2026-09-23 10:44:04,930 INFO     [evia_2021_extended_to_manavgat_2021 / all_valid] bootstrap basliyor (24087 satir, 6070 benzersiz spatial_block_id)...
+2026-09-23 10:44:28,365 INFO     [evia_2021_extended_to_manavgat_2021 / all_valid] delta_auc CI=[0.0023, 0.0426] (positive_bootstrap_support), delta_pr_auc CI=[0.0115, 0.0396] (positive_bootstrap_support), delta_brier CI=[-0.0581, -0.0507] (positive_bootstrap_support)
+2026-09-23 10:44:28,365 INFO     [evia_2021_extended_to_manavgat_2021 / burnable_tree_shrub] bootstrap basliyor (15538 satir, 4577 benzersiz spatial_block_id)...
+2026-09-23 10:44:44,919 INFO     [evia_2021_extended_to_manavgat_2021 / burnable_tree_shrub] delta_auc CI=[-0.0077, 0.0382] (uncertain), delta_pr_auc CI=[0.0051, 0.0294] (positive_bootstrap_support), delta_brier CI=[-0.0402, -0.0333] (positive_bootstrap_support)
+2026-09-23 10:44:44,919 INFO     [evia_2021_extended_to_manavgat_2021 / burnable_tree_shrub_grass] bootstrap basliyor (20511 satir, 5439 benzersiz spatial_block_id)...
+2026-09-23 10:45:05,714 INFO     [evia_2021_extended_to_manavgat_2021 / burnable_tree_shrub_grass] delta_auc CI=[-0.0120, 0.0321] (uncertain), delta_pr_auc CI=[0.0041, 0.0313] (positive_bootstrap_support), delta_brier CI=[-0.0338, -0.0279] (positive_bootstrap_support)
+2026-09-23 10:45:05,714 INFO     [manavgat_2021_to_evia_2021_extended / all_valid] bootstrap basliyor (22906 satir, 5808 benzersiz spatial_block_id)...
+2026-09-23 10:45:25,785 INFO     [manavgat_2021_to_evia_2021_extended / all_valid] delta_auc CI=[-0.3354, -0.2993] (negative_bootstrap_support), delta_pr_auc CI=[-0.1875, -0.1533] (negative_bootstrap_support), delta_brier CI=[0.0182, 0.0222] (negative_bootstrap_support)
+2026-09-23 10:45:25,786 INFO     [manavgat_2021_to_evia_2021_extended / burnable_tree_shrub] bootstrap basliyor (8163 satir, 2419 benzersiz spatial_block_id)...
+2026-09-23 10:45:36,150 INFO     [manavgat_2021_to_evia_2021_extended / burnable_tree_shrub] delta_auc CI=[0.0170, 0.0515] (positive_bootstrap_support), delta_pr_auc CI=[-0.0198, 0.0114] (uncertain), delta_brier CI=[-0.0111, -0.0008] (positive_bootstrap_support)
+2026-09-23 10:45:36,151 INFO     [manavgat_2021_to_evia_2021_extended / burnable_tree_shrub_grass] bootstrap basliyor (9298 satir, 2566 benzersiz spatial_block_id)...
+2026-09-23 10:45:47,468 INFO     [manavgat_2021_to_evia_2021_extended / burnable_tree_shrub_grass] delta_auc CI=[0.0027, 0.0344] (positive_bootstrap_support), delta_pr_auc CI=[-0.0245, 0.0034] (uncertain), delta_brier CI=[-0.0081, 0.0010] (uncertain)
+2026-09-23 10:45:47,535 INFO     Bootstrap metrics JSON yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9c\cross_region_bootstrap_metrics.json
+2026-09-23 10:45:47,535 INFO     Bootstrap samples CSV yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9c\cross_region_bootstrap_samples.csv
+2026-09-23 10:45:47,545 INFO     ======================================================================
+2026-09-23 10:45:47,545 INFO     STEP9D: birlesik final rapor
+2026-09-23 10:45:47,545 INFO     ======================================================================
+2026-09-23 10:45:47,563 INFO     Step9D tamamlandi: overall_conclusion=partial_transfer_supported (C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9d\final_cross_region_report.json, C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__evia_2021_extended\step9d\final_cross_region_report.md)
+2026-09-23 10:45:47,563 INFO     ======================================================================
+2026-09-23 10:45:47,563 INFO     STEP9 TAMAMLANDI. Genel sonuc: partial_transfer_supported
+2026-09-23 10:45:47,563 INFO     ======================================================================

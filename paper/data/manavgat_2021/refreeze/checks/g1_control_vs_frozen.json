@@ -1,0 +1,224 @@
+{
+ "tolerance": 1e-05,
+ "overall": "FAIL",
+ "by_scope": {
+  "experiments/manavgat_2021/step8b": {
+   "PASS": 6,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 3.3306690738754696e-16
+  },
+  "experiments/manavgat_2021/step8c": {
+   "PASS": 3,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 3.0531133177191805e-16
+  },
+  "experiments/manavgat_2021/step8d": {
+   "PASS": 6,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 4.440892098500626e-16
+  },
+  "experiments/manavgat_2021/step8e": {
+   "PASS": 0,
+   "FAIL": 1,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 2.220446049250313e-16
+  },
+  "experiments/manavgat_2021/robustness": {
+   "PASS": 9,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 2.220446049250313e-16
+  },
+  "robustness/step8_large_block": {
+   "PASS": 27,
+   "FAIL": 1,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 2.220446049250313e-16
+  },
+  "robustness/step8_large_block_primary_all_valid": {
+   "PASS": 16,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 2.220446049250313e-16
+  },
+  "cross_region/manavgat_2021__bejis_2022": {
+   "PASS": 22,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 2.3132839652162396e-06
+  },
+  "cross_region/manavgat_2021__mugla_2021": {
+   "PASS": 22,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 8.26277702370426e-08
+  },
+  "cross_region/manavgat_2021__evia_2021_extended": {
+   "PASS": 22,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 6.230937919626811e-06
+  },
+  "cross_region/mugla_2021__manavgat_2021": {
+   "PASS": 22,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 7.314914280201479e-08
+  },
+  "cross_region/montiferru_2021__manavgat_2021": {
+   "PASS": 22,
+   "FAIL": 0,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 3.2901141899799313e-07
+  },
+  "cross_region/manavgat_2021__evia_2021": {
+   "PASS": 14,
+   "FAIL": 8,
+   "NEW_IN_HEAD": 0,
+   "other": 0,
+   "max_abs_diff": 1.0
+  }
+ },
+ "failures": [
+  {
+   "scope": "experiments/manavgat_2021/step8e",
+   "file": "final_step8_report.json",
+   "max_abs_diff": 2.220446049250313e-16,
+   "text_diff_keys": [
+    ".results_ran.step8b.predictions_csv",
+    ".results_ran.step8b.predictions_parquet",
+    ".results_ran.step8c.roc_plot",
+    ".results_ran.step8c.pr_plot",
+    ".results_ran.step8c.monthly_csv",
+    ".results_ran.step8d.predictions_csv",
+    ".results_ran.step8d.predictions_parquet",
+    ".results_ran.step8d.delta_auc_csv",
+    ".results_ran.step8d.delta_pr_csv"
+   ],
+   "n_text_diff": 9,
+   "new_keys_in_head": 0,
+   "frozen_keys_missing": 0,
+   "status": "FAIL"
+  },
+  {
+   "scope": "robustness/step8_large_block",
+   "file": "manavgat_2021__bejis_2022/step8_large_block_input_audit.json",
+   "max_abs_diff": 0.0,
+   "text_diff_keys": [
+    ".schemas.manavgat_2021.columns[5]",
+    ".schemas.manavgat_2021.columns[6]",
+    ".schemas.manavgat_2021.columns[7]",
+    ".schemas.manavgat_2021.columns[8]",
+    ".schemas.manavgat_2021.columns[9]",
+    ".schemas.manavgat_2021.columns[10]",
+    ".schemas.manavgat_2021.columns[11]",
+    ".schemas.manavgat_2021.columns[12]",
+    ".schemas.manavgat_2021.columns[13]",
+    ".schemas.manavgat_2021.columns[14]",
+    ".schemas.manavgat_2021.columns[15]",
+    ".schemas.manavgat_2021.columns[16]",
+    ".schemas.manavgat_2021.columns[17]",
+    ".schemas.manavgat_2021.columns[18]",
+    ".schemas.manavgat_2021.columns[19]",
+    ".schemas.manavgat_2021.columns[20]",
+    ".schemas.manavgat_2021.columns[21]",
+    ".schemas.manavgat_2021.columns[22]",
+    ".schemas.manavgat_2021.columns[23]",
+    ".schemas.manavgat_2021.columns[24]"
+   ],
+   "n_text_diff": 72,
+   "new_keys_in_head": 6,
+   "frozen_keys_missing": 0,
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step10/step10_final_report.json",
+   "max_abs_diff": 4.587846060777334e-06,
+   "text_diff_keys": [
+    ".scientific_summary[1]",
+    ".scientific_summary[2]"
+   ],
+   "n_text_diff": 2,
+   "new_keys_in_head": 0,
+   "frozen_keys_missing": 0,
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step9b/cross_region_transfer_metrics.json",
+   "max_abs_diff": 1.301722513251391e-05,
+   "text_diff_keys": [],
+   "n_text_diff": 0,
+   "new_keys_in_head": 0,
+   "frozen_keys_missing": 0,
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step9c/cross_region_bootstrap_metrics.json",
+   "max_abs_diff": 7.107642227331679e-05,
+   "text_diff_keys": [],
+   "n_text_diff": 0,
+   "new_keys_in_head": 0,
+   "frozen_keys_missing": 0,
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step9c/cross_region_bootstrap_samples.csv",
+   "max_abs_diff": 0.00012469628299839955,
+   "text_diff_cols": [],
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step9d/final_cross_region_report.json",
+   "max_abs_diff": 7.107642227331679e-05,
+   "text_diff_keys": [],
+   "n_text_diff": 0,
+   "new_keys_in_head": 0,
+   "frozen_keys_missing": 0,
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step9e/calibration_bins.csv",
+   "max_abs_diff": 1.0,
+   "text_diff_cols": [],
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step9e/distribution_shift_audit.json",
+   "max_abs_diff": 1.0,
+   "text_diff_keys": [],
+   "n_text_diff": 0,
+   "new_keys_in_head": 0,
+   "frozen_keys_missing": 0,
+   "status": "FAIL"
+  },
+  {
+   "scope": "cross_region/manavgat_2021__evia_2021",
+   "file": "step9e/prediction_distribution_audit.csv",
+   "max_abs_diff": 1.3017225132500032e-05,
+   "text_diff_cols": [],
+   "status": "FAIL"
+  }
+ ]
+}
