@@ -332,3 +332,10 @@ definition used here is the one the text used.
   targets", "never beats") in 00, 01, 04, 05, 06, A2, A3, the supplement, S1, the highlights and the
   captions. The only other hit, supplement l. 1302 ("every target positive lies outside the source
   training population"), concerns the Muğla two-event arm and is label-independent.
+- **Re-run exception (corresponding author, 2026-09-23): the frame-transfer matrix.**
+  `regen_transfer_ci.py` and `frozen_mugla_verify_aoi_transfer.py` were re-run unchanged into
+  `round5/collar/`, so that every number printed in this round traces to round5. The criterion was
+  3 dp identical and |Δ| < 1e-5. Both pass; the largest difference is 1.9e-6, from RF n_jobs=4
+  thread nondeterminism, shown by two runs in the same environment. The 09-19 `frozen_mugla` file
+  is a renamed copy of regen's output. Table B10 and A(s) are rebuilt from round5 and asserted in
+  `fig8_contrast_pairs.py`.

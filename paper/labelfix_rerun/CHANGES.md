@@ -12,6 +12,7 @@ canonical data); for `ems_*` the published `paper/ems_analyses/` files; for the 
 published `paper/*.json`; for `run_e` `experiments/cross_region/step10/`. Where the printed manuscript value
 differs from the frozen canonical value (see `canonical_rerun/CHANGES.md`), both are given.
 
+
 ## 0. How each script was run, and every code change
 
 Runner: `_logs/run_one.sh` (env `PAPER_ARTEFACTS=paper/labelfix_rerun/code`,

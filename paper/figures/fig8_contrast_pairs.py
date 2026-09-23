@@ -133,6 +133,48 @@ assert V10 == {"manavgat_2021_to_mugla_2021": "uncertain", "mugla_2021_to_manavg
                "bejis_2022_to_montiferru_2021": "uncertain",
                "montiferru_2021_to_bejis_2022": "uncertain"}, V10
 
+# ---- Appendix D Table B10 and Appendix A(s): bound to this figure's source and to Table 3's --
+# (2026-09-23) Every B10 cell is asserted at the printed 3 dp: D-bar, per-feature D and as-drawn
+# transfer against figure_contrast_pairs.json (this figure's source); collar transfer, collar
+# ranks and the A(s) collar extremes against round5/collar/aoi_frame_transfer.csv (Table 3's
+# source, regen_transfer_ci.py); the AoA shares against round5/collar/aoa_directed_pair_summary.csv.
+import pandas as _pd
+_COL = HERE.parent / "labelfix_rerun" / "round5" / "collar"
+_ct = _pd.read_csv(_COL / "aoi_frame_transfer.csv")
+_ct = _ct[(_ct.source_frame == "10km") & (_ct.target_frame == "10km")].sort_values("thermal").reset_index(drop=True)
+assert len(_ct) == 20 and f"{_ct.thermal.mean():.3f}" == "0.589"          # Table 3, 10 km / 10 km
+_cv = {r.direction: (r.thermal, r.thermal_ci_lo, r.thermal_ci_hi, i + 1) for i, r in _ct.iterrows()}
+_aoa = _pd.read_csv(_COL / "aoa_directed_pair_summary.csv").set_index("direction")["fraction_inside_weighted_aoa"]
+_fd = lambda p: sorted(p["per_feature_signed_auc"][k]["schoener_d_this_feature"] for k, _ in FEATURE_ORDER)
+_ord = lambda n: f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+MM_, MG_, BM_, MB_ = ("manavgat_2021_to_mugla_2021", "mugla_2021_to_manavgat_2021",
+                      "bejis_2022_to_montiferru_2021", "montiferru_2021_to_bejis_2022")
+B10_EXPECTED = [
+    f"| Schoener's *D*, mean 1-D | **{P_LEFT['niche_overlap']['schoener_d_mean1d']:.3f}** (highest) | "
+    f"**{P_RIGHT['niche_overlap']['schoener_d_mean1d']:.3f}** (lowest) |",
+    f"| per-feature *D* | {_fd(P_LEFT)[0]:.2f} to {_fd(P_LEFT)[-1]:.2f} | {_fd(P_RIGHT)[0]:.2f} to {_fd(P_RIGHT)[-1]:.2f} |",
+    f"| transfer, frames as drawn | {tl[MM_]['auc']:.3f}, {tl[MG_]['auc']:.3f} | {tr[BM_]['auc']:.3f}, {tr[MB_]['auc']:.3f} |",
+    f"| transfer, 10 km collar | {_cv[MM_][0]:.3f}, {_cv[MG_][0]:.3f} | {_cv[BM_][0]:.3f}, {_cv[MB_][0]:.3f} |",
+    f"| rank of 20 on the collar, from the bottom | {_ord(_cv[MM_][3])}, {_ord(_cv[MG_][3])} | "
+    f"{_ord(_cv[BM_][3])}, {_ord(_cv[MB_][3])} |",
+    f"| target cells inside the AoA | {_aoa[MM_]:.3f}, {_aoa[MG_]:.3f} | — |",
+]
+_supp = (HERE.parent / "supplementary_appendices.md").read_text(encoding="utf-8")
+for _row in B10_EXPECTED:
+    assert _row in _supp, f"Table B10 row not as computed: {_row}"
+_as = " ".join(_supp[_supp.index("## A(s)."):_supp.index("## A(v).")].split())
+_lo, _hi = _ct.iloc[0], _ct.iloc[-1]
+for _s in (f"{tl[MM_]['auc']:.3f} and {tl[MG_]['auc']:.3f} as drawn",
+           f"{_cv[MM_][0]:.3f} and {_cv[MG_][0]:.3f} under the collar",
+           f"[{_cv[MG_][1]:.3f}, {_cv[MG_][2]:.3f}], excludes chance",
+           f"Manavgat to Bejís at {_lo.thermal:.3f}", f"Muğla to Evia at {_hi.thermal:.3f}",
+           f"seven of nine feature-response directions point opposite ways",
+           f"all six features supported in both regions have opposite signs"):
+    assert _s in _as, f"A(s) does not state: {_s}"
+assert _lo.direction == "manavgat_2021_to_bejis_2022" and _hi.direction == "mugla_2021_to_evia_2021_extended"
+assert _cv[MG_][2] < 0.5 < _cv[MM_][2]          # only Mugla -> Manavgat excludes chance on the collar
+assert 9 - AGREE_LEFT == 7 and len(JS_LEFT) == 6
+
 # the region cue must not rest on hue alone
 HUE_CONTRAST = contrast_ratio((0x00 / 255, 0x72 / 255, 0xB2 / 255),
                               (0xE6 / 255, 0x9F / 255, 0x00 / 255))
