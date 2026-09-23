@@ -8,7 +8,7 @@ the parts of Appendix C that specify the protocol. Everything the paper cites as
 `Appendix C.1`, `C.2`, `C.3`, `C.4`, `C.6` or `C.7` is in this document, under the same names, so a
 pointer in the paper resolves here unchanged.
 
-**What is not here.** Appendix B, the diagnostic tables, and Appendix C.5, the ten limitations,
+**What is not here.** Appendix B, the diagnostic tables, and Appendix C.5, the thirteen limitations,
 stay in the paper: they carry the per-direction numbers and the limitations a reader checks the
 claims against, and the paper should be assessable without leaving it.
 
@@ -16,6 +16,7 @@ claims against, and the paper should be assessable without leaving it.
 elsewhere; every number here also appears in a frozen artefact named in the text. It is released so
 that a reader who wants the fuller argument, the per-scar and per-direction detail, or the exact
 protocol can have it without the paper carrying twenty thousand words of it.
+
 
 # Appendix A. Sensitivity analyses
 
@@ -854,7 +855,7 @@ The two fail differently and both fail. Once frames are equalised every region p
 on every jointly supported feature, so the agreement fraction has no variance left. The supported
 cosine keeps a trace of variance — unanimous signs fix directions but not magnitudes — and simply
 stops tracking transfer. This is not a marginal shift: features supported in both regions *rise*
-from 1.20 to 3.40 per direction, so the diagnostics are better determined and unanimous. The
+from 1.40 to 3.40 per direction, so the diagnostics are better determined and unanimous. The
 disagreements they were reading were the far fields.
 
 Two scope statements belong with Table 3 and are given in Appendix A(o): the full-frame values
