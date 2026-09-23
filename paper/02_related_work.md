@@ -79,9 +79,10 @@ matrix; two things differ. **The predictor class**: their model rests on attribu
 spatially stationary, ours on the state of a surface in one season. **The response variable**:
 theirs is human-driven ignition, ours burned area, which have different dominant controls. Read
 together, the two results suggest the relationship between domain similarity and transfer success
-may be predictor-class dependent. Vesk et al. [@Vesk2021] and Rousseau and Betts [@Rousseau2022]
-align with that reading from species distribution modelling, while Dimarco et al. and WildfireGenome
-run against it. We present that as a live disagreement; Section 5.5 states why our data do not
+may be predictor-class dependent. Vesk et al. [@Vesk2021] align with that reading from species
+distribution modelling, while Dimarco et al. and WildfireGenome run against it. Rousseau and Betts
+[@Rousseau2022] found environmental similarity not a significant predictor of transferability; our
+result is consistent with theirs. We present that as a live disagreement; Section 5.5 states why our data do not
 settle it.
 
 [^dimarco-lst]: Their Results text refers to "LST anomalies", inconsistent with their own Methods,
