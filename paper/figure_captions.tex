@@ -166,20 +166,21 @@
 \begin{figure}[htbp]
   \centering
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig6_loro.pdf}}
-  \caption{\textbf{Pooling every other region never beats the best single
-  source.} Leave-one-region-out evaluation: for each held-out target region
+  \caption{\textbf{Pooling every other region does not beat the best single
+  source for four of five targets.} Leave-one-region-out evaluation: for each held-out target region
   (rows), a model trained on the pooled remaining four regions (filled orange
   circle) is compared against the best individual source region for that same
   target (open blue diamond), with the within-region ceiling as a grey vertical
   tick and chance as the dashed rule. Natural-vegetation primary population,
-  thermal feature set, no adaptation. The pooled model lies to the left of the
-  best pairwise source in all five targets without exception. Adding source
-  regions does not accumulate transferable signal. In two targets the pooled
-  model falls \emph{below chance} at the point estimate (Manavgat 0.469,
-  Bej\'is 0.417), and only for Bej\'is does the interval lie entirely below
-  chance, while a single well-chosen source reaches 0.686 and 0.583
-  respectively. Every point
-  remains far below the within-region ceiling.}
+  thermal feature set, no adaptation. The pooled model lies to the left of the best pairwise source in four
+  targets. For Evia it lies to the right, at 0.715 [0.668, 0.757] against 0.654
+  for the best single source, Manavgat (Section~\ref{sec:5.3}). Elsewhere, adding
+  source regions does not accumulate transferable signal. In two targets the
+  pooled model falls \emph{below chance} at the point estimate (Manavgat 0.426,
+  Bej\'is 0.458), and only for Manavgat does the interval lie entirely below
+  chance, while a single well-chosen source reaches 0.677 and 0.583
+  respectively. Every point remains far below the within-region ceiling.
+  Manavgat values are on the corrected label (Section~\ref{sec:3.2}).}
   \label{fig:loro}
 \end{figure}
 

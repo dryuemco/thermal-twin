@@ -10,6 +10,8 @@
 > `paper/labelfix_rerun/round5/E1_CHANGELIST.md` §7 and §13. Section 5.2 now states that the
 > transfer shortfall has no region-level support. Section 5.4 gains a paragraph on Manavgat and one on
 > measures built from interval support. Section 5.7 gains three limitations.
+> Later the same day: §5.3 records that pooling beats the best single source for Evia (0.715
+> [0.668, 0.757] against 0.654), a result E1 had missed because LORO was not checked per target.
 
 ## 5.1 Reading the three findings together
 
@@ -56,9 +58,19 @@ block's peculiarity.
 
 ## 5.3 What the two interventions do and do not show
 
-Both interventions show the same shape. Pooling four regions never beats the best single-source
-transfer for any target and stays well below the within-region ceiling (Appendix A(n)). It does not
-manufacture the missing conditional information. Removing the reversing predictors costs −0.076 of
+Both interventions show a similar shape, with one exception. Pooling four regions does not beat the
+best single-source transfer for four of five targets, and it stays well below the within-region
+ceiling for all five (Appendix A(n)). For Evia the pooled model exceeds the best single source, at
+0.715 [0.668, 0.757] against 0.654. Manavgat's corrected label appears to carry conditional
+information for Evia, and it shows in two separate analyses: raw transfer from Manavgat to Evia
+rises from 0.613 to 0.654, and the pooled model that includes Manavgat reaches 0.715. Both use
+Manavgat as a source, so they are not independent confirmations. We record one observation about
+the pairing, as an observation and not as a return to the regime hypothesis of Section 5.4. The
+only target where pooling helps shares an event structure with one of its sources. Manavgat and
+Evia are the two fires in the cohort that burned as a single large scar, of 2,934 and 2,653 cells,
+in late July and early August 2021. Muğla burned in the same weeks but as ten separate scars, and
+Bejís burned as a single scar of 1,100 cells in 2022. Elsewhere pooling does not manufacture the
+missing conditional information. Removing the reversing predictors costs −0.076 of
 within-region skill with interval support in every region, and returns +0.014 [−0.028, +0.056] in
 mean transfer.
 

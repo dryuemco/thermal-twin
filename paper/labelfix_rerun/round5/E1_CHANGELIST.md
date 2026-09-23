@@ -314,3 +314,21 @@ definition used here is the one the text used.
 - App D / A(y) C4 passages: supplementary_appendices.md lines 1060–1085, 1400, 1473, 1515–1526 and 1606.
 - The A(e)/A(v) QC wording, including the correction to the arm-A description.
 - A(b), to be limited to λ ≤ 0.1.
+
+## 14. Queued during E5 (2026-09-23), to apply after E5
+- **05 Discussion, adaptation narrative.** Bejís→Manavgat moves further from chance under z-scoring
+  (raw 0.314 → z 0.302), so "adaptation compresses toward chance" is no longer absolute. Scan 05 for
+  that framing (§5.6 "regressing the matrix onto it", and any "compresses") and add the Manavgat
+  exception. The Fig. 4 caption already carries it.
+- **Supplement:** line ~973 "…0.686 (Fig. 4)" is the frozen raw range; it is now 0.314–0.677.
+- **E1 omission, found in E5 (Fig. 6 assert): LORO was not checked per target.** Row 96 updated A(n)
+  for Manavgat's within-region cost only. On the corrected label the pooled model beats the best
+  single source for Evia, 0.715 [0.668, 0.757] against 0.654 (Manavgat), so "pooling never beats the
+  best single source for any target" was false in 04 §4.6, 05 §5.3, the Fig. 6 caption and A(n)(a).
+  All four were corrected in one commit. The other LORO numbers were re-read at the same time:
+  Manavgat 0.426 [0.369, 0.486], now the target whose interval lies below chance; Bejís 0.458
+  [0.396, 0.522]; shortfalls 0.09 to 0.25; ceiling gaps 0.20 to 0.48.
+- **Scan for other per-target universals** ("for any target", "every target", "no target", "all
+  targets", "never beats") in 00, 01, 04, 05, 06, A2, A3, the supplement, S1, the highlights and the
+  captions. The only other hit, supplement l. 1302 ("every target positive lies outside the source
+  training population"), concerns the Muğla two-event arm and is label-independent.

@@ -339,7 +339,8 @@ Six further arms bear on the findings above without changing them. They are the 
 (A(s), Fig. 8), the two interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event
 arm (A(m)), the distance curve (A(t)) and the label-budget curve (A(u)). Each is stated there with
 its own limits. Two are plotted here because the shape of the result is the argument. Pooling every
-other region never beats the best single source for any target (Fig. 6). Removing the
+other region does not beat the best single source for four of five targets; for Evia the pooled
+model exceeds it (0.715 [0.668, 0.757] against 0.654; Fig. 6). Removing the
 direction-reversing features costs within-region skill and returns nothing measurable on transfer
 (Fig. 7).
 

@@ -433,10 +433,15 @@ pooled per-target shortfalls are here.
 
 
 **(a) Pooled multi-region training** (Fig. 6). At the point estimate, training on the pooled primary
-populations of the other four regions never beats the best single-source transfer for any target,
-with shortfalls of 0.02 to 0.22, and it stays 0.28 to 0.50 AUC below the within-region ceiling; for two targets it falls below the pairwise mean and below chance, though
-only Bejís is below chance with interval support, at 0.417 [0.369, 0.467]. Aggregation does not recover what single-source
-transfer loses.
+populations of the other four regions does not beat the best single-source transfer for four of
+five targets, with shortfalls of 0.09 to 0.25. For Evia the pooled model exceeds the best single
+source, at 0.715 [0.668, 0.757] against 0.654 (Manavgat); Section 5.3 records what that pairing
+shares. In every target the pooled model stays 0.20 to 0.48 AUC below the within-region ceiling.
+For two targets, Manavgat and Bejís, it falls below the pairwise mean and below chance, though only
+Manavgat is below chance with interval support, at 0.426 [0.369, 0.486]. Outside Evia, aggregation
+does not recover what single-source transfer loses. Values are on the corrected Manavgat label
+(`paper/labelfix_rerun/round3/loro_pooled_transfer.json`); under the frozen label the pooled model
+beat no target.
 
 **(b) Removing the direction-reversing features.** The two predictors whose signed association
 reverses between regions **with bootstrap support on the frames as drawn** are **`elevation_mean` and
