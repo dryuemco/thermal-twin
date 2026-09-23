@@ -112,6 +112,26 @@ const refs = [...tex.matchAll(/\\ref\{([^}]+)\}/g)].map(m => m[1]);
 const dangling = [...new Set(refs.filter(r => !labels.has(r)))];
 check('no \\ref points at a missing \\label', dangling.length === 0, dangling.join(', '));
 
+// ------------------------------------- 2b. every figure and table is cited --
+// The converse of 2: a figure or table the running text never cites. Only the
+// body counts. A citation inside a figure caption, a table caption or a table
+// note does not, and neither does one in the declarations (the data-availability
+// statement names Table 1 and the figure range): none of those is where a reader
+// is sent to the display item. A revision that drops or renumbers a figure would
+// otherwise leave it uncited with every other check green. A figure cited only
+// inside a range ("Figs. 6-8" ports as \ref{first}--8) is not counted, so each
+// item needs a citation of its own.
+const citeBody = tex.slice(tex.indexOf('\\end{frontmatter}'), bodyEnd)
+  .replace(/\\begin\{figure\}[\s\S]*?\\end\{figure\}/g, '')
+  .replace(/\\begin\{table\}[\s\S]*?\\end\{table\}/g, '')
+  .split(/\r?\n\s*\r?\n/).filter(p => !/^\s*\\emph\{Table note/.test(p)).join('\n\n');
+const citedInBody = new Set([...citeBody.matchAll(/\\ref\{([^}]+)\}/g)].map(m => m[1]));
+const displays = [...labels].filter(l => /^(fig|tab):/.test(l));
+const uncitedDisplays = displays.filter(l => !citedInBody.has(l));
+check('every figure and table is cited in the body (not only in a caption, table note or declaration)',
+      displays.length > 0 && uncitedDisplays.length === 0,
+      uncitedDisplays.length ? uncitedDisplays.join(", ") : `${displays.length} display items`);
+
 // ------------------------------------------------- 3. citation keys exist --
 const bibKeys = new Set([...read('REFERENCES.bib').matchAll(/@\w+\{([^,]+),/g)].map(m => m[1].trim()));
 const cited = new Set();

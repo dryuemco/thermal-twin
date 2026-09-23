@@ -38,7 +38,7 @@ extended AOI. That leaves the burned scar essentially unchanged while cutting TS
 
 Adding the six thermal predictors to the baseline raises spatially blocked out-of-fold ROC-AUC in
 every region. The increment's bootstrap interval excludes zero in all five regions at 1 km and at
-5 km blocking (Fig. 3), the two scales this design supports as intervals. At 10 km the point
+5 km blocking (Fig. 3; Table 1), the two scales this design supports as intervals. At 10 km the point
 estimates hold, from +0.047 to +0.154. They rest on 6 to 33 positive-carrying blocks, however, and
 are indicative.
 

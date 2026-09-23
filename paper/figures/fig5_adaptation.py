@@ -19,6 +19,10 @@ every arrow against Table B9 and every within tick against Table 1 at 3 dp, zero
 12 move closer, asserted; worst recovery Evia -> Manavgat -1.126; Bejís -> Manavgat is a
 recovery by its better method (CORAL 0.314 -> 0.406) although its z-score arm alone falls to
 0.302, which the caption states.
+
+2026-09-24 revision: no in-figure title. Elsevier takes the caption from the manuscript,
+not the figure file, and figure_captions.tex already carries the statement; the axes
+grow into the band the title occupied.
 """
 import json
 import sys
@@ -39,7 +43,7 @@ HUE_ONLY_CONTRAST = contrast_ratio((0x00 / 255, 0x72 / 255, 0xB2 / 255),
 
 plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
 fig = plt.figure(figsize=(190 * MM, 108 * MM))
-ax = fig.add_axes([0.205, 0.175, 0.780, 0.760])
+ax = fig.add_axes([0.205, 0.175, 0.780, 0.795])
 
 data_artists = []
 order = sorted(decomp, key=lambda d: d["raw"])
@@ -65,8 +69,6 @@ ax.set_xlim(0.28, 0.97)
 ax.set_ylim(-2.35, N - 0.35)
 ax.set_xticks([0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
 ax.set_xlabel("thermal transfer ROC-AUC", fontsize=FS_BODY)
-ax.set_title("Label-blind adaptation compresses the matrix toward chance",
-             fontsize=FS_BODY, loc="left")
 style_axes(ax)
 assert_inside(ax, "Fig. 5", xs=[v for d in order for v in (d["raw"], d["best_adapted"], d["within"])])
 

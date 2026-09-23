@@ -23,6 +23,10 @@ points and crowded them). Split out of the former three-panel conservation figur
 
 Data: paper/figures/data/fig_data_corrected.json and paper/labelfix_rerun/round3/
 feature_drop_transfer.json (per-direction deltas). Asserts here and in _conservation_common.py.
+
+2026-09-24 revision: no in-figure title. Elsevier takes the caption from the manuscript,
+not the figure file, and figure_captions.tex already carries the statement; the axes
+grow into the band the title occupied.
 """
 import hashlib
 import json
@@ -85,7 +89,7 @@ plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
 fig = plt.figure(figsize=(190 * MM, 92 * MM))
 # plot on the left, legend in its own column on the right: at 190 mm there is
 # room for a real key, so nothing has to sit near a data point
-ax = fig.add_axes([0.085, 0.145, 0.560, 0.775])
+ax = fig.add_axes([0.085, 0.145, 0.560, 0.825])
 
 ax.plot(_w, _t, color="#BBBBBB", lw=1.3, zorder=1)
 data_artists = []
@@ -101,8 +105,6 @@ for cfg, lab, mk, filled in CFG:
 
 ax.set_xlabel("mean within-region ROC-AUC (5 regions)", fontsize=FS_BODY)
 ax.set_ylabel("mean transfer ROC-AUC (20 directions)", fontsize=FS_BODY)
-ax.set_title("Feature removal costs within-region skill; the transfer change is near zero",
-             fontsize=FS_BODY, loc="left")
 # The transfer change of "- both" drawn with its interval, so that the reader sees it span
 # zero before reading any caption: a whisker at the "- both" within value, running from the
 # full-set transfer level plus the lower bound to plus the upper bound, and a dotted line at
