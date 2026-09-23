@@ -74,14 +74,28 @@ def signed_auc_ci(sub, f, seed=SEED):
 
 data = {r: load(r) for r in REGIONS}
 
-# signed AUCs + support flags, per frame
+# signed AUCs + support flags, per frame.
+# Full-frame support flags come from the pipeline's Step9G signed-AUC CIs (5-AOI synthesis). That is the same
+# source as Table B2, the registered diagnostic family and verify_collar_increment.py (fixed 2026-09-23).
+# This script's own bootstrap is a different, equally valid RNG stream. Under the corrected Manavgat label it
+# flips the knife-edge Manavgat ndvi_mean flag ([0.5022, 0.6237] vs Step9G [0.4993, 0.6278]). The collar has no
+# Step9G run and keeps this script's bootstrap.
+_fs = pd.read_csv("drive_new/diagnostics/multi_aoi_transfer_synthesis/"
+                  "bejis_2022__evia_2021_extended__manavgat_2021__montiferru_2021__mugla_2021/"
+                  "multi_aoi_feature_stability.csv")
+S9G = {}
+for side in ("a", "b"):
+    for _, rr in _fs.iterrows():
+        S9G[(rr[f"experiment_{side}"], rr["feature"])] = bool(
+            rr[f"experiment_{side}_ci_low"] > 0.5 or rr[f"experiment_{side}_ci_high"] < 0.5)
 prof = {}
 for frame in ["full", "collar10"]:
     for reg in REGIONS:
         sub = data[reg] if frame == "full" else data[reg][data[reg].dist_km <= 10]
         for f in FEATS:
             pt, lo, hi = signed_auc_ci(sub, f)
-            prof[(frame, reg, f)] = (pt, (lo > 0.5) or (hi < 0.5))
+            sup = S9G[(reg, f)] if frame == "full" else ((lo > 0.5) or (hi < 0.5))
+            prof[(frame, reg, f)] = (pt, sup)
     print(f"profiled {frame}", flush=True)
 
 # transfer vectors
