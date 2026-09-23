@@ -21,15 +21,10 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (326 chars)
 
-## math (10)
+## math (5)
 
 - display equation eq:block (1 line(s))
 - display equation eq:auc (1 line(s))
-- display equation eq:boot (1 line(s))
-- display equation eq:pair (1 line(s))
-- display equation eq:tint (1 line(s))
-- display equation eq:zscore (1 line(s))
-- display equation eq:coral (1 line(s))
 - display equation eq:decomp (1 line(s))
 - display equation eq:scar (1 line(s))
 - display equation eq:collar (1 line(s))
