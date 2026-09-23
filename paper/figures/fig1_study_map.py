@@ -223,14 +223,17 @@ for _stem in ("ne_50m_land", "ne_50m_coastline"):
                   "geos": shapely.geos_version_string, "pyproj": pyproj.__version__,
                   "proj": pyproj.proj_version_str},
     "reproducibility": (
-        "Checked 2026-09-23. The committed fig1_study_map.pdf/.svg (rendered 2026-08-08) are NOT "
-        "reproduced exactly by this script with the Natural Earth files, the AOI file and the geo "
-        "stack recorded here, although all three predate that render. A rebuild is deterministic "
-        "(two rebuilds are identical once matplotlib ids are normalised) and differs from the "
-        "committed SVG by two extra paths, one land fill and its coastline, at the top-left edge "
-        "of the map. The cause was not identified. An earlier commit message (67790d8) attributed "
-        "the difference to cartopy re-fetching its coastline data; that was wrong, since the cache "
-        "files date from 2026-08-08."),
+        "Re-rendered 2026-09-23 and committed as the figure of record. The previous render "
+        "(2026-08-08) could not be reproduced by this script with the Natural Earth files, the AOI "
+        "file and the geo stack recorded here, although all three predate it; the cause was not "
+        "identified. Its production environment is uncertain: its SVG dc:date reads 23:46 while "
+        "the commit that added it is timed 20:49, which is inconsistent. The present render is "
+        "deterministic in this environment (two consecutive rebuilds are identical once "
+        "matplotlib ids are normalised). It differs from the previous one by two small paths at "
+        "the top-left edge of the map, one land fill and its coastline; no AOI, marker or label "
+        "is affected. An earlier commit message (67790d8) attributed the difference to cartopy "
+        "re-fetching its coastline data; that was wrong, since the cache files date from "
+        "2026-08-08."),
     "asserts": "all five AOI bboxes match 03_methods Table 1 to 5e-3 deg",
     "design": "single AOI colour across the five study regions (no regime grouping implied); "
               "no topography/satellite; Kozan 2023 drawn as gate control in a distinct style "
