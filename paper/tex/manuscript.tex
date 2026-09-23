@@ -581,7 +581,7 @@ against 0.589, a paired difference of +0.024 rather than +0.007. The control the
 
 \subsection{Further arms}\label{sec:4.6}
 
-Six further arms bear on the findings above without changing them. They are the contrast pair (A(s), Fig.~\ref{fig:contrast-pairs}), the two interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event arm (A(m)), the distance curve (A(t)) and the label-budget curve (A(u)). Each is stated there with its own limits. Two are plotted here because the shape of the result is the argument. Pooling every other region never beats the best single source for any target (Fig.~\ref{fig:loro}). Removing the direction-reversing features costs within-region skill and returns nothing measurable on transfer (Fig.~\ref{fig:feature-drop}).
+Six further arms bear on the findings above without changing them. They are the contrast pair (A(s), Fig.~\ref{fig:contrast-pairs}), the two interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event arm (A(m)), the distance curve (A(t)) and the label-budget curve (A(u)). Each is stated there with its own limits. Two are plotted here because the shape of the result is the argument. Pooling every other region does not beat the best single source for four of five targets; for Evia the pooled model exceeds it (0.715 [0.668, 0.757] against 0.654; Fig.~\ref{fig:loro}). Removing the direction-reversing features costs within-region skill and returns nothing measurable on transfer (Fig.~\ref{fig:feature-drop}).
 
 \begin{figure}[htbp]
   \centering
@@ -633,20 +633,21 @@ Six further arms bear on the findings above without changing them. They are the 
 \begin{figure}[htbp]
   \centering
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig6_loro.pdf}}
-  \caption{\textbf{Pooling every other region never beats the best single
-  source.} Leave-one-region-out evaluation: for each held-out target region
+  \caption{\textbf{Pooling every other region does not beat the best single
+  source for four of five targets.} Leave-one-region-out evaluation: for each held-out target region
   (rows), a model trained on the pooled remaining four regions (filled orange
   circle) is compared against the best individual source region for that same
   target (open blue diamond), with the within-region ceiling as a grey vertical
   tick and chance as the dashed rule. Natural-vegetation primary population,
-  thermal feature set, no adaptation. The pooled model lies to the left of the
-  best pairwise source in all five targets without exception. Adding source
-  regions does not accumulate transferable signal. In two targets the pooled
-  model falls \emph{below chance} at the point estimate (Manavgat 0.469,
-  Bej\'is 0.417), and only for Bej\'is does the interval lie entirely below
-  chance, while a single well-chosen source reaches 0.686 and 0.583
-  respectively. Every point
-  remains far below the within-region ceiling.}
+  thermal feature set, no adaptation. The pooled model lies to the left of the best pairwise source in four
+  targets. For Evia it lies to the right, at 0.715 [0.668, 0.757] against 0.654
+  for the best single source, Manavgat (Section~\ref{sec:5.3}). Elsewhere, adding
+  source regions does not accumulate transferable signal. In two targets the
+  pooled model falls \emph{below chance} at the point estimate (Manavgat 0.426,
+  Bej\'is 0.458), and only for Manavgat does the interval lie entirely below
+  chance, while a single well-chosen source reaches 0.677 and 0.583
+  respectively. Every point remains far below the within-region ceiling.
+  Manavgat values are on the corrected label (Section~\ref{sec:3.2}).}
   \label{fig:loro}
 \end{figure}
 
@@ -674,7 +675,7 @@ One conclusion survives from the other direction. The static baseline transfers 
 
 \subsection{What the two interventions do and do not show}\label{sec:5.3}
 
-Both interventions show the same shape. Pooling four regions never beats the best single-source transfer for any target and stays well below the within-region ceiling (Appendix A(n)). It does not manufacture the missing conditional information. Removing the reversing predictors costs $-$0.076 of within-region skill with interval support in every region, and returns +0.014 [$-$0.028, +0.056] in mean transfer.
+Both interventions show a similar shape, with one exception. Pooling four regions does not beat the best single-source transfer for four of five targets, and it stays well below the within-region ceiling for all five (Appendix A(n)). For Evia the pooled model exceeds the best single source, at 0.715 [0.668, 0.757] against 0.654. Manavgat's corrected label appears to carry conditional information for Evia, and it shows in two separate analyses: raw transfer from Manavgat to Evia rises from 0.613 to 0.654, and the pooled model that includes Manavgat reaches 0.715. Both use Manavgat as a source, so they are not independent confirmations. We record one observation about the pairing, as an observation and not as a return to the regime hypothesis of Section~\ref{sec:5.4}. The only target where pooling helps shares an event structure with one of its sources. Manavgat and Evia are the two fires in the cohort that burned as a single large scar, of 2,934 and 2,653 cells, in late July and early August 2021. Muğla burned in the same weeks but as ten separate scars, and Bejís burned as a single scar of 1,100 cells in 2022. Elsewhere pooling does not manufacture the missing conditional information. Removing the reversing predictors costs $-$0.076 of within-region skill with interval support in every region, and returns +0.014 [$-$0.028, +0.056] in mean transfer.
 
 That pair of numbers is easy to read as an exchange, and it is not one. Both arms are null on the portability axis. The thermal block's own contribution is +0.007 and removal returns +0.014, both with intervals spanning zero, so they measure a local cost and no compensating gain. That is not a conservation law and not a rate at which local skill can be sold for portability; no such rate is estimated here.
 
