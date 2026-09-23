@@ -287,3 +287,16 @@ def _min_gap(entries, dpi):
                 continue
             best = min(best, _gap_pt(a["bbox"], b["bbox"], dpi))
     return best if best != float("inf") else 0.0
+
+
+def assert_inside(ax, name, xs=(), ys=()):
+    """Every data value (point or CI bound) must lie strictly inside the axis view.
+
+    Added 2026-09-23 after Fig. 8 clipped a CI at the x limit on the corrected label:
+    the text collision checker cannot see a data line that runs off the axes.
+    """
+    x0, x1 = sorted(ax.get_xlim())
+    y0, y1 = sorted(ax.get_ylim())
+    bad = [("x", v) for v in xs if not (x0 < v < x1)] + [("y", v) for v in ys if not (y0 < v < y1)]
+    assert not bad, f"{name}: data outside axis view {bad[:5]} (x {x0:.3f}-{x1:.3f}, y {y0:.3f}-{y1:.3f})"
+    return True

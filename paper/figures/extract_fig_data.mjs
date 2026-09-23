@@ -4,7 +4,11 @@
 import { createHash } from 'crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 
-const ROOT = 'C:/Users/CORSAIR/projects/thermal-twin';
+// FIG_ROOT / FIG_OUT (2026-09-23): the corrected-label figures read the official overlay
+// rerun_labelfix/_round5/ov_official (drive_new -> re-frozen tree outputs, paper -> out_official)
+// and write data/fig_data_corrected.json. With neither set, the frozen extraction is unchanged.
+const ROOT = process.env.FIG_ROOT || 'C:/Users/CORSAIR/projects/thermal-twin';
+const OUT = process.env.FIG_OUT || 'C:/Users/CORSAIR/projects/thermal-twin/paper/figures/data/fig_data.json';
 const REGIONS = ['manavgat_2021', 'bejis_2022', 'mugla_2021', 'evia_2021_extended', 'montiferru_2021'];
 const POP = 'burnable_tree_shrub_grass';
 const sources = {};
@@ -92,8 +96,15 @@ const fig6_decomp = Object.values(decompByDir).map(d => {
 });
 
 // ---------- fig 6b/6c from frozen paper outputs ----------
-const loro = JSON.parse(read('paper/loro_pooled_transfer.json'));
-const fdrop = JSON.parse(read('paper/feature_drop_transfer.json'));
+// On the corrected label these two come from paper/labelfix_rerun/round3 (computed on the
+// 2026-09-19 corrected parquet e4ab8b85, identical in content to the re-frozen 5a5e876c).
+function readAbs(p) {
+  const buf = readFileSync(p);
+  sources[p] = createHash('sha256').update(buf).digest('hex');
+  return buf.toString('utf8');
+}
+const loro = JSON.parse(process.env.FIG_LORO ? readAbs(process.env.FIG_LORO) : read('paper/loro_pooled_transfer.json'));
+const fdrop = JSON.parse(process.env.FIG_FDROP ? readAbs(process.env.FIG_FDROP) : read('paper/feature_drop_transfer.json'));
 const fig6_loro = loro.per_target.map(t => ({
   target: t.target, best_pairwise: t.best_pairwise_thermal, mean_pairwise: t.mean_pairwise_thermal,
   loro_raw: t.loro_raw_thermal.roc_auc, loro_raw_ci: t.loro_raw_thermal.roc_auc_ci,
@@ -104,11 +115,12 @@ const fig6_fdrop = Object.entries(fdrop.tradeoff).map(([cfg, v]) => ({
   dirs_ci_above: v.n_dirs_ci_above_chance,
 }));
 
-mkdirSync(`${ROOT}/paper/figures/data`, { recursive: true });
-writeFileSync(`${ROOT}/paper/figures/data/fig_data.json`, JSON.stringify({
-  meta: { created: '2026-08-08', extractor: 'paper/figures/extract_fig_data.mjs',
+mkdirSync(OUT.replace(/[\/][^\/]+$/, ''), { recursive: true });
+writeFileSync(OUT, JSON.stringify({
+  meta: { created: process.env.FIG_ROOT ? new Date().toISOString().slice(0, 10) : '2026-08-08',
+          extractor: 'paper/figures/extract_fig_data.mjs', root: ROOT,
           population: POP, sources },
   fig34, fig5, fig6_decomp, fig6_loro, fig6_fdrop,
 }, null, 1));
-console.log(`written fig_data.json; ${Object.keys(sources).length} source files hashed`);
+console.log(`written ${OUT}; ${Object.keys(sources).length} source files hashed`);
 console.log('fig5 directions:', Object.keys(fig5).length, '| decomp rows:', fig6_decomp.length);
