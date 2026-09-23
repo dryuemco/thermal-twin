@@ -1,0 +1,351 @@
+{
+  "analysis_id": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+  "point_metrics": {
+    "manavgat_2021_to_bejis_2022": {
+      "within": {
+        "baseline": {
+          "roc_auc": 0.8616776566230079,
+          "pr_auc": 0.3027735748414686,
+          "positive_count": 1100,
+          "negative_count": 14090
+        },
+        "thermal": {
+          "roc_auc": 0.9178110845861024,
+          "pr_auc": 0.49780780629444993,
+          "positive_count": 1100,
+          "negative_count": 14090
+        }
+      },
+      "raw_source_only": {
+        "baseline": {
+          "roc_auc": 0.3321873346667527,
+          "pr_auc": 0.049284923029179833,
+          "positive_count": 1100,
+          "negative_count": 14090
+        },
+        "thermal": {
+          "roc_auc": 0.3258336344280276,
+          "pr_auc": 0.048758121686924845,
+          "positive_count": 1100,
+          "negative_count": 14090
+        }
+      },
+      "regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.4081059423188592,
+          "pr_auc": 0.057064722740575606,
+          "positive_count": 1100,
+          "negative_count": 14090
+        },
+        "thermal": {
+          "roc_auc": 0.4770999741918833,
+          "pr_auc": 0.06666741920312758,
+          "positive_count": 1100,
+          "negative_count": 14090
+        }
+      },
+      "coral_after_regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.4198956384282857,
+          "pr_auc": 0.05744906026418394,
+          "positive_count": 1100,
+          "negative_count": 14090
+        },
+        "thermal": {
+          "roc_auc": 0.5105400025808117,
+          "pr_auc": 0.06958071891779777,
+          "positive_count": 1100,
+          "negative_count": 14090
+        }
+      }
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "within": {
+        "baseline": {
+          "roc_auc": 0.8027358197042693,
+          "pr_auc": 0.11883611472906722,
+          "positive_count": 784,
+          "negative_count": 19727
+        },
+        "thermal": {
+          "roc_auc": 0.8696419777927898,
+          "pr_auc": 0.21562639963809774,
+          "positive_count": 784,
+          "negative_count": 19727
+        }
+      },
+      "raw_source_only": {
+        "baseline": {
+          "roc_auc": 0.4209078604067977,
+          "pr_auc": 0.033190336735100884,
+          "positive_count": 784,
+          "negative_count": 19727
+        },
+        "thermal": {
+          "roc_auc": 0.4435284296463047,
+          "pr_auc": 0.03440634297977607,
+          "positive_count": 784,
+          "negative_count": 19727
+        }
+      },
+      "regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.4414940597316637,
+          "pr_auc": 0.03435243285780811,
+          "positive_count": 784,
+          "negative_count": 19727
+        },
+        "thermal": {
+          "roc_auc": 0.4573382668320535,
+          "pr_auc": 0.03851318938960183,
+          "positive_count": 784,
+          "negative_count": 19727
+        }
+      },
+      "coral_after_regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.4560562584896076,
+          "pr_auc": 0.03497986772714781,
+          "positive_count": 784,
+          "negative_count": 19727
+        },
+        "thermal": {
+          "roc_auc": 0.5553095674321841,
+          "pr_auc": 0.04270970536494872,
+          "positive_count": 784,
+          "negative_count": 19727
+        }
+      }
+    }
+  },
+  "within_region_reproduction": {
+    "manavgat_2021_to_bejis_2022": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.8616776566230079,
+            "step8b": 0.8616776566230079,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.3027735748414686,
+            "step8b": 0.3027735748414686,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.9178110845861024,
+            "step8b": 0.9178110845861024,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.49780780629444993,
+            "step8b": 0.49780780629444993,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.8027358197042693,
+            "step8b": 0.8027358197042693,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.11883611472906722,
+            "step8b": 0.11883611472906722,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.8696419777927898,
+            "step8b": 0.8696419777927898,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.21562639963809774,
+            "step8b": 0.21562639963809774,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    }
+  },
+  "raw_reproduction": {
+    "manavgat_2021_to_bejis_2022": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.3321873346667527,
+            "step9b": 0.33218736692689854,
+            "diff": 3.2260145832463394e-08,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.049284923029179833,
+            "step9b": 0.049284923029179833,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.3258336344280276,
+            "step9b": 0.3258336344280276,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.048758121686924845,
+            "step9b": 0.048758121686924845,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/manavgat_2021__bejis_2022/step9b/cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "manavgat_2021",
+        "root_target_experiment_id": "bejis_2022",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.33218736692689854,
+          "pr_auc": 0.049284923029179833,
+          "brier_score": 0.12434032641224266
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.3258336344280276,
+          "pr_auc": 0.048758121686924845,
+          "brier_score": 0.08817291106929774
+        }
+      }
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.4209078604067977,
+            "step9b": 0.420907601774425,
+            "diff": 2.5863237268497485e-07,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.033190336735100884,
+            "step9b": 0.03319042958471104,
+            "diff": 9.284961015321169e-08,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.4435284296463047,
+            "step9b": 0.44352846197535134,
+            "diff": 3.232904666194969e-08,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.03440634297977607,
+            "step9b": 0.03440634543449874,
+            "diff": 2.4547226681881362e-09,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/manavgat_2021__bejis_2022/step9b/cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "manavgat_2021",
+        "root_target_experiment_id": "bejis_2022",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.420907601774425,
+          "pr_auc": 0.03319042958471104,
+          "brier_score": 0.10784881794400253
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.44352846197535134,
+          "pr_auc": 0.03440634543449874,
+          "brier_score": 0.08919788883220119
+        }
+      }
+    }
+  },
+  "step9_raw_metric_provenance": {
+    "manavgat_2021_to_bejis_2022": {
+      "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/manavgat_2021__bejis_2022/step9b/cross_region_transfer_metrics.json",
+      "schema": "step9b_results_v1",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "bejis_2022",
+      "required_metrics": [
+        "roc_auc",
+        "pr_auc",
+        "brier_score"
+      ],
+      "baseline_metrics": {
+        "roc_auc": 0.33218736692689854,
+        "pr_auc": 0.049284923029179833,
+        "brier_score": 0.12434032641224266
+      },
+      "thermal_metrics": {
+        "roc_auc": 0.3258336344280276,
+        "pr_auc": 0.048758121686924845,
+        "brier_score": 0.08817291106929774
+      }
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/manavgat_2021__bejis_2022/step9b/cross_region_transfer_metrics.json",
+      "schema": "step9b_results_v1",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "bejis_2022",
+      "required_metrics": [
+        "roc_auc",
+        "pr_auc",
+        "brier_score"
+      ],
+      "baseline_metrics": {
+        "roc_auc": 0.420907601774425,
+        "pr_auc": 0.03319042958471104,
+        "brier_score": 0.10784881794400253
+      },
+      "thermal_metrics": {
+        "roc_auc": 0.44352846197535134,
+        "pr_auc": 0.03440634543449874,
+        "brier_score": 0.08919788883220119
+      }
+    }
+  }
+}

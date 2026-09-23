@@ -45,12 +45,12 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 38
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 70
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 114
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 148
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 164
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 179
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 193
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 222
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 116
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 150
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 168
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 184
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 200
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 229
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
 
 ## stripped (5)

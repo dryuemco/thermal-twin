@@ -1,0 +1,665 @@
+{
+  "source_experiment_id": "montiferru_2021",
+  "target_experiment_id": "manavgat_2021",
+  "model_name": "random_forest",
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 3,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "preprocessing_parameters": {
+    "numeric_imputation": "median",
+    "categorical_imputation": "most_frequent",
+    "categorical_encoding": "one_hot_handle_unknown_ignore",
+    "fit_region": "source_only"
+  },
+  "random_seed": 42,
+  "spatial_cv_n_splits_requested": 5,
+  "minimum_positives_and_negatives_per_population": 30,
+  "git_commit": "a07ea33743f4e45963e52c50e706683f1eee164d",
+  "resolved_inputs": {
+    "montiferru_2021": {
+      "experiment_id": "montiferru_2021",
+      "dataset_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/montiferru_2021/step8a/step8a_500m_modeling_dataset.parquet",
+      "dataset_sha256": "ffb008f977445076835ae35a70776b0b813d0a36655d2c656fd21e6fedd4ac50",
+      "step8a_manifest_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/montiferru_2021/step8a/step8a_dataset_stats.json",
+      "step8a_manifest_sha256": "3e2e12f5731c0575a66f879b9d15bb0e8f957b56bb79c58c4e99ea6fec6061b7",
+      "feature_contract": {
+        "ndvi_mean": {
+          "column_name": "ndvi_mean",
+          "semantic_identity": "mean_current_period_ndvi",
+          "source_manifest_key": "ndvi",
+          "source_product": "current_ndvi_median"
+        },
+        "elevation_mean": {
+          "column_name": "elevation_mean",
+          "semantic_identity": "mean_elevation",
+          "source_manifest_key": "elevation",
+          "source_product": "elevation"
+        },
+        "slope_mean": {
+          "column_name": "slope_mean",
+          "semantic_identity": "mean_slope",
+          "source_manifest_key": "slope",
+          "source_product": "slope"
+        },
+        "landcover_dominant": {
+          "column_name": "landcover_dominant",
+          "semantic_identity": "dominant_esa_worldcover_class",
+          "source_manifest_key": "landcover",
+          "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+        },
+        "lst_anomaly_mean": {
+          "column_name": "lst_anomaly_mean",
+          "semantic_identity": "mean_standardized_lst_anomaly",
+          "source_manifest_key": "lst_anomaly",
+          "source_product": "anomaly_zscore"
+        },
+        "current_lst_mean": {
+          "column_name": "current_lst_mean",
+          "semantic_identity": "mean_current_period_lst_celsius",
+          "source_manifest_key": "current_lst",
+          "source_product": "current_period_median_celsius"
+        },
+        "current_tvdi_mean": {
+          "column_name": "current_tvdi_mean",
+          "semantic_identity": "mean_current_period_tvdi",
+          "source_manifest_key": "current_tvdi",
+          "source_product": "current_tvdi"
+        },
+        "tvdi_difference_mean": {
+          "column_name": "tvdi_difference_mean",
+          "semantic_identity": "mean_tvdi_difference",
+          "source_manifest_key": "tvdi_difference",
+          "source_product": "tvdi_difference"
+        },
+        "downscaled_lst_mean": {
+          "column_name": "downscaled_lst_mean",
+          "semantic_identity": "mean_downscaled_lst_celsius",
+          "source_manifest_key": "downscaled_lst",
+          "source_product": "downscaled_lst_celsius"
+        },
+        "fused_lst_mean": {
+          "column_name": "fused_lst_mean",
+          "semantic_identity": "mean_fused_lst_celsius",
+          "source_manifest_key": "fused_lst",
+          "source_product": "fused_lst_celsius"
+        }
+      }
+    },
+    "manavgat_2021": {
+      "experiment_id": "manavgat_2021",
+      "dataset_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/step8a/step8a_500m_modeling_dataset.parquet",
+      "dataset_sha256": "054a1961fc0582a33d36413263668b63074b21ae8b03d12269b6e228787f3439",
+      "step8a_manifest_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/step8a/step8a_dataset_stats.json",
+      "step8a_manifest_sha256": "18170d2a67aa17e2d515dbd782c69bc7e43f08062d3d5b15de410795d2898cd5",
+      "feature_contract": {
+        "ndvi_mean": {
+          "column_name": "ndvi_mean",
+          "semantic_identity": "mean_current_period_ndvi",
+          "source_manifest_key": "ndvi",
+          "source_product": "current_ndvi_median"
+        },
+        "elevation_mean": {
+          "column_name": "elevation_mean",
+          "semantic_identity": "mean_elevation",
+          "source_manifest_key": "elevation",
+          "source_product": "elevation"
+        },
+        "slope_mean": {
+          "column_name": "slope_mean",
+          "semantic_identity": "mean_slope",
+          "source_manifest_key": "slope",
+          "source_product": "slope"
+        },
+        "landcover_dominant": {
+          "column_name": "landcover_dominant",
+          "semantic_identity": "dominant_esa_worldcover_class",
+          "source_manifest_key": "landcover",
+          "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+        },
+        "lst_anomaly_mean": {
+          "column_name": "lst_anomaly_mean",
+          "semantic_identity": "mean_standardized_lst_anomaly",
+          "source_manifest_key": "lst_anomaly",
+          "source_product": "anomaly_zscore"
+        },
+        "current_lst_mean": {
+          "column_name": "current_lst_mean",
+          "semantic_identity": "mean_current_period_lst_celsius",
+          "source_manifest_key": "current_lst",
+          "source_product": "current_period_median_celsius"
+        },
+        "current_tvdi_mean": {
+          "column_name": "current_tvdi_mean",
+          "semantic_identity": "mean_current_period_tvdi",
+          "source_manifest_key": "current_tvdi",
+          "source_product": "current_tvdi"
+        },
+        "tvdi_difference_mean": {
+          "column_name": "tvdi_difference_mean",
+          "semantic_identity": "mean_tvdi_difference",
+          "source_manifest_key": "tvdi_difference",
+          "source_product": "tvdi_difference"
+        },
+        "downscaled_lst_mean": {
+          "column_name": "downscaled_lst_mean",
+          "semantic_identity": "mean_downscaled_lst_celsius",
+          "source_manifest_key": "downscaled_lst",
+          "source_product": "downscaled_lst_celsius"
+        },
+        "fused_lst_mean": {
+          "column_name": "fused_lst_mean",
+          "semantic_identity": "mean_fused_lst_celsius",
+          "source_manifest_key": "fused_lst",
+          "source_product": "fused_lst_celsius"
+        }
+      }
+    }
+  },
+  "baseline_features": [
+    "ndvi_mean",
+    "elevation_mean",
+    "slope_mean",
+    "landcover_dominant"
+  ],
+  "thermal_model_features": [
+    "ndvi_mean",
+    "elevation_mean",
+    "slope_mean",
+    "landcover_dominant",
+    "lst_anomaly_mean",
+    "current_lst_mean",
+    "current_tvdi_mean",
+    "tvdi_difference_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "population_definition": {
+    "valid_universe": "valid_for_modeling == True",
+    "primary": [
+      "burnable_tree_shrub_grass"
+    ],
+    "secondary": [
+      "all_valid",
+      "burnable_tree_shrub"
+    ],
+    "named_population_membership": "valid universe AND the named Step8A boolean population column"
+  },
+  "spatial_block_size_cells": 2,
+  "spatial_block_definition": "block_row=floor(row_500m/spatial_block_size_cells); block_col=floor(col_500m/spatial_block_size_cells); spatial_block_id='<block_row>_<block_col>'; fixed origin (0,0)",
+  "source_only": true,
+  "bidirectional": true,
+  "primary_populations": [
+    "burnable_tree_shrub_grass"
+  ],
+  "secondary_populations": [
+    "all_valid",
+    "burnable_tree_shrub"
+  ],
+  "preprocessing_rule": "All preprocessing (numeric median imputation, categorical landcover one-hot encoding) is fitted using SOURCE REGION ONLY. No target-derived imputation values, no pooled source+target fitting, no target fine-tuning or calibration, no coordinate or region-identity features.",
+  "threshold_selection_rule": "Classification threshold selected using SOURCE REGION spatial-block CV out-of-fold predictions only (F1-optimal over a grid), never using target labels.",
+  "results": [
+    {
+      "transfer_direction": "montiferru_2021_to_manavgat_2021",
+      "population": "burnable_tree_shrub_grass",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "manavgat_2021",
+      "source_cell_count": 2544,
+      "target_cell_count": 20511,
+      "source_positive_count": 539,
+      "source_negative_count": 2005,
+      "target_positive_count": 784,
+      "target_negative_count": 19727,
+      "target_burned_prevalence": 0.03822339232606894,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 784,
+        "negative_count": 19727,
+        "threshold_used": 0.44999999999999996,
+        "roc_auc": 0.5018395227508553,
+        "pr_auc": 0.03700488168289126,
+        "brier_score": 0.4281585986502641,
+        "balanced_accuracy": 0.5001817862289641,
+        "precision": 0.038241817326433225,
+        "recall": 0.7257653061224489,
+        "f1": 0.07265530230479474,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 2544,
+          "best_f1_on_source_oof": 0.5068119891008175
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 784,
+        "negative_count": 19727,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.5670426836522615,
+        "pr_auc": 0.042455374077607064,
+        "brier_score": 0.2867429275390082,
+        "balanced_accuracy": 0.5603841608879574,
+        "precision": 0.04631934566145093,
+        "recall": 0.6645408163265306,
+        "f1": 0.08660239361702128,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 2544,
+          "best_f1_on_source_oof": 0.6491969568892646
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": 0.06520316090140621,
+        "delta_pr_auc": 0.005450492394715803,
+        "delta_brier": -0.14141567111125591,
+        "brier_improvement": 0.14141567111125591
+      }
+    },
+    {
+      "transfer_direction": "montiferru_2021_to_manavgat_2021",
+      "population": "all_valid",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "manavgat_2021",
+      "source_cell_count": 3173,
+      "target_cell_count": 24087,
+      "source_positive_count": 697,
+      "source_negative_count": 2476,
+      "target_positive_count": 796,
+      "target_negative_count": 23291,
+      "target_burned_prevalence": 0.033046871756549176,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 796,
+        "negative_count": 23291,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.5541405990926682,
+        "pr_auc": 0.035683469947372336,
+        "brier_score": 0.37897634249135537,
+        "balanced_accuracy": 0.5174304393031233,
+        "precision": 0.03495311167945439,
+        "recall": 0.6180904522613065,
+        "f1": 0.06616460462614308,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 3173,
+          "best_f1_on_source_oof": 0.553421368547419
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 796,
+        "negative_count": 23291,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.607774257272365,
+        "pr_auc": 0.040830346084646536,
+        "brier_score": 0.26528077738940314,
+        "balanced_accuracy": 0.5802538949524144,
+        "precision": 0.04294527682076757,
+        "recall": 0.6733668341708543,
+        "f1": 0.08074113127965656,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 3173,
+          "best_f1_on_source_oof": 0.6767411300919842
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": 0.053633658179696786,
+        "delta_pr_auc": 0.005146876137274201,
+        "delta_brier": -0.11369556510195222,
+        "brier_improvement": 0.11369556510195222
+      }
+    },
+    {
+      "transfer_direction": "montiferru_2021_to_manavgat_2021",
+      "population": "burnable_tree_shrub",
+      "source_experiment_id": "montiferru_2021",
+      "target_experiment_id": "manavgat_2021",
+      "source_cell_count": 1670,
+      "target_cell_count": 15538,
+      "source_positive_count": 379,
+      "source_negative_count": 1291,
+      "target_positive_count": 706,
+      "target_negative_count": 14832,
+      "target_burned_prevalence": 0.04543699317801519,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 706,
+        "negative_count": 14832,
+        "threshold_used": 0.39999999999999997,
+        "roc_auc": 0.43893939793295866,
+        "pr_auc": 0.038985544950208076,
+        "brier_score": 0.4420866638559249,
+        "balanced_accuracy": 0.4770198651716983,
+        "precision": 0.042825830382734784,
+        "recall": 0.7195467422096318,
+        "f1": 0.08084022915340547,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 1670,
+          "best_f1_on_source_oof": 0.506108202443281
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 706,
+        "negative_count": 14832,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.5118823266285896,
+        "pr_auc": 0.04410175580443092,
+        "brier_score": 0.2863187570970301,
+        "balanced_accuracy": 0.5018341401028631,
+        "precision": 0.045718846197696957,
+        "recall": 0.5679886685552408,
+        "f1": 0.08462593647778834,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 1670,
+          "best_f1_on_source_oof": 0.6491017964071857
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": 0.0729429286956309,
+        "delta_pr_auc": 0.005116210854222841,
+        "delta_brier": -0.1557679067588948,
+        "brier_improvement": 0.1557679067588948
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_montiferru_2021",
+      "population": "burnable_tree_shrub_grass",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "montiferru_2021",
+      "source_cell_count": 20511,
+      "target_cell_count": 2544,
+      "source_positive_count": 784,
+      "source_negative_count": 19727,
+      "target_positive_count": 539,
+      "target_negative_count": 2005,
+      "target_burned_prevalence": 0.21187106918238993,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 539,
+        "negative_count": 2005,
+        "threshold_used": 0.35,
+        "roc_auc": 0.5779257792439125,
+        "pr_auc": 0.26408322599827644,
+        "brier_score": 0.18495955383322388,
+        "balanced_accuracy": 0.5353661301292224,
+        "precision": 0.266304347826087,
+        "recall": 0.2727272727272727,
+        "f1": 0.2694775435380385,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 20511,
+          "best_f1_on_source_oof": 0.1940947585259785
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 539,
+        "negative_count": 2005,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.5332600780053577,
+        "pr_auc": 0.24260396955428254,
+        "brier_score": 0.17986311970255925,
+        "balanced_accuracy": 0.5043286958855181,
+        "precision": 0.29545454545454547,
+        "recall": 0.02411873840445269,
+        "f1": 0.044596912521440824,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 20511,
+          "best_f1_on_source_oof": 0.2841163310961969
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.044665701238554845,
+        "delta_pr_auc": -0.0214792564439939,
+        "delta_brier": -0.005096434130664629,
+        "brier_improvement": 0.005096434130664629
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_montiferru_2021",
+      "population": "all_valid",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "montiferru_2021",
+      "source_cell_count": 24087,
+      "target_cell_count": 3173,
+      "source_positive_count": 796,
+      "source_negative_count": 23291,
+      "target_positive_count": 697,
+      "target_negative_count": 2476,
+      "target_burned_prevalence": 0.21966593129530412,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 697,
+        "negative_count": 2476,
+        "threshold_used": 0.39999999999999997,
+        "roc_auc": 0.5756704825434646,
+        "pr_auc": 0.26579387417756467,
+        "brier_score": 0.19309197061369704,
+        "balanced_accuracy": 0.5310924618083964,
+        "precision": 0.31232876712328766,
+        "recall": 0.16355810616929697,
+        "f1": 0.21468926553672316,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 24087,
+          "best_f1_on_source_oof": 0.18896777717094485
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 697,
+        "negative_count": 2476,
+        "threshold_used": 0.44999999999999996,
+        "roc_auc": 0.5536328089689715,
+        "pr_auc": 0.2593545673868052,
+        "brier_score": 0.18479324762786192,
+        "balanced_accuracy": 0.5096968197421212,
+        "precision": 0.34523809523809523,
+        "recall": 0.04160688665710186,
+        "f1": 0.07426376440460948,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 24087,
+          "best_f1_on_source_oof": 0.2950530035335689
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.022037673574493155,
+        "delta_pr_auc": -0.006439306790759491,
+        "delta_brier": -0.008298722985835116,
+        "brier_improvement": 0.008298722985835116
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_montiferru_2021",
+      "population": "burnable_tree_shrub",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "montiferru_2021",
+      "source_cell_count": 15538,
+      "target_cell_count": 1670,
+      "source_positive_count": 706,
+      "source_negative_count": 14832,
+      "target_positive_count": 379,
+      "target_negative_count": 1291,
+      "target_burned_prevalence": 0.22694610778443114,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 379,
+        "negative_count": 1291,
+        "threshold_used": 0.39999999999999997,
+        "roc_auc": 0.5154591662596134,
+        "pr_auc": 0.23928563389145974,
+        "brier_score": 0.21110829159908873,
+        "balanced_accuracy": 0.5052187970708518,
+        "precision": 0.23659305993690852,
+        "recall": 0.19788918205804748,
+        "f1": 0.21551724137931033,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 15538,
+          "best_f1_on_source_oof": 0.19309008718114304
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 379,
+        "negative_count": 1291,
+        "threshold_used": 0.44999999999999996,
+        "roc_auc": 0.4645659313820666,
+        "pr_auc": 0.21311680243734993,
+        "brier_score": 0.2041604027889886,
+        "balanced_accuracy": 0.5050716447743563,
+        "precision": 0.2830188679245283,
+        "recall": 0.0395778364116095,
+        "f1": 0.06944444444444445,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 15538,
+          "best_f1_on_source_oof": 0.29898558462359853
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.05089323487754682,
+        "delta_pr_auc": -0.02616883145410981,
+        "delta_brier": -0.006947888810100139,
+        "brier_improvement": 0.006947888810100139
+      }
+    }
+  ],
+  "created_at": "2026-08-05T13:14:54.981497+00:00"
+}
