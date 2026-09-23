@@ -325,7 +325,9 @@ reverses its sign.
 **Label-blind adaptation compresses the matrix toward chance rather than repairing it** (Fig. 5).
 Under region-wise z-scoring the twenty directions span 0.302 to 0.630, and under CORAL 0.406 to
 0.624. Sixteen of twenty move closer to chance, which helps the directions that failed and harms
-those that worked. The committed-in-advance CORAL arm averages **0.517**. Taking whichever method
+those that worked. Closer is measured as distance from 0.5, so it does not mean the matrix stays on
+one side of chance. Evia to Manavgat overshoots, falling from 0.677 to 0.404 under z-scoring and
+0.417 under CORAL, below chance on the other side. The committed-in-advance CORAL arm averages **0.517**. Taking whichever method
 scores better per direction gives 0.523, but that selection uses the target labels the protocol
 forbids. It is therefore **an oracle upper bound rather than an achievable result**. Even the oracle
 stays below the reference a model reaches on an unseen scar (Section 4.3, row C, 0.546). Alignment is
