@@ -1394,6 +1394,15 @@ it is recorded as a point reversal only. Appendix B states the rule again beside
 
 # Appendix D. Transferability diagnostics: the result withdrawn from the paper
 
+> **Updated 2026-09-23: the result returns to the paper as Contribution 3, in its negative form.**
+> Under the corrected label, no interpretable measure of the twenty has an interval excluding zero.
+> The conditional measure that once ordered transfer no longer does, so the one positive result that
+> the power argument below had to set aside is gone. What the paper claims is the failure to show
+> ordering, stated with its power: ten effective pairs, not proof that no ordering exists (Section
+> 1.3, Contribution 3; Appendix C.5(xiii)). The status paragraph below records the earlier decision.
+> It, the section title and the reproduced passages are rewritten in this document's label-correction
+> update.
+
 **Status.** This was Contribution 3 of an earlier version: twenty candidate diagnostics from five
 families, each rank-correlated with observed transfer, none shown to order it. It is released here
 rather than printed because it rests on an effective sample of **eight region pairs** — the two

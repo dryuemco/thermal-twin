@@ -88,29 +88,48 @@ Section 4.4 reports the associations running the other way.
 
 ## 1.3 Contributions
 
-Two findings carry this paper, stated here as claims and established in Section 4, which carries
+> **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Contribution 1: 0.143 →
+> 0.133. "Withdraws five claims, including the sign reversal we had offered as the mechanism" becomes
+> four quantities shown to be frame properties, with Manavgat's elevation reversal surviving.
+> Contribution 2: 0.155 → 0.197, and the interleaved-holdout clause is qualified to the scar level,
+> as in Section 5.2. Sentences were split; no other claim changed. Contribution 3 is new: the
+> diagnostics result returns in its negative form, and "Two findings" becomes "Three findings".
+
+Three findings carry this paper, stated here as claims and established in Section 4, which carries
 every interval.
 
 **Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
 enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
-species distribution modelling (Section 2.4); what is new is a magnitude under a controlled design.
-Holding model, predictors and fitting fixed and changing only which cells are scored costs **0.143
-ROC-AUC**, the size of the increments this design measures for a predictor block, with the cause
-measured as the negative pool's composition rather than class balance (Section 4.3). Applied between
-regions it withdraws five claims of our own, including the sign reversal we had offered as the
-mechanism and the one arm that held place fixed (Section 4.4), and the practical consequence is a
+species distribution modelling (Section 2.4). What is new is a magnitude under a controlled design.
+Holding model, predictors and fitting fixed and changing only which cells are scored costs **0.133
+ROC-AUC**, the size of the increments this design measures for a predictor block. The cause is
+measured as the composition of the negative pool rather than class balance (Section 4.3), and the
+cost holds with the region as the resampling unit. Applied between regions, the same test shows
+four of our own quantities to be properties of the frames, including the one arm that held place
+fixed (Section 4.4). One reversal survives it, Manavgat's elevation. The practical consequence is a
 reporting standard (Section 5.6).
 
 **Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
 thermal block is worth a substantial within-region increment in all five regions, every bootstrap
-interval above zero, and stays positive when the frame is equalised — but much of it is a property of
-interleaved holdout, and across twenty transfer directions the paired contribution spans zero on both
-frames under the primary resampling unit, though much closer to the boundary once equalised and not
-under every admissible unit (Section 4.4), with a sign belonging to the pair rather than the block.
-Two controls bound this: the static baseline transfers no better on either frame, so the failure is
-not the thermal block's peculiarity, and on matched frames and blocking equalised transfer still
-falls **0.155** short of the within-region reference. The within-region half is not novel
+interval above zero, and it stays positive when the frame is equalised. At the scar level much of
+it is a property of interleaved holdout; clustered by region, that part is not established
+(Section 4.3). Across twenty transfer directions the paired contribution spans zero on both frames
+under the primary resampling unit. Once equalised it lies much closer to the boundary, and under one
+admissible unit, clustering by target region, it excludes zero (Section 4.4). Its sign belongs to the pair rather than
+the block. Two controls bound this. The static baseline transfers no better on either frame, so the
+failure is not the thermal block's peculiarity. On matched frames and blocking, equalised transfer
+still falls **0.197** short of the within-region reference. The within-region half is not novel
 [@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is.
+
+**Contribution 3. No similarity diagnostic we tested is shown to order transfer, conditional ones
+included.** Twenty measures were fixed in advance. They range from marginal covariate distance
+through niche overlap and regime structure to the conditional agreement of predictor–burning
+relationships. Under the corrected label nineteen have correlation intervals spanning zero. The
+twentieth is defined in only six directions, with a degenerate interval, and is not interpreted
+(Section 4.6, Appendix D). The conditional measure that had ordered transfer under the frozen label
+(ρ = +0.84) no longer does (+0.52 [−0.27, +0.87]). With ten effective region pairs this is a failure
+to show ordering, not proof that none exists. The practical consequence is that no pre-deployment
+shortcut replaces measuring transfer on the target.
 
 Two consequences follow, as supporting results: label-free alignment by standardisation and
 covariance alignment [@Sun2016] does not repair transfer, in what we believe is its first application
