@@ -1,0 +1,10 @@
+niche correlations:
+schoener_d_mean1d        n=20 rho=0.242 [-0.450,0.742] tau=0.151 [-0.353,0.556]
+warren_i_mean1d          n=20 rho=0.223 [-0.423,0.728] tau=0.151 [-0.318,0.554]
+schoener_d_pca2d         n=20 rho=0.097 [-0.511,0.681] tau=0.065 [-0.389,0.521]
+warren_i_pca2d           n=20 rho=-0.069 [-0.661,0.491] tau=-0.065 [-0.498,0.348]
+mahalanobis_burned       n=20 rho=-0.226 [-0.750,0.442] tau=-0.173 [-0.601,0.330]
+
+combined table rows: 20; CI-excluding-zero rows:
+  agree_fraction_supported (P(y|x) conditional) rho=0.8404 [0.5765,0.8764]
+  cosine_supported (P(y|x) conditional) rho=0.8054 [0.3295,0.8774]

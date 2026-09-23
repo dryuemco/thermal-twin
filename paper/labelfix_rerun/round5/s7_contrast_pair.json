@@ -1,0 +1,186 @@
+{
+ "control": {
+  "transfer": {
+   "manavgat_2021_to_mugla_2021": {
+    "auc": 0.47015987108700774,
+    "ci2": [
+     0.4536556963667419,
+     0.48751007471209634
+    ],
+    "ci10": [
+     0.4149601753522392,
+     0.5243276996743976
+    ],
+    "v2": "below",
+    "v10": "uncertain"
+   },
+   "mugla_2021_to_manavgat_2021": {
+    "auc": 0.40099966584697444,
+    "ci2": [
+     0.37726202043806983,
+     0.4251471347009473
+    ],
+    "ci10": [
+     0.352608875254801,
+     0.45515654587296106
+    ],
+    "v2": "below",
+    "v10": "below"
+   },
+   "bejis_2022_to_montiferru_2021": {
+    "auc": 0.5937253341599619,
+    "ci2": [
+     0.5544573531637429,
+     0.6286779353440596
+    ],
+    "ci10": [
+     0.46690030449297054,
+     0.687021841075988
+    ],
+    "v2": "above",
+    "v10": "uncertain"
+   },
+   "montiferru_2021_to_bejis_2022": {
+    "auc": 0.5483011162010453,
+    "ci2": [
+     0.5205960887982704,
+     0.5752111570197467
+    ],
+    "ci10": [
+     0.4789364147195368,
+     0.6356088790201672
+    ],
+    "v2": "above",
+    "v10": "uncertain"
+   }
+  },
+  "niche_ranks_of_10": {
+   "Man-Mug": {
+    "rank_schoener_d_mean1d": 1,
+    "rank_warren_i_mean1d": 1,
+    "rank_schoener_d_pca2d": 1,
+    "rank_warren_i_pca2d": 1,
+    "rank_mahalanobis_burned": 1,
+    "schoener_d_mean1d": 0.8258756788390794,
+    "warren_i_mean1d": 0.9606775188087412,
+    "schoener_d_pca2d": 0.6467800706679099,
+    "warren_i_pca2d": 0.8543476456207224,
+    "mahalanobis_burned": 2.7076635711751758
+   },
+   "Bej-Mont": {
+    "rank_schoener_d_mean1d": 10,
+    "rank_warren_i_mean1d": 10,
+    "rank_schoener_d_pca2d": 10,
+    "rank_warren_i_pca2d": 10,
+    "rank_mahalanobis_burned": 10,
+    "schoener_d_mean1d": 0.4785862730200658,
+    "warren_i_mean1d": 0.7166023131429902,
+    "schoener_d_pca2d": 0.06495361781076059,
+    "warren_i_pca2d": 0.12395220881926183,
+    "mahalanobis_burned": 8.11207620847974
+   }
+  },
+  "sign_agreement": {
+   "manavgat_2021 ~ mugla_2021": {
+    "agree_count_9": 4,
+    "cosine_9": -0.209
+   },
+   "bejis_2022 ~ montiferru_2021": {
+    "agree_count_9": 7,
+    "cosine_9": 0.487
+   }
+  }
+ },
+ "official": {
+  "transfer": {
+   "manavgat_2021_to_mugla_2021": {
+    "auc": 0.4376617829318566,
+    "ci2": [
+     0.41913516577371857,
+     0.45856646264274453
+    ],
+    "ci10": [
+     0.3640494025656105,
+     0.5063483258572152
+    ],
+    "v2": "below",
+    "v10": "uncertain"
+   },
+   "mugla_2021_to_manavgat_2021": {
+    "auc": 0.34495532276861973,
+    "ci2": [
+     0.3313670989272988,
+     0.3587248088863539
+    ],
+    "ci10": [
+     0.30651299190309084,
+     0.38634556252835095
+    ],
+    "v2": "below",
+    "v10": "below"
+   },
+   "bejis_2022_to_montiferru_2021": {
+    "auc": 0.5937253341599619,
+    "ci2": [
+     0.5544573531637429,
+     0.6286779353440596
+    ],
+    "ci10": [
+     0.46690030449297054,
+     0.687021841075988
+    ],
+    "v2": "above",
+    "v10": "uncertain"
+   },
+   "montiferru_2021_to_bejis_2022": {
+    "auc": 0.5483011162010453,
+    "ci2": [
+     0.5205960887982704,
+     0.5752111570197467
+    ],
+    "ci10": [
+     0.4789364147195368,
+     0.6356088790201672
+    ],
+    "v2": "above",
+    "v10": "uncertain"
+   }
+  },
+  "niche_ranks_of_10": {
+   "Man-Mug": {
+    "rank_schoener_d_mean1d": 1,
+    "rank_warren_i_mean1d": 1,
+    "rank_schoener_d_pca2d": 1,
+    "rank_warren_i_pca2d": 1,
+    "rank_mahalanobis_burned": 1,
+    "schoener_d_mean1d": 0.7992135498817967,
+    "warren_i_mean1d": 0.9513175825989868,
+    "schoener_d_pca2d": 0.660805720181395,
+    "warren_i_pca2d": 0.8699662571477748,
+    "mahalanobis_burned": 2.512771575539048
+   },
+   "Bej-Mont": {
+    "rank_schoener_d_mean1d": 10,
+    "rank_warren_i_mean1d": 10,
+    "rank_schoener_d_pca2d": 10,
+    "rank_warren_i_pca2d": 10,
+    "rank_mahalanobis_burned": 10,
+    "schoener_d_mean1d": 0.4789532076727148,
+    "warren_i_mean1d": 0.7166267118884364,
+    "schoener_d_pca2d": 0.10139146567717994,
+    "warren_i_pca2d": 0.18106947362033,
+    "mahalanobis_burned": 7.9518285995364835
+   }
+  },
+  "sign_agreement": {
+   "manavgat_2021 ~ mugla_2021": {
+    "agree_count_9": 2,
+    "cosine_9": -0.797
+   },
+   "bejis_2022 ~ montiferru_2021": {
+    "agree_count_9": 7,
+    "cosine_9": 0.487
+   }
+  }
+ }
+}

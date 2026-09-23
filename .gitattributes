@@ -26,3 +26,4 @@ paper/data/** -text
 # analysis (transfer_ci_blocksize.csv, verified by value); keep bytes exact.
 paper/labelfix_rerun/round3/**  -text
 paper/labelfix_rerun/round4/**  -text
+paper/labelfix_rerun/round5/**  -text

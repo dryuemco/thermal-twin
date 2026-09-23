@@ -1,0 +1,27 @@
+manavgat_2021_to_bejis_2022                    base=0.3322 thermal=0.3258 d=-0.0064 [-0.023,0.010] uncertain
+manavgat_2021_to_mugla_2021                    base=0.5079 thermal=0.4702 d=-0.0378 [-0.051,-0.024] negative_bootstrap_support
+manavgat_2021_to_evia_2021_extended            base=0.5939 thermal=0.6126 d=+0.0187 [0.003,0.034] positive_bootstrap_support
+manavgat_2021_to_montiferru_2021               base=0.5779 thermal=0.5333 d=-0.0447 [-0.077,-0.010] negative_bootstrap_support
+bejis_2022_to_manavgat_2021                    base=0.4209 thermal=0.4435 d=+0.0226 [-0.000,0.044] uncertain
+bejis_2022_to_mugla_2021                       base=0.5922 thermal=0.6185 d=+0.0262 [0.014,0.038] positive_bootstrap_support
+bejis_2022_to_evia_2021_extended               base=0.5305 thermal=0.3828 d=-0.1476 [-0.168,-0.126] negative_bootstrap_support
+bejis_2022_to_montiferru_2021                  base=0.5530 thermal=0.5937 d=+0.0407 [0.005,0.073] positive_bootstrap_support
+mugla_2021_to_manavgat_2021                    base=0.5215 thermal=0.4010 d=-0.1205 [-0.146,-0.098] negative_bootstrap_support
+mugla_2021_to_bejis_2022                       base=0.4507 thermal=0.5832 d=+0.1325 [0.105,0.158] positive_bootstrap_support
+mugla_2021_to_evia_2021_extended               base=0.5998 thermal=0.6534 d=+0.0536 [0.039,0.067] positive_bootstrap_support
+mugla_2021_to_montiferru_2021                  base=0.6105 thermal=0.5312 d=-0.0793 [-0.117,-0.037] negative_bootstrap_support
+evia_2021_extended_to_manavgat_2021            base=0.6758 thermal=0.6858 d=+0.0100 [-0.012,0.032] uncertain
+evia_2021_extended_to_bejis_2022               base=0.3917 thermal=0.4480 d=+0.0563 [0.037,0.077] positive_bootstrap_support
+evia_2021_extended_to_mugla_2021               base=0.5125 thermal=0.5768 d=+0.0643 [0.044,0.083] positive_bootstrap_support
+evia_2021_extended_to_montiferru_2021          base=0.5494 thermal=0.6467 d=+0.0973 [0.054,0.138] positive_bootstrap_support
+montiferru_2021_to_manavgat_2021               base=0.5018 thermal=0.5670 d=+0.0652 [0.041,0.091] positive_bootstrap_support
+montiferru_2021_to_bejis_2022                  base=0.6126 thermal=0.5483 d=-0.0643 [-0.082,-0.044] negative_bootstrap_support
+montiferru_2021_to_mugla_2021                  base=0.6512 thermal=0.6194 d=-0.0319 [-0.048,-0.017] negative_bootstrap_support
+montiferru_2021_to_evia_2021_extended          base=0.5564 thermal=0.5862 d=+0.0298 [0.013,0.046] positive_bootstrap_support
+
+means: base=0.5371 thermal=0.5414 delta=0.0042
+delta CI>0: 10 [manavgat_2021_to_evia_2021_extended, bejis_2022_to_mugla_2021, bejis_2022_to_montiferru_2021, mugla_2021_to_bejis_2022, mugla_2021_to_evia_2021_extended, evia_2021_extended_to_bejis_2022, evia_2021_extended_to_mugla_2021, evia_2021_extended_to_montiferru_2021, montiferru_2021_to_manavgat_2021, montiferru_2021_to_evia_2021_extended]
+delta CI<0: 7 [manavgat_2021_to_mugla_2021, manavgat_2021_to_montiferru_2021, bejis_2022_to_evia_2021_extended, mugla_2021_to_manavgat_2021, mugla_2021_to_montiferru_2021, montiferru_2021_to_bejis_2022, montiferru_2021_to_mugla_2021]
+uncertain: 3
+thermal drags below 0.5: manavgat_2021_to_mugla_2021, bejis_2022_to_evia_2021_extended, mugla_2021_to_manavgat_2021
+thermal lifts above 0.5: mugla_2021_to_bejis_2022

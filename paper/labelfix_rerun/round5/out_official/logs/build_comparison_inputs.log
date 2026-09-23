@@ -1,0 +1,6 @@
+transfer 28, within 5, conditional_by_pair 10 -> C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\_round5\out_official\stage\staging\comparison_inputs.json
+  within manavgat_2021          base 0.8412 thermal 0.9081
+  within bejis_2022             base 0.8617 thermal 0.9178
+  within mugla_2021             base 0.7433 thermal 0.8590
+  within evia_2021_extended     base 0.7590 thermal 0.9122
+  within montiferru_2021        base 0.7812 thermal 0.8826

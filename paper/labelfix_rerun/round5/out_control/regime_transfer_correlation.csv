@@ -1,0 +1,19 @@
+measure,label,expected_sign,directed,coverage,set,n_directions,n_pairs,spearman_rho,spearman_ci_low,spearman_ci_high,kendall_tau_b,kendall_ci_low,kendall_ci_high,n_valid_replicates
+regime_dist_log_effn,"Regime distance |Δ log effective component count| (primary)",negative,false,five_aoi,full,20,10,0.2898,-0.3787,0.7388,0.1947,-0.2947,0.5834,2000
+regime_dist_log_effn,"Regime distance |Δ log effective component count| (primary)",negative,false,five_aoi,four_aoi_subset,12,6,0.3534,-0.5332,0.8393,0.2860,-0.3727,0.7522,1999
+regime_dist_largest_share,"Regime distance |Δ largest-component share| (secondary)",negative,false,five_aoi,full,20,10,0.2898,-0.3895,0.7224,0.1947,-0.3059,0.5657,2000
+regime_dist_largest_share,"Regime distance |Δ largest-component share| (secondary)",negative,false,five_aoi,four_aoi_subset,12,6,0.3534,-0.5332,0.8393,0.2860,-0.3727,0.7522,2000
+domain_classifier_auc,"Domain-classifier AUC (marginal separability)",negative,false,five_aoi,full,20,10,-0.3170,-0.7754,0.3276,-0.2379,-0.6246,0.2281,2000
+domain_classifier_auc,"Domain-classifier AUC (marginal separability)",negative,false,five_aoi,four_aoi_subset,12,6,-0.3534,-0.8393,0.6528,-0.2860,-0.7522,0.5147,2000
+target_mean_dissimilarity,"Predictor-space mean dissimilarity (Emrehan, weighted AoA)",negative,true,four_aoi,full,12,6,-0.1049,-0.5865,0.4565,-0.0303,-0.4483,0.4074,2000
+target_mean_dissimilarity,"Predictor-space mean dissimilarity (Emrehan, weighted AoA)",negative,true,four_aoi,four_aoi_subset,12,6,-0.1049,-0.5435,0.4255,-0.0303,-0.4444,0.4000,2000
+target_p95_dissimilarity,"Predictor-space p95 dissimilarity (Emrehan)",negative,true,four_aoi,full,12,6,-0.0839,-0.5797,0.4662,0.0000,-0.4444,0.4008,2000
+target_p95_dissimilarity,"Predictor-space p95 dissimilarity (Emrehan)",negative,true,four_aoi,four_aoi_subset,12,6,-0.0839,-0.5870,0.4855,0.0000,-0.4444,0.4444,2000
+fraction_inside_weighted_aoa,"Fraction of target inside weighted AoA (Emrehan)",positive,true,four_aoi,full,12,6,0.2168,-0.5000,0.6000,0.0909,-0.3548,0.3226,2000
+fraction_inside_weighted_aoa,"Fraction of target inside weighted AoA (Emrehan)",positive,true,four_aoi,four_aoi_subset,12,6,0.2168,-0.4823,0.5870,0.0909,-0.3448,0.3103,2000
+climate_distance,"Climatic distance (Emrehan, TerraClimate)",negative,false,four_aoi,full,12,6,0.0565,-0.6994,0.7926,0.0318,-0.6334,0.6334,2000
+climate_distance,"Climatic distance (Emrehan, TerraClimate)",negative,false,four_aoi,four_aoi_subset,12,6,0.0565,-0.7623,0.7926,0.0318,-0.6357,0.6334,2000
+geographic_distance_km,"Geographic centroid distance km (Emrehan)",negative,false,four_aoi,full,12,6,-0.2403,-0.8393,0.7175,-0.1589,-0.7455,0.6334,2000
+geographic_distance_km,"Geographic centroid distance km (Emrehan)",negative,false,four_aoi,four_aoi_subset,12,6,-0.2403,-0.8367,0.7330,-0.1589,-0.7143,0.6334,1999
+unweighted_fraction_inside_support,"Fraction of target inside unweighted support (Emrehan)",positive,true,four_aoi,full,12,6,0.0769,-0.9248,0.6087,0.0303,-0.8333,0.4836,2000
+unweighted_fraction_inside_support,"Fraction of target inside unweighted support (Emrehan)",positive,true,four_aoi,four_aoi_subset,12,6,0.0769,-0.8859,0.6304,0.0303,-0.7432,0.5388,2000

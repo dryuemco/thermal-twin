@@ -1,0 +1,22 @@
+supported reversals: ["elevation_mean: manavgat_2021~bejis_2022","elevation_mean: manavgat_2021~mugla_2021","slope_mean: manavgat_2021~mugla_2021","current_lst_mean: manavgat_2021~mugla_2021","current_tvdi_mean: manavgat_2021~mugla_2021","downscaled_lst_mean: manavgat_2021~mugla_2021","fused_lst_mean: manavgat_2021~mugla_2021","current_lst_mean: manavgat_2021~evia_2021_extended","current_tvdi_mean: manavgat_2021~evia_2021_extended","downscaled_lst_mean: manavgat_2021~evia_2021_extended","fused_lst_mean: manavgat_2021~evia_2021_extended","slope_mean: manavgat_2021~montiferru_2021","current_tvdi_mean: manavgat_2021~montiferru_2021","lst_anomaly_mean: bejis_2022~evia_2021_extended"]
+reversal feature set for Analysis 3: elevation_mean, slope_mean, current_lst_mean, current_tvdi_mean, downscaled_lst_mean, fused_lst_mean, lst_anomaly_mean
+
+per-pair conditional similarity (symmetric):
+bejis_2022|manavgat_2021                 agree=2/9 vecSp=-0.433 cos=-0.545 | sup n=1 agree=0/1 cosSup=-1.000 | meanAUC(dirs)=0.355
+manavgat_2021|mugla_2021                 agree=2/9 vecSp=-0.750 cos=-0.797 | sup n=6 agree=0/6 cosSup=-0.934 | meanAUC(dirs)=0.391
+evia_2021_extended|manavgat_2021         agree=3/9 vecSp=-0.633 cos=-0.595 | sup n=4 agree=0/4 cosSup=-0.998 | meanAUC(dirs)=0.665
+manavgat_2021|montiferru_2021            agree=2/9 vecSp=-0.817 cos=-0.723 | sup n=2 agree=0/2 cosSup=-0.956 | meanAUC(dirs)=0.461
+bejis_2022|mugla_2021                    agree=7/9 vecSp=0.700 cos=0.481 | sup n=1 agree=1/1 cosSup=1.000 | meanAUC(dirs)=0.601
+bejis_2022|evia_2021_extended            agree=6/9 vecSp=0.167 cos=0.125 | sup n=1 agree=0/1 cosSup=-1.000 | meanAUC(dirs)=0.415
+bejis_2022|montiferru_2021               agree=7/9 vecSp=0.467 cos=0.487 | sup n=0 agree=0/0 cosSup=NA | meanAUC(dirs)=0.571
+evia_2021_extended|mugla_2021            agree=6/9 vecSp=0.617 cos=0.808 | sup n=5 agree=5/5 cosSup=0.993 | meanAUC(dirs)=0.615
+montiferru_2021|mugla_2021               agree=9/9 vecSp=0.867 cos=0.900 | sup n=2 agree=2/2 cosSup=0.993 | meanAUC(dirs)=0.575
+evia_2021_extended|montiferru_2021       agree=6/9 vecSp=0.717 cos=0.541 | sup n=1 agree=1/1 cosSup=1.000 | meanAUC(dirs)=0.616
+
+measure                                   n   rho     [95% CI]            tau     [95% CI]
+agree_count_9                             20  0.467  [-0.291,0.796]   0.306  [-0.266,0.637]
+vector_spearman_9                         20  0.435  [-0.207,0.800]   0.314  [-0.144,0.648]
+cosine_9                                  20  0.444  [-0.290,0.803]   0.314  [-0.199,0.637]
+agree_fraction_supported                  18  0.517  [-0.274,0.868]   0.434  [-0.237,0.753]
+vector_spearman_supported                  6  0.956  [0.853,0.956]   0.894  [0.784,0.894]
+cosine_supported                          18  0.494  [-0.243,0.871]   0.388  [-0.154,0.756]

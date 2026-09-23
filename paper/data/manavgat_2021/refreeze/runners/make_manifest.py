@@ -14,12 +14,13 @@ SCOPE = [O / "experiments/manavgat_2021/validation/labels"] + \
         [O / "robustness/step8_large_block", O / "robustness/step8_large_block_primary_all_valid"] + \
         [O / "cross_region" / p for p in PAIRS] +         [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal" / p for p in PAIRS] +         [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal/comparison",
          O / "diagnostics/four_aoi_transfer_decomposition", O / "diagnostics/multi_aoi_transfer_synthesis",
-         O / "diagnostics/burned_pattern_audit", O / "diagnostics/reproduction_check"]
+         O / "diagnostics/burned_pattern_audit", O / "diagnostics/reproduction_check",
+         O / "diagnostics/marginal_aoa_completion"]
 COPIED = [O / "cross_region" / p for p in ("bejis_2022__evia_2021", "bejis_2022__evia_2021_extended", "bejis_2022__mugla_2021",
           "montiferru_2021__bejis_2022", "montiferru_2021__evia_2021_extended", "montiferru_2021__mugla_2021", "mugla_2021__bejis_2022",
           "mugla_2021__evia_2021", "mugla_2021__evia_2021_extended", "mugla_2021__mugla_2022_event_relative")] +          [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal" / p for p in ("bejis_2022__evia_2021",
           "bejis_2022__evia_2021_extended", "bejis_2022__mugla_2021", "montiferru_2021__bejis_2022", "montiferru_2021__evia_2021_extended",
-          "montiferru_2021__mugla_2021", "mugla_2021__evia_2021", "mugla_2021__evia_2021_extended")] +          [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal_integration_v2/bejis_2022__mugla_2021"] +          [O / "experiments" / r for r in ("bejis_2022", "evia_2021", "evia_2021_extended", "montiferru_2021", "mugla_2021")]
+          "montiferru_2021__mugla_2021", "mugla_2021__evia_2021", "mugla_2021__evia_2021_extended")] +          [O / "diagnostics/step9g_univariate_feature_auc_direction_reversal_integration_v2/bejis_2022__mugla_2021"] +          [O / "experiments" / r for r in ("bejis_2022", "evia_2021", "evia_2021_extended", "montiferru_2021", "mugla_2021")] + [O / "diagnostics" / d for d in ("marginal_area_of_applicability", "domain_classifier_audit", "era5_land_regional")]
 
 
 def sha(p):

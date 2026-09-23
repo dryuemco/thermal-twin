@@ -1,0 +1,7 @@
+measure,label,expected_sign,n_directions,n_pairs,spearman_rho,spearman_ci_low,spearman_ci_high,kendall_tau_b,kendall_ci_low,kendall_ci_high,n_valid_replicates
+agree_count_9,"Sign-agreement count, all 9 features",positive,20,10,0.1785,-0.4001,0.7183,0.1412,-0.3079,0.5781,2000
+vector_spearman_9,"Signed-AUC vector Spearman, all 9 features",positive,20,10,0.2687,-0.3631,0.7651,0.1947,-0.2896,0.6010,2000
+cosine_9,"Signed-AUC (AUC-0.5) cosine similarity, all 9 features",positive,20,10,0.5042,-0.1668,0.8253,0.3677,-0.1225,0.6848,2000
+agree_fraction_supported,"Sign-agreement fraction, features with both CIs excluding 0.5",positive,16,8,0.8404,0.5765,0.8764,0.7085,0.4956,0.7670,1956
+vector_spearman_supported,"Signed-AUC vector Spearman, supported features only (n>=3)",positive,2,1,NaN,NaN,NaN,NaN,NaN,NaN,0
+cosine_supported,"Signed-AUC cosine, supported features only",positive,16,8,0.8054,0.3295,0.8774,0.6708,0.3067,0.7680,1997

@@ -1,0 +1,22 @@
+{
+ "counts": {
+  "neg": 17576,
+  "early": 2151,
+  "late": 784
+ },
+ "doy_by_phase": {
+  "min": {
+   "early": 209.0,
+   "late": 209.0
+  },
+  "50%": {
+   "early": 210.0,
+   "late": 214.0
+  },
+  "max": {
+   "early": 212.0,
+   "late": 241.0
+  }
+ },
+ "note": "Exploratory; one region, one event; not a registered diagnostic; mechanism proposal only."
+}
