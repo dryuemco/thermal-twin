@@ -15,6 +15,10 @@ Split out of the former three-panel conservation figure so the panel gets the fu
 width; at ~34 mm it needed a two-line title and its legend overflowed the axes.
 
 Data: paper/figures/data/fig_data_corrected.json. Asserts here and in _conservation_common.py.
+
+2026-09-24 revision: no in-figure title. Elsevier takes the caption from the manuscript,
+not the figure file, and figure_captions.tex already carries the statement; the axes
+grow into the band the title occupied.
 """
 import json
 import sys
@@ -54,7 +58,7 @@ assert f"reaches {_mv['best_pairwise']:.3f} and {_bj['best_pairwise']:.3f}" in _
 
 plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
 fig = plt.figure(figsize=(190 * MM, 78 * MM))
-ax = fig.add_axes([0.135, 0.215, 0.850, 0.700])
+ax = fig.add_axes([0.135, 0.215, 0.850, 0.755])
 
 data_artists = []
 ys = list(range(len(loro)))[::-1]
@@ -85,8 +89,6 @@ ax.set_xlim(0.35, 0.99)
 ax.set_ylim(-1.85, N - 0.4)
 ax.set_xticks([0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
 ax.set_xlabel("thermal ROC-AUC on the held-out target", fontsize=FS_BODY)
-ax.set_title("Pooling every other region beats the best single source only for Evia",
-             fontsize=FS_BODY, loc="left")
 style_axes(ax)
 assert_inside(ax, "Fig. 6", xs=[v for r in loro for v in (r["loro_raw"], *r["loro_raw_ci"], r["best_pairwise"], r["within"])])
 
