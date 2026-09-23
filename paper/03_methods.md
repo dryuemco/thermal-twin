@@ -55,20 +55,10 @@ excluded 49 cells in Muğla, 16 in North Evia and 61 in Montiferru, with none ar
 Bejís, and burning in earlier years is screened for none. Appendix C.1 gives the
 full specification, including what follows from the grid's shape.
 
-**The Manavgat 2021 label is a corrected one.** The label first used for Manavgat was exported on
-8 July 2026. That was before the month-alignment fix to the MCD64A1 query (commit 183be42, 11 July),
-and the export was never renewed. It therefore missed the fire's first four days, 28 to 31 July.
-The defect was a stale export, not a code error. The corrected label only adds burned cells. No
-cell burned under the original label becomes unburned, and no predictor or validity flag changes.
-In the primary population the burned count rises from 784 to 2,935. The Manavgat outputs were
-re-frozen with the upstream pipeline at commit 6381f4c, through the Earth Engine project
-`thermaltwin`, in Python 3.12.10 with scikit-learn 1.9.0 (pins in `ENVIRONMENT.md`). That pipeline version
-writes one extra column, a flag for burning in earlier years, and it excludes no Manavgat cell. A
-control arm re-froze the original label with the same code and environment and reproduced the
-published outputs to within 10⁻⁵. The exceptions are listed in the manifest: file paths, the column
-list, and one legacy pair that differs at the level of random-forest thread nondeterminism. Differences between the two arms are therefore attributable to the label alone.
-The reproduction check of Section 3.13 covers the re-frozen outputs. The manifest, hashes and
-runner scripts are released under `paper/data/manavgat_2021/refreeze/`.
+**The Manavgat 2021 label is a corrected one.** The label first used for Manavgat was a stale export
+that missed the fire's first four days, 28 to 31 July. The corrected label only adds burned cells,
+raising the primary population's burned count from 784 to 2,935; the correction, the re-freeze and
+its control arm are specified in Appendix C.1, *The Manavgat label correction*.
 
 ## 3.3 Burned-landcover admissibility gate
 
@@ -89,17 +79,9 @@ two differenced channels are the ones constructed to isolate the dynamic anomaly
 edges are percentiles of the values a given area and window happen to contain, so **it is not
 portable as a physical quantity independently of any concept shift** (Appendices C.4, C.5).
 
-**Quality screening of the coarse thermal input, and a correction.** The MODIS surface temperature
-behind the downscaled and fused channels entered Manavgat's frozen export unscreened. Appendix A(e)
-compares that arm with a screened one on the corrected label. The current pipeline's step7 refuses
-the unscreened raster, because it carries no nodata tag and 8.1 % exact zeros. The unscreened arm
-therefore runs the step7 of export time and the screened arm the current one, so the two differ in
-code version as well as in screening. The earlier version of this comparison, run on 14 August
-2026, described both arms as rebuilt with the same code. That was almost certainly inaccurate: its
-unscreened arm would have met the same refusal, and its signed AUCs equal the frozen ones. Its Muğla
-arm was not re-examined. The result does not change. Elevation stays at 0.232, no other signed AUC
-moves by more than 0.005 (downscaled LST, −0.0044), and the within-region increment moves from
-+0.067 to +0.068 (Appendix C.5(xii)).
+**Quality screening of the coarse thermal input** is compared in Appendix A(e), *Quality screening,
+and a correction*: the two arms ran different step7 versions, and the result does not change
+(elevation 0.232; no other signed AUC moves by more than 0.005).
 
 ## 3.5 Cell aggregation, validity and analysis populations
 
@@ -150,38 +132,13 @@ burned and $`F^{-}`$ the unburned cells of $`F`$, and $`s_i`$ the predicted scor
 This is the probability that a burned cell in $`F`$ outranks an unburned cell in $`F`$. Changing the frame
 therefore changes the metric even when no score changes (Section 3.12).
 
-Uncertainty is a spatial-block bootstrap. Let $`\beta_1, \dots, \beta_M`$ be the blocks of
-[#eq:block] holding cells of $`F`$. Replicate $`b`$ draws $`M`$ indices $`u_{bm}`$ uniformly with replacement:
-
-```math {#eq:boot}
-F^{*b} = \biguplus_{m=1}^{M} \beta_{u_{bm}}, \qquad \mathrm{CI}_{95} = \left[ Q_{0.025}\{\theta(F^{*b})\}_{b},\; Q_{0.975}\{\theta(F^{*b})\}_{b} \right].
-```
-
-Here $`\theta`$ is the statistic and $`Q`$ the 2.5 and 97.5 percentiles over 1000 replicates, seed 42. A
-single-class replicate is discarded. Differences are formed within each replicate, so they are
-paired. The block size of each interval is stated with the result. Because it is blocks that are resampled,
-what bounds an interval's reliability is the number of blocks carrying at least one burned cell, and
-those counts are reported alongside the intervals. Where a verdict rests on too few such blocks it
-is stated as indicative rather than as an interval.
-
-The twenty transfer directions are not independent, since each region appears in eight. The
-**pair-cluster bootstrap** therefore resamples the ten unordered region pairs, each carrying its set
-$`\pi_p`$ of ordered directions, and averages the carried values $`\delta_{st}`$:
-
-```math {#eq:pair}
-\bar{\delta}^{*b} = \frac{\sum_{m=1}^{10} \sum_{(s,t) \in \pi_{u_{bm}}} \delta_{st}}{\sum_{m=1}^{10} |\pi_{u_{bm}}|}.
-```
-
-The interval is the same percentile form, over 20,000 replicates for Section 4.4. Clustering by
-target region replaces $`\pi_p`$ by the four directions sharing a target. A quantity with one value
-per held-out scar or target region gets a Student t interval over those $`n`$ units,
-
-```math {#eq:tint}
-\bar{x} \pm t_{0.975,\,n-1}\, s_x / \sqrt{n}.
-```
-
-**The effective sample is thus ten pairs or five regions for direction-level intervals, and at most
-eight scars from four regions for scar-level ones.**
+Uncertainty is a spatial-block bootstrap: the blocks of [#eq:block] are resampled with replacement,
+1000 replicates, seed 42, and the interval is the 2.5 and 97.5 percentiles. Differences are formed
+within each replicate, so they are paired, and a verdict resting on too few positive-carrying blocks
+is stated as indicative. Direction-level intervals resample the ten unordered region pairs, and a
+quantity with one value per scar or target region gets a Student t interval; the mechanics are in
+Appendix C.6, *Resampling units*. **The effective sample is thus ten pairs or five regions for
+direction-level intervals, and at most seven scars from three regions for scar-level ones.**
 
 ## 3.8 Cross-region transfer protocol
 
@@ -194,37 +151,13 @@ direction rather than a comparison across directions. All twenty ordered directi
 
 Two label-free remedies are tested on every direction, in both feature sets.
 
-**Region-wise z-score.** Each region's numeric features are standardised using its own statistics,
-source statistics from source data and target statistics from target data, never pooled. For
-feature $`j`$ in region $`R`$,
-
-```math {#eq:zscore}
-z_{ij} = \frac{x_{ij} - \mu_j^{R}}{\sigma_j^{R}}, \qquad \mu_j^{R} = \frac{1}{n_j^{R}} \sum_{i \in O_j^{R}} x_{ij}, \qquad \sigma_j^{R} = \Big( \frac{1}{n_j^{R}} \sum_{i \in O_j^{R}} (x_{ij} - \mu_j^{R})^2 \Big)^{1/2},
-```
-
-where $`O_j^{R}`$ holds the $`n_j^{R}`$ cells with an observed value (ddof 0). A missing value is
-first set to $`\mu_j^{R}`$, so it becomes zero, and $`\sigma_j^{R} < 10^{-12}`$ is replaced by 1.
-Land cover is not transformed. Target feature statistics, never target labels, thus enter the
-adapted arms by design. The
-classifier is refitted on the z-scored source and applied to the z-scored target. This removes
-first- and second-order marginal offsets.
-
-**CORAL after region-wise z-score.** The source covariance is aligned to the target's by the standard
-whitening-recolouring map [@Sun2016]. With $`Z_R`$ the $`n_R \times d`$ matrix of z-scored numeric
-features, one row per cell,
-
-```math {#eq:coral}
-Z_s^{\mathrm{al}} = Z_s\,(C_s + \lambda I)^{-1/2}\,(C_t + \lambda I)^{1/2}, \qquad C_R = \frac{1}{n_R} \sum_{i=1}^{n_R} (z_i - \bar{z}_R)(z_i - \bar{z}_R)^{\top},
-```
-
-with $`\lambda = 10^{-5}`$ (ddof 0). Both means are zero after [#eq:zscore], so the general map's
-mean terms vanish. Matrix powers use a symmetric eigendecomposition, eigenvalues floored at
-$`10^{-12}`$. Critically **the transform is applied to the source
-only**; the target stays at $`Z_t`$, and the classifier is refitted on $`Z_s^{\mathrm{al}}`$. Neither
-variant sees a target label, and both are verified label-blind at run time. λ sensitivity was assessed over nine
-values on four of the twenty directions, moving transfer AUC by at most 0.014, and no value of λ was
-selected on performance; the λ = 1 of the original CORAL formulation lies outside that sweep, while
-the value used throughout remains λ = 10⁻⁵ (Appendix A(b)).
+**Region-wise z-score** standardises each region's numeric features with its own statistics, never
+pooled. **CORAL after region-wise z-score** then aligns the source covariance to the target's by the
+whitening-recolouring map [@Sun2016], with λ = 10⁻⁵, applied to the source only. Target feature
+statistics, never target labels, enter the adapted arms, and both variants are verified label-blind at
+run time. λ sensitivity was assessed over nine values on four of the twenty directions, moving
+transfer AUC by at most 0.014, and no value of λ was selected on performance (Appendix A(b)). The
+equations and numerical details are in Appendix C.8, *Label-blind adaptation, full specification*.
 
 ## 3.10 Transfer-gap decomposition and the concept-shift criterion
 
@@ -238,8 +171,8 @@ G = A_{\mathrm{w}} - A_{\mathrm{raw}}, \qquad R_m = A_{\mathrm{ad}} - A_{\mathrm
 
 so $`R_m + U_m = G`$. The recovered fraction $`\rho_m`$ is signed and unclipped. **When adaptation
 lowers AUC, $`R_m`$ and $`\rho_m`$ are negative and reported as negative recovery, never set to
-zero.** No fraction is reported when $`G \le 0`$. Intervals come from the paired bootstrap of
-[#eq:boot] on 2-cell target blocks, resampling within-region out-of-fold and transfer scores
+zero.** No fraction is reported when $`G \le 0`$. Intervals come from the paired spatial-block bootstrap
+of Section 3.7 on 2-cell target blocks, resampling within-region out-of-fold and transfer scores
 together and evaluating [#eq:decomp] per replicate; replicates with $`|G| < 10^{-6}`$ are dropped.
 Where one method is shown per direction it is the one with the higher $`A_{\mathrm{ad}}`$, a choice
 that uses target labels. Section 4.3 shows the remainder should not be read as a
@@ -321,17 +254,11 @@ replicates, with one qualification: the diagnostic bootstraps of the released ap
 per-measure offsets from that seed rather than the seed itself, so that independent measures do not
 share a resampling draw. Across five seeds every transfer verdict at 1 km blocking is stable; at
 5 km one level verdict and two paired-delta verdicts are not, and Section 4.5 identifies them.
-The transfer analysis runs in an environment separate from the upstream pipeline's. The
-repository's own reproduction check therefore refitted every within-region model and all twenty
-directed CORAL transfers against the frozen upstream output. For Manavgat that output is the one
-re-frozen on the corrected label (Section 3.2), produced with the upstream pipeline at commit
-6381f4c, run unchanged apart from a one-line patch. That patch lets the window-closure module accept
-a population column the corrected label adds, and its diff is released with the re-freeze. The
-within-region comparisons agree exactly, and the transfer directions to within 1.3×10⁻⁸, under the
-repository's pre-existing tolerance of 10⁻⁶. That 10⁻⁶ tolerance belongs to the CORAL and within-region reproduction check. The frame-transfer
-script of Section 4.4 fits its forests in parallel, so its values vary from run to run by up to
-2×10⁻⁶, within the 10⁻⁵ tolerance applied to it, and are stable at the printed precision. The tolerance that applies if the library
-version is not pinned is given in Appendix C.5(vi). The re-freeze and this check were carried out by the
+The repository's own reproduction check refitted every within-region model and all twenty directed
+CORAL transfers against the frozen upstream output, Manavgat's re-frozen one included (Section
+3.2): the within-region comparisons agree exactly and the transfer directions to within 1.3×10⁻⁸.
+The tolerances, the re-freeze's one-line patch and the frame-transfer script's run-to-run
+variation are in Appendix C.6, *Reproduction of the re-frozen outputs*. The re-freeze and this check were carried out by the
 manuscript authors rather than independently by the pipeline's original author. Headline results are repeated across two
 populations, three block sizes, the CORAL sweep, both feature sets and four classifier capacities,
 and where a conclusion depends on one of those choices **the dependence is reported rather than

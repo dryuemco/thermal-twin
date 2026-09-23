@@ -5,7 +5,7 @@ thermal wildfire prediction*, released with the paper rather than printed in it.
 
 **What is here.** Appendix A, the sensitivity arms and the elaborations of the Results sections, and
 the parts of Appendix C that specify the protocol. Everything the paper cites as `Appendix A(ix)`,
-`Appendix C.1`, `C.2`, `C.3`, `C.4`, `C.6` or `C.7` is in this document, under the same names, so a
+`Appendix C.1`, `C.2`, `C.3`, `C.4`, `C.6`, `C.7` or `C.8` is in this document, under the same names, so a
 pointer in the paper resolves here unchanged.
 
 **What is not here.** Appendix B, the diagnostic tables, and Appendix C.5, the thirteen limitations,
@@ -101,6 +101,18 @@ not re-examined. On the corrected label the comparison is reported in Section 3.
 Elevation is a DEM variable the screening cannot touch, and fusion falls back on the MODIS-derived
 surface across only 2.14 percentage points of coverage. Details are in
 `paper/modis_qc_downstream_propagation.md`.
+
+**Quality screening, and a correction (moved from Methods 3.4).** The MODIS surface temperature
+behind the downscaled and fused channels entered Manavgat's frozen export unscreened. Appendix A(e)
+compares that arm with a screened one on the corrected label. The current pipeline's step7 refuses
+the unscreened raster, because it carries no nodata tag and 8.1 % exact zeros. The unscreened arm
+therefore runs the step7 of export time and the screened arm the current one, so the two differ in
+code version as well as in screening. The earlier version of this comparison, run on 14 August
+2026, described both arms as rebuilt with the same code. That was almost certainly inaccurate: its
+unscreened arm would have met the same refusal, and its signed AUCs equal the frozen ones. Its Muğla
+arm was not re-examined. The result does not change. Elevation stays at 0.232, no other signed AUC
+moves by more than 0.005 (downscaled LST, −0.0044), and the within-region increment moves from
++0.067 to +0.068 (Appendix C.5(xii)).
 
 **(f) Normalised against absolute dryness channels.** Section 1.2 argues that an internally
 normalised index should be less exposed to absolute-temperature offsets between regions than raw
@@ -1287,6 +1299,23 @@ WorldCover classes aggregated to the same reconstructed cells. Its purpose is to
 produced by natural-fuel combustion from burned area produced by post-harvest stubble burning, which
 MCD64A1 does not distinguish. Verdicts are reported in Section 4.1.
 
+### The Manavgat label correction (moved from Methods 3.2)
+
+**The Manavgat 2021 label is a corrected one.** The label first used for Manavgat was exported on
+8 July 2026. That was before the month-alignment fix to the MCD64A1 query (commit 183be42, 11 July),
+and the export was never renewed. It therefore missed the fire's first four days, 28 to 31 July.
+The defect was a stale export, not a code error. The corrected label only adds burned cells. No
+cell burned under the original label becomes unburned, and no predictor or validity flag changes.
+In the primary population the burned count rises from 784 to 2,935. The Manavgat outputs were
+re-frozen with the upstream pipeline at commit 6381f4c, through the Earth Engine project
+`thermaltwin`, in Python 3.12.10 with scikit-learn 1.9.0 (pins in `ENVIRONMENT.md`). That pipeline version
+writes one extra column, a flag for burning in earlier years, and it excludes no Manavgat cell. A
+control arm re-froze the original label with the same code and environment and reproduced the
+published outputs to within 10⁻⁵. The exceptions are listed in the manifest: file paths, the column
+list, and one legacy pair that differs at the level of random-forest thread nondeterminism. Differences between the two arms are therefore attributable to the label alone.
+The reproduction check of Section 3.13 covers the re-frozen outputs. The manifest, hashes and
+runner scripts are released under `paper/data/manavgat_2021/refreeze/`.
+
 ## C.2 Transferability diagnostics versus transfer
 
 Twenty candidate diagnostics from five families are each rank-correlated against the same target
@@ -1402,6 +1431,55 @@ spatial-block sizes, the CORAL sweep, both feature sets and four classifier capa
 conclusion depends on one of those choices the dependence is reported rather than resolved by
 choosing the favourable setting (Appendix A).
 
+### Resampling units (moved from Methods 3.7)
+
+Uncertainty is a spatial-block bootstrap. Let $`\beta_1, \dots, \beta_M`$ be the blocks of
+[#eq:block] holding cells of $`F`$. Replicate $`b`$ draws $`M`$ indices $`u_{bm}`$ uniformly with replacement:
+
+```math {#eq:boot}
+F^{*b} = \biguplus_{m=1}^{M} \beta_{u_{bm}}, \qquad \mathrm{CI}_{95} = \left[ Q_{0.025}\{\theta(F^{*b})\}_{b},\; Q_{0.975}\{\theta(F^{*b})\}_{b} \right].
+```
+
+Here $`\theta`$ is the statistic and $`Q`$ the 2.5 and 97.5 percentiles over 1000 replicates, seed 42. A
+single-class replicate is discarded. Differences are formed within each replicate, so they are
+paired. The block size of each interval is stated with the result. Because it is blocks that are resampled,
+what bounds an interval's reliability is the number of blocks carrying at least one burned cell, and
+those counts are reported alongside the intervals. Where a verdict rests on too few such blocks it
+is stated as indicative rather than as an interval.
+
+The twenty transfer directions are not independent, since each region appears in eight. The
+**pair-cluster bootstrap** therefore resamples the ten unordered region pairs, each carrying its set
+$`\pi_p`$ of ordered directions, and averages the carried values $`\delta_{st}`$:
+
+```math {#eq:pair}
+\bar{\delta}^{*b} = \frac{\sum_{m=1}^{10} \sum_{(s,t) \in \pi_{u_{bm}}} \delta_{st}}{\sum_{m=1}^{10} |\pi_{u_{bm}}|}.
+```
+
+The interval is the same percentile form, over 20,000 replicates for Section 4.4. Clustering by
+target region replaces $`\pi_p`$ by the four directions sharing a target. A quantity with one value
+per held-out scar or target region gets a Student t interval over those $`n`$ units,
+
+```math {#eq:tint}
+\bar{x} \pm t_{0.975,\,n-1}\, s_x / \sqrt{n}.
+```
+
+**The effective sample is thus ten pairs or five regions for direction-level intervals, and at most
+eight scars from four regions for scar-level ones.**
+
+### Reproduction of the re-frozen outputs (moved from Methods 3.13)
+
+The transfer analysis runs in an environment separate from the upstream pipeline's. The
+repository's own reproduction check therefore refitted every within-region model and all twenty
+directed CORAL transfers against the frozen upstream output. For Manavgat that output is the one
+re-frozen on the corrected label (Section 3.2), produced with the upstream pipeline at commit
+6381f4c, run unchanged apart from a one-line patch. That patch lets the window-closure module accept
+a population column the corrected label adds, and its diff is released with the re-freeze. The
+within-region comparisons agree exactly, and the transfer directions to within 1.3×10⁻⁸, under the
+repository's pre-existing tolerance of 10⁻⁶. That 10⁻⁶ tolerance belongs to the CORAL and within-region reproduction check. The frame-transfer
+script of Section 4.4 fits its forests in parallel, so its values vary from run to run by up to
+2×10⁻⁶, within the 10⁻⁵ tolerance applied to it, and are stable at the printed precision. The tolerance that applies if the library
+version is not pinned is given in Appendix C.5(vi).
+
 ## C.7 Transfer-gap decomposition and the concept-shift diagnostic, in full
 
 For each direction the gap between the target's own within-region skill and the raw transfer result
@@ -1422,6 +1500,40 @@ it is recorded as a point reversal only. Appendix B states the rule again beside
 `conditional_similarity_transfer.json` carries it as machine-readable metadata.
 
 ---
+
+## C.8 Label-blind adaptation, full specification (moved from Methods 3.9)
+
+**Region-wise z-score.** Each region's numeric features are standardised using its own statistics,
+source statistics from source data and target statistics from target data, never pooled. For
+feature $`j`$ in region $`R`$,
+
+```math {#eq:zscore}
+z_{ij} = \frac{x_{ij} - \mu_j^{R}}{\sigma_j^{R}}, \qquad \mu_j^{R} = \frac{1}{n_j^{R}} \sum_{i \in O_j^{R}} x_{ij}, \qquad \sigma_j^{R} = \Big( \frac{1}{n_j^{R}} \sum_{i \in O_j^{R}} (x_{ij} - \mu_j^{R})^2 \Big)^{1/2},
+```
+
+where $`O_j^{R}`$ holds the $`n_j^{R}`$ cells with an observed value (ddof 0). A missing value is
+first set to $`\mu_j^{R}`$, so it becomes zero, and $`\sigma_j^{R} < 10^{-12}`$ is replaced by 1.
+Land cover is not transformed. Target feature statistics, never target labels, thus enter the
+adapted arms by design. The
+classifier is refitted on the z-scored source and applied to the z-scored target. This removes
+first- and second-order marginal offsets.
+
+**CORAL after region-wise z-score.** The source covariance is aligned to the target's by the standard
+whitening-recolouring map [@Sun2016]. With $`Z_R`$ the $`n_R \times d`$ matrix of z-scored numeric
+features, one row per cell,
+
+```math {#eq:coral}
+Z_s^{\mathrm{al}} = Z_s\,(C_s + \lambda I)^{-1/2}\,(C_t + \lambda I)^{1/2}, \qquad C_R = \frac{1}{n_R} \sum_{i=1}^{n_R} (z_i - \bar{z}_R)(z_i - \bar{z}_R)^{\top},
+```
+
+with $`\lambda = 10^{-5}`$ (ddof 0). Both means are zero after [#eq:zscore], so the general map's
+mean terms vanish. Matrix powers use a symmetric eigendecomposition, eigenvalues floored at
+$`10^{-12}`$. Critically **the transform is applied to the source
+only**; the target stays at $`Z_t`$, and the classifier is refitted on $`Z_s^{\mathrm{al}}`$. Neither
+variant sees a target label, and both are verified label-blind at run time. λ sensitivity was assessed over nine
+values on four of the twenty directions, moving transfer AUC by at most 0.014, and no value of λ was
+selected on performance; the λ = 1 of the original CORAL formulation lies outside that sweep, while
+the value used throughout remains λ = 10⁻⁵ (Appendix A(b)).
 
 # Appendix D. Transferability diagnostics: the record behind Contribution 3
 
