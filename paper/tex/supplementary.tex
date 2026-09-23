@@ -30,7 +30,7 @@
 
 Supplementary material for \emph{Evaluation geometry and the limits of cross-region transfer in pre-fire thermal wildfire prediction}.
 
-Section S1 reports the sensitivity analyses and the elaborations of the Results; Section S2 the supporting tables; Section S3 the protocol detail and the thirteen limitations; Section S4 the record of the transferability diagnostics; Section S5 the target-label recovery curve. Tables are numbered in order of appearance (Table~\ref{tab:S1}--S22), independently of the sections.
+Section S1 reports the sensitivity analyses and the elaborations of the Results; Section S2 the supporting tables; Section S3 the protocol detail and the thirteen limitations; Section S4 the record of the transferability diagnostics; Section S5 the target-label recovery curve; Section S6 the code and how to run it; Section S7 the data. References close the document. Tables are numbered in order of appearance (Table~\ref{tab:S1}--S22), independently of the sections.
 
 \textbf{Status.} Nothing in this document is evidence the paper's claims depend on that is unavailable elsewhere; every number here also appears in a frozen artefact named in the text. It is released so that a reader who wants the fuller argument, the per-scar and per-direction detail, or the exact protocol can have it without the paper carrying twenty thousand words of it.
 
@@ -1335,12 +1335,41 @@ These are stated so the analysis is not read as more than it is.
   \item \textbf{The interval is a selection interval, and it narrows for a reason that is not precision.} Bejís holds only 15 blocks containing both classes and 19 containing any burned cell; Manavgat 26 and 28; Muğla 60 and 70. At 16 and 32 blocks the tiered draw has nearly exhausted the both-class blocks, so repeats select almost the same set. The mean labelled-positive count into Bejís is identically 860.0 at 16 blocks and 880.0 at 32 across both source regions. The narrow upper-budget intervals therefore reflect a saturated selection pool, not a well-estimated quantity, and the top budget is not a small budget for these AOIs: 880 of Bejís's 1,100 burned cells are inside it.
   \item \textbf{The ceiling is the 10-cell-block target-only value}, not the $\approx$ 1 km within-region headline reported in the main paper, and is correspondingly lower (0.777 to 0.824 against 0.859 to 0.918). Recovery fractions are only interpretable against this matched-blocking ceiling.
   \item \textbf{Ceiling reproduction verified for all three targets.} Manavgat, Bejís and Muğla all reproduce the frozen large-block artefacts exactly, at an absolute difference of 0.0 against a 10$^{-9}$ tolerance in both families. An earlier draft of this supplement recorded Muğla as unverified, because at that time no frozen block-10 artefact had been located for it; one is now referenced in the export and the corresponding validator check passes.
-  \item \textbf{Provenance.} The export of record was regenerated on 2026-08-14 at commit \texttt{6d7a6a71} under scikit-learn 1.9.0, pandas 3.0.2 and NumPy 2.4.4 --- the same scikit-learn version to which every other number in this paper is fixed. Its validator reports \textbf{67 PASS, 0 FAIL and 0 SKIPPED}. Two files in the export directory, \texttt{repeat\_\allowbreak{}metrics.\allowbreak{}csv} and \texttt{oof\_\allowbreak{}predictions.\allowbreak{}parquet}, retain their 2026-08-03 timestamps and were not regenerated; every value quoted in Table~\ref{tab:S1} was checked against the regenerated export.
+  \item \textbf{Provenance.} The export of record was regenerated on 2026-08-14 at commit \texttt{6d7a6a71} under scikit-learn 1.9.0, pandas 3.0.2 and NumPy 2.4.4 --- the same scikit-learn version to which every other number in this paper is fixed. Its validator reports \textbf{67 PASS, 0 FAIL and 0 SKIPPED}. Two files in the export directory, \texttt{repeat\_\allowbreak{}metrics.\allowbreak{}csv} and \texttt{oof\_\allowbreak{}predictions.\allowbreak{}parquet}, retain their 2026-08-03 timestamps and were not regenerated; every value quoted in Table~\ref{tab:S22} was checked against the regenerated export.
 \end{enumerate}
 
 \subsection{S5.5 Figure}
 
-A recovery curve is the natural presentation, and it is prepared from \texttt{recovery\_\allowbreak{}curve.\allowbreak{}csv} (thermal family, \texttt{metric = roc\_\allowbreak{}auc}). Budget goes on a log-2 axis and target ROC-AUC on the ordinate. Each direction is one line, the selection interval is drawn as a band, and each direction's ceiling is a horizontal reference. Numbers are as in Table~\ref{tab:S1}.
+A recovery curve is the natural presentation, and it is prepared from \texttt{recovery\_\allowbreak{}curve.\allowbreak{}csv} (thermal family, \texttt{metric = roc\_\allowbreak{}auc}). Budget goes on a log-2 axis and target ROC-AUC on the ordinate. Each direction is one line, the selection interval is drawn as a band, and each direction's ceiling is a horizontal reference. Numbers are as in Table~\ref{tab:S22}.
+
+\section{S6 Code}
+
+The analysis code is public at <https://github.com/dryuemco/thermal-twin> under the MIT licence; this section is a guide to it, and the repository's README gives the same information. The satellite processing pipeline is a separate public repository, <https://github.com/emrehann17/satellite-thermal-digital-twin> (MIT licence), whose commit of record for every number reported here is \texttt{6381f4c}.
+
+\begin{center}
+  \small
+  \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+    \hline
+    Path & Role \\
+    \hline
+    \texttt{paper/\allowbreak{}code/\allowbreak{}} & Analysis and verification scripts. \texttt{\_\allowbreak{}canonical.\allowbreak{}py} loads every modelling dataset, verifies its SHA-256 and asserts the leakage exclusions of Section~\ref{M-sec:3.13} at every fit. \\
+    \texttt{paper/\allowbreak{}code/\allowbreak{}appendix\_\allowbreak{}tables.\allowbreak{}py} & Rebuilds Table~\ref{tab:S2}--S7 and S9--S18 row by row from source files whose SHA-256 values are pinned in \texttt{paper/\allowbreak{}labelfix\_\allowbreak{}rerun/\allowbreak{}round5/\allowbreak{}tables/\allowbreak{}SOURCES.\allowbreak{}sha256}, and compares them with this document. \\
+    \texttt{paper/\allowbreak{}figures/\allowbreak{}} & One script per figure and for the graphical abstract. Each asserts every plotted value against the frozen outputs and the manuscript text, and checks its layout. \\
+    \texttt{paper/\allowbreak{}figures/\allowbreak{}check\_\allowbreak{}all.\allowbreak{}py} & Runs all figure scripts and \texttt{appendix\_\allowbreak{}tables.\allowbreak{}py}, restores the committed outputs byte for byte, and exits 0 when everything passes. \\
+    \texttt{paper/\allowbreak{}tex/\allowbreak{}} & Builds the manuscript and this document from their Markdown sources and checks the port: every number survives, and every cross-reference, citation and Supplementary reference resolves. \\
+    \texttt{paper/\allowbreak{}labelfix\_\allowbreak{}rerun/\allowbreak{}} & Internal working notes and outputs of the label-correction re-run, from which every corrected number is read. \\
+    \hline
+  \end{tabularx}
+\end{center}
+
+All commands run from the repository root. The environment is Python 3.12.10 with NumPy 2.4.4, pandas 3.0.2 and scikit-learn 1.9.0, pinned in \texttt{ENVIRONMENT.\allowbreak{}md}; scikit-learn versions differ by about $\pm$0.02 to 0.03 AUC across regions (Section S3.5(vi)). Fig.~\ref{M-fig:study-map} additionally needs cartopy; without it \texttt{check\_\allowbreak{}all.\allowbreak{}py} reports that figure as skipped.
+
+\section{S7 Data}
+
+All satellite inputs are public and were retrieved through Google Earth Engine: burned-area labels from MODIS MCD64A1 Collection 6.1, land cover from ESA WorldCover, and the thermal, optical and terrain inputs of Section~\ref{M-sec:3.4}. No proprietary or restricted data were used.
+
+The five modelling datasets the analyses read are in the analysis repository, one per region, as \texttt{paper/\allowbreak{}data/\allowbreak{}<region>/\allowbreak{}step8a\_\allowbreak{}500m\_\allowbreak{}modeling\_\allowbreak{}dataset.\allowbreak{}parquet}, each verified on load against the SHA-256 recorded by the pipeline. For Manavgat this is the table on the corrected burned-area label, the official re-freeze (SHA-256 \texttt{5a5e876c\ldots{}}; Section S3.1.2); the original-label table (SHA-256 \texttt{054a1961\ldots{}}) is not in the repository and is regenerated by the pipeline. The frozen numeric outputs every table and figure is built from are in the same repository, identified by the paths and hashes named in the table captions and in \texttt{SOURCES.\allowbreak{}sha256}. No digital object identifier has been minted.
+
 \bibliographystyle{elsarticle-harv}
 \bibliography{../REFERENCES}
 \end{document}

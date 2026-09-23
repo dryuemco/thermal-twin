@@ -14,7 +14,7 @@ references to a manuscript equation read "Eq. (n) of the main text".
 
 Usage (needs pandoc; pypandoc_binary and python-docx supply it):
     python paper/tex/build_docx.py
-        -> paper/submission/manuscript.docx, paper/submission/supplementary_material.docx
+        -> paper/submission/manuscript.docx and highlights.tex; paper/tex/supplementary_material.docx
 """
 import json, re, subprocess
 from pathlib import Path
@@ -217,10 +217,10 @@ WORDS = main_text_words(ms_doc)
 WORDLINE = (f"**Word count:** {WORDS:,} words in the main text, excluding references, tables, "
             "figure captions and declarations.")
 ms_md = ms_md.replace("@@WORDCOUNT@@", WORDLINE)
-(OUT / "manuscript_assembled.md").write_text(ms_md, encoding="utf-8")
+(HERE / "manuscript_assembled.md").write_text(ms_md, encoding="utf-8")   # build record, not submitted
 ms_doc = to_docx(ms_md, OUT / "manuscript.docx")
 assert main_text_words(ms_doc) == WORDS
-sup_doc = to_docx(sup_md, OUT / "supplementary_material.docx")
+sup_doc = to_docx(sup_md, HERE / "supplementary_material.docx")   # reference copy; the submitted supplement is the PDF
 # the highlights are a separate, editable submission file
 (OUT / "highlights.tex").write_bytes((P / "highlights.tex").read_bytes())
 

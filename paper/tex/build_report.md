@@ -34,7 +34,7 @@ converter made is listed so it can be reviewed.
 - display equation eq:zscore (1 line(s))
 - display equation eq:coral (1 line(s))
 
-## review (31)
+## review (32)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Four values change, all read > from `
@@ -51,18 +51,19 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23: a pre-existing error, independent of the corrected label.** Section S1.20 > printed th
 - "Table 1" opens a paragraph but no table follows; emitted as prose
-- TABLE WITHOUT CAPTION in supplementary near md line 161
-- TABLE WITHOUT CAPTION in supplementary near md line 205
-- TABLE WITHOUT CAPTION in supplementary near md line 229
-- TABLE WITHOUT CAPTION in supplementary near md line 461
-- TABLE WITHOUT CAPTION in supplementary near md line 581
-- TABLE WITHOUT CAPTION in supplementary near md line 666
-- TABLE WITHOUT CAPTION in supplementary near md line 716
-- TABLE WITHOUT CAPTION in supplementary near md line 832
-- TABLE WITHOUT CAPTION in supplementary near md line 1091
-- TABLE WITHOUT CAPTION in supplementary near md line 1333
+- TABLE WITHOUT CAPTION in supplementary near md line 162
+- TABLE WITHOUT CAPTION in supplementary near md line 206
+- TABLE WITHOUT CAPTION in supplementary near md line 230
+- TABLE WITHOUT CAPTION in supplementary near md line 462
+- TABLE WITHOUT CAPTION in supplementary near md line 582
+- TABLE WITHOUT CAPTION in supplementary near md line 667
+- TABLE WITHOUT CAPTION in supplementary near md line 717
+- TABLE WITHOUT CAPTION in supplementary near md line 833
+- TABLE WITHOUT CAPTION in supplementary near md line 1092
+- TABLE WITHOUT CAPTION in supplementary near md line 1334
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23: the result returns to the paper as Contribution 3, in its negative form.** > Under the
+- TABLE WITHOUT CAPTION in supplementary near md line 2478
 
 ## stripped (7)
 
@@ -70,13 +71,13 @@ converter made is listed so it can be reviewed.
 - horizontal rule dropped _(x2)_
 - 3 comment block(s) removed (drafting notes)
 
-## table (68)
+## table (71)
 
 - Within-region baseline versus thermal perfor: 6 cols, est. width 79 chars -> small, 1 wrapping
 - Within-region baseline versus thermal performanc: 1 of 6 columns wrap (widest cell 22 chars)
 - : 4 cols, est. width 98 chars -> small, 2 wrapping
 - : 2 of 4 columns wrap (widest cell 33 chars)
-- no caption; emitted unnumbered so it does not consume a table number _(x10)_
+- no caption; emitted unnumbered so it does not consume a table number _(x11)_
 - : 4 cols, est. width 86 chars -> small, 1 wrapping
 - : 1 of 4 columns wrap (widest cell 34 chars)
 - : X columns would get 7 chars each (min 12) - set as plain tabular and scaled to fit instead
@@ -131,6 +132,8 @@ converter made is listed so it can be reviewed.
 - Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
 - Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
 - Few-shot recovery of target ROC-AUC, thermal: 10 cols, est. width 100 chars -> footnotesize
+- : 2 cols, est. width 223 chars -> small, 2 wrapping
+- : 2 of 2 columns wrap (widest cell 187 chars)
 
 ## verbatim (1)
 
