@@ -37,8 +37,8 @@ in Evia**, so what holds everywhere is survival, not improvement.
 Section 4.3 measures the fall from a blocked within-region figure to an unseen scar over seven scars
 in three regions. Clustered by region, the frame cost stays clear of zero at +0.137 [+0.048, +0.226].
 The whole fall to an unseen scar does not: it is +0.266 [−0.022, +0.553]. On the region as the unit,
-then, only the frame cost is established. The shortfall itself is supported at the scar level only,
-and this cohort gives it no region-level support.
+then, only the frame cost is established. The fall to an unseen scar is supported at the scar level
+only, and this cohort gives it no region-level support.
 
 The natural objection is that Mediterranean regions are simply different systems, so a predictor
 meaning one thing in one place and another elsewhere compares two systems rather than showing
