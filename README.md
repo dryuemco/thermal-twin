@@ -28,7 +28,7 @@ similar transfers above chance (0.594, 0.548).
 | `paper/labelfix_rerun/` | **Internal working notes for the label-correction re-run**: round reports, change logs and the outputs every corrected number is read from; `round5/tables/SOURCES.sha256` pins the 49 files the supplementary tables are built from |
 | `paper/canonical_rerun/`, `step9g_raw/`, `mugla_*_raw/`, `era5_raw/`, `reproduction_check/` | Frozen pipeline outputs and re-run records the analyses read |
 | `paper/tex/` | Build and check tooling and the generated LaTeX and PDFs |
-| `paper/submission/` | Submission package: `manuscript.docx`, `supplement.pdf`, `fig1.pdf`–`fig8.pdf`, `graphical_abstract.pdf`, `highlights.tex`; `MANIFEST.md` gives sizes, SHA-256 and the source commit |
+| `paper/submission/` | Submission package: `manuscript.docx`, `supplement.pdf`, `fig1.pdf`–`fig8.pdf`, `graphical_abstract.pdf`, `highlights.txt`; `MANIFEST.md` gives sizes, SHA-256 and the source commit |
 | `paper/REFEREE_ROUND_2.md` | Internal pre-submission review record |
 | `CLAUDE.md` | **Agent working context, not part of the manuscript** |
 | `ENVIRONMENT.md` | The exact Python environment and how it was verified |

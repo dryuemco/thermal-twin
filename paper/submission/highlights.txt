@@ -1,0 +1,5 @@
+Scoring the same model at the fire, not region-wide, costs 0.133 AUC
+The cause is the negative pool, not prevalence: +0.149 against -0.002
+Equalising the evaluation frame lifts mean transfer from 0.527 to 0.589
+Across 20 transfer directions the thermal gain is +0.007 [-0.021, +0.037]
+Highest niche-overlap pair fails both ways; lowest-overlap pair transfers both ways
