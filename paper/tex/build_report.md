@@ -34,9 +34,11 @@ converter made is listed so it can be reviewed.
 - display equation eq:scar (1 line(s))
 - display equation eq:collar (1 line(s))
 
-## review (13)
+## review (16)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
+- BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Four values change, all read > from `
+- BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Contribution 1: 0.143 → > 0.133. "Wit
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
@@ -49,6 +51,7 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 157
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 171
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 198
+- BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
 
 ## stripped (5)
 

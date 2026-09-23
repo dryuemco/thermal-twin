@@ -336,7 +336,7 @@ fractions, including the seven directions with *negative* recovery.
 ## 4.6 Further arms
 
 Six further arms bear on the findings above without changing them. They are the contrast pair
-(A(s)), the two interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event
+(A(s), Fig. 8), the two interventions (A(n)), the sensitivity summary (A(v)), the same-geography two-event
 arm (A(m)), the distance curve (A(t)) and the label-budget curve (A(u)). Each is stated there with
 its own limits. Two are plotted here because the shape of the result is the argument. Pooling every
 other region never beats the best single source for any target (Fig. 6). Removing the

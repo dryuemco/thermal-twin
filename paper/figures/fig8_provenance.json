@@ -3,13 +3,18 @@
  "script": "paper/figures/fig8_contrast_pairs.py",
  "source": {
   "path": "paper/figure_contrast_pairs.json",
-  "sha256": "a6b1969cefe00d1094b503a3d6bcbe7b5b015cb37030b5a71ce5043951aab9eb"
+  "sha256": "bbb70787fe5e99ddf475db8b3e6d29365b2e8f231127725792ac766a2d487e9a"
  },
  "outputs": [
   "fig8_contrast_pairs.pdf",
   "fig8_contrast_pairs.svg"
  ],
- "asserts": "D-bar means 0.826/0.479; jointly supported features exactly [NDVI, Elevation] in (a) and [] in (b); four transfer AUCs and CI-off-chance checks; region cue asserted non-colour; enforced at build time",
+ "asserts": "corrected-label source (Manavgat parquet prefix is not the frozen 054a1961); D-bar means 0.799/0.479; jointly supported features exactly the six [slope, elevation, current LST, current TVDI, downscaled LST, fused LST] in (a), all opposite in sign, and [] in (b); sign agreement 2/9 and 7/9; four transfer AUCs (0.438, 0.345 from the abstract; 0.594, 0.548) and 2-cell CI-off-chance checks; 10-cell verdicts from round5/s7 (only Mugla->Manavgat supported); region cue asserted non-colour; enforced at build time",
+ "source_note": "the niche measures in the source were computed on the 2026-09-19 corrected Manavgat parquet (e4ab8b85); it equals the re-frozen one (5a5e876c) in all 79 shared columns, the re-freeze adding only historical_burn_excluded (all False)",
+ "s7": {
+  "path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",
+  "sha256": "746d9a6bd4aa4f14c42200eb0ad1806374b83435d9a6649929714cd58620da67"
+ },
  "encoding": "panel headers: overlap + transfer verdict primary; arrowhead fill = per-region CI excludes 0.5 (untouched); region = colour AND line style AND vertical offset; supported-index coverage limit stated in the header line and the caption",
  "greyscale": {
   "region_hue_contrast": 2.3,
@@ -29,5 +34,5 @@
   "minimum": 8.0
  },
  "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 56 data artists registered",
- "environment": "matplotlib 3.11.1"
+ "environment": "matplotlib 3.11.0"
 }
