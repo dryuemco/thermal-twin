@@ -1,8 +1,12 @@
 {
- "figure": "Fig. 5 - label-blind adaptation compresses toward chance",
+ "figure": "Fig. 5 - label-blind adaptation compresses the matrix toward chance",
  "script": "paper/figures/fig5_adaptation.py",
- "data": "paper/figures/data/fig_data.json (four_aoi_decomposition.csv; sha256 inside)",
- "asserts": "7/12 negative recovery; worst Evia->Manavgat recovered fraction -0.862 (_conservation_common.py)",
+ "data": {
+  "path": "paper/figures/data/fig_data_corrected.json",
+  "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
+  "note": "four_aoi_decomposition.csv of the corrected-label overlay; sha256 inside"
+ },
+ "asserts": "raw and best-adapted of all 12 arrows equal Table B9 at 3 dp and the within ticks equal Table 1 (block 2); 7/12 negative recovery; worst Evia->Manavgat recovered fraction -1.126; 11/12 closer to chance, exception Manavgat->Mugla; Bejis->Manavgat a CORAL recovery with its z-score arm at 0.302; every value inside the x axis (_conservation_common.py)",
  "greyscale": {
   "hue_only_contrast": 2.3,
   "note": "Okabe-Ito blue (relative luminance 0.151) vs orange (0.413) separate by only this ratio, below the 3:1 WCAG non-text minimum, so the two classes also differ by line style (solid vs dashed); proof in fig5_adaptation_greyscale.png"
@@ -18,5 +22,5 @@
   "minimum": 8.0
  },
  "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 25 data artists registered",
- "environment": "matplotlib 3.11.1"
+ "environment": "matplotlib 3.11.0"
 }

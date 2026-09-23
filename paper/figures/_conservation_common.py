@@ -9,12 +9,15 @@ The asserts live here so all three figures fail if the underlying numbers move,
 exactly as they did when this was one script.
 """
 import json
+import re
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
-DATA = json.loads((HERE / "data" / "fig_data.json").read_text())
+# 2026-09-23: corrected Manavgat label (extract_fig_data.mjs on the official overlay)
+DATA_PATH = HERE / "data" / "fig_data_corrected.json"
+DATA = json.loads(DATA_PATH.read_text())
 
 decomp = DATA["fig6_decomp"]
 loro = DATA["fig6_loro"]
@@ -39,21 +42,54 @@ def dirlabel(d):
     return f"{LABEL[s]}→{LABEL[t]}"
 
 
-# ---- asserts vs 04_results 4.3/4.6 -----------------------------------------
+# ---- asserts (corrected label), zero tolerance at the printed 3 dp -----------
+# Fig. 5: every arrow against Table B9 as printed, every within tick against Table 1
+B9_NAME = {"Manavgat": "manavgat_2021", "Bejís": "bejis_2022", "Muğla": "mugla_2021",
+           "Evia": "evia_2021_extended", "Montiferru": "montiferru_2021"}
+_md = (HERE.parent / "A2_diagnostics.md").read_text(encoding="utf-8")
+_md = _md[_md.index("**Table B9."):]
+B9 = {f"{B9_NAME[s]}_to_{B9_NAME[t]}": {"raw": r, "zscore": z, "coral": c}
+      for s, t, r, z, c in re.findall(
+          r"^\| (\w+)→(\w+) \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \|$",
+          _md, flags=re.M)}
+assert len(B9) == 20
+TABLE1_BLOCK2_THERMAL = {"manavgat_2021": "0.908", "bejis_2022": "0.918", "mugla_2021": "0.859",
+                         "evia_2021_extended": "0.912"}
+assert len(decomp) == 12
+for _d in decomp:
+    _b = B9[_d["direction"]]
+    assert f"{_d['raw']:.3f}" == _b["raw"], (_d["direction"], _d["raw"], _b)
+    _best = "zscore" if _d["best_method"] == "regionwise_zscore" else "coral"
+    assert f"{_d['best_adapted']:.3f}" == _b[_best], (_d["direction"], _d["best_adapted"], _b)
+    # same number read from two serialisations (decomposition CSV, step10 JSON): equal to 1e-12
+    assert abs(_d["best_adapted"] - max(DATA["fig5"][_d["direction"]]["zscore"],
+                                         DATA["fig5"][_d["direction"]]["coral"])) < 1e-12
+    assert f"{_d['within']:.3f}" == TABLE1_BLOCK2_THERMAL[_d["direction"].split("_to_")[1]]
 neg = [d for d in decomp if d["best_adapted"] < d["raw"]]
 assert len(neg) == 7, f"expected 7 negative-recovery directions, got {len(neg)}"
+assert all((d["recovered_fraction"] < 0) == (d in neg) for d in decomp)
 _worst = min(decomp, key=lambda d: d["recovered_fraction"])
 assert _worst["direction"] == "evia_2021_extended_to_manavgat_2021"
-assert abs(_worst["recovered_fraction"] - (-0.8619)) < 5e-3
+assert f"{_worst['recovered_fraction']:.3f}" == "-1.126", _worst["recovered_fraction"]
+# compression toward chance: 11 of 12 move closer to 0.5; the exception is Manavgat -> Muğla
+AWAY = [d["direction"] for d in decomp if abs(d["best_adapted"] - 0.5) >= abs(d["raw"] - 0.5)]
+assert AWAY == ["manavgat_2021_to_mugla_2021"], AWAY
+# Bejís -> Manavgat: the better method (CORAL) recovers; the z-score arm alone moves below chance
+_bm = next(d for d in decomp if d["direction"] == "bejis_2022_to_manavgat_2021")
+assert _bm["best_method"] == "coral_after_regionwise_zscore" and _bm["best_adapted"] > _bm["raw"]
+assert B9["bejis_2022_to_manavgat_2021"]["zscore"] == "0.302"
+# Fig. 6: LORO against A(n)(a) and the Fig. 6 caption
 _by_t = {r["target"]: r for r in loro}
-assert abs(_by_t["manavgat_2021"]["loro_raw"] - 0.469) < 5e-3
-for _r in loro:
-    assert _r["loro_raw"] < _r["best_pairwise"], \
-        f"LORO must not beat best pairwise: {_r['target']}"
-assert abs(fdrop["full"]["mean_within"] - 0.888) < 5e-3
-assert abs(fdrop["full"]["mean_transfer"] - 0.541) < 5e-3
-assert abs(fdrop["drop_both"]["mean_within"] - 0.807) < 5e-3
-assert abs(fdrop["drop_both"]["mean_transfer"] - 0.556) < 5e-3
+assert f"{_by_t['manavgat_2021']['loro_raw']:.3f}" == "0.426"
+assert f"{_by_t['bejis_2022']['loro_raw']:.3f}" == "0.458"
+assert f"{_by_t['evia_2021_extended']['loro_raw']:.3f}" == "0.715"
+assert [r["target"] for r in loro if r["loro_raw"] > r["best_pairwise"]] == ["evia_2021_extended"], \
+    "pooling beats the best single source for Evia only (A(n)(a))"
+# Fig. 7: the four configurations as printed in A(n)
+for _cfg, _w, _tr in (("full", "0.896", "0.527"), ("drop_elev", "0.840", "0.533"),
+                      ("drop_anom", "0.883", "0.529"), ("drop_both", "0.820", "0.541")):
+    assert f"{fdrop[_cfg]['mean_within']:.3f}" == _w and f"{fdrop[_cfg]['mean_transfer']:.3f}" == _tr, \
+        (_cfg, fdrop[_cfg])
 
 
 def style_axes(ax):

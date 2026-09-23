@@ -140,25 +140,29 @@
 \begin{figure}[htbp]
   \centering
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig5_adaptation.pdf}}
-  \caption{\textbf{Label-blind adaptation regresses transfer onto the level a
-  model reaches on an unseen scar, rather than recovering it.} All 12 ordered directions among the
-  four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u{g}la,
-  Evia), natural-vegetation primary population. Each row is one direction. The
-  open circle is raw transfer ROC-AUC and the arrow runs to the best
-  label-blind adapted result for that direction (region-wise z-score or CORAL,
-  whichever is better); the grey vertical tick is the within-region reference
-  for that target, and the dashed vertical rule is chance. \textbf{Solid blue
-  arrows are the five directions where adaptation moves transfer toward the
-  within-region reference (recovery); dashed orange arrows are the seven where
-  it moves \emph{away} from it (negative recovery).} Line style and colour both
-  encode this class, because the two hues differ by only 2.30:1 in relative
-  luminance and would nearly merge in greyscale. The pattern is the point: all
-  six directions starting above chance are pushed down, and five of the six
-  starting below chance are pushed up, so adaptation acts on the spread rather
-  than on skill. The exception is Manavgat$\rightarrow$Mu\u{g}la, which starts
-  below chance at 0.470 and is pushed further down to 0.443. The worst case is Evia$\rightarrow$Manavgat, where raw transfer of
-  0.686 is dragged down to 0.527 against a within-region reference of 0.870, a
-  recovered fraction of $-0.862$. No arrow reaches its within-region tick.}
+  \caption{\textbf{Label-blind adaptation compresses the matrix toward chance.}
+  All 12 ordered directions among the four regions carrying the full
+  decomposition (Manavgat, Bej\'is, Mu\u{g}la, Evia), natural-vegetation primary
+  population. Each row is one direction. The open circle is raw transfer ROC-AUC
+  and the arrow runs to the best label-blind adapted result for that direction
+  (region-wise z-score or CORAL, whichever is better); the grey vertical tick is
+  the within-region reference for that target, and the dashed vertical rule is
+  chance. \textbf{Solid blue arrows are the five directions where adaptation
+  moves transfer toward the within-region reference (recovery); dashed orange
+  arrows are the seven where it moves \emph{away} from it (negative recovery).}
+  Line style and colour both encode this class, because the two hues differ by
+  only 2.30:1 in relative luminance and would nearly merge in greyscale. All six
+  directions starting above chance are pushed down, and five of the six
+  starting below chance are pushed up, so eleven of twelve end closer to chance
+  and adaptation acts on the spread rather than on skill. The exception is
+  Manavgat$\rightarrow$Mu\u{g}la, which starts below chance at 0.438 and is
+  pushed further down to 0.427. Bej\'is$\rightarrow$Manavgat is drawn as a
+  recovery because its better method, CORAL, lifts it from 0.314 to 0.406; its
+  z-score arm alone moves further below chance, to 0.302 (Fig.~\ref{fig:transfer-matrix}).
+  The worst case is Evia$\rightarrow$Manavgat, where raw transfer of 0.677 is
+  dragged down to 0.417 against a within-region reference of 0.908, a recovered
+  fraction of $-1.126$. No arrow reaches its within-region tick. Manavgat
+  directions are on the corrected label (Section~\ref{sec:3.2}).}
   \label{fig:adaptation}
 \end{figure}
 
