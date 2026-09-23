@@ -276,6 +276,17 @@ second no longer does, and is 3.6 times wider. **The scar-level intervals on the
 therefore overstate precision, and on the region unit only the frame cost is established**
 (Appendix A(i)).
 
+### Controls, full specification (moved from Methods 3.12)
+
+Three controls reuse A's predictions, each averaged over 20 draws without
+replacement. The **prevalence-matched** control draws $`|H_K^{+}|`$ cells from $`P_R`$ and
+$`|H_K^{-}|`$ from $`V_R \setminus P_R`$. The **negative-pool** control keeps the drawn burned cells
+but uses the scar's own negatives $`H_K^{-}`$, and the positive-pool control does the converse. A
+**within-region half-split** (modelled cells cut at the median of a grid axis, both axes and
+directions, a split discarded when either half is single-class) completes the set, under the
+transfer protocol of Section 3.8 unchanged. The per-split and per-scar positive counts are unequal
+and bear on the interpretation (Table A1 below).
+
 **Table A1. Within-region half-split, every split.** Source and target positive counts are given
 because they are unequal, which is the principal limit on this arm: a straight cut does not produce
 two exchangeable halves. Two splits are unusable because one half of Manavgat contains no burned cells. Corrected Manavgat
@@ -1166,7 +1177,9 @@ destroyed that advantage. Label-free alignment therefore does not act as a repai
 
 
 **Seed stability (moved from Results 4.5).** Across five bootstrap seeds every 2-cell verdict is stable. At 10 cells, one level verdict
-and two paired-delta verdicts are not (`transfer_ci_blocksize.csv`).
+and two paired-delta verdicts are not (`transfer_ci_blocksize.csv`): the level verdict of Evia to
+Bejís and the paired-delta verdicts of Manavgat to Muğla and Evia to Montiferru
+(`paper/labelfix_rerun/round6/seed_stability.json`).
 
 **The leave-one-region-out jackknife (moved from Results 4.5).** The
 leave-one-region-out jackknife shows the mean is not carried by any single region. Dropping one
@@ -1377,6 +1390,13 @@ WorldCover classes aggregated to the same reconstructed cells. Its purpose is to
 produced by natural-fuel combustion from burned area produced by post-harvest stubble burning, which
 MCD64A1 does not distinguish. Verdicts are reported in Section 4.1.
 
+### Pre-label and historical burning, by region (moved from Methods 3.2)
+
+Two safeguards are recorded rather than assumed:
+cells burning before the label window opens are removed, which ran for three of five regions and
+excluded 49 cells in Muğla, 16 in North Evia and 61 in Montiferru, with none arising in Manavgat or
+Bejís, and burning in earlier years is screened for none.
+
 ### The Manavgat label correction (moved from Methods 3.2)
 
 **The Manavgat 2021 label is a corrected one.** The label first used for Manavgat was exported on
@@ -1586,6 +1606,10 @@ it is recorded as a point reversal only. Appendix B states the rule again beside
 `conditional_similarity_transfer.json` carries it as machine-readable metadata.
 
 ---
+
+### Degenerate replicates (moved from Methods 3.10)
+
+Replicates with $`|G| < 10^{-6}`$ are dropped.
 
 ## C.8 Label-blind adaptation, full specification (moved from Methods 3.9)
 
