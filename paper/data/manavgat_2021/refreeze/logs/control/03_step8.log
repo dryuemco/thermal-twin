@@ -1,0 +1,110 @@
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] experiment_id: manavgat_2021
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] region_key: manavgat_aoi
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] role: anchor_wildfire
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] Predictor window: 2021-06-01 -> 2021-07-27
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] current_period_end_date=2021-07-27, current_period_days=56 (plain date-diff, NOT inclusive count)
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] Label window: 2021-07-28 -> 2021-08-31
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] Baseline years: [2017, 2018, 2019, 2020]
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] Baseline date bounds (year-bounding, not exact window): 2017-01-01 -> 2020-12-31
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] output_root: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] data_root: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\data
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] step5_output_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step5
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] step5c_output_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step5c
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] gate_labels_dir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\validation\labels
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] exclude_pre_label_burns=False exclude_historical_burns=False
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] dem_input_dir (namespaced): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\data\dem
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] landcover_aligned_path: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 10:19:55,487 INFO     [ExperimentContext] step7 output dirs: a=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step7a b=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step7b c=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step7c d=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step7d e=C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step7e
+2026-09-23 10:19:56,566 INFO     [manavgat_2021] STEP 8A (500 m label-honest modeling dataset, namespaced)
+2026-09-23 10:19:56,567 INFO     ============================================================
+2026-09-23 10:19:56,567 INFO     STEP 8A BASLIYOR (native ~500 m MCD64A1-grid modeling dataset) [experiment=manavgat_2021]
+2026-09-23 10:19:56,567 INFO     ============================================================
+2026-09-23 10:19:56,567 INFO     MCD64A1 etiket rasteri (explicit): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif (kind=raw_burndate)
+2026-09-23 10:19:56,574 INFO     Hizalanmis landcover (explicit) kullaniliyor: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 10:19:56,580 INFO     Tum zorunlu/opsiyonel predictor rasterlari referans gridle hizali dogrulandi.
+2026-09-23 10:19:56,580 INFO     Label source description: reconstructed_from_30m_raw_burndate
+2026-09-23 10:19:56,696 INFO     Label raster diagnostics: kind=raw_burndate dtype=int16 min=0.0 max=241.0 zero=6764193 one=0 gt_one=179667 in_DOY_range=179667 finite=6943860 masked=0
+2026-09-23 10:19:56,698 INFO     MCD64A1 etiket rasteri zaten referans gridle hizali: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif
+2026-09-23 10:19:56,699 INFO     Tum zorunlu/opsiyonel predictor rasterlari referans gridle hizali dogrulandi.
+2026-09-23 10:19:56,699 INFO     Referans 30 m grid: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step5\current_period_median_celsius.tif (2970x2338)
+2026-09-23 10:19:56,699 INFO     MCD64A1 etiket rasteri (hizali): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif (label_kind=raw_burndate)
+2026-09-23 10:19:56,699 INFO     Landcover rasteri (hizali): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\gate_inputs\landcover_esa_worldcover_v200_aligned_to_reference.tif
+2026-09-23 10:19:56,699 INFO     Cozulmus predictor sayisi: 9 (eksik/opsiyonel: [])
+2026-09-23 10:19:56,699 INFO     Native ~500 m grid: referans 30 m piksel = 30.0 m, block_size_pixels = 17 (=> yaklasik hucre boyutu 510.0 m).
+2026-09-23 10:19:56,712 INFO     Toplam 500 m hucre sayisi (yaklasik): 24150 (138 satir x 175 sutun, 30 m grid 2970x2338)
+2026-09-23 10:20:16,852 INFO     CSV yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8a\step8a_500m_modeling_dataset.csv
+2026-09-23 10:20:16,853 INFO     Parquet yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8a\step8a_500m_modeling_dataset.parquet
+2026-09-23 10:20:16,858 INFO     Dataset satir sayisi: 24150 (valid_for_modeling=24087)
+2026-09-23 10:20:16,858 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8a\step8a_dataset_stats.json
+2026-09-23 10:20:16,858 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8a\step8a_dataset_summary.md
+2026-09-23 10:20:16,858 INFO     ============================================================
+2026-09-23 10:20:16,858 INFO     STEP 8A TAMAMLANDI (no model trained, no FIRMS label used, MCD64A1 primary label)
+2026-09-23 10:20:16,858 INFO     ============================================================
+2026-09-23 10:20:16,860 INFO     [manavgat_2021] STEP 8B (baseline vs. baseline+fused-thermal, spatial-block CV, namespaced)
+2026-09-23 10:20:16,860 INFO     ============================================================
+2026-09-23 10:20:16,860 INFO     STEP 8B BASLIYOR (baseline vs baseline+thermal, spatial-block CV)
+2026-09-23 10:20:16,860 INFO     ============================================================
+2026-09-23 10:20:16,886 INFO     Step8A veri seti okundu (parquet): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8a\step8a_500m_modeling_dataset.parquet (24150 satir)
+2026-09-23 10:20:16,889 INFO     valid_for_modeling==False olan 63 satir modelleme populasyonlarindan haric tutulacak (Step8A'nin kendi isaretlemesi; Step8B bu satirlari SILMEZ, sadece kullanmaz).
+2026-09-23 10:20:16,910 INFO     Ozellik eksik-deger sayimlari: {'ndvi_mean': 0, 'elevation_mean': 0, 'slope_mean': 0, 'landcover_dominant': 0, 'lst_anomaly_mean': 2048, 'current_lst_mean': 75, 'current_tvdi_mean': 77, 'tvdi_difference_mean': 81, 'downscaled_lst_mean': 0, 'fused_lst_mean': 0}
+2026-09-23 10:20:17,871 INFO     Populasyon egitiliyor: all_valid (n=24087, burned=796)
+2026-09-23 10:20:28,830 INFO     all_valid: AUC baseline=0.8277 thermal=0.8866 delta_auc=+0.0589 (thermal_improves)
+2026-09-23 10:20:28,831 INFO     Populasyon egitiliyor: cropland_dominant (n=1260, burned=2)
+2026-09-23 10:20:28,831 WARNING  cropland_dominant atlandi: insufficient_positives_or_negatives (positives=2, negatives=1258, min_required=30)
+2026-09-23 10:20:28,835 INFO     Populasyon egitiliyor: burnable_tree_shrub_grass (n=20511, burned=784)
+2026-09-23 10:20:38,759 INFO     burnable_tree_shrub_grass: AUC baseline=0.8027 thermal=0.8696 delta_auc=+0.0669 (thermal_improves)
+2026-09-23 10:20:38,763 INFO     Populasyon egitiliyor: burnable_tree_shrub (n=15538, burned=706)
+2026-09-23 10:20:47,399 INFO     burnable_tree_shrub: AUC baseline=0.7584 thermal=0.8427 delta_auc=+0.0843 (thermal_improves)
+2026-09-23 10:20:48,087 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8b\step8b_model_comparison_metrics.json
+2026-09-23 10:20:48,087 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8b\step8b_summary.md
+2026-09-23 10:20:48,087 INFO     Predictions: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8b\step8b_predictions.csv (parquet_written=True)
+2026-09-23 10:20:48,087 INFO     ROC plot: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8b\step8b_roc_curves.png
+2026-09-23 10:20:48,087 INFO     PR plot: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8b\step8b_pr_curves.png
+2026-09-23 10:20:48,087 INFO     ============================================================
+2026-09-23 10:20:48,088 INFO     STEP 8B TAMAMLANDI (no FIRMS label used, MCD64A1 target, spatial-block CV)
+2026-09-23 10:20:48,088 INFO     ============================================================
+2026-09-23 10:20:48,094 INFO     [manavgat_2021] STEP 8C (spatial-block bootstrap uncertainty, namespaced)
+2026-09-23 10:20:48,094 INFO     ============================================================
+2026-09-23 10:20:48,094 INFO     STEP 8C BASLIYOR (spatial-block bootstrap uncertainty)
+2026-09-23 10:20:48,094 INFO     ============================================================
+2026-09-23 10:20:48,102 INFO     Step8B tahminleri okundu (parquet): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8b\step8b_predictions.parquet (60136 satir)
+2026-09-23 10:20:48,106 INFO     burnable_tree_shrub_grass bootstrap'a dahil edildi (positives=784 >= 30).
+2026-09-23 10:20:48,107 INFO     burnable_tree_shrub bootstrap'a dahil edildi (positives=706 >= 30).
+2026-09-23 10:20:48,107 INFO     Degerlendirilecek populasyonlar: ['all_valid', 'burnable_tree_shrub_grass', 'burnable_tree_shrub']
+2026-09-23 10:21:08,627 INFO     all_valid (overall): delta_auc CI95=[0.0490, 0.0684] (positive_bootstrap_support); delta_pr_auc CI95=[0.0731, 0.1294] (positive_bootstrap_support)
+2026-09-23 10:21:27,488 INFO     burnable_tree_shrub_grass (overall): delta_auc CI95=[0.0546, 0.0786] (positive_bootstrap_support); delta_pr_auc CI95=[0.0707, 0.1227] (positive_bootstrap_support)
+2026-09-23 10:21:42,801 INFO     burnable_tree_shrub (overall): delta_auc CI95=[0.0707, 0.0981] (positive_bootstrap_support); delta_pr_auc CI95=[0.0646, 0.1231] (positive_bootstrap_support)
+2026-09-23 10:23:27,043 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8c\step8c_bootstrap_metrics.json
+2026-09-23 10:23:27,043 INFO     Bootstrap samples: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8c\step8c_bootstrap_samples.csv
+2026-09-23 10:23:27,043 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8c\step8c_summary.md
+2026-09-23 10:23:27,043 INFO     ============================================================
+2026-09-23 10:23:27,043 INFO     STEP 8C TAMAMLANDI (no model trained, spatial-block bootstrap, no FIRMS)
+2026-09-23 10:23:27,043 INFO     ============================================================
+2026-09-23 10:23:27,057 INFO     [manavgat_2021] STEP 8D (thermal feature ablation, namespaced)
+2026-09-23 10:23:27,057 INFO     ============================================================
+2026-09-23 10:23:27,057 INFO     STEP 8D BASLIYOR (thermal feature ablation, spatial-block CV)
+2026-09-23 10:23:27,057 INFO     ============================================================
+2026-09-23 10:23:27,068 INFO     Step8A veri seti okundu (parquet): C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8a\step8a_500m_modeling_dataset.parquet (24150 satir)
+2026-09-23 10:23:27,090 INFO     Ozellik eksik-deger sayimlari: {'lst_anomaly_mean': 2048, 'current_lst_mean': 75, 'current_tvdi_mean': 77, 'tvdi_difference_mean': 81, 'downscaled_lst_mean': 0, 'fused_lst_mean': 0}
+2026-09-23 10:23:27,987 INFO     Populasyon: all_valid (n=24087, burned=796)
+2026-09-23 10:23:28,875 INFO       all_valid: 11 model egitiliyor (n=24087, burned=796, folds=5)...
+2026-09-23 10:24:16,242 INFO     all_valid: en iyi grup (delta_pr_auc)=all_thermal, all_thermal rank=#1
+2026-09-23 10:24:16,244 INFO     Populasyon: cropland_dominant (n=1260, burned=2)
+2026-09-23 10:24:16,244 WARNING  cropland_dominant atlandi: insufficient_positives_or_negatives (positives=2, negatives=1258, min_required=30)
+2026-09-23 10:24:16,247 INFO     Populasyon: burnable_tree_shrub_grass (n=20511, burned=784)
+2026-09-23 10:24:17,115 INFO       burnable_tree_shrub_grass: 11 model egitiliyor (n=20511, burned=784, folds=5)...
+2026-09-23 10:25:01,203 INFO     burnable_tree_shrub_grass: en iyi grup (delta_pr_auc)=all_thermal, all_thermal rank=#1
+2026-09-23 10:25:01,206 INFO     Populasyon: burnable_tree_shrub (n=15538, burned=706)
+2026-09-23 10:25:01,652 INFO       burnable_tree_shrub: 11 model egitiliyor (n=15538, burned=706, folds=5)...
+2026-09-23 10:25:34,525 INFO     burnable_tree_shrub: en iyi grup (delta_pr_auc)=all_thermal, all_thermal rank=#1
+2026-09-23 10:25:36,836 INFO     Stats: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8d\step8d_ablation_metrics.json
+2026-09-23 10:25:36,836 INFO     Summary: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8d\step8d_ablation_summary.md
+2026-09-23 10:25:36,836 INFO     Predictions: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8d\step8d_ablation_predictions.csv (parquet_written=True)
+2026-09-23 10:25:36,836 INFO     ============================================================
+2026-09-23 10:25:36,836 INFO     STEP 8D TAMAMLANDI (no FIRMS, no 30m pixels, spatial-block CV, point estimates only)
+2026-09-23 10:25:36,836 INFO     ============================================================
+2026-09-23 10:25:36,852 INFO     [manavgat_2021] STEP 8E (compact final report, namespaced)
+2026-09-23 10:25:36,877 INFO     Final rapor: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8e\final_step8_report.json, C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\experiments\manavgat_2021\step8e\final_step8_report.md
+2026-09-23 10:25:36,878 INFO     ============================================================
+2026-09-23 10:25:36,878 INFO     STEP8 (A-E) ÇALIŞTIRICISI TAMAMLANDI [experiment=manavgat_2021]
+2026-09-23 10:25:36,878 INFO     ============================================================
