@@ -1386,6 +1386,7 @@ it is recorded as a point reversal only. Appendix B states the rule again beside
 
 # Appendix D. Transferability diagnostics: the result withdrawn from the paper
 
+
 **Status.** This was Contribution 3 of an earlier version: twenty candidate diagnostics from five
 families, each rank-correlated with observed transfer, none shown to order it. It is released here
 rather than printed because it rests on an effective sample of **eight region pairs** — the two

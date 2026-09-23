@@ -1,14 +1,16 @@
 # 5. Discussion
 
 
-## 5.1 Reading the two findings together
+## 5.1 Reading the three findings together
 
-Section 1.3 states the two findings and Section 4 establishes them; this section argues from them.
+Section 1.3 states the three findings and Section 4 establishes them; this section argues from them.
 The relation between them is what makes the paper cohere. The first is not a caveat attached to the
 second; it is the instrument that sets its size. Applied to our own matrix, it identified four
 quantities as properties of the frames rather than of the relationship between predictors and
 burning. What it left standing is a shortfall in transferred skill and one reversed relationship,
-Manavgat's elevation.
+Manavgat's elevation. The third closes the obvious way around the second. If transfer cannot be
+assumed, it might still be anticipated from how similar two regions are, and no diagnostic in the
+set fixed in advance was shown to do that.
 
 ## 5.2 Why the thermal increment is real but local
 
