@@ -52,9 +52,9 @@
 
 Wildfire is a defining disturbance of Mediterranean-basin landscapes, and a changing climate is
 reshaping where and how it burns [@Pausas2021]. The dominant pattern in fire susceptibility mapping
-[@Vibhandik2026; @Jodhani2026] is settled: geospatial predictors are assembled over a study region,
-paired with a historical burned-area record and fitted with a supervised classifier, most often a
-random forest [@Breiman2001], and the surface is published with a cross-validated AUC of 0.85 to 0.95. **That pattern does not report portability**, and this paper measures it.
+[@Vibhandik2026; @Jodhani2026] is settled. Geospatial predictors are assembled over a study region, paired with a historical
+burned-area record and fitted with a supervised classifier, most often a random forest
+[@Breiman2001]. The surface is then published with a cross-validated AUC of 0.85 to 0.95. **That pattern does not report portability**, and this paper measures it.
 
 ## 1.1 Portability goes unmeasured
 
@@ -64,21 +64,20 @@ spatial autocorrelation inflate it further. The problem is documented across eco
 [@Roberts2017; @Ploton2020] and addressed by spatially blocked cross-validation [@Valavi2019;
 @Meyer2018], but blocking does not make the estimate honest about a fire the model has not seen.
 
-Because only that side of the ledger is reported, portability is never entered: a predictor block is
-adopted on the increment it delivers inside its training footprint, and whether that survives a
-change of region is not asked, even though any regional product built from locally trained models
-implicitly promises generalisation beyond it. Meteorological fire-danger indices are known not to
-port cleanly in a Peruvian case study [@Podschwit2022], and the two studies that test transfer
-systematically [@Dimarco2026; @Liu2025] both report that it largely succeeds between similar
-regions — and both transfer models whose dominant predictors are *spatially stationary*. Whether a
+Because only that side of the ledger is reported, portability is never entered. A predictor block
+is adopted on the increment it delivers inside its training footprint, and whether that survives a
+change of region is not asked. Yet any regional product built from locally trained models implicitly
+promises generalisation beyond it. Meteorological fire-danger indices are known not to port cleanly in a Peruvian case study
+[@Podschwit2022]. The two studies that test transfer systematically [@Dimarco2026; @Liu2025] both
+report that it largely succeeds between similar regions. Both transfer models whose dominant
+predictors are *spatially stationary*. Whether a
 dynamic, season-specific class behaves the same way is this paper's question.
 
 ## 1.2 Pre-fire thermal dryness is the natural test case
 
-Pre-fire thermal dryness is the dynamic class most plausibly *expected* to transfer. Standard
-predictors are static or near-static over the timescale at which fire danger varies, so they explain
-poorly why one summer burned and the preceding one did not; what changes is the state of the
-surface, to which satellite thermal observation gives partial access (Section 2.2). The physics
+Pre-fire thermal dryness is the dynamic class most plausibly *expected* to transfer. Standard predictors are static or near-static over the timescale at which fire danger varies, so
+they explain poorly why one summer burned and the preceding one did not. What changes is the state
+of the surface, to which satellite thermal observation gives partial access (Section 2.2). The physics
 linking moisture stress to combustion is universal, so portability should be most expected here,
 which makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally defined
 covariate. The expectation is sharpest for the internally normalised channels, which should
@@ -94,6 +93,7 @@ Section 4.4 reports the associations running the other way.
 > Contribution 2: 0.155 → 0.197, and the interleaved-holdout clause is qualified to the scar level,
 > as in Section 5.2. Sentences were split; no other claim changed. Contribution 3 is new: the
 > diagnostics result returns in its negative form, and "Two findings" becomes "Three findings".
+> Style pass the same day: the six sentences over 40 words were split, and nothing else changed.
 
 Three findings carry this paper, stated here as claims and established in Section 4, which carries
 every interval.
@@ -131,12 +131,12 @@ twentieth is defined in only six directions, with a degenerate interval, and is 
 to show ordering, not proof that none exists. The practical consequence is that no pre-deployment
 shortcut replaces measuring transfer on the target.
 
-Two consequences follow, as supporting results: label-free alignment by standardisation and
-covariance alignment [@Sun2016] does not repair transfer, in what we believe is its first application
-to fire susceptibility; and because the residual is conditional, the resource that closes it is
-target labels, priced in Appendix A(u).
+Two consequences follow, as supporting results. Label-free alignment by standardisation and
+covariance alignment [@Sun2016] does not repair transfer, in what we believe is its first
+application to fire susceptibility. And because the residual is conditional, the resource that
+closes it is target labels, priced in Appendix A(u).
 
 The leakage-audited, spatially blocked protocol is released with code, configuration and frozen
-outputs, so most of this can be re-run rather than taken on trust, the release being complete as
-the declarations record — which matters given evidence that wildfire transfer conclusions are sensitive
-to evaluation design [@Xu2026]. A companion paper treats the observational layer beneath this one.
+outputs, so most of this can be re-run rather than taken on trust. The release is complete, as the
+declarations record. That matters given evidence that wildfire transfer conclusions are sensitive to
+evaluation design [@Xu2026]. A companion paper treats the observational layer beneath this one.
