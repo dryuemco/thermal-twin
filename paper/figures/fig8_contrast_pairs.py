@@ -12,8 +12,19 @@ two in (a) (NDVI, Elevation), none in (b) - the two regions' supported sets do n
 intersect - which is why pair (b) drops out of the supported-index sample. The
 figure thereby shows the main claim and the index's limited coverage at once.
 
-Data: paper/figure_contrast_pairs.json (sha256 in the provenance sidecar).
-Hard asserts tie every headline number to 04_results 4.5.
+Data: paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json, the corrected
+Manavgat label (sha256 in the provenance sidecar). The frozen-label file
+paper/figure_contrast_pairs.json is kept unchanged for provenance.
+Hard asserts tie every headline number to the abstract, 01 C3 and round5/s7.
+
+2026-09-23 revision (corrected Manavgat label):
+  - (a) jointly supported set 2 -> 6 (elevation, slope, current LST, current TVDI,
+    downscaled LST, fused LST), all six opposite in sign; NDVI drops out on a
+    knife-edge Step9G interval [0.499, 0.628]; sign agreement 2/9;
+  - (a) transfer 0.470 / 0.401 -> 0.438 / 0.345; D-bar 0.83 -> 0.80, still rank 1 of 10;
+  - (b) unchanged in value; asserts re-run against the corrected file;
+  - the CI-off-chance assert is the 2-cell (~1 km, step9c) interval; at 10-cell (~5 km)
+    only Mugla -> Manavgat stays supported, which the caption states and an assert checks.
 
 2026-08-08 revision:
   - body 9 pt, minimum 8 pt (was 7 pt); canvas 190 x 102 mm (was 190 x 112);
@@ -46,7 +57,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _layout_check import check as layout_check, contrast_ratio, relative_luminance
 
 HERE = Path(__file__).resolve().parent
-SRC = HERE.parent / "figure_contrast_pairs.json"
+SRC = HERE.parent / "labelfix_rerun" / "round5" / "out_official" / "figure_contrast_pairs.json"
+S7 = HERE.parent / "labelfix_rerun" / "round5" / "s7_contrast_pair.json"
 
 COL_A = "#0072B2"  # Okabe-Ito blue  (first region of pair)
 COL_B = "#E69F00"  # Okabe-Ito orange (second region)
@@ -97,18 +109,29 @@ JS_LEFT = jointly_supported(P_LEFT, "manavgat_2021", "mugla_2021")
 JS_RIGHT = jointly_supported(P_RIGHT, "bejis_2022", "montiferru_2021")
 
 # ---- hard asserts: figure must match the manuscript text ----
-assert abs(P_LEFT["niche_overlap"]["schoener_d_mean1d"] - 0.826) < 5e-4
+assert data["meta"]["parquet_sha256_prefixes"]["manavgat_2021"] != "054a1961", "frozen-label file"
+assert abs(P_LEFT["niche_overlap"]["schoener_d_mean1d"] - 0.799) < 5e-4
 assert abs(P_RIGHT["niche_overlap"]["schoener_d_mean1d"] - 0.479) < 5e-4
-assert JS_LEFT == ["ndvi_mean", "elevation_mean"], JS_LEFT
+assert JS_LEFT == ["slope_mean", "elevation_mean", "current_lst_mean", "current_tvdi_mean",
+                   "downscaled_lst_mean", "fused_lst_mean"], JS_LEFT
 assert JS_RIGHT == [], JS_RIGHT
+assert not any(P_LEFT["per_feature_signed_auc"][k]["sign_agrees"] for k in JS_LEFT)
+AGREE_LEFT = sum(P_LEFT["per_feature_signed_auc"][k]["sign_agrees"] for k, _ in FEATURE_ORDER)
+AGREE_RIGHT = sum(P_RIGHT["per_feature_signed_auc"][k]["sign_agrees"] for k, _ in FEATURE_ORDER)
+assert (AGREE_LEFT, AGREE_RIGHT) == (2, 7), (AGREE_LEFT, AGREE_RIGHT)
 tl, tr = P_LEFT["transfer"], P_RIGHT["transfer"]
-assert abs(tl["manavgat_2021_to_mugla_2021"]["auc"] - 0.4702) < 5e-4
-assert abs(tl["mugla_2021_to_manavgat_2021"]["auc"] - 0.4010) < 5e-4
+assert abs(tl["manavgat_2021_to_mugla_2021"]["auc"] - 0.438) < 5e-4    # abstract
+assert abs(tl["mugla_2021_to_manavgat_2021"]["auc"] - 0.345) < 5e-4    # abstract
 assert abs(tr["bejis_2022_to_montiferru_2021"]["auc"] - 0.5937) < 5e-4
 assert abs(tr["montiferru_2021_to_bejis_2022"]["auc"] - 0.5483) < 5e-4
 for direction, rec in {**tl, **tr}.items():
     lo, hi = rec["ci95"]
-    assert hi < 0.5 or lo > 0.5, f"{direction} must be CI-supported off chance"
+    assert hi < 0.5 or lo > 0.5, f"{direction} must be CI-supported off chance (2-cell)"
+# the caption's 5 km statement: only Mugla -> Manavgat keeps support at 10-cell blocking
+V10 = {d: r["v10"] for d, r in json.loads(S7.read_text(encoding="utf-8"))["official"]["transfer"].items()}
+assert V10 == {"manavgat_2021_to_mugla_2021": "uncertain", "mugla_2021_to_manavgat_2021": "below",
+               "bejis_2022_to_montiferru_2021": "uncertain",
+               "montiferru_2021_to_bejis_2022": "uncertain"}, V10
 
 # the region cue must not rest on hue alone
 HUE_CONTRAST = contrast_ratio((0x00 / 255, 0x72 / 255, 0xB2 / 255),
@@ -118,6 +141,14 @@ assert STYLE_A != STYLE_B, "regions need a non-colour cue"
 # check it is nonetheless dark enough to read against white
 SHADE_RGB = tuple(int(SHADE[i:i + 2], 16) / 255 for i in (1, 3, 5))
 SHADE_CONTRAST = contrast_ratio(SHADE_RGB, (1.0, 1.0, 1.0))
+
+# x range: every CI must lie inside it (Manavgat elevation reaches 0.179 on the corrected label)
+XLIM = (0.15, 0.82)
+for p_ in (P_LEFT, P_RIGHT):
+    for fk, _ in FEATURE_ORDER:
+        for rk, v in p_["per_feature_signed_auc"][fk].items():
+            if isinstance(v, dict):
+                assert XLIM[0] < v["lo"] and v["hi"] < XLIM[1], (fk, rk, v)
 
 MM = 1 / 25.4
 FIG_W, FIG_H = 190 * MM, 102 * MM
@@ -183,7 +214,7 @@ def draw_panel(ax_main, ax_bar, pair, region_a, region_b, panel_tag,
                        lw=0.9, ls=(0, (4, 2)), zorder=1)
     data_artists.append((ch, f"chance:{panel_tag}"))
 
-    ax_main.set_xlim(0.18, 0.82)
+    ax_main.set_xlim(XLIM)
     ax_main.set_xticks([0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8])
     ax_main.set_ylim(ys[-1] - 2.6, ys[0] + 0.85)
     ax_main.set_yticks(ys)
@@ -224,8 +255,9 @@ draw_panel(
     axL, axLb, P_LEFT, "manavgat_2021", "mugla_2021", "a",
     f"Manavgat{NDASH}Muğla",
     f"Schoener {DBAR} = {nl['schoener_d_mean1d']:.2f} — highest overlap",
-    "transfer 0.470 / 0.401 — both below chance",
-    f"jointly supported features: {len(JS_LEFT)} (NDVI, Elevation)",
+    f"transfer {tl['manavgat_2021_to_mugla_2021']['auc']:.3f} / "
+    f"{tl['mugla_2021_to_manavgat_2021']['auc']:.3f} — both below chance",
+    f"jointly supported: {len(JS_LEFT)}, all opposite in sign; agree {AGREE_LEFT}/9",
     show_ylabels=True,
 )
 draw_panel(
@@ -262,10 +294,18 @@ except PermissionError:
     "script": "paper/figures/fig8_contrast_pairs.py",
     "source": {"path": "paper/figure_contrast_pairs.json", "sha256": sha},
     "outputs": ["fig8_contrast_pairs.pdf", "fig8_contrast_pairs.svg"],
-    "asserts": ("D-bar means 0.826/0.479; jointly supported features exactly "
-                "[NDVI, Elevation] in (a) and [] in (b); four transfer AUCs and "
-                "CI-off-chance checks; region cue asserted non-colour; "
-                "enforced at build time"),
+    "asserts": ("corrected-label source (Manavgat parquet prefix is not the frozen 054a1961); "
+                "D-bar means 0.799/0.479; jointly supported features exactly the six "
+                "[slope, elevation, current LST, current TVDI, downscaled LST, fused LST] in (a), "
+                "all opposite in sign, and [] in (b); sign agreement 2/9 and 7/9; four transfer "
+                "AUCs (0.438, 0.345 from the abstract; 0.594, 0.548) and 2-cell CI-off-chance "
+                "checks; 10-cell verdicts from round5/s7 (only Mugla->Manavgat supported); "
+                "region cue asserted non-colour; enforced at build time"),
+    "source_note": ("the niche measures in the source were computed on the 2026-09-19 corrected "
+                    "Manavgat parquet (e4ab8b85); it equals the re-frozen one (5a5e876c) in all 79 "
+                    "shared columns, the re-freeze adding only historical_burn_excluded (all False)"),
+    "s7": {"path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",
+           "sha256": hashlib.sha256(S7.read_bytes()).hexdigest()},
     "encoding": ("panel headers: overlap + transfer verdict primary; arrowhead fill = "
                  "per-region CI excludes 0.5 (untouched); region = colour AND line "
                  "style AND vertical offset; supported-index coverage limit stated "
@@ -288,5 +328,5 @@ except PermissionError:
                     f"{len(data_artists)} data artists registered",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False))
-print(f"fig7 written; source sha256 {sha[:12]}...; "
+print(f"fig8 written; source sha256 {sha[:12]}...; "
       f"jointly supported a={JS_LEFT} b={JS_RIGHT}; all asserts passed")
