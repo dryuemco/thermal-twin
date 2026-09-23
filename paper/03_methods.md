@@ -214,7 +214,7 @@ H_K = \Big\{ i \in V_R : \min_{j \in K} \big( |r_i - r_j| + |c_i - c_j| \big) \l
 ```
 
 with $`m = \mathrm{round}(2 / 0.45) = 4`$ grid steps, computed as $`m`$ steps of 4-connected dilation. Its negatives are all fire-adjacent. Four evaluations
-use it (Table 2). A scores out-of-fold predictions from 5-fold blocked cross-validation ($`k = 10`$) on
+use it (Appendix Table A(i).1). A scores out-of-fold predictions from 5-fold blocked cross-validation ($`k = 10`$) on
 $`V_R`$, and B scores the same predictions on $`H_K`$. B is thus the **same blocked model
 restricted** to the scar area, which isolates the evaluation region from the training regime. C is
 **leave-one-scar-out**: a model fitted on $`V_R \setminus H_K`$ is scored on $`H_K`$, skipped if
@@ -237,7 +237,7 @@ d_i = 0.45 \min_{j \in P_R} \big\lVert (r_i, c_i) - (r_j, c_j) \big\rVert_2, \qq
 ```
 
 Every burned cell has $`d_i = 0`$ and is kept, so only far-field negatives leave. In transfer the
-model is fitted on $`F_s(r_s)`$ and scored on $`F_t(r_t)`$, with the pairs of Table 3 and
+model is fitted on $`F_s(r_s)`$ and scored on $`F_t(r_t)`$, with the pairs of Appendix Table A(w).1 and
 $`r = \infty`$ for the region-wide frame.
 
 **Every collar frame, $`H_K`$ and $`F_R(r)`$ alike, is defined from burned cells, so it is

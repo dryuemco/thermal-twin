@@ -241,3 +241,188 @@ single-class, so **the 20-cell row should be read as indicative rather than as a
 10-cell row is the coarsest blocking this design supports properly, every region there having 16 to
 70 positive-carrying blocks, and the increment holds at that scale in all five regions
 (`referee2_numbers.md`, block C; Appendix A(c)).
+
+## A(kk). Appendix A(w) and the Section 4.4 provenance paragraph, frozen label
+
+Superseded 2026-09-23, when A(w) was aligned with the corrected Manavgat label. Kept as it stood.
+Its provenance paragraph sized the correction after re-reading Muğla alone and stated that
+Manavgat's replacement file agreed with the published one; the second statement is wrong
+(both replaced files differ from their frozen copies), so its size estimate is withdrawn.
+
+### Section 4.4, provenance paragraph
+
+**A data-provenance defect in this arm was found and corrected.** One region's predictor file at the
+canonical path had come to differ from the one the frozen tables were computed on, so every arm here
+was re-run against the frozen export. The correction moves forty of a hundred per-direction values by
+up to 0.022. It leaves **every headline quantity above unchanged to within 0.0012**, and the signed
+AUCs of that region's two channels move by at most 0.008, with no verdict changing (Appendix A(w)).
+The table reports the corrected values, and reproduces Table B9's as-drawn mean of 0.527 and 13 of
+20. **The baseline control must be restated on this frame.** The static baseline transfers at 0.565
+against 0.589, a paired difference of +0.024 rather than +0.007. The control therefore holds in kind,
+but the gap is about three times larger once frames are comparable, and about twice as large at the
+5 km collar.
+
+### Appendix A(w)
+
+#### A(w). The frame test, elaborated
+
+Section 4.4 states these results; the paragraphs it condensed are here.
+
+**The five areas of interest are not comparable frames.** Each is a rectangle drawn around a fire,
+and they differ by an order of magnitude in how much unburnt far field they enclose: the share of
+modelled cells beyond 10 km of any burned cell runs from **2.1 %** in Montiferru to **63.1 %** in
+Bejís (Appendix B, Table B6). That far field is not a neutral addition — in Manavgat the median
+elevation of modelled cells rises from 472 m within 5 km of the fire to 1,273 m at 20 to 50 km,
+against 512 m for the burned cells themselves.
+
+**Under an equalised frame the sign reversals of Appendix A(s) do not survive.** Restricting every
+region to cells within 10 km of any burned cell removes only far-field negatives; every burned cell
+is at distance zero and is retained at any radius, so the protection against choosing a flattering
+radius is the sweep below, not the retention of positives. On the equalised frame all five regions
+agree in sign on elevation, on LST and on TVDI, and both bootstrap-supported elevation reversals of
+Table B3 disappear. Under this paper's own criterion from Section 3.10 — each region's own 10-cell
+block-bootstrap interval must exclude 0.5 — **no between-region reversal remains
+bootstrap-supported**. The qualifier matters: this arm covers the five regions, and the
+same-geography two-fire arm is treated separately in Appendix A(o), where only the year-invariant
+channels can be given a verdict at all. Two features
+straddle 0.5 at the point estimate and neither is supported: `lst_anomaly_mean` at 0.392 [0.324,
+0.460] in Bejís against 0.584 [**0.497**, 0.669] in Evia, where Evia's interval includes 0.5 by
+0.003; and `tvdi_difference_mean` at 0.509 [0.417, 0.597] in Muğla against 0.384 [0.288, 0.504] in
+Montiferru, where no region's interval excludes 0.5. These are the two internally differenced
+channels. An earlier draft treated the first as uniquely informative because it carries no lapse-rate
+signal; that does not hold, since the second is equally decorrelated from elevation and behaves the
+same way.
+
+**A weaker instrument does support the anomaly result.** Table B3's note commits this paper to a
+difference interval on the pair as the sharper test; applied under the collar, four pairs have
+opposite-sided point estimates **and** a difference interval excluding zero, all on
+`lst_anomaly_mean` and three of the four involving Evia. Three caveats keep it weak: nine of ninety
+feature-by-pair differences clear zero against about 4.5 expected under the null with no
+multiplicity correction, the nine features are effectively two to three dimensions, and Evia's
+support status turns on 0.003. **The honest statement is that no reversal meets this paper's strict
+criterion under the collar, and that the LST anomaly differs between regions on the weaker
+instrument** (Appendix A(l)).
+
+**The sign the five regions now agree on is not the one the dryness framing predicts.** In every
+region a hotter pre-fire surface is associated with **less** burning, and the same holds for TVDI.
+It is neither a lapse-rate artefact nor greenness acting through fuel load: on mutual adjustment the
+surviving channel is LST, not NDVI. Two caveats bound it — in two regions it is a residual spatial
+gradient that disappears when distance to the nearest burned cell is stratified inside the collar,
+and interval support is not uniform, so "all five agree" is a statement about point estimates. The
+absolute thermal channels therefore behave here as **static land-surface descriptors** rather than
+as a dryness index, and the two internally differenced channels carry no consistent cross-region
+direction at all. Compositing depth was not tested and remains an open alternative. Per-region
+values are in Appendix A(k); Section 5.2 states the consequence for the motivation of Section 1.2.
+
+**The same test determines what the diagnostics of Appendix D can establish.** The only two
+candidates there with intervals excluding zero measure agreement in the sign of each predictor's
+association between source and target, counted over features interval-supported in both. Those are
+built out of exactly the signed AUCs this section has shown to be frame artefacts, and in Section
+4.6 they are correlated against transfer measured on the same unequal frames. Recomputing both sides under the 10 km collar gives Table 3 of the body (Section 4.4), which is not
+repeated here.
+
+The two fail differently and both fail. Once frames are equalised every region pair agrees in sign
+on every jointly supported feature, so the agreement fraction has no variance left. The supported
+cosine keeps a trace of variance — unanimous signs fix directions but not magnitudes — and simply
+stops tracking transfer. This is not a marginal shift: features supported in both regions *rise*
+from 1.40 to 3.40 per direction, so the diagnostics are better determined and unanimous. The
+disagreements they were reading were the far fields.
+
+Two scope statements belong with Table 3 and are given in Appendix A(o): the full-frame values
+here are not numerically the published ones, because the support test is itself bootstrap-dependent;
+and only these diagnostics were recomputed on the collar, so the other eighteen are unknown against
+the equalised transfer vector rather than shown to be null.
+
+This settles what Contribution 3 can claim. It is not that conditional similarity orders transfer
+where marginal similarity fails; it is that **no diagnostic tested here has been shown to order
+transfer**. The eighteen marginal, niche and regime candidates do not order it on the frames as
+drawn, and the two conditional variants that do stop doing so once the frames are comparable,
+because what they were reading is how the study rectangles were drawn. The practitioner's position
+is therefore worse than the as-drawn analysis suggests, not better: there is no screen, and the
+apparent exception is an artefact. Appendix D reports its numbers as computed under the
+original analysis protocol, which is what a reader following that protocol would obtain.
+
+**The same-geography arm of Appendix A(m) does not survive either, and it is the most extreme case in
+the cohort.** A fixed study area is not a fixed evaluation frame: its 2022 arm has 93.2 % of cells
+beyond 10 km of any burned cell against 55.3 % for 2021. Under the same collar the 2021 elevation figure barely
+moves while the 2022 figure crosses to the same side of 0.5 with an interval covering chance, so the
+elevation reversal does not survive equalisation. **This does not generalise across features**: on
+the same arm two absolute thermal channels become supported reversals under the collar that were not
+reversals as drawn, so equalisation moves this arm's reversal rather than removing it. The
+seven-feature table is in Appendix A(o); values in Appendix A(m).
+
+**The within-region increment survives the same correction**, remaining positive in all five
+regions on the equalised frame with a mean of +0.077 against +0.086 as drawn, and halving but
+staying positive in all five at a 5 km collar. The paper's one surviving predictor-level positive
+claim therefore holds on the frame it argues is the correct one. Per-region values are in Appendix A(o).
+
+**The data-provenance correction.** Muğla's 500 m modelling dataset at the canonical path had been
+overwritten by a quality-screening rebuild after the frozen tables were computed, so this section's
+scripts had read a version of that one region differing from Tables 1 and B9 in
+`downscaled_lst_mean` and `fused_lst_mean`. The two files agree on every other column, and which of them is
+canonical is not a matter of inference: the pipeline records a SHA-256 for each region's modelling
+dataset, and that hash identifies the frozen copy and not the file that had replaced it. The
+difference is the data and not the fitting, since both give a within-region baseline of 0.6980 at
+10-cell blocking while the thermal arm gives 0.7834 against the frozen 0.7773. The pipeline's own
+frozen 10-cell ceiling for this region, computed independently in a separate robustness namespace,
+is 0.6980 and 0.7773, which is the frozen file. Two regions' files carry the rebuild's
+timestamp, Manavgat's and Muğla's, so both were replaced; the distinction that matters is whether
+the replacement agrees with what was published. Manavgat's does, reproducing its Table 1 row to the
+printed precision at 0.748 and 0.797, as does the rebuild's own reported increment interval. Muğla's
+does not. Bejís, Evia and Montiferru were not touched. Every arm of Section 4.4 was therefore re-run
+with Muğla read from the surviving frozen copy and the other four regions as they stand, which is
+the configuration Tables 1 and B9 were computed under. The correction moves forty of the hundred per-direction transfer values by
+up to 0.022, the largest being Muğla to Montiferru at 0.509 → 0.531. It leaves every headline
+quantity of Table 3 unchanged to within 0.0012, the largest being the full-to-10 km paired delta at
++0.0021 against +0.0033: the equalised mean 0.6163 against 0.6166, its paired
+delta +0.0231 against +0.0234, and the above-chance counts identical in four rows of five, the 5 km
+row moving from 18 to 19 as one direction crosses 0.5. The signed-AUC results are unaffected in
+substance — only Muğla's two channels move, by at most 0.008, and the same two features straddle 0.5
+on each frame. Sources `aoi_frame_transfer_frozen_mugla.csv`, `aoi_frame_auc_frozen_mugla.csv`,
+`frozen_mugla_recheck.json`; code `code/frozen_mugla_verify_aoi_transfer.py`.
+
+**The transfer matrix moves as well.** Restricting source and target to the same collar gives Table 3 of the body (Section 4.4), which is
+not repeated here.
+
+The reference arm reproduces the frozen matrix, at 0.541 against Table B9's 0.541 and 14 of 20
+exactly, so this is measuring the same quantity. **The baseline control moves with it and must be
+restated on this frame**: the static baseline transfers at 0.593 against the thermal model's 0.616,
+a paired difference of +0.023 rather than the +0.004 of the frame as drawn. The control still holds
+in kind — the static predictor class is not the portable one either — but the gap between them is
+about six times larger once frames are comparable, and Sections 1, 5 and 6 quote only the as-drawn
+pair. Table 3's above- and below-chance counts are point counts. Under the same 10-cell block bootstrap used for Table B9, at 1000
+replicates, the full frame gives nine directions above chance and four below with interval support,
+and the collar frame fifteen above and one below, so the headline movement is six to one at the
+point estimate and **four to one with interval support** (`aoi_frame_transfer.csv`, which carries
+the per-direction bounds). The largest movers are Bejís to Evia, 0.383 to
+0.602, and Bejís to Manavgat, 0.440 to 0.601.
+
+**What this settles, and what it leaves standing.** Five quantities reported in the sections that
+follow are properties of the frames rather than of the predictor-burning relationship, and are
+identified as such where they appear: the count of six anti-predictive directions, which becomes
+one; the sign reversal of elevation, LST and TVDI as a mechanism; the sign-agreement diagnostic of
+Appendix D; the same-geography arm of Appendix A(m); and the paired thermal contribution, which is
++0.004 as drawn and +0.023 equalised. What the correction leaves standing is the central negative
+result, and its size must be stated on a matched comparison. Setting the equalised transfer mean of
+0.616 against a within-region reference of about 0.87 would compare a 10 km-collar number with a
+full-rectangle one at 1 km blocking, which is the most generous reference in the paper and the very
+figure Section 4.3 argues is an upper bound. Recomputing the within-region
+reference on the same frame and at the 5 km blocking this design defends
+(`matched_frame_gap.csv`, `paper/code/verify_matched_gap.py`):
+
+| Frame | Within-region (5 km blocking) | Mean transfer | Gap |
+|---|---:|---:|---:|
+| full rectangle | 0.798 | 0.540 | 0.258 |
+| 10 km collar | **0.772** | **0.616** | **0.155** |
+| 5 km collar | 0.737 | 0.608 | 0.129 |
+
+Paired by target region, the collar shortfall is **+0.155 [+0.094, +0.217]** (Student *t* over the
+five target regions; per-region +0.086 Montiferru, +0.127 Manavgat, +0.161 Muğla, +0.196 Bejís,
++0.206 Evia), which reproduces the point estimate above and excludes zero. The shortfall therefore
+survives on every matched row, but it is **0.155 at the collar, not the 0.25 the unmatched
+comparison implies**, and it shrinks as the frame approaches the fire —
+which is where a susceptibility surface is actually used.
+
+This is Section 4.3's effect acting between regions rather than within one, on frames whose
+fire-adjacent share ranges from 37 % to 98 %. Appendix C.5(ix) records the frame as a limitation of
+this cohort rather than of the method.

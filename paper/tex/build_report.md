@@ -53,14 +53,10 @@ converter made is listed so it can be reviewed.
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped
 
-## table (30)
+## table (26)
 
 - Within-region baseline versus thermal perfor: 6 cols, est. width 79 chars -> small, 1 wrapping
 - Within-region baseline versus thermal performanc: 1 of 6 columns wrap (widest cell 22 chars)
-- The four evaluations, scored on identical ce: 5 cols, est. width 115 chars -> footnotesize, 2 wrapping
-- The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
-- Cross-region transfer under equalised evalua: X columns would get 3 chars each (min 12) - set as plain tabular and scaled to fit instead
-- Cross-region transfer under equalised evalua: 7 cols, est. width 131 chars -> scriptsize
 - : 6 cols, est. width 157 chars -> scriptsize, 6 wrapping
 - : 6 of 6 columns wrap (widest cell 24 chars)
 - no caption; emitted unnumbered so it does not consume a table number _(x8)_
