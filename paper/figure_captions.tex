@@ -116,19 +116,23 @@
   and is \emph{not} a transfer result. The diverging colour scale is centred
   exactly on chance (0.5, marked by the black rule on the colour bar), so
   orange is below chance and purple above. Each panel header states that
-  panel's range: adaptation compresses the spread from 0.326--0.686 (raw) to
-  0.431 to 0.630 (z-score) and 0.443 to 0.624 (CORAL). It pulls the extremes
-  toward chance rather than lifting transfer. Cells below chance are hatched.
+  panel's range: adaptation narrows the spread from 0.314--0.677 (raw) to
+  0.302--0.630 (z-score) and 0.406--0.624 (CORAL). It compresses the matrix
+  toward chance rather than lifting transfer, with one exception at the low end:
+  under z-scoring Bej\'is$\rightarrow$Manavgat moves further below chance
+  (0.314 to 0.302). Cells below chance are hatched.
   The hatch is a redundant cue for print: a diverging palette is symmetric in
   luminance about its centre, so in greyscale a below-chance cell would
   otherwise be indistinguishable from an equally distant above-chance one.
   Hatching follows the \emph{exact} value while the printed label is rounded to
-  two decimals, so two cells print ``0.50'' with different hatching: CORAL
-  Bej\'is$\rightarrow$Evia is 0.4991 (hatched, below chance) and
-  z-score Evia$\rightarrow$Mu\u{g}la is 0.5013 (un-hatched, above chance).
-  Every cell carries its value, and every label's colour is chosen by measured
-  WCAG contrast against that cell's rendered colour (worst case 4.7:1).
-  Confidence intervals for these directions are given in Table~B9.}
+  two decimals, so three cells print ``0.50'' with different hatching: CORAL
+  Bej\'is$\rightarrow$Evia is 0.4991 (hatched, below chance), while z-score
+  Evia$\rightarrow$Mu\u{g}la is 0.5013 and CORAL Manavgat$\rightarrow$Evia
+  0.5043 (both un-hatched, above chance). Every cell carries its value, and
+  every label's colour is chosen by measured WCAG contrast against that cell's
+  rendered colour (worst case 4.6:1). Confidence intervals for these directions
+  are given in Table~B9. Manavgat directions are on the corrected label
+  (Section~\ref{sec:3.2}).}
   \label{fig:transfer-matrix}
 \end{figure}
 

@@ -1,15 +1,47 @@
 {
  "figure": "Fig. 4 - transfer matrices raw/z/CORAL",
  "script": "paper/figures/fig4_transfer_matrix.py",
- "data": "paper/figures/data/fig_data.json (per-source sha256 inside; step10_metrics.json of all 10 pairs)",
- "asserts": "spot values vs 04 Table 4; panel ranges vs 4.3 claims (0.326-0.686 / 0.431-0.630 / 0.443-0.624); worst cell-label contrast >= 4.5:1",
+ "data": {
+  "path": "paper/figures/data/fig_data_corrected.json",
+  "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
+  "note": "step10_metrics.json of all 10 pairs, corrected-label overlay; per-source sha256 inside"
+ },
+ "asserts": "all 60 cells equal Table B9 (A2_diagnostics.md) at 3 dp, zero tolerance; panel ranges 0.314-0.677 / 0.302-0.630 / 0.406-0.624 (04 4.5); 7 raw directions below chance (Table 3); every value inside the colour norm 0.30-0.70; worst cell-label contrast >= 4.5:1",
+ "below_chance": {
+  "raw": [
+   "bejis_2022_to_evia_2021_extended",
+   "bejis_2022_to_manavgat_2021",
+   "evia_2021_extended_to_bejis_2022",
+   "manavgat_2021_to_bejis_2022",
+   "manavgat_2021_to_mugla_2021",
+   "montiferru_2021_to_manavgat_2021",
+   "mugla_2021_to_manavgat_2021"
+  ],
+  "zscore": [
+   "bejis_2022_to_manavgat_2021",
+   "evia_2021_extended_to_manavgat_2021",
+   "manavgat_2021_to_bejis_2022",
+   "manavgat_2021_to_mugla_2021",
+   "montiferru_2021_to_manavgat_2021",
+   "mugla_2021_to_manavgat_2021"
+  ],
+  "coral": [
+   "bejis_2022_to_evia_2021_extended",
+   "bejis_2022_to_manavgat_2021",
+   "evia_2021_extended_to_manavgat_2021",
+   "manavgat_2021_to_bejis_2022",
+   "manavgat_2021_to_mugla_2021",
+   "montiferru_2021_to_manavgat_2021",
+   "mugla_2021_to_manavgat_2021"
+  ]
+ },
  "contrast": {
   "method": "WCAG 2.x relative luminance; label colour chosen per cell by contrast ratio against the actual colormap RGB for that cell, not by thresholding the AUC value",
   "threshold": 4.5,
-  "worst_ratio": 4.7,
-  "worst_cell": "coral montiferru_2021->evia_2021_extended = 0.6239",
-  "black_labels": 54,
-  "white_labels": 6,
+  "worst_ratio": 4.6,
+  "worst_cell": "raw mugla_2021->manavgat_2021 = 0.345",
+  "black_labels": 51,
+  "white_labels": 9,
   "greyscale": "ratio depends only on relative luminance, which a luminance greyscale conversion preserves, so the colour verdict is the greyscale verdict; a rendered proof is written to fig4_transfer_matrix_greyscale.png"
  },
  "below_chance_hatch": {
@@ -17,6 +49,7 @@
   "rule": "hatched iff the EXACT value < 0.5 (labels are rounded to 2 dp)",
   "chance_edge_cells": [
    "zscore evia_2021_extended->mugla_2021 = 0.5013",
+   "coral manavgat_2021->evia_2021_extended = 0.5043",
    "coral bejis_2022->evia_2021_extended = 0.4991"
   ]
  },
@@ -31,5 +64,5 @@
   "minimum": 8.0
  },
  "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
- "environment": "matplotlib 3.11.1"
+ "environment": "matplotlib 3.11.0"
 }

@@ -50,7 +50,7 @@ converter made is listed so it can be reviewed.
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 142
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 157
 - TABLE WITHOUT CAPTION in A2_diagnostics near md line 171
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 198
+- TABLE WITHOUT CAPTION in A2_diagnostics near md line 200
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
 
 ## stripped (5)
