@@ -156,7 +156,7 @@ if (fs.existsSync(SUPFILE)) {
   const bad = [], old = [];
   let nRef = 0;
   for (const [name, text] of Object.entries(docs)) {
-    let rest = text.replace(/\bTables?\s+(S\d+(?:(?:,\s+|\s+and\s+|\s*[–-]\s*)S\d+)*)/g, (m, lst) => {
+    let rest = text.replace(/\bTables?[\s~]+(S\d+(?:(?:,\s+|\s+and\s+|\s*[–-]\s*)S\d+)*)/g, (m, lst) => {
       for (const t of lst.split(/,\s+|\s+and\s+|\s*[–-]\s*/)) { nRef++; if (!tabs.has(t)) bad.push(`${name}: Table ${t}`); }
       return ' ';
     });
@@ -168,7 +168,7 @@ if (fs.existsSync(SUPFILE)) {
       if (!heads.has(sec)) bad.push(`${name}: ${m[0]}`);
       else if (m[2] && !(sec === 'S3.5' && items.has(m[2]))) bad.push(`${name}: ${m[0]}`);
     }
-    for (const m of text.matchAll(/\b[Aa]ppendi(?:x|ces)\b|\bTables?\s+(?:[A-D]\d+|A\([a-z]+\)\.\d)\b|(?<![\w$])A\((?:[a-z]|aa|ix)\)(?!\.)|(?<![\w.])C\.\d\b/g))
+    for (const m of text.matchAll(/\b[Aa]ppendi(?:x|ces)\b|\bTables?[\s~]+(?:[A-D]\d+|A\([a-z]+\)\.\d)\b|(?<![\w$])A\((?:[a-z]|aa|ix)\)(?!\.)|(?<![\w.])C\.\d\b/g))
       old.push(`${name}: ${m[0]}`);
     if (name === 'supplement')
       for (const m of text.matchAll(/\bTables?\s+[2-9]\b/g)) old.push(`${name}: ${m[0]}`);
