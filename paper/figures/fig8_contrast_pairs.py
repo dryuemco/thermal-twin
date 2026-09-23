@@ -159,10 +159,10 @@ B10_EXPECTED = [
     f"{_ord(_cv[BM_][3])}, {_ord(_cv[MB_][3])} |",
     f"| target cells inside the AoA | {_aoa[MM_]:.3f}, {_aoa[MG_]:.3f} | — |",
 ]
-_supp = (HERE.parent / "supplementary_appendices.md").read_text(encoding="utf-8")
+_supp = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
 for _row in B10_EXPECTED:
     assert _row in _supp, f"Table B10 row not as computed: {_row}"
-_as = " ".join(_supp[_supp.index("## A(s)."):_supp.index("## A(v).")].split())
+_as = " ".join(_supp[_supp.index("## S1.16 "):_supp.index("## S1.17 ")].split())   # former A(s)
 _lo, _hi = _ct.iloc[0], _ct.iloc[-1]
 for _s in (f"{tl[MM_]['auc']:.3f} and {tl[MG_]['auc']:.3f} as drawn",
            f"{_cv[MM_][0]:.3f} and {_cv[MG_][0]:.3f} under the collar",

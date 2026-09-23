@@ -54,7 +54,7 @@ hazard *indicators* rather than observed burned area, and it applies no adaptati
 [@Xu2026] argue that wildfire transfer conclusions depend strongly on evaluation design. We address
 that caution in two ways: the protocol was fixed in a project log before the diagnostics were
 computed, and every sensitivity axis is reported. That log is not a formal pre-registration, and
-Appendix D states what was fixed and when. Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a
+Section S4 states what was fixed and when. Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a
 1 km Mediterranean datacube.
 
 **Evaluation extent and AUC.** Species distribution modelling settled long ago that the area a model

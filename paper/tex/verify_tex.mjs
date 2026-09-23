@@ -18,12 +18,11 @@ const read = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
 // Appendices are part of the body the converter emits, so they must be part of
 // the Markdown side of the comparison too; otherwise every number that lives
 // only in an appendix reads as invented.
-// A1_sensitivity is released as paper/supplementary_appendices.md rather than
-// printed, so it is no longer part of the built document and must not be
-// compared against it: every number in it would read as one the LaTeX dropped.
+// Since 2026-09-23 every appendix is in paper/supplementary.md (S1-S5), which is
+// typeset on its own; the manuscript prints no appendix, so the supplement must
+// not be compared against it: every number in it would read as one the LaTeX dropped.
 const SECTIONS = ['01_introduction', '02_related_work', '03_methods',
-                  '04_results', '05_discussion', '06_conclusions',
-                  'A2_diagnostics', 'A3_protocol']
+                  '04_results', '05_discussion', '06_conclusions']
   .filter(f => fs.existsSync(path.join(path.resolve(process.env.PAPER_ROOT || 'paper'), f + '.md')));
 
 let fail = 0;
@@ -123,7 +122,7 @@ check('every \\cite key resolves in REFERENCES.bib', badKeys.length === 0, badKe
 // The supplementary appendices are released as Markdown with the paper and cite
 // from the same bibliography (added 2026-09-19). Their keys must resolve too, and
 // an entry cited only there is cited, not an orphan.
-const SUPFILE = path.join(ROOT, 'supplementary_appendices.md');
+const SUPFILE = path.join(ROOT, 'supplementary.md');
 const supCited = new Set();
 if (fs.existsSync(SUPFILE)) {
   const sup = fs.readFileSync(SUPFILE, 'utf8').replace(/<!--[\s\S]*?-->/g, '')
@@ -135,6 +134,50 @@ const badSup = [...supCited].filter(k => !bibKeys.has(k));
 check('every supplementary citation resolves in REFERENCES.bib', badSup.length === 0, badSup.join(', '));
 const uncited = [...bibKeys].filter(k => !cited.has(k) && !supCited.has(k));
 check('every bibliography entry is cited (manuscript or supplement)', uncited.length === 0, uncited.join(', '));
+
+// ---------------------------------- 3b. references into the supplement --
+// Sections are S1, S1.1, S1.1.1 (headings of supplementary.md); tables are
+// Table S1, S2 ... (bold captions), numbered independently of the sections;
+// S3.5(ix) names limitation (ix) of S3.5. Every such reference in the
+// manuscript and in the supplement itself must resolve, and no former
+// appendix name (Appendix A(x), Table B4, C.5(ix) ...) may remain.
+// paper/SUPPLEMENT_MAP.md records the renaming.
+if (fs.existsSync(SUPFILE)) {
+  const clean = s => s.replace(/<!--[\s\S]*?-->/g, '').split(/\r?\n/)
+    .filter(l => !/^>\s?/.test(l)).join('\n').replace(/`[^`]*`/g, '');
+  const supRaw = fs.readFileSync(SUPFILE, 'utf8');
+  const heads = new Set([...supRaw.matchAll(/^#{1,4}\s+(S\d+(?:\.\d+)*)\s/gm)].map(m => m[1]));
+  const tabs = new Set([...supRaw.matchAll(/^\*\*Table\s+(S\d+)\.\s/gm)].map(m => m[1]));
+  const lim = (supRaw.split(/^## S3\.5 /m)[1] || '').split(/^## /m)[0];
+  const items = new Set([...lim.matchAll(/^\(([ivx]+)\)\s/gm)].map(m => m[1]));
+  const MAINREF = [...SECTIONS, '00_abstract', 'highlights'].filter(f => fs.existsSync(path.join(ROOT, f + '.md'))).map(f => read(f + '.md'));
+  const caps = fs.existsSync(path.join(ROOT, 'figure_captions.tex')) ? [read('figure_captions.tex')] : [];
+  const docs = { manuscript: clean([...MAINREF, ...caps].join('\n')), supplement: clean(supRaw) };
+  const bad = [], old = [];
+  let nRef = 0;
+  for (const [name, text] of Object.entries(docs)) {
+    let rest = text.replace(/\bTables?\s+(S\d+(?:(?:,\s+|\s+and\s+|\s*[–-]\s*)S\d+)*)/g, (m, lst) => {
+      for (const t of lst.split(/,\s+|\s+and\s+|\s*[–-]\s*/)) { nRef++; if (!tabs.has(t)) bad.push(`${name}: Table ${t}`); }
+      return ' ';
+    });
+    rest = rest.replace(/^#{1,4}\s+S\d+(?:\.\d+)*\s.*$/gm, ' ');   // the headings themselves
+    // not after a backslash: \S3.10 in the captions is LaTeX's section sign for main-text Section 3.10
+    for (const m of rest.matchAll(/(?<![\w.\-/\\])S(\d+(?:\.\d+)*)(?:\(([ivx]+)\))?(?![\w])/g)) {
+      nRef++;
+      const sec = 'S' + m[1];
+      if (!heads.has(sec)) bad.push(`${name}: ${m[0]}`);
+      else if (m[2] && !(sec === 'S3.5' && items.has(m[2]))) bad.push(`${name}: ${m[0]}`);
+    }
+    for (const m of text.matchAll(/\b[Aa]ppendi(?:x|ces)\b|\bTables?\s+(?:[A-D]\d+|A\([a-z]+\)\.\d)\b|(?<![\w$])A\((?:[a-z]|aa|ix)\)(?!\.)|(?<![\w.])C\.\d\b/g))
+      old.push(`${name}: ${m[0]}`);
+    if (name === 'supplement')
+      for (const m of text.matchAll(/\bTables?\s+[2-9]\b/g)) old.push(`${name}: ${m[0]}`);
+  }
+  check(`every supplement reference resolves (${nRef} references, ${heads.size} sections, ${tabs.size} tables)`,
+        bad.length === 0, [...new Set(bad)].slice(0, 12).join('; '));
+  check('no former appendix name and no "appendix" wording remains (Appendix A(x), Table B4, C.5(ix) ...)', old.length === 0,
+        [...new Set(old)].slice(0, 12).join('; '));
+}
 
 // --------------------------------------------- 4. LaTeX structural sanity --
 const braces = [...tex].reduce((a, c) => a + (c === '{' ? 1 : c === '}' ? -1 : 0), 0);

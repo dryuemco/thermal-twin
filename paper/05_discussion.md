@@ -29,7 +29,7 @@ set fixed in advance was shown to do that.
 The within-region increment and the transfer failure are measured at different separations, and
 Section 4.3 shows most of the difference is already present inside a single region. It holds where held-out cells are interleaved with training cells, and
 most of it is gone once they are not, before the fire or the region changes. It is not an artefact to
-be explained away: it survives every sensitivity arm of Appendix A(a)–(h), and window closure stays
+be explained away: it survives every sensitivity arm of Sections S1.1–S1.8, and window closure stays
 positive and supported in all five regions on the corrected label. But it is established under
 interleaved validation and not beyond it. Even there the window-closure arm **weakens monotonically
 in Evia**, so what holds everywhere is survival, not improvement.
@@ -43,9 +43,8 @@ meaning one thing in one place and another elsewhere compares two systems rather
 instability. **We designed the two-Muğla-events arm to answer that objection and it does not answer
 it**: Section 4.4 shows it is the most extreme frame artefact in the cohort. Three further confounds
 were never resolved in any case. Season and year **cannot be resolved in this study area**, the
-population is not fixed, and the positive-block count is below this design's own floor (Appendix
-C.5(ii)). With one fire per region everywhere else and that arm withdrawn, **this cohort provides no
-evidence that the transfer shortfall is regional rather than event-specific**. Appendix A(t) adds a
+population is not fixed, and the positive-block count is below this design's own floor (Section S3.5(ii)). With one fire per region everywhere else and that arm withdrawn, **this cohort provides no
+evidence that the transfer shortfall is regional rather than event-specific**. Section S1.18 adds a
 length scale for the within-region decay but cannot turn it into an attribution either.
 
 
@@ -54,8 +53,8 @@ length scale for the within-region decay but cannot turn it into an attribution 
 
 Both interventions show a similar shape, with one exception. Pooling four regions does not beat the
 best single-source transfer for four of five targets, and it stays well below the within-region
-ceiling for all five (Appendix A(n)). For Evia the pooled model exceeds the best single source, at
-0.715 [0.668, 0.757] against 0.654. An observation on that pairing is in Appendix A(n), *Pooling helps Evia: an observation*. Elsewhere pooling does not manufacture the
+ceiling for all five (Section S1.14). For Evia the pooled model exceeds the best single source, at
+0.715 [0.668, 0.757] against 0.654. An observation on that pairing is in Section S1.14.1. Elsewhere pooling does not manufacture the
 missing conditional information. Removing the reversing predictors costs −0.076 of
 within-region skill with interval support in every region, and returns +0.014 [−0.028, +0.056] in
 mean transfer.
@@ -133,7 +132,7 @@ differ by about 0.13 ROC-AUC on the same model, the size of the effect such pape
 this frame cost holds with the region as the unit (Section 5.2). **A blocked figure alone should
 therefore be read as an upper bound.** Transfer skill likewise has to be *measured* on the target
 region rather than assumed from a within-region figure. Where a model must be moved, the resource
-that closes the gap is target labels (Appendix A(u)): a real answer, but not a cheap one.
+that closes the gap is target labels (Section S1.19): a real answer, but not a cheap one.
 
 The results also bound what unsupervised alignment can be asked to do. Even the oracle selection only
 reaches the reference a model can reach on an unseen scar (Section 4.5). Alignment is not failing far below an achievable target; it is regressing the matrix onto it, at
@@ -144,47 +143,46 @@ distribution mismatch that realigning inputs repairs.
 
 ## 5.7 Limitations
 
-Appendix C.5 states the limitations in full. Seven bind the conclusions above.
+Section S3.5 states the limitations in full. Seven bind the conclusions above.
 
 - **The frames are not comparable and this cohort cannot fully repair it**, since frames fixed upstream
   can be restricted but not extended; fixing them by an accessible-area rule [@Barve2011] before any
-  predictor is computed is the main design lesson of this paper (Section 4.4; C.5(ix)).
+  predictor is computed is the main design lesson of this paper (Section 4.4; S3.5(ix)).
 - **Each region contributes one fire season**, so regional concept shift is confounded with event
   meteorology and the shortfall cannot be attributed to region rather than event (Section 5.2;
-  C.5(v)).
+  S3.5(v)).
 - **The diagnostic correlations rest on an effective sample of ten region pairs**, because the two
-  directions of a pair share both regions, so the results of Appendix D, successes and failures
-  alike, read at that power (C.5(xiii)).
+  directions of a pair share both regions, so the results of Section S4, successes and failures
+  alike, read at that power (S3.5(xiii)).
 - **The interval-support measures are less stable than the point estimates behind them**, since five
   to six bounds lie within 0.01 of 0.5 and one flag can move a diagnostic correlation by about 0.2,
   whereas the transfer verdicts are steadier across bootstrap
-  seeds (Section 5.4; Appendix A(ix); C.5(viii)).
+  seeds (Section 5.4; Section S1.21; S3.5(viii)).
 - **Manavgat's atypical transfer is localised, not explained**: its meteorology, the quality screening
   and the frame were tested and none accounts for it, and the localisation rests on one region and one
-  event (C.5(vii)).
+  event (S3.5(vii)).
 - **The phase split cannot separate elevation from temperature**, because the cells that burned first
   are both the lowest and the hottest, so the proposal of Section 5.4 is confounded by construction and
-  was not registered (C.5(xi)).
+  was not registered (S3.5(xi)).
 - **The quality-screening arms differ in code version as well as in screening**, yet agree on
   elevation to four decimals and on every other signed AUC to within 0.005, so the confound could hide
-  an effect only if two cancelled (Appendix A(e); C.5(xii)).
+  an effect only if two cancelled (Section S1.5; S3.5(xii)).
 
 The remaining six, from the absent meteorological covariates to the classifier comparison made by
-point estimate only (Appendix A(h)), bear on scope rather than on the conclusions above.
+point estimate only (Section S1.8), bear on scope rather than on the conclusions above.
 
 - **No meteorological covariates** enter the models, so we cannot say how local skill and portability
-  behave for a mixed thermal-plus-weather predictor set (C.5(i)).
+  behave for a mixed thermal-plus-weather predictor set (S3.5(i)).
 - **The same-geography comparison covers one region only**, where year and seasonal phase are
-  confounded and the 2022 arm has eleven positive-carrying blocks against a floor of sixteen (Appendix
-  A(m); C.5(ii)).
+  confounded and the 2022 arm has eleven positive-carrying blocks against a floor of sixteen (Section S1.13; S3.5(ii)).
 - **All labels derive from a single burned-area product**, MCD64A1 [@Giglio2018], whose omission and
   commission characteristics [@Boschetti2019] bound every model here, and no second product covers both
-  years at this resolution (C.5(iii)).
+  years at this resolution (S3.5(iii)).
 - **Evia remains the most imbalance-atypical population** even on the extended AOI, with a TSG
-  prevalence of 0.287 against 0.070 to 0.212 in the other four regions (C.5(iv)).
+  prevalence of 0.287 against 0.070 to 0.212 in the other four regions (S3.5(iv)).
 - **Cross-region point estimates carry an implementation tolerance** of roughly ±0.02 to 0.03 across
   scikit-learn versions, so exact reproduction requires the archived environment to which every reported
-  number is fixed (C.5(vi)).
+  number is fixed (S3.5(vi)).
 - **Other classifiers are compared by point estimate only**: three further estimators land between 0.481
   and 0.527 with eleven to thirteen of twenty directions above chance, and their ordering is not claimed
-  (Appendix A(h); C.5(x)).
+  (Section S1.8; S3.5(x)).

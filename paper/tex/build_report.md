@@ -21,57 +21,117 @@ converter made is listed so it can be reviewed.
 
 - definition [^dimarco-lst] captured (326 chars)
 
-## math (5)
+## math (10)
 
 - display equation eq:block (1 line(s))
 - display equation eq:auc (1 line(s))
 - display equation eq:decomp (1 line(s))
 - display equation eq:scar (1 line(s))
 - display equation eq:collar (1 line(s))
+- display equation eq:boot (1 line(s))
+- display equation eq:pair (1 line(s))
+- display equation eq:tint (1 line(s))
+- display equation eq:zscore (1 line(s))
+- display equation eq:coral (1 line(s))
 
-## review (16)
+## review (31)
 
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-15 (third pass).** Three changes on referee advice, each verified against §4. > (i) **Co
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Four values change, all read > from `
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Contribution 1: 0.143 → > 0.133. "Wit
 - BLOCKQUOTE DROPPED — check it was not content: > **Cut 2026-08-14 in the split.** This section was 5,246 words across five subsections. It is now > written t
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 15,407 words. It is now written to let a > reader re
+- TABLE S19 REFERENCED BUT NOT PRESENT — left as literal text
+- TABLE S1 REFERENCED BUT NOT PRESENT — left as literal text _(x3)_
+- TABLE S8 REFERENCED BUT NOT PRESENT — left as literal text _(x3)_
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 14,841 words and fifteen tables. It now > reports th
+- TABLE S13 REFERENCED BUT NOT PRESENT — left as literal text
+- TABLE S16 REFERENCED BUT NOT PRESENT — left as literal text
+- TABLE S11 REFERENCED BUT NOT PRESENT — left as literal text
 - BLOCKQUOTE DROPPED — check it was not content: > **Rewritten 2026-08-14 in the split.** This section was 9,372 words, of which 5,409 were > limitations. It n
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 38
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 70
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 116
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 150
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 168
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 184
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 200
-- TABLE WITHOUT CAPTION in A2_diagnostics near md line 229
+- BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23: a pre-existing error, independent of the corrected label.** Section S1.20 > printed th
+- "Table 1" opens a paragraph but no table follows; emitted as prose
+- TABLE WITHOUT CAPTION in supplementary near md line 161
+- TABLE WITHOUT CAPTION in supplementary near md line 205
+- TABLE WITHOUT CAPTION in supplementary near md line 229
+- TABLE WITHOUT CAPTION in supplementary near md line 461
+- TABLE WITHOUT CAPTION in supplementary near md line 581
+- TABLE WITHOUT CAPTION in supplementary near md line 666
+- TABLE WITHOUT CAPTION in supplementary near md line 716
+- TABLE WITHOUT CAPTION in supplementary near md line 832
+- TABLE WITHOUT CAPTION in supplementary near md line 1088
+- TABLE WITHOUT CAPTION in supplementary near md line 1330
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
+- BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23: the result returns to the paper as Contribution 3, in its negative form.** > Under the
 
-## stripped (5)
+## stripped (6)
 
 - drafting-note blockquote dropped _(x4)_
-- horizontal rule dropped
+- horizontal rule dropped _(x2)_
 
-## table (26)
+## table (68)
 
 - Within-region baseline versus thermal perfor: 6 cols, est. width 79 chars -> small, 1 wrapping
 - Within-region baseline versus thermal performanc: 1 of 6 columns wrap (widest cell 22 chars)
-- : 6 cols, est. width 157 chars -> scriptsize, 6 wrapping
-- : 6 of 6 columns wrap (widest cell 24 chars)
-- no caption; emitted unnumbered so it does not consume a table number _(x8)_
-- : 6 cols, est. width 89 chars -> small, 2 wrapping
-- : 2 of 6 columns wrap (widest cell 23 chars)
-- : 5 cols, est. width 69 chars -> small, 1 wrapping
-- : 1 of 5 columns wrap (widest cell 21 chars)
-- : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping
-- : 3 of 4 columns wrap (widest cell 24 chars)
-- : 5 cols, est. width 78 chars -> small, 1 wrapping
-- : 1 of 5 columns wrap (widest cell 25 chars)
-- : 7 cols, est. width 97 chars -> small, 1 wrapping
-- : 1 of 7 columns wrap (widest cell 32 chars)
-- : X columns would get 3 chars each (min 12) - set as plain tabular and scaled to fit instead
-- : 10 cols, est. width 176 chars -> scriptsize
-- : 4 cols, est. width 89 chars -> footnotesize
+- : 4 cols, est. width 98 chars -> small, 2 wrapping
+- : 2 of 4 columns wrap (widest cell 33 chars)
+- no caption; emitted unnumbered so it does not consume a table number _(x10)_
+- : 4 cols, est. width 86 chars -> small, 1 wrapping
+- : 1 of 4 columns wrap (widest cell 34 chars)
+- : X columns would get 7 chars each (min 12) - set as plain tabular and scaled to fit instead
+- : 6 cols, est. width 128 chars -> footnotesize
+- The four evaluations, scored on identical ce: 5 cols, est. width 115 chars -> footnotesize, 2 wrapping
+- The four evaluations, scored on identical cells.: 2 of 5 columns wrap (widest cell 33 chars)
+- Within-region half-split, every split. Sourc: 7 cols, est. width 113 chars -> scriptsize
+- Leave-one-scar-out at a 2 km buffer, every s: 6 cols, est. width 96 chars -> footnotesize, 1 wrapping
+- Leave-one-scar-out at a 2 km buffer, every scar.: 1 of 6 columns wrap (widest cell 21 chars)
+- Prevalence is not the cause of the evaluatio: 6 cols, est. width 95 chars -> footnotesize, 1 wrapping
+- Prevalence is not the cause of the evaluation-ar: 1 of 6 columns wrap (widest cell 21 chars)
+- Transfer-gap decomposition (four-AOI set, 12: 6 cols, est. width 113 chars -> footnotesize, 3 wrapping
+- Transfer-gap decomposition (four-AOI set, 12 dir: 3 of 6 columns wrap (widest cell 29 chars)
+- : 7 cols, est. width 112 chars -> scriptsize
+- : 3 cols, est. width 70 chars -> small, 2 wrapping
+- : 2 of 3 columns wrap (widest cell 23 chars)
+- : X columns would get 4 chars each (min 12) - set as plain tabular and scaled to fit instead
+- : 7 cols, est. width 175 chars -> scriptsize
+- : 3 cols, est. width 89 chars -> small, 2 wrapping
+- : 2 of 3 columns wrap (widest cell 45 chars)
+- : 3 cols, est. width 57 chars -> small, 1 wrapping
+- : 1 of 3 columns wrap (widest cell 30 chars)
+- Cross-region transfer under equalised evalua: X columns would get 2 chars each (min 12) - set as plain tabular and scaled to fit instead
+- Cross-region transfer under equalised evalua: 7 cols, est. width 132 chars -> scriptsize
+- : 4 cols, est. width 75 chars -> small, 1 wrapping
+- : 1 of 4 columns wrap (widest cell 29 chars)
+- : 3 cols, est. width 88 chars -> small, 2 wrapping
+- : 2 of 3 columns wrap (widest cell 36 chars)
+- Signed univariate AUC of each predictor agai: 6 cols, est. width 157 chars -> scriptsize, 6 wrapping
+- Signed univariate AUC of each predictor against : 6 of 6 columns wrap (widest cell 24 chars)
+- The cross-region reversals that meet the str: 6 cols, est. width 89 chars -> small, 2 wrapping
+- The cross-region reversals that meet the stricte: 2 of 6 columns wrap (widest cell 23 chars)
+- Thermal transfer, PR-AUC against the no-skil: 5 cols, est. width 69 chars -> small, 1 wrapping
+- Thermal transfer, PR-AUC against the no-skill ba: 1 of 5 columns wrap (widest cell 21 chars)
+- Signed univariate feature-burned AUC, Muğla : 4 cols, est. width 101 chars -> footnotesize, 3 wrapping
+- Signed univariate feature-burned AUC, Muğla 2021: 3 of 4 columns wrap (widest cell 24 chars)
+- Evaluation-frame geometry of the five study : 5 cols, est. width 78 chars -> small, 1 wrapping
+- Evaluation-frame geometry of the five study regi: 1 of 5 columns wrap (widest cell 25 chars)
+- Signed univariate AUC, frame as drawn agains: 7 cols, est. width 97 chars -> small, 1 wrapping
+- Signed univariate AUC, frame as drawn against a : 1 of 7 columns wrap (widest cell 32 chars)
+- Region summary: populations and gate outcome: X columns would get 3 chars each (min 12) - set as plain tabular and scaled to fit instead
+- Region summary: populations and gate outcome: 10 cols, est. width 176 chars -> scriptsize
+- Cross-region transfer matrix, thermal model,: 4 cols, est. width 89 chars -> footnotesize
+- All transferability diagnostics versus raw t: 6 cols, est. width 137 chars -> footnotesize, 2 wrapping
+- All transferability diagnostics versus raw therm: 2 of 6 columns wrap (widest cell 39 chars)
+- The most and least environmentally similar p: 3 cols, est. width 86 chars -> small, 1 wrapping
+- The most and least environmentally similar pairs: 1 of 3 columns wrap (widest cell 41 chars)
+- Study regions, areas of interest and tempora: 5 cols, est. width 170 chars -> scriptsize, 5 wrapping
+- Study regions, areas of interest and temporal wi: 5 of 5 columns wrap (widest cell 49 chars)
+- The diagnostics that ordered transfer, recom: 3 cols, est. width 142 chars -> small, 3 wrapping
+- The diagnostics that ordered transfer, recompute: 3 of 3 columns wrap (widest cell 61 chars)
+- Transferability diagnostics versus raw therm: 6 cols, est. width 149 chars -> footnotesize, 2 wrapping
+- Transferability diagnostics versus raw thermal t: 2 of 6 columns wrap (widest cell 63 chars)
 - Few-shot recovery of target ROC-AUC, thermal: 10 cols, est. width 100 chars -> footnotesize
+
+## verbatim (1)
+
+- code block of 37 line(s) -> verbatim
 

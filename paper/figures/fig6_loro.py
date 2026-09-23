@@ -31,7 +31,7 @@ from _conservation_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK
 
 # ---- asserts vs Appendix A(n)(a) and the Fig. 6 caption, zero tolerance -------
 BY = {r["target"]: r for r in loro}
-_supp = (HERE.parent / "supplementary_appendices.md").read_text(encoding="utf-8")
+_supp = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
 _an = " ".join(_supp[_supp.index("**(a) Pooled multi-region training**"):
                      _supp.index("**(b) Removing the direction-reversing features.**")].split())
 _cap = " ".join((HERE.parent / "figure_captions.tex").read_text(encoding="utf-8").split())

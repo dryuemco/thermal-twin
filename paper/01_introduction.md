@@ -80,7 +80,7 @@ of the surface, to which satellite thermal observation gives partial access (Sec
 linking moisture stress to combustion is universal, which makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally defined
 covariate. The expectation is sharpest for the internally normalised channels, which should
 be least exposed to absolute-temperature offsets between regions; **they transfer no better than the
-absolute ones** (Appendix A(f)). The expectation motivates the design and is not a finding of it.
+absolute ones** (Section S1.6). The expectation motivates the design and is not a finding of it.
 Section 4.4 reports the associations running the other way.
 
 ## 1.3 Contributions
@@ -124,7 +124,7 @@ included.** Twenty measures were fixed in advance. They range from marginal cova
 through niche overlap and regime structure to the conditional agreement of predictor–burning
 relationships. Under the corrected label nineteen have correlation intervals spanning zero. The
 twentieth is defined in only six directions, with a degenerate interval, and is not interpreted
-(Section 4.6, Appendix D). The conditional measure that had ordered transfer under the frozen label
+(Section 4.6, Section S4). The conditional measure that had ordered transfer under the frozen label
 (ρ = +0.84) no longer does (+0.52 [−0.27, +0.87]). With ten effective region pairs this is a failure
 to show ordering, not proof that none exists. The practical consequence is that no pre-deployment
 shortcut replaces measuring transfer on the target.
@@ -132,7 +132,7 @@ shortcut replaces measuring transfer on the target.
 Two consequences follow, as supporting results. Label-free alignment by standardisation and
 covariance alignment [@Sun2016] does not repair transfer, in what we believe is its first
 application to fire susceptibility. And because the residual is conditional, the resource that
-closes it is target labels, priced in Appendix A(u).
+closes it is target labels, priced in Section S1.19.
 
 The leakage-audited, spatially blocked protocol is released with code, configuration and frozen
 outputs, so most of this can be re-run rather than taken on trust. The release is complete, as the

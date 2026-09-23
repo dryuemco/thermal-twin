@@ -315,7 +315,7 @@ def table_b7():
             straddle = 0 < sum(above) < len(vals)
             # the printed convention: on a straddling row, Manavgat (the odd region) is in bold
             cells = [f"**{v:.3f}**" if (straddle and r == "manavgat_2021") else f"{v:.3f}" for v, r in zip(vals, REG)]
-            name = f"{lab}, {frame}" + (" (Table B2)" if (ft == "elevation_mean" and frame == "full frame") else "")
+            name = f"{lab}, {frame}" + (" (Table S9)" if (ft == "elevation_mean" and frame == "full frame") else "")
             rows.append(f"| {name} | " + " | ".join(cells) + f" | {'**yes**' if straddle else 'no'} |")
     return rows
 
@@ -476,14 +476,16 @@ def table_a6():
 
 
 # ---- where each table lives -----------------------------------------------------------------------------
-SUPP, A2F = P / "supplementary_appendices.md", P / "A2_diagnostics.md"
+# Keys are the tables' former names (the generators keep them); the anchors are their numbers in the
+# merged supplement, paper/SUPPLEMENT_MAP.md.
+SUPP = P / "supplementary.md"
 TABLES = {
-    "B1": (SUPP, "**Table B1.", table_b1), "B2": (A2F, "**Table B2.", table_b2), "B3": (A2F, "**Table B3.", table_b3),
-    "B4": (A2F, "**Table B4.", table_b4), "B5": (A2F, "**Table B5.", table_b5_rows), "B6": (A2F, "**Table B6.", table_b6),
-    "B7": (A2F, "**Table B7.", table_b7), "B8": (A2F, "**Table B8.", table_b8), "B9": (A2F, "**Table B9.", table_b9),
-    "B10": (SUPP, "**Table B10.", table_b10),
-    "A1": (SUPP, "**Table A1.", table_a1), "A2": (SUPP, "**Table A2.", table_a2), "A3": (SUPP, "**Table A3.", table_a3),
-    "A4": (SUPP, "**Table A4.", table_a4), "A5": (SUPP, "**Table A5.", table_a5), "A6": (SUPP, "**Table A6.", table_a6),
+    "B1": (SUPP, "**Table S17.", table_b1), "B2": (SUPP, "**Table S9.", table_b2), "B3": (SUPP, "**Table S10.", table_b3),
+    "B4": (SUPP, "**Table S11.", table_b4), "B5": (SUPP, "**Table S12.", table_b5_rows), "B6": (SUPP, "**Table S13.", table_b6),
+    "B7": (SUPP, "**Table S14.", table_b7), "B8": (SUPP, "**Table S15.", table_b8), "B9": (SUPP, "**Table S16.", table_b9),
+    "B10": (SUPP, "**Table S18.", table_b10),
+    "A1": (SUPP, "**Table S2.", table_a1), "A2": (SUPP, "**Table S3.", table_a2), "A3": (SUPP, "**Table S4.", table_a3),
+    "A4": (SUPP, "**Table S5.", table_a4), "A5": (SUPP, "**Table S6.", table_a5), "A6": (SUPP, "**Table S7.", table_a6),
 }
 
 

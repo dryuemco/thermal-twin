@@ -22,7 +22,7 @@ import path from 'node:path';
 
 const ROOT = path.resolve('paper');
 const FILES = ['01_introduction', '02_related_work', '03_methods', '04_results',
-               '05_discussion', '06_conclusions', 'S1_few_shot_recovery'];
+               '05_discussion', '06_conclusions', 'supplementary'];
 const DRY = process.argv.includes('--dry');
 
 const EN = '–';

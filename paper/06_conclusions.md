@@ -10,7 +10,7 @@
 > S1, whose limit 4 shows the top budget holding 880 of Bejís's 1,100 burned cells. Two claims were
 > being conflated. The size of the labelled probe needed for a signed association is nowhere
 > established in this manuscript, so no budget is now claimed for it, and the supervised
-> recalibration is stated as expensive with an explicit pointer to Supplementary S1. Discussion §5.5
+> recalibration is stated as expensive with an explicit pointer to Section S5. Discussion §5.5
 > says the few-shot analysis is not drawn on there; the pointer here is to the supplement, not to
 > §5.5. (ii) "Static baseline" became "static and near-static terrain, fuel and greenness baseline",
 > since the vegetation-index predictor is a predictor-window median composite (§3.4). (iii)
@@ -37,7 +37,7 @@
 > survives it. The second was that hotter surfaces burned less "in every region": it is four of five.
 > "Withdraws five of our claims" becomes four quantities shown to be frame properties. The practical
 > paragraph gains a third consequence from Contribution 3. It joins the no-shortcut result to the
-> label budget of Appendix A(u).
+> label budget of Section S1.19.
 
 Where a fire model is scored decides what it appears to know. Model, predictors and fitting were
 held fixed, and only the scored cells changed. Moving from a whole study region to the burn scar and
@@ -85,7 +85,7 @@ similar pair failed in both directions while the least similar transferred above
 labels from the target region, a model's skill there is unknown, and no measure computed beforehand
 stands in for it. With them, skill can be measured and the model recalibrated, but the price depends
 on the direction. Thirty-two labelled 5 km blocks recover 83 to 89 % of the target's matched ceiling
-in three of six directions, and only 30 to 52 % in the other three (Appendix A(u)). Those labels
+in three of six directions, and only 30 to 52 % in the other three (Section S1.19). Those labels
 came from the event being predicted, so the curve prices the gap rather than offering a way to close
 it before a fire. Whether labels from earlier fires in the same region would serve is not tested
 here. Three extensions are left for future work: temporal transfer, meteorological covariates, and
