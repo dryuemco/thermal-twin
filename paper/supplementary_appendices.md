@@ -561,6 +561,18 @@ transfer is +0.004, with an interval spanning zero (Section 4.5). Removing the r
 returns +0.014, with an interval spanning zero. Two nulls on the portability axis are not a price
 paid.
 
+### Pooling helps Evia: an observation (moved from Discussion 5.3)
+
+Manavgat's corrected label appears to carry conditional
+information for Evia, and it shows in two separate analyses: raw transfer from Manavgat to Evia
+rises from 0.613 to 0.654, and the pooled model that includes Manavgat reaches 0.715. Both use
+Manavgat as a source, so they are not independent confirmations. We record one observation about
+the pairing, as an observation and not as a return to the regime hypothesis of Section 5.4. The
+only target where pooling helps shares an event structure with one of its sources. Manavgat and
+Evia are the two fires in the cohort that burned as a single large scar, of 2,934 and 2,653 cells,
+in late July and early August 2021. Muğla burned in the same weeks but as ten separate scars, and
+Bejís burned as a single scar of 1,100 cells in 2022.
+
 ## A(o). The thermal sign and the anomaly difference, in full
 
 Section 4.4 states both results; the per-region values, the reciprocal stratification and the
