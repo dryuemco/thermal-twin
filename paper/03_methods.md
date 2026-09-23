@@ -328,8 +328,10 @@ re-frozen on the corrected label (Section 3.2), produced with the upstream pipel
 6381f4c, run unchanged apart from a one-line patch. That patch lets the window-closure module accept
 a population column the corrected label adds, and its diff is released with the re-freeze. The
 within-region comparisons agree exactly, and the transfer directions to within 1.3×10⁻⁸, under the
-repository's pre-existing tolerance of 10⁻⁶. The tolerance that applies if the library version is
-not pinned is given in Appendix C.5(vi). The re-freeze and this check were carried out by the
+repository's pre-existing tolerance of 10⁻⁶. That 10⁻⁶ tolerance belongs to the CORAL and within-region reproduction check. The frame-transfer
+script of Section 4.4 fits its forests in parallel, so its values vary from run to run by up to
+2×10⁻⁶, within the 10⁻⁵ tolerance applied to it, and are stable at the printed precision. The tolerance that applies if the library
+version is not pinned is given in Appendix C.5(vi). The re-freeze and this check were carried out by the
 manuscript authors rather than independently by the pipeline's original author. Headline results are repeated across two
 populations, three block sizes, the CORAL sweep, both feature sets and four classifier capacities,
 and where a conclusion depends on one of those choices **the dependence is reported rather than

@@ -12,6 +12,15 @@ canonical data); for `ems_*` the published `paper/ems_analyses/` files; for the 
 published `paper/*.json`; for `run_e` `experiments/cross_region/step10/`. Where the printed manuscript value
 differs from the frozen canonical value (see `canonical_rerun/CHANGES.md`), both are given.
 
+> **Correction and re-run, 2026-09-23.** The rename listed in §0, "`aoi_frame_transfer.csv →
+> aoi_frame_transfer_frozen_mugla.csv`", means that `code/aoi_frame_transfer_frozen_mugla.csv` is a
+> byte copy of **`regen_transfer_ci.py`'s** output. It carries that script's 10-cell bounds. It is
+> not the output of `frozen_mugla_verify_aoi_transfer.py`, which went to
+> `code/_staging/frozen_mugla_verify_aoi_transfer.csv`. Both scripts were re-run unchanged into
+> `round5/collar/` as a re-run exception, and both reproduce this round to within 2×10⁻⁶ (identical
+> at 3 dp). The paper now cites `round5/collar/aoi_frame_transfer.csv`. Details:
+> `round5/collar/PROVENANCE.md`.
+
 ## 0. How each script was run, and every code change
 
 Runner: `_logs/run_one.sh` (env `PAPER_ARTEFACTS=paper/labelfix_rerun/code`,

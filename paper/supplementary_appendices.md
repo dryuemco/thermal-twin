@@ -643,14 +643,18 @@ environmental envelope of any pair in the matrix; Bejís and Montiferru occupy t
 
 Per-quantity values for both pairs, on both frames, are in Appendix B, Table B10.
 
-Two readings of this pair do not survive Section 4.4 and are not offered. On the frames as drawn
-five of nine feature-response directions point opposite ways, elevation among them; under the collar
-that figure moves to 0.561 against 0.606, on the same side of 0.5. And transfer is below chance in
-both directions as drawn but above chance under the collar. **What survives is the ordinal
-contrast**: the most similar pair is among the weakest in the matrix and the least similar among the
-stronger, while neither is the extreme — the weakest direction is Manavgat to Bejís at 0.417 and the
-strongest Muğla to Evia at 0.727. The claim this supports is that high envelope overlap does not buy
-transfer, not that it produces anti-prediction. The AoA shares are full-frame quantities.
+On the corrected label both readings of this pair hold on both frames. On the frames as drawn seven
+of nine feature-response directions point opposite ways, and all six features supported in both
+regions have opposite signs, elevation among them. Under the collar the elevation reversal persists,
+at 0.376 [0.300, 0.465] in Manavgat against 0.606 [0.525, 0.685] in Muğla (Section 4.4). Transfer
+is below chance in both directions on both frames: 0.438 and 0.345 as drawn, 0.493 and 0.433 under
+the collar, where Muğla to Manavgat's interval, [0.381, 0.491], excludes chance. The most similar
+pair is among the weakest in the matrix and the least similar among the stronger, while neither is
+the extreme: under the collar the weakest direction is Manavgat to Bejís at 0.407 and the strongest
+Muğla to Evia at 0.728. The claim this supports is that high envelope overlap does not buy transfer;
+anti-prediction is interval-supported in one of the four directions only. The AoA shares are
+full-frame quantities. Under the frozen label the collar had moved both readings (elevation 0.561
+against 0.606, transfer 0.551 and 0.510); the label correction reverses that.
 
 Bejís and Montiferru sit at the opposite extreme. Their burned envelopes barely overlap, and they
 carry the most dissimilar values on every overlap measure. They transfer above chance in both
@@ -1062,11 +1066,11 @@ is narrower than "alignment fails". Alignment cannot exceed what a model can ach
 fire, and it does not.
 
 In the six directions where raw transfer was below chance, the best label-free method recovers at
-most 34 % of the gap to the within-region reference, so the remaining unrecovered fraction is at
-least 0.66 everywhere. The half-split control above shows that the larger part of that remainder is
+most 28 % of the gap to the within-region reference (Bejís to Evia), so the remaining unrecovered
+fraction is at least 0.72 everywhere. The half-split control above shows that the larger part of that remainder is
 already incurred inside the region, so it should not be read as a measure of concept shift. On the four-AOI twelve-direction subset for which the decomposition is defined (Appendix A(j)),
-seven directions show *negative* recovery, meaning adaptation moves the score
-away from the reference; in six of those raw transfer was already above chance and adaptation
+seven directions show *negative* recovery, five of them with intervals entirely below zero, meaning
+adaptation moves the score away from the reference; in six of those raw transfer was already above chance and adaptation
 destroyed that advantage. Label-free alignment therefore does not act as a repair mechanism.
 
 
@@ -1656,20 +1660,26 @@ is otherwise asserted rather than shown.
 **Table B10. The most and least environmentally similar pairs, on both frames.** Schoener's *D* is
 computed over burned cells only and is therefore collar-invariant. Transfer values are the two
 ordered directions of each pair; ranks are out of the twenty directions on the equalised frame.
-As-drawn transfer is read from Table B9, collar transfer from `aoi_frame_transfer.csv`.
+Corrected Manavgat label. Schoener's *D*, per-feature *D* and as-drawn transfer are read from Fig. 8's
+source, `paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json`; collar transfer and
+ranks from Table 3's source, `paper/labelfix_rerun/round5/collar/aoi_frame_transfer.csv`; the AoA
+shares from `paper/labelfix_rerun/round5/collar/aoa_directed_pair_summary.csv`. Every cell is
+asserted against those files at build time (`paper/figures/fig8_contrast_pairs.py`).
 
 | | Manavgat–Muğla | Bejís–Montiferru |
 |---|---|---|
-| Schoener's *D*, mean 1-D | **0.826** (highest) | **0.479** (lowest) |
-| per-feature *D* | 0.77 to 0.89 | 0.23 to 0.77 |
-| transfer, frames as drawn | 0.470, 0.401 | 0.594, 0.548 |
-| transfer, 10 km collar | 0.551, 0.510 | 0.669, 0.624 |
-| rank of 20 on the collar, from the bottom | 5th, 2nd | 15th, 11th |
-| target cells inside the AoA | 0.875, 0.531 | — |
+| Schoener's *D*, mean 1-D | **0.799** (highest) | **0.479** (lowest) |
+| per-feature *D* | 0.74 to 0.87 | 0.23 to 0.77 |
+| transfer, frames as drawn | 0.438, 0.345 | 0.594, 0.548 |
+| transfer, 10 km collar | 0.493, 0.433 | 0.669, 0.624 |
+| rank of 20 on the collar, from the bottom | 4th, 2nd | 16th, 12th |
+| target cells inside the AoA | 0.876, 0.531 | — |
 
 ### The contrast-pair figure
 
-This figure illustrated the diagnostics result and goes with it. Its source is
+**Superseded (frozen label).** The figure is now Fig. 8 of the main text, rebuilt on the corrected
+label; its caption is in `paper/figure_captions.tex`. The caption below is the frozen-label one,
+kept as a dated record. This figure illustrated the diagnostics result and goes with it. Its source is
 `paper/figures/fig8_contrast_pairs.py` and the vector output is
 `paper/figures/fig8_contrast_pairs.pdf`. The caption as it stood:
 

@@ -159,9 +159,9 @@ substantially a property of interleaved holdout**.
 
 Section 4.3's effect applies with equal force between regions. This test is reported before the
 transfer matrix because it changes what Section 4.5 and Appendix A(s) can claim. It withdraws
-nothing in Section 4.3, which is what it is built from. Sources are `aoi_frame_auc_frozen_mugla.csv`
-and `aoi_frame_transfer_frozen_mugla.csv`, which supersede the pre-correction files for the reason
-given below, with `collar_frame_bootstrap.csv` and `diagnostics_collar_frame.csv`. Code is under
+nothing in Section 4.3, which is what it is built from. Sources are `aoi_frame_auc_frozen_mugla.csv` and the transfer matrix
+`paper/labelfix_rerun/round5/collar/aoi_frame_transfer.csv`, which supersede the pre-correction
+files for the reason given below, with `collar_frame_bootstrap.csv` and `diagnostics_collar_frame.csv`. Code is under
 `paper/code/`, and the elaboration is in Appendix A(w).
 
 **The five areas of interest are not comparable frames.** Each is a rectangle drawn around a fire,
@@ -228,7 +228,7 @@ population, thermal model, twenty ordered directions per row. Above/below chance
 The supported counts use a 10-cell (≈5 km) spatial-block bootstrap on the target, 1000 replicates,
 seed 42. **Table B9 reports the same matrix under 2-cell (≈1 km) blocking**, which is why its
 supported counts are the larger 11 and 7 (Section 4.5). Per-direction bounds are in
-`aoi_frame_transfer_frozen_mugla.csv`.
+`paper/labelfix_rerun/round5/collar/aoi_frame_transfer.csv`.
 
 | Source frame | Target frame | Mean target AUC | Above chance | Below chance | Supported above / below | Paired thermal delta |
 |---|---|---:|---:|---:|---:|---:|
@@ -332,8 +332,9 @@ scores better per direction gives 0.523, but that selection uses the target labe
 forbids. It is therefore **an oracle upper bound rather than an achievable result**. Even the oracle
 stays below the reference a model reaches on an unseen scar (Section 4.3, row C, 0.546). Alignment is
 thus regressing the matrix toward that reference rather than exceeding it. A sign reversal is not a
-distribution mismatch that realigning inputs would repair. Appendix A(ix) reports the recovery
-fractions, including the seven directions with *negative* recovery.
+distribution mismatch that realigning inputs would repair. Appendix A(j) reports the recovery
+fractions, including the seven directions with *negative* recovery, five of them with intervals
+entirely below zero.
 
 ## 4.6 Further arms
 
