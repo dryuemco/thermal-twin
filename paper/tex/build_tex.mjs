@@ -838,86 +838,20 @@ ${KEYWORDS}
 \\linenumbers
 `;
 
+// Declarations: authored in 07_declarations.md, set unnumbered after the body.
+const declTex = has('07_declarations.md')
+  ? convertBody(read('07_declarations.md'), { src: '07_declarations' })
+      .replace(/\\section\{Declarations\}/, '\\section*{Declarations}')
+      .replace(/\\subsection\{/g, '\\subsection*{')
+  : '';
+
 const postamble = `
 
 % ------------------------------------------------------------ declarations --
-% One consolidated block, matching the authors' house format. Everything here is
-% written from the repository except the item marked NEEDS AUTHOR INPUT, which
-% must be settled before the manuscript is uploaded.
+% Converted from paper/07_declarations.md (after the Conclusions); its NEEDS AUTHOR
+% INPUT items are HTML comments there and must be settled before submission.
 
-\\section*{Software and data availability}
-
-\\textbf{Analysis code and frozen outputs.} Name: \\texttt{thermal-twin}. Developers:
-Y.~E.~Cogurcu and E.~Metin; contact: ycogurcu@cu.edu.tr. First available: 2026.
-Hardware: a standard desktop computer. Software required: Python 3.12 with NumPy
-2.4.4, pandas 3.0.2 and scikit-learn 1.9.0, the versions every reported number was
-produced with; scikit-learn in particular carries a cross-region tolerance of about
-$\\pm$0.02 to 0.03 between versions (Supplementary Section S3.5(vi)). Program language: Python. Size:
-about 21 MB. Availability: \\url{https://github.com/dryuemco/thermal-twin}, which holds
-the scripts that regenerate each reported artefact, the frozen numeric outputs behind
-every table and figure, and the supplementary material (Sections S1 to S5, at \\texttt{paper/supplementary.md}).
-Cost: free.
-% NEEDS AUTHOR INPUT: this repository is PRIVATE and has no licence (checked
-% 2026-09-19). EMS requires software essential to the paper to be available to
-% reviewers; it accepts a password-protected download whose password is given to
-% the editors. Either make a cleaned copy public with a licence, or provide such a
-% download, before submission.
-
-\\textbf{Upstream processing pipeline.} Name: \\texttt{satellite-\\allowbreak{}thermal-\\allowbreak{}digital-\\allowbreak{}twin}.
-Developer: E.~Metin. First available: 2026. Hardware: a standard desktop computer;
-the satellite exports run on Google Earth Engine and need an Earth Engine account.
-Program language: Python. Size: about 20 MB. Availability:
-\\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, MIT licence; the
-commit of record for every number reported here is \\texttt{6381f4c}. Three
-components once outside the release are now inside it: the reproduction-check
-driver and its validation package, on which Section~\\ref{sec:3.13} rests; the
-few-shot run, reachable through the tag \\texttt{few-shot-run-19d825b}; and the
-ERA5-Land diagnostic, whose manifest records commit \\texttt{a07ea33}. Cost: free.
-
-\\textbf{Data.} All satellite inputs are public and were retrieved through Google
-Earth Engine: burned-area labels from MODIS MCD64A1 Collection 6.1, land cover from
-ESA WorldCover, and the thermal, optical and terrain inputs described in
-Section~\\ref{sec:3.4}; no proprietary or restricted data were used. The modelling
-dataset each number rests on is identified in the pipeline by SHA-256, which is how
-the one provenance incident in this project was settled: a rebuild had replaced one
-region's file at its canonical path, and the recorded hash identifies the frozen
-original unambiguously. No digital object identifier is minted and no archival
-deposit exists.
-
-\\section*{Declarations}
-
-\\textbf{Funding.} This work was supported by the \\c{C}ukurova University Scientific
-Research Projects Coordination Unit (Bilimsel Ara\\c{s}t{\\i}rma Projeleri Koordinasyon
-Birimi) under the Career Starter Project (Kariyer Ba\\c{s}lang{\\i}\\c{c} Projesi) scheme,
-project code \\texttt{FKB-2025-17608} (\`\`Termal Dijital \\.Ikiz Tabanl{\\i} S\\"ur\\"u \\.IHA
-Sistemi ile Orman Yang{\\i}nlar{\\i}n{\\i}n Erken Tespiti ve \\"Onlenmesi'').
-
-\\textbf{Acknowledgments.} The authors gratefully acknowledge the \\c{C}ukurova
-University Scientific Research Projects Coordination Unit for financial support of
-this research, and the Department of Computer Engineering at \\c{C}ukurova University
-for providing the laboratory environment and institutional support that made this
-work possible.
-
-\\textbf{Competing interests.} The authors declare no competing interests.
-
-\\textbf{Ethics approval.} Not applicable. This study involved no human participants,
-animal subjects, or personally identifiable data.
-
-\\textbf{Author contributions.} Stated in CRediT terms. ${CREDIT}
-% NEEDS AUTHOR INPUT: confirm the contribution split with the co-author, and
-% confirm the Software and data availability items above before the manuscript
-% is uploaded.
-
-\\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-
-During the preparation of this work the authors used Claude (Anthropic) in order to
-write and run analysis and verification code against the frozen pipeline outputs,
-cross-check reported numbers against those outputs, and draft and edit manuscript
-text. After using this tool, the authors reviewed and edited the content as needed
-and take full responsibility for the content of the publication.
-% NEEDS AUTHOR INPUT: Elsevier's policy (updated June 2026) places this section
-% immediately before the references and asks that AI use in the research process
-% also be described in Methods. Confirm the scope stated above with both authors.
+${declTex}
 
 % ---------------------------------------------------------------- figures --
 % Figures are placed at their first reference, in the body and in the

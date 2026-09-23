@@ -671,86 +671,45 @@ Three practical consequences follow. Report local skill and portability separate
 
 
 % ------------------------------------------------------------ declarations --
-% One consolidated block, matching the authors' house format. Everything here is
-% written from the repository except the item marked NEEDS AUTHOR INPUT, which
-% must be settled before the manuscript is uploaded.
+% Converted from paper/07_declarations.md (after the Conclusions); its NEEDS AUTHOR
+% INPUT items are HTML comments there and must be settled before submission.
 
-\section*{Software and data availability}
-
-\textbf{Analysis code and frozen outputs.} Name: \texttt{thermal-twin}. Developers:
-Y.~E.~Cogurcu and E.~Metin; contact: ycogurcu@cu.edu.tr. First available: 2026.
-Hardware: a standard desktop computer. Software required: Python 3.12 with NumPy
-2.4.4, pandas 3.0.2 and scikit-learn 1.9.0, the versions every reported number was
-produced with; scikit-learn in particular carries a cross-region tolerance of about
-$\pm$0.02 to 0.03 between versions (Supplementary Section S3.5(vi)). Program language: Python. Size:
-about 21 MB. Availability: \url{https://github.com/dryuemco/thermal-twin}, which holds
-the scripts that regenerate each reported artefact, the frozen numeric outputs behind
-every table and figure, and the supplementary material (Sections S1 to S5, at \texttt{paper/supplementary.md}).
-Cost: free.
-% NEEDS AUTHOR INPUT: this repository is PRIVATE and has no licence (checked
-% 2026-09-19). EMS requires software essential to the paper to be available to
-% reviewers; it accepts a password-protected download whose password is given to
-% the editors. Either make a cleaned copy public with a licence, or provide such a
-% download, before submission.
-
-\textbf{Upstream processing pipeline.} Name: \texttt{satellite-\allowbreak{}thermal-\allowbreak{}digital-\allowbreak{}twin}.
-Developer: E.~Metin. First available: 2026. Hardware: a standard desktop computer;
-the satellite exports run on Google Earth Engine and need an Earth Engine account.
-Program language: Python. Size: about 20 MB. Availability:
-\url{https://github.com/emrehann17/satellite-thermal-digital-twin}, MIT licence; the
-commit of record for every number reported here is \texttt{6381f4c}. Three
-components once outside the release are now inside it: the reproduction-check
-driver and its validation package, on which Section~\ref{sec:3.13} rests; the
-few-shot run, reachable through the tag \texttt{few-shot-run-19d825b}; and the
-ERA5-Land diagnostic, whose manifest records commit \texttt{a07ea33}. Cost: free.
-
-\textbf{Data.} All satellite inputs are public and were retrieved through Google
-Earth Engine: burned-area labels from MODIS MCD64A1 Collection 6.1, land cover from
-ESA WorldCover, and the thermal, optical and terrain inputs described in
-Section~\ref{sec:3.4}; no proprietary or restricted data were used. The modelling
-dataset each number rests on is identified in the pipeline by SHA-256, which is how
-the one provenance incident in this project was settled: a rebuild had replaced one
-region's file at its canonical path, and the recorded hash identifies the frozen
-original unambiguously. No digital object identifier is minted and no archival
-deposit exists.
 
 \section*{Declarations}
 
-\textbf{Funding.} This work was supported by the \c{C}ukurova University Scientific
-Research Projects Coordination Unit (Bilimsel Ara\c{s}t{\i}rma Projeleri Koordinasyon
-Birimi) under the Career Starter Project (Kariyer Ba\c{s}lang{\i}\c{c} Projesi) scheme,
-project code \texttt{FKB-2025-17608} (``Termal Dijital \.Ikiz Tabanl{\i} S\"ur\"u \.IHA
-Sistemi ile Orman Yang{\i}nlar{\i}n{\i}n Erken Tespiti ve \"Onlenmesi'').
+\subsection*{Data and code availability}
 
-\textbf{Acknowledgments.} The authors gratefully acknowledge the \c{C}ukurova
-University Scientific Research Projects Coordination Unit for financial support of
-this research, and the Department of Computer Engineering at \c{C}ukurova University
-for providing the laboratory environment and institutional support that made this
-work possible.
+All satellite inputs are public and were retrieved through Google Earth Engine: burned-area labels from MODIS MCD64A1 Collection 6.1, land cover from ESA WorldCover, and the thermal, optical and terrain inputs described in Section~\ref{sec:3.4}. No proprietary or restricted data were used.
 
-\textbf{Competing interests.} The authors declare no competing interests.
+The upstream processing pipeline, \texttt{satellite-thermal-digital-twin} (E. Metin), is public at <https://github.com/emrehann17/satellite-thermal-digital-twin> under the MIT licence. The commit of record for every number reported here is \texttt{6381f4c}. The modelling dataset behind each number is identified by SHA-256 in the pipeline's canonical-input record, and every analysis script verifies that hash on load.
 
-\textbf{Ethics approval.} Not applicable. This study involved no human participants,
-animal subjects, or personally identifiable data.
+The analysis code, the frozen numeric outputs and the Supplementary Material are at [repository URL to be added]. Fig.~\ref{fig:study-map}--8 and the graphical abstract are drawn by the scripts in \texttt{paper/\allowbreak{}figures/\allowbreak{}}, which also assert Table~\ref{tab:1} and every plotted value against the frozen outputs. Sixteen of the twenty-two supplementary tables (S2--S7, S9--S18) are rebuilt row by row by \texttt{paper/\allowbreak{}code/\allowbreak{}appendix\_\allowbreak{}tables.\allowbreak{}py} from source files whose SHA-256 values are pinned in \texttt{paper/\allowbreak{}labelfix\_\allowbreak{}rerun/\allowbreak{}round5/\allowbreak{}tables/\allowbreak{}SOURCES.\allowbreak{}sha256}; the others name their source files in their captions. \texttt{paper/\allowbreak{}figures/\allowbreak{}check\_\allowbreak{}all.\allowbreak{}py} runs all of these checks. Software: Python 3.12.10 with NumPy 2.4.4, pandas 3.0.2 and scikit-learn 1.9.0; the cross-region tolerance between scikit-learn versions is about $\pm$0.02 to 0.03 (Section S3.5(vi)).
 
-\textbf{Author contributions.} Stated in CRediT terms. \textbf{Emrehan Metin:} Software, Data curation, Investigation, Validation,
-Writing -- review and editing. \textbf{Yunus Emre Cogurcu:} Conceptualization,
-Methodology, Formal analysis, Investigation, Writing -- original draft,
-Writing -- review and editing, Supervision.
-% NEEDS AUTHOR INPUT: confirm the contribution split with the co-author, and
-% confirm the Software and data availability items above before the manuscript
-% is uploaded.
+\subsection*{Funding}
 
-\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+This work was supported by the Çukurova University Scientific Research Projects Coordination Unit (Bilimsel Araştırma Projeleri Koordinasyon Birimi) under the Career Starter Project (Kariyer Başlangıç Projesi) scheme, project code \texttt{FKB-2025-17608} (``Termal Dijital İkiz Tabanlı Sürü İHA Sistemi ile Orman Yangınlarının Erken Tespiti ve Önlenmesi'').
 
-During the preparation of this work the authors used Claude (Anthropic) in order to
-write and run analysis and verification code against the frozen pipeline outputs,
-cross-check reported numbers against those outputs, and draft and edit manuscript
-text. After using this tool, the authors reviewed and edited the content as needed
-and take full responsibility for the content of the publication.
-% NEEDS AUTHOR INPUT: Elsevier's policy (updated June 2026) places this section
-% immediately before the references and asks that AI use in the research process
-% also be described in Methods. Confirm the scope stated above with both authors.
+\subsection*{Acknowledgments}
+
+The authors gratefully acknowledge the Çukurova University Scientific Research Projects Coordination Unit for financial support of this research, and the Department of Computer Engineering at Çukurova University for providing the laboratory environment and institutional support that made this work possible.
+
+\subsection*{Competing interests}
+
+The authors declare no competing interests.
+
+\subsection*{Ethics approval}
+
+Not applicable. This study involved no human participants, animal subjects, or personally identifiable data.
+
+\subsection*{Author contributions}
+
+Stated in CRediT terms. \textbf{Emrehan Metin:} Software, Data curation, Investigation, Validation, Writing -- review and editing. \textbf{Yunus Emre Cogurcu:} Conceptualization, Methodology, Formal analysis, Investigation, Writing -- original draft, Writing -- review and editing, Supervision.
+
+\subsection*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+
+During the preparation of this work the authors used Claude (Anthropic) in order to write and run analysis and verification code against the frozen pipeline outputs, cross-check reported numbers against those outputs, and draft and edit manuscript text. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
+
+
 
 % ---------------------------------------------------------------- figures --
 % Figures are placed at their first reference, in the body and in the
