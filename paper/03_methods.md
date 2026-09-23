@@ -10,7 +10,8 @@
 > **Updated 2026-09-23 for the corrected Manavgat label.** §3.13: the reproduction sentence now
 > reports the check against the re-frozen outputs (1.3×10⁻⁸, formerly 1.6×10⁻⁷), names who carried it
 > out, and states the one-line window-closure patch. The seed-stability sentence follows the new
-> seed sweep. §3.2 gains a paragraph on the corrected Manavgat label.
+> seed sweep. §3.2 gains a paragraph on the corrected Manavgat label. §3.4 gains the
+> quality-screening correction.
 
 ## 3.1 Study regions and temporal windows
 
@@ -87,6 +88,18 @@ baseline, and two coordinate-informed products, a downscaled and a fused surface
 two differenced channels are the ones constructed to isolate the dynamic anomaly. TVDI's wet and dry
 edges are percentiles of the values a given area and window happen to contain, so **it is not
 portable as a physical quantity independently of any concept shift** (Appendices C.4, C.5).
+
+**Quality screening of the coarse thermal input, and a correction.** The MODIS surface temperature
+behind the downscaled and fused channels entered Manavgat's frozen export unscreened. Appendix A(e)
+compares that arm with a screened one on the corrected label. The current pipeline's step7 refuses
+the unscreened raster, because it carries no nodata tag and 8.1 % exact zeros. The unscreened arm
+therefore runs the step7 of export time and the screened arm the current one, so the two differ in
+code version as well as in screening. The earlier version of this comparison, run on 14 August
+2026, described both arms as rebuilt with the same code. That was almost certainly inaccurate: its
+unscreened arm would have met the same refusal, and its signed AUCs equal the frozen ones. Its Muğla
+arm was not re-examined. The result does not change. Elevation stays at 0.232, no other signed AUC
+moves by more than 0.005 (downscaled LST, −0.0044), and the within-region increment moves from
++0.067 to +0.068 (Appendix C.5(xii)).
 
 ## 3.5 Cell aggregation, validity and analysis populations
 

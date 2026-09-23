@@ -18,6 +18,15 @@ Either it propagates and the mechanism is in question, or it does not and the ca
 Run 2026-08-14. Driver `run_qc_propagation.ps1`; comparison `qc_compare.py`; machine-readable
 output `modis_qc_downstream_propagation.json`.
 
+> **Correction 2026-09-23.** The design below says both arms were rebuilt with the same code. For
+> Manavgat that was almost certainly inaccurate. The pipeline's current step7 refuses the unscreened
+> raster, which has no nodata tag and 8.1 % exact zeros (guard 4745230, 2026-07-23). Arm A's signed
+> AUCs equal the frozen ones, so arm A was in effect the frozen, export-time step7. The two arms
+> therefore differed in code version as well as in screening. The Muğla arm was not re-examined. The
+> re-run on the corrected label (`paper/labelfix_rerun/round6/`) makes the version difference
+> explicit and leaves the result unchanged: elevation 0.232 → 0.232, no other signed AUC moving by
+> more than 0.005, and the increment +0.067 → +0.068. Methods §3.4 and Appendix C.5(xii) carry it.
+
 ## Design: two arms, both rebuilt here
 
 The frozen outputs were produced on another machine by another operator. Comparing a screened arm
