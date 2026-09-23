@@ -1,0 +1,1601 @@
+{
+ "meta": {
+  "created": "2026-08-13",
+  "purpose": "Recompute every Table 6 diagnostic on a common set of transfer directions, so that the marginal-versus-conditional contrast is not confounded with sample size.",
+  "framework": "identical to regime_correlation.mjs / conditional_similarity.mjs / niche_corr.mjs",
+  "bootstrap": {
+   "scheme": "unordered pairs resampled with replacement, both ordered directions carried",
+   "n_replicates": 2000,
+   "seed": 42,
+   "prng": "mulberry32",
+   "ci": "equal-tailed percentile 95%"
+  },
+  "seed_offsets": "per measure, as already published: regime 42+2i (full-set variant), conditional 42+100+i, niche 42+200+i",
+  "subsets": {
+   "four_region_12dir": {
+    "regions": [
+     "manavgat_2021",
+     "bejis_2022",
+     "mugla_2021",
+     "evia_2021_extended"
+    ],
+    "n_directions": 12,
+    "n_pairs": 6,
+    "note": "the set on which the marginal, AoA, climatic and geographic diagnostics exist (Montiferru excluded)"
+   },
+   "supported_16dir": {
+    "n_directions": 16,
+    "n_pairs": 8,
+    "note": "the set on which the supported-conditional index is defined (Manavgat~Montiferru and Bejis~Montiferru have no jointly supported feature)"
+   }
+  },
+  "inputs": [
+   "paper/regime_transfer_correlation.json",
+   "paper/conditional_similarity_transfer.json",
+   "paper/niche_overlap_transfer.json"
+  ],
+  "transfer_metric": "raw thermal ROC-AUC on target, source-only RF (step9b), TSG population"
+ },
+ "reproduction_check": {
+  "published_rows": [
+   {
+    "measure": "agree_fraction_supported",
+    "published_n": 18,
+    "recomputed_n": 18,
+    "n_match": true,
+    "max_abs_diff": 0.00004357715470948431,
+    "published": {
+     "rho": 0.5172,
+     "lo": -0.2743,
+     "hi": 0.8683
+    },
+    "recomputed": {
+     "rho": 0.5171965391047387,
+     "lo": -0.27429019252949666,
+     "hi": 0.868289526350906
+    }
+   },
+   {
+    "measure": "cosine_supported",
+    "published_n": 18,
+    "recomputed_n": 18,
+    "n_match": true,
+    "max_abs_diff": 0.000044798661852474275,
+    "published": {
+     "rho": 0.4935,
+     "lo": -0.2433,
+     "hi": 0.8706
+    },
+    "recomputed": {
+     "rho": 0.4935079042929173,
+     "lo": -0.24329001449432316,
+     "hi": 0.8705743111420934
+    }
+   },
+   {
+    "measure": "cosine_9",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.000028080852807588208,
+    "published": {
+     "rho": 0.4438,
+     "lo": -0.2902,
+     "hi": 0.8033
+    },
+    "recomputed": {
+     "rho": 0.44377674459469163,
+     "lo": -0.2901776445284613,
+     "hi": 0.8032889313414588
+    }
+   },
+   {
+    "measure": "vector_spearman_9",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.000046913958824390534,
+    "published": {
+     "rho": 0.4347,
+     "lo": -0.2073,
+     "hi": 0.8
+    },
+    "recomputed": {
+     "rho": 0.43472007633765714,
+     "lo": -0.20730439048064475,
+     "hi": 0.8000469139588244
+    }
+   },
+   {
+    "measure": "agree_count_9",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.00004687880194803595,
+    "published": {
+     "rho": 0.4673,
+     "lo": -0.2908,
+     "hi": 0.7957
+    },
+    "recomputed": {
+     "rho": 0.4672651358195865,
+     "lo": -0.2908215722200361,
+     "hi": 0.7957019501301029
+    }
+   },
+   {
+    "measure": "schoener_d_mean1d",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.000046634637226539155,
+    "published": {
+     "rho": 0.0966,
+     "lo": -0.5345,
+     "hi": 0.6302
+    },
+    "recomputed": {
+     "rho": 0.09660446140836824,
+     "lo": -0.5344971527120591,
+     "hi": 0.6302466346372265
+    }
+   },
+   {
+    "measure": "warren_i_mean1d",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.0000440116123261447,
+    "published": {
+     "rho": 0.1902,
+     "lo": -0.4264,
+     "hi": 0.7661
+    },
+    "recomputed": {
+     "rho": 0.190190033397725,
+     "lo": -0.42639289892557947,
+     "hi": 0.7661440116123261
+    }
+   },
+   {
+    "measure": "schoener_d_pca2d",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.000017610248467470058,
+    "published": {
+     "rho": 0.0332,
+     "lo": -0.587,
+     "hi": 0.6302
+    },
+    "recomputed": {
+     "rho": 0.03320778360912659,
+     "lo": -0.5870029591441347,
+     "hi": 0.6302152353585263
+    }
+   },
+   {
+    "measure": "warren_i_pca2d",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.000044284226152511985,
+    "published": {
+     "rho": -0.0272,
+     "lo": -0.6566,
+     "hi": 0.5601
+    },
+    "recomputed": {
+     "rho": -0.02717000477110357,
+     "lo": -0.6565587775998012,
+     "hi": 0.5600662839559639
+    }
+   },
+   {
+    "measure": "mahalanobis_burned",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.00004142255521893956,
+    "published": {
+     "rho": -0.2204,
+     "lo": -0.8187,
+     "hi": 0.4236
+    },
+    "recomputed": {
+     "rho": -0.22037892758784008,
+     "lo": -0.8186770105996422,
+     "hi": 0.4236414225552189
+    }
+   },
+   {
+    "measure": "domain_classifier_auc",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.00004797929840189008,
+    "published": {
+     "rho": -0.326,
+     "lo": -0.8095,
+     "hi": 0.3587
+    },
+    "recomputed": {
+     "rho": -0.32604005725324287,
+     "lo": -0.8094713090432247,
+     "hi": 0.35865202070159813
+    }
+   },
+   {
+    "measure": "target_mean_dissimilarity",
+    "published_n": 12,
+    "recomputed_n": 12,
+    "n_match": true,
+    "max_abs_diff": 0.00003478260869566041,
+    "published": {
+     "rho": -0.1259,
+     "lo": -0.6739,
+     "hi": 0.3696
+    },
+    "recomputed": {
+     "rho": -0.1258741258741259,
+     "lo": -0.6739130434782609,
+     "hi": 0.3695652173913043
+    }
+   },
+   {
+    "measure": "target_p95_dissimilarity",
+    "published_n": 12,
+    "recomputed_n": 12,
+    "n_match": true,
+    "max_abs_diff": 0.000046853146853154115,
+    "published": {
+     "rho": -0.1469,
+     "lo": -0.6763,
+     "hi": 0.2446
+    },
+    "recomputed": {
+     "rho": -0.14685314685314685,
+     "lo": -0.6762589928057554,
+     "hi": 0.2446043165467626
+    }
+   },
+   {
+    "measure": "fraction_inside_weighted_aoa",
+    "published_n": 12,
+    "recomputed_n": 12,
+    "n_match": true,
+    "max_abs_diff": 0.000039130434782597145,
+    "published": {
+     "rho": 0.2098,
+     "lo": -0.4783,
+     "hi": 0.6232
+    },
+    "recomputed": {
+     "rho": 0.2097902097902098,
+     "lo": -0.4782608695652174,
+     "hi": 0.6232115325316064
+    }
+   },
+   {
+    "measure": "unweighted_fraction_inside_support",
+    "published_n": 12,
+    "recomputed_n": 12,
+    "n_match": true,
+    "max_abs_diff": 0.000036690647482018335,
+    "published": {
+     "rho": 0.0839,
+     "lo": -0.9209,
+     "hi": 0.7609
+    },
+    "recomputed": {
+     "rho": 0.08391608391608392,
+     "lo": -0.920863309352518,
+     "hi": 0.7608695652173914
+    }
+   },
+   {
+    "measure": "climate_distance",
+    "published_n": 12,
+    "recomputed_n": 12,
+    "n_match": true,
+    "max_abs_diff": 0.000039973465924436624,
+    "published": {
+     "rho": 0.0283,
+     "lo": -0.8367,
+     "hi": 0.8356
+    },
+    "recomputed": {
+     "rho": 0.02827013970960878,
+     "lo": -0.8366600265340756,
+     "hi": 0.8356190445537307
+    }
+   },
+   {
+    "measure": "geographic_distance_km",
+    "published_n": 12,
+    "recomputed_n": 12,
+    "n_match": true,
+    "max_abs_diff": 0.0000462589245592282,
+    "published": {
+     "rho": -0.1696,
+     "lo": -0.8671,
+     "hi": 0.8393
+    },
+    "recomputed": {
+     "rho": -0.1696208382576527,
+     "lo": -0.86710996952412,
+     "hi": 0.8392543274162825
+    }
+   },
+   {
+    "measure": "regime_dist_log_effn",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.00004888087393351004,
+    "published": {
+     "rho": 0.1087,
+     "lo": -0.6699,
+     "hi": 0.7971
+    },
+    "recomputed": {
+     "rho": 0.10868001908441428,
+     "lo": -0.6698843900609791,
+     "hi": 0.7971250323680926
+    }
+   },
+   {
+    "measure": "regime_dist_largest_share",
+    "published_n": 20,
+    "recomputed_n": 20,
+    "n_match": true,
+    "max_abs_diff": 0.00004981767272327353,
+    "published": {
+     "rho": 0.1087,
+     "lo": -0.6649,
+     "hi": 0.7662
+    },
+    "recomputed": {
+     "rho": 0.10868001908441428,
+     "lo": -0.6648888285943206,
+     "hi": 0.7662498176727233
+    }
+   },
+   {
+    "measure": "vector_spearman_supported",
+    "published_n": 6,
+    "recomputed_n": 6,
+    "n_match": true,
+    "max_abs_diff": 0.00003545944726379702,
+    "published": {
+     "rho": 0.9562,
+     "lo": 0.8528,
+     "hi": 0.9562
+    },
+    "recomputed": {
+     "rho": 0.9561828874675149,
+     "lo": 0.8528028654224418,
+     "hi": 0.9561828874675149
+    }
+   }
+  ],
+  "four_aoi_seed_variant": [
+   {
+    "measure": "target_mean_dissimilarity",
+    "seed_offset": 7,
+    "n": 12,
+    "rho": -0.1258741258741259,
+    "ci": [
+     -0.6304347826086957,
+     0.34782608695652173
+    ],
+    "tau": -0.12121212121212122,
+    "tau_ci": [
+     -0.5862068965517241,
+     0.22580645161290322
+    ]
+   },
+   {
+    "measure": "target_p95_dissimilarity",
+    "seed_offset": 9,
+    "n": 12,
+    "rho": -0.14685314685314685,
+    "ci": [
+     -0.6917293233082706,
+     0.2392672818267118
+    ],
+    "tau": -0.21212121212121213,
+    "tau_ci": [
+     -0.6,
+     0.1
+    ]
+   },
+   {
+    "measure": "fraction_inside_weighted_aoa",
+    "seed_offset": 11,
+    "n": 12,
+    "rho": 0.2097902097902098,
+    "ci": [
+     -0.4348152991173586,
+     0.6232115325316064
+    ],
+    "tau": 0.12121212121212122,
+    "tau_ci": [
+     -0.3333333333333333,
+     0.3870967741935484
+    ]
+   },
+   {
+    "measure": "unweighted_fraction_inside_support",
+    "seed_offset": 17,
+    "n": 12,
+    "rho": 0.08391608391608392,
+    "ci": [
+     -0.8652482269503546,
+     0.7608695652173914
+    ],
+    "tau": 0,
+    "tau_ci": [
+     -0.7741935483870968,
+     0.5666666666666667
+    ]
+   },
+   {
+    "measure": "climate_distance",
+    "seed_offset": 13,
+    "n": 12,
+    "rho": 0.02827013970960878,
+    "ci": [
+     -0.8528028654224418,
+     0.8366600265340756
+    ],
+    "tau": 0.03178208630818641,
+    "tau_ci": [
+     -0.752217203341651,
+     0.7126268242184062
+    ]
+   },
+   {
+    "measure": "geographic_distance_km",
+    "seed_offset": 15,
+    "n": 12,
+    "rho": -0.1696208382576527,
+    "ci": [
+     -0.8528028654224418,
+     0.8392543274162825
+    ],
+    "tau": -0.09534625892455922,
+    "tau_ci": [
+     -0.7844645405527362,
+     0.7126268242184062
+    ]
+   }
+  ],
+  "max_abs_diff_published_csv": 0.00004981767272327353,
+  "max_abs_diff_four_aoi_variant": 0.000048226950354668396
+ },
+ "four_region_12dir": [
+  {
+   "subset": "four_region_12dir",
+   "key": "agree_fraction_supported",
+   "label": "Agreement fraction, supported features",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 103,
+   "published_n": 16,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 103,
+   "spearman_rho": 0.40967324519935133,
+   "spearman_ci95": [
+    -0.41552601663866623,
+    0.8846517369293828
+   ],
+   "kendall_tau_b": 0.3481553119113957,
+   "kendall_ci95": [
+    -0.36514837167011077,
+    0.7878385971583353
+   ],
+   "n_valid_replicates": 1839,
+   "n_degenerate_replicates": 161,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "cosine_supported",
+   "label": "Cosine, supported features",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 105,
+   "published_n": 16,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 105,
+   "spearman_rho": 0.45892582896942014,
+   "spearman_ci95": [
+    -0.5595028849441883,
+    0.8392543274162825
+   ],
+   "kendall_tau_b": 0.3289758474798845,
+   "kendall_ci95": [
+    -0.3959037912324479,
+    0.752217203341651
+   ],
+   "n_valid_replicates": 1998,
+   "n_degenerate_replicates": 2,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "cosine_9",
+   "label": "Cosine, all 9 features",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 102,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 102,
+   "spearman_rho": 0.25443125738647904,
+   "spearman_ci95": [
+    -0.746003846592251,
+    0.8392543274162825
+   ],
+   "kendall_tau_b": 0.22247460415730486,
+   "kendall_ci95": [
+    -0.554265307725427,
+    0.7453559924999299
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "vector_spearman_9",
+   "label": "Vector Spearman, all 9",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 101,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 101,
+   "spearman_rho": 0.25443125738647904,
+   "spearman_ci95": [
+    -0.746003846592251,
+    0.8528028654224418
+   ],
+   "kendall_tau_b": 0.22247460415730486,
+   "kendall_ci95": [
+    -0.554265307725427,
+    0.752217203341651
+   ],
+   "n_valid_replicates": 1999,
+   "n_degenerate_replicates": 1,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "agree_count_9",
+   "label": "Agreement count, all 9",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 100,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 100,
+   "spearman_rho": 0.48038446141526137,
+   "spearman_ci95": [
+    -0.7003009827526839,
+    0.882687198642578
+   ],
+   "kendall_tau_b": 0.3413943709994594,
+   "kendall_ci95": [
+    -0.554265307725427,
+    0.7844645405527362
+   ],
+   "n_valid_replicates": 1997,
+   "n_degenerate_replicates": 3,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "schoener_d_mean1d",
+   "label": "Schoener's D, 1D mean",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 200,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 200,
+   "spearman_rho": 0.05654027941921756,
+   "spearman_ci95": [
+    -0.762319128364807,
+    0.8152720829691317
+   ],
+   "kendall_tau_b": 0.03178208630818641,
+   "kendall_ci95": [
+    -0.6340229583087122,
+    0.6708203932499369
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "warren_i_mean1d",
+   "label": "Warren's I, 1D mean",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 201,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 201,
+   "spearman_rho": 0.05654027941921756,
+   "spearman_ci95": [
+    -0.762319128364807,
+    0.8226318360110658
+   ],
+   "kendall_tau_b": 0.03178208630818641,
+   "kendall_ci95": [
+    -0.6340229583087122,
+    0.6708203932499369
+   ],
+   "n_valid_replicates": 1999,
+   "n_degenerate_replicates": 1,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "schoener_d_pca2d",
+   "label": "Schoener's D, PCA-2D",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 202,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 202,
+   "spearman_rho": 0.2827013970960878,
+   "spearman_ci95": [
+    -0.762319128364807,
+    0.9292692962347225
+   ],
+   "kendall_tau_b": 0.22247460415730486,
+   "kendall_ci95": [
+    -0.6340229583087122,
+    0.8571593913749194
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "warren_i_pca2d",
+   "label": "Warren's I, PCA-2D",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 203,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 203,
+   "spearman_rho": 0.2827013970960878,
+   "spearman_ci95": [
+    -0.762319128364807,
+    0.9235789439804393
+   ],
+   "kendall_tau_b": 0.22247460415730486,
+   "kendall_ci95": [
+    -0.6340487067579225,
+    0.8453639444116163
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "mahalanobis_burned",
+   "label": "Mahalanobis, burned centroids",
+   "family": "P(x|y=1) niche",
+   "expected": "-",
+   "offset": 204,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 204,
+   "spearman_rho": -0.1413506985480439,
+   "spearman_ci95": [
+    -0.9325048082403138,
+    0.7171371656006361
+   ],
+   "kendall_tau_b": -0.15891043154093204,
+   "kendall_ci95": [
+    -0.8709883407113854,
+    0.5217491947499509
+   ],
+   "n_valid_replicates": 1999,
+   "n_degenerate_replicates": 1,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "domain_classifier_auc",
+   "label": "Domain-classifier AUC",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 4,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 4,
+   "spearman_rho": -0.3675118162249142,
+   "spearman_ci95": [
+    -0.8528028654224418,
+    0.6993786061802354
+   ],
+   "kendall_tau_b": -0.22247460415730486,
+   "kendall_ci95": [
+    -0.7711356597650746,
+    0.6334460659719167
+   ],
+   "n_valid_replicates": 1999,
+   "n_degenerate_replicates": 1,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "target_mean_dissimilarity",
+   "label": "Predictor-space mean dissimilarity",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 6,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 6,
+   "spearman_rho": -0.1258741258741259,
+   "spearman_ci95": [
+    -0.6739130434782609,
+    0.3695652173913043
+   ],
+   "kendall_tau_b": -0.12121212121212122,
+   "kendall_ci95": [
+    -0.5927777777777777,
+    0.22580645161290322
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "target_p95_dissimilarity",
+   "label": "Predictor-space p95 dissimilarity",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 8,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 8,
+   "spearman_rho": -0.14685314685314685,
+   "spearman_ci95": [
+    -0.6762589928057554,
+    0.2446043165467626
+   ],
+   "kendall_tau_b": -0.21212121212121213,
+   "kendall_ci95": [
+    -0.5925925925925926,
+    0.1
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "fraction_inside_weighted_aoa",
+   "label": "Fraction inside weighted AoA",
+   "family": "P(x) marginal",
+   "expected": "+",
+   "offset": 10,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 10,
+   "spearman_rho": 0.2097902097902098,
+   "spearman_ci95": [
+    -0.4782608695652174,
+    0.6232115325316064
+   ],
+   "kendall_tau_b": 0.12121212121212122,
+   "kendall_ci95": [
+    -0.3333333333333333,
+    0.3870967741935484
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "unweighted_fraction_inside_support",
+   "label": "Fraction inside unweighted support",
+   "family": "P(x) marginal",
+   "expected": "+",
+   "offset": 16,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 16,
+   "spearman_rho": 0.08391608391608392,
+   "spearman_ci95": [
+    -0.920863309352518,
+    0.7608695652173914
+   ],
+   "kendall_tau_b": 0,
+   "kendall_ci95": [
+    -0.8333333333333334,
+    0.5666666666666667
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "climate_distance",
+   "label": "Climatic distance",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 12,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 12,
+   "spearman_rho": 0.02827013970960878,
+   "spearman_ci95": [
+    -0.8366600265340756,
+    0.8356190445537307
+   ],
+   "kendall_tau_b": 0.03178208630818641,
+   "kendall_ci95": [
+    -0.7080881928749334,
+    0.7080881928749334
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "geographic_distance_km",
+   "label": "Geographic distance",
+   "family": "geographic",
+   "expected": "-",
+   "offset": 14,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 14,
+   "spearman_rho": -0.1696208382576527,
+   "spearman_ci95": [
+    -0.86710996952412,
+    0.8392543274162825
+   ],
+   "kendall_tau_b": -0.09534625892455922,
+   "kendall_ci95": [
+    -0.7918075824648958,
+    0.7257747386024231
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "regime_dist_log_effn",
+   "label": "Regime distance, log effective-N",
+   "family": "P(y) spatial structure",
+   "expected": "-",
+   "offset": 0,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 0,
+   "spearman_rho": 0.1413506985480439,
+   "spearman_ci95": [
+    -0.8528028654224418,
+    0.8392543274162825
+   ],
+   "kendall_tau_b": 0.09534625892455922,
+   "kendall_ci95": [
+    -0.7714688817847661,
+    0.7453559924999299
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "regime_dist_largest_share",
+   "label": "Regime distance, largest share",
+   "family": "P(y) spatial structure",
+   "expected": "-",
+   "offset": 2,
+   "published_n": 20,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 2,
+   "spearman_rho": 0.1413506985480439,
+   "spearman_ci95": [
+    -0.8530996817892534,
+    0.8392543274162825
+   ],
+   "kendall_tau_b": 0.09534625892455922,
+   "kendall_ci95": [
+    -0.7711356597650746,
+    0.7453559924999299
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "four_region_12dir",
+   "key": "vector_spearman_supported",
+   "label": "Vector Spearman, supported (>=3 feats)",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 104,
+   "published_n": 2,
+   "n_directions": 6,
+   "n_pairs": 3,
+   "seed_offset": 104,
+   "spearman_rho": 0.9561828874675149,
+   "spearman_ci95": [
+    0.8528028654224418,
+    0.9561828874675149
+   ],
+   "kendall_tau_b": 0.8944271909999159,
+   "kendall_ci95": [
+    0.7844645405527362,
+    0.8944271909999159
+   ],
+   "n_valid_replicates": 1773,
+   "n_degenerate_replicates": 227,
+   "n_subset_directions": 12,
+   "n_undefined_directions": 6,
+   "computable": true,
+   "excludes_zero": true
+  }
+ ],
+ "supported_16dir": [
+  {
+   "subset": "supported_16dir",
+   "key": "agree_fraction_supported",
+   "label": "Agreement fraction, supported features",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 103,
+   "published_n": 16,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 103,
+   "spearman_rho": 0.5171965391047387,
+   "spearman_ci95": [
+    -0.27429019252949666,
+    0.868289526350906
+   ],
+   "kendall_tau_b": 0.4338609156373123,
+   "kendall_ci95": [
+    -0.23652495839563303,
+    0.7532435771547095
+   ],
+   "n_valid_replicates": 1990,
+   "n_degenerate_replicates": 10,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "cosine_supported",
+   "label": "Cosine, supported features",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 105,
+   "published_n": 16,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 105,
+   "spearman_rho": 0.4935079042929173,
+   "spearman_ci95": [
+    -0.24329001449432316,
+    0.8705743111420934
+   ],
+   "kendall_tau_b": 0.3882154877102614,
+   "kendall_ci95": [
+    -0.15375520133814752,
+    0.7564186421645096
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "cosine_9",
+   "label": "Cosine, all 9 features",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 102,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 102,
+   "spearman_rho": 0.4230217115244236,
+   "spearman_ci95": [
+    -0.3727910232669978,
+    0.8092233531242838
+   ],
+   "kendall_tau_b": 0.2964324305999625,
+   "kendall_ci95": [
+    -0.2520075682159262,
+    0.6606227469540413
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "vector_spearman_9",
+   "label": "Vector Spearman, all 9",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 101,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 101,
+   "spearman_rho": 0.3981380814347516,
+   "spearman_ci95": [
+    -0.3007340881625904,
+    0.7962890205005102
+   ],
+   "kendall_tau_b": 0.26948402781814773,
+   "kendall_ci95": [
+    -0.2306641952320402,
+    0.6300499909257775
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "agree_count_9",
+   "label": "Agreement count, all 9",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 100,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 100,
+   "spearman_rho": 0.4893830793144852,
+   "spearman_ci95": [
+    -0.25817144951224147,
+    0.8110037942602746
+   ],
+   "kendall_tau_b": 0.3247254580313683,
+   "kendall_ci95": [
+    -0.24862976253788296,
+    0.6546873840445552
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "schoener_d_mean1d",
+   "label": "Schoener's D, 1D mean",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 200,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 200,
+   "spearman_rho": 0.17418541062770382,
+   "spearman_ci95": [
+    -0.4509648560816534,
+    0.7436978013636227
+   ],
+   "kendall_tau_b": 0.13474201390907387,
+   "kendall_ci95": [
+    -0.3376668716390287,
+    0.5842697650849605
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "warren_i_mean1d",
+   "label": "Warren's I, 1D mean",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 201,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 201,
+   "spearman_rho": 0.28201447434961574,
+   "spearman_ci95": [
+    -0.39191667862438145,
+    0.8606026136401114
+   ],
+   "kendall_tau_b": 0.24253562503633297,
+   "kendall_ci95": [
+    -0.2705085744099921,
+    0.7380249664231081
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "schoener_d_pca2d",
+   "label": "Schoener's D, PCA-2D",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 202,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 202,
+   "spearman_rho": 0.0912399769954639,
+   "spearman_ci95": [
+    -0.6066963965718173,
+    0.7791157342715237
+   ],
+   "kendall_tau_b": 0.053896805563629545,
+   "kendall_ci95": [
+    -0.5040995621314532,
+    0.6300189205398155
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "warren_i_pca2d",
+   "label": "Warren's I, PCA-2D",
+   "family": "P(x|y=1) niche",
+   "expected": "+",
+   "offset": 203,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 203,
+   "spearman_rho": 0.016589086726447985,
+   "spearman_ci95": [
+    -0.6495595398641504,
+    0.6600676861653102
+   ],
+   "kendall_tau_b": 0,
+   "kendall_ci95": [
+    -0.525677245711803,
+    0.5259232166304776
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "mahalanobis_burned",
+   "label": "Mahalanobis, burned centroids",
+   "family": "P(x|y=1) niche",
+   "expected": "-",
+   "offset": 204,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 204,
+   "spearman_rho": -0.31933991948412366,
+   "spearman_ci95": [
+    -0.9070607558271682,
+    0.37485456822387964
+   ],
+   "kendall_tau_b": -0.2964324305999625,
+   "kendall_ci95": [
+    -0.8038132951301353,
+    0.25532894791716143
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "domain_classifier_auc",
+   "label": "Domain-classifier AUC",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 4,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 4,
+   "spearman_rho": -0.44790534161409556,
+   "spearman_ci95": [
+    -0.9100726089569434,
+    0.208821685892265
+   ],
+   "kendall_tau_b": -0.3503292361635921,
+   "kendall_ci95": [
+    -0.8191016894672307,
+    0.15793451382644763
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "target_mean_dissimilarity",
+   "label": "Predictor-space mean dissimilarity",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 6,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 6,
+   "spearman_rho": -0.1258741258741259,
+   "spearman_ci95": [
+    -0.6739130434782609,
+    0.3695652173913043
+   ],
+   "kendall_tau_b": -0.12121212121212122,
+   "kendall_ci95": [
+    -0.5927777777777777,
+    0.22580645161290322
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 6,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "target_p95_dissimilarity",
+   "label": "Predictor-space p95 dissimilarity",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 8,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 8,
+   "spearman_rho": -0.14685314685314685,
+   "spearman_ci95": [
+    -0.6762589928057554,
+    0.2446043165467626
+   ],
+   "kendall_tau_b": -0.21212121212121213,
+   "kendall_ci95": [
+    -0.5925925925925926,
+    0.1
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 6,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "fraction_inside_weighted_aoa",
+   "label": "Fraction inside weighted AoA",
+   "family": "P(x) marginal",
+   "expected": "+",
+   "offset": 10,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 10,
+   "spearman_rho": 0.2097902097902098,
+   "spearman_ci95": [
+    -0.4782608695652174,
+    0.6232115325316064
+   ],
+   "kendall_tau_b": 0.12121212121212122,
+   "kendall_ci95": [
+    -0.3333333333333333,
+    0.3870967741935484
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 6,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "unweighted_fraction_inside_support",
+   "label": "Fraction inside unweighted support",
+   "family": "P(x) marginal",
+   "expected": "+",
+   "offset": 16,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 16,
+   "spearman_rho": 0.08391608391608392,
+   "spearman_ci95": [
+    -0.920863309352518,
+    0.7608695652173914
+   ],
+   "kendall_tau_b": 0,
+   "kendall_ci95": [
+    -0.8333333333333334,
+    0.5666666666666667
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 6,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "climate_distance",
+   "label": "Climatic distance",
+   "family": "P(x) marginal",
+   "expected": "-",
+   "offset": 12,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 12,
+   "spearman_rho": 0.02827013970960878,
+   "spearman_ci95": [
+    -0.8366600265340756,
+    0.8356190445537307
+   ],
+   "kendall_tau_b": 0.03178208630818641,
+   "kendall_ci95": [
+    -0.7080881928749334,
+    0.7080881928749334
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 6,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "geographic_distance_km",
+   "label": "Geographic distance",
+   "family": "geographic",
+   "expected": "-",
+   "offset": 14,
+   "published_n": 12,
+   "n_directions": 12,
+   "n_pairs": 6,
+   "seed_offset": 14,
+   "spearman_rho": -0.1696208382576527,
+   "spearman_ci95": [
+    -0.86710996952412,
+    0.8392543274162825
+   ],
+   "kendall_tau_b": -0.09534625892455922,
+   "kendall_ci95": [
+    -0.7918075824648958,
+    0.7257747386024231
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 6,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "regime_dist_log_effn",
+   "label": "Regime distance, log effective-N",
+   "family": "P(y) spatial structure",
+   "expected": "-",
+   "offset": 0,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 0,
+   "spearman_rho": 0.0953872486770759,
+   "spearman_ci95": [
+    -0.7117889896457834,
+    0.7710040151722798
+   ],
+   "kendall_tau_b": 0.08084520834544433,
+   "kendall_ci95": [
+    -0.5689402712109732,
+    0.6322370187266806
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "regime_dist_largest_share",
+   "label": "Regime distance, largest share",
+   "family": "P(y) spatial structure",
+   "expected": "-",
+   "offset": 2,
+   "published_n": 20,
+   "n_directions": 18,
+   "n_pairs": 9,
+   "seed_offset": 2,
+   "spearman_rho": 0.0953872486770759,
+   "spearman_ci95": [
+    -0.7282659335648665,
+    0.7878293314784183
+   ],
+   "kendall_tau_b": 0.08084520834544433,
+   "kendall_ci95": [
+    -0.5708446160544289,
+    0.6633559461549641
+   ],
+   "n_valid_replicates": 2000,
+   "n_degenerate_replicates": 0,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 0,
+   "computable": true,
+   "excludes_zero": false
+  },
+  {
+   "subset": "supported_16dir",
+   "key": "vector_spearman_supported",
+   "label": "Vector Spearman, supported (>=3 feats)",
+   "family": "P(y|x) conditional",
+   "expected": "+",
+   "offset": 104,
+   "published_n": 2,
+   "n_directions": 6,
+   "n_pairs": 3,
+   "seed_offset": 104,
+   "spearman_rho": 0.9561828874675149,
+   "spearman_ci95": [
+    0.8528028654224418,
+    0.9561828874675149
+   ],
+   "kendall_tau_b": 0.8944271909999159,
+   "kendall_ci95": [
+    0.7844645405527362,
+    0.8944271909999159
+   ],
+   "n_valid_replicates": 1773,
+   "n_degenerate_replicates": 227,
+   "n_subset_directions": 18,
+   "n_undefined_directions": 12,
+   "computable": true,
+   "excludes_zero": true
+  }
+ ]
+}

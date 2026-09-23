@@ -1,0 +1,731 @@
+{
+ "within": [
+  {
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.8498108425651276,
+   "n": 1472,
+   "positives": 466,
+   "auc": 0.9580137202535857
+  },
+  {
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.735200858391061,
+   "n": 1602,
+   "positives": 344,
+   "auc": 0.7839339852848743
+  },
+  {
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 15.06328588212996,
+   "n": 3446,
+   "positives": 330,
+   "auc": 0.6128116855331233
+  },
+  {
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.442695007912967,
+   "n": 1477,
+   "positives": 664,
+   "auc": 0.9199084159516294
+  },
+  {
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.735200858391061,
+   "n": 1369,
+   "positives": 507,
+   "auc": 0.9107414983731241
+  },
+  {
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 15.06328588212996,
+   "n": 2713,
+   "positives": 615,
+   "auc": 0.7543924914940284
+  },
+  {
+   "region": "manavgat_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 20,
+   "bin_hi_km": 40,
+   "median_km": 29.71945592960776,
+   "n": 4734,
+   "positives": 9,
+   "auc": 0.7538389182833627
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.7381752136153255,
+   "n": 1192,
+   "positives": 369,
+   "auc": 0.6852384198204071
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.432189865527311,
+   "n": 1324,
+   "positives": 91,
+   "auc": 0.7244013083429142
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.3470073259559934,
+   "n": 1164,
+   "positives": 412,
+   "auc": 0.7083844376161951
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.432189865527311,
+   "n": 1275,
+   "positives": 228,
+   "auc": 0.3845343420633724
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.5499955574300004,
+   "n": 1335,
+   "positives": 323,
+   "auc": 0.7386638970129346
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.649986672290002,
+   "n": 1479,
+   "positives": 325,
+   "auc": 0.6987148380215972
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 15.299973344580003,
+   "n": 3020,
+   "positives": 95,
+   "auc": 0.8509797570850203
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.5499955574300004,
+   "n": 1467,
+   "positives": 311,
+   "auc": 0.6934044660042946
+  },
+  {
+   "region": "bejis_2022",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.139987560804001,
+   "n": 1435,
+   "positives": 46,
+   "auc": 0.6226562744545654
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.443016642439055,
+   "n": 1584,
+   "positives": 152,
+   "auc": 0.8925086371655396
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.329049927317165,
+   "n": 1542,
+   "positives": 89,
+   "auc": 0.30154968024312345
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 15.065269295040839,
+   "n": 3210,
+   "positives": 574,
+   "auc": 0.27307106639243284
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 20,
+   "bin_hi_km": 40,
+   "median_km": 30.130538590081677,
+   "n": 6657,
+   "positives": 99,
+   "auc": 0.18712899042267753
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 40,
+   "bin_hi_km": 80,
+   "median_km": 50.89618005081364,
+   "n": 7825,
+   "positives": 548,
+   "auc": 0.5921821226562242
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.443016642439055,
+   "n": 1788,
+   "positives": 330,
+   "auc": 0.8197717919940142
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.736219367723674,
+   "n": 1653,
+   "positives": 147,
+   "auc": 0.7747332664805631
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 20,
+   "bin_hi_km": 40,
+   "median_km": 30.130538590081677,
+   "n": 5017,
+   "positives": 443,
+   "auc": 0.5738246206599081
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 40,
+   "bin_hi_km": 80,
+   "median_km": 56.596552216504776,
+   "n": 7711,
+   "positives": 502,
+   "auc": 0.5761141866159996
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 80,
+   "bin_hi_km": 160,
+   "median_km": 85.91275192577343,
+   "n": 1631,
+   "positives": 27,
+   "auc": 0.4210538468643207
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.5499955574300004,
+   "n": 2974,
+   "positives": 134,
+   "auc": 0.34474195921799455
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.139987560804001,
+   "n": 3389,
+   "positives": 564,
+   "auc": 0.477948283436892
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 14.279975121608002,
+   "n": 3858,
+   "positives": 800,
+   "auc": 0.6156650588620013
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 20,
+   "bin_hi_km": 40,
+   "median_km": 30.089947577674003,
+   "n": 6983,
+   "positives": 332,
+   "auc": 0.5774709120650396
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 40,
+   "bin_hi_km": 80,
+   "median_km": 45.89992003374001,
+   "n": 3434,
+   "positives": 307,
+   "auc": 0.4536083225953631
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.5499955574300004,
+   "n": 2887,
+   "positives": 1,
+   "auc": 0.7917532917532918
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 15.299973344580003,
+   "n": 5240,
+   "positives": 187,
+   "auc": 0.2498362279622102
+  },
+  {
+   "region": "mugla_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 20,
+   "bin_hi_km": 40,
+   "median_km": 28.559950243216004,
+   "n": 10283,
+   "positives": 586,
+   "auc": 0.2916042081907743
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.383095859207674,
+   "n": 655,
+   "positives": 569,
+   "auc": 0.7350717292679935
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.546470220824301,
+   "n": 523,
+   "positives": 43,
+   "auc": 0.3377422480620155
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.383095859207674,
+   "n": 816,
+   "positives": 664,
+   "auc": 0.49614081325301207
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.546470220824301,
+   "n": 1010,
+   "positives": 741,
+   "auc": 0.7578275113004129
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 14.695757798447323,
+   "n": 1740,
+   "positives": 647,
+   "auc": 0.7111342235470629
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.5499955574300004,
+   "n": 767,
+   "positives": 78,
+   "auc": 0.7420639350973167
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.649986672290002,
+   "n": 930,
+   "positives": 11,
+   "auc": 0.4276387377584331
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 15.299973344580003,
+   "n": 2423,
+   "positives": 11,
+   "auc": 0.25305291723202167
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.0399964459440003,
+   "n": 661,
+   "positives": 281,
+   "auc": 0.6026690391459075
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.649986672290002,
+   "n": 556,
+   "positives": 464,
+   "auc": 0.5826813155922039
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 14.789974233094002,
+   "n": 1661,
+   "positives": 1067,
+   "auc": 0.41420847020659585
+  },
+  {
+   "region": "evia_2021_extended",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 20,
+   "bin_hi_km": 40,
+   "median_km": 25.499955574300003,
+   "n": 1395,
+   "positives": 752,
+   "auc": 0.6113164273187519
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.3385900839710034,
+   "n": 530,
+   "positives": 127,
+   "auc": 0.6148766143686133
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "low_to_high",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.405535265908179,
+   "n": 552,
+   "positives": 2,
+   "auc": 0.6418181818181818
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.3385900839710034,
+   "n": 549,
+   "positives": 168,
+   "auc": 0.6132358455193101
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.405535265908179,
+   "n": 490,
+   "positives": 207,
+   "auc": 0.29497618681825166
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "east_west",
+   "direction": "high_to_low",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 11.303185405859852,
+   "n": 253,
+   "positives": 35,
+   "auc": 0.7060943643512451
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "low_to_high",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.5499955574300004,
+   "n": 482,
+   "positives": 101,
+   "auc": 0.7330890569371897
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 0,
+   "bin_hi_km": 5,
+   "median_km": 2.0399964459440003,
+   "n": 547,
+   "positives": 238,
+   "auc": 0.6719017704169047
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 5,
+   "bin_hi_km": 10,
+   "median_km": 7.139987560804001,
+   "n": 466,
+   "positives": 143,
+   "auc": 0.3971075364264219
+  },
+  {
+   "region": "montiferru_2021",
+   "axis": "north_south",
+   "direction": "high_to_low",
+   "bin_lo_km": 10,
+   "bin_hi_km": 20,
+   "median_km": 11.729979564178002,
+   "n": 281,
+   "positives": 57,
+   "auc": 0.27283051378446116
+  }
+ ],
+ "cross": [
+  {
+   "source": "manavgat_2021",
+   "target": "bejis_2022",
+   "distance_km": 2801.8,
+   "auc": 0.3964
+  },
+  {
+   "source": "manavgat_2021",
+   "target": "mugla_2021",
+   "distance_km": 306.2,
+   "auc": 0.4377
+  },
+  {
+   "source": "manavgat_2021",
+   "target": "evia_2021_extended",
+   "distance_km": 729.7,
+   "auc": 0.654
+  },
+  {
+   "source": "manavgat_2021",
+   "target": "montiferru_2021",
+   "distance_km": 2010.1,
+   "auc": 0.5178
+  },
+  {
+   "source": "bejis_2022",
+   "target": "manavgat_2021",
+   "distance_km": 2801.8,
+   "auc": 0.3142
+  },
+  {
+   "source": "bejis_2022",
+   "target": "mugla_2021",
+   "distance_km": 2508.2,
+   "auc": 0.6185
+  },
+  {
+   "source": "bejis_2022",
+   "target": "evia_2021_extended",
+   "distance_km": 2072.6,
+   "auc": 0.3828
+  },
+  {
+   "source": "bejis_2022",
+   "target": "montiferru_2021",
+   "distance_km": 791.8,
+   "auc": 0.5937
+  },
+  {
+   "source": "mugla_2021",
+   "target": "manavgat_2021",
+   "distance_km": 306.2,
+   "auc": 0.345
+  },
+  {
+   "source": "mugla_2021",
+   "target": "bejis_2022",
+   "distance_km": 2508.2,
+   "auc": 0.5832
+  },
+  {
+   "source": "mugla_2021",
+   "target": "evia_2021_extended",
+   "distance_km": 447.6,
+   "auc": 0.6534
+  },
+  {
+   "source": "mugla_2021",
+   "target": "montiferru_2021",
+   "distance_km": 1718.0,
+   "auc": 0.5312
+  },
+  {
+   "source": "evia_2021_extended",
+   "target": "manavgat_2021",
+   "distance_km": 729.7,
+   "auc": 0.6769
+  },
+  {
+   "source": "evia_2021_extended",
+   "target": "bejis_2022",
+   "distance_km": 2072.6,
+   "auc": 0.448
+  },
+  {
+   "source": "evia_2021_extended",
+   "target": "mugla_2021",
+   "distance_km": 447.6,
+   "auc": 0.5768
+  },
+  {
+   "source": "evia_2021_extended",
+   "target": "montiferru_2021",
+   "distance_km": 1280.8,
+   "auc": 0.6467
+  },
+  {
+   "source": "montiferru_2021",
+   "target": "manavgat_2021",
+   "distance_km": 2010.1,
+   "auc": 0.4041
+  },
+  {
+   "source": "montiferru_2021",
+   "target": "bejis_2022",
+   "distance_km": 791.8,
+   "auc": 0.5483
+  },
+  {
+   "source": "montiferru_2021",
+   "target": "mugla_2021",
+   "distance_km": 1718.0,
+   "auc": 0.6194
+  },
+  {
+   "source": "montiferru_2021",
+   "target": "evia_2021_extended",
+   "distance_km": 1280.8,
+   "auc": 0.5862
+  }
+ ]
+}

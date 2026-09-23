@@ -1,5 +1,6 @@
 # Muğla matched to Manavgat on population size and positive count
 
+
 The frozen `mugla_subsampling` diagnostic cuts Muğla to Manavgat's total cell count while preserving
 prevalence, and states its own limitation plainly: "Prevalence is preserved, not equalised. Muğla's
 positive count remains far above Manavgat's. Any residual difference between regions may still be a

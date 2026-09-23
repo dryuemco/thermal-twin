@@ -21,3 +21,8 @@ paper/reproduction_check/**  -text
 # changed by line-ending conversion, or hashes differ between machines. Added 2026-09-19.
 design/** -text
 paper/data/** -text
+
+# Label-fix re-run records (2026-09-23). round3/ holds inputs of the pre-registration's precision
+# analysis (transfer_ci_blocksize.csv, verified by value); keep bytes exact.
+paper/labelfix_rerun/round3/**  -text
+paper/labelfix_rerun/round4/**  -text
