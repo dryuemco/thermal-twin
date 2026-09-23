@@ -190,15 +190,47 @@ fig.savefig(HERE / "fig1_study_map.svg")
 if "--preview" in sys.argv:
     fig.savefig(HERE / "fig1_study_map_preview.png", dpi=300)
 
+# Natural Earth files actually read from the cartopy cache: sha256 and download time, so a
+# later rebuild can tell whether it used the same basemap (added 2026-09-23).
+import datetime
+import hashlib
+import shapely
+import pyproj
+_NE_DIR = Path(cartopy.config["data_dir"]) / "shapefiles" / "natural_earth" / "physical"
+NE_FILES = {}
+for _stem in ("ne_50m_land", "ne_50m_coastline"):
+    for _ext in (".shp", ".shx", ".dbf"):
+        _f = _NE_DIR / (_stem + _ext)
+        NE_FILES[_f.name] = {
+            "sha256": hashlib.sha256(_f.read_bytes()).hexdigest(),
+            "downloaded": datetime.datetime.fromtimestamp(_f.stat().st_mtime).isoformat(timespec="seconds"),
+        }
+
 (HERE / "fig1_provenance.json").write_text(json.dumps({
     "figure": "Fig. 1 - study-area location map",
     "script": "paper/figures/fig1_study_map.py",
-    "aoi_data": "paper/figures/data/fig1_aoi.json (step0 geojson / 30m-grid-derived; sha256 per source inside)",
+    "aoi_data": {"path": "paper/figures/data/fig1_aoi.json",
+                 "sha256": hashlib.sha256((HERE / "data" / "fig1_aoi.json").read_bytes()).hexdigest(),
+                 "note": "step0 geojson / 30m-grid-derived; sha256 per source inside"},
     "basemap": {
         "dataset": "Natural Earth 1:50m physical: coastline + land",
-        "fetched_via": f"cartopy {cartopy.__version__} downloader at build time",
-        "note": "Natural Earth is public domain; version as shipped by NACIS CDN at build date 2026-08-08",
+        "fetched_via": f"cartopy {cartopy.__version__} downloader; files read from the cartopy cache",
+        "note": "Natural Earth is public domain; version as shipped by NACIS CDN on the download date "
+                "below (the cache files carry no version string)",
+        "files": NE_FILES,
     },
+    "geo_stack": {"cartopy": cartopy.__version__, "shapely": shapely.__version__,
+                  "geos": shapely.geos_version_string, "pyproj": pyproj.__version__,
+                  "proj": pyproj.proj_version_str},
+    "reproducibility": (
+        "Checked 2026-09-23. The committed fig1_study_map.pdf/.svg (rendered 2026-08-08) are NOT "
+        "reproduced exactly by this script with the Natural Earth files, the AOI file and the geo "
+        "stack recorded here, although all three predate that render. A rebuild is deterministic "
+        "(two rebuilds are identical once matplotlib ids are normalised) and differs from the "
+        "committed SVG by two extra paths, one land fill and its coastline, at the top-left edge "
+        "of the map. The cause was not identified. An earlier commit message (67790d8) attributed "
+        "the difference to cartopy re-fetching its coastline data; that was wrong, since the cache "
+        "files date from 2026-08-08."),
     "asserts": "all five AOI bboxes match 03_methods Table 1 to 5e-3 deg",
     "design": "single AOI colour across the five study regions (no regime grouping implied); "
               "no topography/satellite; Kozan 2023 drawn as gate control in a distinct style "
