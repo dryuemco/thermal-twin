@@ -2,7 +2,12 @@
  "figure": "Fig. 2 - methods schematic",
  "script": "paper/figures/fig2_schematic.py",
  "data": "none (schematic; labels mirror 03_methods section numbering)",
- "asserts": "no numbers to assert; instead (a) every section reference is verified against the live 03_methods.md heading list at build time - number AND title - so a renumbered Methods breaks the build; (b) every box label is checked to fit its own box",
+ "asserts": "no numbers to assert; instead (a) every section reference is verified against the live 03_methods.md heading list at build time - number AND title - so a renumbered Methods breaks the build; (a2, 2026-09-23) every § printed in the figure, ranges expanded, equals that table exactly; (a3) every \\S in the caption is a live heading and sits next to its topic word; (b) every box label is checked to fit its own box",
+ "printed_section_references": 18,
+ "caption_section_references": [
+  "3.10",
+  "3.13"
+ ],
  "sections_referenced": [
   "3.2",
   "3.3",

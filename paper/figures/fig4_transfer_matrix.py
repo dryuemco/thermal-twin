@@ -226,5 +226,5 @@ if "--preview" in sys.argv:
     "font_pt": {"body": FS_BODY, "minimum": FS_CELL},
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}",
-}, indent=1, ensure_ascii=False))
+}, indent=1, ensure_ascii=False), encoding="utf-8")
 print("fig4 written; below chance", {k: len(v) for k, v in BELOW.items()}, "; ranges", {k: (round(a, 3), round(b, 3)) for k, (a, b) in rng.items()})

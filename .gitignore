@@ -19,6 +19,7 @@ data/
 paper/figures/data/*
 !paper/figures/data/fig_data.json
 !paper/figures/data/fig_data_corrected.json
+!paper/figures/data/fig1_aoi.json
 
 # Agir step ciktilari (Step10 disi)
 experiments/*/step0/

@@ -126,5 +126,5 @@ save(fig, "fig6_loro", "--preview" in sys.argv)
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time; "
                     f"{len(data_artists)} data artists registered",
     "environment": f"matplotlib {matplotlib.__version__}",
-}, indent=1, ensure_ascii=False))
+}, indent=1, ensure_ascii=False), encoding="utf-8")
 print("fig6 written; pooled beats best pairwise only for", WINS, "; interval below chance:", BELOW_CI)
