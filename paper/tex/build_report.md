@@ -64,10 +64,11 @@ converter made is listed so it can be reviewed.
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Item (vii) is rewritten, and > it now
 - BLOCKQUOTE DROPPED — check it was not content: > **Updated 2026-09-23: the result returns to the paper as Contribution 3, in its negative form.** > Under the
 
-## stripped (6)
+## stripped (7)
 
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped _(x2)_
+- 4 comment block(s) removed (drafting notes)
 
 ## table (68)
 
