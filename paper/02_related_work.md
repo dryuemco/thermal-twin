@@ -61,7 +61,7 @@ because magnitude is problem-specific, so our Contribution 1 is a measurement in
 rather than a new phenomenon. The wildfire literature has largely not imported the lesson:
 region-wide figures are reported as though they described performance at the fire, and we know of no
 wildfire study that holds the model fixed and varies only the evaluation cells — which is why
-Section 5.6 treats the 0.143 as a reporting problem rather than a caveat.
+Section 5.6 treats the 0.133 as a reporting problem rather than a caveat.
 
 **The nearest neighbour, and the contrast this paper draws.** Dimarco et al. [@Dimarco2026] is the
 closest Mediterranean analogue: 500 m predictors harmonised across four countries, tree ensembles
