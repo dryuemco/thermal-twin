@@ -130,4 +130,24 @@
 > 0.143, the interval on +0.004, "drops no burned cells", and the baseline control 0.537 against
 > 0.541. No number was added or changed.
 
-Pre-fire thermal wildfire models are rarely tested outside their fitting region. Six thermal predictors were added to a terrain, fuel and greenness baseline in five Mediterranean regions, with MCD64A1 labels and spatially blocked validation. The first result is **evaluation geometry**: with the model held fixed, scoring on the burn scar and its 2 km collar rather than region-wide costs **0.143 ROC-AUC [+0.077, +0.208]**, driven by the negative pool, not class balance. Between regions, equalising the study areas to a 10 km collar, which drops no burned cells, lifts mean transfer from 0.541 to 0.616. Local skill does not travel: the thermal block adds +0.045 to +0.148 within regions at 5 km blocking but +0.004 [−0.028, +0.036] across twenty transfer directions, and the static baseline transfers no better, at 0.537 against 0.541. Transfer skill must be measured on the target region before a model is relied on.
+> **Updated 2026-09-23 for the corrected Manavgat label (Section 3.2).** Four values change, all read
+> from `04_results.md`: frame cost 0.143 [+0.077, +0.208] → 0.133 [+0.059, +0.207]; equalised
+> transfer 0.541 → 0.616 becomes 0.527 → 0.589; thermal gain +0.004 [−0.028, +0.036] → +0.007
+> [−0.021, +0.037] (pair-clustered, B = 20,000, the same unit as before); baseline control 0.537
+> against 0.541 → 0.519 against 0.527. The 5 km within-region range +0.045 to +0.148 is unchanged
+> (Manavgat +0.062 lies inside it).
+>
+> **Contrast-pair sentence added the same day, on the corresponding author's decision.** Values come from
+> `paper/labelfix_rerun/round5/s7_contrast_pair.json`. "At the point estimates" is required: at 5 km
+> blocking only Muğla → Manavgat is supported below chance, and the other three intervals cover 0.5.
+> To make room, three cuts were made on the corresponding author's decision:
+> - "driven by the negative pool, not class balance" (Highlight 2 carries it);
+> - "which drops no burned cells" (Methods carries it). This was a protected item, and it is removed
+>   deliberately;
+> - the two opening sentences, merged into one that keeps MCD64A1 and the spatially blocked
+>   validation.
+>
+> **150 words.** Two further cuts reached the cap: "Between regions," and "transfer" in "twenty
+> transfer directions". The label product and the validation design are kept.
+
+We test whether six pre-fire thermal predictors, added to a terrain, fuel and greenness baseline, transfer between five Mediterranean regions under MCD64A1 labels and spatially blocked validation. The first result is **evaluation geometry**: with the model held fixed, scoring on the burn scar and its 2 km collar rather than region-wide costs **0.133 ROC-AUC [+0.059, +0.207]**. Equalising the study areas to a 10 km collar lifts mean transfer from 0.527 to 0.589. Local skill does not travel: the thermal block adds +0.045 to +0.148 within regions at 5 km blocking but +0.007 [−0.021, +0.037] across twenty directions, and the static baseline transfers no better, at 0.519 against 0.527. At the point estimates, similarity is neither sufficient nor necessary: the most niche-similar pair fails both ways (0.438, 0.345), the least similar transfers above chance (0.594, 0.548). Transfer skill must be measured on the target region before a model is relied on.
