@@ -1,0 +1,78 @@
+{
+ "meta": {
+  "created": "2026-08-08",
+  "extractor": "paper/figures/extract_fig1_aoi.mjs",
+  "sanity": "manavgat grid-derived bbox matches step0 geojson to <2e-3 deg",
+  "sources": {
+   "drive_new/experiments/manavgat_2021/step0/aoi_preview.geojson": "c4276ff99e975a419a09e87315b96f6eb4a242f0282d07891614d45cc0333ef0",
+   "drive_new/experiments/bejis_2022/step0/aoi_preview.geojson": "d4dfdbbd87224cb67cd0c1b4b7595e008b1b3cd0eaeefc97c2578344ba75605c",
+   "drive_new/experiments/evia_2021_extended/step0/aoi_preview.geojson": "93e8b7530f32fb41b053e1d028b5f85e4d97e646fce8568cafba03816aab4a84",
+   "drive_new/experiments/mugla_2021/step8a/step8a_dataset_stats.json": "c9bebf854270393de2e4a75e1bb1d6ce21bdddc00017498ee54ea6802b62ebd8",
+   "drive_new/experiments/montiferru_2021/step8a/step8a_dataset_stats.json": "3e2e12f5731c0575a66f879b9d15bb0e8f957b56bb79c58c4e99ea6fec6061b7",
+   "drive_new/kozan-legacy/step8a/step8a_dataset_stats.json": "b93fe8e23e504833594120f72e2e363ee2d290bc1d1747f6b39d4bbc4d65eec4",
+   "drive_new/experiments/manavgat_2021/step8a/step8a_dataset_stats.json": "18170d2a67aa17e2d515dbd782c69bc7e43f08062d3d5b15de410795d2898cd5"
+  }
+ },
+ "aoi": {
+  "manavgat_2021": {
+   "bbox": [
+    31.05,
+    36.72,
+    31.85,
+    37.35
+   ],
+   "method": "step0 aoi_preview.geojson",
+   "role": "study_region"
+  },
+  "bejis_2022": {
+   "bbox": [
+    -1.0500000000000114,
+    39.68,
+    -0.35000000000002274,
+    40.15
+   ],
+   "method": "step0 aoi_preview.geojson",
+   "role": "study_region"
+  },
+  "evia_2021_extended": {
+   "bbox": [
+    23.05,
+    38.55,
+    23.85,
+    39.15
+   ],
+   "method": "step0 aoi_preview.geojson",
+   "role": "study_region"
+  },
+  "mugla_2021": {
+   "bbox": [
+    27.099836502147255,
+    36.59979012629643,
+    28.900060331522777,
+    37.45004554271556
+   ],
+   "method": "30m reference-grid transform (no step0 export)",
+   "role": "study_region"
+  },
+  "montiferru_2021": {
+   "bbox": [
+    8.449733225485044,
+    40.04985980648586,
+    8.750219688023025,
+    40.27003688262356
+   ],
+   "method": "30m reference-grid transform (no step0 export)",
+   "role": "study_region"
+  },
+  "kozan_2023": {
+   "bbox": [
+    35.258246080992336,
+    36.99998958537168,
+    36.38446395269298,
+    37.90010150005944
+   ],
+   "method": "30m reference-grid transform (no step0 export)",
+   "role": "gate_control"
+  }
+ }
+}

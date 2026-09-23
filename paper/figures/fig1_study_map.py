@@ -215,5 +215,5 @@ if "--preview" in sys.argv:
     "layout_check": "paper/figures/_layout_check.py; "
                     f"{len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}, cartopy {cartopy.__version__}",
-}, indent=1, ensure_ascii=False))
+}, indent=1, ensure_ascii=False), encoding="utf-8")
 print("fig1 written; cartopy", cartopy.__version__)

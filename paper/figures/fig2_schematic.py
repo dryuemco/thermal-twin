@@ -25,6 +25,12 @@ No numbers -> no numeric asserts. Two structural checks stand in for them:
     canvas is compacted 118 -> 95 mm by pulling the dead space out of the
     columns; topology, box content and section references are unchanged.
 
+2026-09-23: the section check was incomplete. It verified the SECTIONS table against Methods
+but not that the table is what the figure prints, and it never looked at the caption, which
+still said "decomposition (§3.12)" and "sensitivity designs (§3.16)" after the split (Methods
+now has §3.10 for the decomposition and ends at §3.14). Both checks are added (1b, 1c); the
+figure's own 18 references (12 sections) were already correct, and the caption is fixed.
+
 Okabe-Ito accents, greyscale-safe, vector.
 """
 import json
@@ -73,6 +79,41 @@ for num, title in SECTIONS.items():
     assert num in _heads, f"Methods has no section {num} (figure references it)"
     assert _heads[num].strip() == title, \
         f"section {num} moved: figure expects {title!r}, Methods has {_heads[num]!r}"
+
+
+# (1b) 2026-09-23: the check above only verified the SECTIONS table, not that the table is what
+# the figure prints. Every "§a" and "§a–b" in this file's own text is now extracted and must
+# equal the table exactly, so a box label cannot cite a section the table does not vouch for.
+def _expand(a, b=None):
+    if not b:
+        return [a]
+    (ma, na), (mb, nb) = (map(int, a.split(".")), map(int, b.split(".")))
+    assert ma == mb and na < nb, (a, b)
+    return [f"{ma}.{n}" for n in range(na, nb + 1)]
+
+
+_src = Path(__file__).read_text(encoding="utf-8")
+_body = _src[_src.index("_boxes = []"):]   # figure text only: not the docstring or these comments
+PRINTED_REFS = []
+for a, b in re.findall(r"§(3\.\d+)(?:–(3\.\d+))?", _body):
+    PRINTED_REFS += _expand(a, b)
+assert set(PRINTED_REFS) == set(SECTIONS), (sorted(set(PRINTED_REFS)), sorted(SECTIONS))
+
+# (1c) the caption: every \S reference must be a live Methods heading, and must sit next to a
+# word from that heading's topic, so a renumbered section cannot survive under an old number
+# (the caption said "decomposition (\S3.12)" and "sensitivity designs (\S3.16)" after the split).
+CAPTION_TOPIC = {"3.10": r"decomposition", "3.13": r"leakage|seed|bootstrap"}
+_caps = (HERE.parent / "figure_captions.tex").read_text(encoding="utf-8")
+_cap2 = " ".join(_caps[_caps.index("fig2_schematic.pdf"):_caps.index(r"\label{fig:pipeline}")].split())
+CAPTION_REFS = re.findall(r"\\S(\d+\.\d+)", _cap2)
+assert CAPTION_REFS, "Fig. 2 caption cites no section"
+for m in re.finditer(r"\\S(\d+\.\d+)", _cap2):
+    num = m.group(1)
+    assert num in _heads, f"caption cites \\S{num}, which Methods does not have"
+    assert num in CAPTION_TOPIC, f"caption cites \\S{num}; add its topic to CAPTION_TOPIC"
+    before = _cap2[max(0, m.start() - 90):m.start()]
+    assert re.search(CAPTION_TOPIC[num], before, re.I), \
+        f"caption cites \\S{num} ({_heads[num]!r}) next to {before[-60:]!r}"
 
 MM = 1 / 25.4
 W_MM, H_MM = 190.0, 95.0
@@ -207,7 +248,11 @@ if "--preview" in sys.argv:
     "asserts": "no numbers to assert; instead (a) every section reference is "
                "verified against the live 03_methods.md heading list at build "
                "time - number AND title - so a renumbered Methods breaks the "
-               "build; (b) every box label is checked to fit its own box",
+               "build; (a2, 2026-09-23) every § printed in the figure, ranges expanded, "
+               "equals that table exactly; (a3) every \S in the caption is a live heading and "
+               "sits next to its topic word; (b) every box label is checked to fit its own box",
+    "printed_section_references": len(PRINTED_REFS),
+    "caption_section_references": CAPTION_REFS,
     "sections_referenced": sorted(SECTIONS, key=lambda s: [int(p) for p in s.split(".")]),
     "gate_branch": "burned-landcover gate shown with its rejecting branch; Kozan 2023 "
                    "drawn as negative control in the grey/dashed style used in Fig. 1, "
@@ -223,5 +268,5 @@ if "--preview" in sys.argv:
     "font_pt": {"body": FS_NOTE, "minimum": FS_BOX},
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}",
-}, indent=1, ensure_ascii=False))
+}, indent=1, ensure_ascii=False), encoding="utf-8")
 print("fig2 written")
