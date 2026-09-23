@@ -97,7 +97,7 @@ def main():
     ap.add_argument("--fig1-wsl-distro", default="Ubuntu-22.04")
     ap.add_argument("--fig1-python", default="/home/yunus/mm-thermal/bin/python")
     args = ap.parse_args()
-    names = args.only or SCRIPTS
+    names = [n for n in (args.only or SCRIPTS) if n in SCRIPTS]
     rows = []
     for name in names:
         row = {"figure": name, "asserts": n_asserts(name)}
@@ -135,10 +135,26 @@ def main():
         lay = "-" if r.get("problems") is None else str(r["problems"])
         print(f"{r['figure']:24s} {r['status']:8s} {r['asserts']:>7d} {lay:>6s} {gap:>12s} "
               f"{(r.get('min_font') or '-'):>8s} {str(r.get('outputs_touched', '-')):>5s}  {r.get('note', '')}")
+    # the appendix tables (paper/code/appendix_tables.py): every row rebuilt from its source file
+    if not args.only or "appendix_tables" in args.only:
+        r = subprocess.run([sys.executable, str(HERE.parent / "code" / "appendix_tables.py")],
+                           cwd=HERE.parents[1], capture_output=True, text=True, encoding="utf-8",
+                           errors="replace", env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"})
+        out = r.stdout + r.stderr
+        tabs = re.findall(r"^(\w+): (PASS|FAIL)\s+(\d+) rows", out, re.M)
+        nrows = sum(int(x[2]) for x in tabs)
+        bad = [x[0] for x in tabs if x[1] == "FAIL"]
+        row = {"figure": "appendix_tables", "asserts": nrows, "problems": None,
+               "status": "PASS" if r.returncode == 0 and tabs and not bad else "FAIL",
+               "note": (f"{len(tabs)} tables, {nrows} rows vs source" if not bad else f"stale/missing rows in {bad}")
+                       if tabs else (out.strip().splitlines() or ["no output"])[-1][:160]}
+        rows.append(row)
+        print(f"{'appendix_tables':24s} {row['status']:8s} {nrows:>7d} {'-':>6s} {'-':>12s} {'-':>8s} {'-':>5s}  {row['note']}")
     n = {s: sum(r["status"] == s for r in rows) for s in ("PASS", "FAIL", "SKIPPED")}
     print(f"\n{n['PASS']} PASS, {n['FAIL']} FAIL, {n['SKIPPED']} SKIPPED of {len(rows)}. "
           "Asserts are assert statements in the script (and _conservation_common.py for Figs. 5-7). "
-          "'files' is the number of output files the run rewrote; all were restored byte for byte.")
+          "'files' is the number of output files the run rewrote; all were restored byte for byte. "
+          "For appendix_tables, 'asserts' is the number of table rows rebuilt from source and matched.")
     sys.exit(1 if n["FAIL"] else 2 if n["SKIPPED"] else 0)
 
 

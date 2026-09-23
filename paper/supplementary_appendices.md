@@ -1604,42 +1604,49 @@ belong with it. The other eight B tables stay in the paper.
 **Table B1. All transferability diagnostics versus raw thermal transfer (20 ordered directions).**
 Spearman ρ with pair-based bootstrap 95 % CIs. Exp. = expected sign. Rows with n = 12 exist only for
 the four-AOI subset, because those diagnostics were never produced for Montiferru. The
-supported-features conditional rows use the 16 directions (8 pairs) with at least one CI-supported
-feature.
+supported-features conditional rows use the 18 directions with at least one CI-supported feature.
+Corrected Manavgat label; every row from `paper/labelfix_rerun/round5/s6_diagnostics_20.csv`, checked by
+`paper/code/appendix_tables.py`. The frozen version of that file reproduces the frozen table's
+fourteen other rows exactly and the six n = 12 rows' point estimates, but not those six rows'
+intervals, which came from an earlier bootstrap run; no verdict differs.
 
 | Diagnostic | Family | Exp. | n dir | Spearman ρ [95% CI] | CI excludes 0 |
 |---|---|---|---|---|---|
-| **Agreement fraction, supported features** | **P(y\|x) conditional** | + | 16 | **+0.84 [+0.58, +0.88]** | **yes** |
-| **Cosine, supported features** | **P(y\|x) conditional** | + | 16 | **+0.81 [+0.33, +0.88]** | **yes** |
-| Cosine, all 9 features | P(y\|x) conditional | + | 20 | +0.50 [−0.17, +0.83] | no |
-| Vector Spearman, all 9 | P(y\|x) conditional | + | 20 | +0.27 [−0.36, +0.77] | no |
-| Agreement count, all 9 | P(y\|x) conditional | + | 20 | +0.18 [−0.40, +0.72] | no |
-| Schoener's D, 1-D mean | P(x\|y=1) niche | + | 20 | +0.24 [−0.45, +0.74] | no |
-| Warren's I, 1-D mean | P(x\|y=1) niche | + | 20 | +0.22 [−0.42, +0.73] | no |
-| Schoener's D, PCA-2D | P(x\|y=1) niche | + | 20 | +0.10 [−0.51, +0.68] | no |
-| Warren's I, PCA-2D | P(x\|y=1) niche | + | 20 | −0.07 [−0.66, +0.49] | no |
-| Mahalanobis, burned centroids | P(x\|y=1) niche | − | 20 | −0.23 [−0.75, +0.44] | no |
-| Domain-classifier AUC | P(ix) marginal | − | 20 | −0.32 [−0.78, +0.33] | no |
-| Predictor-space mean dissimilarity | P(ix) marginal | − | 12 | −0.10 [−0.54, +0.43] | no |
-| Predictor-space p95 dissimilarity | P(ix) marginal | − | 12 | −0.08 [−0.59, +0.49] | no |
-| Fraction inside weighted AoA | P(ix) marginal | + | 12 | +0.22 [−0.48, +0.59] | no |
-| Fraction inside unweighted support | P(ix) marginal | + | 12 | +0.08 [−0.89, +0.63] | no |
-| Climatic distance | P(ix) marginal | − | 12 | +0.06 [−0.76, +0.79] | no |
-| Geographic distance | geographic | − | 12 | −0.24 [−0.84, +0.73] | no |
-| Regime distance, log effective-N | P(y) structure | − | 20 | +0.29 [−0.38, +0.74] | no |
-| Regime distance, largest share | P(y) structure | − | 20 | +0.29 [−0.39, +0.72] | no |
-| Vector Spearman, supported (≥3 feats) | P(y\|x) conditional | + | 2 | not computable | — |
+| Agreement fraction, supported features | P(y\|x) conditional | + | 18 | +0.52 [−0.27, +0.87] | no |
+| Cosine, supported features | P(y\|x) conditional | + | 18 | +0.49 [−0.24, +0.87] | no |
+| Cosine, all 9 features | P(y\|x) conditional | + | 20 | +0.44 [−0.29, +0.80] | no |
+| Vector Spearman, all 9 | P(y\|x) conditional | + | 20 | +0.43 [−0.21, +0.80] | no |
+| Agreement count, all 9 | P(y\|x) conditional | + | 20 | +0.47 [−0.29, +0.80] | no |
+| Schoener's D, 1-D mean | P(x\|y=1) niche | + | 20 | +0.10 [−0.53, +0.63] | no |
+| Warren's I, 1-D mean | P(x\|y=1) niche | + | 20 | +0.19 [−0.43, +0.77] | no |
+| Schoener's D, PCA-2D | P(x\|y=1) niche | + | 20 | +0.03 [−0.59, +0.63] | no |
+| Warren's I, PCA-2D | P(x\|y=1) niche | + | 20 | −0.03 [−0.66, +0.56] | no |
+| Mahalanobis, burned centroids | P(x\|y=1) niche | − | 20 | −0.22 [−0.82, +0.42] | no |
+| Domain-classifier AUC | P(ix) marginal | − | 20 | −0.33 [−0.81, +0.36] | no |
+| Predictor-space mean dissimilarity | P(ix) marginal | − | 12 | −0.13 [−0.67, +0.37] | no |
+| Predictor-space p95 dissimilarity | P(ix) marginal | − | 12 | −0.15 [−0.68, +0.24] | no |
+| Fraction inside weighted AoA | P(ix) marginal | + | 12 | +0.21 [−0.48, +0.62] | no |
+| Fraction inside unweighted support | P(ix) marginal | + | 12 | +0.08 [−0.92, +0.76] | no |
+| Climatic distance | P(ix) marginal | − | 12 | +0.03 [−0.84, +0.84] | no |
+| Geographic distance | geographic | − | 12 | −0.17 [−0.87, +0.84] | no |
+| Regime distance, log effective-N | P(y) structure | − | 20 | +0.11 [−0.67, +0.80] | no |
+| Regime distance, largest share | P(y) structure | − | 20 | +0.11 [−0.66, +0.77] | no |
+| Vector Spearman, supported (≥3 feats) ‡ | P(y\|x) conditional | + | 6 | +0.96 [+0.85, +0.96] | degenerate interval; not interpreted |
 
 *Table note.* A null row means the diagnostic was **not shown to order transfer** on this design, not
 that it was shown incapable of ordering it. With ten effective region pairs the power is low, and the
-intervals are wide enough to admit moderate true correlations in either direction. The last row is
-retained rather than deleted because it was computed: on two directions the statistic has no
-meaningful value, and reporting that is more honest than dropping the variant.
+intervals are wide enough to admit moderate true correlations in either direction. ‡ The last row is a
+member of the candidate set fixed in advance, so it stays in the table. It is defined on six
+directions only, and its interval is degenerate (the upper bound equals the point estimate), so it is
+not interpreted and is not comparable with the other nineteen. Under the frozen label it was
+defined on two directions and not computable.
 
-**Reading the two rows that clear zero.** Both are supported-feature variants, where the predictor
-subset is chosen by whether two regions' bootstrap intervals happen to be disjoint. That is a
-data-dependent selection made on the same data, uncorrected. Their all-nine-feature counterparts are
-in the table and both span zero. The result lives in the selection step, and Section 4.6 says so.
+**The two rows that once cleared zero.** Under the frozen label the two supported-feature variants
+cleared zero (+0.84 and +0.81 over sixteen directions). Both select their predictor subset by
+whether two regions' bootstrap intervals happen to exclude 0.5, a data-dependent selection made on the
+same data, uncorrected. Under the corrected label neither clears zero (+0.52 and +0.49 over eighteen
+directions), and no interpretable row does (Section 1.3, Contribution 3; Section 5.4 on why measures
+built from interval support are fragile).
 
 **Equal-sample check.** The families sit on unequal samples: marginal, applicability, climatic and
 geographic rows on twelve directions, the supported-conditional rows on sixteen, the rest on twenty.
