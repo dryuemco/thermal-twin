@@ -91,3 +91,6 @@ paper/tex/*.spl
 !paper/data/**/*.tif
 
 .venv-fire2/
+
+# internal status notes stay local
+STATUS.md
