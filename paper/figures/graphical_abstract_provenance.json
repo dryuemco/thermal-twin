@@ -1,33 +1,95 @@
 {
- "figure": "Graphical abstract (EMS requirement)",
+ "figure": "Graphical abstract (Ecological Informatics: encouraged, not required)",
  "script": "paper/figures/graphical_abstract.py",
- "data": "parsed at build time from paper/04_results.md: Table 1 (block 10), the Section 4.3 hardening sentence, the Section 4.4 frame-cost sentence",
+ "panels": [
+  "C1 evaluation geometry",
+  "C2 local skill does not travel",
+  "C3 similarity neither sufficient nor necessary"
+ ],
+ "data": {
+  "04_results.md": "Table 1 (block 10), the Section 4.3 hardening sentence, the frame-cost sentence, Table 3 and the Section 4.5 baseline control (parsed at build time)",
+  "contrast_pairs": {
+   "path": "paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json",
+   "sha256": "bbb70787fe5e99ddf475db8b3e6d29365b2e8f231127725792ac766a2d487e9a"
+  },
+  "s7": {
+   "path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",
+   "sha256": "746d9a6bd4aa4f14c42200eb0ad1806374b83435d9a6649929714cd58620da67"
+  }
+ },
  "within_region_5km": {
-  "Manavgat 2021": 0.05,
+  "Manavgat 2021": 0.062,
   "Bejís 2022": 0.045,
   "Muğla 2021": 0.079,
   "North Evia 2021 (ext.)": 0.148,
-  "Montiferru 2021": 0.1
+  "Montiferru 2021": 0.099
  },
- "half_split": 0.027,
+ "half_split": 0.028,
  "leave_one_scar_out": [
-  0.022,
-  -0.032,
-  0.077
+  0.024,
+  -0.04,
+  0.089
  ],
  "across_regions": [
-  0.004,
-  -0.028,
-  0.036
+  0.007,
+  -0.021,
+  0.037
  ],
  "frame_cost": [
-  0.143,
-  0.077,
-  0.208
+  0.133,
+  0.059,
+  0.207
  ],
+ "contrast_pair": {
+  "most_similar_Man_Mug": {
+   "D_bar": 0.799,
+   "transfer": [
+    0.4377,
+    0.345
+   ]
+  },
+  "least_similar_Bej_Mont": {
+   "D_bar": 0.479,
+   "transfer": [
+    0.5937,
+    0.5483
+   ]
+  },
+  "note": "point estimates, as the abstract states; at 5 km blocking only Mugla->Manavgat is interval-supported (Fig. 8 caption)"
+ },
+ "asserts": "every 04 number parsed and checked; contrast-pair values, D-bar and ranks as in Fig. 8; abstract sentence and Highlight 5 carry the same values; every plotted value inside its axis; layout checker 0 problems at >= 8 pt; pixel size >= 1328 x 531",
+ "elsevier_spec": {
+  "minimum_px_w_h": [
+   1328,
+   531
+  ],
+  "display_cm": [
+   13,
+   5
+  ],
+  "dpi": 300,
+  "formats_accepted": [
+   "TIFF",
+   "EPS",
+   "PDF"
+  ],
+  "written": [
+   "PDF",
+   "TIFF",
+   "PNG (preview)"
+  ]
+ },
  "canvas_mm": [
-  130,
-  60
+  130.0,
+  50.0
  ],
- "dpi": 300
+ "pixels_w_h": [
+  1535,
+  590
+ ],
+ "font_pt": {
+  "minimum": 8.0
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "greyscale": "graphical_abstract_greyscale.png"
 }
