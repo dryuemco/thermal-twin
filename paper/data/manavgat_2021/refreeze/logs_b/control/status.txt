@@ -1,0 +1,22 @@
+copy_pairs rc=0 14:04:51
+step9g manavgat_2021__bejis_2022 rc=0 14:05:42
+step9g manavgat_2021__mugla_2021 rc=0 14:07:22
+step9g manavgat_2021__evia_2021_extended rc=0 14:08:27
+step9g mugla_2021__manavgat_2021 rc=0 14:10:02
+step9g montiferru_2021__manavgat_2021 rc=0 14:10:40
+step9g manavgat_2021__evia_2021 rc=0 14:11:18
+concept-shift-compare rc=0 14:11:21
+transfer-decomposition rc=0 14:11:23
+synthesis 5-AOI rc=0 14:11:25
+synthesis 4-AOI rc=0 14:11:28
+synthesis 3-AOI rc=0 14:11:30
+burned-pattern-audit rc=0 14:11:32
+reproduction_check rc=1 14:11:34
+STOPPED at reproduction_check
+copy_step9g_inputs rc=0 14:12:31
+synthesis 5-AOI rc=0 14:12:33
+synthesis 4-AOI rc=0 14:12:35
+synthesis 3-AOI rc=0 14:12:38
+reproduction_check rc=0 14:15:09
+B_DONE rc=0 14:15:09
+concept-shift-compare (rerun after step9g inputs) rc=0 14:16:13

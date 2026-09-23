@@ -1,0 +1,9 @@
+========================================================================
+status                              : PASS
+cohort                              : bejis_2022, evia_2021_extended, manavgat_2021, montiferru_2021, mugla_2021
+within-region comparisons           : 20/20
+max within-region |d ROC-AUC|       : 0.0
+CORAL directions                    : 20/20
+max CORAL |d ROC-AUC|               : 8.849392330034789e-09
+report                              : outputs\diagnostics\reproduction_check\reproduction_check.json
+========================================================================
