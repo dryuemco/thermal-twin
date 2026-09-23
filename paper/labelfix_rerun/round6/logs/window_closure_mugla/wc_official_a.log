@@ -1,0 +1,17 @@
+{
+ "ran": true,
+ "dry_run": false,
+ "analysis_id": "ccd42192a789adedac69d97791ab3879143d9396945f05b74e8802d429774682",
+ "stages_run": [
+  "plan",
+  "prelabel-export",
+  "predictor-export"
+ ],
+ "files_written_count": 58,
+ "reused": false,
+ "prerequisites_ready": true,
+ "missing_required_inputs": [],
+ "actual_plan_prerequisites": null
+}
+EE copies: 47
+WC_DRIVER_DONE

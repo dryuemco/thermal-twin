@@ -1,0 +1,7 @@
+A_captured_from_official rc=0 15:18:32
+B_modis_export rc=0 15:18:46
+B_screened_check rc=0 15:18:47
+B_step7 rc=0 15:20:39
+B_step8 rc=0 15:25:53
+B_captured rc=0 15:25:53
+QC_DONE rc=0 15:25:53
