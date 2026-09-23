@@ -149,5 +149,13 @@
 >
 > **150 words.** Two further cuts reached the cap: "Between regions," and "transfer" in "twenty
 > transfer directions". The label product and the validation design are kept.
+>
+> **Target journal corrected, 2026-09-23: Ecological Informatics, not Environmental Modelling &
+> Software.** The 150-word cap recorded above (and in the 2026-09-19 note) was EMS's. The corresponding
+> author checked the Ecological Informatics guide: abstract up to **250 words**; highlights 3–5, ≤85
+> characters; graphical abstract encouraged, not required; article length usually 7,000 and at most
+> 10,000 words. The three cuts made to reach 150 (the negative-pool clause, "which drops no burned
+> cells", the merged opening) can therefore be restored. The 150-word text stands until the
+> corresponding author decides.
 
 We test whether six pre-fire thermal predictors, added to a terrain, fuel and greenness baseline, transfer between five Mediterranean regions under MCD64A1 labels and spatially blocked validation. The first result is **evaluation geometry**: with the model held fixed, scoring on the burn scar and its 2 km collar rather than region-wide costs **0.133 ROC-AUC [+0.059, +0.207]**. Equalising the study areas to a 10 km collar lifts mean transfer from 0.527 to 0.589. Local skill does not travel: the thermal block adds +0.045 to +0.148 within regions at 5 km blocking but +0.007 [−0.021, +0.037] across twenty directions, and the static baseline transfers no better, at 0.519 against 0.527. At the point estimates, similarity is neither sufficient nor necessary: the most niche-similar pair fails both ways (0.438, 0.345), the least similar transfers above chance (0.594, 0.548). Transfer skill must be measured on the target region before a model is relied on.

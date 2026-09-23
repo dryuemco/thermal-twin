@@ -1,6 +1,7 @@
 # Highlights
 
-> Elsevier / Environmental Modelling & Software: 3–5 bullets, ≤85 characters each including spaces.
+> Elsevier / Ecological Informatics: 3–5 bullets, ≤85 characters each including spaces (target
+> journal corrected 2026-09-23; it was recorded as Environmental Modelling & Software, same rule).
 > 2026-09-19: #5 replaced. It advertised the twenty-diagnostics result, which left the paper with
 > Contribution 3 on 2026-08-14 (eight effective pairs); the transfer null it now states is the
 > paper's central result and appeared in no highlight.

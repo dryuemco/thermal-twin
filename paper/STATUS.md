@@ -5,6 +5,15 @@ round and the literature sweep). Word counts are whole-file (incl. tables/notes)
 distinguish the document **body** from housekeeping mentions inside DRAFT-NOTES comment blocks
 and file headers.
 
+**Updated 2026-09-23 (label correction, target journal).** Target journal is **Ecological
+Informatics** (abstract ≤250 words, highlights 3–5 × ≤85 characters, graphical abstract encouraged,
+length usually 7,000 and at most 10,000 words). **The abstract stays at 150 words by decision of the
+corresponding author**: it lost nothing load-bearing and reads tighter. **For revision:** the
+contrast-pair sentence can open to the full picture, the four directions with their 5 km
+intervals (only Muğla → Manavgat stays interval-supported), within the 250-word limit.
+Known problem for assembly: the 10,000-word ceiling. COVER_LETTER.md and SUBMISSION_CHECKLIST.md
+still describe EMS and must be rewritten.
+
 **Updated 2026-08-11** — ERA5-Land block (§3.17, §4.9, §5.7) and the Muğla two-event block
 (§3.16.4, §4.8, §5.2 addition) added from hash-verified raw files; ERA5 validator executed
 (27/27 PASS); §3.1 and §3.16.3 TO VERIFY markers closed from source; discussion renumbered
