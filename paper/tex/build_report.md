@@ -68,7 +68,7 @@ converter made is listed so it can be reviewed.
 
 - drafting-note blockquote dropped _(x4)_
 - horizontal rule dropped _(x2)_
-- 4 comment block(s) removed (drafting notes)
+- 3 comment block(s) removed (drafting notes)
 
 ## table (68)
 
