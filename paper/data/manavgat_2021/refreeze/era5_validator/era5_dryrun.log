@@ -1,0 +1,21 @@
+ERA5-Land regional diagnostic validator -- mode: dry-run
+
+[PASS   ] C01_default_cohort_exact_set_and_order
+[PASS   ] C02_default_cohort_row_count
+[PASS   ] C03_mugla_2022_absent_by_default
+           note: provisional temporal contract awaiting supervisor decision; excluded from the default five-AOI regional meteorology cohort
+[PASS   ] C04_collection_and_bands
+[PASS   ] C05_reference_years_exact
+[PASS   ] C06_observed_windows_match_registry
+[PASS   ] C07_inclusive_end_converted_to_exclusive
+[PASS   ] C08_climatology_window_mapping
+[PASS   ] C09_summary_schema
+[PASS   ] C10_analysis_id_matches_scientific_config
+[PASS   ] C11_analysis_id_is_stable
+[PASS   ] C12_scientific_config_completeness
+[PASS   ] C15_hourly_completeness_rule_is_hashed
+[PASS   ] C13_planned_namespace_layout
+[PASS   ] C14_planning_created_no_namespace
+
+15/15 checks passed; 0 failed, 0 skipped.
+OVERALL: PASS
