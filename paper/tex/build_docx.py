@@ -14,7 +14,7 @@ references to a manuscript equation read "Eq. (n) of the main text".
 
 Usage (needs pandoc; pypandoc_binary and python-docx supply it):
     python paper/tex/build_docx.py
-        -> paper/submission/manuscript.docx and highlights.tex; paper/tex/supplementary_material.docx
+        -> paper/submission/manuscript.docx and highlights.txt; paper/tex/supplementary_material.docx
 """
 import json, re, subprocess
 from pathlib import Path
@@ -221,8 +221,12 @@ ms_md = ms_md.replace("@@WORDCOUNT@@", WORDLINE)
 ms_doc = to_docx(ms_md, OUT / "manuscript.docx")
 assert main_text_words(ms_doc) == WORDS
 sup_doc = to_docx(sup_md, HERE / "supplementary_material.docx")   # reference copy; the submitted supplement is the PDF
-# the highlights are a separate, editable submission file
-(OUT / "highlights.tex").write_bytes((P / "highlights.tex").read_bytes())
+# the highlights are a separate submission file, as plain text: one highlight per line, no LaTeX
+# (paper/highlights.tex stays the source)
+HL = [l.strip()[len(r"\item"):].strip() for l in (P / "highlights.tex").read_text(encoding="utf-8").splitlines()
+      if l.strip().startswith(r"\item")]
+assert 3 <= len(HL) <= 5 and all(len(h) <= 85 for h in HL), [len(h) for h in HL]
+(OUT / "highlights.txt").write_text("\n".join(HL) + "\n", encoding="utf-8", newline="\n")
 
 for name, doc, eqs in (("manuscript.docx", ms_doc, EQ), ("supplementary_material.docx", sup_doc, SEQ)):
     print(f"{name}: {len(doc.paragraphs)} paragraphs, {len(doc.tables)} tables, {len(eqs)} numbered equations")

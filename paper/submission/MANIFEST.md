@@ -1,8 +1,10 @@
 # Submission package
 
 Ecological Informatics. Every file below was built from, and is committed in, `5be3690`
-(verify: `git show 5be3690:paper/submission/<file> | sha256sum`). Main text: 9,966 words, excluding
-references, tables, figure captions and declarations.
+(verify: `git show 5be3690:paper/submission/<file> | sha256sum`), except `highlights.txt`, which was
+added afterwards: the plain-text form of `paper/highlights.tex` (unchanged since `99ee346`), one
+highlight per line with the LaTeX markup removed, written by `paper/tex/build_docx.py`. Main text:
+9,966 words, excluding references, tables, figure captions and declarations.
 
 | File | Format | Size (bytes) | SHA-256 | Source |
 |---|---|---:|---|---|
@@ -17,7 +19,7 @@ references, tables, figure captions and declarations.
 | `fig7.pdf` | PDF (vector) | 66068 | `f5ac3c87b6d6463b…` | paper/figures/fig7_feature_drop.py |
 | `fig8.pdf` | PDF (vector) | 119341 | `4cbc6639fbccac5c…` | paper/figures/fig8_contrast_pairs.py |
 | `graphical_abstract.pdf` | PDF (vector) | 132047 | `823e8a031f61e654…` | paper/figures/graphical_abstract.py |
-| `highlights.tex` | LaTeX text | 706 | `50b26075ea28c968…` | paper/highlights.tex |
+| `highlights.txt` | plain text, UTF-8, 5 lines of 68, 69, 71, 73 and 83 characters | 369 | `11854d0e60914b02…` | paper/highlights.tex |
 
 ## When the figures were rendered
 
