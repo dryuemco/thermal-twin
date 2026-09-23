@@ -21,10 +21,9 @@ protocol can have it without the paper carrying twenty thousand words of it.
 > printed that features supported in both regions "rise from 1.20 to 3.40 per direction". The frozen
 > artefacts give **1.40**, not 1.20: `canonical_rerun/diagnostics_collar_frame.csv` and the Step9G
 > count in `conditional_similarity_transfer.json` both average 1.40 over twenty directions. The
-> printed 1.20 was wrong under the frozen label too, and is corrected here to 1.40. The paragraph
-> that carries it still describes the frozen label. Under the corrected label the counts are 2.3 on
-> the full frame and 2.2 on the collar (Section 4.4), and that paragraph is rewritten in the
-> label-correction update of this document, which is still pending.
+> printed 1.20 was wrong under the frozen label too, and is corrected here to 1.40. Appendix A(w)
+> has since been aligned with the corrected label (2026-09-23), where the counts are 2.3 on the full
+> frame and 2.2 on the collar (Section 4.4).
 
 # Appendix A. Sensitivity analyses
 
@@ -67,10 +66,12 @@ choice and matches the reference implementation, but the dependence is real and 
 than absorbed.
 
 **(c) Blocking scale.** Recomputing the transfer quantities at 10-cell (≈ 5 km) blocking from the
-frozen per-cell predictions widens the intervals and moves the verdict counts, from ten positive,
-seven negative and three uncertain at 1 km to six, four and ten at 5 km. Coarser blocking therefore
-removes support from seven verdicts and adds none. Across five seeds the counts run 5 to 6 positive,
-3 to 4 negative and 10 to 11 uncertain, so they are not exact.
+re-frozen per-cell predictions (corrected Manavgat label) widens the intervals and moves the
+paired-delta verdict counts, from twelve positive, seven negative and one uncertain at 1 km to six,
+five and nine at 5 km. Coarser blocking therefore removes support from eight verdicts and adds none.
+Across five seeds the 5 km counts run 5 to 6 positive, 4 to 5 negative and 9 to 11 uncertain, so
+they are not exact (`paper/labelfix_rerun/round5/out_official/transfer_ci_blocksize.csv`,
+`paper/labelfix_rerun/round6/seed_stability.json`).
 
 The point estimates are unchanged. That is an identity rather than a result, and it should not be
 offered as robustness. The blocking scale is the bootstrap *resampling unit*, and each point
@@ -131,7 +132,8 @@ One thing should be said before the result, because it makes the outcome less su
 might otherwise appear. The normalised channels are the two that hold their direction in the
 same-geography two-event comparison of Appendix A(m), where the absolute channels move. That is a
 statement about one region across two fires. **Across regions it does not hold**: `lst_anomaly_mean`
-is itself one of the two predictors whose reversal is bootstrap-supported on the frames as drawn,
+is itself one of the seven predictors whose reversal is bootstrap-supported on the frames as drawn
+(Table B3),
 reversing between Bejís and Evia (Section 4.4 withdraws that support under an equalised frame),
 which is why Appendix A(n) drops it alongside elevation. Being internally normalised protects a
 channel against the offset between two seasons in one place. It does not, on this evidence, protect
@@ -139,31 +141,32 @@ it against a change of place.
 
 Three feature sets were run over all twenty directions and all five within-region folds, with the
 classifier, population, folds and bootstrap held fixed. The harness aborts unless its reference
-configuration lands on the frozen exports. It did exactly: the maximum absolute difference between
-the reference arm and the frozen transfer AUCs is 0.000000 across all twenty directions.
+configuration lands on the re-frozen exports (corrected Manavgat label). It did exactly: the maximum
+absolute difference between the reference arm and the step9b transfer AUCs is 0.000000 across all
+twenty directions (`paper/labelfix_rerun/round3/no_coord_channels.json`).
 
 | Feature set | Mean transfer AUC | Directions > 0.5 | Mean within-region AUC |
 |---|---:|---:|---:|
-| baseline only | 0.5371 | 16 | 0.7896 |
-| baseline + normalised anomalies | 0.5442 | 15 | 0.8551 |
-| baseline + absolute surface state | 0.5479 | 13 | 0.8564 |
-| all ten features (reference) | 0.5414 | 14 | 0.8883 |
+| baseline only | 0.5194 | 13 | 0.7973 |
+| baseline + normalised anomalies | 0.5245 | 14 | 0.8621 |
+| baseline + absolute surface state | 0.5308 | 13 | 0.8641 |
+| all ten features (reference) | 0.5267 | 13 | 0.8959 |
 
 **The advantage is not found.** Per direction, the normalised set minus the absolute set has a mean
-of −0.0037. It is positive in 12 of 20 directions and runs from −0.099 to +0.094, so the spread is an
+of −0.0063. It is positive in 11 of 20 directions and runs from −0.099 to +0.087, so the spread is an
 order of magnitude larger than the difference. The normalised channels transfer very slightly worse
 at the mean, and nothing here supports a design rule favouring anomaly-referenced dryness for
 portability.
 
-Within region the two sub-blocks are indistinguishable, at 0.8551 and 0.8564, and each recovers most
-of the gap between the baseline's 0.7896 and the full model's 0.8883. What separates them in sign
+Within region the two sub-blocks are indistinguishable, at 0.8621 and 0.8641, and each recovers most
+of the gap between the baseline's 0.7973 and the full model's 0.8959. What separates them in sign
 stability does not become transferable skill.
 
 This arm strengthens the negative finding rather than softening it. Four differently constituted
-feature sets were tried. None clears a mean of 0.548 across regions, and all differ sharply within
+feature sets were tried. None clears a mean of 0.531 across regions, and all differ sharply within
 them. The baseline arm also gives an independent confirmation of the control reported in
-Section 4.5: its mean transfer of 0.5371 was recomputed here from the modelling datasets and matches
-the 0.537 read from the frozen per-direction export. Details are in
+Section 4.5: its mean transfer of 0.5194 was recomputed here from the modelling datasets and matches
+the 0.519 of the re-frozen per-direction export. Details are in
 `paper/anomaly_only_transfer.md`.
 
 The comparison is between two sub-blocks of one thermal set on one cohort. It does not test
@@ -445,9 +448,9 @@ reverses in two regions once temperature is held, while LST reverses in none onc
 
 ## A(l). The LST anomaly under the difference instrument
 
-Section 4.4 reports that no reversal meets this paper's strict criterion once evaluation frames are
-equalised, and that the LST anomaly nonetheless differs between regions on the weaker instrument
-Table B3's note commits the paper to. These are the four pairs that have opposite-sided point
+Section 4.4 reports that two elevation reversals, both involving Manavgat, meet this paper's strict
+criterion once evaluation frames are equalised, and that the LST anomaly differs between regions on
+the weaker instrument Table B3's note commits the paper to. These are the three pairs that have opposite-sided point
 estimates and a difference interval excluding zero, all on `lst_anomaly_mean`. Signed AUC within the
 10 km collar; the two regions are bootstrapped independently under the 10-cell spatial-block scheme
 and differenced, 1000 replicates, seed 42. Source `matched_frame_gap.csv`, recomputable by
@@ -580,29 +583,34 @@ difference-instrument argument are here.
 
 **A weaker instrument does support the anomaly result.** Table B3's note commits this paper to a
 difference interval on the pair as the sharper test, and it is applied here. Bootstrapping the two regions independently under the collar and differencing,
-four pairs have opposite-sided point estimates **and** a difference interval excluding zero, all on
-`lst_anomaly_mean` and three of the four involving Evia — the largest being Bejís against Evia at
+three pairs have opposite-sided point estimates **and** a difference interval excluding zero, all on
+`lst_anomaly_mean` and two of the three involving Evia, the largest being Bejís against Evia at
 −0.191 [−0.295, −0.083] (Appendix A(l), Table A6). The anomaly is the one channel the
 frame-and-terrain mechanism of this section cannot explain, being decorrelated from elevation.
-Three caveats keep it weak and all three are stated rather than buried: nine of ninety
+Three caveats keep it weak and all three are stated rather than buried: twenty-seven of ninety
 feature-by-pair differences clear zero against about 4.5 expected under the null with no
 multiplicity correction; the nine features are effectively two to three dimensions, as the
 collinearity paragraph below shows; and Evia's own interval-support status turns on 0.003. **The
-honest statement is that no reversal meets this paper's strict criterion under the collar, and that
-the LST anomaly differs between regions on the weaker difference instrument.** We state it that way
-because the alternative would be to apply a looser standard to the arm that supersedes Table B3 than
-to Table B3 itself. Elevation under the collar is above 0.5 in all five regions but individually
-supported in only two, Muğla at 0.606 [0.525, 0.685] and Evia at 0.648 [0.550, 0.740].
+honest statement is that two reversals meet this paper's strict criterion under the collar, both on
+elevation and both involving Manavgat, and that the LST anomaly differs between regions on the
+weaker difference instrument.** On the full frame Table B3 counts fourteen supported pair-level
+reversals across seven features, every one but the anomaly pair involving Manavgat. We apply the
+same criterion to the collar arm as to Table B3, rather than a looser one. Elevation under the
+collar is below 0.5 in Manavgat, at 0.376 [0.300, 0.465], and above it in the other four,
+individually supported in two, Muğla at 0.606 [0.525, 0.685] and Evia at 0.648 [0.550, 0.740]
+(`paper/labelfix_rerun/code/collar_frame_bootstrap.csv`).
 
-**The sign the five regions agree on is not the one the dryness framing predicts.** For LST the
-common direction is *below* 0.5 in every region, at 0.386, 0.405, 0.332, 0.286 and 0.376: a hotter
-pre-fire surface is associated with **less** burning, and the same holds for TVDI. It is not a
+**The sign most regions share is not the one the dryness framing predicts.** Under the collar, LST
+lies *below* 0.5 in four of five regions, at 0.405, 0.332, 0.286 and 0.376 in Bejís, Muğla, Evia and
+Montiferru: a hotter pre-fire surface is associated with **less** burning there, and the same holds
+for TVDI. Manavgat is the exception, at 0.522 for LST and 0.527 for TVDI. It is not a
 lapse-rate artefact and it is not greenness acting through fuel load. On mutual adjustment the
 surviving channel is LST, not NDVI: holding NDVI, LST never reverses in any region, while holding
 LST, NDVI's own association reverses in Evia and Montiferru. Greenness is therefore not the mechanism. Two caveats bound what the sign is: in Manavgat and
 Montiferru it is a residual spatial gradient that disappears when distance to the nearest burned cell
-is stratified within the collar, and interval support is not uniform, LST being supported in four of
-five regions and TVDI in three, so "all five agree" is a statement about point estimates. What we can
+is stratified within the collar (0.454 and 0.485), and interval support is not uniform, LST being
+supported in three of the four and TVDI in two, so "four of five agree" is a statement about point
+estimates. What we can
 defend is that the absolute thermal channels behave here as **static land-surface descriptors**
 rather than as a dryness index, and that the two internally differenced channels carry no consistent
 cross-region direction at all. Compositing depth was not tested and remains an open alternative.
@@ -656,22 +664,21 @@ elevation at −0.695 to −0.125 across the regions and TVDI at −0.722 to −
 strength varies fivefold and a frame that shifts the elevation distribution shifts them with it. And
 within the collar `fused_lst_mean` correlates with `current_lst_mean` at 0.99 to 1.00,
 `downscaled_lst_mean` at 0.97 to 0.99 and `current_tvdi_mean` at 0.87 to 0.98, so the four absolute
-channels are close to one axis and the two differenced channels correlate at 0.64 to 0.94: the "five
-of nine directions reverse" count of Appendix A(s) counts features, not independent quantities, and
+channels are close to one axis and the two differenced channels correlate at 0.64 to 0.94: the "seven
+of nine directions point opposite" count of Appendix A(s) counts features, not independent quantities, and
 **in effective dimensions it is closer to two**.
 
-Two scope statements belong with the table. The full-frame values here are not numerically the
-published ones — ρ = +0.86 over fourteen directions against the +0.84 over sixteen in Appendix D —
-because the support test is itself bootstrap-dependent and at this setting three region pairs carry
-no jointly supported feature rather than two; the argument rests on before-and-after under identical
-settings, not on the published figure. And **only these diagnostics were recomputed on the collar**:
+Two scope statements belong with the table. The full-frame support flags of the collar diagnostics
+are taken from the pipeline's Step9G, the source of Appendix D, so the full-frame values equal the
+published ones; the collar side uses its own bootstrap, because there is no Step9G collar run. And
+**only these diagnostics were recomputed on the collar**:
 the other eighteen failed on the frames as drawn and were not rerun, so their correlations against
 the equalised transfer vector are unknown rather than shown to be null.
 
 **The thermal block's paired contribution to transfer, with its interval.** The two matrices were
-differenced direction by direction. The mean is **+0.004**, but the mean is not the informative
+differenced direction by direction. The mean is **+0.007**, but the mean is not the informative
 statistic here. The individual paired contributions span **−0.148 to +0.133**, with **twelve
-positive and eight negative** (`baseline_vs_thermal_transfer.csv`). The spread is thirty times the
+positive and eight negative** (`baseline_vs_thermal_transfer.csv`). The spread is about twenty times the
 mean, and the sign is not a property of the block but of the pair it is asked to cross: the same six
 predictors that add +0.133 in one direction subtract 0.148 in another. A mean near zero here records
 cancellation, not consistent absence of effect. The directions are not independent,
@@ -680,15 +687,15 @@ treated as the resampling unit. All four units the design permits give the same 
 
 | Resampling unit | n | 95 % interval on the mean paired contribution |
 |---|---:|---|
-| Directions, naive | 20 | [−0.027, +0.034] |
-| Unordered pairs, cluster bootstrap | 10 | [−0.028, +0.036] |
-| Unordered pairs, t on pair means | 10 | [−0.034, +0.042] |
-| Regions, leave-one-out jackknife | 5 | [−0.037, +0.046] |
+| Directions, naive | 20 | [−0.023, +0.037] |
+| Unordered pairs, cluster bootstrap | 10 | [−0.021, +0.037] |
+| Unordered pairs, t on pair means | 10 | [−0.028, +0.043] |
+| Regions, leave-one-out jackknife | 5 | [−0.018, +0.033] |
 
-Every interval spans zero, and the point estimate is a small fraction of each width. The per-region
-jackknife shows how little the mean is anchored. Holding out Manavgat, Bejís, Muğla, Evia and
-Montiferru in turn gives +0.0148, +0.0021, +0.0065, **−0.0081** and +0.0060. **Dropping Evia alone
-reverses the sign of the headline.** None of these four units propagates within-direction sampling
+Every interval spans zero, and the point estimate is a small fraction of each width. Holding out
+Manavgat, Bejís, Muğla, Evia and Montiferru in turn gives +0.0148, +0.0050, +0.0072, +0.0010 and
++0.0087, so no single region carries the mean or reverses its sign
+(`paper/labelfix_rerun/code/transfer_delta_ci.json`). None of these four units propagates within-direction sampling
 variability. They resample between directions only.
 
 **In precision terms the transfer is worse than the ROC figures suggest.** ROC-AUC is the metric
@@ -705,21 +712,21 @@ sharper statement than the ROC means support and it should be the one a practiti
 **The within-region increment survives the same correction, and is reported here because Section 4.2
 establishes it on the frames this section calls incomparable.** Running the baseline arm on the
 collar as well (`collar_increment_and_cosine.csv`, `paper/code/verify_collar_increment.py`), the
-thermal increment at 5 km blocking is +0.041, +0.030, +0.091, +0.134 and +0.090 across the five
-regions, **positive in all five**, with a mean of +0.077 against +0.086 on the frame as drawn. It
-does erode as the frame tightens further: at a 5 km collar the mean halves to +0.041, still positive
-in all five. These are point estimates; the intervals in Table 1 are computed on the frame as drawn.
+thermal increment at 5 km blocking is +0.073, +0.030, +0.088, +0.134 and +0.090 across the five
+regions, **positive in all five**, with a mean of +0.083 against +0.087 on the frame as drawn. It
+does erode as the frame tightens further: at a 5 km collar the mean halves to +0.042, still positive
+in all five (official outputs in `paper/labelfix_rerun/round6/cosine/`). These are point estimates; the intervals in Table 1 are computed on the frame as drawn.
 The paper's one surviving predictor-level positive claim therefore holds on the frame it argues is
 the correct one.
 
 **The five areas of interest are not comparable frames.** Each region is a rectangle drawn around a
 fire, and the rectangles differ by an order of magnitude in how much unburnt far field they enclose.
 
-The share of modelled cells lying beyond 10 km of any burned cell is 60.1 % in Manavgat, 63.1 % in
-Bejís, 55.3 % in Muğla, 43.7 % in Evia and **2.1 %** in Montiferru, with median distances of 13.4,
+The share of modelled cells lying beyond 10 km of any burned cell is 58.5 % in Manavgat, 63.1 % in
+Bejís, 55.3 % in Muğla, 43.7 % in Evia and **2.1 %** in Montiferru, with median distances of 13.1,
 13.5, 11.3, 8.0 and 2.7 km (Appendix B, Table B6). Montiferru's frame is fire-scale; Manavgat's and Bejís's are roughly three-fifths far field. The
 far field is not a neutral addition. In Manavgat the median elevation of modelled cells rises from
-472 m within 5 km of the fire to 955 m at 10 to 20 km and 1,273 m at 20 to 50 km, against 512 m for
+330 m within 5 km of the fire to 995 m at 10 to 20 km and 1,273 m at 20 to 50 km, against 287 m for
 the burned cells themselves, in Taurus terrain that no plausible spread model would place at risk.
 
 ## A(s). The contrast pair, in full
@@ -854,20 +861,20 @@ already transfers best without any labels. And six directions in three regions c
 general label budget, so none is offered.
 
 **Row D is a mean over four foreign models, and the spread behind it is large.** Decomposing it gives
-**32** scar-by-source combinations running from 0.374 to 0.724, with **ten below chance** and a mean
-spread of 0.171 across the four sources for a given scar (Appendix A, Table A3). The pooled 0.555 is
+**28** scar-by-source combinations running from 0.374 to 0.724, with **nine below chance** and a mean
+spread of 0.187 across the four sources for a given scar (Appendix A, Table A3). The pooled 0.553 is
 therefore not a statement that any foreign model does as well as a same-region one, but that the
 *average* one does, and the variation it averages over is exactly the pair-specific instability that
 the rest of Section 4 is about.
 
 One confound must be stated. Holding out a region's only large scar also removes most of its
-positives: the source model retains 11 positives in Evia, 88 in Manavgat and 97 in Montiferru,
-against about 2,000 in Muğla, which has four separate scars. Those four non-Muğla arms average 0.525
-and the four Muğla arms 0.579. Three of the four are genuinely starved — the fourth, Montiferru's
-second component, retains 472 source positives — so row C mixes "the fire was withheld" with "almost
-all the positives were withheld". Restricted to Muğla, C is 0.579 and D is 0.597, and the C-to-D
-comparison still shows nothing. **With eight scars, three of them starved, this design cannot
-establish a fire-specific residual, only bound it at about 0.18.**
+positives: the source model retains 11 positives in Evia and 97 in Montiferru,
+against about 2,000 in Muğla, which has four separate scars. Those three non-Muğla arms average 0.502
+and the four Muğla arms 0.579. Two of the three are genuinely starved; the third, Montiferru's
+second component, retains 472 source positives. Row C therefore mixes "the fire was withheld" with "almost
+all the positives were withheld". Restricted to Muğla, C is 0.579 and D is 0.586, and the C-to-D
+comparison still shows nothing. **With seven scars, two of them starved, this design cannot
+establish a fire-specific residual, only bound it at about 0.20.**
 
 What this establishes is bounded rather than positive. Rows C and D both sit close to chance, so the
 comparison between them has little dynamic range, and neither the fire's identity nor the region
@@ -875,27 +882,27 @@ boundary is shown to cost anything here. What is measurable is the change of eva
 between rows A and B. Nor does it establish the
 fire event as the unit, because the held-out patch is defined by the labels, so its identity cannot
 be separated from its location. The within-region half-split, which does see half of the target
-scar, returns 0.574 against leave-one-scar-out's 0.552, with overlapping intervals.
+scar, returns 0.586 against leave-one-scar-out's 0.546, with overlapping intervals.
 
 **The result is robust to how the held-out patch is defined.** Sweeping the two parameters that
 define it — minimum burned-component size over 25, 50, 100 and 200 cells, and connectivity over the
-4- and 8-neighbourhoods — moves the row-C mean between **0.545 and 0.566** across all eight settings,
-against the 0.552 of the reported configuration, which the sweep reproduces to 0.001
+4- and 8-neighbourhoods — moves the row-C mean between **0.541 and 0.561** across all eight settings,
+against the 0.546 of the reported configuration, which the sweep reproduces to 0.001
 (`scar_definition_sweep.csv`, `paper/code/scar_definition_sweep.py`). The number of qualifying scars
-falls from eleven to seven as the size threshold rises, which is what moves the mean; connectivity
+falls from nine to six as the size threshold rises, which is what moves the mean; connectivity
 changes it by at most 0.001 at any threshold. The result is also flat across buffers
 of 2, 5 and 10 km.
 
 **A weaker instrument does support the anomaly result.** Table B3's note commits this paper to a
-difference interval on the pair as the sharper test. Applied under the collar, four pairs have
+difference interval on the pair as the sharper test. Applied under the collar, three pairs have
 opposite-sided point estimates **and** a difference interval excluding zero, all on
-`lst_anomaly_mean` and three of the four involving Evia (Appendix A(l), Table A6). Three caveats keep
-it weak: nine of ninety feature-by-pair differences clear zero against about 4.5 expected under the
+`lst_anomaly_mean` and two of the three involving Evia (Appendix A(l), Table A6). Three caveats keep
+it weak: twenty-seven of ninety feature-by-pair differences clear zero against about 4.5 expected under the
 null with no multiplicity correction, the nine features are effectively two to three dimensions, and
-Evia's own interval-support status turns on 0.003. **The honest statement is that no reversal meets
-this paper's strict criterion under the collar, and that the LST anomaly differs between regions on
-the weaker difference instrument.** Elevation under the collar is above 0.5 in all five regions but
-individually supported in only two.
+Evia's own interval-support status turns on 0.003. **The honest statement is that two reversals meet
+this paper's strict criterion under the collar, both on elevation and both involving Manavgat, and
+that the LST anomaly differs between regions on the weaker difference instrument.** Elevation under
+the collar is below 0.5 in Manavgat and above it in the other four, individually supported in two.
 
 **The sign the five regions agree on is not the one the dryness framing predicts.** In every region
 a hotter pre-fire surface is associated with **less** burning, and the same holds for TVDI. It is
@@ -1096,54 +1103,55 @@ entirely below it.** Only one direction, Evia to Manavgat, exceeds twice its bas
 PR arm was not recomputed on the collar. Per-direction values are in Appendix B, Table B4.
 
 **The static baseline does not transfer either.** The same twenty directions were run with the
-terrain, fuel and greenness baseline alone, giving a mean target AUC of **0.537** against **0.541**
+terrain, fuel and greenness baseline alone, giving a mean target AUC of **0.519** against **0.527**
 for the thermal model. Static attributes of a place are the class Dimarco et al. transfer
 successfully and the class this paper's framing treats as portable; here that class is itself barely
 above chance. The transfer failure below is therefore not specific to the dynamic block: a baseline
 that does not travel, plus pre-fire thermal state, gives a model that does not travel.
 
 **The thermal block's paired contribution to transfer, with its interval.** Differencing the two
-matrices direction by direction gives a mean of **+0.004**, but the mean is not the informative
+matrices direction by direction gives a mean of **+0.007**, but the mean is not the informative
 statistic. The individual contributions span **−0.148 to +0.133**, twelve positive and eight
-negative, so the spread is thirty times the mean and the sign belongs to the pair rather than to the
+negative, so the spread is about twenty times the mean and the sign belongs to the pair rather than to the
 block; a mean near zero records cancellation, not consistent absence of effect. The directions are
 not independent, since each region appears in eight of the twenty, so the interval depends on the
-resampling unit — **all four units the design permits give the same answer**, from [−0.027, +0.034]
-treating directions as independent to [−0.037, +0.046] jackknifing regions, and none propagates
-within-direction sampling variability (Appendix A(o)). The leave-one-region-out jackknife shows how
-little the mean is anchored: **dropping Evia alone reverses its sign.**
+resampling unit — **all four units the design permits give the same answer**, from [−0.018, +0.033]
+jackknifing regions to [−0.028, +0.043] with a t interval on pair means, and none propagates
+within-direction sampling variability (Appendix A(o)). No single region carries the mean (below).
 
-**On the frames as drawn, six directions are below chance with interval support**, the sharpest at
-0.326 [0.305, 0.349]. Section 4.4 has shown most of that count is a property of the frames:
-equalising them leaves **one**, Manavgat to Bejís at 0.417 [0.349, 0.488], supported at the 10 km
-collar though its interval covers chance at 5 km. That direction still needs a mechanism acting on
-the direction of the relationship, because no account of merely lost skill produces a reliably
+**On the frames as drawn, seven directions are below chance with interval support**, the sharpest
+Bejís to Manavgat at 0.314 [0.296, 0.332]. Section 4.4 has shown part of that count is a property of
+the frames: equalising them leaves **two**, Manavgat to Bejís at 0.407 [0.323, 0.493] and Muğla to
+Manavgat at 0.433 [0.381, 0.491], supported at the 10 km collar though both intervals cover chance at
+5 km. Those directions still need a mechanism acting on the direction of the relationship, because no account of merely lost skill produces a reliably
 reversed ranking, and Appendix D pursues it. Everything below this point is computed on the
 frames as drawn and should be read against Section 4.4. Per-split and per-scar detail is in Appendix
 A(i); per-direction values for all twenty directions, raw and under both adaptations, are in
 Appendix B, Table B9.
 
 **Label-blind adaptation compresses the matrix toward chance rather than repairing it.** Under
-region-wise z-scoring the twenty directions span 0.431 to 0.630 and under CORAL 0.443 to 0.624,
-roughly half the raw spread, with no adapted direction exceeding 0.631 against the unmatched within-region
-references of 0.859 to 0.918. Adaptation raises the failing directions and degrades most of those
-that already transferred. Taking the better of the two adaptations per direction, 14 of the 20 end
-closer to chance than they began and 6 end further from it; five of those six involve Montiferru,
-the smallest and last-added region, and move upward, while the sixth is Manavgat→Muğla moving
-downward from 0.470 to 0.443. The 14 to 6 split should be read at the precision of limitation (viii) in
-Appendix C.5, since Bejís→Manavgat is counted as compressed on a margin of 0.001.
+region-wise z-scoring the twenty directions span 0.302 to 0.630 and under CORAL 0.406 to 0.624,
+with no adapted direction exceeding 0.630 against the unmatched within-region references of 0.859
+to 0.918. The compression is not uniform: under z-scoring Bejís to Manavgat moves further below
+chance, from 0.314 to 0.302. Adaptation raises the failing directions and degrades most of those
+that already transferred. Taking the better of the two adaptations per direction, 15 of the 20 end
+closer to chance than they began and 5 end further from it; four of those five involve Montiferru,
+the smallest and last-added region, and move upward, while the fifth is Manavgat→Muğla moving
+downward from 0.438 to 0.427. Under CORAL alone sixteen of twenty end closer (Section 4.5). The
+split should be read at the precision of limitation (viii) in Appendix C.5
+(`paper/labelfix_rerun/round5/matrix20_official.csv`).
 
 The per-direction decomposition is in Appendix A(j), Table A5; two figures from it matter here and
 are used below.
 
-**Against the right reference, adaptation is not failing** (Fig. 5). The three controls above give an
-achievable reference for a model applied to a fire it has not seen: 0.574 for the half-split, 0.552
-for the leave-one-scar-out. CORAL, committed to in advance, averages **0.552** across the twenty
-directions against 0.541 raw, which is exactly that reference. Taking whichever of the two
-adaptations scores higher per direction gives 0.556, but that selection uses the target labels the
+**Against the right reference, adaptation is not failing** (Fig. 5). The controls of Section 4.3
+give an achievable reference for a model applied to a fire it has not seen: 0.586 for the
+half-split, 0.546 for the leave-one-scar-out. CORAL, committed to in advance, averages **0.517**
+across the twenty directions against 0.527 raw, below that reference. Taking whichever of the two
+adaptations scores higher per direction gives 0.523, but that selection uses the target labels the
 protocol forbids, so it is an oracle upper bound rather than an achievable result and is reported
 as one. What it does is
-regress the matrix towards that value: fourteen of twenty directions move closer to chance, which
+regress the matrix towards chance: sixteen of twenty directions move closer to chance, which
 harms the directions that already worked and helps the ones that did not. The verdict that follows
 is narrower than "alignment fails". Alignment cannot exceed what a model can achieve on an unseen
 fire, and it does not.
@@ -1224,82 +1232,83 @@ of at least 50 cells together with all cells within 2 km of it. What makes that 
 than a whole region is the composition of its negatives, not its burned fraction, and that can be
 shown rather than argued. Taking the same fitted model and the same
 out-of-fold predictions and scoring them on a random sample of region cells drawn at the scar area's
-own burned fraction gives **0.782 against the region-wide 0.782**: matching the prevalence changes
-nothing, at −0.000 [−0.003, +0.002] over the nine scars. Scoring the same predictions on the scar
-area itself gives 0.627, a fall of **+0.155 [+0.093, +0.217]**. The whole effect is the negative
+own burned fraction gives **0.793 against the region-wide 0.791**: matching the prevalence changes
+nothing, at −0.002 [−0.005, +0.001] over the nine scars. Scoring the same predictions on the scar
+area itself gives 0.644, a fall of **+0.149 [+0.087, +0.211]**. The whole effect is the negative
 pool. Every negative in a scar collar is fire-adjacent, sharing the terrain, land cover and synoptic
 conditions of the positives, whereas a region's negatives include its easy far field. The burned
-fraction, 34 to 87 % against 3.8 to 28.7 % for a region, is a symptom of that construction, and
+fraction, 34 to 87 % against 7.0 to 28.7 % for a region, is a symptom of that construction, and
 ROC-AUC is in any case invariant to class balance at fixed class-conditional distributions.
 
 Table A(i).1 (Appendix A(i)) carries the four evaluations; its rows
 are labelled A to D and referred to by those letters below.
 
-Table 2's four rows are means over the **same eight scars**. A ninth burned component, Bejís, is
-excluded **from it**: it is that region's only component of any size, so holding it out leaves no
-usable source model and there is no row C for it. It is *not* excluded from the arms that need no
-leave-one-scar-out model, so the prevalence control two paragraphs above and Tables A3 and A4 are
-computed on nine scars. That is why their means, 0.782 and 0.627, differ from Table 2's 0.776 and
-0.634. Rows A, B and D are given there on the eight so that the differences are
-paired, and the intervals are Student *t* over those eight, which is the resampling unit for this arm rather than the spatial-block bootstrap used
-elsewhere in the paper. Eight is a small number and the intervals are wide accordingly. Four of the
-eight scars are in Muğla and two in Montiferru, so they are not independent; row A in particular is
+Table A(i).1's four rows are means over the **same seven scars**. Two burned components, Bejís's and
+Manavgat's, are excluded **from it**: each is its region's only component of any size (under the
+corrected label Manavgat's burns merge into one scar, 2,934 of 2,935 cells), so holding it out leaves
+no usable source model and there is no row C for it. They are *not* excluded from the arms that need
+no leave-one-scar-out model, so the prevalence control two paragraphs above and Tables A3 and A4 are
+computed on nine scars. That is why their means, 0.791 and 0.644, differ from Table A(i).1's 0.773
+and 0.640. Rows A, B and D are given there on the seven so that the differences are
+paired, and the intervals are Student *t* over those seven, which is the resampling unit for this arm rather than the spatial-block bootstrap used
+elsewhere in the paper. Seven is a small number and the intervals are wide accordingly. Four of the
+seven scars are in Muğla, two in Montiferru and one in Evia, so they are not independent; row A in particular is
 a region-level quantity repeated across the scars of a region, and its interval is pseudo-replicated
 and should not be read as coverage. The two differences are computed per scar and paired, which is
 what they are reported for.
 
-**The same model, scored two ways on the same region, differs by 0.143 AUC.** Rows A and B are one
+**The same model, scored two ways on the same region, differs by 0.133 AUC.** Rows A and B are one
 model. The only change is which cells it is scored on: the whole region, or the burn scar and its
-2 km collar. That change alone costs **0.143 [+0.077, +0.208]** of the 0.225 [+0.157, +0.293] fall from A to C,
-about two thirds, and it is the size of the entire increment this literature usually reports. Both
-intervals are Student *t* over the eight scars, so the "two thirds" is a ratio of two estimates and
-is compatible with anything from roughly a third to nine tenths; the point of the comparison is the
-size of the numerator, not the precision of the fraction. A region-wide blocked figure is
+2 km collar. That change alone costs **0.133 [+0.059, +0.207]** of the 0.227 [+0.147, +0.308] fall from A to C,
+about three fifths, and it is the size of the entire increment this literature usually reports. Both
+intervals are Student *t* over the seven scars, so the "three fifths" is a ratio of two estimates;
+the point of the comparison is the size of the numerator, not the precision of the fraction. A region-wide blocked figure is
 therefore an upper bound on what the same model achieves where the fire actually is, and the
 difference is not small enough to ignore. Any comparison of a scar-level result against a region-level
 reference inherits that, and the region-level reference is what a paper of this kind normally
 reports.
 
 **Neither withholding the fire nor moving 2,800 km has a measurable cost.** B minus C, the
-fire-specific residual on identical cells, is **+0.082 [−0.011, +0.175]**, which spans zero. C minus
+fire-specific residual on identical cells, is **+0.094 [−0.012, +0.200]**, which spans zero. C minus
 D, the effect of replacing a same-region model with one fitted between 306 and 2,802 km away, is
-**−0.003 [−0.075, +0.069]**, which also spans zero and is an order of magnitude smaller. The second
+**−0.007 [−0.070, +0.057]**, which also spans zero and is an order of magnitude smaller. The second
 is the cleaner result: on the same cells, a model fitted in another country does as well as one
 fitted in the same region with the scar withheld, and it survives restriction to Muğla, the only
 region where holding out one scar still leaves the source model properly trained, at 0.579 against
-0.597.
+0.586.
 
-**Row D averages four foreign models over a large spread**, 32 scar-by-source combinations running
-0.374 to 0.724 with ten below chance, so the pooled 0.555 says the *average* foreign model matches a
+**Row D averages four foreign models over a large spread**, 28 scar-by-source combinations running
+0.374 to 0.724 with nine below chance, so the pooled 0.553 says the *average* foreign model matches a
 same-region one, not that any particular one does. One confound must be stated: holding out a
 region's only large scar also removes most of its positives, so row C mixes "the fire was withheld"
 with "almost all the positives were withheld"; restricted to Muğla, where four scars remain, C is
-0.579 and D is 0.597 and the comparison still shows nothing. **With eight scars, three of them
-starved, this design cannot establish a fire-specific residual, only bound it at about 0.18.** Rows C
+0.579 and D is 0.586 and the comparison still shows nothing. **With seven scars, two of them
+starved, this design cannot establish a fire-specific residual, only bound it at about 0.20.** Rows C
 and D both sit close to chance, so the comparison between them has little dynamic range: what is
 measurable is the change of evaluation geometry between rows A and B. **It is not shown to be zero
-on an unseen fire, and eight scars cannot show that; what this design establishes is that it is not
+on an unseen fire, and seven scars cannot show that; what this design establishes is that it is not
 established there.** Nor does it establish the fire event as the unit, because the held-out patch is
 defined by the labels and its identity cannot be separated from its location. Sweeping the two
 parameters that define that patch — minimum burned-component size over 25 to 200 cells and
-connectivity over the 4- and 8-neighbourhoods — moves the row-C mean only between 0.545 and 0.566,
+connectivity over the 4- and 8-neighbourhoods — moves the row-C mean only between 0.541 and 0.561,
 and it is flat across buffers of 2, 5 and 10 km. Per-scar and per-source values, the full sweep and
 the half-split control are in Appendix A(i).
 
 **The increment declines with the holdout, and is not established once the fire is withheld.**
-Contribution 1 is about the paired thermal-minus-baseline difference, so the same evaluations were
+Contribution 2 concerns the paired thermal-minus-baseline difference, so the same evaluations were
 run on it.
 
 | Evaluation | Thermal increment | Interval |
 |---|---:|---|
 | Blocked cross-validation, per region | +0.056 to +0.153 | every interval above zero |
-| Within-region half-split | +0.027 | positive in 13 of 18 splits |
-| Leave-one-scar-out | **+0.022** | **[−0.032, +0.077]** |
-| Cross-region, twenty directions | +0.004 | [−0.028, +0.036] |
+| Within-region half-split | +0.028 | positive in 13 of 18 splits |
+| Leave-one-scar-out | **+0.024** | **[−0.040, +0.089]** |
+| Cross-region, twenty directions | +0.007 | [−0.021, +0.037] |
 
 The point estimate falls monotonically as the holdout hardens and the last two intervals span zero,
 so **the within-region increment of +0.056 to +0.153 is substantially a property of interleaved
-holdout**. Per-scar values are in Appendix A(i).
+holdout**. Per-scar values are in Appendix A(i). Corrected Manavgat label; sources as for Table A(i).1 and
+`paper/labelfix_rerun/code/scar_increment.json`.
 
 ## A(aa). The six further arms, summarised
 
@@ -1541,7 +1550,7 @@ per held-out scar or target region gets a Student t interval over those $`n`$ un
 ```
 
 **The effective sample is thus ten pairs or five regions for direction-level intervals, and at most
-eight scars from four regions for scar-level ones.**
+seven scars from three regions for scar-level ones.**
 
 ### Reproduction of the re-frozen outputs (moved from Methods 3.13)
 
