@@ -19,5 +19,27 @@ references, tables, figure captions and declarations.
 | `graphical_abstract.pdf` | PDF (vector) | 132047 | `823e8a031f61e654…` | paper/figures/graphical_abstract.py |
 | `highlights.tex` | LaTeX text | 706 | `50b26075ea28c968…` | paper/highlights.tex |
 
+## When the figures were rendered
+
+The figure PDFs are the figures of record committed when each was last rendered; no figure PDF has
+changed since. Figs. 3 to 8 and the graphical abstract were rendered under the corrected Manavgat
+label. Figs. 1 and 2, the study map and the processing schematic, plot no label-dependent value.
+Every render commit is an ancestor of `dc9b307`, and later commits touched only text, tooling and
+data placement, not any plotted value. `paper/figures/check_all.py` asserts every plotted value
+against the frozen outputs and the manuscript text, and passed 10/10 at `dc9b307`, in a clean
+clone, and at `5be3690`, where this package was built.
+
+| File | Rendered in | Date |
+|---|---|---|
+| `fig1.pdf` | `7327c45` | 2026-09-23 |
+| `fig2.pdf` | `7d543f6` | 2026-09-19 |
+| `fig3.pdf` | `b0fdc1c` | 2026-09-23 |
+| `fig4.pdf` | `a277d0c` | 2026-09-23 |
+| `fig5.pdf` | `221f4ef` | 2026-09-23 |
+| `fig6.pdf` | `25df566` | 2026-09-23 |
+| `fig7.pdf` | `2cb6535` | 2026-09-23 |
+| `fig8.pdf` | `7bcda99` | 2026-09-23 |
+| `graphical_abstract.pdf` | `7b99fac` | 2026-09-23 |
+
 Fig. 4's three heatmap panels are embedded as 185 x 185 px raster blocks (no interpolation); every
 other figure element is vector. The cover letter is prepared by the corresponding author.
