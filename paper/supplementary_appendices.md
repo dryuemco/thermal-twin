@@ -210,15 +210,15 @@ detail is here, so that the ladder can be checked without leaving the manuscript
 
 **Table A1. Within-region half-split, every split.** Source and target positive counts are given
 because they are unequal, which is the principal limit on this arm: a straight cut does not produce
-two exchangeable halves. Two splits are unusable because one half of Manavgat contains no burned
-cells.
+two exchangeable halves. Two splits are unusable because one half of Manavgat contains no burned cells. Corrected Manavgat
+label; source `paper/labelfix_rerun/code/positive_control.json`. Checked row by row by `paper/code/appendix_tables.py`.
 
 | Region | Axis | Direction | Source positives | Target positives | Thermal AUC | Baseline AUC |
 |---|---|---|---:|---:|---:|---:|
-| manavgat 2021 | east-west | low to high | 700 | 84 | 0.695 | 0.661 |
-| manavgat 2021 | east-west | high to low | 84 | 700 | 0.557 | 0.580 |
-| manavgat 2021 | north-south | low to high | 0 | 784 | — | — |
-| manavgat 2021 | north-south | high to low | 784 | 0 | — | — |
+| manavgat 2021 | east-west | low to high | 1,795 | 1,140 | 0.761 | 0.793 |
+| manavgat 2021 | east-west | high to low | 1,140 | 1,795 | 0.712 | 0.638 |
+| manavgat 2021 | north-south | low to high | 0 | 2,935 | — | — |
+| manavgat 2021 | north-south | high to low | 2,935 | 0 | — | — |
 | bejis 2022 | east-west | low to high | 640 | 460 | 0.750 | 0.784 |
 | bejis 2022 | east-west | high to low | 460 | 640 | 0.578 | 0.560 |
 | bejis 2022 | north-south | low to high | 357 | 743 | 0.713 | 0.662 |
@@ -240,47 +240,53 @@ cells.
 regions containing more than one burned component of at least 50 cells. Muğla is the only region
 where holding one out still leaves the source model properly trained across every arm; Montiferru's
 two components are very unequal, so one of its arms retains 472 source positives and the other 97.
-Muğla's four arms mean 0.579; the four arms in the other regions mean 0.525, and the pooled figure of 0.552 averages the two.
+Muğla's four arms mean 0.579 and the three arms in the other regions 0.502; the pooled figure of
+0.546, Table 2's row C, is the mean over all seven. Under the frozen label Manavgat contributed an
+eighth arm; the corrected label merges its burns into a single scar, which leaves nothing to train
+on once it is withheld. Corrected Manavgat label; source `paper/labelfix_rerun/code/scar_control.json`.
+Checked row by row by `paper/code/appendix_tables.py`. One frozen cell did not equal its source rounded to 3 dp (Muğla component 10, printed
+0.616, source 0.6167): a pre-existing rounding error, independent of the label.
 
 | Region | Component | Source positives left | Target positives | Target cells | AUC |
 |---|---:|---:|---:|---:|---:|
 | evia 2021 extended | 1 | 11 | 2,653 | 3,059 | 0.465 |
-| manavgat 2021 | 1 | 88 | 696 | 1,135 | 0.592 |
 | montiferru 2021 | 1 | 97 | 442 | 758 | 0.584 |
 | montiferru 2021 | 5 | 472 | 67 | 195 | 0.458 |
 | mugla 2021 | 6 | 1,997 | 914 | 1,266 | 0.595 |
 | mugla 2021 | 1 | 2,173 | 738 | 1,244 | 0.561 |
-| mugla 2021 | 10 | 2,272 | 639 | 940 | 0.616 |
+| mugla 2021 | 10 | 2,272 | 639 | 940 | 0.617 |
 | mugla 2021 | 8 | 2,363 | 548 | 954 | 0.542 |
 
 The evaluation populations of the two arms are not comparable with each other or with the transfer
 targets. A held-out scar with its 2 km collar contains only fire-adjacent negatives, against a whole target
-region's inclusion of its easy far field; the burned fractions, 34 to 87 % against 3.8 to 28.7 %,
+region's inclusion of its easy far field; the burned fractions, 34 to 87 % against 7.0 to 28.7 %,
 are a symptom of that rather than the cause, since ROC-AUC is invariant to class balance at fixed
 class-conditional distributions. The scar arm therefore asks for discrimination against the nearest and
 most similar negatives only, while a transfer arm includes the whole easy far field. Section 4.3
 states the consequence: the last three rows of the ladder are not distinguishable by this design.
 
 **Table A3. The foreign-region arm, decomposed by source.** Each held-out scar area is scored with a
-model fitted on each of the other four regions. Table 2's row D is the mean over the **eight** scars that carry a row C, that is 32 of the 36
-combinations below; the nine-scar mean quoted in this appendix is 0.559 against row D's 0.555.
+model fitted on each of the other four regions. Table 2's row D is the mean over the **seven** scars that carry a row C, that is 28 of the 36
+combinations below; the nine-scar mean quoted in this appendix is 0.556 against row D's 0.553.
+Corrected Manavgat label, which also changes the non-Manavgat scars, since Manavgat is one of each
+scar's four sources; source `paper/labelfix_rerun/code/d_per_source.json`. Checked row by row by `paper/code/appendix_tables.py`.
 
 | Target region | Scar | Mean over sources | Min | Max | Spread |
 |---|---:|---:|---:|---:|---:|
-| Bejís 2022 | 1 | 0.589 | 0.521 | 0.631 | 0.110 |
-| North Evia 2021 | 1 | 0.590 | 0.374 | 0.704 | 0.329 |
-| Manavgat 2021 | 1 | 0.468 | 0.407 | 0.563 | 0.156 |
-| Montiferru 2021 | 1 | 0.504 | 0.457 | 0.546 | 0.089 |
-| Montiferru 2021 | 5 | 0.490 | 0.399 | 0.656 | 0.257 |
-| Muğla 2021 | 1 | 0.518 | 0.425 | 0.608 | 0.183 |
-| Muğla 2021 | 6 | 0.568 | 0.533 | 0.597 | 0.064 |
-| Muğla 2021 | 8 | 0.632 | 0.570 | 0.724 | 0.155 |
-| Muğla 2021 | 10 | 0.671 | 0.579 | 0.716 | 0.137 |
+| Bejís 2022 | 1 | 0.589 | 0.519 | 0.631 | 0.112 |
+| North Evia 2021 | 1 | 0.564 | 0.374 | 0.704 | 0.329 |
+| Manavgat 2021 | 1 | 0.542 | 0.438 | 0.665 | 0.227 |
+| Montiferru 2021 | 1 | 0.489 | 0.457 | 0.513 | 0.056 |
+| Montiferru 2021 | 5 | 0.475 | 0.399 | 0.597 | 0.197 |
+| Muğla 2021 | 1 | 0.514 | 0.410 | 0.608 | 0.198 |
+| Muğla 2021 | 6 | 0.571 | 0.545 | 0.597 | 0.052 |
+| Muğla 2021 | 8 | 0.623 | 0.533 | 0.724 | 0.192 |
+| Muğla 2021 | 10 | 0.634 | 0.433 | 0.716 | 0.283 |
 
-Over all 36 combinations here the mean is 0.559, the range 0.374 to 0.724, and ten fall below
-chance. Restricted to the 32 combinations behind row D the mean is 0.555 and the same ten fall below
-chance. The mean spread across the four sources for a single scar is 0.164 over the nine scars and
-0.171 over the eight. Averaging over sources is what makes
+Over all 36 combinations here the mean is 0.556, the range 0.374 to 0.724, and ten fall below
+chance. Restricted to the 28 combinations behind row D the mean is 0.553 and nine fall below chance.
+The mean spread across the four sources for a single scar is 0.183 over the nine scars and 0.187
+over the seven. Averaging over sources is what makes
 row D comparable with row C, which is fitted on one region; it is not a claim that the choice of
 foreign source is immaterial, and Section 4.3 states the distinction.
 
@@ -288,23 +294,26 @@ foreign source is immaterial, and Section 4.3 states the distinction.
 the same out-of-fold predictions are scored three ways: on the whole region, on a random sample of
 region cells drawn at the scar area's own burned fraction, and on the scar area. Twenty draws per
 scar, seed 42. Nine scars, since this control needs no leave-one-scar-out arm and Bejís therefore
-qualifies.
+qualifies. Corrected Manavgat label; source `paper/labelfix_rerun/code/prevalence_control.json`. Checked row by row by `paper/code/appendix_tables.py`.
+Values are printed at 4 dp because the source stores them at 4 dp; rounding a stored ...5 to 3 dp
+would double-round, and the frozen 3 dp table could not be reproduced unambiguously from its
+source for that reason (two cells).
 
 | Target region | Scar | Burned fraction | A whole region | A′ prevalence-matched | B scar area |
 |---|---:|---:|---:|---:|---:|
-| Manavgat 2021 | 1 | 0.61 | 0.797 | 0.796 | 0.589 |
-| Bejís 2022 | 1 | 0.66 | 0.824 | 0.825 | 0.575 |
-| Muğla 2021 | 6 | 0.72 | 0.777 | 0.772 | 0.564 |
-| Muğla 2021 | 1 | 0.59 | 0.777 | 0.779 | 0.654 |
-| Muğla 2021 | 10 | 0.68 | 0.777 | 0.779 | 0.673 |
-| Muğla 2021 | 8 | 0.57 | 0.777 | 0.782 | 0.761 |
-| North Evia 2021 | 1 | 0.87 | 0.864 | 0.866 | 0.745 |
-| Montiferru 2021 | 1 | 0.58 | 0.720 | 0.717 | 0.622 |
-| Montiferru 2021 | 5 | 0.34 | 0.720 | 0.723 | 0.461 |
-| **Mean** | | | **0.782** | **0.782** | **0.627** |
+| Manavgat 2021 | 1 | 0.74 | 0.8822 | 0.8837 | 0.7434 |
+| Bejís 2022 | 1 | 0.66 | 0.8245 | 0.8251 | 0.5748 |
+| Muğla 2021 | 6 | 0.72 | 0.7773 | 0.7782 | 0.5640 |
+| Muğla 2021 | 1 | 0.59 | 0.7773 | 0.7787 | 0.6540 |
+| Muğla 2021 | 10 | 0.68 | 0.7773 | 0.7835 | 0.6735 |
+| Muğla 2021 | 8 | 0.57 | 0.7773 | 0.7796 | 0.7609 |
+| North Evia 2021 | 1 | 0.87 | 0.8642 | 0.8632 | 0.7451 |
+| Montiferru 2021 | 1 | 0.58 | 0.7199 | 0.7179 | 0.6215 |
+| Montiferru 2021 | 5 | 0.34 | 0.7199 | 0.7285 | 0.4611 |
+| **Mean** | | | **0.7911** | **0.7932** | **0.6443** |
 
-A minus A′, the effect of prevalence alone, is **−0.000 [−0.003, +0.002]**. A′ minus B, the effect of
-replacing the region's negatives with fire-adjacent ones, is **+0.155 [+0.093, +0.217]**. The
+A minus A′, the effect of prevalence alone, is **−0.002 [−0.005, +0.001]**. A′ minus B, the effect of
+replacing the region's negatives with fire-adjacent ones, is **+0.149 [+0.087, +0.211]**. The
 evaluation-area effect is entirely the negative pool.
 
 ## A(j). The transfer-gap decomposition, in full
@@ -380,17 +389,20 @@ and differenced, 1000 replicates, seed 42. Source `matched_frame_gap.csv`, recom
 `paper/code/verify_matched_gap.py`.
 
 **Table A6. Between-region differences in the signed LST-anomaly association, 10 km collar.**
+Pairs with opposite-sided point estimates and a difference interval excluding zero. Corrected
+Manavgat label; source `paper/labelfix_rerun/inference/reversal_family_holm.csv` (collar frame). Checked row by row by `paper/code/appendix_tables.py`.
 
 | Pair | AUC A | AUC B | Difference | 95 % CI |
 |---|---:|---:|---:|---|
 | Bejís vs Evia | 0.392 | 0.584 | −0.191 | [−0.295, −0.083] |
 | Evia vs Montiferru | 0.584 | 0.400 | +0.184 | [+0.012, +0.321] |
-| Manavgat vs Evia | 0.462 | 0.584 | −0.122 | [−0.225, −0.020] |
 | Bejís vs Muğla | 0.392 | 0.507 | −0.115 | [−0.219, −0.002] |
 
-Nine of the ninety feature-by-pair differences clear zero, against about 4.5 expected at nominal 5 %
-under the null, and no multiplicity correction is applied; four of the nine are this feature and
-three of those involve Evia. The nine features are effectively two to three dimensions (Section 4.4), so the ninety comparisons are not independent either. This is reported as a weaker result
+Twenty-seven of the ninety feature-by-pair differences clear zero, against about 4.5 expected at
+nominal 5 % under the null, and no multiplicity correction is applied; four of the twenty-seven are
+this feature, three of those have opposite-sided point estimates, and two of the three involve
+Evia. Under the frozen label the counts were nine, four and three; Manavgat versus Evia
+(0.487 against 0.584) no longer clears zero. The nine features are effectively two to three dimensions (Section 4.4), so the ninety comparisons are not independent either. This is reported as a weaker result
 than a reversal, not as a restored one.
 
 ## A(m). The same-geography event pair
@@ -605,14 +617,12 @@ variability. They resample between directions only.
 **In precision terms the transfer is worse than the ROC figures suggest.** ROC-AUC is the metric
 used throughout this paper, for comparability with the literature, but a susceptibility surface is
 used as a ranked area budget, so precision-recall is the operational quantity. Across the twenty
-directions the thermal model's PR-AUC averages **0.156 against a no-skill baseline of 0.136**. The
-mean of the twenty per-direction lifts is 1.16; the ratio of the two means just quoted is 1.146.
-**Six of the twenty fall below their own no-skill baseline at the point estimate, and five of those
-six have intervals entirely below it.** The exception is Bejís to Manavgat, at 0.034 [0.029, 0.042]
-against a baseline of 0.038, whose interval covers the baseline and which is therefore a
-point-estimate case only. Only one direction, Evia to Manavgat, exceeds twice its baseline, at 0.094
-against 0.038. A transferred model therefore ranks burned cells about a sixth better than random on
-average, and worse than random in five directions with interval support and a sixth at the point. This is a
+directions the thermal model's PR-AUC averages **0.181 against a no-skill baseline of 0.157**. The
+mean of the twenty per-direction lifts is 1.13; the ratio of the two means just quoted is 1.152.
+**Seven of the twenty fall below their own no-skill baseline at the point estimate, all seven with
+intervals entirely below it.** Only one direction, Evia to Manavgat, exceeds twice its baseline, at
+0.321 against 0.143. A transferred model therefore ranks burned cells about 15 % better than random
+on average, and worse than random in seven directions with interval support. This is a
 sharper statement than the ROC means support and it should be the one a practitioner reads.
 
 **The within-region increment survives the same correction, and is reported here because Section 4.2

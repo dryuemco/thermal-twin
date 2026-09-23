@@ -1,0 +1,351 @@
+{
+  "analysis_id": "a382046d5453412ea0145ce4ee057b9dfb8394160d7eac32551db26a51fb19ef",
+  "point_metrics": {
+    "manavgat_2021_to_mugla_2021": {
+      "within": {
+        "baseline": {
+          "roc_auc": 0.7433200295403336,
+          "pr_auc": 0.22494508611689773,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.8589830389802724,
+          "pr_auc": 0.44674739014417914,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      },
+      "raw_source_only": {
+        "baseline": {
+          "roc_auc": 0.4656065622633644,
+          "pr_auc": 0.06519776046968895,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.4376617829318566,
+          "pr_auc": 0.05951686892404788,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      },
+      "regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.4612404844585688,
+          "pr_auc": 0.060960667912937874,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.4267463273627929,
+          "pr_auc": 0.05742824987998013,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      },
+      "coral_after_regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.4753198942508232,
+          "pr_auc": 0.06408822149528663,
+          "positive_count": 2911,
+          "negative_count": 38819
+        },
+        "thermal": {
+          "roc_auc": 0.41742050141736736,
+          "pr_auc": 0.057108657720288655,
+          "positive_count": 2911,
+          "negative_count": 38819
+        }
+      }
+    },
+    "mugla_2021_to_manavgat_2021": {
+      "within": {
+        "baseline": {
+          "roc_auc": 0.8411807102607785,
+          "pr_auc": 0.4698773243148263,
+          "positive_count": 2935,
+          "negative_count": 17576
+        },
+        "thermal": {
+          "roc_auc": 0.90807357717935,
+          "pr_auc": 0.6455894428110062,
+          "positive_count": 2935,
+          "negative_count": 17576
+        }
+      },
+      "raw_source_only": {
+        "baseline": {
+          "roc_auc": 0.4222591457764537,
+          "pr_auc": 0.11374056637797869,
+          "positive_count": 2935,
+          "negative_count": 17576
+        },
+        "thermal": {
+          "roc_auc": 0.3449553227686198,
+          "pr_auc": 0.1007227330135432,
+          "positive_count": 2935,
+          "negative_count": 17576
+        }
+      },
+      "regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.5040034846961049,
+          "pr_auc": 0.14387269504148395,
+          "positive_count": 2935,
+          "negative_count": 17576
+        },
+        "thermal": {
+          "roc_auc": 0.4848188621001691,
+          "pr_auc": 0.13515389825055135,
+          "positive_count": 2935,
+          "negative_count": 17576
+        }
+      },
+      "coral_after_regionwise_zscore": {
+        "baseline": {
+          "roc_auc": 0.5169926816729333,
+          "pr_auc": 0.143924054924037,
+          "positive_count": 2935,
+          "negative_count": 17576
+        },
+        "thermal": {
+          "roc_auc": 0.4761153896555548,
+          "pr_auc": 0.13380908190988589,
+          "positive_count": 2935,
+          "negative_count": 17576
+        }
+      }
+    }
+  },
+  "within_region_reproduction": {
+    "manavgat_2021_to_mugla_2021": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.7433200295403336,
+            "step8b": 0.7433200295403336,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.22494508611689773,
+            "step8b": 0.22494508611689773,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.8589830389802724,
+            "step8b": 0.8589830389802724,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.44674739014417914,
+            "step8b": 0.44674739014417914,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    },
+    "mugla_2021_to_manavgat_2021": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.8411807102607785,
+            "step8b": 0.8411807102607785,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.4698773243148263,
+            "step8b": 0.4698773243148263,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.90807357717935,
+            "step8b": 0.90807357717935,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.6455894428110062,
+            "step8b": 0.6455894428110062,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    }
+  },
+  "raw_reproduction": {
+    "manavgat_2021_to_mugla_2021": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.4656065622633644,
+            "step9b": 0.4656065622633644,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.06519776046968895,
+            "step9b": 0.06519776046968895,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.4376617829318566,
+            "step9b": 0.4376617829318566,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.05951686892404788,
+            "step9b": 0.05951686892404788,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\cross_region\\manavgat_2021__mugla_2021\\step9b\\cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "manavgat_2021",
+        "root_target_experiment_id": "mugla_2021",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.4656065622633644,
+          "pr_auc": 0.06519776046968895,
+          "brier_score": 0.2320813380941932
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.4376617829318566,
+          "pr_auc": 0.05951686892404788,
+          "brier_score": 0.23348500370330705
+        }
+      }
+    },
+    "mugla_2021_to_manavgat_2021": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.4222591457764537,
+            "step9b": 0.4222591457764537,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.11374056637797869,
+            "step9b": 0.11374056637797869,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.3449553227686198,
+            "step9b": 0.3449553227686198,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.1007227330135432,
+            "step9b": 0.1007227330135432,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\cross_region\\manavgat_2021__mugla_2021\\step9b\\cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "manavgat_2021",
+        "root_target_experiment_id": "mugla_2021",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.4222591457764537,
+          "pr_auc": 0.11374056637797869,
+          "brier_score": 0.2449638822344167
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.3449553227686198,
+          "pr_auc": 0.1007227330135432,
+          "brier_score": 0.2457775976327831
+        }
+      }
+    }
+  },
+  "step9_raw_metric_provenance": {
+    "manavgat_2021_to_mugla_2021": {
+      "resolved_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\cross_region\\manavgat_2021__mugla_2021\\step9b\\cross_region_transfer_metrics.json",
+      "schema": "step9b_results_v1",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "mugla_2021",
+      "required_metrics": [
+        "roc_auc",
+        "pr_auc",
+        "brier_score"
+      ],
+      "baseline_metrics": {
+        "roc_auc": 0.4656065622633644,
+        "pr_auc": 0.06519776046968895,
+        "brier_score": 0.2320813380941932
+      },
+      "thermal_metrics": {
+        "roc_auc": 0.4376617829318566,
+        "pr_auc": 0.05951686892404788,
+        "brier_score": 0.23348500370330705
+      }
+    },
+    "mugla_2021_to_manavgat_2021": {
+      "resolved_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\cross_region\\manavgat_2021__mugla_2021\\step9b\\cross_region_transfer_metrics.json",
+      "schema": "step9b_results_v1",
+      "root_source_experiment_id": "manavgat_2021",
+      "root_target_experiment_id": "mugla_2021",
+      "required_metrics": [
+        "roc_auc",
+        "pr_auc",
+        "brier_score"
+      ],
+      "baseline_metrics": {
+        "roc_auc": 0.4222591457764537,
+        "pr_auc": 0.11374056637797869,
+        "brier_score": 0.2449638822344167
+      },
+      "thermal_metrics": {
+        "roc_auc": 0.3449553227686198,
+        "pr_auc": 0.1007227330135432,
+        "brier_score": 0.2457775976327831
+      }
+    }
+  }
+}

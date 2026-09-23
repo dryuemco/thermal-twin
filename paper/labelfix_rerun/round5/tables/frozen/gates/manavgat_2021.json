@@ -1,0 +1,108 @@
+{
+  "gate_level": "500m_reconstructed_mcd64a1_cell",
+  "label_kind": "raw_burndate",
+  "burn_month_available": true,
+  "block_size_pixels": 17,
+  "total_valid_cells_or_pixels_considered": 24150,
+  "burned_count": 796,
+  "unburned_count": 23354,
+  "burned_landcover_dominant_counts": {
+    "tree_cover": 708,
+    "grassland": 74,
+    "shrubland": 1,
+    "bare_sparse_vegetation": 1,
+    "permanent_water": 10,
+    "cropland": 2
+  },
+  "unburned_landcover_dominant_counts": {
+    "tree_cover": 14578,
+    "grassland": 4563,
+    "bare_sparse_vegetation": 205,
+    "shrubland": 483,
+    "cropland": 1258,
+    "permanent_water": 1992,
+    "built_up": 272,
+    "herbaceous_wetland": 3
+  },
+  "burned_tree_cover_count": 708,
+  "burned_shrubland_count": 1,
+  "burned_grassland_count": 74,
+  "burned_cropland_count": 2,
+  "burned_tree_shrub_grass_count": 783,
+  "burned_tree_shrub_count": 709,
+  "burned_cropland_dominant_count": 2,
+  "burned_natural_vegetation_fraction": 0.9836683417085427,
+  "burned_cropland_fraction": 0.002512562814070352,
+  "burned_tree_shrub_fraction": 0.8907035175879398,
+  "burned_cells_without_valid_landcover": 0,
+  "unburned_cells_without_valid_landcover": 0,
+  "decision": "wildfire_candidate_pass",
+  "reason": "burned_tree_shrub_grass_count/burned_count=0.984 >= natural_threshold=0.5.",
+  "warnings": [],
+  "thresholds": {
+    "min_positives": 30,
+    "natural_threshold": 0.5,
+    "cropland_threshold": 0.5
+  },
+  "inputs": {
+    "label_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/validation/labels/mcd64a1_raw.tif",
+    "aligned_label_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/validation/labels/mcd64a1_raw.tif",
+    "reference_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/gate_inputs/reference_30m.tif",
+    "landcover_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/gate_inputs/landcover_esa_worldcover_v200_aligned_to_reference.tif",
+    "label_start": "2021-07-28",
+    "label_end": "2021-08-31"
+  },
+  "label_raster_diagnostics": {
+    "path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/validation/labels/mcd64a1_raw.tif",
+    "label_kind": "raw_burndate",
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "finite_pixel_count": 6943860,
+    "masked_or_nodata_pixel_count": 0,
+    "label_window_doy_range": [
+      209,
+      243
+    ],
+    "unique_values": [
+      0.0,
+      213.0,
+      214.0,
+      215.0,
+      216.0,
+      217.0,
+      218.0,
+      219.0,
+      220.0,
+      221.0,
+      241.0
+    ],
+    "unique_counts": [
+      6764193,
+      50542,
+      48569,
+      54794,
+      17069,
+      3293,
+      599,
+      2073,
+      2109,
+      310,
+      309
+    ],
+    "min": 0.0,
+    "max": 241.0,
+    "count_zero": 6764193,
+    "count_one": 0,
+    "count_gt_one": 179667,
+    "count_positive": 179667,
+    "count_in_label_doy_range": 179667,
+    "looks_binary": false,
+    "no_values_in_label_doy_range": false,
+    "failed_validation": false
+  },
+  "landcover_info": {
+    "original_landcover_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/gate_inputs/landcover_esa_worldcover_v200_aligned_to_reference.tif",
+    "aligned_landcover_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/manavgat_2021/gate_inputs/landcover_esa_worldcover_v200_aligned_to_reference.tif",
+    "landcover_alignment_method": "explicit_preexisting_aligned"
+  }
+}

@@ -82,39 +82,41 @@ instrument Appendix A(m) uses, would support seventeen further reversals.
 
 ROC-AUC is reported throughout the main text for comparability with the susceptibility literature.
 A susceptibility surface is used as a ranked area budget, so precision-recall is the operational
-quantity, and at target prevalences of 3.8 to 28.7 % the two can differ sharply. Read from the same
-frozen step9b exports as Table B9.
+quantity, and at target prevalences of 7.0 to 28.7 % the two can differ sharply. Read from the step9b
+exports of the re-frozen outputs (`paper/labelfix_rerun/round5/tables/corrected/*/step9b_metrics.json`).
 
 **Table B4. Thermal transfer, PR-AUC against the no-skill baseline.** The baseline is the target's
-burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random
-ranking. Ordered by lift.
+burned prevalence. Lift is PR-AUC divided by that baseline; a lift of 1 is no better than random ranking. Ordered by lift.
+Corrected Manavgat label. Checked row by row by `paper/code/appendix_tables.py`. Two frozen cells did not equal their source rounded to 3 dp,
+Bejís → Muğla ROC-AUC (printed 0.619, source 0.6185) and Montiferru → Manavgat PR-AUC (printed 0.043,
+source 0.0425): a pre-existing rounding error, independent of the label.
 
 | Direction | ROC-AUC | PR-AUC | No-skill | Lift |
 |---|---:|---:|---:|---:|
-| Evia → Manavgat | 0.686 | 0.094 | 0.038 | **2.45** |
+| Evia → Manavgat | 0.677 | 0.321 | 0.143 | **2.24** |
+| Manavgat → Evia | 0.654 | 0.407 | 0.287 | 1.42 |
 | Bejís → Montiferru | 0.594 | 0.289 | 0.212 | 1.36 |
 | Evia → Montiferru | 0.647 | 0.283 | 0.212 | 1.34 |
-| Bejís → Muğla | 0.619 | 0.093 | 0.070 | 1.33 |
+| Bejís → Muğla | 0.618 | 0.093 | 0.070 | 1.33 |
 | Muğla → Evia | 0.653 | 0.379 | 0.287 | 1.32 |
 | Montiferru → Bejís | 0.548 | 0.093 | 0.072 | 1.28 |
 | Montiferru → Muğla | 0.619 | 0.089 | 0.070 | 1.27 |
 | Evia → Muğla | 0.577 | 0.086 | 0.070 | 1.23 |
 | Muğla → Bejís | 0.583 | 0.088 | 0.072 | 1.22 |
-| Manavgat → Evia | 0.613 | 0.343 | 0.287 | 1.20 |
-| Manavgat → Montiferru | 0.533 | 0.243 | 0.212 | 1.15 |
-| Montiferru → Manavgat | 0.567 | 0.043 | 0.038 | 1.11 |
+| Manavgat → Montiferru | 0.518 | 0.243 | 0.212 | 1.15 |
 | Montiferru → Evia | 0.586 | 0.317 | 0.287 | 1.11 |
 | Muğla → Montiferru | 0.531 | 0.214 | 0.212 | 1.01 |
-| Bejís → Manavgat | 0.444 | 0.034 | 0.038 | **0.90** |
-| Manavgat → Muğla | 0.470 | 0.063 | 0.070 | **0.90** |
+| Manavgat → Muğla | 0.438 | 0.060 | 0.070 | **0.85** |
 | Evia → Bejís | 0.448 | 0.059 | 0.072 | **0.82** |
+| Montiferru → Manavgat | 0.404 | 0.113 | 0.143 | **0.79** |
 | Bejís → Evia | 0.383 | 0.226 | 0.287 | **0.79** |
-| Muğla → Manavgat | 0.401 | 0.029 | 0.038 | **0.75** |
-| Manavgat → Bejís | 0.326 | 0.049 | 0.072 | **0.67** |
-| **Mean** | **0.541** | **0.156** | **0.136** | **1.16** |
+| Manavgat → Bejís | 0.396 | 0.054 | 0.072 | **0.75** |
+| Muğla → Manavgat | 0.345 | 0.101 | 0.143 | **0.70** |
+| Bejís → Manavgat | 0.314 | 0.098 | 0.143 | **0.68** |
+| **Mean** | **0.527** | **0.181** | **0.157** | **1.13** |
 
-Six directions fall below their own no-skill baseline, and only one exceeds twice it. The six are the
-same six that are below chance on ROC-AUC, which is what a reversed ranking predicts in either
+Seven directions fall below their own no-skill baseline, and only one exceeds twice it. The seven are
+the same seven that are below chance on ROC-AUC, which is what a reversed ranking predicts in either
 metric. Section 4.4 shows that this count is largely a property of the evaluation frames rather than
 of a reversed predictor-burning relationship.
 
@@ -153,11 +155,13 @@ Section 4.4 states these results; the per-region values are here.
 
 **Table B6. Evaluation-frame geometry of the five study regions.** Primary natural-vegetation
 population. Distance is Euclidean to the nearest burned cell on the 500 m grid, at 0.45 km per cell.
-Source `aoi_frame_auc.csv`; recomputable by `paper/code/verify_aoi_frame.py`.
+Corrected Manavgat label. Computed by `paper/code/appendix_tables.py` from the step8a tables (read
+through `paper/code/_canonical.py`, which verifies each file's sha256), as
+`paper/code/verify_aoi_frame.py` does; the frozen computation reproduces the frozen table exactly.
 
 | Region | cells | burned | median distance to burned | share beyond 10 km |
 |---|---:|---:|---:|---:|
-| Manavgat | 20,511 | 784 | 13.4 km | **60.1 %** |
+| Manavgat | 20,511 | 2,935 | 13.1 km | **58.5 %** |
 | Bejís | 15,190 | 1,100 | 13.5 km | **63.1 %** |
 | Muğla | 41,730 | 2,911 | 11.3 km | 55.3 % |
 | Evia | 9,298 | 2,664 | 8.0 km | 43.7 % |
@@ -166,27 +170,30 @@ Source `aoi_frame_auc.csv`; recomputable by `paper/code/verify_aoi_frame.py`.
 **Table B7. Signed univariate AUC, frame as drawn against a 10 km collar.** Point estimates; the
 intervals that decide the reversal question are given in the text below and in
 `collar_frame_bootstrap.csv` (10-cell blocks, 1000 replicates, seed 42). Signed and never folded to
-max(AUC, 1 − AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned
-cells in any region.
+max(AUC, 1 − AUC), so a value below 0.5 is a direction, not weakness. The collar drops no burned cells in any region. Corrected Manavgat label; full frame from Table B2's
+source, collar from `paper/labelfix_rerun/code/aoi_frame_auc_frozen_mugla.csv`. Checked row by row by `paper/code/appendix_tables.py`. On the
+corrected label Manavgat sits on the other side of 0.5 on every row, the collar rows included.
 
 | Signed univariate AUC | Manavgat | Bejís | Muğla | Evia | Montiferru | straddles 0.5 |
 |---|---:|---:|---:|---:|---:|---|
-| elevation, full frame (Table B2) | **0.374** | 0.643 | 0.611 | 0.541 | 0.584 | **yes** |
-| elevation, 10 km collar | 0.561 | 0.614 | 0.606 | 0.648 | 0.581 | no |
-| current LST, full frame | **0.538** | 0.477 | 0.325 | 0.377 | 0.370 | **yes** |
-| current LST, 10 km collar | 0.386 | 0.405 | 0.332 | 0.286 | 0.376 | no |
-| current TVDI, full frame | **0.552** | 0.517 | 0.336 | 0.362 | 0.356 | **yes** |
-| current TVDI, 10 km collar | 0.392 | 0.454 | 0.342 | 0.250 | 0.361 | no |
+| elevation, full frame (Table B2) | **0.232** | 0.643 | 0.611 | 0.541 | 0.584 | **yes** |
+| elevation, 10 km collar | **0.376** | 0.614 | 0.606 | 0.648 | 0.581 | **yes** |
+| current LST, full frame | **0.665** | 0.477 | 0.325 | 0.377 | 0.370 | **yes** |
+| current LST, 10 km collar | **0.522** | 0.405 | 0.332 | 0.286 | 0.376 | **yes** |
+| current TVDI, full frame | **0.677** | 0.517 | 0.336 | 0.362 | 0.356 | **yes** |
+| current TVDI, 10 km collar | **0.527** | 0.454 | 0.342 | 0.250 | 0.361 | **yes** |
 
 **Table B8. Region summary: populations and gate outcomes.** Counts from each
 region's Step 8A dataset statistics; gate fractions from each region's burned-landcover gate output.
 TSG = the primary natural-vegetation population. The TSG columns use the canonical modelled
 population, `burnable_tree_shrub_grass` **and** `valid_for_modeling == True`, which is the
-population every model in this paper was fitted and scored on.
+population every model in this paper was fitted and scored on. Corrected Manavgat label. Counts are
+computed from the step8a tables and gate fractions read from each region's gate output
+(`paper/labelfix_rerun/round5/tables/corrected/gates/`). Checked row by row by `paper/code/appendix_tables.py`.
 
 | Region | Total cells | Valid cells | Burned | Prevalence (all valid) | TSG cells | Burned in TSG | TSG prevalence | Burned natural-veg fraction | Gate verdict |
 |---|---|---|---|---|---|---|---|---|---|
-| Manavgat 2021 | 24,150 | 24,087 | 796 | 0.033 | 20,511 | 784 | 0.038 | 0.984 | pass |
+| Manavgat 2021 | 24,150 | 24,087 | 3,046 | 0.126 | 20,511 | 2,935 | 0.143 | 0.955 | pass |
 | Bejís 2022 | 15,759 | 15,759 | 1,103 | 0.070 | 15,190 | 1,100 | 0.072 | 0.991 | pass |
 | Muğla 2021 | 73,098 | 73,045 | 3,026 | 0.041 | 41,730 | 2,911 | 0.070 | 0.958 | pass |
 | North Evia 2021 (extended) | 22,925 | 22,906 | 2,788 | 0.122 | 9,298 | 2,664 | 0.287 | 0.945 | pass |

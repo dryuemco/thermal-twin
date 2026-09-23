@@ -339,3 +339,14 @@ definition used here is the one the text used.
   thread nondeterminism, shown by two runs in the same environment. The 09-19 `frozen_mugla` file
   is a renamed copy of regen's output. Table B10 and A(s) are rebuilt from round5 and asserted in
   `fig8_contrast_pairs.py`.
+- **Appendix tables B1–B10 and A1–A6 rebuilt from source (2026-09-23).** `paper/code/appendix_tables.py`
+  builds every row from a source file; 49 corrected sources are pinned in
+  `round5/tables/SOURCES.sha256`; `check_all.py` runs the check. The `--frozen` mode built each table
+  from the frozen sources and reproduced the frozen text, which validates the method. It also exposed
+  these **pre-existing errors, independent of the label**:
+  - B4: Bejís→Muğla ROC 0.619 (source 0.6185) and Montiferru→Manavgat PR 0.043 (source 0.0425).
+  - A2: Muğla component 10 AUC 0.616 (source 0.6167).
+  - A4: the source stores 4 dp, so the frozen 3 dp table could not be reproduced unambiguously
+    (double rounding in two cells). A4 is now printed at 4 dp.
+  - B3 note: "twenty-nine" point-only pairs where the frozen data give 33 (found in the B1–B3 step).
+  - B1: the six n = 12 rows' intervals came from an earlier bootstrap run (found in the B1–B3 step).
