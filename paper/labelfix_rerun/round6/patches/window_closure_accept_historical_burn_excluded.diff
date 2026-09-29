@@ -1,0 +1,10 @@
+--- /tmp/wcs_orig.py	2026-09-23 15:12:57.089863800 +0300
++++ manavgat_2021/src/window_closure_sensitivity.py	2026-09-23 15:12:57.118968300 +0300
+@@ -6079,6 +6079,7 @@
+     "landcover_cropland_fraction", "landcover_bare_sparse_vegetation_fraction",
+     "landcover_built_up_fraction", "landcover_permanent_water_fraction",
+     "burnable_tree_shrub_grass", "burnable_tree_shrub",
++    "historical_burn_excluded",  # PATCH 2026-09-23 (thermal-twin re-freeze): Step8A at 6381f4c writes this historical-exclusion flag; it is a closure-invariant population attribute
+ )
+ # Block geometry: fixed by the reference grid and the frozen block size, so it
+ # is invariant AS LONG AS the variant reference grid equals the canonical one --

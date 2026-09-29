@@ -1,0 +1,340 @@
+[
+  {
+    "check_id": "A01_all_expected_files_present",
+    "status": "PASS",
+    "expected": [
+      "era5_land_regional_summary.csv",
+      "era5_land_regional_summary.json",
+      "scientific_contract.json",
+      "manifest.json"
+    ],
+    "observed": [
+      "era5_land_regional_summary.csv",
+      "era5_land_regional_summary.json",
+      "scientific_contract.json",
+      "manifest.json"
+    ],
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "note": null
+  },
+  {
+    "check_id": "A02_analysis_id_matches_scientific_config",
+    "status": "PASS",
+    "expected": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "observed": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\scientific_contract.json",
+    "note": null
+  },
+  {
+    "check_id": "A03_namespace_directory_matches_analysis_id",
+    "status": "PASS",
+    "expected": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "observed": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "note": null
+  },
+  {
+    "check_id": "A04_contract_csv_json_experiment_order_agree",
+    "status": "PASS",
+    "expected": [
+      "manavgat_2021",
+      "bejis_2022",
+      "mugla_2021",
+      "evia_2021_extended",
+      "montiferru_2021"
+    ],
+    "observed": {
+      "csv": [
+        "manavgat_2021",
+        "bejis_2022",
+        "mugla_2021",
+        "evia_2021_extended",
+        "montiferru_2021"
+      ],
+      "json": [
+        "manavgat_2021",
+        "bejis_2022",
+        "mugla_2021",
+        "evia_2021_extended",
+        "montiferru_2021"
+      ]
+    },
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A05_row_count_is_five",
+    "status": "PASS",
+    "expected": 5,
+    "observed": 5,
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A06_one_unique_row_per_experiment",
+    "status": "PASS",
+    "expected": [
+      "bejis_2022",
+      "evia_2021_extended",
+      "manavgat_2021",
+      "montiferru_2021",
+      "mugla_2021"
+    ],
+    "observed": [
+      "manavgat_2021",
+      "bejis_2022",
+      "mugla_2021",
+      "evia_2021_extended",
+      "montiferru_2021"
+    ],
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A07_mugla_2022_absent_from_default_analysis",
+    "status": "PASS",
+    "expected": "mugla_2022 absent",
+    "observed": {
+      "contract": [
+        "manavgat_2021",
+        "bejis_2022",
+        "mugla_2021",
+        "evia_2021_extended",
+        "montiferru_2021"
+      ],
+      "csv": [
+        "manavgat_2021",
+        "bejis_2022",
+        "mugla_2021",
+        "evia_2021_extended",
+        "montiferru_2021"
+      ]
+    },
+    "evidence_path": null,
+    "note": null
+  },
+  {
+    "check_id": "A08_cohort_is_the_frozen_five",
+    "status": "PASS",
+    "expected": [
+      "manavgat_2021",
+      "bejis_2022",
+      "mugla_2021",
+      "evia_2021_extended",
+      "montiferru_2021"
+    ],
+    "observed": [
+      "manavgat_2021",
+      "bejis_2022",
+      "mugla_2021",
+      "evia_2021_extended",
+      "montiferru_2021"
+    ],
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\scientific_contract.json",
+    "note": null
+  },
+  {
+    "check_id": "A09_reference_years_exact",
+    "status": "PASS",
+    "expected": [
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "observed": [
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\scientific_contract.json",
+    "note": null
+  },
+  {
+    "check_id": "A10_sd_ddof_is_one",
+    "status": "PASS",
+    "expected": 1,
+    "observed": 1,
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\scientific_contract.json",
+    "note": null
+  },
+  {
+    "check_id": "A11_collection_and_bands",
+    "status": "PASS",
+    "expected": {
+      "collection": "ECMWF/ERA5_LAND/HOURLY",
+      "bands": [
+        "temperature_2m",
+        "dewpoint_temperature_2m",
+        "u_component_of_wind_10m",
+        "v_component_of_wind_10m",
+        "total_precipitation_hourly"
+      ]
+    },
+    "observed": {
+      "bands": [
+        "temperature_2m",
+        "dewpoint_temperature_2m",
+        "u_component_of_wind_10m",
+        "v_component_of_wind_10m",
+        "total_precipitation_hourly"
+      ],
+      "collection": "ECMWF/ERA5_LAND/HOURLY",
+      "raster_export_performed": false
+    },
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\scientific_contract.json",
+    "note": null
+  },
+  {
+    "check_id": "A12_csv_schema_exact",
+    "status": "PASS",
+    "expected": "127 ordered columns",
+    "observed": "127 columns",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A13_units_declared_for_every_variable",
+    "status": "PASS",
+    "expected": {
+      "temperature_c": "degC",
+      "relative_humidity_percent": "percent",
+      "wind_speed_m_s": "m s-1",
+      "precipitation_mm": "mm"
+    },
+    "observed": {
+      "temperature_c": "degC",
+      "relative_humidity_percent": "percent",
+      "wind_speed_m_s": "m s-1",
+      "precipitation_mm": "mm"
+    },
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\scientific_contract.json",
+    "note": null
+  },
+  {
+    "check_id": "A14_region_keys_and_dates_match_registry",
+    "status": "PASS",
+    "expected": "CSV dates/region_key == core.regions",
+    "observed": "match",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A15_observed_climatology_anomaly_finite",
+    "status": "PASS",
+    "expected": "finite observed/climatology_mean/climatology_sd/anomaly",
+    "observed": "all finite",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A16_z_null_iff_zero_climatology_sd",
+    "status": "PASS",
+    "expected": "standardized_anomaly null exactly when climatology_sd == 0",
+    "observed": "rule holds",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A17_csv_and_json_values_agree",
+    "status": "PASS",
+    "expected": "identical values in both summaries",
+    "observed": "identical",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.json",
+    "note": null
+  },
+  {
+    "check_id": "A18_no_inf_or_nan_in_summary_json",
+    "status": "PASS",
+    "expected": "no inf/NaN",
+    "observed": 0,
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.json",
+    "note": null
+  },
+  {
+    "check_id": "A19_no_inf_literal_in_serialized_json",
+    "status": "PASS",
+    "expected": "no Infinity/NaN literal",
+    "observed": "clean",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.json",
+    "note": null
+  },
+  {
+    "check_id": "A20_climatology_realizations_reproduce_mean_and_sd",
+    "status": "PASS",
+    "expected": "mean/sd recomputable from the four retained realizations",
+    "observed": "consistent",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.json",
+    "note": null
+  },
+  {
+    "check_id": "A21_manifest_hashes_and_sizes_match",
+    "status": "PASS",
+    "expected": "every recorded size/sha256 matches the file on disk",
+    "observed": "match",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\manifest.json",
+    "note": null
+  },
+  {
+    "check_id": "A22_manifest_analysis_id_matches",
+    "status": "PASS",
+    "expected": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "observed": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\manifest.json",
+    "note": null
+  },
+  {
+    "check_id": "A23_namespace_state_is_complete",
+    "status": "PASS",
+    "expected": "complete",
+    "observed": "complete",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "note": null
+  },
+  {
+    "check_id": "A25_observed_windows_are_hourly_complete",
+    "status": "PASS",
+    "expected": "n_hours_observed == n_days_inclusive * 24",
+    "observed": "complete",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.csv",
+    "note": null
+  },
+  {
+    "check_id": "A26_climatology_realizations_are_hourly_complete",
+    "status": "PASS",
+    "expected": "each realization has n_days_inclusive * 24 hours",
+    "observed": "complete",
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\era5_land_regional_summary.json",
+    "note": null
+  },
+  {
+    "check_id": "A27_contract_records_the_hourly_completeness_rule",
+    "status": "PASS",
+    "expected": {
+      "hourly_completeness_rule": "every window must contain the EXACT contiguous UTC hourly sequence [start 00:00, end_exclusive 00:00), in order, with expected_hours = n_days_inclusive * 24; missing, duplicate, out-of-order, shifted and extra hours fail closed and are never sorted, deduplicated, interpolated, padded or dropped",
+      "expected_hours_formula": "n_days_inclusive * 24",
+      "incomplete_window_policy": "fail_closed"
+    },
+    "observed": {
+      "hourly_completeness_rule": "every window must contain the EXACT contiguous UTC hourly sequence [start 00:00, end_exclusive 00:00), in order, with expected_hours = n_days_inclusive * 24; missing, duplicate, out-of-order, shifted and extra hours fail closed and are never sorted, deduplicated, interpolated, padded or dropped",
+      "expected_hours_formula": "n_days_inclusive * 24",
+      "incomplete_window_policy": "fail_closed"
+    },
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2\\scientific_contract.json",
+    "note": null
+  },
+  {
+    "check_id": "A24_namespace_contains_only_expected_files",
+    "status": "PASS",
+    "expected": [
+      "era5_land_regional_summary.csv",
+      "era5_land_regional_summary.json",
+      "scientific_contract.json",
+      "manifest.json"
+    ],
+    "observed": [],
+    "evidence_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\era5_land_regional\\4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+    "note": null
+  }
+]

@@ -1,0 +1,65 @@
+{
+ "full/full": {
+  "max_abs_diff_thermal": 0.020835021614297733,
+  "max_abs_diff_baseline": 0.04672246485255227,
+  "max_abs_diff_delta": 0.031872843600308315,
+  "mean_thermal_152_190": [
+   0.5282187532138078,
+   0.5267118880452303
+  ],
+  "mean_delta_152_190": [
+   0.004698992580670083,
+   0.0073282787818315445
+  ],
+  "supported_above_below_152": [
+   10,
+   5
+  ],
+  "supported_above_below_190": [
+   9,
+   6
+  ]
+ },
+ "10km/10km": {
+  "max_abs_diff_thermal": 0.02271212457837657,
+  "max_abs_diff_baseline": 0.02199834380238752,
+  "max_abs_diff_delta": 0.044710468380764104,
+  "mean_thermal_152_190": [
+   0.5882942802586555,
+   0.5890929385151622
+  ],
+  "mean_delta_152_190": [
+   0.02161418980749625,
+   0.023782552899938067
+  ],
+  "supported_above_below_152": [
+   13,
+   1
+  ],
+  "supported_above_below_190": [
+   13,
+   2
+  ]
+ },
+ "5km/5km": {
+  "max_abs_diff_thermal": 0.016974699760587852,
+  "max_abs_diff_baseline": 0.008569092206561768,
+  "max_abs_diff_delta": 0.0255437919671496,
+  "mean_thermal_152_190": [
+   0.5908498983161071,
+   0.5906453127690809
+  ],
+  "mean_delta_152_190": [
+   0.016382052492224162,
+   0.01677123076802122
+  ],
+  "supported_above_below_152": [
+   11,
+   0
+  ],
+  "supported_above_below_190": [
+   11,
+   0
+  ]
+ }
+}

@@ -1,0 +1,1796 @@
+{
+  "report_schema_version": "step10.final_report.v2",
+  "analysis_id": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+  "source_experiment_id": "mugla_2021",
+  "target_experiment_id": "mugla_2022_event_relative",
+  "directions": [
+    "mugla_2021_to_mugla_2022_event_relative",
+    "mugla_2022_event_relative_to_mugla_2021"
+  ],
+  "frozen_created_at": "2026-08-09T11:26:09.516948+00:00",
+  "report_only_generation": {
+    "enabled": false,
+    "scientific_stages_called": [
+      "Step10A",
+      "Step10B",
+      "Step10C"
+    ],
+    "step10d_only": false,
+    "writable_files": [
+      "step10_final_report.json",
+      "step10_final_report.md"
+    ],
+    "deterministic_timestamp_source": "step10_preregistration.json:created_at"
+  },
+  "protected_input_integrity": {
+    "status": "passed",
+    "criterion": "SHA-256 content hashes; mtimes are not used",
+    "protected_files": {
+      "step10_preregistration.json": "c26e91b7aa47c3e5df8c6fcea28e18c08e598ff8cbf7fd84e37870a1242aa4a0",
+      "step10_preregistration.md": "363177c3057b9d67237b0e3db1394c7847139116b326b93c114418e8b63cd00b",
+      "step10_input_audit.json": "a34e9eed07a42a00a9770307b6ac4cda8590720f889ae0b0973039d370477fca",
+      "step10_adaptation_statistics.json": "fba03e226b16e79d50de03dc159bf3bc1a4c70485111101544dd654b18db7cb0",
+      "step10_predictions.parquet": "0e7a982c5e379619f66e2f27c4a748eb1601381eaec5ee0611ef7db8439121fd",
+      "step10_metrics.json": "4cdd1c6ae085c4bf31a7a0bd69b844377cf7ac6882863a982f05b8db3d17e2f9",
+      "step10_metrics.csv": "8e093c9133f9fb0ff48d177a083fb13b9b13e723e09b41dc1a17976737c3f8e5",
+      "step10_bootstrap_replicates.parquet": "09884188a809b0a433209cae99a62646d57314a6b48d8ff97e23679c76407df1",
+      "step10_bootstrap_summary.json": "b3a2e7d78582ad9952da420992cb288d9647e7a4caa4b7b6caa149ef1e1d77f3",
+      "step10_bootstrap_summary.csv": "e7679fedd1ff2faeb93b9eea5f499db767a0ac7323100dea346e1b83ed98ffcb",
+      "step10_decomposition.csv": "d6bf2eaa758169c6149c10be3dd0abeeb968dbc5c82f3b368795f71874461e16"
+    }
+  },
+  "input_analysis_id_consistency": {
+    "status": "passed",
+    "consistent": true,
+    "analysis_id": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+    "ids_by_input": {
+      "step10_preregistration.json": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_preregistration.md": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_input_audit.json": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_adaptation_statistics.json": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_metrics.json": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_bootstrap_summary.json": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_metrics.csv": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_bootstrap_summary.csv": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_decomposition.csv": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_predictions.parquet": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+      "step10_bootstrap_replicates.parquet": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001"
+    },
+    "source_experiment_id": "mugla_2021",
+    "target_experiment_id": "mugla_2022_event_relative"
+  },
+  "target_performance": [
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "source_experiment": "mugla_2021",
+      "target_experiment": "mugla_2022_event_relative",
+      "model_family": "baseline",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 38790,
+      "target_burned_count": 331,
+      "target_negative_count": 38459,
+      "roc_auc": 0.6421276976485887,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.6116209608705372,
+        0.6733697016099679
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.011667245004187716,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.009407803351142201,
+        0.014675520868042495
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "source_experiment": "mugla_2021",
+      "target_experiment": "mugla_2022_event_relative",
+      "model_family": "baseline",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 38790,
+      "target_burned_count": 331,
+      "target_negative_count": 38459,
+      "roc_auc": 0.6628902643526134,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.6319063262140759,
+        0.6941075533885205
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.012580739387759034,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.009977256535550762,
+        0.015906142380201868
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "source_experiment": "mugla_2021",
+      "target_experiment": "mugla_2022_event_relative",
+      "model_family": "baseline",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 38790,
+      "target_burned_count": 331,
+      "target_negative_count": 38459,
+      "roc_auc": 0.6453385560909255,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.6137734560292395,
+        0.6750615047869104
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.011856078054827524,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.00954801417177715,
+        0.014873606624328952
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "source_experiment": "mugla_2021",
+      "target_experiment": "mugla_2022_event_relative",
+      "model_family": "thermal",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 38790,
+      "target_burned_count": 331,
+      "target_negative_count": 38459,
+      "roc_auc": 0.5588060231914883,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.5122491211270226,
+        0.6040883262631395
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.00990857877751113,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.007572704275718104,
+        0.01314418422846334
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "source_experiment": "mugla_2021",
+      "target_experiment": "mugla_2022_event_relative",
+      "model_family": "thermal",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 38790,
+      "target_burned_count": 331,
+      "target_negative_count": 38459,
+      "roc_auc": 0.687988519024733,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.6565738159889487,
+        0.7170442914140845
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.013461997822058537,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.010677434871676937,
+        0.017284623607910797
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "source_experiment": "mugla_2021",
+      "target_experiment": "mugla_2022_event_relative",
+      "model_family": "thermal",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 38790,
+      "target_burned_count": 331,
+      "target_negative_count": 38459,
+      "roc_auc": 0.6874424044313209,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.6584104312022836,
+        0.7151392912480958
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.01325409660253393,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.010552306050221628,
+        0.016975531740168463
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "source_experiment": "mugla_2022_event_relative",
+      "target_experiment": "mugla_2021",
+      "model_family": "baseline",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 41730,
+      "target_burned_count": 2911,
+      "target_negative_count": 38819,
+      "roc_auc": 0.580924224166471,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.5640713358000715,
+        0.5971531642613601
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.08330431812229776,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.07607614755060715,
+        0.09068455730518166
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "source_experiment": "mugla_2022_event_relative",
+      "target_experiment": "mugla_2021",
+      "model_family": "baseline",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 41730,
+      "target_burned_count": 2911,
+      "target_negative_count": 38819,
+      "roc_auc": 0.5759632990566574,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.5592008774770844,
+        0.5923399587750549
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.08240285846175344,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.07541499796571549,
+        0.0900124893595207
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "source_experiment": "mugla_2022_event_relative",
+      "target_experiment": "mugla_2021",
+      "model_family": "baseline",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 41730,
+      "target_burned_count": 2911,
+      "target_negative_count": 38819,
+      "roc_auc": 0.5640557735077316,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.5468595046726367,
+        0.5807603967779382
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.08103064980464954,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.07416115974850186,
+        0.08834121163736829
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "source_experiment": "mugla_2022_event_relative",
+      "target_experiment": "mugla_2021",
+      "model_family": "thermal",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 41730,
+      "target_burned_count": 2911,
+      "target_negative_count": 38819,
+      "roc_auc": 0.6692151604002363,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.6544150463920921,
+        0.6847318789827355
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.1408454118074078,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.1272631672505058,
+        0.15643228708886256
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "source_experiment": "mugla_2022_event_relative",
+      "target_experiment": "mugla_2021",
+      "model_family": "thermal",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 41730,
+      "target_burned_count": 2911,
+      "target_negative_count": 38819,
+      "roc_auc": 0.5496311002478723,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.5310824608960093,
+        0.5688069394654699
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.08097928811380978,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.07386848648105737,
+        0.08916611829849445
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "source_experiment": "mugla_2022_event_relative",
+      "target_experiment": "mugla_2021",
+      "model_family": "thermal",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 41730,
+      "target_burned_count": 2911,
+      "target_negative_count": 38819,
+      "roc_auc": 0.5760096344750522,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.5594226544666544,
+        0.5929749635129794
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_above_chance",
+      "pr_auc": 0.08473481947705779,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.07713313949915052,
+        0.09292345190844337
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    }
+  ],
+  "paired_adaptation_differences": [
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.020762566704024765,
+      "paired_bootstrap_mean": 0.020851204803213508,
+      "paired_bootstrap_median": 0.02058991462331866,
+      "paired_bootstrap_95_percentile_ci": [
+        0.00494369648847457,
+        0.03787382836016057
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.003210858442336817,
+      "paired_bootstrap_mean": 0.002842175849438579,
+      "paired_bootstrap_median": 0.0027180631613939465,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.015695110631169847,
+        0.02219759578377061
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": -0.01755170826168795,
+      "paired_bootstrap_mean": -0.01800902895377493,
+      "paired_bootstrap_median": -0.01776949126140087,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.031708475991145874,
+        -0.0038629161425759893
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.0009134943835713179,
+      "paired_bootstrap_mean": 0.0009374815585286081,
+      "paired_bootstrap_median": 0.0009115709443509937,
+      "paired_bootstrap_95_percentile_ci": [
+        3.796544415497336e-05,
+        0.001923885067988117
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.00018883305063980768,
+      "paired_bootstrap_mean": 0.00018707210833434243,
+      "paired_bootstrap_median": 0.00016810549858566667,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.0006532922254408334,
+        0.001071837853815257
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": -0.0007246613329315102,
+      "paired_bootstrap_mean": -0.0007504094501942657,
+      "paired_bootstrap_median": -0.0007447032980479051,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.001692763891771395,
+        0.0001774769044378234
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.1291824958332447,
+      "paired_bootstrap_mean": 0.13007836525778205,
+      "paired_bootstrap_median": 0.12964740935779218,
+      "paired_bootstrap_95_percentile_ci": [
+        0.07661008574307579,
+        0.18099455933406214
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.12863638123983256,
+      "paired_bootstrap_mean": 0.12952902276086162,
+      "paired_bootstrap_median": 0.12957022105581706,
+      "paired_bootstrap_95_percentile_ci": [
+        0.0749049722489202,
+        0.1818150209105358
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": -0.0005461145934121392,
+      "paired_bootstrap_mean": -0.0005493424969204731,
+      "paired_bootstrap_median": -0.000640908911187843,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.013565669050223206,
+        0.01332436139486218
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.003553419044547408,
+      "paired_bootstrap_mean": 0.003692231377384773,
+      "paired_bootstrap_median": 0.0036951055172963106,
+      "paired_bootstrap_95_percentile_ci": [
+        0.0009498413255436131,
+        0.006281104042357654
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.003345517825022801,
+      "paired_bootstrap_mean": 0.0034904617887156937,
+      "paired_bootstrap_median": 0.0034412646515513227,
+      "paired_bootstrap_95_percentile_ci": [
+        0.0007335575328742834,
+        0.006116144747790195
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": -0.00020790121952460675,
+      "paired_bootstrap_mean": -0.0002017695886690788,
+      "paired_bootstrap_median": -0.00020019985532619515,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.0009692146197407038,
+        0.0005329764828372896
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.004960925109813608,
+      "paired_bootstrap_mean": -0.004965953206026612,
+      "paired_bootstrap_median": -0.004953637203126304,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.008515807600992072,
+        -0.00145713705042001
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.01686845065873943,
+      "paired_bootstrap_mean": -0.016778303632827285,
+      "paired_bootstrap_median": -0.0168543601225557,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.022287901665766142,
+        -0.011303251374567629
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": -0.011907525548925824,
+      "paired_bootstrap_mean": -0.011812350426800672,
+      "paired_bootstrap_median": -0.011825096273083313,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.016600238781931665,
+        -0.007108747213675221
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.0009014596605443209,
+      "paired_bootstrap_mean": -0.0008060754949407289,
+      "paired_bootstrap_median": -0.0007895322738981081,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.002726900327047347,
+        0.001064548721293712
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.0022736683176482197,
+      "paired_bootstrap_mean": -0.0022047325717008434,
+      "paired_bootstrap_median": -0.0021985969518304935,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.004415630006141896,
+        -8.312549375173038e-05
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": -0.0013722086571038988,
+      "paired_bootstrap_mean": -0.0013986570767601147,
+      "paired_bootstrap_median": -0.0014255642508481103,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.003292526804328029,
+        0.0005853329539250727
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.119584060152364,
+      "paired_bootstrap_mean": -0.1193737300453736,
+      "paired_bootstrap_median": -0.11957876554333668,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.13812020975508552,
+        -0.10161933950241928
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.09320552592518416,
+      "paired_bootstrap_mean": -0.09291742197959191,
+      "paired_bootstrap_median": -0.09267052370673112,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.10988072255608543,
+        -0.07607498218383736
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.02637853422717984,
+      "paired_bootstrap_mean": 0.026456308065781704,
+      "paired_bootstrap_median": 0.02641410853534676,
+      "paired_bootstrap_95_percentile_ci": [
+        0.019275910177201608,
+        0.03450921979407891
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.05986612369359803,
+      "paired_bootstrap_mean": -0.06008672278106098,
+      "paired_bootstrap_median": -0.059878353488830874,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.07372102441497011,
+        -0.04700711976179707
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.056110592330350026,
+      "paired_bootstrap_mean": -0.05637668452467158,
+      "paired_bootstrap_median": -0.05601440108817754,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.06965921710324773,
+        -0.04364909440070096
+      ],
+      "support_status": "bootstrap_supported_negative"
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.0037555313632480075,
+      "paired_bootstrap_mean": 0.0037100382563894046,
+      "paired_bootstrap_median": 0.0037097753689005336,
+      "paired_bootstrap_95_percentile_ci": [
+        0.0019284647817221876,
+        0.0055598264296776835
+      ],
+      "support_status": "bootstrap_supported_positive"
+    }
+  ],
+  "within_transfer_decomposition": [
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8638005365151683,
+      "raw_transfer_metric": 0.6421276976485887,
+      "adapted_transfer_metric": 0.6628902643526134,
+      "recovered_covariate_component": 0.020762566704024765,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.00494369648847457,
+        0.03787382836016057
+      ],
+      "remaining_transfer_gap": 0.20091027216255486,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.1653363965775157,
+        0.23341252000508556
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.041810283531695705,
+      "raw_transfer_metric": 0.011667245004187716,
+      "adapted_transfer_metric": 0.012580739387759034,
+      "recovered_covariate_component": 0.0009134943835713179,
+      "recovered_component_95_paired_bootstrap_ci": [
+        3.796544415497336e-05,
+        0.001923885067988117
+      ],
+      "remaining_transfer_gap": 0.02922954414393667,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.020138657565417186,
+        0.04310048985839766
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8638005365151683,
+      "raw_transfer_metric": 0.6421276976485887,
+      "adapted_transfer_metric": 0.6453385560909255,
+      "recovered_covariate_component": 0.003210858442336817,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.015695110631169847,
+        0.02219759578377061
+      ],
+      "remaining_transfer_gap": 0.2184619804242428,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.18582802396378262,
+        0.25305966825394277
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.041810283531695705,
+      "raw_transfer_metric": 0.011667245004187716,
+      "adapted_transfer_metric": 0.011856078054827524,
+      "recovered_covariate_component": 0.00018883305063980768,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.0006532922254408334,
+        0.001071837853815257
+      ],
+      "remaining_transfer_gap": 0.02995420547686818,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.02094389386157462,
+        0.04434867856602982
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.9416049767441752,
+      "raw_transfer_metric": 0.5588060231914883,
+      "adapted_transfer_metric": 0.687988519024733,
+      "recovered_covariate_component": 0.1291824958332447,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.07661008574307579,
+        0.18099455933406214
+      ],
+      "remaining_transfer_gap": 0.2536164577194422,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.2233666611553329,
+        0.28465606636141566
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.2081809109524658,
+      "raw_transfer_metric": 0.00990857877751113,
+      "adapted_transfer_metric": 0.013461997822058537,
+      "recovered_covariate_component": 0.003553419044547408,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.0009498413255436131,
+        0.006281104042357654
+      ],
+      "remaining_transfer_gap": 0.19471891313040726,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.14162693066253854,
+        0.265508316691044
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.9416049767441752,
+      "raw_transfer_metric": 0.5588060231914883,
+      "adapted_transfer_metric": 0.6874424044313209,
+      "recovered_covariate_component": 0.12863638123983256,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.0749049722489202,
+        0.1818150209105358
+      ],
+      "remaining_transfer_gap": 0.25416257231285433,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.22473526190772436,
+        0.28271275090712783
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2021_to_mugla_2022_event_relative",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.2081809109524658,
+      "raw_transfer_metric": 0.00990857877751113,
+      "adapted_transfer_metric": 0.01325409660253393,
+      "recovered_covariate_component": 0.003345517825022801,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.0007335575328742834,
+        0.006116144747790195
+      ],
+      "remaining_transfer_gap": 0.19492681434993187,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.14173619140828952,
+        0.2657745704639719
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.7433200295403336,
+      "raw_transfer_metric": 0.580924224166471,
+      "adapted_transfer_metric": 0.5759632990566574,
+      "recovered_covariate_component": -0.004960925109813608,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.008515807600992072,
+        -0.00145713705042001
+      ],
+      "remaining_transfer_gap": 0.16735673048367616,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.14772346873755104,
+        0.18929916917964948
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.22494508611689773,
+      "raw_transfer_metric": 0.08330431812229776,
+      "adapted_transfer_metric": 0.08240285846175344,
+      "recovered_covariate_component": -0.0009014596605443209,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.002726900327047347,
+        0.001064548721293712
+      ],
+      "remaining_transfer_gap": 0.1425422276551443,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.1188639894275473,
+        0.16685327497960672
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.7433200295403336,
+      "raw_transfer_metric": 0.580924224166471,
+      "adapted_transfer_metric": 0.5640557735077316,
+      "recovered_covariate_component": -0.01686845065873943,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.022287901665766142,
+        -0.011303251374567629
+      ],
+      "remaining_transfer_gap": 0.179264256032602,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.1578772858583277,
+        0.20261430048662252
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.22494508611689773,
+      "raw_transfer_metric": 0.08330431812229776,
+      "adapted_transfer_metric": 0.08103064980464954,
+      "recovered_covariate_component": -0.0022736683176482197,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.004415630006141896,
+        -8.312549375173038e-05
+      ],
+      "remaining_transfer_gap": 0.1439144363122482,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.1204563362168296,
+        0.16809960070998078
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8589830389802724,
+      "raw_transfer_metric": 0.6692151604002363,
+      "adapted_transfer_metric": 0.5496311002478723,
+      "recovered_covariate_component": -0.119584060152364,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.13812020975508552,
+        -0.10161933950241928
+      ],
+      "remaining_transfer_gap": 0.3093519387324001,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.28772174131740264,
+        0.33030318945312015
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.44674739014417914,
+      "raw_transfer_metric": 0.1408454118074078,
+      "adapted_transfer_metric": 0.08097928811380978,
+      "recovered_covariate_component": -0.05986612369359803,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.07372102441497011,
+        -0.04700711976179707
+      ],
+      "remaining_transfer_gap": 0.36576810203036936,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.33437787849244466,
+        0.3958584812045937
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8589830389802724,
+      "raw_transfer_metric": 0.6692151604002363,
+      "adapted_transfer_metric": 0.5760096344750522,
+      "recovered_covariate_component": -0.09320552592518416,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.10988072255608543,
+        -0.07607498218383736
+      ],
+      "remaining_transfer_gap": 0.28297340450522024,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.2625710939749478,
+        0.300982691529647
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "mugla_2022_event_relative_to_mugla_2021",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.44674739014417914,
+      "raw_transfer_metric": 0.1408454118074078,
+      "adapted_transfer_metric": 0.08473481947705779,
+      "recovered_covariate_component": -0.056110592330350026,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.06965921710324773,
+        -0.04364909440070096
+      ],
+      "remaining_transfer_gap": 0.36201257066712134,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.3311961415053372,
+        0.3922595653499873
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    }
+  ],
+  "reproducibility_qa": {
+    "analysis_id": "b7868d4db1d0dddecb366a3bd96ca0a7ba9b51dcd9e14f84065c20eb855ac001",
+    "preregistration_present": true,
+    "analysis_id_consistent_across_inputs": true,
+    "raw_step9b_reproduction": [
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 1.3274088495052183e-08
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 3.3796805076757863e-09
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      }
+    ],
+    "maximum_raw_reproduction_absolute_difference": 1.3274088495052183e-08,
+    "within_region_step8b_reproduction": [
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      }
+    ],
+    "maximum_within_reproduction_absolute_difference": 0.0,
+    "target_label_present_in_predictions": false,
+    "prediction_rows_by_direction_model_method": [
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "source_experiment": "mugla_2021",
+        "target_experiment": "mugla_2022_event_relative",
+        "model_family": "baseline",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 38790
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "source_experiment": "mugla_2021",
+        "target_experiment": "mugla_2022_event_relative",
+        "model_family": "baseline",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 38790
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "source_experiment": "mugla_2021",
+        "target_experiment": "mugla_2022_event_relative",
+        "model_family": "baseline",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 38790
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "source_experiment": "mugla_2021",
+        "target_experiment": "mugla_2022_event_relative",
+        "model_family": "thermal",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 38790
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "source_experiment": "mugla_2021",
+        "target_experiment": "mugla_2022_event_relative",
+        "model_family": "thermal",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 38790
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "source_experiment": "mugla_2021",
+        "target_experiment": "mugla_2022_event_relative",
+        "model_family": "thermal",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 38790
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "source_experiment": "mugla_2022_event_relative",
+        "target_experiment": "mugla_2021",
+        "model_family": "baseline",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 41730
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "source_experiment": "mugla_2022_event_relative",
+        "target_experiment": "mugla_2021",
+        "model_family": "baseline",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 41730
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "source_experiment": "mugla_2022_event_relative",
+        "target_experiment": "mugla_2021",
+        "model_family": "baseline",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 41730
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "source_experiment": "mugla_2022_event_relative",
+        "target_experiment": "mugla_2021",
+        "model_family": "thermal",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 41730
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "source_experiment": "mugla_2022_event_relative",
+        "target_experiment": "mugla_2021",
+        "model_family": "thermal",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 41730
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "source_experiment": "mugla_2022_event_relative",
+        "target_experiment": "mugla_2021",
+        "model_family": "thermal",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 41730
+      }
+    ],
+    "protected_input_hash_check": "passed",
+    "bootstrap_unstable": false,
+    "package_versions": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "scikit_learn": "1.9.0"
+    },
+    "dataset_input_hashes_are_recorded": true
+  },
+  "adaptation_diagnostics": {
+    "coral_covariance_condition_numbers": [
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "baseline",
+        "source_covariance_condition_number": 2.148482390940046,
+        "target_covariance_condition_number": 1.8728057346934186,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 3
+      },
+      {
+        "direction": "mugla_2021_to_mugla_2022_event_relative",
+        "model_family": "thermal",
+        "source_covariance_condition_number": 2916.8991692331624,
+        "target_covariance_condition_number": 840.6738043859466,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 9
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "baseline",
+        "source_covariance_condition_number": 1.8728057346934186,
+        "target_covariance_condition_number": 2.148482390940046,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 3
+      },
+      {
+        "direction": "mugla_2022_event_relative_to_mugla_2021",
+        "model_family": "thermal",
+        "source_covariance_condition_number": 840.6738043859466,
+        "target_covariance_condition_number": 2916.8991692331624,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 9
+      }
+    ],
+    "acceptance_threshold_added": false,
+    "caveat": "The thermal CORAL comparison was obtained with strongly correlated numeric thermal features and relatively high covariance condition numbers. It is therefore treated as a two-region diagnostic comparison, not evidence of universal superiority."
+  },
+  "per_direction_interpretation": {
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "bootstrap_unstable": false,
+      "by_model_family": {
+        "baseline": {
+          "raw_anti_predictive": "bootstrap_supported_above_chance",
+          "covariate_recovery_zscore": "bootstrap_supported_positive",
+          "covariate_recovery_coral": "uncertain_interval_includes_zero",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "bootstrap_supported_negative",
+          "point_estimates": {
+            "raw_roc_auc": 0.6421276976485887,
+            "regionwise_zscore_roc_auc": 0.6628902643526134,
+            "coral_after_regionwise_zscore_roc_auc": 0.6453385560909255,
+            "within_region_roc_auc": 0.8638005365151683,
+            "zscore_minus_raw": 0.020762566704024765,
+            "coral_minus_raw": 0.003210858442336817,
+            "coral_minus_zscore": -0.01755170826168795,
+            "within_minus_zscore": 0.20091027216255486,
+            "within_minus_coral": 0.2184619804242428
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": 0.00494369648847457,
+            "ci_97_5": 0.03787382836016057,
+            "mean": 0.020851204803213508,
+            "median": 0.02058991462331866
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": -0.015695110631169847,
+            "ci_97_5": 0.02219759578377061,
+            "mean": 0.002842175849438579,
+            "median": 0.0027180631613939465
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": -0.031708475991145874,
+            "ci_97_5": -0.0038629161425759893,
+            "mean": -0.01800902895377493,
+            "median": -0.01776949126140087
+          },
+          "separate_questions": {
+            "improvement_over_raw": "bootstrap_supported_positive",
+            "zscore_improvement_over_raw": "bootstrap_supported_positive",
+            "coral_improvement_over_raw": "uncertain_interval_includes_zero",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        },
+        "thermal": {
+          "raw_anti_predictive": "bootstrap_supported_above_chance",
+          "covariate_recovery_zscore": "bootstrap_supported_positive",
+          "covariate_recovery_coral": "bootstrap_supported_positive",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "uncertain_interval_includes_zero",
+          "point_estimates": {
+            "raw_roc_auc": 0.5588060231914883,
+            "regionwise_zscore_roc_auc": 0.687988519024733,
+            "coral_after_regionwise_zscore_roc_auc": 0.6874424044313209,
+            "within_region_roc_auc": 0.9416049767441752,
+            "zscore_minus_raw": 0.1291824958332447,
+            "coral_minus_raw": 0.12863638123983256,
+            "coral_minus_zscore": -0.0005461145934121392,
+            "within_minus_zscore": 0.2536164577194422,
+            "within_minus_coral": 0.25416257231285433
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": 0.07661008574307579,
+            "ci_97_5": 0.18099455933406214,
+            "mean": 0.13007836525778205,
+            "median": 0.12964740935779218
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": 0.0749049722489202,
+            "ci_97_5": 0.1818150209105358,
+            "mean": 0.12952902276086162,
+            "median": 0.12957022105581706
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": -0.013565669050223206,
+            "ci_97_5": 0.01332436139486218,
+            "mean": -0.0005493424969204731,
+            "median": -0.000640908911187843
+          },
+          "separate_questions": {
+            "improvement_over_raw": "bootstrap_supported_positive",
+            "zscore_improvement_over_raw": "bootstrap_supported_positive",
+            "coral_improvement_over_raw": "bootstrap_supported_positive",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        }
+      }
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "bootstrap_unstable": false,
+      "by_model_family": {
+        "baseline": {
+          "raw_anti_predictive": "bootstrap_supported_above_chance",
+          "covariate_recovery_zscore": "bootstrap_supported_negative",
+          "covariate_recovery_coral": "bootstrap_supported_negative",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "bootstrap_supported_negative",
+          "point_estimates": {
+            "raw_roc_auc": 0.580924224166471,
+            "regionwise_zscore_roc_auc": 0.5759632990566574,
+            "coral_after_regionwise_zscore_roc_auc": 0.5640557735077316,
+            "within_region_roc_auc": 0.7433200295403336,
+            "zscore_minus_raw": -0.004960925109813608,
+            "coral_minus_raw": -0.01686845065873943,
+            "coral_minus_zscore": -0.011907525548925824,
+            "within_minus_zscore": 0.16735673048367616,
+            "within_minus_coral": 0.179264256032602
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": -0.008515807600992072,
+            "ci_97_5": -0.00145713705042001,
+            "mean": -0.004965953206026612,
+            "median": -0.004953637203126304
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": -0.022287901665766142,
+            "ci_97_5": -0.011303251374567629,
+            "mean": -0.016778303632827285,
+            "median": -0.0168543601225557
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": -0.016600238781931665,
+            "ci_97_5": -0.007108747213675221,
+            "mean": -0.011812350426800672,
+            "median": -0.011825096273083313
+          },
+          "separate_questions": {
+            "improvement_over_raw": "bootstrap_supported_negative",
+            "zscore_improvement_over_raw": "bootstrap_supported_negative",
+            "coral_improvement_over_raw": "bootstrap_supported_negative",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        },
+        "thermal": {
+          "raw_anti_predictive": "bootstrap_supported_above_chance",
+          "covariate_recovery_zscore": "bootstrap_supported_negative",
+          "covariate_recovery_coral": "bootstrap_supported_negative",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "bootstrap_supported_positive",
+          "point_estimates": {
+            "raw_roc_auc": 0.6692151604002363,
+            "regionwise_zscore_roc_auc": 0.5496311002478723,
+            "coral_after_regionwise_zscore_roc_auc": 0.5760096344750522,
+            "within_region_roc_auc": 0.8589830389802724,
+            "zscore_minus_raw": -0.119584060152364,
+            "coral_minus_raw": -0.09320552592518416,
+            "coral_minus_zscore": 0.02637853422717984,
+            "within_minus_zscore": 0.3093519387324001,
+            "within_minus_coral": 0.28297340450522024
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": -0.13812020975508552,
+            "ci_97_5": -0.10161933950241928,
+            "mean": -0.1193737300453736,
+            "median": -0.11957876554333668
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": -0.10988072255608543,
+            "ci_97_5": -0.07607498218383736,
+            "mean": -0.09291742197959191,
+            "median": -0.09267052370673112
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": 0.019275910177201608,
+            "ci_97_5": 0.03450921979407891,
+            "mean": 0.026456308065781704,
+            "median": 0.02641410853534676
+          },
+          "separate_questions": {
+            "improvement_over_raw": "bootstrap_supported_negative",
+            "zscore_improvement_over_raw": "bootstrap_supported_negative",
+            "coral_improvement_over_raw": "bootstrap_supported_negative",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_above_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        }
+      }
+    }
+  },
+  "bidirectional_vs_direction_dependent": {
+    "baseline__covariate_recovery_zscore": "direction-dependent",
+    "baseline__covariate_recovery_coral": "direction-dependent",
+    "baseline__residual_gap_zscore": "bidirectional",
+    "baseline__residual_gap_coral": "bidirectional",
+    "baseline__coral_vs_zscore": "bidirectional",
+    "thermal__covariate_recovery_zscore": "direction-dependent",
+    "thermal__covariate_recovery_coral": "direction-dependent",
+    "thermal__residual_gap_zscore": "bidirectional",
+    "thermal__residual_gap_coral": "bidirectional",
+    "thermal__coral_vs_zscore": "direction-dependent"
+  },
+  "scientific_summary": [
+    "Selected pair: mugla_2021 <-> mugla_2022_event_relative. All recovery statements below are direction- and model-family-specific.",
+    "mugla_2021_to_mugla_2022_event_relative [baseline]: region-wise z-score improves raw ROC-AUC (delta=0.020763; bootstrap-supported positive difference).",
+    "mugla_2021_to_mugla_2022_event_relative [baseline]: CORAL after z-score improves raw ROC-AUC (delta=0.003211; paired interval includes zero).",
+    "mugla_2021_to_mugla_2022_event_relative [baseline]: CORAL versus z-score worsens ROC-AUC (delta=-0.017552; bootstrap-supported negative difference).",
+    "mugla_2021_to_mugla_2022_event_relative [baseline]: after z-score, a residual within-region gap remains (within-minus-adapted=0.200910; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.218462; bootstrap_supported_positive_residual_gap).",
+    "mugla_2021_to_mugla_2022_event_relative [thermal]: region-wise z-score improves raw ROC-AUC (delta=0.129182; bootstrap-supported positive difference).",
+    "mugla_2021_to_mugla_2022_event_relative [thermal]: CORAL after z-score improves raw ROC-AUC (delta=0.128636; bootstrap-supported positive difference).",
+    "mugla_2021_to_mugla_2022_event_relative [thermal]: CORAL versus z-score worsens ROC-AUC (delta=-0.000546; paired interval includes zero).",
+    "mugla_2021_to_mugla_2022_event_relative [thermal]: after z-score, a residual within-region gap remains (within-minus-adapted=0.253616; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.254163; bootstrap_supported_positive_residual_gap).",
+    "mugla_2022_event_relative_to_mugla_2021 [baseline]: region-wise z-score worsens raw ROC-AUC (delta=-0.004961; bootstrap-supported negative difference).",
+    "mugla_2022_event_relative_to_mugla_2021 [baseline]: CORAL after z-score worsens raw ROC-AUC (delta=-0.016868; bootstrap-supported negative difference).",
+    "mugla_2022_event_relative_to_mugla_2021 [baseline]: CORAL versus z-score worsens ROC-AUC (delta=-0.011908; bootstrap-supported negative difference).",
+    "mugla_2022_event_relative_to_mugla_2021 [baseline]: after z-score, a residual within-region gap remains (within-minus-adapted=0.167357; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.179264; bootstrap_supported_positive_residual_gap).",
+    "mugla_2022_event_relative_to_mugla_2021 [thermal]: region-wise z-score worsens raw ROC-AUC (delta=-0.119584; bootstrap-supported negative difference).",
+    "mugla_2022_event_relative_to_mugla_2021 [thermal]: CORAL after z-score worsens raw ROC-AUC (delta=-0.093206; bootstrap-supported negative difference).",
+    "mugla_2022_event_relative_to_mugla_2021 [thermal]: CORAL versus z-score improves ROC-AUC (delta=0.026379; bootstrap-supported positive difference).",
+    "mugla_2022_event_relative_to_mugla_2021 [thermal]: after z-score, a residual within-region gap remains (within-minus-adapted=0.309352; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.282973; bootstrap_supported_positive_residual_gap).",
+    "baseline region-wise z-score recovery is direction-dependent, not bidirectional: it improves raw ROC-AUC in mugla_2021_to_mugla_2022_event_relative and worsens it in mugla_2022_event_relative_to_mugla_2021.",
+    "baseline CORAL after z-score recovery is direction-dependent, not bidirectional: it improves raw ROC-AUC in mugla_2021_to_mugla_2022_event_relative and worsens it in mugla_2022_event_relative_to_mugla_2021.",
+    "thermal region-wise z-score recovery is direction-dependent, not bidirectional: it improves raw ROC-AUC in mugla_2021_to_mugla_2022_event_relative and worsens it in mugla_2022_event_relative_to_mugla_2021.",
+    "thermal CORAL after z-score recovery is direction-dependent, not bidirectional: it improves raw ROC-AUC in mugla_2021_to_mugla_2022_event_relative and worsens it in mugla_2022_event_relative_to_mugla_2021."
+  ],
+  "brier_protocol_audit": {
+    "preregistered": false,
+    "status": "not_preregistered_no_post_hoc_addition",
+    "protocol_mismatch": true,
+    "statement": "Brier was not preregistered in the immutable Step10 scientific configuration. It is not added post hoc; Brier fields remain unavailable."
+  },
+  "safe_wording": [
+    "Step9 is the raw source-only transfer result; Step10 is unsupervised target-covariate adaptation informed by region-wise standardization and CORAL alignment.",
+    "Target labels were not used for adaptation, fitting, imputation, covariance estimation, feature selection, method selection, threshold selection, or probability calibration.",
+    "Improvement over raw transfer, performance above chance, and the remaining gap to within-region performance are separate questions and are reported separately.",
+    "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences.",
+    "A residual gap is not causal proof or the exact amount of concept shift."
+  ],
+  "never_claims": [
+    "successful operational transfer",
+    "universal CORAL superiority",
+    "statistical significance",
+    "p-values",
+    "causal fire relationships",
+    "Step9 was corrected",
+    "target-label calibration"
+  ],
+  "any_direction_bootstrap_unstable": false,
+  "raw_reproduction": {
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.6421276976485887,
+            "step9b": 0.6421276976485887,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.011667245004187716,
+            "step9b": 0.011667245004187716,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.5588060231914883,
+            "step9b": 0.5588060231914883,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.00990857877751113,
+            "step9b": 0.00990857877751113,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "mugla_2021",
+        "root_target_experiment_id": "mugla_2022_event_relative",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.6421276976485887,
+          "pr_auc": 0.011667245004187716,
+          "brier_score": 0.0834372054903673
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.5588060231914883,
+          "pr_auc": 0.00990857877751113,
+          "brier_score": 0.07326147828513525
+        }
+      }
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.580924224166471,
+            "step9b": 0.5809242374405595,
+            "diff": 1.3274088495052183e-08,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.08330431812229776,
+            "step9b": 0.08330432150197827,
+            "diff": 3.3796805076757863e-09,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.6692151604002363,
+            "step9b": 0.6692151604002363,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.1408454118074078,
+            "step9b": 0.1408454118074078,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/cross_region/mugla_2021__mugla_2022_event_relative/step9b/cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "mugla_2021",
+        "root_target_experiment_id": "mugla_2022_event_relative",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.5809242374405595,
+          "pr_auc": 0.08330432150197827,
+          "brier_score": 0.07437613874604898
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.6692151604002363,
+          "pr_auc": 0.1408454118074078,
+          "brier_score": 0.0674961414845562
+        }
+      }
+    }
+  },
+  "within_region_reproduction": {
+    "mugla_2021_to_mugla_2022_event_relative": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.8638005365151683,
+            "step8b": 0.8638005365151683,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.041810283531695705,
+            "step8b": 0.041810283531695705,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.9416049767441752,
+            "step8b": 0.9416049767441752,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.2081809109524658,
+            "step8b": 0.2081809109524658,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    },
+    "mugla_2022_event_relative_to_mugla_2021": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.7433200295403336,
+            "step8b": 0.7433200295403336,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.22494508611689773,
+            "step8b": 0.22494508611689773,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.8589830389802724,
+            "step8b": 0.8589830389802724,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.44674739014417914,
+            "step8b": 0.44674739014417914,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    }
+  }
+}

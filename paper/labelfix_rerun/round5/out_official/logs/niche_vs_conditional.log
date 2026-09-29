@@ -1,0 +1,21 @@
+measure vs measure (pair level):
+  D vs agree_fraction_supported   n=9 rho=0.087 [-0.623,0.771]
+  D vs cosine_supported           n=9 rho=0.218 [-0.705,0.902]
+  D vs cosine_9                   n=10 rho=-0.091 [-0.868,0.662]
+  D vs agree_count_9              n=10 rho=-0.305 [-0.856,0.427]
+partials (supportive):
+  [cosine_9] cond|niche rho=0.457 [-0.456,0.800]  niche|cond rho=0.153 [-0.357,0.686]
+  [agree_fraction_supported] cond|niche rho=0.512 [-0.437,0.871]  niche|cond rho=0.152 [-0.385,0.731]
+combined table counts: {"total_diagnostic_rows":20,"ci_excludes_zero":1,"ci_spans_zero":19,"not_computable":0}
+
+pair-level quadrant view (D vs agree, mean transfer):
+  manavgat_2021|mugla_2021                   D=0.799 agree=2/9 sup=0 meanAUC=0.391
+  evia_2021_extended|mugla_2021              D=0.731 agree=6/9 sup=1 meanAUC=0.615
+  montiferru_2021|mugla_2021                 D=0.689 agree=9/9 sup=1 meanAUC=0.575
+  evia_2021_extended|manavgat_2021           D=0.688 agree=3/9 sup=0 meanAUC=0.665
+  manavgat_2021|montiferru_2021              D=0.661 agree=2/9 sup=0 meanAUC=0.461
+  evia_2021_extended|montiferru_2021         D=0.648 agree=6/9 sup=1 meanAUC=0.616
+  bejis_2022|manavgat_2021                   D=0.625 agree=2/9 sup=0 meanAUC=0.355
+  bejis_2022|mugla_2021                      D=0.581 agree=7/9 sup=1 meanAUC=0.601
+  bejis_2022|evia_2021_extended              D=0.524 agree=6/9 sup=0 meanAUC=0.415
+  bejis_2022|montiferru_2021                 D=0.479 agree=7/9 sup=NA meanAUC=0.571

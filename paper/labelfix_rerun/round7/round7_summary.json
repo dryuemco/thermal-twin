@@ -1,0 +1,74 @@
+{
+ "created": "2026-09-29",
+ "inputs_sha256": {
+  "thermal-twin-main/paper/labelfix_rerun/pipeline/cross_region/manavgat_2021__bejis_2022/step9b/cross_region_transfer_predictions.csv": "9845d83a20199814a3b849bab9b198aa7348291d0faa4047c80e3b20b7e3bccb",
+  "thermal-twin-main/paper/labelfix_rerun/pipeline/cross_region/manavgat_2021__mugla_2021/step9b/cross_region_transfer_predictions.csv": "42876cb52d10be6bf404a1608d76ff8783d1d1f59b252620cd49d6240159bc0f",
+  "thermal-twin-main/paper/labelfix_rerun/pipeline/cross_region/manavgat_2021__evia_2021_extended/step9b/cross_region_transfer_predictions.csv": "17388ba8e9ef41cb570a9b95e165495769197bea0aa5e5ceea74bd370ab82b02",
+  "thermal-twin-main/paper/labelfix_rerun/pipeline/cross_region/montiferru_2021__manavgat_2021/step9b/cross_region_transfer_predictions.csv": "2f73506340d90faf75b926e0e95192634f88e916af73c5bedc47c2020d4f57ad",
+  "thermal-twin/drive_new/cross_region/bejis_2022__evia_2021_extended/step9b/cross_region_transfer_predictions.csv": "54ba38fedc59aa69073755860614c398ed98336363daf00987b6dcebd8173320",
+  "thermal-twin/drive_new/cross_region/bejis_2022__mugla_2021/step9b/cross_region_transfer_predictions.csv": "552217e2337d8541bd64a757cc5795351215cda6d77482a50f801191b300054d",
+  "thermal-twin/drive_new/cross_region/montiferru_2021__bejis_2022/step9b/cross_region_transfer_predictions.csv": "d3f541e7acc3af7e4d7058e2164220686488f5ee6747fa4c05ec5f7937b34b13",
+  "thermal-twin/drive_new/cross_region/montiferru_2021__evia_2021_extended/step9b/cross_region_transfer_predictions.csv": "06f8db1c12f4b5ab26b1b707e24eb52f1a9a72f783da26a64217c7d3b98c98db",
+  "thermal-twin/drive_new/cross_region/montiferru_2021__mugla_2021/step9b/cross_region_transfer_predictions.csv": "7916628c232f167ead0ebd553c98981470e813d29ae856bf5656417cd244afb2",
+  "thermal-twin/drive_new/cross_region/mugla_2021__evia_2021_extended/step9b/cross_region_transfer_predictions.csv": "98969f4508957262707126c9b7ff8fc3a34dc25db8122ddf9b30fe7288bfc404",
+  "thermal-twin-main/paper/labelfix_rerun/round5/out_official/transfer_ci_blocksize.csv": "33233d2abc2dcf29f7750fb4391daee4f275ecdb7adfc31bdf7d3089fafb4f82",
+  "_canonical:manavgat_2021": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+  "_canonical:bejis_2022": "3dec785a7d8e31db2d67ed283546bbfbca1559f56df46663488d0afc24d9e393",
+  "_canonical:mugla_2021": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e",
+  "_canonical:evia_2021_extended": "bdce859cf482f575d0f273174b157f47efd61779953fdd23d9486c5face5e553",
+  "_canonical:montiferru_2021": "ffb008f977445076835ae35a70776b0b813d0a36655d2c656fd21e6fedd4ac50",
+  "thermal-twin-main/paper/labelfix_rerun/code/matched_holdout.json": "2342137cf08863be9026dc1cba5aa3e2128b3582cca96fed837cb2530a0fe9fd",
+  "thermal-twin-main/paper/labelfix_rerun/code/loro_all.json": "52002b6bf57c0db7b44b81db8d9e4489a2ca30727473cd91b00133f7c25e7218",
+  "thermal-twin-main/paper/labelfix_rerun/round5/collar/aoi_frame_transfer.csv": "e64d3079c85a16193fe3f9faf441d54e96f52230efdbace12a8d7760cb335bac"
+ },
+ "r7a": {
+  "mean_pr_auc": 0.18053029645271942,
+  "mean_prevalence": 0.15673045570200422,
+  "below_point": 7,
+  "below_supported_2cell": 7,
+  "below_supported_10cell": 2,
+  "below_supported_10cell_directions": [
+   "bejis_2022_to_manavgat_2021",
+   "mugla_2021_to_manavgat_2021"
+  ],
+  "above_2x_baseline": [
+   "evia_2021_extended_to_manavgat_2021"
+  ],
+  "roc10_control_max_abs_diff_vs_round5": 4.940256561053458e-05
+ },
+ "r7c": {
+  "nine_scars_scar_t": {
+   "mean": 0.14684444444444444,
+   "lo": 0.0859945837431943,
+   "hi": 0.2076943051456946,
+   "n": 9
+  },
+  "nine_scars_region_t_G5": {
+   "mean": 0.16008,
+   "lo": 0.09035885826632971,
+   "hi": 0.22980114173367028,
+   "n": 5
+  },
+  "seven_scars_scar_t": {
+   "mean": 0.13329999999999997,
+   "lo": 0.05949970449586919,
+   "hi": 0.20710029550413075,
+   "n": 7
+  },
+  "seven_scars_region_t_G3": {
+   "mean": 0.13729999999999998,
+   "lo": 0.048242017351029884,
+   "hi": 0.22635798264897006,
+   "n": 3
+  },
+  "regions_nine": {
+   "mugla_2021": 4,
+   "montiferru_2021": 2,
+   "manavgat_2021": 1,
+   "bejis_2022": 1,
+   "evia_2021_extended": 1
+  }
+ },
+ "r7d_pooled_beats_mean_single": 1,
+ "r7d_pooled_beats_best_single": 1
+}

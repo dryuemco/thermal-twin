@@ -1,0 +1,15 @@
+{
+  "note": "Step9F reports model/representation-level ranking reversal across feature variants, NOT per-feature univariate direction. It is presented at the model level only and is never joined per-feature.",
+  "directions": {
+    "mugla_2021__manavgat_2021": {
+      "step9f_available": false,
+      "manifest_analysis_id": null,
+      "screening_variant_count": null
+    },
+    "manavgat_2021__mugla_2021": {
+      "step9f_available": false,
+      "manifest_analysis_id": null,
+      "screening_variant_count": null
+    }
+  }
+}

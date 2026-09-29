@@ -1,0 +1,6 @@
+,frozen_as_source,corrected_as_source,frozen_as_target,corrected_as_target,rank_src_frozen,rank_src_corr,rank_tgt_corr
+bejis_2022,0.51,0.477,0.476,0.494,2,1,2
+evia_2021_extended,0.589,0.587,0.559,0.569,5,5,4
+manavgat_2021,0.485,0.501,0.524,0.435,1,2,1
+montiferru_2021,0.58,0.539,0.576,0.572,4,4,5
+mugla_2021,0.542,0.528,0.571,0.563,3,3,3

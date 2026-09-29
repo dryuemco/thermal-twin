@@ -1,0 +1,38 @@
+{
+ "frozen": {
+  "mean_delta": 0.0042,
+  "2cell_pos_neg_unc": [
+   10,
+   7,
+   3
+  ],
+  "10cell_verdicts": {
+   "uncertain": 10,
+   "positive": 6,
+   "negative": 4
+  },
+  "delta_range": [
+   -0.1476,
+   0.1325
+  ],
+  "n_positive_point": 12
+ },
+ "corrected": {
+  "mean_delta": 0.0073,
+  "2cell_pos_neg_unc": [
+   12,
+   7,
+   1
+  ],
+  "10cell_verdicts": {
+   "uncertain": 9,
+   "positive": 6,
+   "negative": 5
+  },
+  "delta_range": [
+   -0.1476,
+   0.1325
+  ],
+  "n_positive_point": 12
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "summary": [
+  {
+   "source_frame": "full",
+   "target_frame": "full",
+   "mean_thermal": 0.541371001651789,
+   "above_chance": 14,
+   "mean_baseline": 0.5371304573880151,
+   "mean_delta": 0.004240544263773882
+  },
+  {
+   "source_frame": "full",
+   "target_frame": "10km",
+   "mean_thermal": 0.5773454260406966,
+   "above_chance": 17,
+   "mean_baseline": 0.5731073340202937,
+   "mean_delta": 0.004238092020403136
+  },
+  {
+   "source_frame": "10km",
+   "target_frame": "full",
+   "mean_thermal": 0.5697178881593054,
+   "above_chance": 17,
+   "mean_baseline": 0.5563818941157253,
+   "mean_delta": 0.013335994043580069
+  },
+  {
+   "source_frame": "10km",
+   "target_frame": "10km",
+   "mean_thermal": 0.6155282227401878,
+   "above_chance": 19,
+   "mean_baseline": 0.5931965374644936,
+   "mean_delta": 0.022331685275694176
+  },
+  {
+   "source_frame": "5km",
+   "target_frame": "5km",
+   "mean_thermal": 0.6101824305231648,
+   "above_chance": 19,
+   "mean_baseline": 0.5936528213981183,
+   "mean_delta": 0.01652960912504652
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+kind,x,y,n,spearman_rho,ci_low,ci_high
+measure_vs_measure,schoener_d_mean1d,agree_fraction_supported,8,0.4536,-0.7845,0.9001
+measure_vs_measure,schoener_d_mean1d,cosine_supported,8,0.3069,-0.8819,0.8607
+measure_vs_measure,schoener_d_mean1d,cosine_9,10,0.0061,-0.7273,0.7308
+measure_vs_measure,schoener_d_mean1d,agree_count_9,10,-0.3615,-0.8562,0.3011
+partial_supportive,cosine_9|schoener_d,transfer_auc,20,0.5180,-0.1886,0.8253
+partial_supportive,schoener_d|cosine_9,transfer_auc,20,0.2761,-0.3629,0.7051
+partial_supportive,agree_fraction_supported|schoener_d,transfer_auc,16,0.8167,0.3948,0.8782
+partial_supportive,schoener_d|agree_fraction_supported,transfer_auc,16,-0.0665,-0.3919,0.3669

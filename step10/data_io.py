@@ -1,0 +1,99 @@
+"""
+step10/data_io.py
+
+Veri yukleme, leakage-guvenli feature secimi ve spatial-block id turetme.
+Mevcut parquet dosyalarini SADECE okur, DEGISTIRMEZ.
+"""
+
+from __future__ import annotations
+
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+from config10 import (
+    CATEGORICAL_FEATURES,
+    FORBIDDEN_FEATURE_COLUMNS,
+    POPULATIONS,
+    REGIONS,
+    TARGET_COLUMN,
+)
+
+
+class Step10DataError(RuntimeError):
+    pass
+
+
+def load_region(region_key: str, population: str = "all_valid") -> pd.DataFrame:
+    """Bir bolgenin step8a parquet'ini yukler, valid_for_modeling==True (+ secili
+    popülasyon maskesi) satirlarini filtreler ve index'i sifirlar.
+
+    population:
+        "all_valid"                 -> yalniz valid_for_modeling==True
+        "burnable_tree_shrub_grass" -> valid_for_modeling==True AND
+                                       burnable_tree_shrub_grass==True (BİRİNCİL)
+    """
+    if region_key not in REGIONS:
+        raise Step10DataError(f"Bilinmeyen bolge: {region_key}. Secenekler: {list(REGIONS)}")
+    if population not in POPULATIONS:
+        raise Step10DataError(
+            f"Bilinmeyen popülasyon: {population}. Secenekler: {list(POPULATIONS)}"
+        )
+    # labelfix re-run (2026-09-19): read through paper/code/_canonical.load (SHA-256 verified,
+    # label setting per _canonical) instead of the REGIONS path, which is absent in this tree.
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "paper" / "code"))
+    import _canonical
+    df = _canonical.load(region_key)
+    if "valid_for_modeling" not in df.columns:
+        raise Step10DataError(f"{region_key}: valid_for_modeling kolonu yok.")
+    if TARGET_COLUMN not in df.columns:
+        raise Step10DataError(f"{region_key}: hedef kolon '{TARGET_COLUMN}' yok.")
+    df = df[df["valid_for_modeling"] == True]  # noqa: E712
+    mask_col = POPULATIONS[population]["mask_column"]
+    if mask_col is not None:
+        if mask_col not in df.columns:
+            raise Step10DataError(
+                f"{region_key}: popülasyon maske kolonu '{mask_col}' yok."
+            )
+        df = df[df[mask_col] == True]  # noqa: E712
+    df = df.reset_index(drop=True)
+    if len(df) == 0:
+        raise Step10DataError(
+            f"{region_key}: popülasyon '{population}' icin satir yok."
+        )
+    return df
+
+
+def assert_no_leakage(feature_list: list[str]) -> None:
+    """Feature listesinde yasak (leakage) kolon varsa fail-fast."""
+    leaked = sorted(set(feature_list) & set(FORBIDDEN_FEATURE_COLUMNS))
+    if leaked:
+        raise Step10DataError(
+            f"LEAKAGE: yasak kolon(lar) feature setine sizmis: {leaked}. "
+            "Bu Step10'un temel guvenlik kontrolu ve asla gecilemez."
+        )
+
+
+def add_spatial_block_id(df: pd.DataFrame, block_size_cells: int) -> pd.Series:
+    """step8b/step8c ile bire bir ayni blok id: row_500m//k, col_500m//k."""
+    k = max(int(block_size_cells), 1)
+    if "row_500m" not in df.columns or "col_500m" not in df.columns:
+        raise Step10DataError("row_500m/col_500m yok; spatial block turetilemez.")
+    r = (df["row_500m"].astype(int) // k).astype(int)
+    c = (df["col_500m"].astype(int) // k).astype(int)
+    return (r.astype(str) + "_" + c.astype(str)).rename("spatial_block_id")
+
+
+def get_xy(
+    df: pd.DataFrame, numeric_features: list[str], categorical_features: list[str] | None = None
+) -> tuple[pd.DataFrame, pd.DataFrame, np.ndarray]:
+    """Numerik ve kategorik feature cerceveleri + hedef vektorunu dondurur.
+    Leakage kontrolu yapilir."""
+    categorical_features = categorical_features or []
+    assert_no_leakage(numeric_features + categorical_features)
+    x_num = df[numeric_features].astype("float64").copy()
+    x_cat = df[categorical_features].copy() if categorical_features else pd.DataFrame(index=df.index)
+    y = df[TARGET_COLUMN].astype(int).to_numpy()
+    return x_num, x_cat, y

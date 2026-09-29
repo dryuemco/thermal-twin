@@ -1,0 +1,2582 @@
+{
+  "analysis_id": "4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2",
+  "climatology_years": [
+    2017,
+    2018,
+    2019,
+    2020
+  ],
+  "diagnostic_class": "explanatory_aoi_level_regional_meteorology",
+  "experiment_ids": [
+    "manavgat_2021",
+    "bejis_2022",
+    "mugla_2021",
+    "evia_2021_extended",
+    "montiferru_2021"
+  ],
+  "experiments": [
+    {
+      "aoi_bbox_west_south_east_north": [
+        31.05,
+        36.72,
+        31.85,
+        37.35
+      ],
+      "country": "Turkey",
+      "display_name": "Manavgat / Antalya 2021",
+      "experiment_id": "manavgat_2021",
+      "region_key": "manavgat_aoi",
+      "role": "anchor_wildfire",
+      "windows": {
+        "label": {
+          "climatology_n_hours": {
+            "2017": 840,
+            "2018": 840,
+            "2019": 840,
+            "2020": 840
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-09-01",
+              "end_date_inclusive": "2017-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2017,
+              "start_date": "2017-07-28"
+            },
+            {
+              "end_date_exclusive": "2018-09-01",
+              "end_date_inclusive": "2018-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2018,
+              "start_date": "2018-07-28"
+            },
+            {
+              "end_date_exclusive": "2019-09-01",
+              "end_date_inclusive": "2019-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2019,
+              "start_date": "2019-07-28"
+            },
+            {
+              "end_date_exclusive": "2020-09-01",
+              "end_date_inclusive": "2020-08-31",
+              "n_days_inclusive": 35,
+              "reference_year": 2020,
+              "start_date": "2020-07-28"
+            }
+          ],
+          "end_date_exclusive": "2021-09-01",
+          "end_date_inclusive": "2021-08-31",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": 0.7991458514683978,
+              "climatology_mean": 1.5200017773648105,
+              "climatology_realizations": {
+                "2017": 3.6931886884634864,
+                "2018": 0.9540738772079802,
+                "2019": 0.6750334995382131,
+                "2020": 0.757711044249562
+              },
+              "climatology_sd": 1.45351003792809,
+              "observed": 2.3191476288332082,
+              "standardized_anomaly": 0.5498041503776214,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.013720938336763114,
+              "climatology_mean": 0.02440918867411529,
+              "climatology_realizations": {
+                "2017": 0.058587679507879076,
+                "2018": 0.014883116456018539,
+                "2019": 0.011819239883804842,
+                "2020": 0.0123467188487587
+              },
+              "climatology_sd": 0.022824878797840658,
+              "observed": 0.010688250337352176,
+              "standardized_anomaly": -0.6011395923846562,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -11.525588202881016,
+              "climatology_mean": 20.503718486256844,
+              "climatology_realizations": {
+                "2017": 49.21365078661842,
+                "2018": 12.501817823055573,
+                "2019": 9.928161502396067,
+                "2020": 10.371243832957308
+              },
+              "climatology_sd": 19.17289819018615,
+              "observed": 8.978130283375828,
+              "standardized_anomaly": -0.6011395923846563,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": -1.207250050702143,
+              "climatology_mean": 96.25614550755091,
+              "climatology_realizations": {
+                "2017": 96.88785689542519,
+                "2018": 96.91464470651478,
+                "2019": 95.827930713297,
+                "2020": 95.39414971496667
+              },
+              "climatology_sd": 0.7657425870915441,
+              "observed": 95.04889545684877,
+              "standardized_anomaly": -1.576574257528943,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -11.835695755736673,
+              "climatology_mean": 53.56800883085261,
+              "climatology_realizations": {
+                "2017": 61.21191323103367,
+                "2018": 55.440600993442814,
+                "2019": 50.46881701338119,
+                "2020": 47.15070408555277
+              },
+              "climatology_sd": 6.1297815622318135,
+              "observed": 41.73231307511594,
+              "standardized_anomaly": -1.9308511462564049,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 2.9004953291608544,
+              "climatology_mean": 34.12762048079268,
+              "climatology_realizations": {
+                "2017": 33.774069685584564,
+                "2018": 32.97925607277365,
+                "2019": 34.33871763300906,
+                "2020": 35.41843853180343
+              },
+              "climatology_sd": 1.0254287277177039,
+              "observed": 37.02811580995353,
+              "standardized_anomaly": 2.828568432655954,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 1.2012096858181138,
+              "climatology_mean": 24.923838853836134,
+              "climatology_realizations": {
+                "2017": 24.301547248732874,
+                "2018": 24.7781594928741,
+                "2019": 25.08634797030743,
+                "2020": 25.529300703430135
+              },
+              "climatology_sd": 0.5168696103281653,
+              "observed": 26.125048539654248,
+              "standardized_anomaly": 2.3240091152881956,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": 0.7940544346292495,
+              "climatology_mean": 3.606924920073855,
+              "climatology_realizations": {
+                "2017": 3.4916651878326657,
+                "2018": 3.2615946882494966,
+                "2019": 3.5038341668681405,
+                "2020": 4.170605637345118
+              },
+              "climatology_sd": 0.3919614901611904,
+              "observed": 4.400979354703105,
+              "standardized_anomaly": 2.0258480860012607,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.3797679610552096,
+              "climatology_mean": 1.668428206989342,
+              "climatology_realizations": {
+                "2017": 1.5517578577490623,
+                "2018": 1.6369200248177724,
+                "2019": 1.7819977902954012,
+                "2020": 1.703037155095132
+              },
+              "climatology_sd": 0.0978103019061333,
+              "observed": 2.0481961680445515,
+              "standardized_anomaly": 3.882698996468345,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 35,
+          "n_hours_observed": 840,
+          "start_date": "2021-07-28"
+        },
+        "predictor": {
+          "climatology_n_hours": {
+            "2017": 1368,
+            "2018": 1368,
+            "2019": 1368,
+            "2020": 1368
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-07-28",
+              "end_date_inclusive": "2017-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2017,
+              "start_date": "2017-06-01"
+            },
+            {
+              "end_date_exclusive": "2018-07-28",
+              "end_date_inclusive": "2018-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2018,
+              "start_date": "2018-06-01"
+            },
+            {
+              "end_date_exclusive": "2019-07-28",
+              "end_date_inclusive": "2019-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2019,
+              "start_date": "2019-06-01"
+            },
+            {
+              "end_date_exclusive": "2020-07-28",
+              "end_date_inclusive": "2020-07-27",
+              "n_days_inclusive": 57,
+              "reference_year": 2020,
+              "start_date": "2020-06-01"
+            }
+          ],
+          "end_date_exclusive": "2021-07-28",
+          "end_date_inclusive": "2021-07-27",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": 0.44644390860029004,
+              "climatology_mean": 2.1797474273242594,
+              "climatology_realizations": {
+                "2017": 2.8498291947037244,
+                "2018": 2.4923569977361555,
+                "2019": 2.6280208237046896,
+                "2020": 0.7487826931524683
+              },
+              "climatology_sd": 0.9652881136105237,
+              "observed": 2.6261913359245495,
+              "standardized_anomaly": 0.46249808974693546,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.0010065715300436248,
+              "climatology_mean": 0.03615415245782371,
+              "climatology_realizations": {
+                "2017": 0.030270351271344136,
+                "2018": 0.039703682429362994,
+                "2019": 0.06258164217030363,
+                "2020": 0.012060933960284096
+              },
+              "climatology_sd": 0.021024697140064354,
+              "observed": 0.03514758092778009,
+              "standardized_anomaly": -0.04787567323029433,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -1.3769898530996798,
+              "climatology_mean": 49.45888056230284,
+              "climatology_realizations": {
+                "2017": 41.409840539198775,
+                "2018": 54.31463756336857,
+                "2019": 85.61168648897535,
+                "2020": 16.499357657668643
+              },
+              "climatology_sd": 28.76178568760804,
+              "observed": 48.08189070920316,
+              "standardized_anomaly": -0.04787567323029437,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": 0.27986819567205146,
+              "climatology_mean": 96.00352186794498,
+              "climatology_realizations": {
+                "2017": 95.47591344647233,
+                "2018": 97.38251473247466,
+                "2019": 94.96693274683709,
+                "2020": 96.18872654599585
+              },
+              "climatology_sd": 1.047029089949875,
+              "observed": 96.28339006361703,
+              "standardized_anomaly": 0.2672974403084156,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -3.243999984963324,
+              "climatology_mean": 57.29060456100198,
+              "climatology_realizations": {
+                "2017": 55.05456081806549,
+                "2018": 60.885497279241136,
+                "2019": 57.431035962349675,
+                "2020": 55.791324184351616
+              },
+              "climatology_sd": 2.594269833194411,
+              "observed": 54.04660457603865,
+              "standardized_anomaly": -1.2504481775393728,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 0.3773562840338016,
+              "climatology_mean": 34.33192779464026,
+              "climatology_realizations": {
+                "2017": 36.41728394768382,
+                "2018": 34.472338248742616,
+                "2019": 32.49635677303513,
+                "2020": 33.941732209099456
+              },
+              "climatology_sd": 1.6217273662147917,
+              "observed": 34.70928407867406,
+              "standardized_anomaly": 0.23268786843905437,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": -0.057194395496335204,
+              "climatology_mean": 22.773900630768665,
+              "climatology_realizations": {
+                "2017": 23.516902099983323,
+                "2018": 22.61670985724657,
+                "2019": 22.595450301741664,
+                "2020": 22.36654026410311
+              },
+              "climatology_sd": 0.5081164928095899,
+              "observed": 22.71670623527233,
+              "standardized_anomaly": -0.11256158047553882,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": -0.5158094233426951,
+              "climatology_mean": 4.276053061463,
+              "climatology_realizations": {
+                "2017": 4.483958349764581,
+                "2018": 3.997334988720634,
+                "2019": 4.898724539709107,
+                "2020": 3.7241943676576774
+              },
+              "climatology_sd": 0.5206329995709362,
+              "observed": 3.760243638120305,
+              "standardized_anomaly": -0.9907351700099373,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.06636765839602199,
+              "climatology_mean": 1.7350485351518883,
+              "climatology_realizations": {
+                "2017": 1.7921138580051592,
+                "2018": 1.720368308877467,
+                "2019": 1.7221212500472838,
+                "2020": 1.7055907236776429
+              },
+              "climatology_sd": 0.038759246091929114,
+              "observed": 1.8014161935479103,
+              "standardized_anomaly": 1.7123051939300185,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 57,
+          "n_hours_observed": 1368,
+          "start_date": "2021-06-01"
+        }
+      }
+    },
+    {
+      "aoi_bbox_west_south_east_north": [
+        -1.05,
+        39.68,
+        -0.35,
+        40.15
+      ],
+      "country": "Spain",
+      "display_name": "Bejís / Castellón 2022",
+      "experiment_id": "bejis_2022",
+      "region_key": "bejis_aoi",
+      "role": "mediterranean_transfer_wildfire",
+      "windows": {
+        "label": {
+          "climatology_n_hours": {
+            "2017": 1128,
+            "2018": 1128,
+            "2019": 1128,
+            "2020": 1128
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-10-01",
+              "end_date_inclusive": "2017-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2017,
+              "start_date": "2017-08-15"
+            },
+            {
+              "end_date_exclusive": "2018-10-01",
+              "end_date_inclusive": "2018-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2018,
+              "start_date": "2018-08-15"
+            },
+            {
+              "end_date_exclusive": "2019-10-01",
+              "end_date_inclusive": "2019-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2019,
+              "start_date": "2019-08-15"
+            },
+            {
+              "end_date_exclusive": "2020-10-01",
+              "end_date_inclusive": "2020-09-30",
+              "n_days_inclusive": 47,
+              "reference_year": 2020,
+              "start_date": "2020-08-15"
+            }
+          ],
+          "end_date_exclusive": "2022-10-01",
+          "end_date_inclusive": "2022-09-30",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": 3.244533047810566,
+              "climatology_mean": 3.0147107209283144,
+              "climatology_realizations": {
+                "2017": 4.3772950739994885,
+                "2018": 3.0954918161775598,
+                "2019": 2.5122798318699537,
+                "2020": 2.073776161666256
+              },
+              "climatology_sd": 1.0001593785788536,
+              "observed": 6.25924376873888,
+              "standardized_anomaly": 3.244016021147337,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": 0.03342005887049372,
+              "climatology_mean": 0.07421547837230094,
+              "climatology_realizations": {
+                "2017": 0.07160235972386705,
+                "2018": 0.11196332788061981,
+                "2019": 0.0757428067435966,
+                "2020": 0.037553419141120314
+              },
+              "climatology_sd": 0.030431167414334947,
+              "observed": 0.10763553724279466,
+              "standardized_anomaly": 1.0982181003923899,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": 37.69782640591691,
+              "climatology_mean": 83.71505960395547,
+              "climatology_realizations": {
+                "2017": 80.76746176852204,
+                "2018": 126.29463384933915,
+                "2019": 85.43788600677696,
+                "2020": 42.360256791183716
+              },
+              "climatology_sd": 34.32635684336982,
+              "observed": 121.41288600987238,
+              "standardized_anomaly": 1.0982181003923897,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": 0.2365277387137752,
+              "climatology_mean": 98.55770488436781,
+              "climatology_realizations": {
+                "2017": 98.86669130404778,
+                "2018": 99.33150490582703,
+                "2019": 98.72900783756087,
+                "2020": 97.30361549003558
+              },
+              "climatology_sd": 0.8748950397059398,
+              "observed": 98.79423262308158,
+              "standardized_anomaly": 0.2703498453863383,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -4.050224677542317,
+              "climatology_mean": 67.61649798968699,
+              "climatology_realizations": {
+                "2017": 66.12689091299285,
+                "2018": 75.13955403761919,
+                "2019": 68.32526667156793,
+                "2020": 60.874280336567985
+              },
+              "climatology_sd": 5.909742054994486,
+              "observed": 63.56627331214467,
+              "standardized_anomaly": -0.6853471166511169,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 0.7987615068170726,
+              "climatology_mean": 32.61582084144913,
+              "climatology_realizations": {
+                "2017": 33.54539801432629,
+                "2018": 29.025089710571933,
+                "2019": 34.04011133623764,
+                "2020": 33.85268430466064
+              },
+              "climatology_sd": 2.402491652067176,
+              "observed": 33.4145823482662,
+              "standardized_anomaly": 0.33247212581562735,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 0.8311005380797489,
+              "climatology_mean": 19.861462458855208,
+              "climatology_realizations": {
+                "2017": 19.642801873027967,
+                "2018": 19.95253427768464,
+                "2019": 19.9417642931464,
+                "2020": 19.908749391561816
+              },
+              "climatology_sd": 0.1469591400974464,
+              "observed": 20.692562996934956,
+              "standardized_anomaly": 5.655317100580874,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": -0.4282079301936452,
+              "climatology_mean": 5.813100286865428,
+              "climatology_realizations": {
+                "2017": 6.06005280879518,
+                "2018": 4.3120380790317885,
+                "2019": 7.071641656707995,
+                "2020": 5.8086686029267485
+              },
+              "climatology_sd": 1.1399004809341329,
+              "observed": 5.384892356671783,
+              "standardized_anomaly": -0.3756537850065075,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.04135703517355438,
+              "climatology_mean": 1.9145652988094817,
+              "climatology_realizations": {
+                "2017": 1.8571033035391624,
+                "2018": 1.638742433462779,
+                "2019": 2.0673606733943948,
+                "2020": 2.0950547848415906
+              },
+              "climatology_sd": 0.2123699719916403,
+              "observed": 1.955922333983036,
+              "standardized_anomaly": 0.19474050302734114,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 47,
+          "n_hours_observed": 1128,
+          "start_date": "2022-08-15"
+        },
+        "predictor": {
+          "climatology_n_hours": {
+            "2017": 1464,
+            "2018": 1464,
+            "2019": 1464,
+            "2020": 1464
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-08-15",
+              "end_date_inclusive": "2017-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2017,
+              "start_date": "2017-06-15"
+            },
+            {
+              "end_date_exclusive": "2018-08-15",
+              "end_date_inclusive": "2018-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2018,
+              "start_date": "2018-06-15"
+            },
+            {
+              "end_date_exclusive": "2019-08-15",
+              "end_date_inclusive": "2019-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2019,
+              "start_date": "2019-06-15"
+            },
+            {
+              "end_date_exclusive": "2020-08-15",
+              "end_date_inclusive": "2020-08-14",
+              "n_days_inclusive": 61,
+              "reference_year": 2020,
+              "start_date": "2020-06-15"
+            }
+          ],
+          "end_date_exclusive": "2022-08-15",
+          "end_date_inclusive": "2022-08-14",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": 5.6884215488193774,
+              "climatology_mean": 1.8081392896734696,
+              "climatology_realizations": {
+                "2017": 1.3413288919978108,
+                "2018": 1.712040623859079,
+                "2019": 1.6765694606224986,
+                "2020": 2.5026181822144897
+              },
+              "climatology_sd": 0.4921918504847868,
+              "observed": 7.496560838492847,
+              "standardized_anomaly": 11.557325752583141,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": 0.02480926087601057,
+              "climatology_mean": 0.030876935311150044,
+              "climatology_realizations": {
+                "2017": 0.025920802839069775,
+                "2018": 0.03450415036872428,
+                "2019": 0.021999625009173494,
+                "2020": 0.04108316302763263
+              },
+              "climatology_sd": 0.008576978111063322,
+              "observed": 0.055686196187160614,
+              "standardized_anomaly": 2.892541003924151,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": 36.32075792247947,
+              "climatology_mean": 45.203833295523665,
+              "climatology_realizations": {
+                "2017": 37.94805535639815,
+                "2018": 50.514076139812346,
+                "2019": 32.207451013429996,
+                "2020": 60.14575067245417
+              },
+              "climatology_sd": 12.556695954596703,
+              "observed": 81.52459121800314,
+              "standardized_anomaly": 2.892541003924151,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": -0.34976993708957593,
+              "climatology_mean": 97.51174110922062,
+              "climatology_realizations": {
+                "2017": 97.29363319188997,
+                "2018": 97.99603182554922,
+                "2019": 97.1469372396358,
+                "2020": 97.61036217980752
+              },
+              "climatology_sd": 0.37634936798678165,
+              "observed": 97.16197117213105,
+              "standardized_anomaly": -0.9293756462528742,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -0.6527561873749548,
+              "climatology_mean": 56.05223663088156,
+              "climatology_realizations": {
+                "2017": 54.14986795922523,
+                "2018": 56.503773129077096,
+                "2019": 51.099099503154655,
+                "2020": 62.45620593206926
+              },
+              "climatology_sd": 4.808578514444207,
+              "observed": 55.399480443506604,
+              "standardized_anomaly": -0.13574826436007623,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 0.8323786750536186,
+              "climatology_mean": 35.290075569766834,
+              "climatology_realizations": {
+                "2017": 34.91110565637306,
+                "2018": 33.886707233810306,
+                "2019": 36.512586394803016,
+                "2020": 35.84990299408095
+              },
+              "climatology_sd": 1.143241057107366,
+              "observed": 36.12245424482045,
+              "standardized_anomaly": 0.7280867581502952,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 0.9230592049116915,
+              "climatology_mean": 23.129599488409696,
+              "climatology_realizations": {
+                "2017": 23.25517025828011,
+                "2018": 23.24127457320966,
+                "2019": 23.5696302436635,
+                "2020": 22.45232287848551
+              },
+              "climatology_sd": 0.4762947318382314,
+              "observed": 24.052658693321387,
+              "standardized_anomaly": 1.9380000306726026,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": 1.0861126851911322,
+              "climatology_mean": 5.47441837603885,
+              "climatology_realizations": {
+                "2017": 7.462202184748115,
+                "2018": 5.078945186856906,
+                "2019": 5.1153305642524085,
+                "2020": 4.241195568297969
+              },
+              "climatology_sd": 1.3853358273519008,
+              "observed": 6.560531061229982,
+              "standardized_anomaly": 0.7840067828659713,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.0198851587587785,
+              "climatology_mean": 2.0045399757218343,
+              "climatology_realizations": {
+                "2017": 2.1103652447795325,
+                "2018": 1.9877267100095273,
+                "2019": 2.110407913023274,
+                "2020": 1.8096600350750043
+              },
+              "climatology_sd": 0.1422062878239688,
+              "observed": 2.024425134480613,
+              "standardized_anomaly": 0.13983318925667693,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 61,
+          "n_hours_observed": 1464,
+          "start_date": "2022-06-15"
+        }
+      }
+    },
+    {
+      "aoi_bbox_west_south_east_north": [
+        27.1,
+        36.6,
+        28.9,
+        37.45
+      ],
+      "country": "Turkey",
+      "display_name": "Muğla 2021",
+      "experiment_id": "mugla_2021",
+      "region_key": "mugla_aoi",
+      "role": "same_country_same_year_transfer_wildfire",
+      "windows": {
+        "label": {
+          "climatology_n_hours": {
+            "2017": 1176,
+            "2018": 1176,
+            "2019": 1176,
+            "2020": 1176
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-09-16",
+              "end_date_inclusive": "2017-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2017,
+              "start_date": "2017-07-29"
+            },
+            {
+              "end_date_exclusive": "2018-09-16",
+              "end_date_inclusive": "2018-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2018,
+              "start_date": "2018-07-29"
+            },
+            {
+              "end_date_exclusive": "2019-09-16",
+              "end_date_inclusive": "2019-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2019,
+              "start_date": "2019-07-29"
+            },
+            {
+              "end_date_exclusive": "2020-09-16",
+              "end_date_inclusive": "2020-09-15",
+              "n_days_inclusive": 49,
+              "reference_year": 2020,
+              "start_date": "2020-07-29"
+            }
+          ],
+          "end_date_exclusive": "2021-09-16",
+          "end_date_inclusive": "2021-09-15",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": -0.4814365899055182,
+              "climatology_mean": 1.7214351313902407,
+              "climatology_realizations": {
+                "2017": 1.739728107564543,
+                "2018": 2.4144918765861227,
+                "2019": 1.6642153677267895,
+                "2020": 1.067305173683508
+              },
+              "climatology_sd": 0.551308258587981,
+              "observed": 1.2399985414847225,
+              "standardized_anomaly": -0.873262067828588,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.007639056833769728,
+              "climatology_mean": 0.014611121632751729,
+              "climatology_realizations": {
+                "2017": 0.025241610716105208,
+                "2018": 0.013317051515306027,
+                "2019": 0.012350453609925448,
+                "2020": 0.007535370689670236
+              },
+              "climatology_sd": 0.007524599367809367,
+              "observed": 0.006972064798982001,
+              "standardized_anomaly": -1.015211104321383,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -8.983530836513202,
+              "climatology_mean": 17.182679040116035,
+              "climatology_realizations": {
+                "2017": 29.684134202139724,
+                "2018": 15.660852581999888,
+                "2019": 14.524133445272327,
+                "2020": 8.861595931052198
+              },
+              "climatology_sd": 8.848928856543814,
+              "observed": 8.199148203602833,
+              "standardized_anomaly": -1.0152111043213834,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": -5.27643622126881,
+              "climatology_mean": 91.7435403244481,
+              "climatology_realizations": {
+                "2017": 92.98197799425338,
+                "2018": 88.78328858845359,
+                "2019": 92.25372261256656,
+                "2020": 92.95517210251886
+              },
+              "climatology_sd": 2.0020952137857955,
+              "observed": 86.4671041031793,
+              "standardized_anomaly": -2.6354571875188233,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -9.077509998050687,
+              "climatology_mean": 54.296275554667275,
+              "climatology_realizations": {
+                "2017": 55.60642541482456,
+                "2018": 57.40945936871412,
+                "2019": 53.066849719521166,
+                "2020": 51.10236771560927
+              },
+              "climatology_sd": 2.776144886026561,
+              "observed": 45.21876555661659,
+              "standardized_anomaly": -3.2698257370288553,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 3.9096849036125647,
+              "climatology_mean": 34.72162247170522,
+              "climatology_realizations": {
+                "2017": 34.24568527379648,
+                "2018": 33.3415663603193,
+                "2019": 35.62972943763679,
+                "2020": 35.66950881506829
+              },
+              "climatology_sd": 1.1334634045606278,
+              "observed": 38.63130737531778,
+              "standardized_anomaly": 3.4493260990001726,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 0.670210143066754,
+              "climatology_mean": 26.567045211666926,
+              "climatology_realizations": {
+                "2017": 26.09026005731502,
+                "2018": 26.208802003520432,
+                "2019": 26.657032498985608,
+                "2020": 27.312086286846647
+              },
+              "climatology_sd": 0.5534275608055045,
+              "observed": 27.23725535473368,
+              "standardized_anomaly": 1.211016925306854,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": 0.6597701056579073,
+              "climatology_mean": 5.87794228495361,
+              "climatology_realizations": {
+                "2017": 6.20034299361568,
+                "2018": 5.5943116061726235,
+                "2019": 6.126258485655018,
+                "2020": 5.590856054371119
+              },
+              "climatology_sd": 0.33089173365942215,
+              "observed": 6.537712390611517,
+              "standardized_anomaly": 1.9939153461506254,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.5273506278169267,
+              "climatology_mean": 2.418505566504436,
+              "climatology_realizations": {
+                "2017": 2.2584638420944825,
+                "2018": 2.4966644046976443,
+                "2019": 2.366086245851576,
+                "2020": 2.5528077733740404
+              },
+              "climatology_sd": 0.13229641653949786,
+              "observed": 2.9458561943213626,
+              "standardized_anomaly": 3.9861293420557846,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 49,
+          "n_hours_observed": 1176,
+          "start_date": "2021-07-29"
+        },
+        "predictor": {
+          "climatology_n_hours": {
+            "2017": 1392,
+            "2018": 1392,
+            "2019": 1392,
+            "2020": 1392
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-07-29",
+              "end_date_inclusive": "2017-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2017,
+              "start_date": "2017-06-01"
+            },
+            {
+              "end_date_exclusive": "2018-07-29",
+              "end_date_inclusive": "2018-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2018,
+              "start_date": "2018-06-01"
+            },
+            {
+              "end_date_exclusive": "2019-07-29",
+              "end_date_inclusive": "2019-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2019,
+              "start_date": "2019-06-01"
+            },
+            {
+              "end_date_exclusive": "2020-07-29",
+              "end_date_inclusive": "2020-07-28",
+              "n_days_inclusive": 58,
+              "reference_year": 2020,
+              "start_date": "2020-06-01"
+            }
+          ],
+          "end_date_exclusive": "2021-07-29",
+          "end_date_inclusive": "2021-07-28",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": -0.020902369212589367,
+              "climatology_mean": 1.746913062808709,
+              "climatology_realizations": {
+                "2017": 1.2244397960467628,
+                "2018": 1.6203296890795558,
+                "2019": 3.1284496898741656,
+                "2020": 1.014433076234352
+              },
+              "climatology_sd": 0.9546678388565178,
+              "observed": 1.7260106935961197,
+              "standardized_anomaly": -0.021894912933932927,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.006458227367428071,
+              "climatology_mean": 0.02636065904829084,
+              "climatology_realizations": {
+                "2017": 0.012835460898748029,
+                "2018": 0.03552156428369029,
+                "2019": 0.041637438849922485,
+                "2020": 0.01544817216080256
+              },
+              "climatology_sd": 0.014367968319535294,
+              "observed": 0.01990243168086277,
+              "standardized_anomaly": -0.4494878624312662,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -8.989852495459878,
+              "climatology_mean": 36.69403739522085,
+              "climatology_realizations": {
+                "2017": 17.866961571057256,
+                "2018": 49.446017482896885,
+                "2019": 57.9593148790921,
+                "2020": 21.503855647837163
+              },
+              "climatology_sd": 20.00021190079313,
+              "observed": 27.704184899760975,
+              "standardized_anomaly": -0.44948786243126637,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": -2.585265105524144,
+              "climatology_mean": 95.1223022367056,
+              "climatology_realizations": {
+                "2017": 95.34155062689265,
+                "2018": 94.34070354764911,
+                "2019": 93.7321924729891,
+                "2020": 97.0747622992915
+              },
+              "climatology_sd": 1.4609895982412453,
+              "observed": 92.53703713118145,
+              "standardized_anomaly": -1.7695301244008261,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -5.175610710372339,
+              "climatology_mean": 56.7821871395429,
+              "climatology_realizations": {
+                "2017": 51.98848485434219,
+                "2018": 60.179662232464096,
+                "2019": 56.70128047269386,
+                "2020": 58.25932099867146
+              },
+              "climatology_sd": 3.498137072437417,
+              "observed": 51.60657642917056,
+              "standardized_anomaly": -1.479533421132094,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 0.36514872767003936,
+              "climatology_mean": 35.507470102555395,
+              "climatology_realizations": {
+                "2017": 38.61781291189952,
+                "2018": 34.564888006190714,
+                "2019": 34.372633705282986,
+                "2020": 34.47454578684836
+              },
+              "climatology_sd": 2.075048568955998,
+              "observed": 35.872618830225434,
+              "standardized_anomaly": 0.17597117153443478,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 0.3088757998877192,
+              "climatology_mean": 24.97431927814659,
+              "climatology_realizations": {
+                "2017": 25.848916852896906,
+                "2018": 24.731147838963828,
+                "2019": 24.91802985618823,
+                "2020": 24.399182564537405
+              },
+              "climatology_sd": 0.6212900570476805,
+              "observed": 25.28319507803431,
+              "standardized_anomaly": 0.49715233067702985,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": 0.627866602869851,
+              "climatology_mean": 5.971992155184498,
+              "climatology_realizations": {
+                "2017": 6.1220863974585935,
+                "2018": 5.943498332036195,
+                "2019": 5.96102373079481,
+                "2020": 5.861360160448396
+              },
+              "climatology_sd": 0.10908700520581845,
+              "observed": 6.599858758054349,
+              "standardized_anomaly": 5.755649829099553,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.34438640142355004,
+              "climatology_mean": 2.6235520442986417,
+              "climatology_realizations": {
+                "2017": 2.6875816325304025,
+                "2018": 2.6704165400026976,
+                "2019": 2.575637139165799,
+                "2020": 2.560572865495668
+              },
+              "climatology_sd": 0.06470003663912038,
+              "observed": 2.967938445722192,
+              "standardized_anomaly": 5.322816173110471,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 58,
+          "n_hours_observed": 1392,
+          "start_date": "2021-06-01"
+        }
+      }
+    },
+    {
+      "aoi_bbox_west_south_east_north": [
+        23.05,
+        38.55,
+        23.85,
+        39.15
+      ],
+      "country": "Greece",
+      "display_name": "North Evia (Euboea), Greece -- extended AOI",
+      "experiment_id": "evia_2021_extended",
+      "region_key": "north_evia_extended",
+      "role": "mediterranean_transfer_wildfire",
+      "windows": {
+        "label": {
+          "climatology_n_hours": {
+            "2017": 1416,
+            "2018": 1416,
+            "2019": 1416,
+            "2020": 1416
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-10-01",
+              "end_date_inclusive": "2017-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2017,
+              "start_date": "2017-08-03"
+            },
+            {
+              "end_date_exclusive": "2018-10-01",
+              "end_date_inclusive": "2018-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2018,
+              "start_date": "2018-08-03"
+            },
+            {
+              "end_date_exclusive": "2019-10-01",
+              "end_date_inclusive": "2019-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2019,
+              "start_date": "2019-08-03"
+            },
+            {
+              "end_date_exclusive": "2020-10-01",
+              "end_date_inclusive": "2020-09-30",
+              "n_days_inclusive": 59,
+              "reference_year": 2020,
+              "start_date": "2020-08-03"
+            }
+          ],
+          "end_date_exclusive": "2021-10-01",
+          "end_date_inclusive": "2021-09-30",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": -1.2422308264056197,
+              "climatology_mean": 3.416984244699038,
+              "climatology_realizations": {
+                "2017": 2.28824454420511,
+                "2018": 6.746011850663797,
+                "2019": 1.3992657478958497,
+                "2020": 3.2344148360313953
+              },
+              "climatology_sd": 2.3424344625531184,
+              "observed": 2.1747534182934185,
+              "standardized_anomaly": -0.5303161502549188,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.022586627460839614,
+              "climatology_mean": 0.07085827760411814,
+              "climatology_realizations": {
+                "2017": 0.038912986195710916,
+                "2018": 0.1776675875831998,
+                "2019": 0.01977901109784382,
+                "2020": 0.04707352553971802
+              },
+              "climatology_sd": 0.07211919818134326,
+              "observed": 0.04827165014327853,
+              "standardized_anomaly": -0.3131846724646839,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -31.982664484548906,
+              "climatology_mean": 100.3353210874313,
+              "climatology_realizations": {
+                "2017": 55.10078845312666,
+                "2018": 251.57730401781095,
+                "2019": 28.007079714546848,
+                "2020": 66.65611216424071
+              },
+              "climatology_sd": 102.12078462478208,
+              "observed": 68.35265660288239,
+              "standardized_anomaly": -0.31318467246468396,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": -3.7818912133201508,
+              "climatology_mean": 94.32606616564873,
+              "climatology_realizations": {
+                "2017": 92.90327929519691,
+                "2018": 95.02831938638866,
+                "2019": 95.15689688756434,
+                "2020": 94.21576909344499
+              },
+              "climatology_sd": 1.0360063058664628,
+              "observed": 90.54417495232858,
+              "standardized_anomaly": -3.650451924766201,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -2.7354916264457003,
+              "climatology_mean": 63.25400885522895,
+              "climatology_realizations": {
+                "2017": 59.27261127533994,
+                "2018": 65.4241007713257,
+                "2019": 62.37110096619521,
+                "2020": 65.94822240805496
+              },
+              "climatology_sd": 3.0875631503503365,
+              "observed": 60.51851722878325,
+              "standardized_anomaly": -0.8859710694938538,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 5.465060838205801,
+              "climatology_mean": 32.83514142299717,
+              "climatology_realizations": {
+                "2017": 33.12466731344305,
+                "2018": 30.686223974298276,
+                "2019": 35.112903094652715,
+                "2020": 32.416771309594644
+              },
+              "climatology_sd": 1.831657102845449,
+              "observed": 38.30020226120297,
+              "standardized_anomaly": 2.9836702676040834,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 0.6705048017876649,
+              "climatology_mean": 23.807014135973674,
+              "climatology_realizations": {
+                "2017": 24.108976924523386,
+                "2018": 23.307022382123154,
+                "2019": 23.839966301038185,
+                "2020": 23.972090936209966
+              },
+              "climatology_sd": 0.3509555882377561,
+              "observed": 24.47751893776134,
+              "standardized_anomaly": 1.9105118261671021,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": -0.1534594101126876,
+              "climatology_mean": 7.814529569922696,
+              "climatology_realizations": {
+                "2017": 7.594482739588113,
+                "2018": 9.346506358014086,
+                "2019": 7.407490582446809,
+                "2020": 6.909638599641775
+              },
+              "climatology_sd": 1.0614270099277434,
+              "observed": 7.661070159810008,
+              "standardized_anomaly": -0.14457839180400575,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": -0.20390647638349169,
+              "climatology_mean": 2.8331150126076348,
+              "climatology_realizations": {
+                "2017": 2.7100167803211446,
+                "2018": 3.175593331192204,
+                "2019": 2.8254644516512255,
+                "2020": 2.6213854872659654
+              },
+              "climatology_sd": 0.24312719337617553,
+              "observed": 2.629208536224143,
+              "standardized_anomaly": -0.8386823109005331,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 59,
+          "n_hours_observed": 1416,
+          "start_date": "2021-08-03"
+        },
+        "predictor": {
+          "climatology_n_hours": {
+            "2017": 1416,
+            "2018": 1416,
+            "2019": 1416,
+            "2020": 1416
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-08-03",
+              "end_date_inclusive": "2017-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2017,
+              "start_date": "2017-06-05"
+            },
+            {
+              "end_date_exclusive": "2018-08-03",
+              "end_date_inclusive": "2018-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2018,
+              "start_date": "2018-06-05"
+            },
+            {
+              "end_date_exclusive": "2019-08-03",
+              "end_date_inclusive": "2019-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2019,
+              "start_date": "2019-06-05"
+            },
+            {
+              "end_date_exclusive": "2020-08-03",
+              "end_date_inclusive": "2020-08-02",
+              "n_days_inclusive": 59,
+              "reference_year": 2020,
+              "start_date": "2020-06-05"
+            }
+          ],
+          "end_date_exclusive": "2021-08-03",
+          "end_date_inclusive": "2021-08-02",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": -3.4236183329591414,
+              "climatology_mean": 4.8747135321784265,
+              "climatology_realizations": {
+                "2017": 7.310009888718717,
+                "2018": 3.376889173463363,
+                "2019": 7.170340002498212,
+                "2020": 1.641615064033413
+              },
+              "climatology_sd": 2.822349656444261,
+              "observed": 1.451095199219285,
+              "standardized_anomaly": -1.213038336742581,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.043488170237489895,
+              "climatology_mean": 0.05741306034400519,
+              "climatology_realizations": {
+                "2017": 0.08314817120773627,
+                "2018": 0.08567347884560768,
+                "2019": 0.04673090399690364,
+                "2020": 0.014099687325773163
+              },
+              "climatology_sd": 0.03391707500898172,
+              "observed": 0.013924890106515292,
+              "standardized_anomaly": -1.2821910564508765,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -61.57924905628569,
+              "climatology_mean": 81.29689344711134,
+              "climatology_realizations": {
+                "2017": 117.73781043015455,
+                "2018": 121.31364604538048,
+                "2019": 66.17096005961555,
+                "2020": 19.965157253294798
+              },
+              "climatology_sd": 48.02657821271813,
+              "observed": 19.717644390825654,
+              "standardized_anomaly": -1.2821910564508763,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": 0.7171551849297515,
+              "climatology_mean": 94.15701406443245,
+              "climatology_realizations": {
+                "2017": 93.19331217141976,
+                "2018": 92.86562385035006,
+                "2019": 92.73113417759247,
+                "2020": 97.83798605836748
+              },
+              "climatology_sd": 2.461645675522292,
+              "observed": 94.8741692493622,
+              "standardized_anomaly": 0.2913316047312907,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -3.2453006351015006,
+              "climatology_mean": 62.88689443905953,
+              "climatology_realizations": {
+                "2017": 61.601258865533275,
+                "2018": 63.89882023458185,
+                "2019": 63.687353021530456,
+                "2020": 62.36014563459256
+              },
+              "climatology_sd": 1.0946918727536075,
+              "observed": 59.64159380395803,
+              "standardized_anomaly": -2.964579089217328,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 3.116671492368276,
+              "climatology_mean": 35.435568189328976,
+              "climatology_realizations": {
+                "2017": 36.93596136127575,
+                "2018": 36.55007226518659,
+                "2019": 35.084684303726746,
+                "2020": 33.171554827126826
+              },
+              "climatology_sd": 1.7070613161154022,
+              "observed": 38.55223968169725,
+              "standardized_anomaly": 1.8257525157096233,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 1.1065073708187363,
+              "climatology_mean": 24.622697848722847,
+              "climatology_realizations": {
+                "2017": 24.642445102268862,
+                "2018": 24.70882000500644,
+                "2019": 25.069250662316914,
+                "2020": 24.07027562529917
+              },
+              "climatology_sd": 0.4132742060209266,
+              "observed": 25.729205219541583,
+              "standardized_anomaly": 2.6774169660196674,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": -0.9259662809818563,
+              "climatology_mean": 6.347154623615174,
+              "climatology_realizations": {
+                "2017": 6.674930972065184,
+                "2018": 5.186302465608041,
+                "2019": 7.395541878580542,
+                "2020": 6.131843178206931
+              },
+              "climatology_sd": 0.9310370422725127,
+              "observed": 5.421188342633318,
+              "standardized_anomaly": -0.994553641734512,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": -0.21181606745685322,
+              "climatology_mean": 2.269695556339925,
+              "climatology_realizations": {
+                "2017": 2.3126874424013173,
+                "2018": 2.13395035957379,
+                "2019": 2.2778383235329778,
+                "2020": 2.354306099851615
+              },
+              "climatology_sd": 0.09574324944540713,
+              "observed": 2.0578794888830716,
+              "standardized_anomaly": -2.2123342239144588,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 59,
+          "n_hours_observed": 1416,
+          "start_date": "2021-06-05"
+        }
+      }
+    },
+    {
+      "aoi_bbox_west_south_east_north": [
+        8.45,
+        40.05,
+        8.75,
+        40.27
+      ],
+      "country": "Italy",
+      "display_name": "Montiferru / Oristano, Sardinia 2021",
+      "experiment_id": "montiferru_2021",
+      "region_key": "montiferru_aoi",
+      "role": "mediterranean_transfer_wildfire",
+      "windows": {
+        "label": {
+          "climatology_n_hours": {
+            "2017": 936,
+            "2018": 936,
+            "2019": 936,
+            "2020": 936
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-09-01",
+              "end_date_inclusive": "2017-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2017,
+              "start_date": "2017-07-24"
+            },
+            {
+              "end_date_exclusive": "2018-09-01",
+              "end_date_inclusive": "2018-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2018,
+              "start_date": "2018-07-24"
+            },
+            {
+              "end_date_exclusive": "2019-09-01",
+              "end_date_inclusive": "2019-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2019,
+              "start_date": "2019-07-24"
+            },
+            {
+              "end_date_exclusive": "2020-09-01",
+              "end_date_inclusive": "2020-08-31",
+              "n_days_inclusive": 39,
+              "reference_year": 2020,
+              "start_date": "2020-07-24"
+            }
+          ],
+          "end_date_exclusive": "2021-09-01",
+          "end_date_inclusive": "2021-08-31",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": -4.364704723599274,
+              "climatology_mean": 4.543367207677219,
+              "climatology_realizations": {
+                "2017": 0.6589369449604914,
+                "2018": 5.874692261862021,
+                "2019": 4.7442868131457185,
+                "2020": 6.895552810740646
+              },
+              "climatology_sd": 2.7346157965931392,
+              "observed": 0.1786624840779449,
+              "standardized_anomaly": -1.5960943138838537,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.03609226166430399,
+              "climatology_mean": 0.038680690187542555,
+              "climatology_realizations": {
+                "2017": 0.0011715390385231982,
+                "2018": 0.08766100183878929,
+                "2019": 0.040746671405956204,
+                "2020": 0.025143548466901536
+              },
+              "climatology_sd": 0.036485293081517996,
+              "observed": 0.0025884285232385643,
+              "standardized_anomaly": -0.9892276754818478,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -33.78235691778853,
+              "climatology_mean": 36.20512601553983,
+              "climatology_realizations": {
+                "2017": 1.0965605400577134,
+                "2018": 82.05069772110677,
+                "2019": 38.13888443597501,
+                "2020": 23.534361365019837
+              },
+              "climatology_sd": 34.15023432430084,
+              "observed": 2.422769097751296,
+              "standardized_anomaly": -0.9892276754818479,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": -0.43420016722863863,
+              "climatology_mean": 98.61599198887541,
+              "climatology_realizations": {
+                "2017": 97.52657375345196,
+                "2018": 99.46399562733302,
+                "2019": 98.80684921129287,
+                "2020": 98.66654936342378
+              },
+              "climatology_sd": 0.8051759207321568,
+              "observed": 98.18179182164677,
+              "standardized_anomaly": -0.5392612422311572,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -1.0501378322158317,
+              "climatology_mean": 61.33952888926787,
+              "climatology_realizations": {
+                "2017": 49.41193233582225,
+                "2018": 73.2459342163797,
+                "2019": 63.28437769017044,
+                "2020": 59.41587131469909
+              },
+              "climatology_sd": 9.857534219702421,
+              "observed": 60.289391057052036,
+              "standardized_anomaly": -0.10653149244127434,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 3.231591140600287,
+              "climatology_mean": 36.08580430653532,
+              "climatology_realizations": {
+                "2017": 38.44954156613531,
+                "2018": 32.852924316088746,
+                "2019": 36.37945416141524,
+                "2020": 36.661297182502004
+              },
+              "climatology_sd": 2.342092309069714,
+              "observed": 39.31739544713561,
+              "standardized_anomaly": 1.3797881185493857,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 0.3709694002610675,
+              "climatology_mean": 24.882358846086063,
+              "climatology_realizations": {
+                "2017": 25.930027975596044,
+                "2018": 23.301710696441855,
+                "2019": 24.859640459321717,
+                "2020": 25.43805625298464
+              },
+              "climatology_sd": 1.14096083938536,
+              "observed": 25.25332824634713,
+              "standardized_anomaly": 0.3251377150340323,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": -1.7067006170337606,
+              "climatology_mean": 7.29342666628848,
+              "climatology_realizations": {
+                "2017": 7.620575917687458,
+                "2018": 6.958613895874837,
+                "2019": 7.353119050521258,
+                "2020": 7.241397801070367
+              },
+              "climatology_sd": 0.2741024184948932,
+              "observed": 5.586726049254719,
+              "standardized_anomaly": -6.226506961906132,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.0687190785217533,
+              "climatology_mean": 2.101350869092911,
+              "climatology_realizations": {
+                "2017": 2.4355715807673572,
+                "2018": 1.756791389346485,
+                "2019": 1.9856257984828745,
+                "2020": 2.2274147077749267
+              },
+              "climatology_sd": 0.29422729455657476,
+              "observed": 2.1700699476146643,
+              "standardized_anomaly": 0.23355779627895745,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 39,
+          "n_hours_observed": 936,
+          "start_date": "2021-07-24"
+        },
+        "predictor": {
+          "climatology_n_hours": {
+            "2017": 1440,
+            "2018": 1440,
+            "2019": 1440,
+            "2020": 1440
+          },
+          "climatology_windows": [
+            {
+              "end_date_exclusive": "2017-07-24",
+              "end_date_inclusive": "2017-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2017,
+              "start_date": "2017-05-25"
+            },
+            {
+              "end_date_exclusive": "2018-07-24",
+              "end_date_inclusive": "2018-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2018,
+              "start_date": "2018-05-25"
+            },
+            {
+              "end_date_exclusive": "2019-07-24",
+              "end_date_inclusive": "2019-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2019,
+              "start_date": "2019-05-25"
+            },
+            {
+              "end_date_exclusive": "2020-07-24",
+              "end_date_inclusive": "2020-07-23",
+              "n_days_inclusive": 60,
+              "reference_year": 2020,
+              "start_date": "2020-05-25"
+            }
+          ],
+          "end_date_exclusive": "2021-07-24",
+          "end_date_inclusive": "2021-07-23",
+          "metrics": {
+            "precipitation_mm_max": {
+              "anomaly": -1.4939486568216478,
+              "climatology_mean": 2.8536469765769477,
+              "climatology_realizations": {
+                "2017": 1.7757464614923804,
+                "2018": 5.3488614333441316,
+                "2019": 2.079052058864166,
+                "2020": 2.2109279526071126
+              },
+              "climatology_sd": 1.6734246060099567,
+              "observed": 1.3596983197552999,
+              "standardized_anomaly": -0.8927493066949435,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_mean": {
+              "anomaly": -0.024677583420755683,
+              "climatology_mean": 0.0350612469465089,
+              "climatology_realizations": {
+                "2017": 0.014658142452393533,
+                "2018": 0.06896745914757403,
+                "2019": 0.03131429795395947,
+                "2020": 0.025305088232108586
+              },
+              "climatology_sd": 0.0236300667119582,
+              "observed": 0.010383663525753218,
+              "standardized_anomaly": -1.0443298244379218,
+              "zero_climatology_sd": false
+            },
+            "precipitation_mm_total": {
+              "anomaly": -35.53572012588819,
+              "climatology_mean": 50.48819560297282,
+              "climatology_realizations": {
+                "2017": 21.10772513144669,
+                "2018": 99.3131411725066,
+                "2019": 45.09258905370164,
+                "2020": 36.439327054236365
+              },
+              "climatology_sd": 34.02729606521981,
+              "observed": 14.952475477084635,
+              "standardized_anomaly": -1.0443298244379218,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_max": {
+              "anomaly": 0.35598874514397494,
+              "climatology_mean": 99.12485546275268,
+              "climatology_realizations": {
+                "2017": 98.45809750523168,
+                "2018": 99.68232302817916,
+                "2019": 99.40033782954839,
+                "2020": 98.95866348805149
+              },
+              "climatology_sd": 0.5350534450845541,
+              "observed": 99.48084420789665,
+              "standardized_anomaly": 0.665333058621309,
+              "zero_climatology_sd": false
+            },
+            "relative_humidity_percent_mean": {
+              "anomaly": -2.8369996046354515,
+              "climatology_mean": 67.0036672423922,
+              "climatology_realizations": {
+                "2017": 59.98634065187362,
+                "2018": 75.72658381061294,
+                "2019": 64.88955222740879,
+                "2020": 67.41219227967348
+              },
+              "climatology_sd": 6.582008835626678,
+              "observed": 64.16666763775675,
+              "standardized_anomaly": -0.4310233661917196,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_max": {
+              "anomaly": 1.1177352650199381,
+              "climatology_mean": 35.349936740258926,
+              "climatology_realizations": {
+                "2017": 36.35951138921892,
+                "2018": 33.97723503782812,
+                "2019": 36.40806340661062,
+                "2020": 34.65493712737802
+              },
+              "climatology_sd": 1.2255893058209848,
+              "observed": 36.467672005278864,
+              "standardized_anomaly": 0.9119982197227166,
+              "zero_climatology_sd": false
+            },
+            "temperature_c_mean": {
+              "anomaly": 0.4749507476564503,
+              "climatology_mean": 22.099695208691877,
+              "climatology_realizations": {
+                "2017": 23.402865435303546,
+                "2018": 21.324145387557376,
+                "2019": 22.664529982054237,
+                "2020": 21.00724002985234
+              },
+              "climatology_sd": 1.1272720469584228,
+              "observed": 22.574645956348327,
+              "standardized_anomaly": 0.4213275304199643,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_max": {
+              "anomaly": -0.12197743306858122,
+              "climatology_mean": 6.487027152187544,
+              "climatology_realizations": {
+                "2017": 6.1736331706876975,
+                "2018": 6.526717650513702,
+                "2019": 6.354569229586875,
+                "2020": 6.893188557961899
+              },
+              "climatology_sd": 0.3067590325200928,
+              "observed": 6.365049719118963,
+              "standardized_anomaly": -0.3976327349402227,
+              "zero_climatology_sd": false
+            },
+            "wind_speed_m_s_mean": {
+              "anomaly": 0.1109656148539071,
+              "climatology_mean": 2.109412600246281,
+              "climatology_realizations": {
+                "2017": 2.0365000943160965,
+                "2018": 1.956970509669559,
+                "2019": 2.15030546410991,
+                "2020": 2.293874332889558
+              },
+              "climatology_sd": 0.1463479661914823,
+              "observed": 2.220378215100188,
+              "standardized_anomaly": 0.7582313423387054,
+              "zero_climatology_sd": false
+            }
+          },
+          "n_days_inclusive": 60,
+          "n_hours_observed": 1440,
+          "start_date": "2021-05-25"
+        }
+      }
+    }
+  ],
+  "output_schema_version": "era5_land_regional_summary.v1",
+  "rows": [
+    {
+      "aoi_bbox_east": 31.85,
+      "aoi_bbox_north": 37.35,
+      "aoi_bbox_south": 36.72,
+      "aoi_bbox_west": 31.05,
+      "country": "Turkey",
+      "display_name": "Manavgat / Antalya 2021",
+      "experiment_id": "manavgat_2021",
+      "label_end_date_exclusive": "2021-09-01",
+      "label_end_date_inclusive": "2021-08-31",
+      "label_n_days_inclusive": 35,
+      "label_n_hours_observed": 840,
+      "label_precipitation_mm_max_anomaly": 0.7991458514683978,
+      "label_precipitation_mm_max_climatology_mean": 1.5200017773648105,
+      "label_precipitation_mm_max_climatology_sd": 1.45351003792809,
+      "label_precipitation_mm_max_observed": 2.3191476288332082,
+      "label_precipitation_mm_max_standardized_anomaly": 0.5498041503776214,
+      "label_precipitation_mm_max_zero_climatology_sd": false,
+      "label_precipitation_mm_mean_anomaly": -0.013720938336763114,
+      "label_precipitation_mm_mean_climatology_mean": 0.02440918867411529,
+      "label_precipitation_mm_mean_climatology_sd": 0.022824878797840658,
+      "label_precipitation_mm_mean_observed": 0.010688250337352176,
+      "label_precipitation_mm_mean_standardized_anomaly": -0.6011395923846562,
+      "label_precipitation_mm_mean_zero_climatology_sd": false,
+      "label_precipitation_mm_total_anomaly": -11.525588202881016,
+      "label_precipitation_mm_total_climatology_mean": 20.503718486256844,
+      "label_precipitation_mm_total_climatology_sd": 19.17289819018615,
+      "label_precipitation_mm_total_observed": 8.978130283375828,
+      "label_precipitation_mm_total_standardized_anomaly": -0.6011395923846563,
+      "label_precipitation_mm_total_zero_climatology_sd": false,
+      "label_relative_humidity_percent_max_anomaly": -1.207250050702143,
+      "label_relative_humidity_percent_max_climatology_mean": 96.25614550755091,
+      "label_relative_humidity_percent_max_climatology_sd": 0.7657425870915441,
+      "label_relative_humidity_percent_max_observed": 95.04889545684877,
+      "label_relative_humidity_percent_max_standardized_anomaly": -1.576574257528943,
+      "label_relative_humidity_percent_max_zero_climatology_sd": false,
+      "label_relative_humidity_percent_mean_anomaly": -11.835695755736673,
+      "label_relative_humidity_percent_mean_climatology_mean": 53.56800883085261,
+      "label_relative_humidity_percent_mean_climatology_sd": 6.1297815622318135,
+      "label_relative_humidity_percent_mean_observed": 41.73231307511594,
+      "label_relative_humidity_percent_mean_standardized_anomaly": -1.9308511462564049,
+      "label_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "label_start_date": "2021-07-28",
+      "label_temperature_c_max_anomaly": 2.9004953291608544,
+      "label_temperature_c_max_climatology_mean": 34.12762048079268,
+      "label_temperature_c_max_climatology_sd": 1.0254287277177039,
+      "label_temperature_c_max_observed": 37.02811580995353,
+      "label_temperature_c_max_standardized_anomaly": 2.828568432655954,
+      "label_temperature_c_max_zero_climatology_sd": false,
+      "label_temperature_c_mean_anomaly": 1.2012096858181138,
+      "label_temperature_c_mean_climatology_mean": 24.923838853836134,
+      "label_temperature_c_mean_climatology_sd": 0.5168696103281653,
+      "label_temperature_c_mean_observed": 26.125048539654248,
+      "label_temperature_c_mean_standardized_anomaly": 2.3240091152881956,
+      "label_temperature_c_mean_zero_climatology_sd": false,
+      "label_wind_speed_m_s_max_anomaly": 0.7940544346292495,
+      "label_wind_speed_m_s_max_climatology_mean": 3.606924920073855,
+      "label_wind_speed_m_s_max_climatology_sd": 0.3919614901611904,
+      "label_wind_speed_m_s_max_observed": 4.400979354703105,
+      "label_wind_speed_m_s_max_standardized_anomaly": 2.0258480860012607,
+      "label_wind_speed_m_s_max_zero_climatology_sd": false,
+      "label_wind_speed_m_s_mean_anomaly": 0.3797679610552096,
+      "label_wind_speed_m_s_mean_climatology_mean": 1.668428206989342,
+      "label_wind_speed_m_s_mean_climatology_sd": 0.0978103019061333,
+      "label_wind_speed_m_s_mean_observed": 2.0481961680445515,
+      "label_wind_speed_m_s_mean_standardized_anomaly": 3.882698996468345,
+      "label_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "predictor_end_date_exclusive": "2021-07-28",
+      "predictor_end_date_inclusive": "2021-07-27",
+      "predictor_n_days_inclusive": 57,
+      "predictor_n_hours_observed": 1368,
+      "predictor_precipitation_mm_max_anomaly": 0.44644390860029004,
+      "predictor_precipitation_mm_max_climatology_mean": 2.1797474273242594,
+      "predictor_precipitation_mm_max_climatology_sd": 0.9652881136105237,
+      "predictor_precipitation_mm_max_observed": 2.6261913359245495,
+      "predictor_precipitation_mm_max_standardized_anomaly": 0.46249808974693546,
+      "predictor_precipitation_mm_max_zero_climatology_sd": false,
+      "predictor_precipitation_mm_mean_anomaly": -0.0010065715300436248,
+      "predictor_precipitation_mm_mean_climatology_mean": 0.03615415245782371,
+      "predictor_precipitation_mm_mean_climatology_sd": 0.021024697140064354,
+      "predictor_precipitation_mm_mean_observed": 0.03514758092778009,
+      "predictor_precipitation_mm_mean_standardized_anomaly": -0.04787567323029433,
+      "predictor_precipitation_mm_mean_zero_climatology_sd": false,
+      "predictor_precipitation_mm_total_anomaly": -1.3769898530996798,
+      "predictor_precipitation_mm_total_climatology_mean": 49.45888056230284,
+      "predictor_precipitation_mm_total_climatology_sd": 28.76178568760804,
+      "predictor_precipitation_mm_total_observed": 48.08189070920316,
+      "predictor_precipitation_mm_total_standardized_anomaly": -0.04787567323029437,
+      "predictor_precipitation_mm_total_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_max_anomaly": 0.27986819567205146,
+      "predictor_relative_humidity_percent_max_climatology_mean": 96.00352186794498,
+      "predictor_relative_humidity_percent_max_climatology_sd": 1.047029089949875,
+      "predictor_relative_humidity_percent_max_observed": 96.28339006361703,
+      "predictor_relative_humidity_percent_max_standardized_anomaly": 0.2672974403084156,
+      "predictor_relative_humidity_percent_max_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_mean_anomaly": -3.243999984963324,
+      "predictor_relative_humidity_percent_mean_climatology_mean": 57.29060456100198,
+      "predictor_relative_humidity_percent_mean_climatology_sd": 2.594269833194411,
+      "predictor_relative_humidity_percent_mean_observed": 54.04660457603865,
+      "predictor_relative_humidity_percent_mean_standardized_anomaly": -1.2504481775393728,
+      "predictor_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "predictor_start_date": "2021-06-01",
+      "predictor_temperature_c_max_anomaly": 0.3773562840338016,
+      "predictor_temperature_c_max_climatology_mean": 34.33192779464026,
+      "predictor_temperature_c_max_climatology_sd": 1.6217273662147917,
+      "predictor_temperature_c_max_observed": 34.70928407867406,
+      "predictor_temperature_c_max_standardized_anomaly": 0.23268786843905437,
+      "predictor_temperature_c_max_zero_climatology_sd": false,
+      "predictor_temperature_c_mean_anomaly": -0.057194395496335204,
+      "predictor_temperature_c_mean_climatology_mean": 22.773900630768665,
+      "predictor_temperature_c_mean_climatology_sd": 0.5081164928095899,
+      "predictor_temperature_c_mean_observed": 22.71670623527233,
+      "predictor_temperature_c_mean_standardized_anomaly": -0.11256158047553882,
+      "predictor_temperature_c_mean_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_max_anomaly": -0.5158094233426951,
+      "predictor_wind_speed_m_s_max_climatology_mean": 4.276053061463,
+      "predictor_wind_speed_m_s_max_climatology_sd": 0.5206329995709362,
+      "predictor_wind_speed_m_s_max_observed": 3.760243638120305,
+      "predictor_wind_speed_m_s_max_standardized_anomaly": -0.9907351700099373,
+      "predictor_wind_speed_m_s_max_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_mean_anomaly": 0.06636765839602199,
+      "predictor_wind_speed_m_s_mean_climatology_mean": 1.7350485351518883,
+      "predictor_wind_speed_m_s_mean_climatology_sd": 0.038759246091929114,
+      "predictor_wind_speed_m_s_mean_observed": 1.8014161935479103,
+      "predictor_wind_speed_m_s_mean_standardized_anomaly": 1.7123051939300185,
+      "predictor_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "region_key": "manavgat_aoi",
+      "role": "anchor_wildfire"
+    },
+    {
+      "aoi_bbox_east": -0.35,
+      "aoi_bbox_north": 40.15,
+      "aoi_bbox_south": 39.68,
+      "aoi_bbox_west": -1.05,
+      "country": "Spain",
+      "display_name": "Bejís / Castellón 2022",
+      "experiment_id": "bejis_2022",
+      "label_end_date_exclusive": "2022-10-01",
+      "label_end_date_inclusive": "2022-09-30",
+      "label_n_days_inclusive": 47,
+      "label_n_hours_observed": 1128,
+      "label_precipitation_mm_max_anomaly": 3.244533047810566,
+      "label_precipitation_mm_max_climatology_mean": 3.0147107209283144,
+      "label_precipitation_mm_max_climatology_sd": 1.0001593785788536,
+      "label_precipitation_mm_max_observed": 6.25924376873888,
+      "label_precipitation_mm_max_standardized_anomaly": 3.244016021147337,
+      "label_precipitation_mm_max_zero_climatology_sd": false,
+      "label_precipitation_mm_mean_anomaly": 0.03342005887049372,
+      "label_precipitation_mm_mean_climatology_mean": 0.07421547837230094,
+      "label_precipitation_mm_mean_climatology_sd": 0.030431167414334947,
+      "label_precipitation_mm_mean_observed": 0.10763553724279466,
+      "label_precipitation_mm_mean_standardized_anomaly": 1.0982181003923899,
+      "label_precipitation_mm_mean_zero_climatology_sd": false,
+      "label_precipitation_mm_total_anomaly": 37.69782640591691,
+      "label_precipitation_mm_total_climatology_mean": 83.71505960395547,
+      "label_precipitation_mm_total_climatology_sd": 34.32635684336982,
+      "label_precipitation_mm_total_observed": 121.41288600987238,
+      "label_precipitation_mm_total_standardized_anomaly": 1.0982181003923897,
+      "label_precipitation_mm_total_zero_climatology_sd": false,
+      "label_relative_humidity_percent_max_anomaly": 0.2365277387137752,
+      "label_relative_humidity_percent_max_climatology_mean": 98.55770488436781,
+      "label_relative_humidity_percent_max_climatology_sd": 0.8748950397059398,
+      "label_relative_humidity_percent_max_observed": 98.79423262308158,
+      "label_relative_humidity_percent_max_standardized_anomaly": 0.2703498453863383,
+      "label_relative_humidity_percent_max_zero_climatology_sd": false,
+      "label_relative_humidity_percent_mean_anomaly": -4.050224677542317,
+      "label_relative_humidity_percent_mean_climatology_mean": 67.61649798968699,
+      "label_relative_humidity_percent_mean_climatology_sd": 5.909742054994486,
+      "label_relative_humidity_percent_mean_observed": 63.56627331214467,
+      "label_relative_humidity_percent_mean_standardized_anomaly": -0.6853471166511169,
+      "label_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "label_start_date": "2022-08-15",
+      "label_temperature_c_max_anomaly": 0.7987615068170726,
+      "label_temperature_c_max_climatology_mean": 32.61582084144913,
+      "label_temperature_c_max_climatology_sd": 2.402491652067176,
+      "label_temperature_c_max_observed": 33.4145823482662,
+      "label_temperature_c_max_standardized_anomaly": 0.33247212581562735,
+      "label_temperature_c_max_zero_climatology_sd": false,
+      "label_temperature_c_mean_anomaly": 0.8311005380797489,
+      "label_temperature_c_mean_climatology_mean": 19.861462458855208,
+      "label_temperature_c_mean_climatology_sd": 0.1469591400974464,
+      "label_temperature_c_mean_observed": 20.692562996934956,
+      "label_temperature_c_mean_standardized_anomaly": 5.655317100580874,
+      "label_temperature_c_mean_zero_climatology_sd": false,
+      "label_wind_speed_m_s_max_anomaly": -0.4282079301936452,
+      "label_wind_speed_m_s_max_climatology_mean": 5.813100286865428,
+      "label_wind_speed_m_s_max_climatology_sd": 1.1399004809341329,
+      "label_wind_speed_m_s_max_observed": 5.384892356671783,
+      "label_wind_speed_m_s_max_standardized_anomaly": -0.3756537850065075,
+      "label_wind_speed_m_s_max_zero_climatology_sd": false,
+      "label_wind_speed_m_s_mean_anomaly": 0.04135703517355438,
+      "label_wind_speed_m_s_mean_climatology_mean": 1.9145652988094817,
+      "label_wind_speed_m_s_mean_climatology_sd": 0.2123699719916403,
+      "label_wind_speed_m_s_mean_observed": 1.955922333983036,
+      "label_wind_speed_m_s_mean_standardized_anomaly": 0.19474050302734114,
+      "label_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "predictor_end_date_exclusive": "2022-08-15",
+      "predictor_end_date_inclusive": "2022-08-14",
+      "predictor_n_days_inclusive": 61,
+      "predictor_n_hours_observed": 1464,
+      "predictor_precipitation_mm_max_anomaly": 5.6884215488193774,
+      "predictor_precipitation_mm_max_climatology_mean": 1.8081392896734696,
+      "predictor_precipitation_mm_max_climatology_sd": 0.4921918504847868,
+      "predictor_precipitation_mm_max_observed": 7.496560838492847,
+      "predictor_precipitation_mm_max_standardized_anomaly": 11.557325752583141,
+      "predictor_precipitation_mm_max_zero_climatology_sd": false,
+      "predictor_precipitation_mm_mean_anomaly": 0.02480926087601057,
+      "predictor_precipitation_mm_mean_climatology_mean": 0.030876935311150044,
+      "predictor_precipitation_mm_mean_climatology_sd": 0.008576978111063322,
+      "predictor_precipitation_mm_mean_observed": 0.055686196187160614,
+      "predictor_precipitation_mm_mean_standardized_anomaly": 2.892541003924151,
+      "predictor_precipitation_mm_mean_zero_climatology_sd": false,
+      "predictor_precipitation_mm_total_anomaly": 36.32075792247947,
+      "predictor_precipitation_mm_total_climatology_mean": 45.203833295523665,
+      "predictor_precipitation_mm_total_climatology_sd": 12.556695954596703,
+      "predictor_precipitation_mm_total_observed": 81.52459121800314,
+      "predictor_precipitation_mm_total_standardized_anomaly": 2.892541003924151,
+      "predictor_precipitation_mm_total_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_max_anomaly": -0.34976993708957593,
+      "predictor_relative_humidity_percent_max_climatology_mean": 97.51174110922062,
+      "predictor_relative_humidity_percent_max_climatology_sd": 0.37634936798678165,
+      "predictor_relative_humidity_percent_max_observed": 97.16197117213105,
+      "predictor_relative_humidity_percent_max_standardized_anomaly": -0.9293756462528742,
+      "predictor_relative_humidity_percent_max_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_mean_anomaly": -0.6527561873749548,
+      "predictor_relative_humidity_percent_mean_climatology_mean": 56.05223663088156,
+      "predictor_relative_humidity_percent_mean_climatology_sd": 4.808578514444207,
+      "predictor_relative_humidity_percent_mean_observed": 55.399480443506604,
+      "predictor_relative_humidity_percent_mean_standardized_anomaly": -0.13574826436007623,
+      "predictor_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "predictor_start_date": "2022-06-15",
+      "predictor_temperature_c_max_anomaly": 0.8323786750536186,
+      "predictor_temperature_c_max_climatology_mean": 35.290075569766834,
+      "predictor_temperature_c_max_climatology_sd": 1.143241057107366,
+      "predictor_temperature_c_max_observed": 36.12245424482045,
+      "predictor_temperature_c_max_standardized_anomaly": 0.7280867581502952,
+      "predictor_temperature_c_max_zero_climatology_sd": false,
+      "predictor_temperature_c_mean_anomaly": 0.9230592049116915,
+      "predictor_temperature_c_mean_climatology_mean": 23.129599488409696,
+      "predictor_temperature_c_mean_climatology_sd": 0.4762947318382314,
+      "predictor_temperature_c_mean_observed": 24.052658693321387,
+      "predictor_temperature_c_mean_standardized_anomaly": 1.9380000306726026,
+      "predictor_temperature_c_mean_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_max_anomaly": 1.0861126851911322,
+      "predictor_wind_speed_m_s_max_climatology_mean": 5.47441837603885,
+      "predictor_wind_speed_m_s_max_climatology_sd": 1.3853358273519008,
+      "predictor_wind_speed_m_s_max_observed": 6.560531061229982,
+      "predictor_wind_speed_m_s_max_standardized_anomaly": 0.7840067828659713,
+      "predictor_wind_speed_m_s_max_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_mean_anomaly": 0.0198851587587785,
+      "predictor_wind_speed_m_s_mean_climatology_mean": 2.0045399757218343,
+      "predictor_wind_speed_m_s_mean_climatology_sd": 0.1422062878239688,
+      "predictor_wind_speed_m_s_mean_observed": 2.024425134480613,
+      "predictor_wind_speed_m_s_mean_standardized_anomaly": 0.13983318925667693,
+      "predictor_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "region_key": "bejis_aoi",
+      "role": "mediterranean_transfer_wildfire"
+    },
+    {
+      "aoi_bbox_east": 28.9,
+      "aoi_bbox_north": 37.45,
+      "aoi_bbox_south": 36.6,
+      "aoi_bbox_west": 27.1,
+      "country": "Turkey",
+      "display_name": "Muğla 2021",
+      "experiment_id": "mugla_2021",
+      "label_end_date_exclusive": "2021-09-16",
+      "label_end_date_inclusive": "2021-09-15",
+      "label_n_days_inclusive": 49,
+      "label_n_hours_observed": 1176,
+      "label_precipitation_mm_max_anomaly": -0.4814365899055182,
+      "label_precipitation_mm_max_climatology_mean": 1.7214351313902407,
+      "label_precipitation_mm_max_climatology_sd": 0.551308258587981,
+      "label_precipitation_mm_max_observed": 1.2399985414847225,
+      "label_precipitation_mm_max_standardized_anomaly": -0.873262067828588,
+      "label_precipitation_mm_max_zero_climatology_sd": false,
+      "label_precipitation_mm_mean_anomaly": -0.007639056833769728,
+      "label_precipitation_mm_mean_climatology_mean": 0.014611121632751729,
+      "label_precipitation_mm_mean_climatology_sd": 0.007524599367809367,
+      "label_precipitation_mm_mean_observed": 0.006972064798982001,
+      "label_precipitation_mm_mean_standardized_anomaly": -1.015211104321383,
+      "label_precipitation_mm_mean_zero_climatology_sd": false,
+      "label_precipitation_mm_total_anomaly": -8.983530836513202,
+      "label_precipitation_mm_total_climatology_mean": 17.182679040116035,
+      "label_precipitation_mm_total_climatology_sd": 8.848928856543814,
+      "label_precipitation_mm_total_observed": 8.199148203602833,
+      "label_precipitation_mm_total_standardized_anomaly": -1.0152111043213834,
+      "label_precipitation_mm_total_zero_climatology_sd": false,
+      "label_relative_humidity_percent_max_anomaly": -5.27643622126881,
+      "label_relative_humidity_percent_max_climatology_mean": 91.7435403244481,
+      "label_relative_humidity_percent_max_climatology_sd": 2.0020952137857955,
+      "label_relative_humidity_percent_max_observed": 86.4671041031793,
+      "label_relative_humidity_percent_max_standardized_anomaly": -2.6354571875188233,
+      "label_relative_humidity_percent_max_zero_climatology_sd": false,
+      "label_relative_humidity_percent_mean_anomaly": -9.077509998050687,
+      "label_relative_humidity_percent_mean_climatology_mean": 54.296275554667275,
+      "label_relative_humidity_percent_mean_climatology_sd": 2.776144886026561,
+      "label_relative_humidity_percent_mean_observed": 45.21876555661659,
+      "label_relative_humidity_percent_mean_standardized_anomaly": -3.2698257370288553,
+      "label_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "label_start_date": "2021-07-29",
+      "label_temperature_c_max_anomaly": 3.9096849036125647,
+      "label_temperature_c_max_climatology_mean": 34.72162247170522,
+      "label_temperature_c_max_climatology_sd": 1.1334634045606278,
+      "label_temperature_c_max_observed": 38.63130737531778,
+      "label_temperature_c_max_standardized_anomaly": 3.4493260990001726,
+      "label_temperature_c_max_zero_climatology_sd": false,
+      "label_temperature_c_mean_anomaly": 0.670210143066754,
+      "label_temperature_c_mean_climatology_mean": 26.567045211666926,
+      "label_temperature_c_mean_climatology_sd": 0.5534275608055045,
+      "label_temperature_c_mean_observed": 27.23725535473368,
+      "label_temperature_c_mean_standardized_anomaly": 1.211016925306854,
+      "label_temperature_c_mean_zero_climatology_sd": false,
+      "label_wind_speed_m_s_max_anomaly": 0.6597701056579073,
+      "label_wind_speed_m_s_max_climatology_mean": 5.87794228495361,
+      "label_wind_speed_m_s_max_climatology_sd": 0.33089173365942215,
+      "label_wind_speed_m_s_max_observed": 6.537712390611517,
+      "label_wind_speed_m_s_max_standardized_anomaly": 1.9939153461506254,
+      "label_wind_speed_m_s_max_zero_climatology_sd": false,
+      "label_wind_speed_m_s_mean_anomaly": 0.5273506278169267,
+      "label_wind_speed_m_s_mean_climatology_mean": 2.418505566504436,
+      "label_wind_speed_m_s_mean_climatology_sd": 0.13229641653949786,
+      "label_wind_speed_m_s_mean_observed": 2.9458561943213626,
+      "label_wind_speed_m_s_mean_standardized_anomaly": 3.9861293420557846,
+      "label_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "predictor_end_date_exclusive": "2021-07-29",
+      "predictor_end_date_inclusive": "2021-07-28",
+      "predictor_n_days_inclusive": 58,
+      "predictor_n_hours_observed": 1392,
+      "predictor_precipitation_mm_max_anomaly": -0.020902369212589367,
+      "predictor_precipitation_mm_max_climatology_mean": 1.746913062808709,
+      "predictor_precipitation_mm_max_climatology_sd": 0.9546678388565178,
+      "predictor_precipitation_mm_max_observed": 1.7260106935961197,
+      "predictor_precipitation_mm_max_standardized_anomaly": -0.021894912933932927,
+      "predictor_precipitation_mm_max_zero_climatology_sd": false,
+      "predictor_precipitation_mm_mean_anomaly": -0.006458227367428071,
+      "predictor_precipitation_mm_mean_climatology_mean": 0.02636065904829084,
+      "predictor_precipitation_mm_mean_climatology_sd": 0.014367968319535294,
+      "predictor_precipitation_mm_mean_observed": 0.01990243168086277,
+      "predictor_precipitation_mm_mean_standardized_anomaly": -0.4494878624312662,
+      "predictor_precipitation_mm_mean_zero_climatology_sd": false,
+      "predictor_precipitation_mm_total_anomaly": -8.989852495459878,
+      "predictor_precipitation_mm_total_climatology_mean": 36.69403739522085,
+      "predictor_precipitation_mm_total_climatology_sd": 20.00021190079313,
+      "predictor_precipitation_mm_total_observed": 27.704184899760975,
+      "predictor_precipitation_mm_total_standardized_anomaly": -0.44948786243126637,
+      "predictor_precipitation_mm_total_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_max_anomaly": -2.585265105524144,
+      "predictor_relative_humidity_percent_max_climatology_mean": 95.1223022367056,
+      "predictor_relative_humidity_percent_max_climatology_sd": 1.4609895982412453,
+      "predictor_relative_humidity_percent_max_observed": 92.53703713118145,
+      "predictor_relative_humidity_percent_max_standardized_anomaly": -1.7695301244008261,
+      "predictor_relative_humidity_percent_max_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_mean_anomaly": -5.175610710372339,
+      "predictor_relative_humidity_percent_mean_climatology_mean": 56.7821871395429,
+      "predictor_relative_humidity_percent_mean_climatology_sd": 3.498137072437417,
+      "predictor_relative_humidity_percent_mean_observed": 51.60657642917056,
+      "predictor_relative_humidity_percent_mean_standardized_anomaly": -1.479533421132094,
+      "predictor_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "predictor_start_date": "2021-06-01",
+      "predictor_temperature_c_max_anomaly": 0.36514872767003936,
+      "predictor_temperature_c_max_climatology_mean": 35.507470102555395,
+      "predictor_temperature_c_max_climatology_sd": 2.075048568955998,
+      "predictor_temperature_c_max_observed": 35.872618830225434,
+      "predictor_temperature_c_max_standardized_anomaly": 0.17597117153443478,
+      "predictor_temperature_c_max_zero_climatology_sd": false,
+      "predictor_temperature_c_mean_anomaly": 0.3088757998877192,
+      "predictor_temperature_c_mean_climatology_mean": 24.97431927814659,
+      "predictor_temperature_c_mean_climatology_sd": 0.6212900570476805,
+      "predictor_temperature_c_mean_observed": 25.28319507803431,
+      "predictor_temperature_c_mean_standardized_anomaly": 0.49715233067702985,
+      "predictor_temperature_c_mean_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_max_anomaly": 0.627866602869851,
+      "predictor_wind_speed_m_s_max_climatology_mean": 5.971992155184498,
+      "predictor_wind_speed_m_s_max_climatology_sd": 0.10908700520581845,
+      "predictor_wind_speed_m_s_max_observed": 6.599858758054349,
+      "predictor_wind_speed_m_s_max_standardized_anomaly": 5.755649829099553,
+      "predictor_wind_speed_m_s_max_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_mean_anomaly": 0.34438640142355004,
+      "predictor_wind_speed_m_s_mean_climatology_mean": 2.6235520442986417,
+      "predictor_wind_speed_m_s_mean_climatology_sd": 0.06470003663912038,
+      "predictor_wind_speed_m_s_mean_observed": 2.967938445722192,
+      "predictor_wind_speed_m_s_mean_standardized_anomaly": 5.322816173110471,
+      "predictor_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "region_key": "mugla_aoi",
+      "role": "same_country_same_year_transfer_wildfire"
+    },
+    {
+      "aoi_bbox_east": 23.85,
+      "aoi_bbox_north": 39.15,
+      "aoi_bbox_south": 38.55,
+      "aoi_bbox_west": 23.05,
+      "country": "Greece",
+      "display_name": "North Evia (Euboea), Greece -- extended AOI",
+      "experiment_id": "evia_2021_extended",
+      "label_end_date_exclusive": "2021-10-01",
+      "label_end_date_inclusive": "2021-09-30",
+      "label_n_days_inclusive": 59,
+      "label_n_hours_observed": 1416,
+      "label_precipitation_mm_max_anomaly": -1.2422308264056197,
+      "label_precipitation_mm_max_climatology_mean": 3.416984244699038,
+      "label_precipitation_mm_max_climatology_sd": 2.3424344625531184,
+      "label_precipitation_mm_max_observed": 2.1747534182934185,
+      "label_precipitation_mm_max_standardized_anomaly": -0.5303161502549188,
+      "label_precipitation_mm_max_zero_climatology_sd": false,
+      "label_precipitation_mm_mean_anomaly": -0.022586627460839614,
+      "label_precipitation_mm_mean_climatology_mean": 0.07085827760411814,
+      "label_precipitation_mm_mean_climatology_sd": 0.07211919818134326,
+      "label_precipitation_mm_mean_observed": 0.04827165014327853,
+      "label_precipitation_mm_mean_standardized_anomaly": -0.3131846724646839,
+      "label_precipitation_mm_mean_zero_climatology_sd": false,
+      "label_precipitation_mm_total_anomaly": -31.982664484548906,
+      "label_precipitation_mm_total_climatology_mean": 100.3353210874313,
+      "label_precipitation_mm_total_climatology_sd": 102.12078462478208,
+      "label_precipitation_mm_total_observed": 68.35265660288239,
+      "label_precipitation_mm_total_standardized_anomaly": -0.31318467246468396,
+      "label_precipitation_mm_total_zero_climatology_sd": false,
+      "label_relative_humidity_percent_max_anomaly": -3.7818912133201508,
+      "label_relative_humidity_percent_max_climatology_mean": 94.32606616564873,
+      "label_relative_humidity_percent_max_climatology_sd": 1.0360063058664628,
+      "label_relative_humidity_percent_max_observed": 90.54417495232858,
+      "label_relative_humidity_percent_max_standardized_anomaly": -3.650451924766201,
+      "label_relative_humidity_percent_max_zero_climatology_sd": false,
+      "label_relative_humidity_percent_mean_anomaly": -2.7354916264457003,
+      "label_relative_humidity_percent_mean_climatology_mean": 63.25400885522895,
+      "label_relative_humidity_percent_mean_climatology_sd": 3.0875631503503365,
+      "label_relative_humidity_percent_mean_observed": 60.51851722878325,
+      "label_relative_humidity_percent_mean_standardized_anomaly": -0.8859710694938538,
+      "label_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "label_start_date": "2021-08-03",
+      "label_temperature_c_max_anomaly": 5.465060838205801,
+      "label_temperature_c_max_climatology_mean": 32.83514142299717,
+      "label_temperature_c_max_climatology_sd": 1.831657102845449,
+      "label_temperature_c_max_observed": 38.30020226120297,
+      "label_temperature_c_max_standardized_anomaly": 2.9836702676040834,
+      "label_temperature_c_max_zero_climatology_sd": false,
+      "label_temperature_c_mean_anomaly": 0.6705048017876649,
+      "label_temperature_c_mean_climatology_mean": 23.807014135973674,
+      "label_temperature_c_mean_climatology_sd": 0.3509555882377561,
+      "label_temperature_c_mean_observed": 24.47751893776134,
+      "label_temperature_c_mean_standardized_anomaly": 1.9105118261671021,
+      "label_temperature_c_mean_zero_climatology_sd": false,
+      "label_wind_speed_m_s_max_anomaly": -0.1534594101126876,
+      "label_wind_speed_m_s_max_climatology_mean": 7.814529569922696,
+      "label_wind_speed_m_s_max_climatology_sd": 1.0614270099277434,
+      "label_wind_speed_m_s_max_observed": 7.661070159810008,
+      "label_wind_speed_m_s_max_standardized_anomaly": -0.14457839180400575,
+      "label_wind_speed_m_s_max_zero_climatology_sd": false,
+      "label_wind_speed_m_s_mean_anomaly": -0.20390647638349169,
+      "label_wind_speed_m_s_mean_climatology_mean": 2.8331150126076348,
+      "label_wind_speed_m_s_mean_climatology_sd": 0.24312719337617553,
+      "label_wind_speed_m_s_mean_observed": 2.629208536224143,
+      "label_wind_speed_m_s_mean_standardized_anomaly": -0.8386823109005331,
+      "label_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "predictor_end_date_exclusive": "2021-08-03",
+      "predictor_end_date_inclusive": "2021-08-02",
+      "predictor_n_days_inclusive": 59,
+      "predictor_n_hours_observed": 1416,
+      "predictor_precipitation_mm_max_anomaly": -3.4236183329591414,
+      "predictor_precipitation_mm_max_climatology_mean": 4.8747135321784265,
+      "predictor_precipitation_mm_max_climatology_sd": 2.822349656444261,
+      "predictor_precipitation_mm_max_observed": 1.451095199219285,
+      "predictor_precipitation_mm_max_standardized_anomaly": -1.213038336742581,
+      "predictor_precipitation_mm_max_zero_climatology_sd": false,
+      "predictor_precipitation_mm_mean_anomaly": -0.043488170237489895,
+      "predictor_precipitation_mm_mean_climatology_mean": 0.05741306034400519,
+      "predictor_precipitation_mm_mean_climatology_sd": 0.03391707500898172,
+      "predictor_precipitation_mm_mean_observed": 0.013924890106515292,
+      "predictor_precipitation_mm_mean_standardized_anomaly": -1.2821910564508765,
+      "predictor_precipitation_mm_mean_zero_climatology_sd": false,
+      "predictor_precipitation_mm_total_anomaly": -61.57924905628569,
+      "predictor_precipitation_mm_total_climatology_mean": 81.29689344711134,
+      "predictor_precipitation_mm_total_climatology_sd": 48.02657821271813,
+      "predictor_precipitation_mm_total_observed": 19.717644390825654,
+      "predictor_precipitation_mm_total_standardized_anomaly": -1.2821910564508763,
+      "predictor_precipitation_mm_total_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_max_anomaly": 0.7171551849297515,
+      "predictor_relative_humidity_percent_max_climatology_mean": 94.15701406443245,
+      "predictor_relative_humidity_percent_max_climatology_sd": 2.461645675522292,
+      "predictor_relative_humidity_percent_max_observed": 94.8741692493622,
+      "predictor_relative_humidity_percent_max_standardized_anomaly": 0.2913316047312907,
+      "predictor_relative_humidity_percent_max_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_mean_anomaly": -3.2453006351015006,
+      "predictor_relative_humidity_percent_mean_climatology_mean": 62.88689443905953,
+      "predictor_relative_humidity_percent_mean_climatology_sd": 1.0946918727536075,
+      "predictor_relative_humidity_percent_mean_observed": 59.64159380395803,
+      "predictor_relative_humidity_percent_mean_standardized_anomaly": -2.964579089217328,
+      "predictor_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "predictor_start_date": "2021-06-05",
+      "predictor_temperature_c_max_anomaly": 3.116671492368276,
+      "predictor_temperature_c_max_climatology_mean": 35.435568189328976,
+      "predictor_temperature_c_max_climatology_sd": 1.7070613161154022,
+      "predictor_temperature_c_max_observed": 38.55223968169725,
+      "predictor_temperature_c_max_standardized_anomaly": 1.8257525157096233,
+      "predictor_temperature_c_max_zero_climatology_sd": false,
+      "predictor_temperature_c_mean_anomaly": 1.1065073708187363,
+      "predictor_temperature_c_mean_climatology_mean": 24.622697848722847,
+      "predictor_temperature_c_mean_climatology_sd": 0.4132742060209266,
+      "predictor_temperature_c_mean_observed": 25.729205219541583,
+      "predictor_temperature_c_mean_standardized_anomaly": 2.6774169660196674,
+      "predictor_temperature_c_mean_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_max_anomaly": -0.9259662809818563,
+      "predictor_wind_speed_m_s_max_climatology_mean": 6.347154623615174,
+      "predictor_wind_speed_m_s_max_climatology_sd": 0.9310370422725127,
+      "predictor_wind_speed_m_s_max_observed": 5.421188342633318,
+      "predictor_wind_speed_m_s_max_standardized_anomaly": -0.994553641734512,
+      "predictor_wind_speed_m_s_max_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_mean_anomaly": -0.21181606745685322,
+      "predictor_wind_speed_m_s_mean_climatology_mean": 2.269695556339925,
+      "predictor_wind_speed_m_s_mean_climatology_sd": 0.09574324944540713,
+      "predictor_wind_speed_m_s_mean_observed": 2.0578794888830716,
+      "predictor_wind_speed_m_s_mean_standardized_anomaly": -2.2123342239144588,
+      "predictor_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "region_key": "north_evia_extended",
+      "role": "mediterranean_transfer_wildfire"
+    },
+    {
+      "aoi_bbox_east": 8.75,
+      "aoi_bbox_north": 40.27,
+      "aoi_bbox_south": 40.05,
+      "aoi_bbox_west": 8.45,
+      "country": "Italy",
+      "display_name": "Montiferru / Oristano, Sardinia 2021",
+      "experiment_id": "montiferru_2021",
+      "label_end_date_exclusive": "2021-09-01",
+      "label_end_date_inclusive": "2021-08-31",
+      "label_n_days_inclusive": 39,
+      "label_n_hours_observed": 936,
+      "label_precipitation_mm_max_anomaly": -4.364704723599274,
+      "label_precipitation_mm_max_climatology_mean": 4.543367207677219,
+      "label_precipitation_mm_max_climatology_sd": 2.7346157965931392,
+      "label_precipitation_mm_max_observed": 0.1786624840779449,
+      "label_precipitation_mm_max_standardized_anomaly": -1.5960943138838537,
+      "label_precipitation_mm_max_zero_climatology_sd": false,
+      "label_precipitation_mm_mean_anomaly": -0.03609226166430399,
+      "label_precipitation_mm_mean_climatology_mean": 0.038680690187542555,
+      "label_precipitation_mm_mean_climatology_sd": 0.036485293081517996,
+      "label_precipitation_mm_mean_observed": 0.0025884285232385643,
+      "label_precipitation_mm_mean_standardized_anomaly": -0.9892276754818478,
+      "label_precipitation_mm_mean_zero_climatology_sd": false,
+      "label_precipitation_mm_total_anomaly": -33.78235691778853,
+      "label_precipitation_mm_total_climatology_mean": 36.20512601553983,
+      "label_precipitation_mm_total_climatology_sd": 34.15023432430084,
+      "label_precipitation_mm_total_observed": 2.422769097751296,
+      "label_precipitation_mm_total_standardized_anomaly": -0.9892276754818479,
+      "label_precipitation_mm_total_zero_climatology_sd": false,
+      "label_relative_humidity_percent_max_anomaly": -0.43420016722863863,
+      "label_relative_humidity_percent_max_climatology_mean": 98.61599198887541,
+      "label_relative_humidity_percent_max_climatology_sd": 0.8051759207321568,
+      "label_relative_humidity_percent_max_observed": 98.18179182164677,
+      "label_relative_humidity_percent_max_standardized_anomaly": -0.5392612422311572,
+      "label_relative_humidity_percent_max_zero_climatology_sd": false,
+      "label_relative_humidity_percent_mean_anomaly": -1.0501378322158317,
+      "label_relative_humidity_percent_mean_climatology_mean": 61.33952888926787,
+      "label_relative_humidity_percent_mean_climatology_sd": 9.857534219702421,
+      "label_relative_humidity_percent_mean_observed": 60.289391057052036,
+      "label_relative_humidity_percent_mean_standardized_anomaly": -0.10653149244127434,
+      "label_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "label_start_date": "2021-07-24",
+      "label_temperature_c_max_anomaly": 3.231591140600287,
+      "label_temperature_c_max_climatology_mean": 36.08580430653532,
+      "label_temperature_c_max_climatology_sd": 2.342092309069714,
+      "label_temperature_c_max_observed": 39.31739544713561,
+      "label_temperature_c_max_standardized_anomaly": 1.3797881185493857,
+      "label_temperature_c_max_zero_climatology_sd": false,
+      "label_temperature_c_mean_anomaly": 0.3709694002610675,
+      "label_temperature_c_mean_climatology_mean": 24.882358846086063,
+      "label_temperature_c_mean_climatology_sd": 1.14096083938536,
+      "label_temperature_c_mean_observed": 25.25332824634713,
+      "label_temperature_c_mean_standardized_anomaly": 0.3251377150340323,
+      "label_temperature_c_mean_zero_climatology_sd": false,
+      "label_wind_speed_m_s_max_anomaly": -1.7067006170337606,
+      "label_wind_speed_m_s_max_climatology_mean": 7.29342666628848,
+      "label_wind_speed_m_s_max_climatology_sd": 0.2741024184948932,
+      "label_wind_speed_m_s_max_observed": 5.586726049254719,
+      "label_wind_speed_m_s_max_standardized_anomaly": -6.226506961906132,
+      "label_wind_speed_m_s_max_zero_climatology_sd": false,
+      "label_wind_speed_m_s_mean_anomaly": 0.0687190785217533,
+      "label_wind_speed_m_s_mean_climatology_mean": 2.101350869092911,
+      "label_wind_speed_m_s_mean_climatology_sd": 0.29422729455657476,
+      "label_wind_speed_m_s_mean_observed": 2.1700699476146643,
+      "label_wind_speed_m_s_mean_standardized_anomaly": 0.23355779627895745,
+      "label_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "predictor_end_date_exclusive": "2021-07-24",
+      "predictor_end_date_inclusive": "2021-07-23",
+      "predictor_n_days_inclusive": 60,
+      "predictor_n_hours_observed": 1440,
+      "predictor_precipitation_mm_max_anomaly": -1.4939486568216478,
+      "predictor_precipitation_mm_max_climatology_mean": 2.8536469765769477,
+      "predictor_precipitation_mm_max_climatology_sd": 1.6734246060099567,
+      "predictor_precipitation_mm_max_observed": 1.3596983197552999,
+      "predictor_precipitation_mm_max_standardized_anomaly": -0.8927493066949435,
+      "predictor_precipitation_mm_max_zero_climatology_sd": false,
+      "predictor_precipitation_mm_mean_anomaly": -0.024677583420755683,
+      "predictor_precipitation_mm_mean_climatology_mean": 0.0350612469465089,
+      "predictor_precipitation_mm_mean_climatology_sd": 0.0236300667119582,
+      "predictor_precipitation_mm_mean_observed": 0.010383663525753218,
+      "predictor_precipitation_mm_mean_standardized_anomaly": -1.0443298244379218,
+      "predictor_precipitation_mm_mean_zero_climatology_sd": false,
+      "predictor_precipitation_mm_total_anomaly": -35.53572012588819,
+      "predictor_precipitation_mm_total_climatology_mean": 50.48819560297282,
+      "predictor_precipitation_mm_total_climatology_sd": 34.02729606521981,
+      "predictor_precipitation_mm_total_observed": 14.952475477084635,
+      "predictor_precipitation_mm_total_standardized_anomaly": -1.0443298244379218,
+      "predictor_precipitation_mm_total_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_max_anomaly": 0.35598874514397494,
+      "predictor_relative_humidity_percent_max_climatology_mean": 99.12485546275268,
+      "predictor_relative_humidity_percent_max_climatology_sd": 0.5350534450845541,
+      "predictor_relative_humidity_percent_max_observed": 99.48084420789665,
+      "predictor_relative_humidity_percent_max_standardized_anomaly": 0.665333058621309,
+      "predictor_relative_humidity_percent_max_zero_climatology_sd": false,
+      "predictor_relative_humidity_percent_mean_anomaly": -2.8369996046354515,
+      "predictor_relative_humidity_percent_mean_climatology_mean": 67.0036672423922,
+      "predictor_relative_humidity_percent_mean_climatology_sd": 6.582008835626678,
+      "predictor_relative_humidity_percent_mean_observed": 64.16666763775675,
+      "predictor_relative_humidity_percent_mean_standardized_anomaly": -0.4310233661917196,
+      "predictor_relative_humidity_percent_mean_zero_climatology_sd": false,
+      "predictor_start_date": "2021-05-25",
+      "predictor_temperature_c_max_anomaly": 1.1177352650199381,
+      "predictor_temperature_c_max_climatology_mean": 35.349936740258926,
+      "predictor_temperature_c_max_climatology_sd": 1.2255893058209848,
+      "predictor_temperature_c_max_observed": 36.467672005278864,
+      "predictor_temperature_c_max_standardized_anomaly": 0.9119982197227166,
+      "predictor_temperature_c_max_zero_climatology_sd": false,
+      "predictor_temperature_c_mean_anomaly": 0.4749507476564503,
+      "predictor_temperature_c_mean_climatology_mean": 22.099695208691877,
+      "predictor_temperature_c_mean_climatology_sd": 1.1272720469584228,
+      "predictor_temperature_c_mean_observed": 22.574645956348327,
+      "predictor_temperature_c_mean_standardized_anomaly": 0.4213275304199643,
+      "predictor_temperature_c_mean_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_max_anomaly": -0.12197743306858122,
+      "predictor_wind_speed_m_s_max_climatology_mean": 6.487027152187544,
+      "predictor_wind_speed_m_s_max_climatology_sd": 0.3067590325200928,
+      "predictor_wind_speed_m_s_max_observed": 6.365049719118963,
+      "predictor_wind_speed_m_s_max_standardized_anomaly": -0.3976327349402227,
+      "predictor_wind_speed_m_s_max_zero_climatology_sd": false,
+      "predictor_wind_speed_m_s_mean_anomaly": 0.1109656148539071,
+      "predictor_wind_speed_m_s_mean_climatology_mean": 2.109412600246281,
+      "predictor_wind_speed_m_s_mean_climatology_sd": 0.1463479661914823,
+      "predictor_wind_speed_m_s_mean_observed": 2.220378215100188,
+      "predictor_wind_speed_m_s_mean_standardized_anomaly": 0.7582313423387054,
+      "predictor_wind_speed_m_s_mean_zero_climatology_sd": false,
+      "region_key": "montiferru_aoi",
+      "role": "mediterranean_transfer_wildfire"
+    }
+  ],
+  "schema_version": "era5_land_regional_diagnostic.v1",
+  "summary_columns": [
+    "experiment_id",
+    "region_key",
+    "display_name",
+    "country",
+    "role",
+    "aoi_bbox_west",
+    "aoi_bbox_south",
+    "aoi_bbox_east",
+    "aoi_bbox_north",
+    "predictor_start_date",
+    "predictor_end_date_inclusive",
+    "predictor_end_date_exclusive",
+    "predictor_n_days_inclusive",
+    "predictor_n_hours_observed",
+    "predictor_temperature_c_mean_observed",
+    "predictor_temperature_c_mean_climatology_mean",
+    "predictor_temperature_c_mean_climatology_sd",
+    "predictor_temperature_c_mean_anomaly",
+    "predictor_temperature_c_mean_standardized_anomaly",
+    "predictor_temperature_c_mean_zero_climatology_sd",
+    "predictor_temperature_c_max_observed",
+    "predictor_temperature_c_max_climatology_mean",
+    "predictor_temperature_c_max_climatology_sd",
+    "predictor_temperature_c_max_anomaly",
+    "predictor_temperature_c_max_standardized_anomaly",
+    "predictor_temperature_c_max_zero_climatology_sd",
+    "predictor_relative_humidity_percent_mean_observed",
+    "predictor_relative_humidity_percent_mean_climatology_mean",
+    "predictor_relative_humidity_percent_mean_climatology_sd",
+    "predictor_relative_humidity_percent_mean_anomaly",
+    "predictor_relative_humidity_percent_mean_standardized_anomaly",
+    "predictor_relative_humidity_percent_mean_zero_climatology_sd",
+    "predictor_relative_humidity_percent_max_observed",
+    "predictor_relative_humidity_percent_max_climatology_mean",
+    "predictor_relative_humidity_percent_max_climatology_sd",
+    "predictor_relative_humidity_percent_max_anomaly",
+    "predictor_relative_humidity_percent_max_standardized_anomaly",
+    "predictor_relative_humidity_percent_max_zero_climatology_sd",
+    "predictor_wind_speed_m_s_mean_observed",
+    "predictor_wind_speed_m_s_mean_climatology_mean",
+    "predictor_wind_speed_m_s_mean_climatology_sd",
+    "predictor_wind_speed_m_s_mean_anomaly",
+    "predictor_wind_speed_m_s_mean_standardized_anomaly",
+    "predictor_wind_speed_m_s_mean_zero_climatology_sd",
+    "predictor_wind_speed_m_s_max_observed",
+    "predictor_wind_speed_m_s_max_climatology_mean",
+    "predictor_wind_speed_m_s_max_climatology_sd",
+    "predictor_wind_speed_m_s_max_anomaly",
+    "predictor_wind_speed_m_s_max_standardized_anomaly",
+    "predictor_wind_speed_m_s_max_zero_climatology_sd",
+    "predictor_precipitation_mm_mean_observed",
+    "predictor_precipitation_mm_mean_climatology_mean",
+    "predictor_precipitation_mm_mean_climatology_sd",
+    "predictor_precipitation_mm_mean_anomaly",
+    "predictor_precipitation_mm_mean_standardized_anomaly",
+    "predictor_precipitation_mm_mean_zero_climatology_sd",
+    "predictor_precipitation_mm_max_observed",
+    "predictor_precipitation_mm_max_climatology_mean",
+    "predictor_precipitation_mm_max_climatology_sd",
+    "predictor_precipitation_mm_max_anomaly",
+    "predictor_precipitation_mm_max_standardized_anomaly",
+    "predictor_precipitation_mm_max_zero_climatology_sd",
+    "predictor_precipitation_mm_total_observed",
+    "predictor_precipitation_mm_total_climatology_mean",
+    "predictor_precipitation_mm_total_climatology_sd",
+    "predictor_precipitation_mm_total_anomaly",
+    "predictor_precipitation_mm_total_standardized_anomaly",
+    "predictor_precipitation_mm_total_zero_climatology_sd",
+    "label_start_date",
+    "label_end_date_inclusive",
+    "label_end_date_exclusive",
+    "label_n_days_inclusive",
+    "label_n_hours_observed",
+    "label_temperature_c_mean_observed",
+    "label_temperature_c_mean_climatology_mean",
+    "label_temperature_c_mean_climatology_sd",
+    "label_temperature_c_mean_anomaly",
+    "label_temperature_c_mean_standardized_anomaly",
+    "label_temperature_c_mean_zero_climatology_sd",
+    "label_temperature_c_max_observed",
+    "label_temperature_c_max_climatology_mean",
+    "label_temperature_c_max_climatology_sd",
+    "label_temperature_c_max_anomaly",
+    "label_temperature_c_max_standardized_anomaly",
+    "label_temperature_c_max_zero_climatology_sd",
+    "label_relative_humidity_percent_mean_observed",
+    "label_relative_humidity_percent_mean_climatology_mean",
+    "label_relative_humidity_percent_mean_climatology_sd",
+    "label_relative_humidity_percent_mean_anomaly",
+    "label_relative_humidity_percent_mean_standardized_anomaly",
+    "label_relative_humidity_percent_mean_zero_climatology_sd",
+    "label_relative_humidity_percent_max_observed",
+    "label_relative_humidity_percent_max_climatology_mean",
+    "label_relative_humidity_percent_max_climatology_sd",
+    "label_relative_humidity_percent_max_anomaly",
+    "label_relative_humidity_percent_max_standardized_anomaly",
+    "label_relative_humidity_percent_max_zero_climatology_sd",
+    "label_wind_speed_m_s_mean_observed",
+    "label_wind_speed_m_s_mean_climatology_mean",
+    "label_wind_speed_m_s_mean_climatology_sd",
+    "label_wind_speed_m_s_mean_anomaly",
+    "label_wind_speed_m_s_mean_standardized_anomaly",
+    "label_wind_speed_m_s_mean_zero_climatology_sd",
+    "label_wind_speed_m_s_max_observed",
+    "label_wind_speed_m_s_max_climatology_mean",
+    "label_wind_speed_m_s_max_climatology_sd",
+    "label_wind_speed_m_s_max_anomaly",
+    "label_wind_speed_m_s_max_standardized_anomaly",
+    "label_wind_speed_m_s_max_zero_climatology_sd",
+    "label_precipitation_mm_mean_observed",
+    "label_precipitation_mm_mean_climatology_mean",
+    "label_precipitation_mm_mean_climatology_sd",
+    "label_precipitation_mm_mean_anomaly",
+    "label_precipitation_mm_mean_standardized_anomaly",
+    "label_precipitation_mm_mean_zero_climatology_sd",
+    "label_precipitation_mm_max_observed",
+    "label_precipitation_mm_max_climatology_mean",
+    "label_precipitation_mm_max_climatology_sd",
+    "label_precipitation_mm_max_anomaly",
+    "label_precipitation_mm_max_standardized_anomaly",
+    "label_precipitation_mm_max_zero_climatology_sd",
+    "label_precipitation_mm_total_observed",
+    "label_precipitation_mm_total_climatology_mean",
+    "label_precipitation_mm_total_climatology_sd",
+    "label_precipitation_mm_total_anomaly",
+    "label_precipitation_mm_total_standardized_anomaly",
+    "label_precipitation_mm_total_zero_climatology_sd"
+  ]
+}

@@ -1,0 +1,39 @@
+# Frozen raw evidence: NEVER touch line endings.
+#
+# These directories hold pipeline outputs whose SHA-256 hashes are recorded in
+# their own SHA256SUMS.txt, in the pipeline's manifest.json, and in the paper's
+# Methods section. With core.autocrlf=true a Windows checkout would rewrite LF
+# to CRLF and every one of those hashes would stop matching, silently breaking
+# the provenance chain. `-text` disables all EOL conversion in both directions,
+# so a clone reproduces the bytes exactly as verified.
+paper/era5_raw/**            -text
+paper/mugla_temporal_raw/**  -text
+paper/step9g_raw/**          -text
+# Added 2026-08-13. mugla_transfer_raw was MISSING from this list and its working
+# copy had already been CRLF-rewritten on checkout: 5 of its 9 files stopped
+# matching their own SHA256SUMS.txt (the committed blobs were always correct).
+# reproduction_check holds the five-region reproduction record whose SHA-256 is
+# quoted in Methods 3.13, so it must never be rewritten either.
+paper/mugla_transfer_raw/**  -text
+paper/reproduction_check/**  -text
+
+# Files verified by SHA-256 (registration, annexes, primary data) must never have their bytes
+# changed by line-ending conversion, or hashes differ between machines. Added 2026-09-19.
+design/** -text
+paper/data/** -text
+
+# Label-fix re-run records (2026-09-23). round3/ holds inputs of the pre-registration's precision
+# analysis (transfer_ci_blocksize.csv, verified by value); keep bytes exact.
+paper/labelfix_rerun/round3/**  -text
+paper/labelfix_rerun/round4/**  -text
+paper/labelfix_rerun/round5/**  -text
+paper/labelfix_rerun/round6/**  -text
+
+# Figure data are hashed in the provenance sidecars: keep their bytes exactly (no EOL conversion).
+paper/figures/data/*.json -text
+paper/figures/*.tif -text
+
+# The whole label-fix record, not only round3-6: code/*.json are pinned sources of the supplementary
+# tables (round5/tables/SOURCES.sha256), and a CRLF checkout on Windows broke two of them
+# (found by a clean-clone test, 2026-09-24).
+paper/labelfix_rerun/**  -text

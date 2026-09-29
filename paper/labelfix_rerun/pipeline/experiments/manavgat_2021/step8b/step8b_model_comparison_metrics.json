@@ -1,0 +1,400 @@
+{
+  "created_at": "2026-09-19T08:43:40.268917+00:00",
+  "step": "step8b_train_baseline_vs_thermal_model",
+  "input_dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+  "row_count": 24087,
+  "target_counts": {
+    "burned": 3046,
+    "unburned": 21041
+  },
+  "feature_sets": {
+    "baseline": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant"
+    ],
+    "thermal_additional": [
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "thermal_model_full": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ]
+  },
+  "forbidden_columns_checked": [
+    "burned",
+    "burn_date",
+    "burn_month",
+    "burn_day_of_year",
+    "label_source",
+    "burn_date_pixel_agreement_fraction",
+    "out_of_window_burndate",
+    "cell_id",
+    "row_500m",
+    "col_500m",
+    "valid_for_modeling",
+    "invalid_reason",
+    "source_mask_majority",
+    "observed_fraction",
+    "gapfilled_fraction",
+    "invalid_source_fraction",
+    "lon",
+    "lat"
+  ],
+  "spatial_cv_config": {
+    "method": "StratifiedGroupKFold",
+    "groups": "spatial_block_id (row_500m // block, col_500m // block)",
+    "spatial_block_size_cells": 2,
+    "n_splits_requested": 5,
+    "random_split_used": false,
+    "random_state": 42
+  },
+  "model": "random_forest",
+  "population_counts": {
+    "all_valid": 24087,
+    "cropland_dominant": 1260,
+    "burnable_tree_shrub_grass": 20511,
+    "burnable_tree_shrub": 15538
+  },
+  "skipped_populations": {},
+  "population_metrics": {
+    "all_valid": {
+      "n_splits_used": 5,
+      "n_positives": 3046,
+      "n_negatives": 21041,
+      "overall_baseline": {
+        "positive_count": 3046,
+        "negative_count": 21041,
+        "roc_auc": 0.8646899654343989,
+        "pr_auc": 0.4811198951410748,
+        "brier_score": 0.11921330925748039,
+        "balanced_accuracy": 0.7534178416569245,
+        "precision": 0.3675366464068645,
+        "recall": 0.6749835850295469,
+        "f1": 0.4759259259259259
+      },
+      "overall_thermal": {
+        "positive_count": 3046,
+        "negative_count": 21041,
+        "roc_auc": 0.9212270992789834,
+        "pr_auc": 0.6468848334996031,
+        "brier_score": 0.08542157248844623,
+        "balanced_accuracy": 0.8172458639439,
+        "precision": 0.5058426966292134,
+        "recall": 0.7390019697964544,
+        "f1": 0.6005869797225186
+      },
+      "delta_auc": 0.056537133844584475,
+      "delta_pr_auc": 0.16576493835852835,
+      "delta_brier": -0.03379173676903416,
+      "interpretation": "thermal_improves",
+      "monthly": {
+        "august": {
+          "positive_count": 686,
+          "negative_count": 21041,
+          "auc_baseline": 0.8171068341789451,
+          "auc_thermal": 0.8871707230489743,
+          "pr_auc_baseline": 0.1000920414367208,
+          "pr_auc_thermal": 0.22483308732197133,
+          "delta_auc": 0.07006388887002912,
+          "delta_pr_auc": 0.12474104588525052
+        },
+        "september": {
+          "positive_count": 0,
+          "negative_count": 21041,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month september has too few positives (0 < 10)"
+        },
+        "october": {
+          "positive_count": 0,
+          "negative_count": 21041,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month october has too few positives (0 < 10)"
+        }
+      }
+    },
+    "cropland_dominant": {
+      "n_splits_used": 5,
+      "n_positives": 54,
+      "n_negatives": 1206,
+      "overall_baseline": {
+        "positive_count": 54,
+        "negative_count": 1206,
+        "roc_auc": 0.8898409188624776,
+        "pr_auc": 0.3004090458610867,
+        "brier_score": 0.0629568318751129,
+        "balanced_accuracy": 0.7211166390270868,
+        "precision": 0.23333333333333334,
+        "recall": 0.5185185185185185,
+        "f1": 0.3218390804597701
+      },
+      "overall_thermal": {
+        "positive_count": 54,
+        "negative_count": 1206,
+        "roc_auc": 0.8952843805663042,
+        "pr_auc": 0.2341982218574159,
+        "brier_score": 0.05275023900211388,
+        "balanced_accuracy": 0.689469320066335,
+        "precision": 0.23300970873786409,
+        "recall": 0.4444444444444444,
+        "f1": 0.3057324840764331
+      },
+      "delta_auc": 0.005443461703826591,
+      "delta_pr_auc": -0.06621082400367079,
+      "delta_brier": -0.01020659287299902,
+      "interpretation": "neutral",
+      "monthly": {
+        "august": {
+          "positive_count": 0,
+          "negative_count": 1206,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month august has too few positives (0 < 10)"
+        },
+        "september": {
+          "positive_count": 0,
+          "negative_count": 1206,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month september has too few positives (0 < 10)"
+        },
+        "october": {
+          "positive_count": 0,
+          "negative_count": 1206,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month october has too few positives (0 < 10)"
+        }
+      }
+    },
+    "burnable_tree_shrub_grass": {
+      "n_splits_used": 5,
+      "n_positives": 2935,
+      "n_negatives": 17576,
+      "overall_baseline": {
+        "positive_count": 2935,
+        "negative_count": 17576,
+        "roc_auc": 0.8411807102607785,
+        "pr_auc": 0.4698773243148263,
+        "brier_score": 0.13226574586190404,
+        "balanced_accuracy": 0.7318790665449788,
+        "precision": 0.37121063954625466,
+        "recall": 0.6466780238500852,
+        "f1": 0.4716699801192843
+      },
+      "overall_thermal": {
+        "positive_count": 2935,
+        "negative_count": 17576,
+        "roc_auc": 0.90807357717935,
+        "pr_auc": 0.6455894428110062,
+        "brier_score": 0.09492372943117652,
+        "balanced_accuracy": 0.8002564574272335,
+        "precision": 0.5064966313763234,
+        "recall": 0.717206132879046,
+        "f1": 0.593710337046961
+      },
+      "delta_auc": 0.06689286691857155,
+      "delta_pr_auc": 0.17571211849617985,
+      "delta_brier": -0.037342016430727515,
+      "interpretation": "thermal_improves",
+      "monthly": {
+        "august": {
+          "positive_count": 684,
+          "negative_count": 17576,
+          "auc_baseline": 0.7870332384405103,
+          "auc_thermal": 0.8648983395752315,
+          "pr_auc_baseline": 0.1058314531351097,
+          "pr_auc_thermal": 0.22498199378401382,
+          "delta_auc": 0.07786510113472123,
+          "delta_pr_auc": 0.11915054064890412
+        },
+        "september": {
+          "positive_count": 0,
+          "negative_count": 17576,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month september has too few positives (0 < 10)"
+        },
+        "october": {
+          "positive_count": 0,
+          "negative_count": 17576,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month october has too few positives (0 < 10)"
+        }
+      }
+    },
+    "burnable_tree_shrub": {
+      "n_splits_used": 5,
+      "n_positives": 2297,
+      "n_negatives": 13241,
+      "overall_baseline": {
+        "positive_count": 2297,
+        "negative_count": 13241,
+        "roc_auc": 0.789261938444845,
+        "pr_auc": 0.36505426885921477,
+        "brier_score": 0.14920210776210854,
+        "balanced_accuracy": 0.6878473930444602,
+        "precision": 0.3291420118343195,
+        "recall": 0.5811928602525033,
+        "f1": 0.42027388635290414
+      },
+      "overall_thermal": {
+        "positive_count": 2297,
+        "negative_count": 13241,
+        "roc_auc": 0.886146600033267,
+        "pr_auc": 0.5862777397715222,
+        "brier_score": 0.10499982580304443,
+        "balanced_accuracy": 0.7765116542636776,
+        "precision": 0.48297213622291024,
+        "recall": 0.6791467131040487,
+        "f1": 0.5645015379048308
+      },
+      "delta_auc": 0.0968846615884219,
+      "delta_pr_auc": 0.22122347091230743,
+      "delta_brier": -0.044202281959064116,
+      "interpretation": "thermal_improves",
+      "monthly": {
+        "august": {
+          "positive_count": 618,
+          "negative_count": 13241,
+          "auc_baseline": 0.750739037739257,
+          "auc_thermal": 0.8524931998751548,
+          "pr_auc_baseline": 0.11340555118972899,
+          "pr_auc_thermal": 0.25708225147413044,
+          "delta_auc": 0.10175416213589783,
+          "delta_pr_auc": 0.14367670028440144
+        },
+        "september": {
+          "positive_count": 0,
+          "negative_count": 13241,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month september has too few positives (0 < 10)"
+        },
+        "october": {
+          "positive_count": 0,
+          "negative_count": 13241,
+          "auc_baseline": null,
+          "auc_thermal": null,
+          "pr_auc_baseline": null,
+          "pr_auc_thermal": null,
+          "delta_auc": null,
+          "delta_pr_auc": null,
+          "warning": "month october has too few positives (0 < 10)"
+        }
+      }
+    }
+  },
+  "gapfill_sensitivity": {
+    "all_valid": [
+      {
+        "gapfilled_fraction_lt": 0.25,
+        "n_cells": 23305,
+        "positive_count": 3046,
+        "negative_count": 20259,
+        "auc_baseline": 0.86020983937588,
+        "auc_thermal": 0.9184010838369315,
+        "delta_auc": 0.058191244461051506
+      },
+      {
+        "gapfilled_fraction_lt": 0.5,
+        "n_cells": 23680,
+        "positive_count": 3046,
+        "negative_count": 20634,
+        "auc_baseline": 0.8624864449606694,
+        "auc_thermal": 0.9198170140492545,
+        "delta_auc": 0.05733056908858514
+      }
+    ],
+    "cropland_dominant": [
+      {
+        "gapfilled_fraction_lt": 0.25,
+        "n_cells": 1260,
+        "positive_count": 54,
+        "negative_count": 1206,
+        "auc_baseline": 0.8898409188624776,
+        "auc_thermal": 0.8952843805663042,
+        "delta_auc": 0.005443461703826591
+      },
+      {
+        "gapfilled_fraction_lt": 0.5,
+        "n_cells": 1260,
+        "positive_count": 54,
+        "negative_count": 1206,
+        "auc_baseline": 0.8898409188624776,
+        "auc_thermal": 0.8952843805663042,
+        "delta_auc": 0.005443461703826591
+      }
+    ]
+  },
+  "feature_missing_counts": {
+    "ndvi_mean": 0,
+    "elevation_mean": 0,
+    "slope_mean": 0,
+    "landcover_dominant": 0,
+    "lst_anomaly_mean": 2048,
+    "current_lst_mean": 75,
+    "current_tvdi_mean": 77,
+    "tvdi_difference_mean": 81,
+    "downscaled_lst_mean": 0,
+    "fused_lst_mean": 0
+  },
+  "warnings": [
+    "October burn_month positives are low (n=0 < 10); October metrics may be null."
+  ],
+  "no_firms_label_used": true,
+  "no_30m_pixel_samples": true,
+  "label_source": "MCD64A1",
+  "primary_population": "all_valid",
+  "no_model_confidence_interval_or_pvalue_reported": true,
+  "note_on_significance": "No statistical significance test (confidence interval or p-value) is implemented for delta_auc/delta_pr_auc in this run. Differences should be read as point estimates only."
+}

@@ -1,0 +1,139 @@
+% =============================================================================
+% figure_captions.tex
+%
+% Captions for the manuscript figures, in figure-number order. Every numeric value in these
+% captions is asserted against the analysis outputs when the figures are built
+% (paper/figures/check_all.py). Figures are drawn for a 174 mm full-width measure, body 9 pt,
+% minimum 8 pt, vector PDF.
+% =============================================================================
+
+% ---------------------------------------------------------------- Figure 1 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig1_study_map.pdf}}
+  \caption{\textbf{Study regions and the gate negative control.} The five fire regions are shown
+  in blue: Manavgat 2021 and Mu\u{g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North Evia 2021
+  (Greece, extended area) and Montiferru 2021 (Sardinia, Italy). Rectangles are the study areas.
+  Kozan 2023 (grey, dashed) is the negative control of the admissibility gate and is not used in any
+  model. Coastlines are from Natural Earth 1:50\,m. Country borders are not shown. The scale bar is
+  exact only at 38\textdegree N. Bounding boxes are given in Table~S19.}
+  \label{fig:study-map}
+\end{figure}
+
+% ---------------------------------------------------------------- Figure 2 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig2_schematic.pdf}}
+  \caption{\textbf{Processing chain and evaluation design.} Each box names the Methods section
+  that describes it. Five source products (MCD64A1, Landsat Collection 2 Level-2, MOD11A1,
+  Copernicus DEM GLO-30 and ESA WorldCover) are combined on the $\sim$510\,m analysis grid. Regions
+  that pass the admissibility gate are used in the natural-vegetation population. Kozan 2023 fails
+  the gate (98\% of its burned area is cropland) and is not modelled. Two evaluations are made:
+  within-region cross-validation and cross-region transfer in 20 directions, with and without
+  label-blind adaptation. Both are combined in the transfer-gap decomposition (\S3.10). Leakage
+  control, seed 42 and the spatial-block bootstrap (\S3.13) apply throughout.}
+  \label{fig:pipeline}
+\end{figure}
+
+% ---------------------------------------------------------------- Figure 3 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig3_within_robustness.pdf}}
+  \caption{\textbf{The within-region thermal gain in all five regions, by block size.}
+  Natural-vegetation population; random forest; 95\% spatial-block bootstrap intervals (1000
+  replicates, seed 42). \textbf{(a)} Baseline (open marker) and thermal (filled marker) ROC-AUC at
+  2-cell ($\sim$1\,km) blocking. The right-hand column gives the paired $\Delta$AUC and its interval.
+  \textbf{(b)} Thermal ROC-AUC at 2, 10 and 20 cells ($\approx$1, 5 and 10\,km). Skill falls as the
+  blocks become larger. \textbf{(c)} $\Delta$AUC at the same block sizes. The interval excludes zero
+  in all regions at 2 and 10 cells. At 20 cells only 6 to 33 blocks contain burned cells, so these
+  intervals are indicative (Table~\ref{tab:1}, note). Colour and marker shape both show the region.}
+  \label{fig:within-robustness}
+\end{figure}
+
+% ---------------------------------------------------------------- Figure 4 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig4_transfer_matrix.pdf}}
+  \caption{\textbf{Cross-region transfer, without and with label-blind adaptation.} Thermal
+  transfer ROC-AUC for the 20 ordered directions; natural-vegetation population; original study
+  areas. \textbf{(a)} Raw transfer. \textbf{(b)} After region-wise z-scoring. \textbf{(c)} After
+  CORAL. Rows are source regions and columns are target regions (Man.\ = Manavgat, Bej.\ = Bej\'is,
+  Mu\u{g}.\ = Mu\u{g}la, Evia = North Evia, Mont.\ = Montiferru). The diagonal is empty. The colour
+  scale is centred on 0.5: orange is below chance and purple is above. Cells below chance are also
+  hatched. The ranges are 0.314 to 0.677 (raw), 0.302 to 0.630 (z-score) and 0.406 to 0.624
+  (CORAL). Adaptation moves the matrix toward chance. Under z-scoring, Bej\'is$\rightarrow$Manavgat
+  falls further below chance (0.314 to 0.302). Hatching uses the exact value, so three cells printed
+  as 0.50 are hatched differently (CORAL Bej\'is$\rightarrow$Evia is 0.4991). Intervals are given in
+  Table~S16.}
+  \label{fig:transfer-matrix}
+\end{figure}
+
+% ---------------------------------------------------------------- Figure 5 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig5_adaptation.pdf}}
+  \caption{\textbf{Label-blind adaptation moves transfer toward chance.} The 12 ordered directions
+  among Manavgat, Bej\'is, Mu\u{g}la and Evia; natural-vegetation population; original study areas.
+  The open circle is raw transfer ROC-AUC. The arrow ends at the better of the two adapted results
+  (z-score or CORAL); this choice uses target labels. The grey tick is the target's within-region
+  reference, and the dashed line is chance. \textbf{Solid blue arrows (five) move toward the
+  reference; dashed orange arrows (seven) move away from it.} Eleven of twelve directions end closer
+  to chance. The exception is Manavgat$\rightarrow$Mu\u{g}la (0.438 to 0.427).
+  Bej\'is$\rightarrow$Manavgat is shown as a recovery because CORAL raises it from 0.314 to 0.406;
+  under z-scoring it falls to 0.302 (Fig.~\ref{fig:transfer-matrix}). The largest loss is
+  Evia$\rightarrow$Manavgat, from 0.677 to 0.417, against a reference of 0.908 (recovered fraction
+  $-1.126$). No arrow reaches its reference.}
+  \label{fig:adaptation}
+\end{figure}
+
+% ---------------------------------------------------------------- Figure 6 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig6_loro.pdf}}
+  \caption{\textbf{Pooling the other regions helps one target of five.} For each target (row), a
+  model trained on the other four regions together (filled orange circle, with its 95\%
+  spatial-block, $\approx$5\,km, bootstrap interval below the row) is compared with the mean of the
+  four single-source models (open grey square) and the best single source (open blue diamond; this
+  choice uses target labels). The grey tick is the within-region ceiling, and the dashed line is
+  chance. Natural-vegetation population; thermal feature set; no adaptation. The pooled model is
+  better than the mean single source only for Evia, at 0.715 [0.668, 0.757] against 0.569, and
+  there it is also better than the best single source, 0.654. For Manavgat and Bej\'is it is below
+  chance at the point estimate (0.426 and 0.458). Only the Manavgat interval lies fully below chance.
+  All points are far below the within-region ceiling.}
+  \label{fig:loro}
+\end{figure}
+
+% ---------------------------------------------------------------- Figure 7 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig7_feature_drop.pdf}}
+  \caption{\textbf{Removing the reversing features costs local skill and gives no measurable
+  transfer gain.} Mean within-region ROC-AUC over five regions (horizontal) against mean transfer
+  ROC-AUC over 20 directions (vertical), for four feature sets: the full thermal set, without the
+  LST anomaly, without elevation, and without both. Along the grey path, within-region skill falls
+  (0.896 $\rightarrow$ 0.820) and mean transfer rises (0.527 $\rightarrow$ 0.541). The within-region
+  cost is 0.076 AUC and is supported in every region. The change in transfer is $+$0.014 AUC, with a
+  pair-$t$ interval over ten region pairs of [$-$0.028, $+$0.056], which includes zero. The vertical
+  whisker shows this interval around the full-set transfer level (dotted line).}
+  \label{fig:feature-drop}
+\end{figure}
+
+% ---------------------------------------------------------------- Figure 8 --
+\begin{figure}[htbp]
+  \centering
+  \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig8_contrast_pairs.pdf}}
+  \caption{\textbf{The contrast pairs.} \textbf{(a)} Manavgat and Mu\u{g}la have the highest niche
+  overlap (mean one-dimensional Schoener's $D$, $\bar{D}=0.80$; rank 1 of 10 on all five overlap
+  measures). Transfer is below chance in both directions at the point estimates (0.438 and 0.345).
+  \textbf{(b)} Bej\'is and Montiferru have the lowest overlap ($\bar{D}=0.48$, rank 10). Transfer is
+  above chance in both directions (0.594 and 0.548). Arrows run from 0.5 to the signed univariate
+  AUC of each feature in each region. A filled arrowhead marks a 95\% spatial-block (10-cell,
+  $\approx$5\,km) bootstrap interval that excludes 0.5; an open arrowhead marks one that does not.
+  Solid blue is the first region and dashed orange the second. Shaded rows mark features with
+  opposite signs in the two regions. Side bars give Schoener's $D$ per feature. In (a), six features
+  are supported in both regions and all six have opposite signs; signs agree on 2 of 9 features. In
+  (b), no feature is supported in both regions, and signs agree on 7 of 9. At 1\,km blocking all four
+  directions have interval support; at 5\,km only Mu\u{g}la$\rightarrow$Manavgat has, so the contrast
+  is stated at the point estimates.}
+  \label{fig:contrast-pairs}
+\end{figure}

@@ -1,0 +1,25 @@
+{
+ "g2_other_regions_max_abs_diff": 0.0,
+ "manavgat_as_source": {
+  "frozen": {
+   "raw_thermal_mean": 0.4855,
+   "raw_baseline_mean": 0.503,
+   "per_direction": {
+    "manavgat_2021_to_bejis_2022": 0.3258,
+    "manavgat_2021_to_evia_2021_extended": 0.6126,
+    "manavgat_2021_to_montiferru_2021": 0.5333,
+    "manavgat_2021_to_mugla_2021": 0.4702
+   }
+  },
+  "corrected": {
+   "raw_thermal_mean": 0.5015,
+   "raw_baseline_mean": 0.4982,
+   "per_direction": {
+    "manavgat_2021_to_bejis_2022": 0.3964,
+    "manavgat_2021_to_evia_2021_extended": 0.654,
+    "manavgat_2021_to_montiferru_2021": 0.5178,
+    "manavgat_2021_to_mugla_2021": 0.4377
+   }
+  }
+ }
+}

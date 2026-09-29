@@ -1,0 +1,64 @@
+{
+ "ran": true,
+ "analysis_id": "904d1f97212d7624d9e9da8b26c5aeb6ed90c763a3de7826c615ad7a31c8eff2",
+ "experiment_id": "manavgat_2021",
+ "conditions": [
+  10,
+  20
+ ],
+ "infeasible_block_sizes": [],
+ "report": {
+  "analysis_id": "904d1f97212d7624d9e9da8b26c5aeb6ed90c763a3de7826c615ad7a31c8eff2",
+  "report_schema_version": "step8.big_block_robustness.v2",
+  "experiment_id": "manavgat_2021",
+  "primary_population": "burnable_tree_shrub_grass",
+  "block_sizes_evaluated": [
+   10,
+   20
+  ],
+  "per_block_size_status": {
+   "10": "retained",
+   "20": "retained"
+  },
+  "support_robustness_status": "strongly_robust",
+  "effect_magnitude_stability_status": "decreases_with_block_scale",
+  "effect_magnitude_details": {
+   "delta_roc_auc_relative_reduction_small_to_10": 0.07458024531791266,
+   "delta_roc_auc_relative_reduction_small_to_20": 0.2982821486385671,
+   "delta_roc_auc_relative_reduction_10_to_20": 0.24173020101294848,
+   "delta_pr_auc_relative_reduction_small_to_10": 0.10726531103281381,
+   "delta_pr_auc_relative_reduction_small_to_20": 0.43409603618742815,
+   "delta_pr_auc_relative_reduction_10_to_20": 0.36610062227191836,
+   "stable_band": 0.05
+  },
+  "conclusion": "Positive thermal contribution was retained at both larger block scales, while the magnitude of the contribution decreased as spatial separation increased.",
+  "infeasible_block_sizes": {},
+  "original_small_block_reference": [
+   {
+    "analysis_id": "904d1f97212d7624d9e9da8b26c5aeb6ed90c763a3de7826c615ad7a31c8eff2",
+    "experiment": "manavgat_2021",
+    "source_type": "frozen_original_small_block",
+    "block_size_cells": 2,
+    "nominal_block_scale": "approximately_1_km",
+    "primary_population": "burnable_tree_shrub_grass",
+    "baseline_roc_auc": 0.8411807102607785,
+    "thermal_roc_auc": 0.90807357717935,
+    "delta_roc_auc": 0.06689286691857155,
+    "delta_roc_auc_ci_low": 0.06049303885315217,
+    "delta_roc_auc_ci_high": 0.07320023457732208,
+    "baseline_pr_auc": 0.4698773243148263,
+    "thermal_pr_auc": 0.6455894428110062,
+    "delta_pr_auc": 0.17571211849617985,
+    "delta_pr_auc_ci_low": 0.1545369805112801,
+    "delta_pr_auc_ci_high": 0.19499781027615876,
+    "baseline_brier": 0.13226574586190404,
+    "thermal_brier": 0.09492372943117652,
+    "delta_brier": -0.037342016430727515,
+    "delta_brier_ci_low": -0.04018044745923271,
+    "delta_brier_ci_high": -0.03436289655559801,
+    "brier_improvement": 0.037342016430727515,
+    "brier_improvement_ci_low": 0.03436289655559801,
+    "brier_improvement_ci_high": 0.04018044745923271,
+    "brier_improvement_definition": "brier_improvement = baseline_brier - thermal_brier; POSITIVE values mean the thermal model has the lower/better Brier score. The deprecated `delta_brier` field (thermal_brier - baseline_brier) uses the OPPOSITE sign convention (negative = thermal better) and is kept only for backward compatibility with v1-schema reports.",
+    "brier_support_status": "supported_improvement",
+    "roc_support_status": "supported_po

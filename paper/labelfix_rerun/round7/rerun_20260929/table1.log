@@ -1,0 +1,6 @@
+input C:\Users\CORSAIR\projects\thermal-twin-main\paper\data\manavgat_2021\step8a_500m_modeling_dataset.parquet 5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb
+n 20511 burned 2935
+2 [0.8412, 0.9081, 0.0669, 0.0606, 0.0733] printed (0.841, 0.908, 0.067, 0.06, 0.073) DIFF
+10 [0.8203, 0.8822, 0.0619, 0.0413, 0.0822] printed (0.82, 0.882, 0.062, 0.04, 0.082) DIFF
+20 [0.7976, 0.8445, 0.0469, 0.0157, 0.0807] printed (0.798, 0.845, 0.047, 0.016, 0.081) MATCH
+MISMATCH

@@ -1,0 +1,24 @@
+profiled full
+profiled collar10
+
+======================================================================
+FRAME = full
+======================================================================
+  agree_fraction_supported: defined in 18/20 directions
+    distinct values: [np.float64(0.0), np.float64(1.0)]
+    variance: 0.261438
+    Spearman rho vs transfer = +0.5172  (p=0.0279, n=18)
+  cosine_9 vs transfer: rho = +0.4438  (p=0.0500, n=20)
+    mean supported-in-both features per direction: 2.30
+
+======================================================================
+FRAME = collar10
+======================================================================
+  agree_fraction_supported: defined in 16/20 directions
+    distinct values: [np.float64(0.0), np.float64(1.0)]
+    variance: 0.200000
+    Spearman rho vs transfer = +0.3757  (p=0.1515, n=16)
+  cosine_9 vs transfer: rho = +0.5736  (p=0.0082, n=20)
+    mean supported-in-both features per direction: 2.20
+
+wrote C:/Users/CORSAIR/projects/thermal-twin/rerun_labelfix/_round5/out_official/diagnostics_collar_frame.csv

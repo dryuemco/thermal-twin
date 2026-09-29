@@ -1,0 +1,30 @@
+2026-09-23 10:59:44,664 INFO     ======================================================================
+2026-09-23 10:59:44,664 INFO     STEP10A: on-kayit (preregistration) + girdi denetimi
+2026-09-23 10:59:44,664 INFO     ======================================================================
+2026-09-23 10:59:44,679 INFO     YENI on-kayit olusturuldu (immutable): analysis_id=27f5f9a83a56105b8be62adf87793be3debe9f20b06219b750e85ef879936a15 (C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step10\step10_preregistration.json)
+2026-09-23 10:59:44,718 INFO     Girdi denetimi yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step10\step10_input_audit.json
+2026-09-23 10:59:44,718 INFO     analysis_id = 27f5f9a83a56105b8be62adf87793be3debe9f20b06219b750e85ef879936a15
+2026-09-23 10:59:44,718 INFO     ======================================================================
+2026-09-23 10:59:44,718 INFO     STEP10B: label-blind adaptasyon + tahmin (raw/zscore/CORAL)
+2026-09-23 10:59:44,718 INFO     ======================================================================
+2026-09-23 10:59:44,718 INFO     Step10B: montiferru_2021 ve manavgat_2021 icin Step8A veri setleri yukleniyor (kaynak: X+y; hedef: YALNIZCA X)...
+2026-09-23 10:59:44,743 INFO     [montiferru_2021_to_manavgat_2021] hedef DataFrame label-blind hale getirildi (kolonlar: ['cell_id', 'spatial_block_id', 'valid_for_modeling', 'burnable_tree_shrub_grass', 'burnable_tree_shrub', 'ndvi_mean', 'elevation_mean', 'slope_mean', 'landcover_dominant', 'lst_anomaly_mean', 'current_lst_mean', 'current_tvdi_mean', 'tvdi_difference_mean', 'downscaled_lst_mean', 'fused_lst_mean']) -- 'burned' YOK.
+2026-09-23 10:59:46,572 INFO     [manavgat_2021_to_montiferru_2021] hedef DataFrame label-blind hale getirildi (kolonlar: ['cell_id', 'spatial_block_id', 'valid_for_modeling', 'burnable_tree_shrub_grass', 'burnable_tree_shrub', 'ndvi_mean', 'elevation_mean', 'slope_mean', 'landcover_dominant', 'lst_anomaly_mean', 'current_lst_mean', 'current_tvdi_mean', 'tvdi_difference_mean', 'downscaled_lst_mean', 'fused_lst_mean']) -- 'burned' YOK.
+2026-09-23 10:59:53,294 INFO     Step10B tamamlandi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step10\step10_predictions.parquet, C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step10\step10_adaptation_statistics.json
+2026-09-23 10:59:53,296 INFO     ======================================================================
+2026-09-23 10:59:53,296 INFO     STEP10C: esli degerlendirme + reprodüksiyon kontrolu + bootstrap
+2026-09-23 10:59:53,296 INFO     ======================================================================
+2026-09-23 10:59:53,313 INFO     [montiferru_2021_to_manavgat_2021] Step10B tahminleri hedef etiketiyle hizalaniyor...
+2026-09-23 10:59:53,455 INFO     [montiferru_2021_to_manavgat_2021] Raw reprodüksiyon kontrolu BASARILI (tum farklar <= 1e-06).
+2026-09-23 10:59:53,455 INFO     [montiferru_2021_to_manavgat_2021] N-yollu esli spatial-block bootstrap calistiriliyor (1000 replika)...
+2026-09-23 11:00:43,560 INFO     [manavgat_2021_to_montiferru_2021] Step10B tahminleri hedef etiketiyle hizalaniyor...
+2026-09-23 11:00:43,605 INFO     [manavgat_2021_to_montiferru_2021] Raw reprodüksiyon kontrolu BASARILI (tum farklar <= 1e-06).
+2026-09-23 11:00:43,605 INFO     [manavgat_2021_to_montiferru_2021] N-yollu esli spatial-block bootstrap calistiriliyor (1000 replika)...
+2026-09-23 11:00:57,391 INFO     Step10C tamamlandi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step10
+2026-09-23 11:00:57,392 INFO     ======================================================================
+2026-09-23 11:00:57,392 INFO     STEP10D: final rapor
+2026-09-23 11:00:57,392 INFO     ======================================================================
+2026-09-23 11:00:57,991 INFO     Step10D complete; protected input SHA-256 check passed: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step10\step10_final_report.json
+2026-09-23 11:00:57,991 INFO     ======================================================================
+2026-09-23 11:00:57,991 INFO     STEP10 TAMAMLANDI. analysis_id=27f5f9a83a56105b8be62adf87793be3debe9f20b06219b750e85ef879936a15
+2026-09-23 11:00:57,991 INFO     ======================================================================

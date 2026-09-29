@@ -1,0 +1,3 @@
+[submodule "repo"]
+	path = repo
+	url = https://github.com/emrehann17/satellite-thermal-digital-twin.git

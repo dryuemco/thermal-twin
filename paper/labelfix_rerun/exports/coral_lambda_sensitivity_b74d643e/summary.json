@@ -1,0 +1,19 @@
+{
+  "analysis_id": "b74d643edc359e62213f4b8fc26f128512de60ed3f2127c317722d6b2d27d17a",
+  "bootstrap": {
+    "model_refit": false,
+    "replicates_per_direction": 1000,
+    "seed": 42
+  },
+  "earth_engine_used": false,
+  "fit_accounting": {
+    "audit_fit_executions": 8,
+    "canonical_gate_checks": 8,
+    "completed_scientific_fits": 72,
+    "duplicate_fit_attempts": 0,
+    "expected_scientific_fits": 72
+  },
+  "lambda_selection_performed": false,
+  "numerical_failure_count": 0,
+  "schema_version": "coral_lambda_sensitivity.v1"
+}

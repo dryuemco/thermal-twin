@@ -1,0 +1,75 @@
+{
+  "analysis_id": "7348dfe74423acef7b5da3c0b64c45c73978738038797d490717d2c04e42b7c5",
+  "canonical_step8a": {
+    "bejis_2022": {
+      "expectation_registered": true,
+      "expected_sha256": "3dec785a7d8e31db2d67ed283546bbfbca1559f56df46663488d0afc24d9e393",
+      "match": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "sha256": "3dec785a7d8e31db2d67ed283546bbfbca1559f56df46663488d0afc24d9e393",
+      "step8a_manifest_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8a\\step8a_dataset_stats.json",
+      "step8a_manifest_sha256": "af8f7ea2db814f065ca8632ba7de486a5dfbaed0eaaad8a9cf6296ca4ea48e23"
+    },
+    "manavgat_2021": {
+      "expectation_registered": true,
+      "expected_sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "match": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "step8a_manifest_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_dataset_stats.json",
+      "step8a_manifest_sha256": "18170d2a67aa17e2d515dbd782c69bc7e43f08062d3d5b15de410795d2898cd5"
+    },
+    "mugla_2021": {
+      "expectation_registered": true,
+      "expected_sha256": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e",
+      "match": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "sha256": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e",
+      "step8a_manifest_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8a\\step8a_dataset_stats.json",
+      "step8a_manifest_sha256": "c9bebf854270393de2e4a75e1bb1d6ce21bdddc00017498ee54ea6802b62ebd8"
+    }
+  },
+  "external_references": {
+    "bejis_2022": {
+      "available": true,
+      "bootstrap_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block\\manavgat_2021__bejis_2022\\bejis_2022\\block_10_cells\\step8c_large_block_bootstrap_summary.json",
+      "bootstrap_path_present": true,
+      "bootstrap_path_sha256": "30c6bd2c4c54309a4d25e2a6ddd49886019579fdd4151b22fc65bc9d7185ba0a",
+      "expected_roc_auc": {
+        "baseline": 0.7793700238725079,
+        "thermal": 0.8244685786179753
+      },
+      "metrics_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block\\manavgat_2021__bejis_2022\\bejis_2022\\block_10_cells\\step8b_large_block_metrics.json",
+      "metrics_path_present": true,
+      "metrics_path_sha256": "fbd336996f8af688504eea8203a607322b9d34d00b4b6a5f67e0097d015a085e"
+    },
+    "manavgat_2021": {
+      "available": true,
+      "bootstrap_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block\\manavgat_2021__bejis_2022\\manavgat_2021\\block_10_cells\\step8c_large_block_bootstrap_summary.json",
+      "bootstrap_path_present": true,
+      "bootstrap_path_sha256": "6841ee78249553f7a4a6f30954b01d12a45d7cb72a4f780f5928158db83e928b",
+      "expected_roc_auc": {
+        "baseline": 0.8203196301445599,
+        "thermal": 0.8822236106383259
+      },
+      "metrics_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block\\manavgat_2021__bejis_2022\\manavgat_2021\\block_10_cells\\step8b_large_block_metrics.json",
+      "metrics_path_present": true,
+      "metrics_path_sha256": "9507ac9e6a7642d8bd2d6a3849db7b64dd531153bc35411e540c199e397c639b"
+    },
+    "mugla_2021": {
+      "available": true,
+      "bootstrap_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\robustness\\step8_big_blocks\\block_10_cells\\bootstrap_summary.json",
+      "bootstrap_path_present": true,
+      "bootstrap_path_sha256": "b1e92b5e9833e7b9fd33161ca23122028c6e0f340468a820610d87d27f9b126d",
+      "expected_roc_auc": {
+        "baseline": 0.6979859420145867,
+        "thermal": 0.7773268638729566
+      },
+      "metrics_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\robustness\\step8_big_blocks\\block_10_cells\\step8b_metrics.json",
+      "metrics_path_present": true,
+      "metrics_path_sha256": "a826279f7268c4fe55a6cb4762b17589ab536c86973c730ee5f9647ec50f34d1"
+    }
+  },
+  "read_only_assertion": "No path outside outputs/diagnostics/few_shot_recovery/<analysis_id>/ was opened for writing.",
+  "schema_version": "few_shot_recovery.v1"
+}

@@ -1,0 +1,473 @@
+{
+  "analysis_id": "49487007d122e6aeec6365b6c966a8d11c6337a441b24b9ad26846606ffd4c1f",
+  "by_direction": {
+    "manavgat_2021_to_evia_2021": {
+      "baseline": {
+        "source_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.5051627882258325,
+            "std": 0.11752428661813409,
+            "raw_std": 0.11752428661813409,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 860.3555184309437,
+            "std": 564.3095676101256,
+            "raw_std": 564.3095676101256,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 18.474968663615453,
+            "std": 7.865099640657973,
+            "raw_std": 7.865099640657973,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          }
+        },
+        "target_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.6090219003095038,
+            "std": 0.10712843153310368,
+            "raw_std": 0.10712843153310368,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 279.73783761509105,
+            "std": 210.38310379158557,
+            "raw_std": 210.38310379158557,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 15.308913407413959,
+            "std": 6.380683672715027,
+            "raw_std": 6.380683672715027,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          }
+        },
+        "coral_diagnostics": {
+          "condition_number_Cs": 3.3209935892120708,
+          "condition_number_Ct": 3.587180440871818,
+          "eigenvalue_floor_used": 1e-12,
+          "lambda": 1e-05,
+          "numeric_feature_order": [
+            "ndvi_mean",
+            "elevation_mean",
+            "slope_mean"
+          ]
+        }
+      },
+      "thermal": {
+        "source_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.5051627882258325,
+            "std": 0.11752428661813409,
+            "raw_std": 0.11752428661813409,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 860.3555184309437,
+            "std": 564.3095676101256,
+            "raw_std": 564.3095676101256,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 18.474968663615453,
+            "std": 7.865099640657973,
+            "raw_std": 7.865099640657973,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "lst_anomaly_mean": {
+            "mean": -0.26791384565482546,
+            "std": 1.27816898311623,
+            "raw_std": 1.27816898311623,
+            "constant_feature_guard_used": false,
+            "n_observed": 20158,
+            "n_missing": 353
+          },
+          "current_lst_mean": {
+            "mean": 35.63533279415588,
+            "std": 4.554136471487417,
+            "raw_std": 4.554136471487417,
+            "constant_feature_guard_used": false,
+            "n_observed": 20451,
+            "n_missing": 60
+          },
+          "current_tvdi_mean": {
+            "mean": 0.49601713654458934,
+            "std": 0.2396729994060421,
+            "raw_std": 0.2396729994060421,
+            "constant_feature_guard_used": false,
+            "n_observed": 20451,
+            "n_missing": 60
+          },
+          "tvdi_difference_mean": {
+            "mean": -0.03478732254328692,
+            "std": 0.11634008545291626,
+            "raw_std": 0.11634008545291626,
+            "constant_feature_guard_used": false,
+            "n_observed": 20450,
+            "n_missing": 61
+          },
+          "downscaled_lst_mean": {
+            "mean": 35.62513808688929,
+            "std": 4.282858667684779,
+            "raw_std": 4.282858667684779,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "fused_lst_mean": {
+            "mean": 35.623279489700685,
+            "std": 4.541413937125201,
+            "raw_std": 4.541413937125201,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          }
+        },
+        "target_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.6090219003095038,
+            "std": 0.10712843153310368,
+            "raw_std": 0.10712843153310368,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 279.73783761509105,
+            "std": 210.38310379158557,
+            "raw_std": 210.38310379158557,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 15.308913407413959,
+            "std": 6.380683672715027,
+            "raw_std": 6.380683672715027,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "lst_anomaly_mean": {
+            "mean": 0.5322409252189072,
+            "std": 0.8206980848028329,
+            "raw_std": 0.8206980848028329,
+            "constant_feature_guard_used": false,
+            "n_observed": 3812,
+            "n_missing": 134
+          },
+          "current_lst_mean": {
+            "mean": 34.85895936313646,
+            "std": 3.5725695479529587,
+            "raw_std": 3.5725695479529587,
+            "constant_feature_guard_used": false,
+            "n_observed": 3927,
+            "n_missing": 19
+          },
+          "current_tvdi_mean": {
+            "mean": 0.54585315203491,
+            "std": 0.20375812071733485,
+            "raw_std": 0.20375812071733485,
+            "constant_feature_guard_used": false,
+            "n_observed": 3927,
+            "n_missing": 19
+          },
+          "tvdi_difference_mean": {
+            "mean": -0.006044141582718338,
+            "std": 0.08334307490477552,
+            "raw_std": 0.08334307490477552,
+            "constant_feature_guard_used": false,
+            "n_observed": 3927,
+            "n_missing": 19
+          },
+          "downscaled_lst_mean": {
+            "mean": 34.87571267514957,
+            "std": 3.376295149313837,
+            "raw_std": 3.376295149313837,
+            "constant_feature_guard_used": false,
+            "n_observed": 3921,
+            "n_missing": 25
+          },
+          "fused_lst_mean": {
+            "mean": 34.86269087097818,
+            "std": 3.5537847370037423,
+            "raw_std": 3.5537847370037423,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          }
+        },
+        "coral_diagnostics": {
+          "condition_number_Cs": 1714.7077603664593,
+          "condition_number_Ct": 1440.9486181913694,
+          "eigenvalue_floor_used": 1e-12,
+          "lambda": 1e-05,
+          "numeric_feature_order": [
+            "ndvi_mean",
+            "elevation_mean",
+            "slope_mean",
+            "lst_anomaly_mean",
+            "current_lst_mean",
+            "current_tvdi_mean",
+            "tvdi_difference_mean",
+            "downscaled_lst_mean",
+            "fused_lst_mean"
+          ]
+        }
+      }
+    },
+    "evia_2021_to_manavgat_2021": {
+      "baseline": {
+        "source_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.6090219003095038,
+            "std": 0.10712843153310368,
+            "raw_std": 0.10712843153310368,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 279.73783761509105,
+            "std": 210.38310379158557,
+            "raw_std": 210.38310379158557,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 15.308913407413959,
+            "std": 6.380683672715027,
+            "raw_std": 6.380683672715027,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          }
+        },
+        "target_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.5051627882258325,
+            "std": 0.11752428661813409,
+            "raw_std": 0.11752428661813409,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 860.3555184309437,
+            "std": 564.3095676101256,
+            "raw_std": 564.3095676101256,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 18.474968663615453,
+            "std": 7.865099640657973,
+            "raw_std": 7.865099640657973,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          }
+        },
+        "coral_diagnostics": {
+          "condition_number_Cs": 3.587180440871818,
+          "condition_number_Ct": 3.3209935892120708,
+          "eigenvalue_floor_used": 1e-12,
+          "lambda": 1e-05,
+          "numeric_feature_order": [
+            "ndvi_mean",
+            "elevation_mean",
+            "slope_mean"
+          ]
+        }
+      },
+      "thermal": {
+        "source_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.6090219003095038,
+            "std": 0.10712843153310368,
+            "raw_std": 0.10712843153310368,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 279.73783761509105,
+            "std": 210.38310379158557,
+            "raw_std": 210.38310379158557,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 15.308913407413959,
+            "std": 6.380683672715027,
+            "raw_std": 6.380683672715027,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          },
+          "lst_anomaly_mean": {
+            "mean": 0.5322409252189072,
+            "std": 0.8206980848028329,
+            "raw_std": 0.8206980848028329,
+            "constant_feature_guard_used": false,
+            "n_observed": 3812,
+            "n_missing": 134
+          },
+          "current_lst_mean": {
+            "mean": 34.85895936313646,
+            "std": 3.5725695479529587,
+            "raw_std": 3.5725695479529587,
+            "constant_feature_guard_used": false,
+            "n_observed": 3927,
+            "n_missing": 19
+          },
+          "current_tvdi_mean": {
+            "mean": 0.54585315203491,
+            "std": 0.20375812071733485,
+            "raw_std": 0.20375812071733485,
+            "constant_feature_guard_used": false,
+            "n_observed": 3927,
+            "n_missing": 19
+          },
+          "tvdi_difference_mean": {
+            "mean": -0.006044141582718338,
+            "std": 0.08334307490477552,
+            "raw_std": 0.08334307490477552,
+            "constant_feature_guard_used": false,
+            "n_observed": 3927,
+            "n_missing": 19
+          },
+          "downscaled_lst_mean": {
+            "mean": 34.87571267514957,
+            "std": 3.376295149313837,
+            "raw_std": 3.376295149313837,
+            "constant_feature_guard_used": false,
+            "n_observed": 3921,
+            "n_missing": 25
+          },
+          "fused_lst_mean": {
+            "mean": 34.86269087097818,
+            "std": 3.5537847370037423,
+            "raw_std": 3.5537847370037423,
+            "constant_feature_guard_used": false,
+            "n_observed": 3946,
+            "n_missing": 0
+          }
+        },
+        "target_regionwise_zscore_stats": {
+          "ndvi_mean": {
+            "mean": 0.5051627882258325,
+            "std": 0.11752428661813409,
+            "raw_std": 0.11752428661813409,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "elevation_mean": {
+            "mean": 860.3555184309437,
+            "std": 564.3095676101256,
+            "raw_std": 564.3095676101256,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "slope_mean": {
+            "mean": 18.474968663615453,
+            "std": 7.865099640657973,
+            "raw_std": 7.865099640657973,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "lst_anomaly_mean": {
+            "mean": -0.26791384565482546,
+            "std": 1.27816898311623,
+            "raw_std": 1.27816898311623,
+            "constant_feature_guard_used": false,
+            "n_observed": 20158,
+            "n_missing": 353
+          },
+          "current_lst_mean": {
+            "mean": 35.63533279415588,
+            "std": 4.554136471487417,
+            "raw_std": 4.554136471487417,
+            "constant_feature_guard_used": false,
+            "n_observed": 20451,
+            "n_missing": 60
+          },
+          "current_tvdi_mean": {
+            "mean": 0.49601713654458934,
+            "std": 0.2396729994060421,
+            "raw_std": 0.2396729994060421,
+            "constant_feature_guard_used": false,
+            "n_observed": 20451,
+            "n_missing": 60
+          },
+          "tvdi_difference_mean": {
+            "mean": -0.03478732254328692,
+            "std": 0.11634008545291626,
+            "raw_std": 0.11634008545291626,
+            "constant_feature_guard_used": false,
+            "n_observed": 20450,
+            "n_missing": 61
+          },
+          "downscaled_lst_mean": {
+            "mean": 35.62513808688929,
+            "std": 4.282858667684779,
+            "raw_std": 4.282858667684779,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          },
+          "fused_lst_mean": {
+            "mean": 35.623279489700685,
+            "std": 4.541413937125201,
+            "raw_std": 4.541413937125201,
+            "constant_feature_guard_used": false,
+            "n_observed": 20511,
+            "n_missing": 0
+          }
+        },
+        "coral_diagnostics": {
+          "condition_number_Cs": 1440.9486181913694,
+          "condition_number_Ct": 1714.7077603664593,
+          "eigenvalue_floor_used": 1e-12,
+          "lambda": 1e-05,
+          "numeric_feature_order": [
+            "ndvi_mean",
+            "elevation_mean",
+            "slope_mean",
+            "lst_anomaly_mean",
+            "current_lst_mean",
+            "current_tvdi_mean",
+            "tvdi_difference_mean",
+            "downscaled_lst_mean",
+            "fused_lst_mean"
+          ]
+        }
+      }
+    }
+  }
+}

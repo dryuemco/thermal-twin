@@ -1,0 +1,304 @@
+{
+  "analysis_id": "36ea8da48e31bc4353b212e984196bce53df857e09667512eb1bc3cbb94a7ce7",
+  "schema_version": "step9g.univariate_feature_auc_direction_reversal.v1",
+  "source_experiment_id": "mugla_2021",
+  "target_experiment_id": "mugla_2022_event_relative",
+  "primary_population": "burnable_tree_shrub_grass",
+  "input_audit": {
+    "mugla_2021": {
+      "experiment_id": "mugla_2021",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 41730,
+      "n_burned": 2911,
+      "n_unburned": 38819,
+      "n_large_blocks": 576
+    },
+    "mugla_2022_event_relative": {
+      "experiment_id": "mugla_2022_event_relative",
+      "primary_population": "burnable_tree_shrub_grass",
+      "n_rows": 38790,
+      "n_burned": 331,
+      "n_unburned": 38459,
+      "n_large_blocks": 566
+    }
+  },
+  "direction_reversal_table": [
+    {
+      "feature": "ndvi_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.6616527794184797,
+      "mugla_2021_ci_low": 0.6156274522323434,
+      "mugla_2021_ci_high": 0.7035074327376446,
+      "mugla_2021_direction": "higher_values_rank_burned",
+      "mugla_2021_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "mugla_2022_event_relative_auc": 0.7070883898881133,
+      "mugla_2022_event_relative_ci_low": 0.6239060668321695,
+      "mugla_2022_event_relative_ci_high": 0.776762839457459,
+      "mugla_2022_event_relative_direction": "higher_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "auc_difference_target_minus_source": 0.045841231759509965,
+      "auc_difference_ci_low": -0.0490928870741078,
+      "auc_difference_ci_high": 0.13185569939992728,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "elevation_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.6114025048859928,
+      "mugla_2021_ci_low": 0.5319021930545539,
+      "mugla_2021_ci_high": 0.6904319830630276,
+      "mugla_2021_direction": "higher_values_rank_burned",
+      "mugla_2021_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "mugla_2022_event_relative_auc": 0.2959098986333702,
+      "mugla_2022_event_relative_ci_low": 0.22975189819642328,
+      "mugla_2022_event_relative_ci_high": 0.35471105808188896,
+      "mugla_2022_event_relative_direction": "lower_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "auc_difference_target_minus_source": -0.31727909884333866,
+      "auc_difference_ci_low": -0.41371449656891573,
+      "auc_difference_ci_high": -0.2197893513210792,
+      "point_direction_reversal": true,
+      "reversal_status": "bootstrap_supported_direction_reversal",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point directions are opposite across the two regions, and each region's 95% spatial-block bootstrap interval lies on a different side of 0.5. This is a bootstrap-supported univariate direction reversal. It is consistent with feature-label relationship instability but does not establish causality or prove that this is the sole transfer-failure mechanism."
+    },
+    {
+      "feature": "slope_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.6368180084143384,
+      "mugla_2021_ci_low": 0.5819257681498503,
+      "mugla_2021_ci_high": 0.68641744780742,
+      "mugla_2021_direction": "higher_values_rank_burned",
+      "mugla_2021_support_status": "bootstrap_supported_higher_values_rank_burned",
+      "mugla_2022_event_relative_auc": 0.5576758912009643,
+      "mugla_2022_event_relative_ci_low": 0.46759975711692514,
+      "mugla_2022_event_relative_ci_high": 0.6339639252382272,
+      "mugla_2022_event_relative_direction": "higher_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": -0.07951084975347254,
+      "auc_difference_ci_low": -0.18305320015281848,
+      "auc_difference_ci_high": 0.016430151479565135,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "lst_anomaly_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.4845735569026068,
+      "mugla_2021_ci_low": 0.3945167019229775,
+      "mugla_2021_ci_high": 0.5660732073894761,
+      "mugla_2021_direction": "lower_values_rank_burned",
+      "mugla_2021_support_status": "interval_includes_chance",
+      "mugla_2022_event_relative_auc": 0.37985125700760963,
+      "mugla_2022_event_relative_ci_low": 0.2486774378382921,
+      "mugla_2022_event_relative_ci_high": 0.501544113896062,
+      "mugla_2022_event_relative_direction": "lower_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": -0.10416614060139685,
+      "auc_difference_ci_low": -0.2566445033280268,
+      "auc_difference_ci_high": 0.04231084118749728,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "current_lst_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.324818209196232,
+      "mugla_2021_ci_low": 0.2713831954453114,
+      "mugla_2021_ci_high": 0.3821312123411832,
+      "mugla_2021_direction": "lower_values_rank_burned",
+      "mugla_2021_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "mugla_2022_event_relative_auc": 0.5154764696018888,
+      "mugla_2022_event_relative_ci_low": 0.4335256637139864,
+      "mugla_2022_event_relative_ci_high": 0.5797471145829445,
+      "mugla_2022_event_relative_direction": "higher_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": 0.18825660629026225,
+      "auc_difference_ci_low": 0.08360659586398693,
+      "auc_difference_ci_high": 0.27211834603164253,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    },
+    {
+      "feature": "current_tvdi_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.3357699119089857,
+      "mugla_2021_ci_low": 0.27535685410747573,
+      "mugla_2021_ci_high": 0.39757500369355586,
+      "mugla_2021_direction": "lower_values_rank_burned",
+      "mugla_2021_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "mugla_2022_event_relative_auc": 0.5935209870439365,
+      "mugla_2022_event_relative_ci_low": 0.4753768486124959,
+      "mugla_2022_event_relative_ci_high": 0.6738520239602476,
+      "mugla_2022_event_relative_direction": "higher_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": 0.25476609467553846,
+      "auc_difference_ci_low": 0.1202663530055329,
+      "auc_difference_ci_high": 0.3588733503638931,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    },
+    {
+      "feature": "tvdi_difference_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.49002459954410754,
+      "mugla_2021_ci_low": 0.3964138391440796,
+      "mugla_2021_ci_high": 0.5747477756769651,
+      "mugla_2021_direction": "lower_values_rank_burned",
+      "mugla_2021_support_status": "interval_includes_chance",
+      "mugla_2022_event_relative_auc": 0.39699484562515985,
+      "mugla_2022_event_relative_ci_low": 0.26544678016285944,
+      "mugla_2022_event_relative_ci_high": 0.5135317807871643,
+      "mugla_2022_event_relative_direction": "lower_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": -0.09487249464683851,
+      "auc_difference_ci_low": -0.24287829476140257,
+      "auc_difference_ci_high": 0.0491978318724782,
+      "point_direction_reversal": false,
+      "reversal_status": "no_direction_reversal",
+      "step9e_relationship_direction_flag": "False",
+      "integrated_interpretation": "The feature has the same point-AUC direction in both regions. No univariate direction reversal is observed for this feature. Individual regions may still have intervals that include 0.5."
+    },
+    {
+      "feature": "downscaled_lst_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.30697725296436723,
+      "mugla_2021_ci_low": 0.25320481926586585,
+      "mugla_2021_ci_high": 0.36583706101459185,
+      "mugla_2021_direction": "lower_values_rank_burned",
+      "mugla_2021_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "mugla_2022_event_relative_auc": 0.5081547829642535,
+      "mugla_2022_event_relative_ci_low": 0.4348296032274683,
+      "mugla_2022_event_relative_ci_high": 0.5706149116665589,
+      "mugla_2022_event_relative_direction": "higher_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": 0.1996724362365936,
+      "auc_difference_ci_low": 0.09708582710930541,
+      "auc_difference_ci_high": 0.28336496646690573,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    },
+    {
+      "feature": "fused_lst_mean",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "mugla_2022_event_relative",
+      "mugla_2021_auc": 0.32521434622074175,
+      "mugla_2021_ci_low": 0.2720012810467721,
+      "mugla_2021_ci_high": 0.3827633213333897,
+      "mugla_2021_direction": "lower_values_rank_burned",
+      "mugla_2021_support_status": "bootstrap_supported_lower_values_rank_burned",
+      "mugla_2022_event_relative_auc": 0.518634903619651,
+      "mugla_2022_event_relative_ci_low": 0.43634961560551583,
+      "mugla_2022_event_relative_ci_high": 0.5828947585938846,
+      "mugla_2022_event_relative_direction": "higher_values_rank_burned",
+      "mugla_2022_event_relative_support_status": "interval_includes_chance",
+      "auc_difference_target_minus_source": 0.1910243048931434,
+      "auc_difference_ci_low": 0.08630032934653413,
+      "auc_difference_ci_high": 0.27443042683352664,
+      "point_direction_reversal": true,
+      "reversal_status": "point_direction_reversal_interval_uncertain",
+      "step9e_relationship_direction_flag": "True",
+      "integrated_interpretation": "The point AUC directions are opposite across the two regions, but at least one 95% spatial-block bootstrap interval includes 0.5. This is a point-estimate direction reversal with uncertain bootstrap support; it must not be reported as a supported reversal."
+    }
+  ],
+  "bootstrap_supported_direction_reversals": [
+    "elevation_mean"
+  ],
+  "point_reversals_interval_uncertain": [
+    "current_lst_mean",
+    "current_tvdi_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "same_direction_features": [
+    "ndvi_mean",
+    "slope_mean",
+    "lst_anomaly_mean",
+    "tvdi_difference_mean"
+  ],
+  "landcover_exclusion_reason": "landcover_dominant is categorical; its integer class codes have no scientifically meaningful scalar ordering, so a raw-code ROC-AUC would be invalid. Reported as a separate descriptive table instead.",
+  "step9f_model_level_integration": {
+    "note": "Step9F reports model/representation-level ranking reversal across feature variants, NOT per-feature univariate direction. It is presented at the model level only and is never joined per-feature.",
+    "directions": {
+      "mugla_2021__mugla_2022_event_relative": {
+        "step9f_available": false,
+        "manifest_analysis_id": null,
+        "screening_variant_count": null
+      },
+      "mugla_2022_event_relative__mugla_2021": {
+        "step9f_available": false,
+        "manifest_analysis_id": null,
+        "screening_variant_count": null
+      }
+    }
+  },
+  "step10_transfer_summary": {
+    "directions": {
+      "mugla_2021__mugla_2022_event_relative": {
+        "step10_available": false,
+        "analysis_id": null
+      },
+      "mugla_2022_event_relative__mugla_2021": {
+        "step10_available": false,
+        "analysis_id": null
+      }
+    }
+  },
+  "answers": {
+    "which_features_reverse": [
+      "elevation_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "which_reversals_bootstrap_supported": [
+      "elevation_mean"
+    ],
+    "which_features_same_direction": [
+      "ndvi_mean",
+      "slope_mean",
+      "lst_anomaly_mean",
+      "tvdi_difference_mean"
+    ],
+    "thermal_features_consistent_with_step9e": [
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "features_consistent_with_step9e": [
+      "elevation_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ]
+  },
+  "claim_boundary": "Feature-level univariate AUC direction reversals indicate that marginal feature-label relationships are not stable across the selected regions, a pattern consistent with concept/relationship shift. Target labels are used only for this diagnostic evaluation. This does NOT prove causality or establish concept shift as the only transfer-failure mechanism; AUC below 0.5 is a direction and is never inverted.",
+  "report_schema_version": "step9g.univariate_feature_auc_direction_reversal.report.v2",
+  "report_revision_reason": "Corrects two report-layer semantic defects without recomputing any numerical result. (1) integrated_interpretation previously repeated one identical generic sentence for every feature row regardless of reversal_status; it is now generated per row from reversal_status. (2) thermal_features_consistent_with_step9e previously could include elevation_mean (a baseline, not thermal, feature); it is now restricted to the frozen thermal-feature set (lst_anomaly_mean, current_lst_mean, current_tvdi_mean, tvdi_difference_mean, downscaled_lst_mean, fused_lst_mean). A new general features_consistent_with_step9e field lists any feature (thermal or baseline) whose Step9G point-direction-reversal flag agrees with the Step9E relationship-direction diagnostic. AUC, CI, bootstrap draws, direction labels, support_status, and reversal_status are unchanged (numerical_results_unchanged=true); analysis_id is preserved verbatim.",
+  "numerical_results_unchanged": true,
+  "regenerated_at": "2026-08-09T11:23:45.528691+00:00"
+}

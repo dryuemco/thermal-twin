@@ -1,0 +1,74 @@
+{
+  "analysis_id": "f5f97cec4733da613e64f9e64a9b56fab774bb187417d8c9d54f60dcc139a24b",
+  "experiment_id": "manavgat_2021",
+  "block_size_cells": 20,
+  "nominal_scale": "approximately_10_km",
+  "primary_population": "burnable_tree_shrub_grass",
+  "baseline_roc_auc": 0.7975708124521669,
+  "thermal_roc_auc": 0.8445107312976732,
+  "delta_roc_auc": 0.0469399188455063,
+  "baseline_pr_auc": 0.37271451852944637,
+  "thermal_pr_auc": 0.47215070287633887,
+  "delta_pr_auc": 0.0994361843468925,
+  "baseline_brier": 0.1426768241854627,
+  "thermal_brier": 0.1177279064228782,
+  "delta_brier": -0.02494891776258451,
+  "brier_improvement": 0.02494891776258451,
+  "brier_improvement_definition": "brier_improvement = baseline_brier - thermal_brier; POSITIVE values mean the thermal model has the lower/better Brier score. The deprecated `delta_brier` field (thermal_brier - baseline_brier) uses the OPPOSITE sign convention (negative = thermal better) and is kept only for backward compatibility with v1-schema reports.",
+  "n_splits_used": 5,
+  "feature_sets": {
+    "baseline": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant"
+    ],
+    "thermal_additional": [
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "thermal_model_full": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ]
+  },
+  "model_class": "RandomForestClassifier",
+  "model_hyperparameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 3,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "cv": {
+    "class": "StratifiedGroupKFold",
+    "n_splits": 5,
+    "random_state": 42
+  }
+}

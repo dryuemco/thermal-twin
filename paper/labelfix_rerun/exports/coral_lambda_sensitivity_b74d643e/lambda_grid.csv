@@ -1,0 +1,10 @@
+lambda_index,lambda_value,lambda_token,is_canonical,is_unregularised,grid_position
+0,0.0,lambda_0,False,True,below_canonical
+1,1e-08,lambda_1e_m8,False,False,below_canonical
+2,1e-07,lambda_1e_m7,False,False,below_canonical
+3,1e-06,lambda_1e_m6,False,False,below_canonical
+4,1e-05,lambda_1e_m5,True,False,canonical
+5,0.0001,lambda_1e_m4,False,False,above_canonical
+6,0.001,lambda_1e_m3,False,False,above_canonical
+7,0.01,lambda_1e_m2,False,False,above_canonical
+8,0.1,lambda_1e_m1,False,False,above_canonical

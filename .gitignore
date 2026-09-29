@@ -1,0 +1,67 @@
+# Processing pipeline: tracked as the git submodule repo/ (read-only).
+
+# Virtual environments
+.venv-step10/
+.venv-fire2/
+
+# Large pipeline outputs that are not produced here
+outputs/
+data/
+drive_archive
+drive_new
+# The five modelling datasets are primary data and are tracked.
+!paper/data/
+!paper/data/**
+
+# Figure data: only the extracted inputs recorded in each figN_provenance.json are tracked.
+!paper/figures/data/
+paper/figures/data/*
+!paper/figures/data/fig_data.json
+!paper/figures/data/fig_data_corrected.json
+!paper/figures/data/fig1_aoi.json
+
+# Heavy pipeline step outputs (Step 10 outputs are tracked below)
+experiments/*/step0/
+experiments/*/step5*/
+experiments/*/step7*/
+experiments/*/step8a/
+experiments/*/step8b/
+experiments/*/step8c/
+experiments/*/step8d/
+experiments/*/gate_inputs/
+experiments/*/validation/
+experiments/*/predictor_export_metadata.json
+# step8e: only the JSON report is tracked
+experiments/*/step8e/*
+!experiments/*/step8e/final_step8_report.json
+
+# Step 10 code and outputs
+!step10/
+!step10/**
+!experiments/cross_region/
+!experiments/cross_region/step10/
+!experiments/cross_region/step10/**
+!experiments/*/step10/
+!experiments/*/step10/**
+
+# Binary and build artefacts, everywhere
+*.parquet
+*.tif
+*.tiff
+*.joblib
+*.zip
+.DS_Store
+desktop.ini
+__pycache__/
+*.pyc
+# Per-cell step9b prediction dumps (hashed in the raw directory's SHA256SUMS.txt)
+cross_region_transfer_predictions.csv
+# Build record written by paper/tex/build_docx.py
+paper/tex/manuscript_assembled.md
+
+# The modelling datasets override the binary rules above
+!paper/data/**/*.parquet
+!paper/data/**/*.tif
+
+# Local notes
+STATUS.md

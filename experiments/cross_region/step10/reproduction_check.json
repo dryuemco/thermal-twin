@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "primary_config": {
+    "population": "burnable_tree_shrub_grass",
+    "rf_profile": "primary",
+    "rf_params": {
+      "n_estimators": 300,
+      "max_depth": null,
+      "min_samples_leaf": 3,
+      "class_weight": "balanced",
+      "random_state": 42,
+      "n_jobs": -1
+    },
+    "n_by_region": {
+      "bejis_2022": 15190,
+      "manavgat_2021": 20511
+    }
+  },
+  "tolerances": {
+    "raw": 0.03,
+    "zscore": 0.01,
+    "coral": 0.05,
+    "raw_zscore_ref": "yunus_independent_replication",
+    "coral_ref": "emrehan_pipeline"
+  },
+  "checks": {
+    "manavgat_2021__bejis_2022": {
+      "raw": {
+        "got": 0.32447274017678557,
+        "ref_source": "yunus",
+        "ref": 0.352,
+        "emrehan": 0.326,
+        "yunus": 0.352,
+        "tol": 0.03,
+        "abs_dev": 0.02752725982321441,
+        "within_tol": true
+      },
+      "zscore": {
+        "got": 0.4834233498935415,
+        "ref_source": "yunus",
+        "ref": 0.48,
+        "emrehan": 0.477,
+        "yunus": 0.48,
+        "tol": 0.01,
+        "abs_dev": 0.0034233498935415385,
+        "within_tol": true
+      },
+      "coral_after_regionwise_zscore": {
+        "got": 0.5107833086005549,
+        "ref_source": "emrehan",
+        "ref": 0.511,
+        "emrehan": 0.511,
+        "yunus": null,
+        "tol": 0.05,
+        "abs_dev": 0.00021669139944513471,
+        "within_tol": true
+      }
+    },
+    "bejis_2022__manavgat_2021": {
+      "raw": {
+        "got": 0.4443790715201273,
+        "ref_source": "yunus",
+        "ref": 0.439,
+        "emrehan": 0.444,
+        "yunus": 0.439,
+        "tol": 0.03,
+        "abs_dev": 0.005379071520127288,
+        "within_tol": true
+      },
+      "zscore": {
+        "got": 0.4520004179499143,
+        "ref_source": "yunus",
+        "ref": 0.452,
+        "emrehan": 0.457,
+        "yunus": 0.452,
+        "tol": 0.01,
+        "abs_dev": 4.1794991428867334e-07,
+        "within_tol": true
+      },
+      "coral_after_regionwise_zscore": {
+        "got": 0.5571013725102755,
+        "ref_source": "emrehan",
+        "ref": 0.555,
+        "emrehan": 0.555,
+        "yunus": null,
+        "tol": 0.05,
+        "abs_dev": 0.0021013725102754233,
+        "within_tol": true
+      }
+    }
+  },
+  "detail_lines": [
+    "manavgat_2021__bejis_2022 | raw                          got=0.3245 ref(yunus)=0.352 tol=\u00b10.03 dev=0.0275 -> OK",
+    "manavgat_2021__bejis_2022 | zscore                       got=0.4834 ref(yunus)=0.48 tol=\u00b10.01 dev=0.0034 -> OK",
+    "manavgat_2021__bejis_2022 | coral_after_regionwise_zscore got=0.5108 ref(emrehan)=0.511 tol=\u00b10.05 dev=0.0002 -> OK",
+    "bejis_2022__manavgat_2021 | raw                          got=0.4444 ref(yunus)=0.439 tol=\u00b10.03 dev=0.0054 -> OK",
+    "bejis_2022__manavgat_2021 | zscore                       got=0.4520 ref(yunus)=0.452 tol=\u00b10.01 dev=0.0000 -> OK",
+    "bejis_2022__manavgat_2021 | coral_after_regionwise_zscore got=0.5571 ref(emrehan)=0.555 tol=\u00b10.05 dev=0.0021 -> OK"
+  ],
+  "action_if_failed": "TUTMAZSA Is2 (decomposition), Is3 (concept-shift) ve Is4 (robustness) birincil ayarla baslatilmadan once kullaniciya raporlanip beklenir; sayi zorlanmaz."
+}

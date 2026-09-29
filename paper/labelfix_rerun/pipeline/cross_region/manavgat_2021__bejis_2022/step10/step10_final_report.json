@@ -1,0 +1,1794 @@
+{
+  "report_schema_version": "step10.final_report.v2",
+  "analysis_id": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+  "source_experiment_id": "manavgat_2021",
+  "target_experiment_id": "bejis_2022",
+  "directions": [
+    "manavgat_2021_to_bejis_2022",
+    "bejis_2022_to_manavgat_2021"
+  ],
+  "frozen_created_at": "2026-09-19T08:54:38.832999+00:00",
+  "report_only_generation": {
+    "enabled": false,
+    "scientific_stages_called": [
+      "Step10A",
+      "Step10B",
+      "Step10C"
+    ],
+    "step10d_only": false,
+    "writable_files": [
+      "step10_final_report.json",
+      "step10_final_report.md"
+    ],
+    "deterministic_timestamp_source": "step10_preregistration.json:created_at"
+  },
+  "protected_input_integrity": {
+    "status": "passed",
+    "criterion": "SHA-256 content hashes; mtimes are not used",
+    "protected_files": {
+      "step10_preregistration.json": "f669e713d3f6b0a52ffa15800ffaa828f74398b7b0664db35ff5d0550eee6631",
+      "step10_preregistration.md": "74c1863350f24bc4717dc96ec5fbc924386de50c11a1d9c888de9486d8b1e6c9",
+      "step10_input_audit.json": "a480f407df4afa8f0773f02ebe67c063b88fbebf10cb94d830540a946453d1c9",
+      "step10_adaptation_statistics.json": "4503f17e69ffd6bb468a2798a01cbd45daf169753e5e7dd096e57571eea91e87",
+      "step10_predictions.parquet": "aae2d745d6f0dd58728e65170ed5eb09deca2c369995d25ad643476cad0b7072",
+      "step10_metrics.json": "ede70c20e015293ef6e92f581ead6e9a226ea2dae223212bc50d53ef1a797cb1",
+      "step10_metrics.csv": "60d29f8712ef0320a64458bd5768a23bbf7fe695f2a080bb978142f67e3ac56d",
+      "step10_bootstrap_replicates.parquet": "66967ca0d5f1f8db4f36bf668086db3d7bc9e08e884fa222140328654610088c",
+      "step10_bootstrap_summary.json": "0bb82ee2d86532d0a1e837f949ac9ba296fca44747e856b34513d7d074c43ed4",
+      "step10_bootstrap_summary.csv": "14b5bc5a7977adfd116832ae7116167eee072c2d312e7f45291ac1519a2e715f",
+      "step10_decomposition.csv": "f24aec853c2742c39f34ef9f66ff7cb1b0a803c84351897d7008e339717550af"
+    }
+  },
+  "input_analysis_id_consistency": {
+    "status": "passed",
+    "consistent": true,
+    "analysis_id": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+    "ids_by_input": {
+      "step10_preregistration.json": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_preregistration.md": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_input_audit.json": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_adaptation_statistics.json": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_metrics.json": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_bootstrap_summary.json": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_metrics.csv": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_bootstrap_summary.csv": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_decomposition.csv": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_predictions.parquet": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+      "step10_bootstrap_replicates.parquet": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6"
+    },
+    "source_experiment_id": "manavgat_2021",
+    "target_experiment_id": "bejis_2022"
+  },
+  "target_performance": [
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "source_experiment": "manavgat_2021",
+      "target_experiment": "bejis_2022",
+      "model_family": "baseline",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 15190,
+      "target_burned_count": 1100,
+      "target_negative_count": 14090,
+      "roc_auc": 0.37069117362410486,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.3478759510962382,
+        0.3928717868755974
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.052010675967464864,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.04629209433258033,
+        0.05861556618247069
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "source_experiment": "manavgat_2021",
+      "target_experiment": "bejis_2022",
+      "model_family": "baseline",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 15190,
+      "target_burned_count": 1100,
+      "target_negative_count": 14090,
+      "roc_auc": 0.38499890315504226,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.35867800696723945,
+        0.408906810346338
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.053222400830550534,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.0468432791210631,
+        0.05988862787759578
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "source_experiment": "manavgat_2021",
+      "target_experiment": "bejis_2022",
+      "model_family": "baseline",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 15190,
+      "target_burned_count": 1100,
+      "target_negative_count": 14090,
+      "roc_auc": 0.38537118523775726,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.3583843318579822,
+        0.4094411093977446
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.05329149935166093,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.04690323487443879,
+        0.06015210263193764
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "source_experiment": "manavgat_2021",
+      "target_experiment": "bejis_2022",
+      "model_family": "thermal",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 15190,
+      "target_burned_count": 1100,
+      "target_negative_count": 14090,
+      "roc_auc": 0.3964026711400735,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.3725380745561713,
+        0.4219023718773863
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.05417448341892161,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.04817102254559621,
+        0.06106302118813285
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "source_experiment": "manavgat_2021",
+      "target_experiment": "bejis_2022",
+      "model_family": "thermal",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 15190,
+      "target_burned_count": 1100,
+      "target_negative_count": 14090,
+      "roc_auc": 0.45040221949803216,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.42252294293059467,
+        0.47650311008000257
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.059628522204261555,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.052704940513290825,
+        0.06746729225260818
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "source_experiment": "manavgat_2021",
+      "target_experiment": "bejis_2022",
+      "model_family": "thermal",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 15190,
+      "target_burned_count": 1100,
+      "target_negative_count": 14090,
+      "roc_auc": 0.46684737725014513,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.4407173741413762,
+        0.49146908817589513
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.061554744732753935,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.05445276181309215,
+        0.06982386217683322
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "source_experiment": "bejis_2022",
+      "target_experiment": "manavgat_2021",
+      "model_family": "baseline",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 20511,
+      "target_burned_count": 2935,
+      "target_negative_count": 17576,
+      "roc_auc": 0.2965551309319895,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.2778560515403547,
+        0.31511369146476814
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.09644753386308019,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.08921798965005809,
+        0.10425919473320285
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "source_experiment": "bejis_2022",
+      "target_experiment": "manavgat_2021",
+      "model_family": "baseline",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 20511,
+      "target_burned_count": 2935,
+      "target_negative_count": 17576,
+      "roc_auc": 0.2939418899397428,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.2764482967638535,
+        0.31165514558897983
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.09622356084674427,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.08865751658825614,
+        0.10361260721783899
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "source_experiment": "bejis_2022",
+      "target_experiment": "manavgat_2021",
+      "model_family": "baseline",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 20511,
+      "target_burned_count": 2935,
+      "target_negative_count": 17576,
+      "roc_auc": 0.308760513601093,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.29105391490401167,
+        0.32648889729502956
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.09769011149852169,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.09025378321515216,
+        0.10512618105872565
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "source_experiment": "bejis_2022",
+      "target_experiment": "manavgat_2021",
+      "model_family": "thermal",
+      "adaptation_method": "raw_source_only",
+      "target_row_count": 20511,
+      "target_burned_count": 2935,
+      "target_negative_count": 17576,
+      "roc_auc": 0.3141548720223256,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.2957115634276732,
+        0.3316060274032394
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.09776772462629946,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.09026923804764307,
+        0.10537272792103963
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "source_experiment": "bejis_2022",
+      "target_experiment": "manavgat_2021",
+      "model_family": "thermal",
+      "adaptation_method": "regionwise_zscore",
+      "target_row_count": 20511,
+      "target_burned_count": 2935,
+      "target_negative_count": 17576,
+      "roc_auc": 0.30211173436907535,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.2824061971697872,
+        0.32252761803717045
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.10221813820008911,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.0936562415701978,
+        0.11128978357546337
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "source_experiment": "bejis_2022",
+      "target_experiment": "manavgat_2021",
+      "model_family": "thermal",
+      "adaptation_method": "coral_after_regionwise_zscore",
+      "target_row_count": 20511,
+      "target_burned_count": 2935,
+      "target_negative_count": 17576,
+      "roc_auc": 0.40574850791578104,
+      "roc_auc_bootstrap_95_percentile_ci": [
+        0.38755614205659855,
+        0.42311087922659296
+      ],
+      "roc_auc_chance_status": "bootstrap_supported_below_chance",
+      "pr_auc": 0.11596047477410229,
+      "pr_auc_bootstrap_95_percentile_ci": [
+        0.10708486312298865,
+        0.12511905323646258
+      ],
+      "brier": null,
+      "brier_bootstrap_95_percentile_ci": null,
+      "brier_availability": "not_preregistered_no_post_hoc_addition",
+      "requested_bootstrap_replicates": 1000,
+      "valid_bootstrap_replicates": 1000,
+      "invalid_single_class_replicates": 0,
+      "bootstrap_stability_status": "stable"
+    }
+  ],
+  "paired_adaptation_differences": [
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.014307729530937396,
+      "paired_bootstrap_mean": 0.014092754277275162,
+      "paired_bootstrap_median": 0.013871010584233456,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.0003765269897350126,
+        0.02803445980847412
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.0146800116136524,
+      "paired_bootstrap_mean": 0.014419410440507032,
+      "paired_bootstrap_median": 0.014705128007739987,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.0031268725059798415,
+        0.03121023802481615
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.00037228208271500307,
+      "paired_bootstrap_mean": 0.0003266561632318709,
+      "paired_bootstrap_median": 0.00047772129822507003,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.01189999636011181,
+        0.01212757332605709
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.0012117248630856697,
+      "paired_bootstrap_mean": 0.0012166097728225766,
+      "paired_bootstrap_median": 0.0011700130408799359,
+      "paired_bootstrap_95_percentile_ci": [
+        -3.6240717926192154e-05,
+        0.0025224203756064813
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.0012808233841960642,
+      "paired_bootstrap_mean": 0.0012784757079766448,
+      "paired_bootstrap_median": 0.0012850973566236115,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.00018419084925977016,
+        0.0027748979010758833
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 6.90985211103945e-05,
+      "paired_bootstrap_mean": 6.18659351540682e-05,
+      "paired_bootstrap_median": 7.587685313713288e-05,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.0010051672165906742,
+        0.00113397694183101
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.05399954835795867,
+      "paired_bootstrap_mean": 0.0534605582974144,
+      "paired_bootstrap_median": 0.05334349150969231,
+      "paired_bootstrap_95_percentile_ci": [
+        0.03315925718543829,
+        0.07396519737470862
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.07044470611007164,
+      "paired_bootstrap_mean": 0.07028683092296462,
+      "paired_bootstrap_median": 0.07034104809454192,
+      "paired_bootstrap_95_percentile_ci": [
+        0.04714662887922972,
+        0.09216368553764236
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.01644515775211297,
+      "paired_bootstrap_mean": 0.016826272625550212,
+      "paired_bootstrap_median": 0.01683789098458724,
+      "paired_bootstrap_95_percentile_ci": [
+        0.003164444662431813,
+        0.03069175174834031
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.005454038785339947,
+      "paired_bootstrap_mean": 0.005426533618681077,
+      "paired_bootstrap_median": 0.005428150609967843,
+      "paired_bootstrap_95_percentile_ci": [
+        0.0033442664264884746,
+        0.007818128456867834
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.007380261313832327,
+      "paired_bootstrap_mean": 0.007486814949602841,
+      "paired_bootstrap_median": 0.007396814025942076,
+      "paired_bootstrap_95_percentile_ci": [
+        0.00472187648525918,
+        0.010425236026998812
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.00192622252849238,
+      "paired_bootstrap_mean": 0.0020602813309217646,
+      "paired_bootstrap_median": 0.0020443634904372156,
+      "paired_bootstrap_95_percentile_ci": [
+        0.00047676671649406633,
+        0.0037249248907297375
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.0026132409922466904,
+      "paired_bootstrap_mean": -0.002430087919709371,
+      "paired_bootstrap_median": -0.002526226231384543,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.011779739696120404,
+        0.007186992924917216
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.012205382669103537,
+      "paired_bootstrap_mean": 0.012553569463924805,
+      "paired_bootstrap_median": 0.012749385678269581,
+      "paired_bootstrap_95_percentile_ci": [
+        0.0011304508466121064,
+        0.024221999337710704
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.014818623661350228,
+      "paired_bootstrap_mean": 0.014983657383634176,
+      "paired_bootstrap_median": 0.014978774584013893,
+      "paired_bootstrap_95_percentile_ci": [
+        0.007436673452476332,
+        0.022045750044154093
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.00022397301633592104,
+      "paired_bootstrap_mean": -0.00018237801014279879,
+      "paired_bootstrap_median": -0.00019519414812069896,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.0019946554546989587,
+        0.0016941212364294269
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.0012425776354414997,
+      "paired_bootstrap_mean": 0.0013383222970761647,
+      "paired_bootstrap_median": 0.0013223529521938018,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.0010276435891106903,
+        0.0036590183306380035
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.0014665506517774207,
+      "paired_bootstrap_mean": 0.0015207003072189639,
+      "paired_bootstrap_median": 0.0015167796788654112,
+      "paired_bootstrap_95_percentile_ci": [
+        2.514122919524064e-05,
+        0.0031006139676769784
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": -0.012043137653250269,
+      "paired_bootstrap_mean": -0.012012513261043129,
+      "paired_bootstrap_median": -0.01182764116326862,
+      "paired_bootstrap_95_percentile_ci": [
+        -0.02625758765001493,
+        0.0027455655726858048
+      ],
+      "support_status": "uncertain_interval_includes_zero"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.09159363589345543,
+      "paired_bootstrap_mean": 0.0917498333436943,
+      "paired_bootstrap_median": 0.09164551683464311,
+      "paired_bootstrap_95_percentile_ci": [
+        0.07282540670560005,
+        0.11040332698168978
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "metric": "roc_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.1036367735467057,
+      "paired_bootstrap_mean": 0.10376234660473742,
+      "paired_bootstrap_median": 0.10377584686123811,
+      "paired_bootstrap_95_percentile_ci": [
+        0.08549833308215969,
+        0.1207748141559996
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.004450413573789655,
+      "paired_bootstrap_mean": 0.004614222826898613,
+      "paired_bootstrap_median": 0.004553222805516663,
+      "paired_bootstrap_95_percentile_ci": [
+        0.0007926269704568013,
+        0.008809477471290895
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_raw_source_only",
+      "point_estimate_difference": 0.018192750147802833,
+      "paired_bootstrap_mean": 0.0182860453162153,
+      "paired_bootstrap_median": 0.018241499961768666,
+      "paired_bootstrap_95_percentile_ci": [
+        0.01377229335321228,
+        0.022664496994017704
+      ],
+      "support_status": "bootstrap_supported_positive"
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "metric": "pr_auc",
+      "comparison": "coral_after_regionwise_zscore_minus_regionwise_zscore",
+      "point_estimate_difference": 0.013742336574013178,
+      "paired_bootstrap_mean": 0.013671822489316688,
+      "paired_bootstrap_median": 0.013726388181505365,
+      "paired_bootstrap_95_percentile_ci": [
+        0.008905683044053578,
+        0.018250554088577627
+      ],
+      "support_status": "bootstrap_supported_positive"
+    }
+  ],
+  "within_transfer_decomposition": [
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8616776566230079,
+      "raw_transfer_metric": 0.37069117362410486,
+      "adapted_transfer_metric": 0.38499890315504226,
+      "recovered_covariate_component": 0.014307729530937396,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.0003765269897350126,
+        0.02803445980847412
+      ],
+      "remaining_transfer_gap": 0.4766787534679656,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.44648013528601155,
+        0.5088064235665279
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.3027735748414686,
+      "raw_transfer_metric": 0.052010675967464864,
+      "adapted_transfer_metric": 0.053222400830550534,
+      "recovered_covariate_component": 0.0012117248630856697,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -3.6240717926192154e-05,
+        0.0025224203756064813
+      ],
+      "remaining_transfer_gap": 0.2495511740109181,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.2189401337655303,
+        0.28421682720352504
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8616776566230079,
+      "raw_transfer_metric": 0.37069117362410486,
+      "adapted_transfer_metric": 0.38537118523775726,
+      "recovered_covariate_component": 0.0146800116136524,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.0031268725059798415,
+        0.03121023802481615
+      ],
+      "remaining_transfer_gap": 0.4763064713852506,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.44548646197876896,
+        0.5074955606609132
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.3027735748414686,
+      "raw_transfer_metric": 0.052010675967464864,
+      "adapted_transfer_metric": 0.05329149935166093,
+      "recovered_covariate_component": 0.0012808233841960642,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.00018419084925977016,
+        0.0027748979010758833
+      ],
+      "remaining_transfer_gap": 0.24948207548980766,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.21891685581129094,
+        0.2841285667272648
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.9178110845861024,
+      "raw_transfer_metric": 0.3964026711400735,
+      "adapted_transfer_metric": 0.45040221949803216,
+      "recovered_covariate_component": 0.05399954835795867,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.03315925718543829,
+        0.07396519737470862
+      ],
+      "remaining_transfer_gap": 0.4674088650880702,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.441477810411259,
+        0.49604782221736465
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.49780780629444993,
+      "raw_transfer_metric": 0.05417448341892161,
+      "adapted_transfer_metric": 0.059628522204261555,
+      "recovered_covariate_component": 0.005454038785339947,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.0033442664264884746,
+        0.007818128456867834
+      ],
+      "remaining_transfer_gap": 0.43817928409018836,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.39133320302028485,
+        0.4880417047662596
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.9178110845861024,
+      "raw_transfer_metric": 0.3964026711400735,
+      "adapted_transfer_metric": 0.46684737725014513,
+      "recovered_covariate_component": 0.07044470611007164,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.04714662887922972,
+        0.09216368553764236
+      ],
+      "remaining_transfer_gap": 0.45096370733595725,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.424406517966414,
+        0.4782049214528771
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "manavgat_2021_to_bejis_2022",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.49780780629444993,
+      "raw_transfer_metric": 0.05417448341892161,
+      "adapted_transfer_metric": 0.061554744732753935,
+      "recovered_covariate_component": 0.007380261313832327,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.00472187648525918,
+        0.010425236026998812
+      ],
+      "remaining_transfer_gap": 0.43625306156169597,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.3899030526154819,
+        0.48540962498040235
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8411807102607785,
+      "raw_transfer_metric": 0.2965551309319895,
+      "adapted_transfer_metric": 0.2939418899397428,
+      "recovered_covariate_component": -0.0026132409922466904,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.011779739696120404,
+        0.007186992924917216
+      ],
+      "remaining_transfer_gap": 0.5472388203210357,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.5215685595991568,
+        0.5742189393873527
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.4698773243148263,
+      "raw_transfer_metric": 0.09644753386308019,
+      "adapted_transfer_metric": 0.09622356084674427,
+      "recovered_covariate_component": -0.00022397301633592104,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.0019946554546989587,
+        0.0016941212364294269
+      ],
+      "remaining_transfer_gap": 0.37365376346808205,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.346443617641616,
+        0.40489648679128426
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.8411807102607785,
+      "raw_transfer_metric": 0.2965551309319895,
+      "adapted_transfer_metric": 0.308760513601093,
+      "recovered_covariate_component": 0.012205382669103537,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.0011304508466121064,
+        0.024221999337710704
+      ],
+      "remaining_transfer_gap": 0.5324201966596854,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.5060805412598113,
+        0.5576092731658888
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "baseline",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.4698773243148263,
+      "raw_transfer_metric": 0.09644753386308019,
+      "adapted_transfer_metric": 0.09769011149852169,
+      "recovered_covariate_component": 0.0012425776354414997,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.0010276435891106903,
+        0.0036590183306380035
+      ],
+      "remaining_transfer_gap": 0.3721872128163046,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.34467228137281253,
+        0.40268270215703134
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.90807357717935,
+      "raw_transfer_metric": 0.3141548720223256,
+      "adapted_transfer_metric": 0.30211173436907535,
+      "recovered_covariate_component": -0.012043137653250269,
+      "recovered_component_95_paired_bootstrap_ci": [
+        -0.02625758765001493,
+        0.0027455655726858048
+      ],
+      "remaining_transfer_gap": 0.6059618428102747,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.5797555807914097,
+        0.6317520769409388
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "adapted_method": "regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.6455894428110062,
+      "raw_transfer_metric": 0.09776772462629946,
+      "adapted_transfer_metric": 0.10221813820008911,
+      "recovered_covariate_component": 0.004450413573789655,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.0007926269704568013,
+        0.008809477471290895
+      ],
+      "remaining_transfer_gap": 0.5433713046109171,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.5132134242019258,
+        0.5710415901813349
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "roc_auc",
+      "target_within_region_step8b_oof_metric": 0.90807357717935,
+      "raw_transfer_metric": 0.3141548720223256,
+      "adapted_transfer_metric": 0.40574850791578104,
+      "recovered_covariate_component": 0.09159363589345543,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.07282540670560005,
+        0.11040332698168978
+      ],
+      "remaining_transfer_gap": 0.502325069263569,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.48220649809769206,
+        0.5237814864714923
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    },
+    {
+      "direction": "bejis_2022_to_manavgat_2021",
+      "model_family": "thermal",
+      "adapted_method": "coral_after_regionwise_zscore",
+      "metric": "pr_auc",
+      "target_within_region_step8b_oof_metric": 0.6455894428110062,
+      "raw_transfer_metric": 0.09776772462629946,
+      "adapted_transfer_metric": 0.11596047477410229,
+      "recovered_covariate_component": 0.018192750147802833,
+      "recovered_component_95_paired_bootstrap_ci": [
+        0.01377229335321228,
+        0.022664496994017704
+      ],
+      "remaining_transfer_gap": 0.5296289680369038,
+      "remaining_gap_95_paired_bootstrap_ci": [
+        0.5011137888019854,
+        0.5565918039403371
+      ],
+      "residual_gap_support_status": "bootstrap_supported_positive_residual_gap",
+      "residual_gap_interpretation": "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences; not causal proof or the exact amount of concept shift."
+    }
+  ],
+  "reproducibility_qa": {
+    "analysis_id": "ea075fc3b67796a0e52fd383366d5f9ab45650efd7a4792d60749c08779a17c6",
+    "preregistration_present": true,
+    "analysis_id_consistent_across_inputs": true,
+    "raw_step9b_reproduction": [
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step9B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      }
+    ],
+    "maximum_raw_reproduction_absolute_difference": 0.0,
+    "within_region_step8b_reproduction": [
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "baseline",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "baseline",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "thermal",
+        "metric": "roc_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "thermal",
+        "metric": "pr_auc",
+        "reference": "Step8B",
+        "status": "passed",
+        "absolute_difference": 0.0
+      }
+    ],
+    "maximum_within_reproduction_absolute_difference": 0.0,
+    "target_label_present_in_predictions": false,
+    "prediction_rows_by_direction_model_method": [
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "source_experiment": "bejis_2022",
+        "target_experiment": "manavgat_2021",
+        "model_family": "baseline",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 20511
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "source_experiment": "bejis_2022",
+        "target_experiment": "manavgat_2021",
+        "model_family": "baseline",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 20511
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "source_experiment": "bejis_2022",
+        "target_experiment": "manavgat_2021",
+        "model_family": "baseline",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 20511
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "source_experiment": "bejis_2022",
+        "target_experiment": "manavgat_2021",
+        "model_family": "thermal",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 20511
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "source_experiment": "bejis_2022",
+        "target_experiment": "manavgat_2021",
+        "model_family": "thermal",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 20511
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "source_experiment": "bejis_2022",
+        "target_experiment": "manavgat_2021",
+        "model_family": "thermal",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 20511
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "bejis_2022",
+        "model_family": "baseline",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 15190
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "bejis_2022",
+        "model_family": "baseline",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 15190
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "bejis_2022",
+        "model_family": "baseline",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 15190
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "bejis_2022",
+        "model_family": "thermal",
+        "adaptation_method": "coral_after_regionwise_zscore",
+        "prediction_rows": 15190
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "bejis_2022",
+        "model_family": "thermal",
+        "adaptation_method": "raw_source_only",
+        "prediction_rows": 15190
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "bejis_2022",
+        "model_family": "thermal",
+        "adaptation_method": "regionwise_zscore",
+        "prediction_rows": 15190
+      }
+    ],
+    "protected_input_hash_check": "passed",
+    "bootstrap_unstable": false,
+    "package_versions": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "scikit_learn": "1.9.0"
+    },
+    "dataset_input_hashes_are_recorded": true
+  },
+  "adaptation_diagnostics": {
+    "coral_covariance_condition_numbers": [
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "baseline",
+        "source_covariance_condition_number": 3.3209935892120708,
+        "target_covariance_condition_number": 3.273622523603569,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 3
+      },
+      {
+        "direction": "manavgat_2021_to_bejis_2022",
+        "model_family": "thermal",
+        "source_covariance_condition_number": 1714.7077603664593,
+        "target_covariance_condition_number": 717.357296996522,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 9
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "baseline",
+        "source_covariance_condition_number": 3.273622523603569,
+        "target_covariance_condition_number": 3.3209935892120708,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 3
+      },
+      {
+        "direction": "bejis_2022_to_manavgat_2021",
+        "model_family": "thermal",
+        "source_covariance_condition_number": 717.357296996522,
+        "target_covariance_condition_number": 1714.7077603664593,
+        "coral_lambda": 1e-05,
+        "numeric_feature_count": 9
+      }
+    ],
+    "acceptance_threshold_added": false,
+    "caveat": "The thermal CORAL comparison was obtained with strongly correlated numeric thermal features and relatively high covariance condition numbers. It is therefore treated as a two-region diagnostic comparison, not evidence of universal superiority."
+  },
+  "per_direction_interpretation": {
+    "manavgat_2021_to_bejis_2022": {
+      "bootstrap_unstable": false,
+      "by_model_family": {
+        "baseline": {
+          "raw_anti_predictive": "bootstrap_supported_below_chance",
+          "covariate_recovery_zscore": "uncertain_interval_includes_zero",
+          "covariate_recovery_coral": "uncertain_interval_includes_zero",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "uncertain_interval_includes_zero",
+          "point_estimates": {
+            "raw_roc_auc": 0.37069117362410486,
+            "regionwise_zscore_roc_auc": 0.38499890315504226,
+            "coral_after_regionwise_zscore_roc_auc": 0.38537118523775726,
+            "within_region_roc_auc": 0.8616776566230079,
+            "zscore_minus_raw": 0.014307729530937396,
+            "coral_minus_raw": 0.0146800116136524,
+            "coral_minus_zscore": 0.00037228208271500307,
+            "within_minus_zscore": 0.4766787534679656,
+            "within_minus_coral": 0.4763064713852506
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": -0.0003765269897350126,
+            "ci_97_5": 0.02803445980847412,
+            "mean": 0.014092754277275162,
+            "median": 0.013871010584233456
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": -0.0031268725059798415,
+            "ci_97_5": 0.03121023802481615,
+            "mean": 0.014419410440507032,
+            "median": 0.014705128007739987
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": -0.01189999636011181,
+            "ci_97_5": 0.01212757332605709,
+            "mean": 0.0003266561632318709,
+            "median": 0.00047772129822507003
+          },
+          "separate_questions": {
+            "improvement_over_raw": "uncertain_interval_includes_zero",
+            "zscore_improvement_over_raw": "uncertain_interval_includes_zero",
+            "coral_improvement_over_raw": "uncertain_interval_includes_zero",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        },
+        "thermal": {
+          "raw_anti_predictive": "bootstrap_supported_below_chance",
+          "covariate_recovery_zscore": "bootstrap_supported_positive",
+          "covariate_recovery_coral": "bootstrap_supported_positive",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "bootstrap_supported_positive",
+          "point_estimates": {
+            "raw_roc_auc": 0.3964026711400735,
+            "regionwise_zscore_roc_auc": 0.45040221949803216,
+            "coral_after_regionwise_zscore_roc_auc": 0.46684737725014513,
+            "within_region_roc_auc": 0.9178110845861024,
+            "zscore_minus_raw": 0.05399954835795867,
+            "coral_minus_raw": 0.07044470611007164,
+            "coral_minus_zscore": 0.01644515775211297,
+            "within_minus_zscore": 0.4674088650880702,
+            "within_minus_coral": 0.45096370733595725
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": 0.03315925718543829,
+            "ci_97_5": 0.07396519737470862,
+            "mean": 0.0534605582974144,
+            "median": 0.05334349150969231
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": 0.04714662887922972,
+            "ci_97_5": 0.09216368553764236,
+            "mean": 0.07028683092296462,
+            "median": 0.07034104809454192
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": 0.003164444662431813,
+            "ci_97_5": 0.03069175174834031,
+            "mean": 0.016826272625550212,
+            "median": 0.01683789098458724
+          },
+          "separate_questions": {
+            "improvement_over_raw": "bootstrap_supported_positive",
+            "zscore_improvement_over_raw": "bootstrap_supported_positive",
+            "coral_improvement_over_raw": "bootstrap_supported_positive",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        }
+      }
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "bootstrap_unstable": false,
+      "by_model_family": {
+        "baseline": {
+          "raw_anti_predictive": "bootstrap_supported_below_chance",
+          "covariate_recovery_zscore": "uncertain_interval_includes_zero",
+          "covariate_recovery_coral": "bootstrap_supported_positive",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "bootstrap_supported_positive",
+          "point_estimates": {
+            "raw_roc_auc": 0.2965551309319895,
+            "regionwise_zscore_roc_auc": 0.2939418899397428,
+            "coral_after_regionwise_zscore_roc_auc": 0.308760513601093,
+            "within_region_roc_auc": 0.8411807102607785,
+            "zscore_minus_raw": -0.0026132409922466904,
+            "coral_minus_raw": 0.012205382669103537,
+            "coral_minus_zscore": 0.014818623661350228,
+            "within_minus_zscore": 0.5472388203210357,
+            "within_minus_coral": 0.5324201966596854
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": -0.011779739696120404,
+            "ci_97_5": 0.007186992924917216,
+            "mean": -0.002430087919709371,
+            "median": -0.002526226231384543
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": 0.0011304508466121064,
+            "ci_97_5": 0.024221999337710704,
+            "mean": 0.012553569463924805,
+            "median": 0.012749385678269581
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": 0.007436673452476332,
+            "ci_97_5": 0.022045750044154093,
+            "mean": 0.014983657383634176,
+            "median": 0.014978774584013893
+          },
+          "separate_questions": {
+            "improvement_over_raw": "uncertain_interval_includes_zero",
+            "zscore_improvement_over_raw": "uncertain_interval_includes_zero",
+            "coral_improvement_over_raw": "bootstrap_supported_positive",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        },
+        "thermal": {
+          "raw_anti_predictive": "bootstrap_supported_below_chance",
+          "covariate_recovery_zscore": "uncertain_interval_includes_zero",
+          "covariate_recovery_coral": "bootstrap_supported_positive",
+          "residual_gap_zscore": "bootstrap_supported_positive_residual_gap",
+          "residual_gap_coral": "bootstrap_supported_positive_residual_gap",
+          "coral_vs_zscore": "bootstrap_supported_positive",
+          "point_estimates": {
+            "raw_roc_auc": 0.3141548720223256,
+            "regionwise_zscore_roc_auc": 0.30211173436907535,
+            "coral_after_regionwise_zscore_roc_auc": 0.40574850791578104,
+            "within_region_roc_auc": 0.90807357717935,
+            "zscore_minus_raw": -0.012043137653250269,
+            "coral_minus_raw": 0.09159363589345543,
+            "coral_minus_zscore": 0.1036367735467057,
+            "within_minus_zscore": 0.6059618428102747,
+            "within_minus_coral": 0.502325069263569
+          },
+          "delta_roc_auc_zscore_minus_raw_ci": {
+            "ci_2_5": -0.02625758765001493,
+            "ci_97_5": 0.0027455655726858048,
+            "mean": -0.012012513261043129,
+            "median": -0.01182764116326862
+          },
+          "delta_roc_auc_coral_minus_raw_ci": {
+            "ci_2_5": 0.07282540670560005,
+            "ci_97_5": 0.11040332698168978,
+            "mean": 0.0917498333436943,
+            "median": 0.09164551683464311
+          },
+          "delta_roc_auc_coral_minus_zscore_ci": {
+            "ci_2_5": 0.08549833308215969,
+            "ci_97_5": 0.1207748141559996,
+            "mean": 0.10376234660473742,
+            "median": 0.10377584686123811
+          },
+          "separate_questions": {
+            "improvement_over_raw": "uncertain_interval_includes_zero",
+            "zscore_improvement_over_raw": "uncertain_interval_includes_zero",
+            "coral_improvement_over_raw": "bootstrap_supported_positive",
+            "regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "coral_after_regionwise_zscore_performance_relative_to_chance": "bootstrap_supported_below_chance",
+            "remaining_gap_to_within_region": "bootstrap_supported_positive_residual_gap"
+          }
+        }
+      }
+    }
+  },
+  "bidirectional_vs_direction_dependent": {
+    "baseline__covariate_recovery_zscore": "bidirectional",
+    "baseline__covariate_recovery_coral": "direction-dependent",
+    "baseline__residual_gap_zscore": "bidirectional",
+    "baseline__residual_gap_coral": "bidirectional",
+    "baseline__coral_vs_zscore": "direction-dependent",
+    "thermal__covariate_recovery_zscore": "direction-dependent",
+    "thermal__covariate_recovery_coral": "bidirectional",
+    "thermal__residual_gap_zscore": "bidirectional",
+    "thermal__residual_gap_coral": "bidirectional",
+    "thermal__coral_vs_zscore": "bidirectional"
+  },
+  "scientific_summary": [
+    "Selected pair: manavgat_2021 <-> bejis_2022. All recovery statements below are direction- and model-family-specific.",
+    "manavgat_2021_to_bejis_2022 [baseline]: region-wise z-score improves raw ROC-AUC (delta=0.014308; paired interval includes zero).",
+    "manavgat_2021_to_bejis_2022 [baseline]: CORAL after z-score improves raw ROC-AUC (delta=0.014680; paired interval includes zero).",
+    "manavgat_2021_to_bejis_2022 [baseline]: CORAL versus z-score improves ROC-AUC (delta=0.000372; paired interval includes zero).",
+    "manavgat_2021_to_bejis_2022 [baseline]: after z-score, a residual within-region gap remains (within-minus-adapted=0.476679; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.476306; bootstrap_supported_positive_residual_gap).",
+    "manavgat_2021_to_bejis_2022 [thermal]: region-wise z-score improves raw ROC-AUC (delta=0.054000; bootstrap-supported positive difference).",
+    "manavgat_2021_to_bejis_2022 [thermal]: CORAL after z-score improves raw ROC-AUC (delta=0.070445; bootstrap-supported positive difference).",
+    "manavgat_2021_to_bejis_2022 [thermal]: CORAL versus z-score improves ROC-AUC (delta=0.016445; bootstrap-supported positive difference).",
+    "manavgat_2021_to_bejis_2022 [thermal]: after z-score, a residual within-region gap remains (within-minus-adapted=0.467409; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.450964; bootstrap_supported_positive_residual_gap).",
+    "bejis_2022_to_manavgat_2021 [baseline]: region-wise z-score worsens raw ROC-AUC (delta=-0.002613; paired interval includes zero).",
+    "bejis_2022_to_manavgat_2021 [baseline]: CORAL after z-score improves raw ROC-AUC (delta=0.012205; bootstrap-supported positive difference).",
+    "bejis_2022_to_manavgat_2021 [baseline]: CORAL versus z-score improves ROC-AUC (delta=0.014819; bootstrap-supported positive difference).",
+    "bejis_2022_to_manavgat_2021 [baseline]: after z-score, a residual within-region gap remains (within-minus-adapted=0.547239; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.532420; bootstrap_supported_positive_residual_gap).",
+    "bejis_2022_to_manavgat_2021 [thermal]: region-wise z-score worsens raw ROC-AUC (delta=-0.012043; paired interval includes zero).",
+    "bejis_2022_to_manavgat_2021 [thermal]: CORAL after z-score improves raw ROC-AUC (delta=0.091594; bootstrap-supported positive difference).",
+    "bejis_2022_to_manavgat_2021 [thermal]: CORAL versus z-score improves ROC-AUC (delta=0.103637; bootstrap-supported positive difference).",
+    "bejis_2022_to_manavgat_2021 [thermal]: after z-score, a residual within-region gap remains (within-minus-adapted=0.605962; bootstrap_supported_positive_residual_gap); after CORAL, a residual within-region gap remains (within-minus-adapted=0.502325; bootstrap_supported_positive_residual_gap).",
+    "baseline region-wise z-score recovery is direction-dependent, not bidirectional: it improves raw ROC-AUC in manavgat_2021_to_bejis_2022 and worsens it in bejis_2022_to_manavgat_2021.",
+    "thermal region-wise z-score recovery is direction-dependent, not bidirectional: it improves raw ROC-AUC in manavgat_2021_to_bejis_2022 and worsens it in bejis_2022_to_manavgat_2021."
+  ],
+  "brier_protocol_audit": {
+    "preregistered": false,
+    "status": "not_preregistered_no_post_hoc_addition",
+    "protocol_mismatch": true,
+    "statement": "Brier was not preregistered in the immutable Step10 scientific configuration. It is not added post hoc; Brier fields remain unavailable."
+  },
+  "safe_wording": [
+    "Step9 is the raw source-only transfer result; Step10 is unsupervised target-covariate adaptation informed by region-wise standardization and CORAL alignment.",
+    "Target labels were not used for adaptation, fitting, imputation, covariance estimation, feature selection, method selection, threshold selection, or probability calibration.",
+    "Improvement over raw transfer, performance above chance, and the remaining gap to within-region performance are separate questions and are reported separately.",
+    "Residual performance gap after covariate adaptation, consistent with remaining concept shift or other non-covariate regional differences.",
+    "A residual gap is not causal proof or the exact amount of concept shift."
+  ],
+  "never_claims": [
+    "successful operational transfer",
+    "universal CORAL superiority",
+    "statistical significance",
+    "p-values",
+    "causal fire relationships",
+    "Step9 was corrected",
+    "target-label calibration"
+  ],
+  "any_direction_bootstrap_unstable": false,
+  "raw_reproduction": {
+    "manavgat_2021_to_bejis_2022": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.37069117362410486,
+            "step9b": 0.37069117362410486,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.052010675967464864,
+            "step9b": 0.052010675967464864,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.3964026711400735,
+            "step9b": 0.3964026711400735,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.05417448341892161,
+            "step9b": 0.05417448341892161,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__bejis_2022\\step9b\\cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "manavgat_2021",
+        "root_target_experiment_id": "bejis_2022",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.37069117362410486,
+          "pr_auc": 0.052010675967464864,
+          "brier_score": 0.15951819321725308
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.3964026711400735,
+          "pr_auc": 0.05417448341892161,
+          "brier_score": 0.1381497524851594
+        }
+      }
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.2965551309319895,
+            "step9b": 0.2965551309319895,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.09644753386308019,
+            "step9b": 0.09644753386308019,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.3141548720223256,
+            "step9b": 0.3141548720223256,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.09776772462629946,
+            "step9b": 0.09776772462629946,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      },
+      "probability_level_check": {
+        "attempted": true
+      },
+      "step9_reference": {
+        "resolved_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\cross_region\\manavgat_2021__bejis_2022\\step9b\\cross_region_transfer_metrics.json",
+        "schema": "step9b_results_v1",
+        "root_source_experiment_id": "manavgat_2021",
+        "root_target_experiment_id": "bejis_2022",
+        "required_metrics": [
+          "roc_auc",
+          "pr_auc",
+          "brier_score"
+        ],
+        "baseline_metrics": {
+          "roc_auc": 0.2965551309319895,
+          "pr_auc": 0.09644753386308019,
+          "brier_score": 0.20027263356813213
+        },
+        "thermal_metrics": {
+          "roc_auc": 0.3141548720223256,
+          "pr_auc": 0.09776772462629946,
+          "brier_score": 0.17422225515795853
+        }
+      }
+    }
+  },
+  "within_region_reproduction": {
+    "manavgat_2021_to_bejis_2022": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.8616776566230079,
+            "step8b": 0.8616776566230079,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.3027735748414686,
+            "step8b": 0.3027735748414686,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.9178110845861024,
+            "step8b": 0.9178110845861024,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.49780780629444993,
+            "step8b": 0.49780780629444993,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    },
+    "bejis_2022_to_manavgat_2021": {
+      "checked": true,
+      "all_within_tolerance": true,
+      "detail": {
+        "baseline": {
+          "roc_auc": {
+            "mine": 0.8411807102607785,
+            "step8b": 0.8411807102607785,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.4698773243148263,
+            "step8b": 0.4698773243148263,
+            "diff": 0.0,
+            "ok": true
+          }
+        },
+        "thermal": {
+          "roc_auc": {
+            "mine": 0.90807357717935,
+            "step8b": 0.90807357717935,
+            "diff": 0.0,
+            "ok": true
+          },
+          "pr_auc": {
+            "mine": 0.6455894428110062,
+            "step8b": 0.6455894428110062,
+            "diff": 0.0,
+            "ok": true
+          }
+        }
+      }
+    }
+  }
+}

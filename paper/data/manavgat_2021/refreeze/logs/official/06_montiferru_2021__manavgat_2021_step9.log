@@ -1,0 +1,48 @@
+2026-09-23 10:57:41,290 INFO     ======================================================================
+2026-09-23 10:57:41,290 INFO     STEP9A: cross-region girdi uygunluk denetimi
+2026-09-23 10:57:41,290 INFO     ======================================================================
+2026-09-23 10:57:41,290 INFO     Step9A audit basliyor: source=montiferru_2021, target=manavgat_2021
+2026-09-23 10:57:41,338 INFO     Step9A tamamlandi: passed=True (C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9a\cross_region_input_audit.json, C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9a\cross_region_input_audit.md)
+2026-09-23 10:57:41,339 INFO     ======================================================================
+2026-09-23 10:57:41,339 INFO     STEP9B: iki yonlu cross-region transfer
+2026-09-23 10:57:41,339 INFO     ======================================================================
+2026-09-23 10:57:41,339 INFO     Step9B: montiferru_2021 <-> manavgat_2021 icin veri setleri yukleniyor...
+2026-09-23 10:57:41,362 INFO     [montiferru_2021 -> manavgat_2021] populasyon=burnable_tree_shrub_grass calisiyor...
+2026-09-23 10:57:45,189 INFO     [montiferru_2021 -> manavgat_2021 / burnable_tree_shrub_grass] delta_auc=0.06615790349082185 delta_pr_auc=0.011598121912749518 delta_brier=-0.13950339589141014
+2026-09-23 10:57:45,189 INFO     [montiferru_2021 -> manavgat_2021] populasyon=all_valid calisiyor...
+2026-09-23 10:57:49,592 INFO     [montiferru_2021 -> manavgat_2021 / all_valid] delta_auc=0.050088837904347316 delta_pr_auc=0.0095174568317766 delta_brier=-0.11254041355656225
+2026-09-23 10:57:49,592 INFO     [montiferru_2021 -> manavgat_2021] populasyon=burnable_tree_shrub calisiyor...
+2026-09-23 10:57:53,539 INFO     [montiferru_2021 -> manavgat_2021 / burnable_tree_shrub] delta_auc=0.09426721601290067 delta_pr_auc=0.01469262042985403 delta_brier=-0.15184154517050408
+2026-09-23 10:57:53,539 INFO     [manavgat_2021 -> montiferru_2021] populasyon=burnable_tree_shrub_grass calisiyor...
+2026-09-23 10:58:05,768 INFO     [manavgat_2021 -> montiferru_2021 / burnable_tree_shrub_grass] delta_auc=-0.016177552408403906 delta_pr_auc=0.01802410406493729 delta_brier=-0.04702836443131392
+2026-09-23 10:58:05,768 INFO     [manavgat_2021 -> montiferru_2021] populasyon=all_valid calisiyor...
+2026-09-23 10:58:19,267 INFO     [manavgat_2021 -> montiferru_2021 / all_valid] delta_auc=-0.014219433389810465 delta_pr_auc=0.016462395973417032 delta_brier=-0.03507799567158526
+2026-09-23 10:58:19,267 INFO     [manavgat_2021 -> montiferru_2021] populasyon=burnable_tree_shrub calisiyor...
+2026-09-23 10:58:29,260 INFO     [manavgat_2021 -> montiferru_2021 / burnable_tree_shrub] delta_auc=0.009687526185955475 delta_pr_auc=0.04784555044656463 delta_brier=-0.060485295919619236
+2026-09-23 10:58:29,543 INFO     Metrics JSON yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9b\cross_region_transfer_metrics.json
+2026-09-23 10:58:29,544 INFO     Predictions yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9b\cross_region_transfer_predictions.parquet, C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9b\cross_region_transfer_predictions.csv
+2026-09-23 10:58:29,876 INFO     ROC/PR eğrileri yazıldı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9b
+2026-09-23 10:58:29,878 INFO     ======================================================================
+2026-09-23 10:58:29,878 INFO     STEP9C: hedef-bolge spatial-block bootstrap
+2026-09-23 10:58:29,878 INFO     ======================================================================
+2026-09-23 10:58:29,898 INFO     [manavgat_2021_to_montiferru_2021 / all_valid] bootstrap basliyor (3173 satir, 819 benzersiz spatial_block_id)...
+2026-09-23 10:58:34,562 INFO     [manavgat_2021_to_montiferru_2021 / all_valid] delta_auc CI=[-0.0443, 0.0158] (uncertain), delta_pr_auc CI=[-0.0003, 0.0361] (uncertain), delta_brier CI=[-0.0456, -0.0246] (positive_bootstrap_support)
+2026-09-23 10:58:34,563 INFO     [manavgat_2021_to_montiferru_2021 / burnable_tree_shrub] bootstrap basliyor (1670 satir, 580 benzersiz spatial_block_id)...
+2026-09-23 10:58:38,661 INFO     [manavgat_2021_to_montiferru_2021 / burnable_tree_shrub] delta_auc CI=[-0.0289, 0.0495] (uncertain), delta_pr_auc CI=[0.0166, 0.0852] (positive_bootstrap_support), delta_brier CI=[-0.0743, -0.0454] (positive_bootstrap_support)
+2026-09-23 10:58:38,661 INFO     [manavgat_2021_to_montiferru_2021 / burnable_tree_shrub_grass] bootstrap basliyor (2544 satir, 743 benzersiz spatial_block_id)...
+2026-09-23 10:58:43,178 INFO     [manavgat_2021_to_montiferru_2021 / burnable_tree_shrub_grass] delta_auc CI=[-0.0466, 0.0126] (uncertain), delta_pr_auc CI=[0.0008, 0.0401] (positive_bootstrap_support), delta_brier CI=[-0.0588, -0.0354] (positive_bootstrap_support)
+2026-09-23 10:58:43,179 INFO     [montiferru_2021_to_manavgat_2021 / all_valid] bootstrap basliyor (24087 satir, 6070 benzersiz spatial_block_id)...
+2026-09-23 10:59:04,037 INFO     [montiferru_2021_to_manavgat_2021 / all_valid] delta_auc CI=[0.0404, 0.0610] (positive_bootstrap_support), delta_pr_auc CI=[0.0070, 0.0121] (positive_bootstrap_support), delta_brier CI=[-0.1170, -0.1078] (positive_bootstrap_support)
+2026-09-23 10:59:04,037 INFO     [montiferru_2021_to_manavgat_2021 / burnable_tree_shrub] bootstrap basliyor (15538 satir, 4577 benzersiz spatial_block_id)...
+2026-09-23 10:59:20,403 INFO     [montiferru_2021_to_manavgat_2021 / burnable_tree_shrub] delta_auc CI=[0.0804, 0.1085] (positive_bootstrap_support), delta_pr_auc CI=[0.0110, 0.0183] (positive_bootstrap_support), delta_brier CI=[-0.1570, -0.1465] (positive_bootstrap_support)
+2026-09-23 10:59:20,403 INFO     [montiferru_2021_to_manavgat_2021 / burnable_tree_shrub_grass] bootstrap basliyor (20511 satir, 5439 benzersiz spatial_block_id)...
+2026-09-23 10:59:39,800 INFO     [montiferru_2021_to_manavgat_2021 / burnable_tree_shrub_grass] delta_auc CI=[0.0533, 0.0796] (positive_bootstrap_support), delta_pr_auc CI=[0.0087, 0.0145] (positive_bootstrap_support), delta_brier CI=[-0.1453, -0.1335] (positive_bootstrap_support)
+2026-09-23 10:59:39,867 INFO     Bootstrap metrics JSON yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9c\cross_region_bootstrap_metrics.json
+2026-09-23 10:59:39,867 INFO     Bootstrap samples CSV yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9c\cross_region_bootstrap_samples.csv
+2026-09-23 10:59:39,869 INFO     ======================================================================
+2026-09-23 10:59:39,869 INFO     STEP9D: birlesik final rapor
+2026-09-23 10:59:39,869 INFO     ======================================================================
+2026-09-23 10:59:39,887 INFO     Step9D tamamlandi: overall_conclusion=partial_transfer_supported (C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9d\final_cross_region_report.json, C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\cross_region\montiferru_2021__manavgat_2021\step9d\final_cross_region_report.md)
+2026-09-23 10:59:39,887 INFO     ======================================================================
+2026-09-23 10:59:39,887 INFO     STEP9 TAMAMLANDI. Genel sonuc: partial_transfer_supported
+2026-09-23 10:59:39,887 INFO     ======================================================================

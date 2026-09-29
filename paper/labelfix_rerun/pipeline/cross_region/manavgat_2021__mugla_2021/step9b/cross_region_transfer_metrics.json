@@ -1,0 +1,665 @@
+{
+  "source_experiment_id": "manavgat_2021",
+  "target_experiment_id": "mugla_2021",
+  "model_name": "random_forest",
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 3,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "preprocessing_parameters": {
+    "numeric_imputation": "median",
+    "categorical_imputation": "most_frequent",
+    "categorical_encoding": "one_hot_handle_unknown_ignore",
+    "fit_region": "source_only"
+  },
+  "random_seed": 42,
+  "spatial_cv_n_splits_requested": 5,
+  "minimum_positives_and_negatives_per_population": 30,
+  "git_commit": null,
+  "resolved_inputs": {
+    "manavgat_2021": {
+      "experiment_id": "manavgat_2021",
+      "dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "dataset_sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "step8a_manifest_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_dataset_stats.json",
+      "step8a_manifest_sha256": "18170d2a67aa17e2d515dbd782c69bc7e43f08062d3d5b15de410795d2898cd5",
+      "feature_contract": {
+        "ndvi_mean": {
+          "column_name": "ndvi_mean",
+          "semantic_identity": "mean_current_period_ndvi",
+          "source_manifest_key": "ndvi",
+          "source_product": "current_ndvi_median"
+        },
+        "elevation_mean": {
+          "column_name": "elevation_mean",
+          "semantic_identity": "mean_elevation",
+          "source_manifest_key": "elevation",
+          "source_product": "elevation"
+        },
+        "slope_mean": {
+          "column_name": "slope_mean",
+          "semantic_identity": "mean_slope",
+          "source_manifest_key": "slope",
+          "source_product": "slope"
+        },
+        "landcover_dominant": {
+          "column_name": "landcover_dominant",
+          "semantic_identity": "dominant_esa_worldcover_class",
+          "source_manifest_key": "landcover",
+          "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+        },
+        "lst_anomaly_mean": {
+          "column_name": "lst_anomaly_mean",
+          "semantic_identity": "mean_standardized_lst_anomaly",
+          "source_manifest_key": "lst_anomaly",
+          "source_product": "anomaly_zscore"
+        },
+        "current_lst_mean": {
+          "column_name": "current_lst_mean",
+          "semantic_identity": "mean_current_period_lst_celsius",
+          "source_manifest_key": "current_lst",
+          "source_product": "current_period_median_celsius"
+        },
+        "current_tvdi_mean": {
+          "column_name": "current_tvdi_mean",
+          "semantic_identity": "mean_current_period_tvdi",
+          "source_manifest_key": "current_tvdi",
+          "source_product": "current_tvdi"
+        },
+        "tvdi_difference_mean": {
+          "column_name": "tvdi_difference_mean",
+          "semantic_identity": "mean_tvdi_difference",
+          "source_manifest_key": "tvdi_difference",
+          "source_product": "tvdi_difference"
+        },
+        "downscaled_lst_mean": {
+          "column_name": "downscaled_lst_mean",
+          "semantic_identity": "mean_downscaled_lst_celsius",
+          "source_manifest_key": "downscaled_lst",
+          "source_product": "downscaled_lst_celsius"
+        },
+        "fused_lst_mean": {
+          "column_name": "fused_lst_mean",
+          "semantic_identity": "mean_fused_lst_celsius",
+          "source_manifest_key": "fused_lst",
+          "source_product": "fused_lst_celsius"
+        }
+      }
+    },
+    "mugla_2021": {
+      "experiment_id": "mugla_2021",
+      "dataset_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "dataset_sha256": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e",
+      "step8a_manifest_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\step8a\\step8a_dataset_stats.json",
+      "step8a_manifest_sha256": "c9bebf854270393de2e4a75e1bb1d6ce21bdddc00017498ee54ea6802b62ebd8",
+      "feature_contract": {
+        "ndvi_mean": {
+          "column_name": "ndvi_mean",
+          "semantic_identity": "mean_current_period_ndvi",
+          "source_manifest_key": "ndvi",
+          "source_product": "current_ndvi_median"
+        },
+        "elevation_mean": {
+          "column_name": "elevation_mean",
+          "semantic_identity": "mean_elevation",
+          "source_manifest_key": "elevation",
+          "source_product": "elevation"
+        },
+        "slope_mean": {
+          "column_name": "slope_mean",
+          "semantic_identity": "mean_slope",
+          "source_manifest_key": "slope",
+          "source_product": "slope"
+        },
+        "landcover_dominant": {
+          "column_name": "landcover_dominant",
+          "semantic_identity": "dominant_esa_worldcover_class",
+          "source_manifest_key": "landcover",
+          "source_product": "landcover_esa_worldcover_v200_aligned_to_reference"
+        },
+        "lst_anomaly_mean": {
+          "column_name": "lst_anomaly_mean",
+          "semantic_identity": "mean_standardized_lst_anomaly",
+          "source_manifest_key": "lst_anomaly",
+          "source_product": "anomaly_zscore"
+        },
+        "current_lst_mean": {
+          "column_name": "current_lst_mean",
+          "semantic_identity": "mean_current_period_lst_celsius",
+          "source_manifest_key": "current_lst",
+          "source_product": "current_period_median_celsius"
+        },
+        "current_tvdi_mean": {
+          "column_name": "current_tvdi_mean",
+          "semantic_identity": "mean_current_period_tvdi",
+          "source_manifest_key": "current_tvdi",
+          "source_product": "current_tvdi"
+        },
+        "tvdi_difference_mean": {
+          "column_name": "tvdi_difference_mean",
+          "semantic_identity": "mean_tvdi_difference",
+          "source_manifest_key": "tvdi_difference",
+          "source_product": "tvdi_difference"
+        },
+        "downscaled_lst_mean": {
+          "column_name": "downscaled_lst_mean",
+          "semantic_identity": "mean_downscaled_lst_celsius",
+          "source_manifest_key": "downscaled_lst",
+          "source_product": "downscaled_lst_celsius"
+        },
+        "fused_lst_mean": {
+          "column_name": "fused_lst_mean",
+          "semantic_identity": "mean_fused_lst_celsius",
+          "source_manifest_key": "fused_lst",
+          "source_product": "fused_lst_celsius"
+        }
+      }
+    }
+  },
+  "baseline_features": [
+    "ndvi_mean",
+    "elevation_mean",
+    "slope_mean",
+    "landcover_dominant"
+  ],
+  "thermal_model_features": [
+    "ndvi_mean",
+    "elevation_mean",
+    "slope_mean",
+    "landcover_dominant",
+    "lst_anomaly_mean",
+    "current_lst_mean",
+    "current_tvdi_mean",
+    "tvdi_difference_mean",
+    "downscaled_lst_mean",
+    "fused_lst_mean"
+  ],
+  "population_definition": {
+    "valid_universe": "valid_for_modeling == True",
+    "primary": [
+      "burnable_tree_shrub_grass"
+    ],
+    "secondary": [
+      "all_valid",
+      "burnable_tree_shrub"
+    ],
+    "named_population_membership": "valid universe AND the named Step8A boolean population column"
+  },
+  "spatial_block_size_cells": 2,
+  "spatial_block_definition": "block_row=floor(row_500m/spatial_block_size_cells); block_col=floor(col_500m/spatial_block_size_cells); spatial_block_id='<block_row>_<block_col>'; fixed origin (0,0)",
+  "source_only": true,
+  "bidirectional": true,
+  "primary_populations": [
+    "burnable_tree_shrub_grass"
+  ],
+  "secondary_populations": [
+    "all_valid",
+    "burnable_tree_shrub"
+  ],
+  "preprocessing_rule": "All preprocessing (numeric median imputation, categorical landcover one-hot encoding) is fitted using SOURCE REGION ONLY. No target-derived imputation values, no pooled source+target fitting, no target fine-tuning or calibration, no coordinate or region-identity features.",
+  "threshold_selection_rule": "Classification threshold selected using SOURCE REGION spatial-block CV out-of-fold predictions only (F1-optimal over a grid), never using target labels.",
+  "results": [
+    {
+      "transfer_direction": "manavgat_2021_to_mugla_2021",
+      "population": "burnable_tree_shrub_grass",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "source_cell_count": 20511,
+      "target_cell_count": 41730,
+      "source_positive_count": 2935,
+      "source_negative_count": 17576,
+      "target_positive_count": 2911,
+      "target_negative_count": 38819,
+      "target_burned_prevalence": 0.06975796788880902,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 2911,
+        "negative_count": 38819,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.4656065622633644,
+        "pr_auc": 0.06519776046968895,
+        "brier_score": 0.2320813380941932,
+        "balanced_accuracy": 0.4918931911261939,
+        "precision": 0.06680991069630028,
+        "recall": 0.3418069391961525,
+        "f1": 0.11177263536283981,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 20511,
+          "best_f1_on_source_oof": 0.4716699801192843
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 2911,
+        "negative_count": 38819,
+        "threshold_used": 0.5499999999999999,
+        "roc_auc": 0.4376617829318566,
+        "pr_auc": 0.05951686892404788,
+        "brier_score": 0.23348500370330705,
+        "balanced_accuracy": 0.47079897862791215,
+        "precision": 0.05574264445232187,
+        "recall": 0.21607694950188938,
+        "f1": 0.08862275449101796,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 20511,
+          "best_f1_on_source_oof": 0.6003688902551491
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.027944779331507796,
+        "delta_pr_auc": -0.0056808915456410675,
+        "delta_brier": 0.001403665609113841,
+        "brier_improvement": -0.001403665609113841
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_mugla_2021",
+      "population": "all_valid",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "source_cell_count": 24087,
+      "target_cell_count": 73045,
+      "source_positive_count": 3046,
+      "source_negative_count": 21041,
+      "target_positive_count": 3026,
+      "target_negative_count": 70019,
+      "target_burned_prevalence": 0.04142651789992471,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 3026,
+        "negative_count": 70019,
+        "threshold_used": 0.5499999999999999,
+        "roc_auc": 0.6769613930774544,
+        "pr_auc": 0.06292381520398918,
+        "brier_score": 0.14483181615552923,
+        "balanced_accuracy": 0.5568630569134445,
+        "precision": 0.06608851674641149,
+        "recall": 0.29213483146067415,
+        "f1": 0.1077917327155225,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 24087,
+          "best_f1_on_source_oof": 0.4796101564503719
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 3026,
+        "negative_count": 70019,
+        "threshold_used": 0.5499999999999999,
+        "roc_auc": 0.6575598586228323,
+        "pr_auc": 0.05753138507791778,
+        "brier_score": 0.14744597862724385,
+        "balanced_accuracy": 0.532800461100413,
+        "precision": 0.05627975958160955,
+        "recall": 0.23826834104428288,
+        "f1": 0.09105259834564627,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 24087,
+          "best_f1_on_source_oof": 0.6045230501594665
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.019401534454622116,
+        "delta_pr_auc": -0.0053924301260714,
+        "delta_brier": 0.002614162471714615,
+        "brier_improvement": -0.002614162471714615
+      }
+    },
+    {
+      "transfer_direction": "manavgat_2021_to_mugla_2021",
+      "population": "burnable_tree_shrub",
+      "source_experiment_id": "manavgat_2021",
+      "target_experiment_id": "mugla_2021",
+      "source_cell_count": 15538,
+      "target_cell_count": 37417,
+      "source_positive_count": 2297,
+      "source_negative_count": 13241,
+      "target_positive_count": 2759,
+      "target_negative_count": 34658,
+      "target_burned_prevalence": 0.07373653686826843,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 2759,
+        "negative_count": 34658,
+        "threshold_used": 0.44999999999999996,
+        "roc_auc": 0.4736998054682767,
+        "pr_auc": 0.07081350403794415,
+        "brier_score": 0.2152329000183642,
+        "balanced_accuracy": 0.4987567116498226,
+        "precision": 0.07329588794119686,
+        "recall": 0.3831098223994201,
+        "f1": 0.12305005820721769,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 15538,
+          "best_f1_on_source_oof": 0.4222096956031567
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 2759,
+        "negative_count": 34658,
+        "threshold_used": 0.5499999999999999,
+        "roc_auc": 0.4452505736632948,
+        "pr_auc": 0.06398614180912289,
+        "brier_score": 0.22010499337827716,
+        "balanced_accuracy": 0.47419244612363115,
+        "precision": 0.05917421064252595,
+        "recall": 0.19427328742297933,
+        "f1": 0.09071676398409072,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 15538,
+          "best_f1_on_source_oof": 0.5678271308523409
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.028449231804981934,
+        "delta_pr_auc": -0.006827362228821257,
+        "delta_brier": 0.0048720933599129546,
+        "brier_improvement": -0.0048720933599129546
+      }
+    },
+    {
+      "transfer_direction": "mugla_2021_to_manavgat_2021",
+      "population": "burnable_tree_shrub_grass",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "manavgat_2021",
+      "source_cell_count": 41730,
+      "target_cell_count": 20511,
+      "source_positive_count": 2911,
+      "source_negative_count": 38819,
+      "target_positive_count": 2935,
+      "target_negative_count": 17576,
+      "target_burned_prevalence": 0.14309394958802593,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 2935,
+        "negative_count": 17576,
+        "threshold_used": 0.39999999999999997,
+        "roc_auc": 0.4222591457764537,
+        "pr_auc": 0.11374056637797869,
+        "brier_score": 0.2449638822344167,
+        "balanced_accuracy": 0.4226286484047086,
+        "precision": 0.09446457578408098,
+        "recall": 0.2575809199318569,
+        "f1": 0.13823368074602305,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 41730,
+          "best_f1_on_source_oof": 0.2519546692436089
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 2935,
+        "negative_count": 17576,
+        "threshold_used": 0.44999999999999996,
+        "roc_auc": 0.3449553227686198,
+        "pr_auc": 0.1007227330135432,
+        "brier_score": 0.2457775976327831,
+        "balanced_accuracy": 0.3777086940608961,
+        "precision": 0.028651162790697675,
+        "recall": 0.05247018739352641,
+        "f1": 0.03706377858002407,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 41730,
+          "best_f1_on_source_oof": 0.44500594530321047
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.0773038230078339,
+        "delta_pr_auc": -0.013017833364435488,
+        "delta_brier": 0.0008137153983663881,
+        "brier_improvement": -0.0008137153983663881
+      }
+    },
+    {
+      "transfer_direction": "mugla_2021_to_manavgat_2021",
+      "population": "all_valid",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "manavgat_2021",
+      "source_cell_count": 73045,
+      "target_cell_count": 24087,
+      "source_positive_count": 3026,
+      "source_negative_count": 70019,
+      "target_positive_count": 3046,
+      "target_negative_count": 21041,
+      "target_burned_prevalence": 0.12645825549051357,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 3046,
+        "negative_count": 21041,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.5021465610570588,
+        "pr_auc": 0.11450319003295616,
+        "brier_score": 0.232612814735612,
+        "balanced_accuracy": 0.44675856095982197,
+        "precision": 0.08495678921927641,
+        "recall": 0.19041365725541695,
+        "f1": 0.11749215030892332,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 73045,
+          "best_f1_on_source_oof": 0.2507098538226943
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 3046,
+        "negative_count": 21041,
+        "threshold_used": 0.49999999999999994,
+        "roc_auc": 0.4382816068418839,
+        "pr_auc": 0.10175349750155042,
+        "brier_score": 0.2068310857975409,
+        "balanced_accuracy": 0.4211043907241351,
+        "precision": 0.03007346189164371,
+        "recall": 0.04300722258699934,
+        "f1": 0.03539583896244258,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 73045,
+          "best_f1_on_source_oof": 0.4387429785942007
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.06386495421517491,
+        "delta_pr_auc": -0.012749692531405732,
+        "delta_brier": -0.025781728938071097,
+        "brier_improvement": 0.025781728938071097
+      }
+    },
+    {
+      "transfer_direction": "mugla_2021_to_manavgat_2021",
+      "population": "burnable_tree_shrub",
+      "source_experiment_id": "mugla_2021",
+      "target_experiment_id": "manavgat_2021",
+      "source_cell_count": 37417,
+      "target_cell_count": 15538,
+      "source_positive_count": 2759,
+      "source_negative_count": 34658,
+      "target_positive_count": 2297,
+      "target_negative_count": 13241,
+      "target_burned_prevalence": 0.14783112369674348,
+      "skipped": false,
+      "baseline_metrics": {
+        "positive_count": 2297,
+        "negative_count": 13241,
+        "threshold_used": 0.44999999999999996,
+        "roc_auc": 0.403686018713987,
+        "pr_auc": 0.11406508503144183,
+        "brier_score": 0.2530482424105507,
+        "balanced_accuracy": 0.406001224347128,
+        "precision": 0.07965913301222675,
+        "recall": 0.18720069656073138,
+        "f1": 0.11176088369070825,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 37417,
+          "best_f1_on_source_oof": 0.26179710144927537
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant"
+        ]
+      },
+      "thermal_metrics": {
+        "positive_count": 2297,
+        "negative_count": 13241,
+        "threshold_used": 0.44999999999999996,
+        "roc_auc": 0.36531982673965846,
+        "pr_auc": 0.10717500663019375,
+        "brier_score": 0.24001879852339528,
+        "balanced_accuracy": 0.39543052004307017,
+        "precision": 0.0378726833199033,
+        "recall": 0.061384414453635176,
+        "f1": 0.046843853820598004,
+        "threshold_selection": {
+          "method": "source_oof_f1_optimal",
+          "n_splits_used": 5,
+          "oof_coverage": 37417,
+          "best_f1_on_source_oof": 0.44476281439032156
+        },
+        "feature_list": [
+          "ndvi_mean",
+          "elevation_mean",
+          "slope_mean",
+          "landcover_dominant",
+          "lst_anomaly_mean",
+          "current_lst_mean",
+          "current_tvdi_mean",
+          "tvdi_difference_mean",
+          "downscaled_lst_mean",
+          "fused_lst_mean"
+        ]
+      },
+      "delta_metrics": {
+        "delta_auc": -0.038366191974328556,
+        "delta_pr_auc": -0.006890078401248084,
+        "delta_brier": -0.013029443887155406,
+        "brier_improvement": 0.013029443887155406
+      }
+    }
+  ],
+  "created_at": "2026-09-19T09:01:00.816388+00:00"
+}

@@ -1,0 +1,15 @@
+{
+  "note": "Step9F reports model/representation-level ranking reversal across feature variants, NOT per-feature univariate direction. It is presented at the model level only and is never joined per-feature.",
+  "directions": {
+    "manavgat_2021__bejis_2022": {
+      "step9f_available": true,
+      "manifest_analysis_id": null,
+      "screening_variant_count": 10
+    },
+    "bejis_2022__manavgat_2021": {
+      "step9f_available": false,
+      "manifest_analysis_id": null,
+      "screening_variant_count": null
+    }
+  }
+}

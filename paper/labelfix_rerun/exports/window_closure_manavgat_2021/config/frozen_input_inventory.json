@@ -1,0 +1,90 @@
+{
+  "analysis_id": "ccd42192a789adedac69d97791ab3879143d9396945f05b74e8802d429774682",
+  "experiment_id": "manavgat_2021",
+  "frozen_input_sha256": {
+    "canonical_step8a": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+    "canonical_step8a_stats": "0382e417b3764de8927b87b641409ba05447d1365646ddee33b35e1461db4107",
+    "dem_elevation": "b14db8411fa21c41e266be962c715080e06922d2210479aae196c54a67c88022",
+    "dem_slope": "d4ad7db9c28698b46c517a695044e921b0d25ea0a61e7f8020acc0d8bb52022d",
+    "label_burned_binary": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98",
+    "label_raw_burndate": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25",
+    "landcover_aligned": "785e555ea2d91061c4bed27d845d22b34e9d5c510538995c728326a80f33c233"
+  },
+  "inventory": {
+    "canonical_step8a": {
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+      "sha256": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb"
+    },
+    "canonical_step8a_stats": {
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_dataset_stats.json",
+      "sha256": "0382e417b3764de8927b87b641409ba05447d1365646ddee33b35e1461db4107"
+    },
+    "dem_elevation": {
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\data\\dem\\elevation.tif",
+      "sha256": "b14db8411fa21c41e266be962c715080e06922d2210479aae196c54a67c88022"
+    },
+    "dem_slope": {
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\data\\dem\\slope.tif",
+      "sha256": "d4ad7db9c28698b46c517a695044e921b0d25ea0a61e7f8020acc0d8bb52022d"
+    },
+    "label_burned_binary": {
+      "canonical_filename": "mcd64a1_burned.tif",
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_burned.tif",
+      "required": true,
+      "resolved_from": "experiment_context_gate_labels_dir",
+      "role": "label_burned_binary",
+      "sha256": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98"
+    },
+    "label_raw_burndate": {
+      "canonical_filename": "mcd64a1_raw.tif",
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_raw.tif",
+      "required": true,
+      "resolved_from": "step8a_dataset_stats_metadata",
+      "role": "label_raw_burndate",
+      "sha256": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25"
+    },
+    "landcover_aligned": {
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\gate_inputs\\landcover_esa_worldcover_v200_aligned_to_reference.tif",
+      "sha256": "785e555ea2d91061c4bed27d845d22b34e9d5c510538995c728326a80f33c233"
+    }
+  },
+  "label_inputs": {
+    "label_burned_binary": {
+      "canonical_filename": "mcd64a1_burned.tif",
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_burned.tif",
+      "resolved_from": "experiment_context_gate_labels_dir",
+      "role": "label_burned_binary",
+      "sha256": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98"
+    },
+    "label_raw_burndate": {
+      "canonical_filename": "mcd64a1_raw.tif",
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_raw.tif",
+      "resolved_from": "step8a_dataset_stats_metadata",
+      "role": "label_raw_burndate",
+      "sha256": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25"
+    }
+  },
+  "read_only": true,
+  "required_frozen_input_roles": [
+    "canonical_step8a",
+    "dem_elevation",
+    "dem_slope",
+    "landcover_aligned",
+    "label_raw_burndate",
+    "label_burned_binary"
+  ],
+  "required_label_roles": [
+    "label_raw_burndate",
+    "label_burned_binary"
+  ],
+  "schema_version": "window_closure_sensitivity.v1"
+}

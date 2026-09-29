@@ -1,0 +1,90 @@
+[      0s] manavgat_2021 scars [(1, 1135, 696)]
+[      0s] bejis_2022 scars [(1, 1657, 1100)]
+[      0s] mugla_2021 scars [(6, 1266, 914), (1, 1244, 738), (10, 940, 639), (8, 954, 548)]
+[      0s] evia_2021_extended scars [(1, 3059, 2653)]
+[      0s] montiferru_2021 scars [(1, 758, 442), (5, 195, 67)]
+[      8s] blocked full 10 manavgat_2021 0.7476 0.7974 +0.0499
+[     17s] blocked full 2 manavgat_2021 0.8027 0.8696 +0.0669
+[     23s] blocked full 10 bejis_2022 0.7794 0.8245 +0.0451
+[     30s] blocked full 2 bejis_2022 0.8617 0.9178 +0.0561
+[     49s] blocked full 10 mugla_2021 0.6980 0.7773 +0.0793
+[     75s] blocked full 2 mugla_2021 0.7433 0.8590 +0.1157
+[     82s] blocked full 10 evia_2021_extended 0.7160 0.8642 +0.1482
+[     90s] blocked full 2 evia_2021_extended 0.7590 0.9122 +0.1533
+[     94s] blocked full 10 montiferru_2021 0.6204 0.7199 +0.0995
+[     97s] blocked full 2 montiferru_2021 0.7812 0.8826 +0.1014
+[    103s] blocked 10km 10 manavgat_2021 0.6977 0.7366 +0.0389
+[    109s] blocked 10km 2 manavgat_2021 0.7587 0.8359 +0.0772
+[    114s] blocked 10km 10 bejis_2022 0.7100 0.7398 +0.0298
+[    120s] blocked 10km 2 bejis_2022 0.8233 0.8688 +0.0455
+[    132s] blocked 10km 10 mugla_2021 0.6759 0.7634 +0.0875
+[    146s] blocked 10km 2 mugla_2021 0.7217 0.8392 +0.1176
+[    151s] blocked 10km 10 evia_2021_extended 0.7614 0.8949 +0.1336
+[    157s] blocked 10km 2 evia_2021_extended 0.8143 0.9302 +0.1160
+[    161s] blocked 10km 10 montiferru_2021 0.6306 0.7201 +0.0895
+[    166s] blocked 10km 2 montiferru_2021 0.7817 0.8728 +0.0911
+[    171s] blocked 5km 10 manavgat_2021 0.6317 0.6499 +0.0182
+[    175s] blocked 5km 10 bejis_2022 0.6843 0.7018 +0.0175
+[    182s] blocked 5km 10 mugla_2021 0.6776 0.7266 +0.0490
+[    186s] blocked 5km 10 evia_2021_extended 0.8112 0.8819 +0.0707
+[    189s] blocked 5km 10 montiferru_2021 0.6766 0.7163 +0.0396
+[    191s] loso full manavgat_2021 1 +0.0087 lost 0
+[    197s] loso full mugla_2021 6 +0.0250 lost 0
+[    202s] loso full mugla_2021 1 -0.0441 lost 0
+[    208s] loso full mugla_2021 10 +0.0445 lost 0
+[    213s] loso full mugla_2021 8 +0.0123 lost 0
+[    214s] loso full evia_2021_extended 1 +0.1433 lost 0
+[    214s] loso full montiferru_2021 1 +0.0601 lost 0
+[    215s] loso full montiferru_2021 5 -0.0700 lost 0
+[    216s] loso 10km manavgat_2021 1 +0.0367 lost 0
+[    219s] loso 10km mugla_2021 6 +0.0193 lost 0
+[    221s] loso 10km mugla_2021 1 -0.0190 lost 0
+[    224s] loso 10km mugla_2021 10 +0.0620 lost 0
+[    227s] loso 10km mugla_2021 8 -0.0607 lost 0
+[    228s] loso 10km evia_2021_extended 1 -0.0261 lost 0
+[    229s] loso 10km montiferru_2021 1 +0.0557 lost 0
+[    230s] loso 10km montiferru_2021 5 -0.0667 lost 0
+[    231s] half full manavgat_2021 east_west low_to_high +0.0342
+[    232s] half full manavgat_2021 east_west high_to_low -0.0227
+[    233s] half full bejis_2022 east_west low_to_high -0.0345
+[    234s] half full bejis_2022 east_west high_to_low +0.0176
+[    235s] half full bejis_2022 north_south low_to_high +0.0509
+[    236s] half full bejis_2022 north_south high_to_low -0.0106
+[    239s] half full mugla_2021 east_west low_to_high +0.0706
+[    242s] half full mugla_2021 east_west high_to_low +0.0082
+[    245s] half full mugla_2021 north_south low_to_high +0.0304
+[    248s] half full mugla_2021 north_south high_to_low -0.2551
+[    249s] half full evia_2021_extended east_west low_to_high +0.0836
+[    250s] half full evia_2021_extended east_west high_to_low +0.1636
+[    252s] half full evia_2021_extended north_south low_to_high +0.1358
+[    253s] half full evia_2021_extended north_south high_to_low +0.0378
+[    254s] half full montiferru_2021 east_west low_to_high +0.0146
+[    255s] half full montiferru_2021 east_west high_to_low -0.0067
+[    256s] half full montiferru_2021 north_south low_to_high +0.0714
+[    257s] half full montiferru_2021 north_south high_to_low +0.0891
+[    258s] half 10km manavgat_2021 east_west low_to_high +0.0821
+[    259s] half 10km manavgat_2021 east_west high_to_low +0.0205
+[    260s] half 10km manavgat_2021 north_south low_to_high +0.0290
+[    261s] half 10km manavgat_2021 north_south high_to_low +0.0283
+[    262s] half 10km bejis_2022 east_west low_to_high -0.0057
+[    263s] half 10km bejis_2022 east_west high_to_low +0.0659
+[    264s] half 10km bejis_2022 north_south low_to_high +0.0623
+[    265s] half 10km bejis_2022 north_south high_to_low +0.0015
+[    267s] half 10km mugla_2021 east_west low_to_high +0.1153
+[    269s] half 10km mugla_2021 east_west high_to_low +0.0109
+[    270s] half 10km mugla_2021 north_south low_to_high +0.0878
+[    272s] half 10km mugla_2021 north_south high_to_low -0.0640
+[    273s] half 10km evia_2021_extended east_west low_to_high +0.0173
+[    274s] half 10km evia_2021_extended east_west high_to_low +0.0966
+[    275s] half 10km evia_2021_extended north_south low_to_high +0.0358
+[    276s] half 10km evia_2021_extended north_south high_to_low -0.0074
+[    277s] half 10km montiferru_2021 east_west low_to_high +0.0186
+[    278s] half 10km montiferru_2021 east_west high_to_low -0.0020
+[    278s] half 10km montiferru_2021 north_south low_to_high +0.0506
+[    279s] half 10km montiferru_2021 north_south high_to_low +0.0843
+[    294s] foreign done manavgat_2021
+[    294s] foreign done bejis_2022
+[    296s] foreign done mugla_2021
+[    297s] foreign done evia_2021_extended
+[    298s] foreign done montiferru_2021
+[    298s] wrote ladder_raw.json

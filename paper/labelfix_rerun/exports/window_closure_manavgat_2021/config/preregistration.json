@@ -1,0 +1,268 @@
+{
+  "analysis_id": "ccd42192a789adedac69d97791ab3879143d9396945f05b74e8802d429774682",
+  "bootstrap_run": false,
+  "canonical_window": {
+    "duration_days": 56,
+    "lead_days": 1,
+    "predictor_end_date": "2021-07-27",
+    "predictor_start_date": "2021-06-01"
+  },
+  "common_censor_interval": {
+    "applies_to_all_variants": true,
+    "common_prelabel_end": "2021-07-27",
+    "common_prelabel_start": "2021-05-18",
+    "derivation": "start = min(variant predictor_start) over all preregistered shifts; end = label_start - 1 day",
+    "independent_of_exclude_pre_label_burns_flag": true
+  },
+  "diagnostic_namespace": "window_closure_sensitivity",
+  "experiment_id": "manavgat_2021",
+  "frozen_input_sha256": {
+    "canonical_step8a": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+    "canonical_step8a_stats": "0382e417b3764de8927b87b641409ba05447d1365646ddee33b35e1461db4107",
+    "dem_elevation": "b14db8411fa21c41e266be962c715080e06922d2210479aae196c54a67c88022",
+    "dem_slope": "d4ad7db9c28698b46c517a695044e921b0d25ea0a61e7f8020acc0d8bb52022d",
+    "label_burned_binary": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98",
+    "label_raw_burndate": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25",
+    "landcover_aligned": "785e555ea2d91061c4bed27d845d22b34e9d5c510538995c728326a80f33c233"
+  },
+  "gee_exports_run": false,
+  "gee_queries_run": false,
+  "label_inputs": {
+    "label_burned_binary": {
+      "canonical_filename": "mcd64a1_burned.tif",
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_burned.tif",
+      "resolved_from": "experiment_context_gate_labels_dir",
+      "role": "label_burned_binary",
+      "sha256": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98"
+    },
+    "label_raw_burndate": {
+      "canonical_filename": "mcd64a1_raw.tif",
+      "exists": true,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_raw.tif",
+      "resolved_from": "step8a_dataset_stats_metadata",
+      "role": "label_raw_burndate",
+      "sha256": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25"
+    }
+  },
+  "label_window": {
+    "end_date": "2021-08-31",
+    "frozen_across_variants": true,
+    "start_date": "2021-07-28"
+  },
+  "limitations": [
+    "Closing the predictor window earlier is a PREDICTOR-TIMING SENSITIVITY analysis. It is retrospective and is not an operational forecasting validation.",
+    "A single AOI and a single season are not evidence of generalisability.",
+    "A confidence interval that includes zero leaves directional uncertainty unresolved in this analysis.",
+    "Any performance change is consistent with the predictor and observation-support changes that follow from the closure date. These results are descriptive and do not establish an underlying mechanism.",
+    "Landsat and MODIS scene/observation support can itself change with the closure date, so support differences are part of what is being measured.",
+    "PR-AUC depends on prevalence; every comparison here is made on the SAME common cohort so prevalence is held fixed across variants.",
+    "The label window is frozen and identical across variants; only predictor timing moves.",
+    "The calendar-month filter reported for the current-window Landsat roles is derived from the window itself, exactly as production Step3 derives it. When it widens to 1-12 it is REDUNDANT next to the exact filterDate range, which is the binding date contract; it does NOT mean that whole-year data is used.",
+    "Results are descriptive. No deployment, alerting or future-fire forecasting claim is made or supported by this analysis."
+  ],
+  "model_fit": false,
+  "planned_output_paths": {
+    "comparison/bootstrap_replicates.parquet": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\bootstrap_replicates.parquet",
+    "comparison/common_cohort.parquet": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\common_cohort.parquet",
+    "comparison/common_cohort_summary.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\common_cohort_summary.json",
+    "comparison/manifest.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\manifest.json",
+    "comparison/paired_window_changes.csv": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\paired_window_changes.csv",
+    "comparison/shared_fold_assignments.parquet": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\shared_fold_assignments.parquet",
+    "comparison/thermal_contribution.csv": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\thermal_contribution.csv",
+    "comparison/variant_metrics.csv": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\variant_metrics.csv",
+    "comparison/window_closure_summary.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\window_closure_summary.json",
+    "comparison/window_closure_summary.md": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\comparison\\window_closure_summary.md",
+    "config/frozen_input_inventory.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\config\\frozen_input_inventory.json",
+    "config/preregistration.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\config\\preregistration.json",
+    "config/window_variants.csv": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\config\\window_variants.csv",
+    "prelabel_censor/censoring_summary.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\prelabel_censor\\censoring_summary.json",
+    "prelabel_censor/export_plan.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\prelabel_censor\\export_plan.json",
+    "prelabel_censor/prelabel_burndate.tif": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\prelabel_censor\\prelabel_burndate.tif",
+    "variants/canonical/frozen_reference.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\canonical\\frozen_reference.json",
+    "variants/close_14d_earlier/data/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\data",
+    "variants/close_14d_earlier/export_plan.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\export_plan.json",
+    "variants/close_14d_earlier/predictor_export_metadata.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\predictor_export_metadata.json",
+    "variants/close_14d_earlier/step5/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step5",
+    "variants/close_14d_earlier/step5c/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step5c",
+    "variants/close_14d_earlier/step7b/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step7b",
+    "variants/close_14d_earlier/step7c/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step7c",
+    "variants/close_14d_earlier/step7d/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step7d",
+    "variants/close_14d_earlier/step7e/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step7e",
+    "variants/close_14d_earlier/step8/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step8",
+    "variants/close_14d_earlier/step8a/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_14d_earlier\\step8a",
+    "variants/close_7d_earlier/data/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\data",
+    "variants/close_7d_earlier/export_plan.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\export_plan.json",
+    "variants/close_7d_earlier/predictor_export_metadata.json": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\predictor_export_metadata.json",
+    "variants/close_7d_earlier/step5/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step5",
+    "variants/close_7d_earlier/step5c/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step5c",
+    "variants/close_7d_earlier/step7b/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step7b",
+    "variants/close_7d_earlier/step7c/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step7c",
+    "variants/close_7d_earlier/step7d/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step7d",
+    "variants/close_7d_earlier/step7e/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step7e",
+    "variants/close_7d_earlier/step8/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step8",
+    "variants/close_7d_earlier/step8a/": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\variants\\close_7d_earlier\\step8a"
+  },
+  "prerequisites_ready": true,
+  "schema_version": "window_closure_sensitivity.v1",
+  "scientific_configuration": {
+    "baseline_years": [
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "bootstrap_configuration": {
+      "identical_block_draws_across_variants": true,
+      "n_bootstrap": 1000,
+      "seed": 42,
+      "unit": "spatial_block_id"
+    },
+    "canonical_predictor_window": {
+      "duration_days": 56,
+      "end_date": "2021-07-27",
+      "start_date": "2021-06-01"
+    },
+    "common_censor_interval": {
+      "applies_to_all_variants": true,
+      "common_prelabel_end": "2021-07-27",
+      "common_prelabel_start": "2021-05-18",
+      "derivation": "start = min(variant predictor_start) over all preregistered shifts; end = label_start - 1 day",
+      "independent_of_exclude_pre_label_burns_flag": true
+    },
+    "common_cohort_rule": "exact cell_id intersection of the analysis-eligible, primary population, valid-grid rows of every variant, after removing the shared pre-label censored cells",
+    "experiment_id": "manavgat_2021",
+    "feature_registry": {
+      "baseline_features_in_order": [
+        "ndvi_mean",
+        "elevation_mean",
+        "slope_mean",
+        "landcover_dominant"
+      ],
+      "categorical_features": [
+        "landcover_dominant"
+      ],
+      "source": "src.step8b_train_baseline_vs_thermal_model",
+      "thermal_model_features_in_order": [
+        "ndvi_mean",
+        "elevation_mean",
+        "slope_mean",
+        "landcover_dominant",
+        "lst_anomaly_mean",
+        "current_lst_mean",
+        "current_tvdi_mean",
+        "tvdi_difference_mean",
+        "downscaled_lst_mean",
+        "fused_lst_mean"
+      ]
+    },
+    "frozen_input_sha256": {
+      "canonical_step8a": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+      "canonical_step8a_stats": "0382e417b3764de8927b87b641409ba05447d1365646ddee33b35e1461db4107",
+      "dem_elevation": "b14db8411fa21c41e266be962c715080e06922d2210479aae196c54a67c88022",
+      "dem_slope": "d4ad7db9c28698b46c517a695044e921b0d25ea0a61e7f8020acc0d8bb52022d",
+      "label_burned_binary": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98",
+      "label_raw_burndate": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25",
+      "landcover_aligned": "785e555ea2d91061c4bed27d845d22b34e9d5c510538995c728326a80f33c233"
+    },
+    "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+    "label_input_sha256": {
+      "label_burned_binary": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98",
+      "label_raw_burndate": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25"
+    },
+    "label_window": {
+      "end_date": "2021-08-31",
+      "frozen_across_variants": true,
+      "start_date": "2021-07-28"
+    },
+    "model_configuration": {
+      "fold_assignment": "single shared assignment reused by every variant",
+      "min_positives": 30,
+      "model": "random_forest",
+      "n_splits": 5,
+      "random_seed": 42,
+      "spatial_block_size_cells": 2
+    },
+    "preregistered_shifts_days": [
+      0,
+      7,
+      14
+    ],
+    "primary_population": "burnable_tree_shrub_grass",
+    "reducer": "scene_weighted",
+    "required_label_roles": [
+      "label_raw_burndate",
+      "label_burned_binary"
+    ],
+    "schema_version": "window_closure_sensitivity.v1",
+    "variants": [
+      {
+        "duration_days": 56,
+        "lead_days": 1,
+        "predictor_end_date": "2021-07-27",
+        "predictor_start_date": "2021-06-01",
+        "shift_days": 0,
+        "variant_id": "canonical"
+      },
+      {
+        "duration_days": 56,
+        "lead_days": 8,
+        "predictor_end_date": "2021-07-20",
+        "predictor_start_date": "2021-05-25",
+        "shift_days": 7,
+        "variant_id": "close_7d_earlier"
+      },
+      {
+        "duration_days": 56,
+        "lead_days": 15,
+        "predictor_end_date": "2021-07-13",
+        "predictor_start_date": "2021-05-18",
+        "shift_days": 14,
+        "variant_id": "close_14d_earlier"
+      }
+    ]
+  },
+  "stage": "plan",
+  "variants": [
+    {
+      "duration_days": 56,
+      "duration_preserved": true,
+      "is_canonical": true,
+      "label_end_date": "2021-08-31",
+      "label_start_date": "2021-07-28",
+      "label_window_unchanged": true,
+      "lead_days": 1,
+      "predictor_end_date": "2021-07-27",
+      "predictor_start_date": "2021-06-01",
+      "shift_days": 0,
+      "variant_id": "canonical"
+    },
+    {
+      "duration_days": 56,
+      "duration_preserved": true,
+      "is_canonical": false,
+      "label_end_date": "2021-08-31",
+      "label_start_date": "2021-07-28",
+      "label_window_unchanged": true,
+      "lead_days": 8,
+      "predictor_end_date": "2021-07-20",
+      "predictor_start_date": "2021-05-25",
+      "shift_days": 7,
+      "variant_id": "close_7d_earlier"
+    },
+    {
+      "duration_days": 56,
+      "duration_preserved": true,
+      "is_canonical": false,
+      "label_end_date": "2021-08-31",
+      "label_start_date": "2021-07-28",
+      "label_window_unchanged": true,
+      "lead_days": 15,
+      "predictor_end_date": "2021-07-13",
+      "predictor_start_date": "2021-05-18",
+      "shift_days": 14,
+      "variant_id": "close_14d_earlier"
+    }
+  ],
+  "written_by": "src/window_closure_sensitivity.py:run_analysis"
+}

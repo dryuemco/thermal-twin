@@ -1,0 +1,50 @@
+{
+  "analysis_id": "bb909a2c9bff1b7b76c95fa6fd36144d54bfd532883d305238bebd8c97915d3a",
+  "experiment_id": "bejis_2022",
+  "block_size_cells": 20,
+  "nominal_scale": "approximately_10_km",
+  "requested_replicates": 1000,
+  "valid_replicates": 995,
+  "invalid_single_class_replicates": 5,
+  "bootstrap_stability": "stable",
+  "random_seed": 42,
+  "ci_method": "2.5/97.5 percentile",
+  "series": {
+    "auc_baseline": {
+      "mean": 0.7390309677228779,
+      "median": 0.7384169683517281,
+      "ci_2_5": 0.6584908546206083,
+      "ci_97_5": 0.8284778418756938
+    },
+    "auc_thermal": {
+      "mean": 0.7976681040274154,
+      "median": 0.7949592355632191,
+      "ci_2_5": 0.7182582335430875,
+      "ci_97_5": 0.8914033936028192
+    },
+    "delta_auc": {
+      "mean": 0.05863713630453737,
+      "median": 0.05847254673870639,
+      "ci_2_5": 0.031047499373364113,
+      "ci_97_5": 0.08986569226136527
+    },
+    "pr_auc_baseline": {
+      "mean": 0.1641226236290605,
+      "median": 0.1599814411293775,
+      "ci_2_5": 0.04395113480221648,
+      "ci_97_5": 0.30295425751034083
+    },
+    "pr_auc_thermal": {
+      "mean": 0.2458856628696914,
+      "median": 0.24734951716331488,
+      "ci_2_5": 0.06957526132636317,
+      "ci_97_5": 0.41503279405959564
+    },
+    "delta_pr_auc": {
+      "mean": 0.08176303924063094,
+      "median": 0.07807307585764758,
+      "ci_2_5": 0.022368504769037515,
+      "ci_97_5": 0.16085715593347866
+    }
+  }
+}

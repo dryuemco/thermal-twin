@@ -1,0 +1,45 @@
+# ERA5-Land regional diagnostic — raw output files
+# Namespace (analysis_id): 4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2
+# Received from the pipeline author as a zip, 2026-08-11.
+# Source zip: 4850c16556eb8be02594374831cfb7e3b1703c813a998638f99f418eb1ce05b2-20260811T093700Z-1-001.zip
+# Extracted to: paper/era5_raw/<analysis_id>/
+#
+# Hashes below were computed locally with Get-FileHash -Algorithm SHA256 and then
+# cross-checked against the sha256 values recorded inside manifest.json.
+# All three product files MATCH the manifest. manifest.json is not self-recording
+# (it records the other three), so its hash is local-only.
+
+19b5b89bbeea0bb4dee4ea47c915947c85bcc07ae60602362a08f1eeb5ffab2b   15371  era5_land_regional_summary.csv    [matches manifest]
+f1d78185ab62b09c0259ee85fc7d098f280e363d1d33f9c00677e43aabcb3933  118758  era5_land_regional_summary.json   [matches manifest]
+123a37b16c5bd3b4a955184f4a488bdf29ca89ba46040c3d6fbd0f416ddf5bb3   19702  scientific_contract.json          [matches manifest]
+22fdc036e429d0cac4cbfb3f6d24b28b8456c2ee2f16a5a5c46852c60498562d    2209  manifest.json                     [local only]
+
+# Namespace identity
+#   manifest.analysis_id             = 4850c165...05b2
+#   manifest.scientific_config_sha256 = 4850c165...05b2
+#   contract.analysis_id              = 4850c165...05b2
+#   containing folder name            = 4850c165...05b2
+#   -> all four agree.
+#
+# manifest.created_utc  : 2026-08-08T18:02:44.902315+00:00
+# manifest.engine       : era5_land_regional_production_v1
+# manifest.git_commit   : a07ea33743f4e45963e52c50e706683f1eee164d
+# manifest.source_grid  : EPSG:4326, transform [0.1, 0, -180.05, 0, -0.1, 90.05],
+#                         nominal scale 11131.949079327358 m, probed from temperature_2m
+#
+# PROVENANCE CAVEAT — recorded commit does not contain the code.
+#   The manifest records git_commit a07ea33, but src/era5_land_regional_diagnostic.py
+#   does not exist at a07ea33; it and the two scripts were first committed in 48b56e7
+#   (`git diff --stat a07ea33 48b56e7` shows all four files as pure additions).
+#   The run was therefore executed from a working tree at a07ea33 with the diagnostic
+#   files still uncommitted. The code we read and described in the paper is 48b56e7.
+#
+#   Mitigation: every free-text semantics string hashed into the contract was compared
+#   verbatim against the source at 48b56e7 and all match — spatial_aggregation.semantics,
+#   spatial_aggregation.method, temporal_aggregation.semantics,
+#   temporal_aggregation.hourly_completeness_rule, and all four derived_variables recipes.
+#   (climatology.sd_convention is an f-string in source, "ddof={SD_DDOF}" with SD_DDOF = 1,
+#   so it matches on resolution rather than literally.) Since analysis_id is the SHA-256 of
+#   the canonical scientific config, and that config's semantics strings are byte-identical
+#   to 48b56e7, the produced output is consistent with the code as committed at 48b56e7.
+#   This is strong evidence, not proof of bit-identity.

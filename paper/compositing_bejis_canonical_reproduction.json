@@ -1,0 +1,643 @@
+{
+  "status": "pass",
+  "canonical_gate_version": "2.0-pipeline-semantic",
+  "decisive_gate": "pipeline_semantic_reproduction",
+  "required_frozen_files": false,
+  "raw_encoding": {
+    "status": "difference_semantically_equivalent",
+    "bitwise_identical": false,
+    "per_product": {
+      "current_lst_median": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": -Infinity,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "current_lst_valid_count": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": -Infinity,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "baseline_lst_2018": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "baseline_lst_2019": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.9999960310941722,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 18,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "baseline_lst_2020": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.9999993385156953,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 3,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "baseline_lst_2021": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.8136911816424875,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 844958,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      }
+    },
+    "note": "Raw encoding is a DIAGNOSTIC layer: canonical annual baseline TIFFs serialize masked pixels as raw DN 0 with no nodata tag, diagnostic exports use an explicit -9999 nodata sentinel. This difference never fails the decisive pipeline-semantic gate."
+  },
+  "semantic_checks": {
+    "current_lst_median": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535250,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-05,
+      "semantic_kind": "celsius",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": -Infinity,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\current_period\\landsat_current_period_60days.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\current_lst_scene_weighted_median.tif"
+    },
+    "current_lst_valid_count": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535250,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "count",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": -Infinity,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\current_period\\landsat_current_period_60days.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\current_lst_scene_valid_count.tif"
+    },
+    "baseline_lst_2018": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535255,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2018-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2018_scene_weighted_median.tif"
+    },
+    "baseline_lst_2019": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535237,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.9999960310941722,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 18,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [
+        "raw_encoding_difference_semantically_equivalent"
+      ],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2019-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2019_scene_weighted_median.tif"
+    },
+    "baseline_lst_2020": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535252,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.9999993385156953,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 3,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [
+        "raw_encoding_difference_semantically_equivalent"
+      ],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2020-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2020_scene_weighted_median.tif"
+    },
+    "baseline_lst_2021": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 3690297,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.8136911816424875,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 844958,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [
+        "raw_encoding_difference_semantically_equivalent"
+      ],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2021-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2021_scene_weighted_median.tif"
+    },
+    "derived_baseline_mean": {
+      "reproduction_status": "pass",
+      "derived_kind": "baseline_mean",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535252,
+      "abs_diff_mean": 6.205637681607794e-06,
+      "abs_diff_p95": 1.52587890625e-05,
+      "abs_diff_p99": 1.9073486328125e-05,
+      "abs_diff_p99_9": 2.288818359375e-05,
+      "max_abs_diff": 2.6702880859375e-05,
+      "count_above_tolerance": 0,
+      "tolerance": 5e-05,
+      "tolerance_kind": "float32_reduction_reproducibility_not_scientific_effect",
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\baseline_lst_mean_celsius.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\derived\\scene_weighted\\baseline_lst_mean_celsius.tif"
+    },
+    "derived_baseline_std": {
+      "reproduction_status": "pass",
+      "derived_kind": "baseline_std",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535252,
+      "abs_diff_mean": 5.147842775023835e-06,
+      "abs_diff_p95": 1.2278556823730469e-05,
+      "abs_diff_p99": 1.537799835205078e-05,
+      "abs_diff_p99_9": 1.823902130126953e-05,
+      "max_abs_diff": 2.193450927734375e-05,
+      "count_above_tolerance": 0,
+      "tolerance": 5e-05,
+      "tolerance_kind": "float32_reduction_reproducibility_not_scientific_effect",
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\baseline_lst_std_celsius.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\derived\\scene_weighted\\baseline_lst_std_celsius.tif"
+    },
+    "derived_anomaly_zscore": {
+      "reproduction_status": "pass",
+      "valid_mask_exact": false,
+      "threshold_boundary": {
+        "classification": "threshold_boundary_equivalent",
+        "mismatch_pixel_count": 7,
+        "coordinate_sample": [
+          [
+            909,
+            2480
+          ],
+          [
+            944,
+            1672
+          ],
+          [
+            944,
+            1673
+          ],
+          [
+            1029,
+            1577
+          ],
+          [
+            1409,
+            2567
+          ],
+          [
+            1414,
+            2399
+          ],
+          [
+            1681,
+            2187
+          ]
+        ],
+        "coordinate_sample_truncated": false,
+        "std_threshold": 1.0,
+        "std_tolerance": 5e-05,
+        "canonical_std_range": [
+          0.9999986290931702,
+          1.0000108480453491
+        ],
+        "diagnostic_std_range": [
+          0.9999915957450867,
+          1.000012755393982
+        ],
+        "max_distance_from_threshold": 1.2755393981933594e-05
+      },
+      "value_comparison": {
+        "compared_pixel_count": 3504537,
+        "abs_diff_mean": 3.31530392004078e-06,
+        "abs_diff_p95": 9.894371032714844e-06,
+        "abs_diff_p99": 1.7881393432617188e-05,
+        "abs_diff_p99_9": 3.504753112792969e-05,
+        "max_abs_diff": 0.0002422332763671875,
+        "max_propagated_bound": 0.0008918947467954516,
+        "pixels_exceeding_propagated_bound": 0
+      },
+      "value_bound_definition": "per-pixel |dz| <= (current_tol + mean_tol)/std + |z|*std_tol/std, std >= STEP5_MIN_BASELINE_STD_CELSIUS; a propagated NUMERICAL bound from the accepted upstream reproduction tolerances, not a tolerance chosen from the observed maximum",
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\anomaly_zscore.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\derived\\scene_weighted\\anomaly_zscore.tif"
+    }
+  },
+  "threshold_boundary": {
+    "classification": "threshold_boundary_equivalent",
+    "mismatch_pixel_count": 7,
+    "coordinate_sample": [
+      [
+        909,
+        2480
+      ],
+      [
+        944,
+        1672
+      ],
+      [
+        944,
+        1673
+      ],
+      [
+        1029,
+        1577
+      ],
+      [
+        1409,
+        2567
+      ],
+      [
+        1414,
+        2399
+      ],
+      [
+        1681,
+        2187
+      ]
+    ],
+    "coordinate_sample_truncated": false,
+    "std_threshold": 1.0,
+    "std_tolerance": 5e-05,
+    "canonical_std_range": [
+      0.9999986290931702,
+      1.0000108480453491
+    ],
+    "diagnostic_std_range": [
+      0.9999915957450867,
+      1.000012755393982
+    ],
+    "max_distance_from_threshold": 1.2755393981933594e-05
+  },
+  "reduction_tolerance_note": "5e-05 Celsius is a float32 numerical reproducibility tolerance for the derived baseline mean/std, NOT a scientific effect-size threshold.",
+  "warnings": [
+    "raw_encoding_difference_semantically_equivalent"
+  ],
+  "canonical_paths": {
+    "current_lst": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\current_period\\landsat_current_period_60days.tif",
+      "resolution": "experiment_context_filename"
+    },
+    "baseline_lst_2018": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2018-08-14.tif",
+      "resolution": "experiment_context_filename"
+    },
+    "baseline_lst_2019": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2019-08-14.tif",
+      "resolution": "experiment_context_filename"
+    },
+    "baseline_lst_2020": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2020-08-14.tif",
+      "resolution": "experiment_context_filename"
+    },
+    "baseline_lst_2021": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2021-08-14.tif",
+      "resolution": "experiment_context_filename"
+    },
+    "step5_baseline_mean": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\baseline_lst_mean_celsius.tif",
+      "resolution": "step5_canonical_filename"
+    },
+    "step5_baseline_std": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\baseline_lst_std_celsius.tif",
+      "resolution": "step5_canonical_filename"
+    },
+    "step5_anomaly_zscore": {
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\anomaly_zscore.tif",
+      "resolution": "step5_canonical_filename"
+    }
+  },
+  "checks": {
+    "current_lst_median": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535250,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-05,
+      "semantic_kind": "celsius",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": -Infinity,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\current_period\\landsat_current_period_60days.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\current_lst_scene_weighted_median.tif"
+    },
+    "current_lst_valid_count": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535250,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "count",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": -Infinity,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\current_period\\landsat_current_period_60days.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\current_lst_scene_valid_count.tif"
+    },
+    "baseline_lst_2018": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535255,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 1.0,
+        "raw_valid_mask_exact": true,
+        "canonical_only_valid_pixel_count": 0,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2018-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2018_scene_weighted_median.tif"
+    },
+    "baseline_lst_2019": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535237,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.9999960310941722,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 18,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [
+        "raw_encoding_difference_semantically_equivalent"
+      ],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2019-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2019_scene_weighted_median.tif"
+    },
+    "baseline_lst_2020": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535252,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.9999993385156953,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 3,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [
+        "raw_encoding_difference_semantically_equivalent"
+      ],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2020-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2020_scene_weighted_median.tif"
+    },
+    "baseline_lst_2021": {
+      "reproduction_status": "pass",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 3690297,
+      "max_abs_diff": 0.0,
+      "mean_abs_diff": 0.0,
+      "tolerance": 1e-06,
+      "semantic_kind": "baseline_dn",
+      "raw_encoding": {
+        "diagnostic_nodata_tag": -9999.0,
+        "canonical_nodata_tag": null,
+        "raw_valid_mask_agreement": 0.8136911816424875,
+        "raw_valid_mask_exact": false,
+        "canonical_only_valid_pixel_count": 844958,
+        "canonical_only_all_zero_filled": true,
+        "bitwise_identical": false,
+        "note": "Raw byte-level encoding differs: the canonical annual baseline TIFF serializes GEE-masked pixels as raw DN 0 with NO nodata tag, while the diagnostic export uses an explicit -9999 nodata sentinel. This is NOT a bitwise-identical file; equivalence is established by the pipeline-semantic comparison below, not by raw bytes."
+      },
+      "warnings": [
+        "raw_encoding_difference_semantically_equivalent"
+      ],
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\data\\landsat_timeseries\\bejis_2022_landsat_baseline_2021-08-14.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\rasters\\baseline_lst_2021_scene_weighted_median.tif"
+    },
+    "derived_baseline_mean": {
+      "reproduction_status": "pass",
+      "derived_kind": "baseline_mean",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535252,
+      "abs_diff_mean": 6.205637681607794e-06,
+      "abs_diff_p95": 1.52587890625e-05,
+      "abs_diff_p99": 1.9073486328125e-05,
+      "abs_diff_p99_9": 2.288818359375e-05,
+      "max_abs_diff": 2.6702880859375e-05,
+      "count_above_tolerance": 0,
+      "tolerance": 5e-05,
+      "tolerance_kind": "float32_reduction_reproducibility_not_scientific_effect",
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\baseline_lst_mean_celsius.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\derived\\scene_weighted\\baseline_lst_mean_celsius.tif"
+    },
+    "derived_baseline_std": {
+      "reproduction_status": "pass",
+      "derived_kind": "baseline_std",
+      "valid_mask_agreement": 1.0,
+      "valid_mask_exact": true,
+      "compared_pixel_count": 4535252,
+      "abs_diff_mean": 5.147842775023835e-06,
+      "abs_diff_p95": 1.2278556823730469e-05,
+      "abs_diff_p99": 1.537799835205078e-05,
+      "abs_diff_p99_9": 1.823902130126953e-05,
+      "max_abs_diff": 2.193450927734375e-05,
+      "count_above_tolerance": 0,
+      "tolerance": 5e-05,
+      "tolerance_kind": "float32_reduction_reproducibility_not_scientific_effect",
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\baseline_lst_std_celsius.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\derived\\scene_weighted\\baseline_lst_std_celsius.tif"
+    },
+    "derived_anomaly_zscore": {
+      "reproduction_status": "pass",
+      "valid_mask_exact": false,
+      "threshold_boundary": {
+        "classification": "threshold_boundary_equivalent",
+        "mismatch_pixel_count": 7,
+        "coordinate_sample": [
+          [
+            909,
+            2480
+          ],
+          [
+            944,
+            1672
+          ],
+          [
+            944,
+            1673
+          ],
+          [
+            1029,
+            1577
+          ],
+          [
+            1409,
+            2567
+          ],
+          [
+            1414,
+            2399
+          ],
+          [
+            1681,
+            2187
+          ]
+        ],
+        "coordinate_sample_truncated": false,
+        "std_threshold": 1.0,
+        "std_tolerance": 5e-05,
+        "canonical_std_range": [
+          0.9999986290931702,
+          1.0000108480453491
+        ],
+        "diagnostic_std_range": [
+          0.9999915957450867,
+          1.000012755393982
+        ],
+        "max_distance_from_threshold": 1.2755393981933594e-05
+      },
+      "value_comparison": {
+        "compared_pixel_count": 3504537,
+        "abs_diff_mean": 3.31530392004078e-06,
+        "abs_diff_p95": 9.894371032714844e-06,
+        "abs_diff_p99": 1.7881393432617188e-05,
+        "abs_diff_p99_9": 3.504753112792969e-05,
+        "max_abs_diff": 0.0002422332763671875,
+        "max_propagated_bound": 0.0008918947467954516,
+        "pixels_exceeding_propagated_bound": 0
+      },
+      "value_bound_definition": "per-pixel |dz| <= (current_tol + mean_tol)/std + |z|*std_tol/std, std >= STEP5_MIN_BASELINE_STD_CELSIUS; a propagated NUMERICAL bound from the accepted upstream reproduction tolerances, not a tolerance chosen from the observed maximum",
+      "canonical_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\experiments\\bejis_2022\\step5\\anomaly_zscore.tif",
+      "diagnostic_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\repo\\outputs\\diagnostics\\landsat_composite_counterfactual\\bejis_2022\\derived\\scene_weighted\\anomaly_zscore.tif"
+    }
+  }
+}

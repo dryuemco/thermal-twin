@@ -1,0 +1,62 @@
+*** Earth Engine *** Share your feedback by taking our Annual Developer Satisfaction Survey: https://google.qualtrics.com/jfe/form/SV_9oS0DRcPvElRMNw?source=python
+2026-09-23 10:19:57,443 INFO     [Raw BurnDate export] AOI=manavgat_aoi (experiment=manavgat_2021), scientific_label_window=2021-07-28 -> 2021-08-31, collection_query_window=2021-07-01 -> 2021-09-01 (exclusive), scale=30m, cikti=C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels
+2026-09-23 10:19:57,444 INFO     [MCD64A1] scientific_label_window: 2021-07-28 -> 2021-08-31 (DOY 209 -> 243)
+2026-09-23 10:19:57,447 INFO     [MCD64A1] collection_query_window: 2021-07-01 -> 2021-09-01 (exclusive)
+2026-09-23 10:19:58,320 INFO     [MCD64A1] collection_image_count: 2 (sorgu penceresi icinde)
+2026-09-23 10:19:58,334 INFO     Export basliyor -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif (scale=30m, crs=EPSG:4326)
+2026-09-23 10:19:58,681 INFO     [mcd64a1_raw] On-filtre boyut tahmini: ~27766088 bytes (esik=40265318 bytes) -> direct denenecek
+2026-09-23 10:19:58,681 INFO     Direct export attempt: [mcd64a1_raw] tam AOI, tiled olmayan export -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif
+Generating URL ...
+Downloading data from https://earthengine.googleapis.com/v1/projects/thermaltwin/thumbnails/49b9b8faaae20a4f6414f95adb0371ec-3c0abc9caa3418efc1977a791bcdff42:getPixels
+Please wait ...
+Data downloaded to C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\.mcd64a1_raw.direct.tmp.tif
+2026-09-23 10:20:02,426 INFO     [mcd64a1_raw] direkt export başarılı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif (30047 bytes)
+2026-09-23 10:20:02,912 INFO     Yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif (transport=direct, tile_grid=None)
+2026-09-23 10:20:03,025 INFO     Cikti kontrolu: min=0.0 max=241.0 count_positive=803797 count_one=0 count_in_DOY[209-243]=803797
+2026-09-23 10:20:03,025 INFO     OK: cikti gercek BurnDate DOY degerleri iceriyor gorunuyor.
+2026-09-23 10:20:03,036 INFO     Export basliyor -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_burned.tif (scale=30m, crs=EPSG:4326)
+2026-09-23 10:20:03,851 INFO     [mcd64a1_burned] On-filtre boyut tahmini: ~27766088 bytes (esik=40265318 bytes) -> direct denenecek
+2026-09-23 10:20:03,851 INFO     Direct export attempt: [mcd64a1_burned] tam AOI, tiled olmayan export -> C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_burned.tif
+Generating URL ...
+Downloading data from https://earthengine.googleapis.com/v1/projects/thermaltwin/thumbnails/b303df261522ce8e42a521fdd8026e63-f46e0e0bcb2c5bd2d9ff25da7097ac66:getPixels
+Please wait ...
+Data downloaded to C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\.mcd64a1_burned.direct.tmp.tif
+2026-09-23 10:20:08,553 INFO     [mcd64a1_burned] direkt export başarılı: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_burned.tif (15543 bytes)
+2026-09-23 10:20:09,492 INFO     Yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_burned.tif (transport=direct, tile_grid=None)
+2026-09-23 10:20:09,492 INFO     [Raw BurnDate export] TAMAMLANDI. Step8A/Step6B artik kullanabilir: C:\Users\CORSAIR\projects\thermal-twin\refreeze\manavgat_2021\outputs\experiments\manavgat_2021\validation\labels\mcd64a1_raw.tif
+{
+ "raw_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_raw.tif",
+ "binary_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_burned.tif",
+ "inspection": {
+  "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels\\mcd64a1_raw.tif",
+  "min": 0.0,
+  "max": 241.0,
+  "count_positive": 803797,
+  "count_one": 0,
+  "count_in_label_doy_range": 803797,
+  "looks_binary": false,
+  "label_doy_range": [
+   209,
+   243
+  ],
+  "crosses_year": false
+ },
+ "start": "2021-07-28",
+ "end": "2021-08-31",
+ "scientific_label_window": [
+  "2021-07-28",
+  "2021-08-31"
+ ],
+ "collection_query_window": [
+  "2021-07-01",
+  "2021-09-01"
+ ],
+ "label_doy_range": [
+  209,
+  243
+ ],
+ "scale": 30,
+ "experiment_id": "manavgat_2021",
+ "output_dir": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\experiments\\manavgat_2021\\validation\\labels"
+}
+STEP6_LABEL_DONE

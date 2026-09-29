@@ -1,0 +1,160 @@
+{
+  "gate_level": "500m_reconstructed_mcd64a1_cell",
+  "label_kind": "raw_burndate",
+  "burn_month_available": true,
+  "block_size_pixels": 17,
+  "total_valid_cells_or_pixels_considered": 22925,
+  "analysis_universe_cells_after_exclusions": 22909,
+  "burned_count": 2788,
+  "unburned_count": 20121,
+  "exclude_pre_label_burns": true,
+  "pre_label_burn_excluded_count": 16,
+  "pre_label_burn_excluded_breakdown": {
+    "total": 16,
+    "tree_cover": 8,
+    "shrubland": 0,
+    "grassland": 3,
+    "tree_shrub": 8,
+    "tree_shrub_grass": 11,
+    "cropland": 0,
+    "other": 5,
+    "without_valid_landcover": 0,
+    "by_dominant_class": {
+      "tree_cover": 8,
+      "grassland": 3,
+      "permanent_water": 5
+    }
+  },
+  "pre_label_burn_exclusion_rule": "valid nonzero BurnDate calendar date < label_start (2021-08-03)",
+  "temporal_label_qa": {
+    "cell_level_note": "Counts are per reconstructed ~500 m cell (representative BurnDate = mode of positive DOY within the cell), not per 30 m pixel.",
+    "count_before_predictor_start": 0,
+    "count_within_predictor_window": 16,
+    "count_between_predictor_end_and_label_start": 0,
+    "count_within_label_window": 2788,
+    "count_after_label_end": 0,
+    "count_missing_or_zero_burndate": 20121,
+    "count_pre_label_burn_excluded": 16,
+    "bordubet_window": null,
+    "bordubet_window_burned_cell_count": 0,
+    "min_nonzero_burndate_iso": "2021-07-25",
+    "max_nonzero_burndate_iso": "2021-08-14",
+    "out_of_span_note": "count_before_predictor_start and count_after_label_end are 0 by export construction: the pre-label raster is DOY-masked to [predictor_start, label_start) and the label raster to [label_start, label_end]; burns outside that combined span are not exported. Detecting them would require a wider export."
+  },
+  "downstream_authorized": false,
+  "burned_landcover_dominant_counts": {
+    "tree_cover": 2511,
+    "permanent_water": 74,
+    "grassland": 117,
+    "cropland": 62,
+    "built_up": 7,
+    "herbaceous_wetland": 2,
+    "shrubland": 6,
+    "bare_sparse_vegetation": 9
+  },
+  "unburned_landcover_dominant_counts": {
+    "permanent_water": 13136,
+    "tree_cover": 5517,
+    "built_up": 54,
+    "shrubland": 225,
+    "grassland": 793,
+    "bare_sparse_vegetation": 47,
+    "herbaceous_wetland": 5,
+    "cropland": 344
+  },
+  "burned_tree_cover_count": 2511,
+  "burned_shrubland_count": 6,
+  "burned_grassland_count": 117,
+  "burned_cropland_count": 62,
+  "burned_tree_shrub_grass_count": 2634,
+  "burned_tree_shrub_count": 2517,
+  "burned_cropland_dominant_count": 62,
+  "burned_natural_vegetation_fraction": 0.9447632711621234,
+  "burned_cropland_fraction": 0.02223816355810617,
+  "burned_tree_shrub_fraction": 0.9027977044476327,
+  "burned_cells_without_valid_landcover": 0,
+  "unburned_cells_without_valid_landcover": 0,
+  "decision": "wildfire_candidate_pass",
+  "reason": "burned_tree_shrub_grass_count/burned_count=0.945 >= natural_threshold=0.5.",
+  "warnings": [
+    "16 hucre label_start (2021-08-03) ONCESI yandigi icin analiz evreninden DISLANDI (pre_label_burn_excluded); bu hucreler ne burned ne unburned sayildi, hicbir gate paydasinda YOK."
+  ],
+  "thresholds": {
+    "min_positives": 30,
+    "natural_threshold": 0.5,
+    "cropland_threshold": 0.5
+  },
+  "inputs": {
+    "label_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/mcd64a1_raw.tif",
+    "aligned_label_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/mcd64a1_raw.tif",
+    "reference_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/gate_inputs/reference_30m.tif",
+    "landcover_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/gate_inputs/landcover_esa_worldcover_v200_aligned_to_reference.tif",
+    "label_start": "2021-08-03",
+    "label_end": "2021-09-30",
+    "predictor_start": "2021-06-05",
+    "predictor_end": "2021-08-02",
+    "pre_label_label_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/mcd64a1_prelabel_raw.tif",
+    "aligned_pre_label_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/mcd64a1_prelabel_raw.tif"
+  },
+  "label_raster_diagnostics": {
+    "path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/mcd64a1_raw.tif",
+    "label_kind": "raw_burndate",
+    "dtype": "int16",
+    "nodata": -32768.0,
+    "finite_pixel_count": 6611963,
+    "masked_or_nodata_pixel_count": 0,
+    "label_window_doy_range": [
+      215,
+      273
+    ],
+    "unique_values": [
+      0.0,
+      215.0,
+      216.0,
+      217.0,
+      218.0,
+      219.0,
+      220.0,
+      221.0,
+      222.0,
+      223.0,
+      224.0,
+      226.0
+    ],
+    "unique_counts": [
+      5860341,
+      1207,
+      78613,
+      80027,
+      227641,
+      161819,
+      109533,
+      85994,
+      4001,
+      1237,
+      1233,
+      317
+    ],
+    "min": 0.0,
+    "max": 226.0,
+    "count_zero": 5860341,
+    "count_one": 0,
+    "count_gt_one": 751622,
+    "count_positive": 751622,
+    "count_in_label_doy_range": 751622,
+    "looks_binary": false,
+    "no_values_in_label_doy_range": false,
+    "failed_validation": false
+  },
+  "landcover_info": {
+    "original_landcover_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/gate_inputs/landcover_esa_worldcover_v200_aligned_to_reference.tif",
+    "aligned_landcover_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/gate_inputs/landcover_esa_worldcover_v200_aligned_to_reference.tif",
+    "landcover_alignment_method": "explicit_preexisting_aligned"
+  },
+  "pre_label_exclusion_manifest": {
+    "parquet_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/pre_label_excluded_cells.parquet",
+    "csv_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/pre_label_excluded_cells.csv",
+    "metadata_path": "/home/emrehan-metin/satellite-thermal-digital-twin/outputs/experiments/evia_2021_extended/validation/labels/pre_label_excluded_cells_metadata.json",
+    "excluded_cell_count": 16
+  }
+}

@@ -1,0 +1,125 @@
+tree ceiling file: outputs/robustness/step8_large_block/manavgat_2021__bejis_2022/manavgat_2021/block_10_cells/step8b_large_block_metrics.json baseline 0.7475502988238435 thermal 0.797429847262066
+module reference before: {'baseline': 0.7475502988238435, 'thermal': 0.797429847262066} hash: 054a1961fc0582a33d36413263668b63074b21ae8b03d12269b6e228787f3439
+{
+ "ran": true,
+ "dry_run": false,
+ "schema_version": "few_shot_recovery.v1",
+ "analysis_id": "7e4ca051c3e83074391652e28a163138129c1cb6610f8826248a90cd3d19409a",
+ "diagnostic_class": "target_label_supervised_few_shot_adaptation_sensitivity",
+ "experiments": [
+  "manavgat_2021",
+  "bejis_2022",
+  "mugla_2021"
+ ],
+ "directed_pair_count": 6,
+ "stages_executed": [
+  "plan",
+  "fit",
+  "summarize"
+ ],
+ "stage_results": [
+  {
+   "stage": "plan",
+   "selected_block_rows": 18900,
+   "feasibility_rows": 210,
+   "block_inventory_rows": 18,
+   "marker": {
+    "schema_version": "few_shot_recovery.v1",
+    "analysis_id": "7e4ca051c3e83074391652e28a163138129c1cb6610f8826248a90cd3d19409a",
+    "stage": "plan",
+    "status": "pass",
+    "completed_at_utc": "2026-09-22T22:45:39.387539+00:00",
+    "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+    "requires": [],
+    "files": {
+     "config.json": "bad1995f260abdf5b0d94fda6b4314be7567fb67369a05da7c2266fbc6cbf995",
+     "input_hashes.json": "1b6443d1bd98073ade63c47321c499f5f394f06d85bd5ed917a9c89de3fd3853",
+     "target_block_inventory.csv": "857d19ab81c3a8be8077efdc9532baa2635a94fae6dfbc776a22709bb20c6898",
+     "direction_budget_feasibility.csv": "a805b4c4badf740b847e2a569e0727c75c91a897e9ba65c7aac499dd9419fdcb",
+     "selected_blocks.parquet": "76a063dafb40ee87979c151b3db6bf7db3f334f6a49577f7377b2b48aa38942b"
+    },
+    "directed_pairs": 6,
+    "selected_block_rows": 18900,
+    "feasibility_rows": 210,
+    "all_budgets_feasible": true
+   }
+  },
+  {
+   "stage": "fit",
+   "fit_accounting": {
+    "unique_fits": 3642,
+    "raw_fits": 12,
+    "few_shot_fits": 3600,
+    "ceiling_fits": 30,
+    "reuse_events": 78,
+    "references_by_condition": {
+     "raw": 60,
+     "few_shot": 3600,
+     "ceiling": 60
+    },
+    "raw_reuse_per_fit": 5.0,
+    "ceiling_reuse_per_fit": 2.0,
+    "expected": {
+     "raw_fits": 12,
+     "few_shot_fits": 3600,
+     "ceiling_fits": 30,
+     "unique_fits": 3642
+    },
+    "matches_expected": true,
+    "reused_directions": []
+   },
+   "direction_partitions": [
+    "manavgat_2021_to_bejis_2022",
+    "manavgat_2021_to_mugla_2021",
+    "bejis_2022_to_manavgat_2021",
+    "bejis_2022_to_mugla_2021",
+    "mugla_2021_to_manavgat_2021",
+    "mugla_2021_to_bejis_2022"
+   ],
+   "repeat_metric_rows": 13392,
+   "marker": {
+    "schema_version": "few_shot_recovery.v1",
+    "analysis_id": "7e4ca051c3e83074391652e28a163138129c1cb6610f8826248a90cd3d19409a",
+    "stage": "fit",
+    "status": "pass",
+    "completed_at_utc": "2026-09-23T00:34:09.612879+00:00",
+    "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+    "requires": [
+     "plan"
+    ],
+    "files": {
+     "oof_predictions.parquet": "31b196132ba5f0b6d288aa64ecaaf2a032def3355b607ef7b28ee51b481f111c",
+     "repeat_metrics.csv": "a4b434596d0a9e478bb8a4aa48ca6a8696da32a8ed980298be7be1d2d5fe54b1"
+    },
+    "direction_partitions": {
+     "manavgat_2021_to_bejis_2022": "4548bff91232645fc639f105d38ff28a89741e47e37e5afccd0b003618a1293b",
+     "manavgat_2021_to_mugla_2021": "59213927ae556c21d323f5712855bf90d0219373cbc2558890174b5671d48706",
+     "bejis_2022_to_manavgat_2021": "966b24eb8145f7ce9e68e3372f779faad08eccffebdd0adc68fec9af57dfa1ad",
+     "bejis_2022_to_mugla_2021": "e82b68010603a3ee096174a0174e081064929dc8c2bc8f4dfad96ca9ff8fa79d",
+     "mugla_2021_to_manavgat_2021": "2631d63d4a0459e6cdb2efb4253980bf5ab425eca51b42d761ac2f167891e758",
+     "mugla_2021_to_bejis_2022": "83f665a045fe59b011c2f3d3d0dd715c21f269fb3cd32b643dab95fad05f2cc6"
+    },
+    "fit_accounting": {
+     "unique_fits": 3642,
+     "raw_fits": 12,
+     "few_shot_fits": 3600,
+     "ceiling_fits": 30,
+     "reuse_events": 78,
+     "references_by_condition": {
+      "raw": 60,
+      "few_shot": 3600,
+      "ceiling": 60
+     },
+     "raw_reuse_per_fit": 5.0,
+     "ceiling_reuse_per_fit": 2.0,
+     "expected": {
+      "raw_fits": 12,
+      "few_shot_fits": 3600,
+      "ceiling_fits": 30,
+      "unique_fits": 3642
+     },
+     "matches_expected": true,
+ 
+OVERALL STATUS: PASS namespace: C:\Users\CORSAIR\projects\thermal-twin\rerun_labelfix\control\outputs\diagnostics\few_shot_recovery\7e4ca051c3e83074391652e28a163138129c1cb6610f8826248a90cd3d19409a
+[]
+FSR_DRIVER_DONE

@@ -1,0 +1,10 @@
+baseline,contribution_delta,delta_definition,metric,sign_convention,thermal,variant_id
+0.13136992681179965,-0.03607354853592126,thermal - baseline (raw),brier,"delta_brier = thermal - baseline (RAW). Brier is a LOSS, so a NEGATIVE delta_brier means the thermal model scored BETTER. The sign is never flipped to an improvement orientation in this stage.",0.09529637827587839,canonical
+0.4678619980145746,0.17063911740815185,thermal - baseline (raw),pr_auc,higher is better; delta_pr_auc = thermal - baseline,0.6385011154227265,canonical
+0.8408597816886652,0.06547846283388936,thermal - baseline (raw),roc_auc,higher is better; delta_roc_auc = thermal - baseline,0.9063382445225545,canonical
+0.13149778751669464,-0.032934463899688834,thermal - baseline (raw),brier,"delta_brier = thermal - baseline (RAW). Brier is a LOSS, so a NEGATIVE delta_brier means the thermal model scored BETTER. The sign is never flipped to an improvement orientation in this stage.",0.0985633236170058,close_14d_earlier
+0.46652432376758896,0.152071433848944,thermal - baseline (raw),pr_auc,higher is better; delta_pr_auc = thermal - baseline,0.618595757616533,close_14d_earlier
+0.8399939721564227,0.0579445163398008,thermal - baseline (raw),roc_auc,higher is better; delta_roc_auc = thermal - baseline,0.8979384884962235,close_14d_earlier
+0.1319545976507216,-0.04575698047088257,thermal - baseline (raw),brier,"delta_brier = thermal - baseline (RAW). Brier is a LOSS, so a NEGATIVE delta_brier means the thermal model scored BETTER. The sign is never flipped to an improvement orientation in this stage.",0.08619761717983902,close_7d_earlier
+0.4647379829065947,0.22680742861850206,thermal - baseline (raw),pr_auc,higher is better; delta_pr_auc = thermal - baseline,0.6915454115250967,close_7d_earlier
+0.8399752506422458,0.08234219122013797,thermal - baseline (raw),roc_auc,higher is better; delta_roc_auc = thermal - baseline,0.9223174418623837,close_7d_earlier

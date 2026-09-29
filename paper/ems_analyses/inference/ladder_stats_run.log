@@ -1,0 +1,172 @@
+{
+ "repro_loso_vs_scar_increment_json_maxabs": 9.665500723390896e-05,
+ "repro_rowB_thermal_vs_matched_holdout_maxabs": 4.905779254249509e-05,
+ "ladder_by_frame": {
+  "full": {
+   "blocked_B10": {
+    "mean": 0.08440447845789298,
+    "t_regions": [
+     0.03222670281896933,
+     0.13658225409681662
+    ],
+    "per_region": {
+     "Manavgat": 0.0499,
+     "Bejis": 0.0451,
+     "Mugla": 0.0793,
+     "Evia": 0.1482,
+     "Montiferru": 0.0995
+    }
+   },
+   "blocked_B2": {
+    "mean": 0.09868500086902394,
+    "t_regions": [
+     0.050206368738200634,
+     0.14716363299984725
+    ],
+    "per_region": {
+     "Manavgat": 0.0669,
+     "Bejis": 0.0561,
+     "Mugla": 0.1157,
+     "Evia": 0.1533,
+     "Montiferru": 0.1014
+    }
+   },
+   "halfsplit": {
+    "mean_over_splits": 0.02656913525615905,
+    "n_splits": 18,
+    "n_positive": 13,
+    "mean_of_region_means": 0.024485970477179677,
+    "t_region_means": [
+     -0.04133677653435264,
+     0.090308717488712
+    ],
+    "cr1_splits_by_region": [
+     -0.04557228213008424,
+     0.09871055264240233
+    ]
+   },
+   "loso": {
+    "mean": 0.022473403167630975,
+    "t_scars": [
+     -0.03204665910344227,
+     0.07699346543870422
+    ],
+    "n": 8,
+    "cr1_region": [
+     -0.043315631056909366,
+     0.08826243739217132
+    ],
+    "target_cells_lost_to_collar": 0
+   },
+   "cross_region": {
+    "mean": 0.0037863063773308685,
+    "pair_cluster_boot": [
+     -0.028629186906098867,
+     0.03540848084215152
+    ],
+    "loro_jackknife_t4": [
+     -0.03736098237598461,
+     0.04493359513064633
+    ],
+    "target_cluster_boot": [
+     -0.008992327969761715,
+     0.018739750623660074
+    ]
+   }
+  },
+  "10km": {
+   "blocked_B10": {
+    "mean": 0.07587157815986212,
+    "t_regions": [
+     0.023423708609104664,
+     0.12831944771061957
+    ],
+    "per_region": {
+     "Manavgat": 0.0389,
+     "Bejis": 0.0298,
+     "Mugla": 0.0875,
+     "Evia": 0.1336,
+     "Montiferru": 0.0895
+    }
+   },
+   "blocked_B2": {
+    "mean": 0.08946092754625487,
+    "t_regions": [
+     0.052302784517627154,
+     0.1266190705748826
+    ],
+    "per_region": {
+     "Manavgat": 0.0772,
+     "Bejis": 0.0455,
+     "Mugla": 0.1176,
+     "Evia": 0.116,
+     "Montiferru": 0.0911
+    }
+   },
+   "halfsplit": {
+    "mean_over_splits": 0.03639100779687882,
+    "n_splits": 20,
+    "n_positive": 16,
+    "mean_of_region_means": 0.03639100779687882,
+    "t_region_means": [
+     0.03217732993250936,
+     0.04060468566124829
+    ],
+    "cr1_splits_by_region": [
+     0.03217732993250936,
+     0.04060468566124829
+    ]
+   },
+   "loso": {
+    "mean": 0.00014893106623321828,
+    "t_scars": [
+     -0.04205757163837398,
+     0.04235543377084042
+    ],
+    "n": 8,
+    "cr1_region": [
+     -0.021155232666755102,
+     0.02145309479922154
+    ],
+    "target_cells_lost_to_collar": 0
+   },
+   "cross_region": {
+    "mean": 0.023119025680899262,
+    "pair_cluster_boot": [
+     -0.0035291616299648427,
+     0.04861115796987956
+    ],
+    "loro_jackknife_t4": [
+     -0.037523531741558716,
+     0.08376158310335723
+    ],
+    "target_cluster_boot": [
+     0.015819691377957683,
+     0.03071190105683045
+    ]
+   }
+  },
+  "5km_blocked_B10": {
+   "mean": 0.039006315041250315,
+   "per_region": {
+    "Manavgat": 0.0182,
+    "Bejis": 0.0175,
+    "Mugla": 0.049,
+    "Evia": 0.0707,
+    "Montiferru": 0.0396
+   }
+  }
+ }
+}
+
+ B10 means {'regionwide_inc': 0.0893, 'blk_inc': 0.0185, 'loso_inc': 0.0225, 'foreign_inc': 0.0082}
+   blk_minus_loso {'mean': np.float64(-0.004), 'n': 8, 'G': 4, 't_scar': array([-0.0595,  0.0515]), 'cr1_region_tG-1': array([-0.0924,  0.0844]), 'region_cluster_boot': array([-0.0643,  0.0271])}
+   loso_minus_foreign {'mean': np.float64(0.0143), 'n': 8, 'G': 4, 't_scar': array([-0.051 ,  0.0796]), 'cr1_region_tG-1': array([-0.083 ,  0.1116]), 'region_cluster_boot': array([-0.0141,  0.1071])}
+   blk_minus_foreign {'mean': np.float64(0.0103), 'n': 8, 'G': 4, 't_scar': array([-0.0577,  0.0783]), 'cr1_region_tG-1': array([-0.0594,  0.08  ]), 'region_cluster_boot': array([-0.0315,  0.0536])}
+   regionwide_minus_blkscar {'mean': np.float64(0.0708), 'n': 8, 'G': 4, 't_scar': array([0.001 , 0.1407]), 'cr1_region_tG-1': array([-0.0265,  0.1681]), 'region_cluster_boot': array([0.0371, 0.1323])}
+
+ B2 means {'regionwide_inc': 0.1107, 'blk_inc': 0.0535, 'loso_inc': 0.0225, 'foreign_inc': 0.0082}
+   blk_minus_loso {'mean': np.float64(0.0311), 'n': 8, 'G': 4, 't_scar': array([-0.0178,  0.0799]), 'cr1_region_tG-1': array([-0.0459,  0.108 ]), 'region_cluster_boot': array([-0.0373,  0.0571])}
+   loso_minus_foreign {'mean': np.float64(0.0143), 'n': 8, 'G': 4, 't_scar': array([-0.051 ,  0.0796]), 'cr1_region_tG-1': array([-0.083 ,  0.1116]), 'region_cluster_boot': array([-0.0141,  0.1071])}
+   blk_minus_foreign {'mean': np.float64(0.0454), 'n': 8, 'G': 4, 't_scar': array([0.0028, 0.088 ]), 'cr1_region_tG-1': array([0.0075, 0.0833]), 'region_cluster_boot': array([0.0239, 0.0716])}
+   regionwide_minus_blkscar {'mean': np.float64(0.0572), 'n': 8, 'G': 4, 't_scar': array([0.0154, 0.0989]), 'cr1_region_tG-1': array([0.0179, 0.0965]), 'region_cluster_boot': array([0.0408, 0.0846])}

@@ -1,0 +1,196 @@
+{
+  "analysis_id": "bad06061e02ea00942bf6c407bf1e0203adcf23531941b6aad17fa8c64dd267b",
+  "created_at": "2026-09-19T09:20:47.803644+00:00",
+  "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+  "scientific_configuration": {
+    "analysis_schema_version": "step8.large_block_robustness_primary_all_valid.v1",
+    "experiment_ids": [
+      "manavgat_2021",
+      "bejis_2022"
+    ],
+    "primary_population": "all_valid",
+    "primary_population_source": "core.config.STEP8B_PRIMARY_POPULATION",
+    "predefined_block_sizes_cells": [
+      10,
+      20
+    ],
+    "nominal_scales": [
+      "approximately_5_km",
+      "approximately_10_km"
+    ],
+    "fixed_grid_origin": {
+      "row_500m": 0,
+      "col_500m": 0
+    },
+    "block_construction": "block_row=floor(row_500m/block_size_cells); block_col=floor(col_500m/block_size_cells); large_block_id=b{size}_r{block_row}_c{block_col}",
+    "original_small_block_reference_size_cells": 2,
+    "baseline_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant"
+    ],
+    "thermal_additional_features": [
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "thermal_model_features": [
+      "ndvi_mean",
+      "elevation_mean",
+      "slope_mean",
+      "landcover_dominant",
+      "lst_anomaly_mean",
+      "current_lst_mean",
+      "current_tvdi_mean",
+      "tvdi_difference_mean",
+      "downscaled_lst_mean",
+      "fused_lst_mean"
+    ],
+    "categorical_features": [
+      "landcover_dominant"
+    ],
+    "target_column": "burned",
+    "model_class": "RandomForestClassifier",
+    "model_name": "random_forest",
+    "model_hyperparameters": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced",
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 3,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 300,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "preprocessing": {
+      "numeric": "SimpleImputer(strategy=median)",
+      "categorical": "SimpleImputer(strategy=most_frequent) + OneHotEncoder(handle_unknown=ignore)",
+      "fit_scope": "inside each training fold only"
+    },
+    "cv": {
+      "class": "StratifiedGroupKFold",
+      "n_splits": 5,
+      "shuffle": true,
+      "random_state": 42,
+      "dynamic_fold_reduction": false
+    },
+    "bootstrap": {
+      "requested_replicates": 1000,
+      "random_state": 42,
+      "ci_method": "2.5/97.5 percentile",
+      "unit": "corresponding large spatial block",
+      "paired": true,
+      "minimum_valid_replicates": 900
+    },
+    "primary_estimands": [
+      "delta_roc_auc=thermal_oof_roc_auc-baseline_oof_roc_auc",
+      "delta_pr_auc=thermal_oof_pr_auc-baseline_oof_pr_auc"
+    ],
+    "interpretation_rules": {
+      "positive": "bootstrap_supported_positive iff percentile CI entirely above zero",
+      "uncertain": "uncertain_interval_includes_zero iff percentile CI includes zero",
+      "negative": "bootstrap_supported_negative iff percentile CI entirely below zero",
+      "joint": "supported_on_both_metrics iff both delta intervals entirely above zero; partial_metric_support iff exactly one is above zero; otherwise not_supported",
+      "overall": "claim robustness across both predefined scales and both regions only if all four all_valid conditions support both metrics"
+    },
+    "two_cell_equivalence_gate": {
+      "required_before_fitting": true,
+      "probability_tolerance": 1e-12,
+      "alignment": "cell_id (never row-position-only)"
+    },
+    "external_frozen_reference": {
+      "v1_robustness_analysis_id": "bb909a2c9bff1b7b76c95fa6fd36144d54bfd532883d305238bebd8c97915d3a",
+      "v1_population": "burnable_tree_shrub_grass",
+      "v1_output_root": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block\\manavgat_2021__bejis_2022",
+      "note": "read as an external frozen reference only; never recomputed or merged into this analysis's conclusions"
+    },
+    "protected_original_inputs": {
+      "bejis_2022/step8a/step8a_500m_modeling_dataset.parquet": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8a\\step8a_500m_modeling_dataset.parquet",
+        "sha256": "3dec785a7d8e31db2d67ed283546bbfbca1559f56df46663488d0afc24d9e393"
+      },
+      "bejis_2022/step8b/step8b_model_comparison_metrics.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8b\\step8b_model_comparison_metrics.json",
+        "sha256": "7be1421686ca517eb0db5f1c764546bcf6bda9ba3f5cfc8c61bc42d05c7c08e9"
+      },
+      "bejis_2022/step8b/step8b_predictions.parquet": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8b\\step8b_predictions.parquet",
+        "sha256": "36e71a7fcfbe91ce67673fd09cba599787179461879a9f68183a2b71ec584e33"
+      },
+      "bejis_2022/step8c/step8c_bootstrap_metrics.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8c\\step8c_bootstrap_metrics.json",
+        "sha256": "64d9402a316eeffb56033de1577d37ab18b86ea3fa96f052648c63386c51257d"
+      },
+      "bejis_2022/step8e/final_step8_report.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\bejis_2022\\step8e\\final_step8_report.json",
+        "sha256": "5c1acdad3cbf0cdd28b4a6548922d775ed35a484ae19aeb308538891cf9a62d3"
+      },
+      "manavgat_2021/step8a/step8a_500m_modeling_dataset.parquet": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8a\\step8a_500m_modeling_dataset.parquet",
+        "sha256": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49"
+      },
+      "manavgat_2021/step8b/step8b_model_comparison_metrics.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_model_comparison_metrics.json",
+        "sha256": "53189b23592cd02adc9a5cf26623eb4404eb0258fa0ebfbdee98510355982f9b"
+      },
+      "manavgat_2021/step8b/step8b_predictions.parquet": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8b\\step8b_predictions.parquet",
+        "sha256": "55c6215bfd19a324796426adc2f82611e5cbf51e969640b21bfced7497891912"
+      },
+      "manavgat_2021/step8c/step8c_bootstrap_metrics.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8c\\step8c_bootstrap_metrics.json",
+        "sha256": "50010888b1e128d019bb871027a56acd4ee38d4302cb99e8fe78d87037ad5a85"
+      },
+      "manavgat_2021/step8e/final_step8_report.json": {
+        "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\manavgat_2021\\step8e\\final_step8_report.json",
+        "sha256": "56da7a93a73c83b46011958d5c45c8c1c9ab01ce0bb01ae6ba62401c3623248b"
+      }
+    },
+    "protected_v1_robustness_tree_file_count": 38,
+    "package_versions": {
+      "numpy": "2.4.4",
+      "pandas": "3.0.2",
+      "scikit_learn": "1.9.0"
+    },
+    "verified_original_provenance": {
+      "manavgat_2021": {
+        "spatial_block_size_cells": 2,
+        "n_splits_requested": 5,
+        "model": "random_forest",
+        "bootstrap_requested": 1000,
+        "bootstrap_seed": 42
+      },
+      "bejis_2022": {
+        "spatial_block_size_cells": 2,
+        "n_splits_requested": 5,
+        "model": "random_forest",
+        "bootstrap_requested": 1000,
+        "bootstrap_seed": 42
+      }
+    },
+    "prohibited_actions": [
+      "post_hoc_block_selection",
+      "feature_selection",
+      "hyperparameter_tuning",
+      "random_row_split",
+      "probability_calibration",
+      "prediction_inversion",
+      "changing_block_sizes_after_seeing_results"
+    ]
+  }
+}

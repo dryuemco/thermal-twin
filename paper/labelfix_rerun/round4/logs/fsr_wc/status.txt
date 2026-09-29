@@ -1,0 +1,8 @@
+wc_corrected rc=1
+wc_control rc=1
+wc_corrected rc=1
+wc_control rc=1
+WC_DONE
+fsr_corrected rc=0
+fsr_control rc=0
+R3B_DONE

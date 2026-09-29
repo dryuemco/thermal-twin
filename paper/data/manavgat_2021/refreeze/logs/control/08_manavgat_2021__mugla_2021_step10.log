@@ -1,0 +1,30 @@
+2026-09-23 10:40:15,849 INFO     ======================================================================
+2026-09-23 10:40:15,849 INFO     STEP10A: on-kayit (preregistration) + girdi denetimi
+2026-09-23 10:40:15,849 INFO     ======================================================================
+2026-09-23 10:40:15,864 INFO     YENI on-kayit olusturuldu (immutable): analysis_id=a382046d5453412ea0145ce4ee057b9dfb8394160d7eac32551db26a51fb19ef (C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__mugla_2021\step10\step10_preregistration.json)
+2026-09-23 10:40:15,927 INFO     Girdi denetimi yazildi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__mugla_2021\step10\step10_input_audit.json
+2026-09-23 10:40:15,927 INFO     analysis_id = a382046d5453412ea0145ce4ee057b9dfb8394160d7eac32551db26a51fb19ef
+2026-09-23 10:40:15,927 INFO     ======================================================================
+2026-09-23 10:40:15,927 INFO     STEP10B: label-blind adaptasyon + tahmin (raw/zscore/CORAL)
+2026-09-23 10:40:15,927 INFO     ======================================================================
+2026-09-23 10:40:15,927 INFO     Step10B: manavgat_2021 ve mugla_2021 icin Step8A veri setleri yukleniyor (kaynak: X+y; hedef: YALNIZCA X)...
+2026-09-23 10:40:15,988 INFO     [manavgat_2021_to_mugla_2021] hedef DataFrame label-blind hale getirildi (kolonlar: ['cell_id', 'spatial_block_id', 'valid_for_modeling', 'burnable_tree_shrub_grass', 'burnable_tree_shrub', 'ndvi_mean', 'elevation_mean', 'slope_mean', 'landcover_dominant', 'lst_anomaly_mean', 'current_lst_mean', 'current_tvdi_mean', 'tvdi_difference_mean', 'downscaled_lst_mean', 'fused_lst_mean']) -- 'burned' YOK.
+2026-09-23 10:40:21,488 INFO     [mugla_2021_to_manavgat_2021] hedef DataFrame label-blind hale getirildi (kolonlar: ['cell_id', 'spatial_block_id', 'valid_for_modeling', 'burnable_tree_shrub_grass', 'burnable_tree_shrub', 'ndvi_mean', 'elevation_mean', 'slope_mean', 'landcover_dominant', 'lst_anomaly_mean', 'current_lst_mean', 'current_tvdi_mean', 'tvdi_difference_mean', 'downscaled_lst_mean', 'fused_lst_mean']) -- 'burned' YOK.
+2026-09-23 10:40:33,894 INFO     Step10B tamamlandi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__mugla_2021\step10\step10_predictions.parquet, C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__mugla_2021\step10\step10_adaptation_statistics.json
+2026-09-23 10:40:33,896 INFO     ======================================================================
+2026-09-23 10:40:33,896 INFO     STEP10C: esli degerlendirme + reprodüksiyon kontrolu + bootstrap
+2026-09-23 10:40:33,896 INFO     ======================================================================
+2026-09-23 10:40:33,926 INFO     [manavgat_2021_to_mugla_2021] Step10B tahminleri hedef etiketiyle hizalaniyor...
+2026-09-23 10:40:34,299 INFO     [manavgat_2021_to_mugla_2021] Raw reprodüksiyon kontrolu BASARILI (tum farklar <= 1e-06).
+2026-09-23 10:40:34,299 INFO     [manavgat_2021_to_mugla_2021] N-yollu esli spatial-block bootstrap calistiriliyor (1000 replika)...
+2026-09-23 10:42:13,380 INFO     [mugla_2021_to_manavgat_2021] Step10B tahminleri hedef etiketiyle hizalaniyor...
+2026-09-23 10:42:13,561 INFO     [mugla_2021_to_manavgat_2021] Raw reprodüksiyon kontrolu BASARILI (tum farklar <= 1e-06).
+2026-09-23 10:42:13,565 INFO     [mugla_2021_to_manavgat_2021] N-yollu esli spatial-block bootstrap calistiriliyor (1000 replika)...
+2026-09-23 10:43:06,066 INFO     Step10C tamamlandi: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__mugla_2021\step10
+2026-09-23 10:43:06,068 INFO     ======================================================================
+2026-09-23 10:43:06,068 INFO     STEP10D: final rapor
+2026-09-23 10:43:06,068 INFO     ======================================================================
+2026-09-23 10:43:07,087 INFO     Step10D complete; protected input SHA-256 check passed: C:\Users\CORSAIR\projects\thermal-twin\refreeze\_control_frozenlabel\outputs\cross_region\manavgat_2021__mugla_2021\step10\step10_final_report.json
+2026-09-23 10:43:07,087 INFO     ======================================================================
+2026-09-23 10:43:07,087 INFO     STEP10 TAMAMLANDI. analysis_id=a382046d5453412ea0145ce4ee057b9dfb8394160d7eac32551db26a51fb19ef
+2026-09-23 10:43:07,087 INFO     ======================================================================
