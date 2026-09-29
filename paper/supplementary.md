@@ -1724,7 +1724,7 @@ blocks (0.576 to 0.598), rises above it only at 16 blocks, and closes 30 % at 32
 # S5 Code
 
 The analysis code is public at <https://github.com/dryuemco/thermal-twin> under the MIT licence,
-and the version used for this paper is archived at Zenodo (https://doi.org/10.5281/zenodo.23035271).
+and the version used for this paper is archived at Zenodo (https://doi.org/10.5281/zenodo.23038039).
 This section is a guide to it; the README of the repository gives the same information. The satellite
 processing pipeline is a separate public repository,
 <https://github.com/emrehann17/satellite-thermal-digital-twin> (MIT licence). The re-frozen Manavgat
