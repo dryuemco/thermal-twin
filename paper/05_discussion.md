@@ -13,10 +13,11 @@ the original study areas.
 ## 5.2 What the within-region score measures
 
 The thermal gain within regions is robust, with one exception. It was supported in all five regions
-under blocked validation, without the coordinate-informed channels (Section S1.7), when the predictor
-window was closed up to two weeks earlier (Section S1.4), and at the point estimates with VNP64A1
-labels. Once terrain aspect was added, however, the gain in Montiferru was no longer supported
-(Section 4.2). On the scar frame, however, the same gain fell to
+under blocked validation and when the predictor window was closed up to two weeks earlier (Section
+S1.4). It stayed positive in every region at the point estimates without the coordinate-informed
+channels (Section S1.7) and with VNP64A1 labels (Section S1.23). Once terrain aspect was added,
+however, the gain in Montiferru was no longer supported (Section 4.2). In addition, on the scar
+frame the same gain fell to
 +0.021 and was not established, and withholding the scar did not change it. The fall is therefore
 caused by the cells that are scored, not by the choice of held-out cells.
 

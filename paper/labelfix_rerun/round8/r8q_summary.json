@@ -1,0 +1,9 @@
+{
+ "mean": 0.014021049999999997,
+ "pair_cluster_ci95": [
+  -0.017765780000000002,
+  0.04886849624999999
+ ],
+ "replicates": 1000,
+ "rng": "ems_inference_units.intervals, seed 42 + 1"
+}
