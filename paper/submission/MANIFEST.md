@@ -4,7 +4,7 @@ Built 2026-09-29. Rebuild: `python paper/tex/build_docx.py` (manuscript.docx,
 supplementary_material.docx), Word export for supplementary_material.pdf, and
 `paper/figures/fig*.py` for the figures. Checks at build time: `paper/figures/check_all.py` 9/9 PASS
 (176 supplementary table rows), `paper/code/check_stale_values.py` clean,
-`paper/code/verify_references.py` 62/63 (the v1.1.0 Zenodo DOI was not yet registered at DataCite).
+`paper/code/verify_references.py` 63/63.
 
 | File | Size (bytes) | SHA-256 | Source |
 |---|---:|---|---|
