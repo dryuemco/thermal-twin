@@ -1,0 +1,114 @@
+frame full seed 42: mean thermal 0.5267 baseline 0.5194 delta +0.0073
+frame full seed 1: mean thermal 0.5283 baseline 0.5201 delta +0.0082
+frame full seed 2: mean thermal 0.5267 baseline 0.5207 delta +0.0060
+frame full seed 3: mean thermal 0.5273 baseline 0.5209 delta +0.0064
+frame full seed 4: mean thermal 0.5254 baseline 0.5194 delta +0.0060
+frame full seed 5: mean thermal 0.5256 baseline 0.5210 delta +0.0045
+frame full seed 6: mean thermal 0.5250 baseline 0.5203 delta +0.0047
+frame full seed 7: mean thermal 0.5268 baseline 0.5222 delta +0.0046
+frame full seed 8: mean thermal 0.5299 baseline 0.5225 delta +0.0074
+frame full seed 9: mean thermal 0.5279 baseline 0.5227 delta +0.0052
+frame 10km seed 42: mean thermal 0.5891 baseline 0.5653 delta +0.0238
+frame 10km seed 1: mean thermal 0.5917 baseline 0.5638 delta +0.0278
+frame 10km seed 2: mean thermal 0.5890 baseline 0.5637 delta +0.0253
+frame 10km seed 3: mean thermal 0.5899 baseline 0.5654 delta +0.0246
+frame 10km seed 4: mean thermal 0.5892 baseline 0.5634 delta +0.0257
+frame 10km seed 5: mean thermal 0.5889 baseline 0.5635 delta +0.0254
+frame 10km seed 6: mean thermal 0.5892 baseline 0.5661 delta +0.0232
+frame 10km seed 7: mean thermal 0.5901 baseline 0.5649 delta +0.0253
+frame 10km seed 8: mean thermal 0.5893 baseline 0.5651 delta +0.0243
+frame 10km seed 9: mean thermal 0.5883 baseline 0.5645 delta +0.0238
+{
+ "full": {
+  "seed42_max_abs_diff_vs_published": 5.551115123125783e-17,
+  "mean_thermal_by_seed": {
+   "1": 0.5283335303354594,
+   "2": 0.5266796589387125,
+   "3": 0.5273302041250509,
+   "4": 0.5254435183653133,
+   "5": 0.5255791279902382,
+   "6": 0.5249678788907104,
+   "7": 0.5267712149436423,
+   "8": 0.5299346787805223,
+   "9": 0.5279278876275375,
+   "42": 0.5267118880452303
+  },
+  "mean_delta_by_seed": {
+   "1": 0.008237583796655387,
+   "2": 0.0059713841321359625,
+   "3": 0.006447479647053583,
+   "4": 0.0060247066866048835,
+   "5": 0.004544771244832468,
+   "6": 0.004663186491415871,
+   "7": 0.0045587903356466095,
+   "8": 0.007431381961004441,
+   "9": 0.005220354256342349,
+   "42": 0.007328279711788952
+  },
+  "mean_thermal_range_over_seeds": [
+   0.5249678788907104,
+   0.5299346787805223
+  ],
+  "mean_delta_range_over_seeds": [
+   0.004544771244832468,
+   0.008237583796655387
+  ],
+  "direction_thermal_sd_median": 0.005296020651226519,
+  "direction_thermal_sd_max": 0.014717981513479144,
+  "direction_thermal_range_max": 0.04889576746886887,
+  "direction_delta_sd_median": 0.006034583830206866,
+  "direction_delta_sd_max": 0.01611817984488384,
+  "directions_changing_side_of_chance": [],
+  "ensemble_mean_thermal": 0.5271253135483132,
+  "ensemble_mean_baseline": 0.5215539943675014,
+  "ensemble_mean_delta": 0.00557131918081184,
+  "ensemble_below_chance": 7
+ },
+ "10km": {
+  "seed42_max_abs_diff_vs_published": 6.114779299570827e-08,
+  "mean_thermal_by_seed": {
+   "1": 0.5916733919774584,
+   "2": 0.5890340207543727,
+   "3": 0.5899437908477424,
+   "4": 0.5891609957058286,
+   "5": 0.5888995002678343,
+   "6": 0.5892371014847335,
+   "7": 0.59011686965746,
+   "8": 0.5893155981067952,
+   "9": 0.5883111702632519,
+   "42": 0.5890929339290777
+  },
+  "mean_delta_by_seed": {
+   "1": 0.02784188998591925,
+   "2": 0.025304916569009905,
+   "3": 0.024559862584161964,
+   "4": 0.02572110855542472,
+   "5": 0.025373651741113633,
+   "6": 0.023184498423846737,
+   "7": 0.025251922187747345,
+   "8": 0.024251031267771235,
+   "9": 0.023771327472042574,
+   "42": 0.02378243922802229
+  },
+  "mean_thermal_range_over_seeds": [
+   0.5883111702632519,
+   0.5916733919774584
+  ],
+  "mean_delta_range_over_seeds": [
+   0.023184498423846737,
+   0.02784188998591925
+  ],
+  "direction_thermal_sd_median": 0.0040314981711385405,
+  "direction_thermal_sd_max": 0.009143667236350423,
+  "direction_thermal_range_max": 0.028613641413019364,
+  "direction_delta_sd_median": 0.004814633101027557,
+  "direction_delta_sd_max": 0.011029157743126248,
+  "directions_changing_side_of_chance": [
+   "montiferru_2021_to_manavgat_2021"
+  ],
+  "ensemble_mean_thermal": 0.5899730195542184,
+  "ensemble_mean_baseline": 0.5650474063147379,
+  "ensemble_mean_delta": 0.024925613239480636,
+  "ensemble_below_chance": 5
+ }
+}

@@ -36,6 +36,9 @@ Main results:
 | `ENVIRONMENT.md` | The Python environment and how it was verified |
 | `repo/` | Submodule: the processing pipeline (see Data) |
 
+The development history of the analysis, without internal notes, is kept on the branch
+`history-archive`. The branch `main` starts from a single release commit.
+
 ## How to run
 
 Set up the environment in [`ENVIRONMENT.md`](ENVIRONMENT.md): Python 3.12.10 with NumPy 2.4.4,

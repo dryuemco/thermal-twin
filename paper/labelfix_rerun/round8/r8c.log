@@ -1,0 +1,49 @@
+{'direction': 'manavgat_2021_to_bejis_2022', 'raw_published': 0.3964, 'coral_published': 0.4668, 'coral_1e-5': 0.4704, 'coral_1': 0.4569, 'coral_pc2': 0.4093, 'placebo_mean': 0.4665, 'placebo_values': [0.4733, 0.4646, 0.4615]}
+{'direction': 'manavgat_2021_to_mugla_2021', 'raw_published': 0.4377, 'coral_published': 0.4174, 'coral_1e-5': 0.4198, 'coral_1': 0.4308, 'coral_pc2': 0.4457, 'placebo_mean': 0.4279, 'placebo_values': [0.4284, 0.4297, 0.4254]}
+{'direction': 'manavgat_2021_to_evia_2021_extended', 'raw_published': 0.654, 'coral_published': 0.5043, 'coral_1e-5': 0.5032, 'coral_1': 0.5236, 'coral_pc2': 0.5158, 'placebo_mean': 0.5347, 'placebo_values': [0.5155, 0.5367, 0.552]}
+{'direction': 'manavgat_2021_to_montiferru_2021', 'raw_published': 0.5178, 'coral_published': 0.505, 'coral_1e-5': 0.5079, 'coral_1': 0.5177, 'coral_pc2': 0.5085, 'placebo_mean': 0.4814, 'placebo_values': [0.4609, 0.4871, 0.4961]}
+{'direction': 'bejis_2022_to_manavgat_2021', 'raw_published': 0.3142, 'coral_published': 0.4057, 'coral_1e-5': 0.4077, 'coral_1': 0.3131, 'coral_pc2': 0.3381, 'placebo_mean': 0.3185, 'placebo_values': [0.3146, 0.334, 0.3068]}
+{'direction': 'bejis_2022_to_mugla_2021', 'raw_published': 0.6185, 'coral_published': 0.5066, 'coral_1e-5': 0.5089, 'coral_1': 0.5095, 'coral_pc2': 0.5379, 'placebo_mean': 0.4846, 'placebo_values': [0.4732, 0.4902, 0.4903]}
+{'direction': 'bejis_2022_to_evia_2021_extended', 'raw_published': 0.3828, 'coral_published': 0.4991, 'coral_1e-5': 0.4938, 'coral_1': 0.5254, 'coral_pc2': 0.5388, 'placebo_mean': 0.4647, 'placebo_values': [0.4269, 0.4783, 0.4889]}
+{'direction': 'bejis_2022_to_montiferru_2021', 'raw_published': 0.5937, 'coral_published': 0.574, 'coral_1e-5': 0.5686, 'coral_1': 0.5604, 'coral_pc2': 0.5898, 'placebo_mean': 0.5708, 'placebo_values': [0.581, 0.578, 0.5534]}
+{'direction': 'mugla_2021_to_manavgat_2021', 'raw_published': 0.345, 'coral_published': 0.4761, 'coral_1e-5': 0.477, 'coral_1': 0.4777, 'coral_pc2': 0.4814, 'placebo_mean': 0.4565, 'placebo_values': [0.4225, 0.4696, 0.4774]}
+{'direction': 'mugla_2021_to_bejis_2022', 'raw_published': 0.5832, 'coral_published': 0.5603, 'coral_1e-5': 0.5689, 'coral_1': 0.5571, 'coral_pc2': 0.5923, 'placebo_mean': 0.5446, 'placebo_values': [0.5507, 0.5621, 0.521]}
+{'direction': 'mugla_2021_to_evia_2021_extended', 'raw_published': 0.6534, 'coral_published': 0.5633, 'coral_1e-5': 0.5633, 'coral_1': 0.5686, 'coral_pc2': 0.5868, 'placebo_mean': 0.5686, 'placebo_values': [0.5553, 0.5651, 0.5854]}
+{'direction': 'mugla_2021_to_montiferru_2021', 'raw_published': 0.5312, 'coral_published': 0.5838, 'coral_1e-5': 0.582, 'coral_1': 0.5803, 'coral_pc2': 0.6155, 'placebo_mean': 0.5831, 'placebo_values': [0.6128, 0.5595, 0.577]}
+{'direction': 'evia_2021_extended_to_manavgat_2021', 'raw_published': 0.6769, 'coral_published': 0.4165, 'coral_1e-5': 0.4168, 'coral_1': 0.4074, 'coral_pc2': 0.3941, 'placebo_mean': 0.4072, 'placebo_values': [0.3986, 0.4224, 0.4007]}
+{'direction': 'evia_2021_extended_to_bejis_2022', 'raw_published': 0.448, 'coral_published': 0.5489, 'coral_1e-5': 0.5463, 'coral_1': 0.5489, 'coral_pc2': 0.5201, 'placebo_mean': 0.5242, 'placebo_values': [0.5477, 0.5241, 0.5007]}
+{'direction': 'evia_2021_extended_to_mugla_2021', 'raw_published': 0.5768, 'coral_published': 0.5302, 'coral_1e-5': 0.5298, 'coral_1': 0.5177, 'coral_pc2': 0.5452, 'placebo_mean': 0.518, 'placebo_values': [0.5191, 0.5267, 0.5083]}
+{'direction': 'evia_2021_extended_to_montiferru_2021', 'raw_published': 0.6467, 'coral_published': 0.5815, 'coral_1e-5': 0.5838, 'coral_1': 0.5806, 'coral_pc2': 0.5757, 'placebo_mean': 0.589, 'placebo_values': [0.5797, 0.5995, 0.5878]}
+{'direction': 'montiferru_2021_to_manavgat_2021', 'raw_published': 0.4041, 'coral_published': 0.4361, 'coral_1e-5': 0.4391, 'coral_1': 0.389, 'coral_pc2': 0.4706, 'placebo_mean': 0.4253, 'placebo_values': [0.4215, 0.4099, 0.4444]}
+{'direction': 'montiferru_2021_to_bejis_2022', 'raw_published': 0.5483, 'coral_published': 0.5689, 'coral_1e-5': 0.5706, 'coral_1': 0.5728, 'coral_pc2': 0.584, 'placebo_mean': 0.5859, 'placebo_values': [0.6169, 0.5912, 0.5497]}
+{'direction': 'montiferru_2021_to_mugla_2021', 'raw_published': 0.6194, 'coral_published': 0.5649, 'coral_1e-5': 0.568, 'coral_1': 0.573, 'coral_pc2': 0.6064, 'placebo_mean': 0.5804, 'placebo_values': [0.5701, 0.5912, 0.58]}
+{'direction': 'montiferru_2021_to_evia_2021_extended', 'raw_published': 0.5862, 'coral_published': 0.6239, 'coral_1e-5': 0.6257, 'coral_1': 0.6325, 'coral_pc2': 0.6084, 'placebo_mean': 0.5984, 'placebo_values': [0.5896, 0.5999, 0.6056]}
+{
+ "reproduction_max_abs_diff_coral_1e-5": 0.008606555261629678,
+ "means": {
+  "raw_published": 0.5267118880452303,
+  "coral_1e-5": 0.517576507913662,
+  "coral_1": 0.512152822829637,
+  "coral_pc2": 0.5232224670413379,
+  "placebo_mean": 0.5065103386934293
+ },
+ "closer_to_chance_than_raw": {
+  "coral_1e-5": 16,
+  "coral_1": 14,
+  "coral_pc2": 16,
+  "placebo_mean": 15
+ },
+ "below_chance": {
+  "raw_published": 7,
+  "coral_1e-5": 7,
+  "coral_1": 6,
+  "coral_pc2": 6,
+  "placebo_mean": 9
+ },
+ "corr_raw_distance_vs_change": {
+  "coral_1e-5": -0.3141033324788366,
+  "coral_1": -0.40150905934521525,
+  "coral_pc2": -0.40518461525094185,
+  "placebo_mean": -0.39127617460013525
+ }
+}

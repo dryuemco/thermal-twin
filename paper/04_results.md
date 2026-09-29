@@ -132,9 +132,9 @@ transfer gain, averaged by target region, with a Student *t* interval over the f
 
 **The thermal gain in transfer is small on every frame.** On the 10 km collar its interval includes
 zero under the primary resampling unit. Of the five other units that can be computed, two exclude
-zero: clustering by target region and clustering by source region (Section S1.22). In an exploratory
-equivalence test with a margin of ±0.05, set after the results, the collar gain was within the margin
-under four of six units. It was not within the margin under the pigeonhole bootstrap or the region
+zero: clustering by target region and clustering by source region (Section S1.22). In an exploratory equivalence test with a margin of ±0.05, set after the results, the gain on the
+original study areas was within the margin under all six units that can be computed, and the collar
+gain under four of six. It was not within the margin under the pigeonhole bootstrap or the region
 jackknife, whose 90 % upper bounds are 0.052 and 0.055. The difference between the within-region and
 transfer gains (W − T) is positive on the original areas and on the 10 km collar, but not on the 5 km
 collar (Table 3).
@@ -150,9 +150,10 @@ supported elevation reversals disappear on the collar.
 **Hotter surfaces burned less at the point estimates.** In four of five regions, a hotter pre-fire
 surface was associated with *less* burning, which is the opposite of what the dryness idea predicts.
 In Manavgat the burned cells are hotter (current LST 0.665 on the original area), but they are also
-low-lying. When elevation is held constant through deciles, the Manavgat LST association falls to
-0.455 on the original area and 0.403 on the collar. After the linear effect of elevation is removed,
-it is 0.446 and 0.409 (Section S1.11). These stratified values are point estimates. Together, they
+low-lying. When elevation is held constant through deciles, the Manavgat LST association falls to 0.403
+[0.343, 0.464] on the collar, and after the linear effect of elevation is removed it is 0.409 [0.350,
+0.475]. On the original area the same values are 0.455 and 0.446, with intervals that include 0.5
+(Sections S1.11 and S1.23). These results
 indicate that the absolute thermal channels behaved here mainly as land-surface descriptors rather
 than as a dryness index.
 
@@ -182,12 +183,15 @@ The results in this section use the original study areas and should be read toge
 six were below and five were uncertain; at 1 km blocking the intervals are narrower (Section S1.20).
 Two below-chance directions keep interval support on the collar: Manavgat to Bejís and Muğla to
 Manavgat. Manavgat was the weakest target, with a mean of 0.435 against 0.494 to 0.572 for the other
-targets.
+targets. Without the eight directions that involve Manavgat, mean transfer was 0.566, which is still
+far below within-region skill (Section S1.23).
 
 **In precision terms, transfer is weaker still.** Precision-recall AUC averaged **0.181, against a
 no-skill baseline of 0.157**; the baseline of each target is its burned prevalence, which ranges from
-0.070 to 0.287. Seven of twenty directions were below their own baseline. At 5 km blocking, two of
-these seven had intervals below the baseline, both into Manavgat (Table S11).
+0.070 to 0.287. Seven of twenty directions were below their own baseline. At 5 km blocking, two of these seven had intervals below the baseline, both into Manavgat (Table
+S11). In map terms, the 10 % of target cells with the highest scores contained on average 10.3 % of
+the burned cells, which is what a random ranking gives, and eight of twenty directions did worse.
+Within regions, the same share was 35.5 % (Section S1.23).
 
 **The static baseline did not transfer either.** Its mean was **0.519**, against **0.527** for the
 thermal model, so the failure is not specific to the thermal predictors.
@@ -205,8 +209,11 @@ and harmed those that worked, so the mean fell from 0.527 to **0.517**. Choosing
 each direction gave 0.523, but this choice uses target labels. The gap decomposition covers the
 twelve directions among the four regions of the pipeline's decomposition run, without Montiferru.
 There, seven directions showed negative recovery, five of them with intervals below zero (Section
-S1.10). A movement toward chance is also what any loss of information would produce, so these
-results do not show that the methods removed a distribution shift.
+S1.10). A movement toward chance is also what any loss of information would produce. Indeed, aligning the
+source with the covariance of a third, unrelated region moved 15 of 20 directions toward chance as
+well (mean 0.507). CORAL with a stronger regularisation (λ = 1, mean 0.512) or on two thermal
+components (0.523) did not help either (Section S1.23). These results therefore do not show that
+the methods removed a distribution shift.
 
 ## 4.6 Further results
 
@@ -224,9 +231,9 @@ burned cells, for example 880 of 1,100 in Bejís. They also come from the fire t
 they are not available before that fire (Section S4).
 
 **Similarity measures.** Twenty similarity measures were recorded on 8 August 2026 and were not
-changed after the label correction. On the original study areas, none predicted transfer with an
-interval that excludes zero (Table S17); one measure is defined on only six directions and is not
-interpreted. The contrast pairs illustrate this at the point estimates (Fig. 8). Manavgat and Muğla
+changed after the label correction. On the original study areas, none predicted transfer with an interval that excludes zero (Table
+S17), and in a permutation test over all 120 orderings of the five regions no measure reached
+p < 0.10 (Section S1.23). One measure is defined on only six directions and is not interpreted. The contrast pairs illustrate this at the point estimates (Fig. 8). Manavgat and Muğla
 have the highest niche overlap in the cohort (mean one-dimensional Schoener's *D* = 0.80), but
 transfer was below chance in both directions, at 0.438 and 0.345. Conversely, Bejís and Montiferru
 have the lowest overlap (*D* = 0.48), but transfer was above chance in both directions, at 0.594 and

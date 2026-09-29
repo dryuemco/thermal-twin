@@ -72,8 +72,8 @@ ROC-AUC with the region as the unit, which is larger than the thermal gain withi
 1). Both numbers are needed to judge a model.
 
 **Measure transfer in the target region.** A within-region score does not show how a model will work
-elsewhere, and no similarity measure tested here could replace the measurement. In precision terms,
-a model moved to a new region did not usefully rank the burned cells there (Section 4.5). Target
+elsewhere, and no similarity measure tested here could replace the measurement. A model moved to a new region did not usefully rank the burned cells there: its highest-scored
+10 % of cells contained about as many burned cells as a random choice (Section 4.5). Target
 labels from the predicted fire closed much of the gap (Section S4), but they are not available in
 advance. Where a burned-area record of earlier fires exists for the target region, it offers a way to
 check a transferred model before use; this option was not tested here.
@@ -96,8 +96,9 @@ The limitations are given in full in Section S3.5. The following ones affect the
   were fixed earlier in the processing pipeline (Section 4.4; S3.5(ix)).
 - **The frame cost rests on few scars.** The full comparison is defined on seven scars in three
   regions, so the region-level estimates should be quoted (Section 4.3).
-- **Intervals are conditional on one fitted forest.** The random-forest seed is fixed, and under
-  another scikit-learn version single directions moved by up to 0.047 (Section 3.13; S3.5(vi)).
+- **Point estimates depend on the software version.** Under another scikit-learn version, single
+  directions moved by up to 0.047, while ten random-forest seeds changed mean transfer by at most
+  0.003 (Section 3.13; S1.23; S3.5(vi)).
 - **The similarity tests rest on ten independent region pairs,** so both positive and negative
   results have low power (S3.5(xiii)).
 - **Measures based on interval support are unstable.** Five to six interval bounds lie within 0.01

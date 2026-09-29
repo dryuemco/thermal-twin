@@ -1,6 +1,6 @@
 # Baseline versus thermal transfer, per direction — the thesis contrast made direct
 
-**What this is.** POSITIONING §3's sharpest claim — *the feature block that gains the most within
+**What this is.** study plan §3's sharpest claim — *the feature block that gains the most within
 region is the block that loses the most between regions* — stated as a per-direction paired
 contrast: for each of the 20 ordered directions, the raw transfer ROC-AUC of the static baseline
 model versus the thermal model, with the paired target-block bootstrap delta CI. Pure read-only
@@ -51,7 +51,7 @@ lifting one from below to above.**
    0.451→0.583). In the Manavgat–Muğla pair the static baseline transfers at roughly chance and
    adding the thermal block pushes both directions below it; in the Bejís–Muğla pair the thermal
    block is what carries transfer above chance in both directions — exactly the two poles
-   POSITIONING §3 predicted.
+   study plan §3 predicted.
 3. **The per-direction sign of the thermal contribution tracks the reversal diagnosis.** The
    largest negative delta (Bejís→Evia −0.148) sits on the pair with the supported
    `lst_anomaly_mean` reversal; the Manavgat↔Muğla and Muğla↔Montiferru negatives sit on pairs

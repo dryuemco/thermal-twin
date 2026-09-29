@@ -1,6 +1,6 @@
 # Analysis environment on this machine
 
-Set up 2026-08-14, after Emrehan's internship ended, so that the pipeline can be run here rather
+Set up 2026-08-14 so that the pipeline can be run here rather
 than only read. It is **verified**, not merely installed: see "Proof" below.
 
 ## What was installed
@@ -99,12 +99,12 @@ the released repository.
 
 ## What this unblocks
 
-Work that previously had to wait for the pipeline author:
+Work that this environment makes possible:
 
-1. **The land-only TVDI edge refit** (`emrehan_mail_5.md` item 10). `rasterio` is installed and the
+1. **The land-only TVDI edge refit.** `rasterio` is installed and the
    30 m rasters are in `drive_new/experiments/<region>/step5c/` and `step5/`, with the aligned
    land-cover raster in `gate_inputs/`.
-2. **The calendar-matched Muğla 2022 arm** (item 8), which would separate year from season in the
+2. **The calendar-matched Muğla 2022 analysis**, which would separate year from season in the
    two-event control, currently the design's main confound.
 3. Any re-run a referee asks for on the within-region or transfer analyses.
 

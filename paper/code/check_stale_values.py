@@ -1,5 +1,5 @@
 """Fail if a value that holds only under the original (pre-correction) Manavgat label appears in the
-manuscript or the supplement without being labelled as such (readiness audit F02, WS1 tool).
+manuscript or the supplement without being labelled as such (internal review F02, WS1 tool).
 
 A hit is allowed when the words "original label" (or "Under the original") occur within 400
 characters before it in the same file, which is how the text marks an original-label value.

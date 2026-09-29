@@ -1,6 +1,6 @@
 # Fire-regime distance versus transfer performance — formal rank-correlation test
 
-**What this is.** The C4/§5 program (POSITIONING.md) asks whether any label-free, pre-transfer
+**What this is.** The C4/§5 program (the study plan) asks whether any label-free, pre-transfer
 diagnostic orders observed cross-region transfer performance. Emrehan's four marginal measures do
 not (Spearman |ρ| 0.06–0.24, four AOIs). This analysis adds two candidates that were still
 untested — **fire-regime distance** (burned-patch structure) and the **domain-classifier AUC** —

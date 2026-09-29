@@ -1,0 +1,352 @@
+{
+ "seeds": [
+  42,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "frames": {
+  "full": {
+   "seed42_max_abs_diff_vs_published": 5.551115123125783e-17,
+   "mean_thermal_by_seed": {
+    "1": 0.5283335303354594,
+    "2": 0.5266796589387125,
+    "3": 0.5273302041250509,
+    "4": 0.5254435183653133,
+    "5": 0.5255791279902382,
+    "6": 0.5249678788907104,
+    "7": 0.5267712149436423,
+    "8": 0.5299346787805223,
+    "9": 0.5279278876275375,
+    "42": 0.5267118880452303
+   },
+   "mean_delta_by_seed": {
+    "1": 0.008237583796655387,
+    "2": 0.0059713841321359625,
+    "3": 0.006447479647053583,
+    "4": 0.0060247066866048835,
+    "5": 0.004544771244832468,
+    "6": 0.004663186491415871,
+    "7": 0.0045587903356466095,
+    "8": 0.007431381961004441,
+    "9": 0.005220354256342349,
+    "42": 0.007328279711788952
+   },
+   "mean_thermal_range_over_seeds": [
+    0.5249678788907104,
+    0.5299346787805223
+   ],
+   "mean_delta_range_over_seeds": [
+    0.004544771244832468,
+    0.008237583796655387
+   ],
+   "direction_thermal_sd_median": 0.005296020651226519,
+   "direction_thermal_sd_max": 0.014717981513479144,
+   "direction_thermal_range_max": 0.04889576746886887,
+   "direction_delta_sd_median": 0.006034583830206866,
+   "direction_delta_sd_max": 0.01611817984488384,
+   "directions_changing_side_of_chance": [],
+   "ensemble_mean_thermal": 0.5271253135483132,
+   "ensemble_mean_baseline": 0.5215539943675014,
+   "ensemble_mean_delta": 0.00557131918081184,
+   "ensemble_below_chance": 7,
+   "ensemble_per_direction": [
+    {
+     "direction": "bejis_2022_to_evia_2021_extended",
+     "thermal": 0.382875,
+     "baseline": 0.547404,
+     "delta": -0.164529
+    },
+    {
+     "direction": "bejis_2022_to_manavgat_2021",
+     "thermal": 0.309804,
+     "baseline": 0.304183,
+     "delta": 0.005622
+    },
+    {
+     "direction": "bejis_2022_to_montiferru_2021",
+     "thermal": 0.594511,
+     "baseline": 0.562659,
+     "delta": 0.031852
+    },
+    {
+     "direction": "bejis_2022_to_mugla_2021",
+     "thermal": 0.618639,
+     "baseline": 0.594973,
+     "delta": 0.023666
+    },
+    {
+     "direction": "evia_2021_extended_to_bejis_2022",
+     "thermal": 0.452996,
+     "baseline": 0.380762,
+     "delta": 0.072234
+    },
+    {
+     "direction": "evia_2021_extended_to_manavgat_2021",
+     "thermal": 0.681025,
+     "baseline": 0.732879,
+     "delta": -0.051854
+    },
+    {
+     "direction": "evia_2021_extended_to_montiferru_2021",
+     "thermal": 0.64378,
+     "baseline": 0.550529,
+     "delta": 0.093251
+    },
+    {
+     "direction": "evia_2021_extended_to_mugla_2021",
+     "thermal": 0.576173,
+     "baseline": 0.509893,
+     "delta": 0.06628
+    },
+    {
+     "direction": "manavgat_2021_to_bejis_2022",
+     "thermal": 0.39996,
+     "baseline": 0.377127,
+     "delta": 0.022833
+    },
+    {
+     "direction": "manavgat_2021_to_evia_2021_extended",
+     "thermal": 0.649754,
+     "baseline": 0.623798,
+     "delta": 0.025957
+    },
+    {
+     "direction": "manavgat_2021_to_montiferru_2021",
+     "thermal": 0.529604,
+     "baseline": 0.53509,
+     "delta": -0.005486
+    },
+    {
+     "direction": "manavgat_2021_to_mugla_2021",
+     "thermal": 0.44077,
+     "baseline": 0.466099,
+     "delta": -0.025329
+    },
+    {
+     "direction": "montiferru_2021_to_bejis_2022",
+     "thermal": 0.536238,
+     "baseline": 0.610843,
+     "delta": -0.074604
+    },
+    {
+     "direction": "montiferru_2021_to_evia_2021_extended",
+     "thermal": 0.588775,
+     "baseline": 0.553836,
+     "delta": 0.034939
+    },
+    {
+     "direction": "montiferru_2021_to_manavgat_2021",
+     "thermal": 0.403747,
+     "baseline": 0.337345,
+     "delta": 0.066403
+    },
+    {
+     "direction": "montiferru_2021_to_mugla_2021",
+     "thermal": 0.624977,
+     "baseline": 0.649875,
+     "delta": -0.024898
+    },
+    {
+     "direction": "mugla_2021_to_bejis_2022",
+     "thermal": 0.577192,
+     "baseline": 0.457799,
+     "delta": 0.119393
+    },
+    {
+     "direction": "mugla_2021_to_evia_2021_extended",
+     "thermal": 0.657639,
+     "baseline": 0.601969,
+     "delta": 0.05567
+    },
+    {
+     "direction": "mugla_2021_to_manavgat_2021",
+     "thermal": 0.345254,
+     "baseline": 0.420088,
+     "delta": -0.074833
+    },
+    {
+     "direction": "mugla_2021_to_montiferru_2021",
+     "thermal": 0.528793,
+     "baseline": 0.613932,
+     "delta": -0.085139
+    }
+   ]
+  },
+  "10km": {
+   "seed42_max_abs_diff_vs_published": 6.114779299570827e-08,
+   "mean_thermal_by_seed": {
+    "1": 0.5916733919774584,
+    "2": 0.5890340207543727,
+    "3": 0.5899437908477424,
+    "4": 0.5891609957058286,
+    "5": 0.5888995002678343,
+    "6": 0.5892371014847335,
+    "7": 0.59011686965746,
+    "8": 0.5893155981067952,
+    "9": 0.5883111702632519,
+    "42": 0.5890929339290777
+   },
+   "mean_delta_by_seed": {
+    "1": 0.02784188998591925,
+    "2": 0.025304916569009905,
+    "3": 0.024559862584161964,
+    "4": 0.02572110855542472,
+    "5": 0.025373651741113633,
+    "6": 0.023184498423846737,
+    "7": 0.025251922187747345,
+    "8": 0.024251031267771235,
+    "9": 0.023771327472042574,
+    "42": 0.02378243922802229
+   },
+   "mean_thermal_range_over_seeds": [
+    0.5883111702632519,
+    0.5916733919774584
+   ],
+   "mean_delta_range_over_seeds": [
+    0.023184498423846737,
+    0.02784188998591925
+   ],
+   "direction_thermal_sd_median": 0.0040314981711385405,
+   "direction_thermal_sd_max": 0.009143667236350423,
+   "direction_thermal_range_max": 0.028613641413019364,
+   "direction_delta_sd_median": 0.004814633101027557,
+   "direction_delta_sd_max": 0.011029157743126248,
+   "directions_changing_side_of_chance": [
+    "montiferru_2021_to_manavgat_2021"
+   ],
+   "ensemble_mean_thermal": 0.5899730195542184,
+   "ensemble_mean_baseline": 0.5650474063147379,
+   "ensemble_mean_delta": 0.024925613239480636,
+   "ensemble_below_chance": 5,
+   "ensemble_per_direction": [
+    {
+     "direction": "bejis_2022_to_evia_2021_extended",
+     "thermal": 0.611758,
+     "baseline": 0.646027,
+     "delta": -0.034269
+    },
+    {
+     "direction": "bejis_2022_to_manavgat_2021",
+     "thermal": 0.445959,
+     "baseline": 0.396961,
+     "delta": 0.048998
+    },
+    {
+     "direction": "bejis_2022_to_montiferru_2021",
+     "thermal": 0.672103,
+     "baseline": 0.602485,
+     "delta": 0.069618
+    },
+    {
+     "direction": "bejis_2022_to_mugla_2021",
+     "thermal": 0.631856,
+     "baseline": 0.625816,
+     "delta": 0.00604
+    },
+    {
+     "direction": "evia_2021_extended_to_bejis_2022",
+     "thermal": 0.526037,
+     "baseline": 0.456147,
+     "delta": 0.06989
+    },
+    {
+     "direction": "evia_2021_extended_to_manavgat_2021",
+     "thermal": 0.591895,
+     "baseline": 0.656549,
+     "delta": -0.064654
+    },
+    {
+     "direction": "evia_2021_extended_to_montiferru_2021",
+     "thermal": 0.711983,
+     "baseline": 0.596106,
+     "delta": 0.115876
+    },
+    {
+     "direction": "evia_2021_extended_to_mugla_2021",
+     "thermal": 0.638413,
+     "baseline": 0.530202,
+     "delta": 0.108212
+    },
+    {
+     "direction": "manavgat_2021_to_bejis_2022",
+     "thermal": 0.413562,
+     "baseline": 0.401376,
+     "delta": 0.012185
+    },
+    {
+     "direction": "manavgat_2021_to_evia_2021_extended",
+     "thermal": 0.708316,
+     "baseline": 0.693063,
+     "delta": 0.015253
+    },
+    {
+     "direction": "manavgat_2021_to_montiferru_2021",
+     "thermal": 0.619587,
+     "baseline": 0.554977,
+     "delta": 0.06461
+    },
+    {
+     "direction": "manavgat_2021_to_mugla_2021",
+     "thermal": 0.493516,
+     "baseline": 0.496302,
+     "delta": -0.002785
+    },
+    {
+     "direction": "montiferru_2021_to_bejis_2022",
+     "thermal": 0.615709,
+     "baseline": 0.659542,
+     "delta": -0.043832
+    },
+    {
+     "direction": "montiferru_2021_to_evia_2021_extended",
+     "thermal": 0.702114,
+     "baseline": 0.652781,
+     "delta": 0.049332
+    },
+    {
+     "direction": "montiferru_2021_to_manavgat_2021",
+     "thermal": 0.494605,
+     "baseline": 0.416261,
+     "delta": 0.078343
+    },
+    {
+     "direction": "montiferru_2021_to_mugla_2021",
+     "thermal": 0.607945,
+     "baseline": 0.628143,
+     "delta": -0.020198
+    },
+    {
+     "direction": "mugla_2021_to_bejis_2022",
+     "thermal": 0.598653,
+     "baseline": 0.522305,
+     "delta": 0.076347
+    },
+    {
+     "direction": "mugla_2021_to_evia_2021_extended",
+     "thermal": 0.727587,
+     "baseline": 0.67151,
+     "delta": 0.056078
+    },
+    {
+     "direction": "mugla_2021_to_manavgat_2021",
+     "thermal": 0.433927,
+     "baseline": 0.504909,
+     "delta": -0.070981
+    },
+    {
+     "direction": "mugla_2021_to_montiferru_2021",
+     "thermal": 0.553935,
+     "baseline": 0.589486,
+     "delta": -0.035551
+    }
+   ]
+  }
+ }
+}

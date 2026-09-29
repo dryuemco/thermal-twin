@@ -440,7 +440,7 @@ def a4_differences():
 # ---- A5: the transfer-gap decomposition --------------------------------------------------------------
 A5_METHOD = {"regionwise_zscore": "z-score", "coral_after_regionwise_zscore": "CORAL"}
 def a5_status(r):
-    """Status of the adapted value against chance, read from its own interval (readiness audit F65:
+    """Status of the adapted value against chance, read from its own interval (internal review F65:
     the pipeline's 'chance not excluded' label also covered adapted intervals lying entirely below
     0.5)."""
     if r.recovery_status == "negative_recovery":

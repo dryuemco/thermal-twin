@@ -1,0 +1,20 @@
+# Round 8: analyses added in response to the pre-submission review
+
+All scripts run from the repository root with the environment in `ENVIRONMENT.md`, read the modelling
+datasets through `paper/code/_canonical.py` (SHA-256 checked) and write only into this folder.
+
+| Script | Question | Main outputs |
+|---|---|---|
+| `r8a_seed_replication.py` | Do the transfer results depend on the random-forest seed? Ten seeds, study areas as drawn and 10 km collar, both feature sets. Seed 42 reproduces the published matrix exactly. | `r8a_seed_auc.csv`, `r8a_summary.json`, `r8a_preds_full_seed42.npz` |
+| `r8c_coral_variants.py` | CORAL with λ = 1, CORAL on two thermal principal components, and a placebo CORAL that aligns the source with a third region instead of the target. | `r8c_coral_variants.csv`, `r8c_summary.json` |
+| `r8d_similarity_permutation.py` | Permutation (QAP) p-values for the twenty similarity measures; results without Manavgat; equivalence test of the as-drawn transfer gain under all resampling units. | `r8d_similarity_permutation.csv`, `r8d_summary.json` |
+| `r8e_stratified_intervals.py` | Spatial-block bootstrap intervals for the stratified associations of Table S27. | `r8e_stratified_intervals.csv` |
+| `r8b_buffered_within.py` | Capture of burned cells by within-region models; Bejís without the 48 cells that burned in the predictor window. | `r8b_summary.json` |
+| `r8g_capture.py` | Capture of burned cells in the top 10 % and 20 % of transferred scores. | `r8g_capture_transfer.csv`, `r8g_summary.json` |
+
+**A design that was tried and not used.** `r8b_buffered_within.py` also computes a leave-one-block-out
+within-region reference (40-cell blocks, with and without a 10 km buffer). Its pooled ROC-AUC combines
+predictions from different models, and because burned cells sit in one or two blocks, the pooled value
+is dominated by calibration differences between these models (for example 0.054 in Bejís). It is
+therefore not a valid reference and is not reported in the paper. The distance curve of Section S1.18,
+which scores one model, answers the same question.

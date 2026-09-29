@@ -1,4 +1,4 @@
-"""Round 7 (2026-09-29): four quantities the 2026-09-28 readiness audit asked for, computed from
+"""Round 7 (2026-09-29): four quantities an internal review asked for, computed from
 hash-verified inputs so that every number the revised text prints has a tracked source.
 
   R7a  PR-AUC per transfer direction with a 10-cell (~5 km) target-block bootstrap (F59 / gap audit).
@@ -69,11 +69,25 @@ PAIRS = {
     "montiferru_2021__mugla_2021": DRIVE,
     "mugla_2021__evia_2021_extended": DRIVE,
 }
+# The per-cell prediction files are not tracked under their pipeline paths (.gitignore). Gzipped
+# copies are released in round7/frozen_predictions/, with the SHA-256 of the uncompressed bytes in
+# SHA256SUMS_uncompressed.txt; a clone without the pipeline trees reads those and checks the hash.
+FROZEN = OUT / "frozen_predictions"
+SUMS = dict(l.split()[::-1] for l in (FROZEN / "SHA256SUMS_uncompressed.txt").read_text().split("\n") if l.strip())
 preds = []
 for pair, root in PAIRS.items():
     f = root / pair / "step9b" / "cross_region_transfer_predictions.csv"
-    sha(f)
-    d = pd.read_csv(f)
+    if f.exists():
+        raw = f.read_bytes()
+    else:
+        import gzip
+        import io
+        raw = gzip.decompress((FROZEN / f"{pair}.csv.gz").read_bytes())
+    h = hashlib.sha256(raw).hexdigest()
+    assert h == SUMS[f"{pair}.csv"], f"{pair}: prediction file does not match its recorded hash"
+    inputs[f"frozen_predictions/{pair}.csv"] = h
+    import io
+    d = pd.read_csv(io.BytesIO(raw))
     preds.append(d[d.population == "burnable_tree_shrub_grass"])
 P = pd.concat(preds).drop_duplicates(["transfer_direction", "target_cell_id"])
 DIRS = sorted(P.transfer_direction.unique())

@@ -1,0 +1,29 @@
+{
+ "reproduction_max_abs_diff_coral_1e-5": 0.008606555261629678,
+ "means": {
+  "raw_published": 0.5267118880452303,
+  "coral_1e-5": 0.517576507913662,
+  "coral_1": 0.512152822829637,
+  "coral_pc2": 0.5232224670413379,
+  "placebo_mean": 0.5065103386934293
+ },
+ "closer_to_chance_than_raw": {
+  "coral_1e-5": 16,
+  "coral_1": 14,
+  "coral_pc2": 16,
+  "placebo_mean": 15
+ },
+ "below_chance": {
+  "raw_published": 7,
+  "coral_1e-5": 7,
+  "coral_1": 6,
+  "coral_pc2": 6,
+  "placebo_mean": 9
+ },
+ "corr_raw_distance_vs_change": {
+  "coral_1e-5": -0.3141033324788366,
+  "coral_1": -0.40150905934521525,
+  "coral_pc2": -0.40518461525094185,
+  "placebo_mean": -0.39127617460013525
+ }
+}

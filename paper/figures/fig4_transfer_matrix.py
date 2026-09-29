@@ -98,7 +98,7 @@ for ax, (key, title) in zip(axes, VARIANTS):
         for j, t in enumerate(REGIONS):
             if s != t:
                 M[i, j] = fig5[f"{s}_to_{t}"][key]
-    # vector cells (readiness audit F117): pcolormesh instead of imshow, which embedded a
+    # vector cells (internal review F117): pcolormesh instead of imshow, which embedded a
     # low-resolution raster in the PDF; axes set up exactly as imshow did
     edges = np.arange(6) - 0.5
     im = ax.pcolormesh(edges, edges, np.ma.masked_invalid(M), cmap=cmap, norm=norm,

@@ -1,4 +1,4 @@
-// POSITIONING §3 table: baseline vs thermal RAW transfer per ordered direction, with the
+// study plan §3 table: baseline vs thermal RAW transfer per ordered direction, with the
 // paired spatial-block bootstrap delta CI. Read-only extraction from Emrehan's frozen
 // step9b (points) + step9c (target-block bootstrap CIs incl. delta_roc_auc). TSG population.
 import { readFileSync, writeFileSync } from 'fs';
@@ -52,7 +52,7 @@ const liftAbove = ordered.filter(r => r.baseline_roc < 0.5 && r.thermal_roc >= 0
 
 const meta = {
   created: '2026-08-08',
-  purpose: 'POSITIONING §3 direct evidence: per-direction paired baseline-vs-thermal raw transfer contrast. The thermal block is the swing factor: where it gains within-region it can push transfer below chance, and vice versa.',
+  purpose: 'study plan §3 direct evidence: per-direction paired baseline-vs-thermal raw transfer contrast. The thermal block is the swing factor: where it gains within-region it can push transfer below chance, and vice versa.',
   population: POP,
   source: 'drive_new/cross_region/<pair>/step9b (points) + step9c (target spatial-block bootstrap, 1000 replicates, seed 42, paired delta = thermal - baseline on identical resampled blocks)',
   no_new_model_runs: true,

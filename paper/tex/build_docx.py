@@ -54,7 +54,7 @@ def clean(md, name):
 
 
 # "Chuvieco et al. [@Chuvieco2004]" would render as "Chuvieco et al. (Chuvieco et al. 2004)"; a narrative
-# citation "@Chuvieco2004" renders as "Chuvieco et al. (2004)" (readiness audit F66)
+# citation "@Chuvieco2004" renders as "Chuvieco et al. (2004)" (internal review F66)
 NARRATIVE = re.compile(r"\b([A-Z][A-Za-z\-]+(?: and [A-Z][A-Za-z\-]+| et al\.)) \[@([A-Za-z0-9]+)\]")
 
 
@@ -138,7 +138,7 @@ def captions():
 
 
 caps = captions()
-# figures must be cited in numerical order (Springer; readiness audit F21)
+# figures must be cited in numerical order (Springer; internal review F21)
 _first = [re.search(rf"Fig\. {n}\b", body) for n in range(1, len(caps) + 1)]
 assert all(_first), [n + 1 for n, m in enumerate(_first) if not m]
 _pos = [m.start() for m in _first]
@@ -254,7 +254,7 @@ def to_docx(md, out, title):
                     p.paragraph_format.space_after = Pt(1)
                     for run in p.runs:
                         run.font.size = Pt(10)
-        # keep a table's caption on the same page as the table (readiness audit, render check)
+        # keep a table's caption on the same page as the table (internal review, render check)
         prev = t._tbl.getprevious()
         while prev is not None and prev.tag == qn("w:p") and not "".join(prev.itertext()).strip():
             prev = prev.getprevious()
@@ -264,7 +264,7 @@ def to_docx(md, out, title):
                 ppr = OxmlElement("w:pPr"); prev.insert(0, ppr)
             if ppr.find(qn("w:keepNext")) is None:
                 ppr.append(OxmlElement("w:keepNext"))
-    # document properties: no local paths, no template statistics (readiness audit F103)
+    # document properties: no local paths, no template statistics (internal review F103)
     cp = d.core_properties
     cp.title, cp.author, cp.last_modified_by = title, "Emrehan Metin; Yunus Emre Cogurcu", ""
     cp.comments = cp.keywords = cp.subject = cp.category = cp.identifier = ""

@@ -1,0 +1,6 @@
+{
+ "max_abs_diff_vs_round7_r7b": 5.551115123125783e-17,
+ "replicates": 1000,
+ "block_cells": 10,
+ "seed": 42
+}

@@ -34,7 +34,7 @@ from _conservation_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK
                           LABEL, loro, style_axes, chance_segment, save)
 
 # ---- asserts vs Section S1.14(a), the Fig. 6 caption and round7, zero tolerance ----------
-# 2026-09-29 (readiness audit F61): the benchmark is the MEAN of the four single-source models;
+# 2026-09-29 (internal review F61): the benchmark is the MEAN of the four single-source models;
 # the best single source is kept as an oracle marker, since choosing it uses target labels.
 import csv
 BY = {r["target"]: r for r in loro}

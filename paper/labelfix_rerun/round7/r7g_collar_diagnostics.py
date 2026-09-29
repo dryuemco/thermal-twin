@@ -1,5 +1,5 @@
 """Round 7g (2026-09-29): pair-bootstrap intervals for the two similarity diagnostics that were
-recomputed on the 10 km collar (readiness audit F07). Port of corrWithBoot() in
+recomputed on the 10 km collar (internal review F07). Port of corrWithBoot() in
 round5/code_control/conditional_similarity.mjs: unordered region pairs resampled with replacement,
 both directions carried, mulberry32(42 + offset), 2000 replicates, equal-tailed linear percentiles.
 Offsets follow that script's MEASURES order (cosine_9 = 102, agree_fraction_supported = 103).

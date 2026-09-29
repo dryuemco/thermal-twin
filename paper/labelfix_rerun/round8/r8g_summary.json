@@ -1,0 +1,27 @@
+{
+ "transfer_thermal_top10_mean": 0.10323406595812101,
+ "transfer_thermal_top20_mean": 0.19940177999256428,
+ "transfer_thermal_top10_range": [
+  0.007272727272727273,
+  0.2705281090289608
+ ],
+ "transfer_thermal_top10_below_random": 8,
+ "transfer_thermal_top20_below_random": 8,
+ "transfer_baseline_top10_mean": 0.1070602492165725,
+ "within_thermal_top10": {
+  "manavgat_2021": 0.4347529812606474,
+  "bejis_2022": 0.44545454545454544,
+  "mugla_2021": 0.40742013053933357,
+  "evia_2021_extended": 0.29954954954954954,
+  "montiferru_2021": 0.18923933209647495
+ },
+ "within_thermal_top20": {
+  "manavgat_2021": 0.6729131175468483,
+  "bejis_2022": 0.6345454545454545,
+  "mugla_2021": 0.5809000343524562,
+  "evia_2021_extended": 0.5228978978978979,
+  "montiferru_2021": 0.37291280148423006
+ },
+ "within_thermal_top10_mean": 0.3552833077801102,
+ "within_thermal_top20_mean": 0.5568338611653774
+}

@@ -1,6 +1,6 @@
 # Rerun of 29 September 2026
 
-A fresh rerun, from the corrected SHA-verified Manavgat parquet, of two sources the readiness audit
+A fresh rerun, from the corrected SHA-verified Manavgat parquet, of two sources the internal review
 asked to see demonstrated rather than assumed.
 
 - `aoi_frame_transfer.csv`, `regen_transfer_ci.log`: `paper/code/regen_transfer_ci.py`, unchanged,

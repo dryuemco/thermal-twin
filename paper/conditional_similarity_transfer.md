@@ -75,7 +75,7 @@ Marginal rows quoted from `regime_transfer_correlation.csv` (same framework, sam
 1. **The only diagnostics in the entire programme whose intervals exclude zero are conditional.**
    Both CI-supported variants (agreement fraction, cosine) have bootstrap 95 % CIs entirely above
    zero; every marginal measure's interval spans zero. This is the marginal-vs-conditional
-   contrast of POSITIONING §5, now with intervals on both sides.
+   contrast of study plan §5, now with intervals on both sides.
 2. **The full-9 variants do *not* clear the bar.** Cosine₉ is the best (+0.50) but its CI spans
    zero. The noisy, CI-crossing features (the four absolute LST channels are interval-uncertain
    in 3 of 5 regions) dilute the index — exactly the motivation for the pre-specified restricted

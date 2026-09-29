@@ -4,7 +4,7 @@ Supplementary material for *Evaluation area and the limits of cross-region trans
 
 Section S1 gives the sensitivity analyses and the details behind the Results. Section S2 gives the
 supporting tables, Section S3 the protocol details and limitations, Section S4 the target-label
-recovery curve, Section S5 the code and Section S6 the data. Tables are numbered S1 to S34,
+recovery curve, Section S5 the code and Section S6 the data. Tables are numbered S1 to S35,
 independently of the sections. Supplementary equations are numbered (S1), (S2) and so on. Every value
 is read from a released output, named by its path in the repository
 <https://github.com/dryuemco/thermal-twin>. Paths that begin with `paper/labelfix_rerun/` hold the
@@ -36,6 +36,7 @@ label".
   - S1.20 The transfer matrix and adaptation, elaborated
   - S1.21 The similarity diagnostics
   - S1.22 Additional robustness analyses
+  - S1.23 Analyses added after the pre-submission review
 - S2 Supporting tables
 - S3 Protocol detail and limitations
 - S4 Target-label recovery curve
@@ -438,7 +439,9 @@ raw, within NDVI, within distance; NDVI columns), which can be recomputed by
 `paper/code/verify_matched_gap.py`, and `paper/labelfix_rerun/round7/r7b_lst_given_terrain.csv` (LST
 within elevation, and LST detrended on elevation).
 
-**Table S27. The LST association, stratified, 10 km collar.**
+**Table S27. The LST association, stratified, 10 km collar.** Point estimates; 10-cell block-bootstrap intervals for every cell
+are in `paper/labelfix_rerun/round8/r8e_stratified_intervals.csv`, and the Manavgat values are
+summarised in Table S35.
 
 | Region | LST raw | LST within elevation | LST detrended on elevation | LST within NDVI | LST within distance | NDVI raw | NDVI within LST |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -943,6 +946,31 @@ The primary unit is the pair cluster (Section 3.7), and on it the paired contrib
 includes zero. With five regions, a percentile bootstrap over regions has at most 126 distinct
 resamples, so the two region-clustered intervals are coarse.
 
+## S1.23 Analyses added after the pre-submission review
+
+The analyses in Table S35 were run after an internal review of the manuscript. They test the
+dependence of the main results on the fitted forest, the adaptation method, the inference for the
+similarity measures, and two data choices. Sources are in `paper/labelfix_rerun/round8/`, which also
+describes each script.
+
+**Table S35. Analyses added after the pre-submission review (post hoc).**
+
+| Analysis | Question | Result |
+|---|---|---|
+| Random-forest seed (R8a) | Do the transfer results depend on the fitted forest? | With ten seeds, mean transfer on the original study areas ranged from 0.525 to 0.530 and the mean thermal gain from +0.005 to +0.008. The seed-to-seed standard deviation of a direction had a median of 0.005 (maximum 0.015), and no direction changed side of chance. On the 10 km collar, mean transfer ranged from 0.588 to 0.592, and one direction (Montiferru to Manavgat) changed side. Averaging the predictions of the ten forests gave 0.527 (gain +0.006) and 0.590 (gain +0.025). Seed 42 reproduces the published matrix exactly |
+| CORAL variants and placebo (R8c) | Is the movement toward chance specific to aligning with the target? | CORAL with λ = 1 gave a mean of 0.512 and CORAL on two thermal principal components 0.523, against 0.527 without adaptation. A placebo that aligns the source with the covariance of a third region instead of the target gave 0.507 and moved 15 of 20 directions closer to chance, against 16 of 20 for CORAL. The movement is therefore not specific to the target. The published CORAL values were reproduced to within 0.009 |
+| Permutation test of the similarity measures (R8d) | Does any measure predict transfer under a permutation test? | No. With all 120 permutations of the five regions, the smallest two-sided p-value was 0.10 (vector Spearman, six directions only); the two supported-feature conditional measures gave 0.125 and 0.15, and all other measures 0.15 or more. The smallest attainable p-value is 1/120 |
+| Without Manavgat (R8d) | Does one region drive the transfer results? | Without the eight directions that involve Manavgat, mean transfer was 0.566 on the original study areas (two of twelve directions below chance) and 0.631 on the 10 km collar (none below chance). The thermal gain was +0.015 and +0.032. Transfer is better without Manavgat, but it stays far below within-region skill |
+| Equivalence on the original study areas (R8d) | Is the as-drawn thermal gain within ±0.05? | Yes, under all six resampling units that can be computed; the 90 % upper bounds range from 0.021 to 0.037. It is not within ±0.02 under any unit |
+| Intervals for Table S27 (R8e) | Are the stratified LST associations supported? | On the 10 km collar, the Manavgat LST association within elevation deciles is 0.403 [0.343, 0.464], and after removing the linear effect of elevation 0.409 [0.350, 0.475]; both intervals exclude 0.5. On the original study area the values are 0.455 [0.396, 0.509] and 0.446 [0.387, 0.502], which include 0.5 |
+| Capture of burned cells (R8b, R8g) | How many burned cells fall in the highest-scored cells? | In transfer, the 10 % of target cells with the highest thermal scores contained on average 10.3 % of the burned cells (range 0.7 % to 27.1 %), which is what a random ranking gives; eight of twenty directions were below it. The top 20 % contained 19.9 %. Within regions (5 km blocking) the top 10 % contained 35.5 % of the burned cells on average (18.9 % to 44.5 %), and the top 20 % contained 55.7 % |
+| Bejís pre-label cells (R8b) | Do the 48 cells that burned in the predictor window affect the results? | Ten of them are labelled burned. Without them, the within-region thermal gain was +0.050 at 1 km blocking (+0.056 with them) and +0.061 at 5 km (+0.045). Transfer in the eight directions that involve Bejís changed by at most 0.015, and their mean thermal gain from +0.011 to +0.007 |
+
+A leave-one-block-out reference with a 10 km buffer was also tried. Its pooled AUC combines the
+predictions of different models, and because the burned cells lie in one or two blocks, the pooled
+value was dominated by calibration differences between the models. It is therefore not reported; the
+distance curve of Section S1.18, which scores a single model, answers the same question.
+
 # S2 Supporting tables
 
 These tables give the values per region and per direction that the Results quote, so that every
@@ -1336,8 +1364,8 @@ family is the sign-agreement index: the fraction of predictors whose signed asso
 same way in both regions, computed over all predictors and over the predictors with interval support.
 
 Two properties of this design limit what it can show. First, the set of measures was recorded on
-8 August 2026, together with its results under the original label (commit d0b20af in the authors'
-version history, available on request). It was not re-selected after the label correction. This is a
+8 August 2026, together with its results under the original label (commit abd6a4b on the `history-archive` branch of the public repository,
+which keeps the development history without internal notes). It was not re-selected after the label correction. This is a
 record, not a pre-registration. Second, with five regions the effective sample is ten unordered
 pairs, and nineteen measures are evaluated at this power without family-wise error control. Where a
 measure passes an interval test but not a Bonferroni threshold, both results are reported.

@@ -241,7 +241,8 @@ how the evaluation area changes the metric, but they cannot be drawn before a fi
 A list of forbidden columns is checked at every model fit: coordinates, all burn-date and
 label-provenance columns, and the agreement fraction. The vegetation mask defines the population and
 is never used as a predictor. All randomness uses seed 42. Because the random-forest seed is fixed,
-direction-level intervals are conditional on one fitted source model. Across five bootstrap seeds,
+direction-level intervals are conditional on one fitted source model. Refitting with ten seeds,
+however, changed mean transfer by at most 0.003 (Section S1.23). Across five bootstrap seeds,
 every transfer verdict at 1 km blocking is stable, whereas at 5 km three verdicts change (Section
 S1.20).
 
