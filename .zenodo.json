@@ -6,7 +6,7 @@
     {"name": "Metin, Emrehan", "affiliation": "Çukurova University"},
     {"name": "Cogurcu, Yunus Emre", "affiliation": "Çukurova University", "orcid": "0000-0002-9229-9657"}
   ],
-  "license": "MIT",
+  "license": "mit",
   "keywords": ["wildfire susceptibility", "Mediterranean", "model transferability", "evaluation area", "land surface temperature", "spatial cross-validation"],
   "related_identifiers": [
     {"identifier": "https://github.com/emrehann17/satellite-thermal-digital-twin", "relation": "requires", "scheme": "url"}
