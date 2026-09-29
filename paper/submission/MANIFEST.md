@@ -8,9 +8,9 @@ supplementary_material.docx), Word export for supplementary_material.pdf, and
 
 | File | Size (bytes) | SHA-256 | Source |
 |---|---:|---|---|
-| `manuscript.docx` | 53481 | `defbf342c7c8aeca…` | paper/0*.md, frontmatter.json, REFERENCES.bib via build_docx.py |
-| `supplementary_material.pdf` | 984478 | `437efe2f071a667e…` | paper/supplementary.md via build_docx.py and Word PDF export |
-| `supplementary_material.docx` | 83610 | `ae9b9e9d7261db15…` | paper/supplementary.md via build_docx.py |
+| `manuscript.docx` | 53541 | `362431d1582fd547…` | paper/0*.md, frontmatter.json, REFERENCES.bib via build_docx.py |
+| `supplementary_material.pdf` | 984607 | `dfa4c17748a87134…` | paper/supplementary.md via build_docx.py and Word PDF export |
+| `supplementary_material.docx` | 83655 | `3cae32a3ec2c37df…` | paper/supplementary.md via build_docx.py |
 | `fig1.pdf` | 180317 | `1362466cad2ea8de…` | paper/figures/fig1_study_map.py |
 | `fig2.pdf` | 96257 | `e29d96b8611683e7…` | paper/figures/fig2_schematic.py |
 | `fig3.pdf` | 62922 | `9c8fd281f5d0a739…` | paper/figures/fig3_within_robustness.py |

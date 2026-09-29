@@ -78,6 +78,9 @@ runs `check_all.py` without further downloads. To read a pipeline output tree in
 
 Metin, E., Cogurcu, Y. E. *Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: five large Mediterranean fires.* Manuscript in preparation for submission to *Natural Hazards*.
 
+Code and data archive: Metin, E., Cogurcu, Y. E. (2026). Version 1.0.1. Zenodo.
+https://doi.org/10.5281/zenodo.23035271 (all versions: https://doi.org/10.5281/zenodo.23035270)
+
 ## Third-party data
 
 The modelling datasets are derived from MODIS (MCD64A1 v061, MOD11A1 v061; NASA LP DAAC), Landsat 8

@@ -3,6 +3,12 @@ message: "If you use this software or data, please cite it as below."
 title: "Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: analysis code, modelling datasets and frozen outputs"
 type: software
 license: MIT
+version: "1.0.1"
+doi: "10.5281/zenodo.23035271"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23035270"
+    description: "Concept DOI (all versions)"
 repository-code: "https://github.com/dryuemco/thermal-twin"
 authors:
   - family-names: Metin
