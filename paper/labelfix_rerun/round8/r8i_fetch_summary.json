@@ -1,0 +1,52 @@
+{
+ "manavgat_2021": {
+  "grid": [
+   2338,
+   2970
+  ],
+  "pixel_agreement_fetched_v200_vs_pipeline_aligned": 1.0,
+  "cells": 24150,
+  "cell_dominant_agreement_v200_vs_dataset": 1.0,
+  "cell_burnable_agreement_v200_vs_dataset": 1.0
+ },
+ "bejis_2022": {
+  "grid": [
+   1745,
+   2599
+  ],
+  "pixel_agreement_fetched_v200_vs_pipeline_aligned": 1.0,
+  "cells": 15759,
+  "cell_dominant_agreement_v200_vs_dataset": 1.0,
+  "cell_burnable_agreement_v200_vs_dataset": 1.0
+ },
+ "mugla_2021": {
+  "grid": [
+   3155,
+   6680
+  ],
+  "pixel_agreement_fetched_v200_vs_pipeline_aligned": 1.0,
+  "cells": 73098,
+  "cell_dominant_agreement_v200_vs_dataset": 1.0,
+  "cell_burnable_agreement_v200_vs_dataset": 1.0
+ },
+ "evia_2021_extended": {
+  "grid": [
+   2227,
+   2969
+  ],
+  "pixel_agreement_fetched_v200_vs_pipeline_aligned": 1.0,
+  "cells": 22925,
+  "cell_dominant_agreement_v200_vs_dataset": 1.0,
+  "cell_burnable_agreement_v200_vs_dataset": 1.0
+ },
+ "montiferru_2021": {
+  "grid": [
+   817,
+   1115
+  ],
+  "pixel_agreement_fetched_v200_vs_pipeline_aligned": 1.0,
+  "cells": 3234,
+  "cell_dominant_agreement_v200_vs_dataset": 1.0,
+  "cell_burnable_agreement_v200_vs_dataset": 1.0
+ }
+}

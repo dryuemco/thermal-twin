@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: "Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: analysis code, modelling datasets and frozen outputs"
+type: software
+license: MIT
+repository-code: "https://github.com/dryuemco/thermal-twin"
+authors:
+  - family-names: Metin
+    given-names: Emrehan
+    affiliation: "Çukurova University"
+  - family-names: Cogurcu
+    given-names: Yunus Emre
+    affiliation: "Çukurova University"
+    orcid: "https://orcid.org/0000-0002-9229-9657"
+keywords:
+  - wildfire susceptibility
+  - Mediterranean
+  - model transferability
+  - evaluation area
+  - land surface temperature
+  - spatial cross-validation

@@ -84,9 +84,12 @@ correlated at 0.97 to 1.00 in every region. Current LST and TVDI are correlated 
 the two anomaly channels at 0.71 to 0.94. As a result, two principal components explain 92 % to 98 %
 of their variance (Section S3.4), and counts over the nine numeric predictors are read with care.
 
-**Land cover.** WorldCover v200 is built from 2021 images, which is after the fire for the four 2021
-events. Burned land may therefore be under-represented in its pre-fire vegetation class. The wide
-gate margins (Section 4.1) make it unlikely that this changes a gate decision.
+**Land cover.** WorldCover v200 is built from 2021 images, which is after the fire for the four
+2021 events. All analyses were therefore repeated with the 2020 map (WorldCover v100), aggregated to
+the same cells. The 2020 map changed the population by at most 43 burned cells in four regions. In
+Montiferru, however, it added 142 burned cells that the 2021 map did not class as natural
+vegetation. The within-region gains and the transfer results did not change in any conclusion
+(Section S1.23).
 
 ## 3.5 Cell aggregation, validity and analysis populations
 

@@ -10,6 +10,8 @@ datasets through `paper/code/_canonical.py` (SHA-256 checked) and write only int
 | `r8d_similarity_permutation.py` | Permutation (QAP) p-values for the twenty similarity measures; results without Manavgat; equivalence test of the as-drawn transfer gain under all resampling units. | `r8d_similarity_permutation.csv`, `r8d_summary.json` |
 | `r8e_stratified_intervals.py` | Spatial-block bootstrap intervals for the stratified associations of Table S27. | `r8e_stratified_intervals.csv` |
 | `r8b_buffered_within.py` | Capture of burned cells by within-region models; Bejís without the 48 cells that burned in the predictor window. | `r8b_summary.json` |
+| `r8i_worldcover2020_fetch.py` | Fetches WorldCover v100 (2020) and v200 on each region's 30 m grid and aggregates them to the cells as step8a does. Needs Earth Engine and the gate-input rasters; v200 reproduces the pipeline exactly. | `r8i_worldcover_cells.csv.gz`, `r8i_fetch_summary.json` |
+| `r8j_worldcover2020_effect.py` | Population, gate and model results with the 2020 map. | `r8j_summary.json`, `r8j_transfer_2020_vs_2021.csv` |
 | `r8g_capture.py` | Capture of burned cells in the top 10 % and 20 % of transferred scores. | `r8g_capture_transfer.csv`, `r8g_summary.json` |
 
 **A design that was tried and not used.** `r8b_buffered_within.py` also computes a leave-one-block-out

@@ -1,0 +1,189 @@
+{
+ "regions": {
+  "manavgat_2021": {
+   "valid_cells": 24087,
+   "population_2021": 20511,
+   "population_2020": 19899,
+   "population_both": 19719,
+   "burned_valid": 3046,
+   "burned_in_pop_2021": 2935,
+   "burned_in_pop_2020": 2898,
+   "burned_leave_population": 43,
+   "burned_enter_population": 6,
+   "unburned_leave_population": 749,
+   "unburned_enter_population": 174,
+   "dominant_changed_valid": 0.10254494125461867,
+   "dominant_changed_burned": 0.11982928430728824,
+   "burned_dominant_transitions_top": {
+    "10->30": 239,
+    "20->30": 53,
+    "20->10": 19,
+    "40->30": 10,
+    "60->30": 8
+   },
+   "gate_fraction_2021": 0.9635587655942219,
+   "gate_fraction_2020": 0.9514116874589625,
+   "within_2021": {
+    "thermal": 0.8822236106383259,
+    "baseline": 0.8203196301445599,
+    "gain": 0.061903980493766
+   },
+   "within_2020": {
+    "thermal": 0.8746469628770669,
+    "baseline": 0.8150768563973158,
+    "gain": 0.05957010647975114
+   }
+  },
+  "bejis_2022": {
+   "valid_cells": 15759,
+   "population_2021": 15190,
+   "population_2020": 14674,
+   "population_both": 14630,
+   "burned_valid": 1103,
+   "burned_in_pop_2021": 1100,
+   "burned_in_pop_2020": 1094,
+   "burned_leave_population": 6,
+   "burned_enter_population": 0,
+   "unburned_leave_population": 554,
+   "unburned_enter_population": 44,
+   "dominant_changed_valid": 0.22006472491909385,
+   "dominant_changed_burned": 0.36627379873073435,
+   "burned_dominant_transitions_top": {
+    "10->20": 278,
+    "30->20": 95,
+    "60->20": 8,
+    "10->30": 5,
+    "30->40": 4
+   },
+   "gate_fraction_2021": 0.9972801450589301,
+   "gate_fraction_2020": 0.9918404351767905,
+   "within_2021": {
+    "thermal": 0.8244685786179753,
+    "baseline": 0.7793700238725079,
+    "gain": 0.04509855474546742
+   },
+   "within_2020": {
+    "thermal": 0.8141096299806415,
+    "baseline": 0.7429264390314825,
+    "gain": 0.07118319094915904
+   }
+  },
+  "mugla_2021": {
+   "valid_cells": 73045,
+   "population_2021": 41730,
+   "population_2020": 40454,
+   "population_both": 40295,
+   "burned_valid": 3026,
+   "burned_in_pop_2021": 2911,
+   "burned_in_pop_2020": 2904,
+   "burned_leave_population": 11,
+   "burned_enter_population": 4,
+   "unburned_leave_population": 1424,
+   "unburned_enter_population": 155,
+   "dominant_changed_valid": 0.056663700458621395,
+   "dominant_changed_burned": 0.05849306014540648,
+   "burned_dominant_transitions_top": {
+    "20->10": 80,
+    "10->30": 35,
+    "30->10": 24,
+    "20->30": 14,
+    "10->20": 8
+   },
+   "gate_fraction_2021": 0.9619960343688037,
+   "gate_fraction_2020": 0.9596827495042961,
+   "within_2021": {
+    "thermal": 0.7773268638729566,
+    "baseline": 0.6979859420145867,
+    "gain": 0.07934092185836983
+   },
+   "within_2020": {
+    "thermal": 0.780301292491554,
+    "baseline": 0.6969461700285754,
+    "gain": 0.0833551224629786
+   }
+  },
+  "evia_2021_extended": {
+   "valid_cells": 22906,
+   "population_2021": 9298,
+   "population_2020": 9087,
+   "population_both": 9056,
+   "burned_valid": 2788,
+   "burned_in_pop_2021": 2664,
+   "burned_in_pop_2020": 2657,
+   "burned_leave_population": 16,
+   "burned_enter_population": 9,
+   "unburned_leave_population": 226,
+   "unburned_enter_population": 22,
+   "dominant_changed_valid": 0.03688989784335982,
+   "dominant_changed_burned": 0.040530846484935434,
+   "burned_dominant_transitions_top": {
+    "10->30": 54,
+    "10->40": 17,
+    "20->10": 12,
+    "20->30": 6,
+    "30->40": 4
+   },
+   "gate_fraction_2021": 0.9555236728837877,
+   "gate_fraction_2020": 0.953012912482066,
+   "within_2021": {
+    "thermal": 0.8641886346702445,
+    "baseline": 0.7159564410657266,
+    "gain": 0.1482321936045179
+   },
+   "within_2020": {
+    "thermal": 0.8729466048484856,
+    "baseline": 0.7179325892284882,
+    "gain": 0.1550140156199974
+   }
+  },
+  "montiferru_2021": {
+   "valid_cells": 3173,
+   "population_2021": 2544,
+   "population_2020": 2812,
+   "population_both": 2530,
+   "burned_valid": 697,
+   "burned_in_pop_2021": 539,
+   "burned_in_pop_2020": 681,
+   "burned_leave_population": 0,
+   "burned_enter_population": 142,
+   "unburned_leave_population": 14,
+   "unburned_enter_population": 140,
+   "dominant_changed_valid": 0.17680428616451307,
+   "dominant_changed_burned": 0.3601147776183644,
+   "burned_dominant_transitions_top": {
+    "30->40": 161,
+    "30->10": 70,
+    "10->40": 8,
+    "20->10": 8,
+    "10->30": 2
+   },
+   "gate_fraction_2021": 0.7733142037302726,
+   "gate_fraction_2020": 0.9770444763271162,
+   "within_2021": {
+    "thermal": 0.7199006195087421,
+    "baseline": 0.6204294458658548,
+    "gain": 0.09947117364288727
+   },
+   "within_2020": {
+    "thermal": 0.7930652399961138,
+    "baseline": 0.6976208146162068,
+    "gain": 0.09544442537990694
+   }
+  }
+ },
+ "transfer_2021_reproduction_max_abs_diff": 5.551115123125783e-17,
+ "transfer_2021": {
+  "mean_thermal": 0.5267118880452303,
+  "mean_baseline": 0.5193836353101626,
+  "mean_delta": 0.0073282527350675445,
+  "below_chance": 7
+ },
+ "transfer_2020": {
+  "mean_thermal": 0.5134060272738212,
+  "mean_baseline": 0.5000900183626068,
+  "mean_delta": 0.013316008911214478,
+  "below_chance": 7
+ },
+ "transfer_max_abs_change_thermal": 0.0647703176738823,
+ "transfer_directions_changing_side": []
+}

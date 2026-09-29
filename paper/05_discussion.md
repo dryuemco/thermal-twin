@@ -112,7 +112,8 @@ The limitations are given in full in Section S3.5. The following ones affect the
 - **All labels come from one burned-area product,** MCD64A1 [@Giglio2018], with known omission and
   commission errors [@Boschetti2019; @Katagis2022], which are concentrated at scar edges. VIIRS
   VNP64A1 [@VNP64A1] and independent fire perimeters were not used as a label check (S3.5(iii)).
-- **The land-cover map is post-fire for four events.** WorldCover v200 is built from 2021 images
-  (Section 3.4).
+- **The land-cover map is post-fire for four events.** With the 2020 map, mean transfer was 0.513
+  instead of 0.527, and no conclusion changed; in Montiferru, however, the 2021 map left out about a
+  fifth of the burned natural vegetation (Section 3.4; S1.23).
 - **No weather predictors were used** (S3.5(i)), and other classifiers were compared by point
   estimate only (Section S1.8; S3.5(x)).
