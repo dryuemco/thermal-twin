@@ -8,10 +8,9 @@ supplementary_material.docx), Word export for supplementary_material.pdf, and
 
 | File | Size (bytes) | SHA-256 | Source |
 |---|---:|---|---|
-| `manuscript.docx` | 49534 | `83b3669d6c146bd6…` | paper/0*.md, frontmatter.json, REFERENCES.bib via build_docx.py |
-| `supplementary_material.pdf` | 973294 | `b2f1fc51393106ab…` | paper/supplementary.md via build_docx.py and Word PDF export |
-| `supplementary_material.docx` | 83466 | `2974c883efd7535c…` | paper/supplementary.md via build_docx.py |
-| `cover_letter.md` | 2811 | `5a7e0a322f195b28…` | written for Natural Hazards (kept locally, not in the public repository) |
+| `manuscript.docx` | 49533 | `6b7f3c4651acbba8…` | paper/0*.md, frontmatter.json, REFERENCES.bib via build_docx.py |
+| `supplementary_material.pdf` | 960504 | `a6d74143a02898c0…` | paper/supplementary.md via build_docx.py and Word PDF export |
+| `supplementary_material.docx` | 81060 | `a802d3060ac72968…` | paper/supplementary.md via build_docx.py |
 | `fig1.pdf` | 180317 | `1362466cad2ea8de…` | paper/figures/fig1_study_map.py |
 | `fig2.pdf` | 96257 | `b4925e0014b81a99…` | paper/figures/fig2_schematic.py |
 | `fig3.pdf` | 63431 | `354ad0d824d36351…` | paper/figures/fig3_within_robustness.py |

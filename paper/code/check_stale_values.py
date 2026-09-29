@@ -34,7 +34,7 @@ STALE = {
 OK = re.compile(r"original label|Under the original|under the original", re.I)
 # Reviewed 2026-09-29: the same digits occurring as a different quantity. Table rows and interval
 # bounds are skipped; the prose contexts below were each checked against their source.
-REVIEWED = ["runs from 0.541 to 0.561", "+0.155 [+0.108, +0.202] more", "baseline's\n0.797 and the full",
+REVIEWED = ["ranges from 0.541 to 0.561", "+0.155 [+0.108, +0.202] more", "the baseline (0.797)",
             r"0.527 $\rightarrow$ 0.541"]
 bad = []
 for f in FILES:
