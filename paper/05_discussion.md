@@ -3,18 +3,20 @@
 ## 5.1 The three findings together
 
 The first finding sets the size of the second. When the study areas were made comparable, four
-between-region results changed (Section 4.4). Two results remained: transfer stayed well below
-within-region skill, and one reversed relationship remained, the elevation association of Manavgat.
-This reversal is supported under the per-comparison criterion but not after multiplicity correction.
+between-region results changed (Section 4.4). Two results remained: transfer stayed well below within-region skill, and the elevation association
+of Manavgat stayed reversed against other regions. The supported pairs, however, change between the
+frames, and none survives multiplicity correction (Section 4.4).
 The third finding closes an obvious way around the second. If transfer cannot be assumed, it might
 still be predicted from the similarity of two regions, but none of the twenty measures did this on
 the original study areas.
 
 ## 5.2 What the within-region score measures
 
-The thermal gain within regions is robust. It was supported in all five regions under blocked
-validation, in all sensitivity analyses (Sections S1.1 to S1.8), and when the predictor window was
-closed up to two weeks earlier (Section S1.4). On the scar frame, however, the same gain fell to
+The thermal gain within regions is robust, with one exception. It was supported in all five regions
+under blocked validation, without the coordinate-informed channels (Section S1.7), when the predictor
+window was closed up to two weeks earlier (Section S1.4), and at the point estimates with VNP64A1
+labels. Once terrain aspect was added, however, the gain in Montiferru was no longer supported
+(Section 4.2). On the scar frame, however, the same gain fell to
 +0.021 and was not established, and withholding the scar did not change it. The fall is therefore
 caused by the cells that are scored, not by the choice of held-out cells.
 
@@ -46,13 +48,13 @@ local cost is therefore measured, but no gain in transfer.
 ## 5.4 What the thermal predictors measured
 
 The thermal predictors were chosen as a measure of pre-fire dryness, but they did not behave as one.
-Hotter surfaces burned less in four of five regions, and in Manavgat once elevation was held
-(Section 4.4). In summer, land surface temperature is strongly shaped by canopy cover, exposed soil
+At the point estimates, hotter surfaces burned less in four of five regions, and in Manavgat once
+elevation was held; the Manavgat result has interval support only on the collar (Section 4.4). In summer, land surface temperature is strongly shaped by canopy cover, exposed soil
 and terrain. Dense, cooler vegetation carries more fuel, so a negative association is consistent with LST acting
 as a land-surface descriptor. In Montiferru, most of the within-region thermal gain disappeared once
-terrain aspect was added, which fits this reading. Across the five regions, the mean LST anomaly
-also followed the ERA5-Land [@MunozSabater2021] air-temperature anomaly of the predictor window, but
-not its relative-humidity anomaly (Section S1.23). The normalised channels did not transfer better than
+terrain aspect was added, which fits this reading. Descriptively, across only five regions, the mean LST anomaly also followed the ERA5-Land
+[@MunozSabater2021] air-temperature anomaly of the predictor window, but not its relative-humidity
+anomaly (Section S1.23). The normalised channels did not transfer better than
 the absolute ones either (Section S1.6). In Mediterranean ecosystems, the link between fire and
 climate also depends on fuel and productivity [@PausasPaula2012], so the sign of a surface predictor
 may differ between landscapes.
@@ -75,8 +77,9 @@ ROC-AUC with the region as the unit, which is larger than the thermal gain withi
 1). Both numbers are needed to judge a model.
 
 **Measure transfer in the target region.** A within-region score does not show how a model will work
-elsewhere, and no similarity measure tested here could replace the measurement. A model moved to a new region did not usefully rank the burned cells there: its highest-scored
-10 % of cells contained about as many burned cells as a random choice (Section 4.5). Target
+elsewhere, and no similarity measure tested here could replace the measurement. On average, a model moved to a new region did not usefully rank the burned cells there: its
+highest-scored 10 % of cells contained about as many burned cells as a random choice, although the
+best direction reached 27 % (Section 4.5). Target
 labels from the predicted fire closed much of the gap (Section S4), but they are not available in
 advance. Where a burned-area record of earlier fires exists for the target region, it offers a way to
 check a transferred model before use; this option was not tested here.
@@ -100,11 +103,12 @@ The limitations are given in full in Section S3.5. The following ones affect the
 - **The frame cost rests on few scars.** The full comparison is defined on seven scars in three
   regions, so the region-level estimates should be quoted (Section 4.3).
 - **Point estimates depend on the software version.** Under another scikit-learn version, single
-  directions moved by up to 0.047, while ten random-forest seeds changed mean transfer by at most
-  0.003 (Section 3.13; S1.23; S3.5(vi)).
+  directions moved by up to 0.047; across ten random-forest seeds, single directions moved by up to
+  0.049 and mean transfer by at most 0.003. Direction-level intervals do not include this variation
+  (Section 3.13; S1.23; S3.5(vi)).
 - **Spatial dependence reaches beyond the 5 km blocks.** Residual correlation falls below 0.05
-  only at 10 to 20 km in three regions, so intervals at 5 km blocking may be somewhat narrow
-  (Section 3.7; S1.23).
+  only at 10 to 20 km in three regions and at 20 to 40 km in North Evia, so intervals at 5 km
+  blocking may be too narrow, especially in North Evia (Section 3.7; S1.23).
 - **The similarity tests rest on ten independent region pairs,** so both positive and negative
   results have low power (S3.5(xiii)).
 - **Measures based on interval support are unstable.** Five to six interval bounds lie within 0.01

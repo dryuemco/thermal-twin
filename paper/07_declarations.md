@@ -26,12 +26,15 @@ All satellite inputs are public and were retrieved through Google Earth Engine. 
 from MODIS MCD64A1 v061 [@MCD64A1], land surface temperature from MODIS MOD11A1 v061 [@MOD11A1],
 surface reflectance and surface temperature from Landsat 8 Collection 2 Level-2 [@LandsatC2L2],
 terrain from the Copernicus DEM GLO-30 [@CopernicusDEM] and land cover from ESA WorldCover v200
-[@Zanaga2022]. The MODIS and Landsat products are courtesy of NASA's Land Processes Distributed Active
+[@Zanaga2022]. For the sensitivity analyses, burned area was also taken from VIIRS VNP64A1 v002
+[@VNP64A1] and land cover from ESA WorldCover v100 [@Zanaga2021], and regional weather anomalies came
+from ERA5-Land [@MunozSabater2021] as computed by the processing pipeline. The MODIS, VIIRS and Landsat products are courtesy of NASA's Land Processes Distributed Active
 Archive Center and the U.S. Geological Survey. WorldCover is distributed under a CC BY 4.0 licence
 (© ESA WorldCover project 2021, contains modified Copernicus Sentinel data (2021) processed by the
 ESA WorldCover consortium). The Copernicus DEM was produced using Copernicus WorldDEM-30 © DLR e.V.
 2010 to 2014 and © Airbus Defence and Space GmbH 2014 to 2018, provided under COPERNICUS by the European
-Union and ESA; all rights reserved. No proprietary or restricted data were used.
+Union and ESA; all rights reserved. The ERA5-Land values contain modified Copernicus Climate Change
+Service information. No proprietary or restricted data were used.
 
 The five modelling datasets, one per region, and the frozen numeric outputs behind every reported
 number are released with the analysis code [@ThermalTwinRepo]. Each dataset is identified by SHA-256

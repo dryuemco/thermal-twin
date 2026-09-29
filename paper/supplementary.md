@@ -68,11 +68,15 @@ most 0.009 for the thermal model
 performance.
 
 The Manavgat and Bejís pair is not in this sweep. Under the original label, the adapted result of
-this pair depended on λ. It was therefore tested separately at λ = 10⁻⁵, 10⁻³ and 10⁻¹
-(`paper/labelfix_rerun/step10/coral_lambda_sensitivity.csv`). Bejís to Manavgat gives 0.408 [0.389,
-0.427], 0.410 and 0.367, which are below chance at every λ. Manavgat to Bejís gives 0.470 [0.444,
-0.494], 0.474 and 0.466. No adapted direction of this pair has an interval above chance at any λ, so
-no conclusion depends on the choice of λ in this range.
+this pair depended on λ. It was therefore tested separately at λ = 10⁻⁵, 10⁻³, 10⁻¹ and 1 with the
+authors' own re-implementation of the pipeline's CORAL
+(`paper/labelfix_rerun/step10/coral_lambda_sensitivity.csv`). This implementation differs slightly
+from the pipeline's: at λ = 10⁻⁵ it gives 0.408 for Bejís to Manavgat and 0.470 for Manavgat to
+Bejís, against 0.406 and 0.467 in Table S16. Across the four λ values, Bejís to Manavgat gives 0.408
+[0.389, 0.427], 0.410, 0.367 and 0.313, which are below chance at every λ. Manavgat to Bejís gives
+0.470 [0.444, 0.494], 0.474, 0.466 and 0.457. No adapted direction of this pair has an interval above
+chance at any λ, so no conclusion depends on the choice of λ. The third implementation, of Section
+S1.23 (R8c), reproduces the pipeline's CORAL matrix to within 0.009.
 
 ## S1.3 Blocking scale
 
@@ -454,8 +458,9 @@ summarised in Table S35.
 Three results follow. First, the raw LST association of Manavgat is above 0.5, and it falls well
 below 0.5 once elevation is held. This holds both for deciles and for removing the linear dependence
 of LST on elevation in the region (−5.6 K per km). On the full study area the same holds: 0.665 raw,
-against 0.455 and 0.446. The positive signal in Manavgat therefore comes from terrain, and with
-terrain held, Manavgat has the same sign as the other four regions. Second, in the other four regions
+against 0.455 and 0.446. The positive signal in Manavgat therefore comes from terrain. With elevation held, Manavgat has the
+same sign as the other four regions at the point estimates; the interval excludes 0.5 on the collar
+but not on the original study area (Table S35). Second, in the other four regions
 the sign stays below 0.5 within elevation deciles in three regions and within NDVI deciles in all
 four. In Bejís it moves to 0.509 within elevation deciles and stays below 0.5 after detrending. Third,
 NDVI reverses in two regions once LST is held, but LST reverses in none of the four once NDVI is
@@ -555,15 +560,15 @@ reversed between regions with bootstrap support on the original study areas:
 **`elevation_mean` and `lst_anomaly_mean`**. This analysis keeps these two and does not re-select
 under the corrected label (Table S10). Section 4.4 shows that the study area decides much of the
 support, so this analysis measures the cost of removal under the original protocol. Without the two
-predictors, mean within-region AUC falls by **−0.076**, with support in every region (−0.035, −0.130,
+predictors, mean within-region AUC falls by **0.076**, with support in every region (−0.035, −0.130,
 −0.073, −0.063 and −0.079 for Manavgat, Bejís, Muğla, Evia and Montiferru; every interval fully below
-zero). Mean transfer changes by **+0.014 [−0.028, +0.056]**, which includes zero (source
+zero). Mean transfer changes by **+0.014 [−0.028, +0.056]** (Student *t* over the ten region pairs, as
+plotted in Fig. 7), which includes zero; the primary pair-cluster bootstrap gives [−0.018, +0.049] (source
 `paper/labelfix_rerun/round3/feature_drop_transfer.json`, summarised by
 `paper/labelfix_rerun/round7/r7e_supplement_tables.py`).
 
-Two points should be noted. First, most of the cost does not come from the thermal set. Removing
-elevation alone costs −0.056 (0.896 to 0.840). Removing the LST anomaly alone costs −0.013 (0.896 to
-0.883). About three quarters of the cost therefore comes from removing a baseline terrain variable.
+Two points should be noted. First, most of the cost does not come from the thermal set. Removing elevation alone lowers AUC by 0.056 (0.896 to 0.840). Removing the LST anomaly alone lowers
+it by 0.013 (0.896 to 0.883). About three quarters of the cost therefore comes from removing a baseline terrain variable.
 Second, both predictors were chosen because they reverse, on the same data on which the costs are
 estimated, and no correction is applied.
 
@@ -604,6 +609,10 @@ include zero (1000 replicates where resampled; source
 | Unordered pairs, cluster bootstrap (primary) | 10 | [−0.020, +0.038] |
 | Unordered pairs, Student *t* on pair means | 10 | [−0.028, +0.043] |
 | Regions, leave-one-out jackknife | 5 | [−0.018, +0.033] |
+
+Two further units can be computed on this frame (20,000 replicates; `paper/labelfix_rerun/round8/r8d_summary.json`):
+clustering by target region gives [−0.006, +0.022], clustering by source region [−0.008, +0.026] and the
+pigeonhole bootstrap [−0.028, +0.045]. All six computable units therefore include zero.
 
 Leaving out Manavgat, Bejís, Muğla, Evia and Montiferru in turn gives +0.0148, +0.0050, +0.0072,
 +0.0010 and +0.0087. No single region therefore carries the mean or changes its sign. These units
@@ -709,7 +718,10 @@ collar.
 
 **Multiplicity.** Each frame has a family of ninety feature-by-pair comparisons (nine features, ten
 region pairs). Table S30 gives how many pass each criterion. The per-comparison criterion of Section
-3.10 leaves two supported reversals on the collar, both on elevation and both involving Manavgat.
+3.10 leaves two supported reversals on the collar, both on elevation and both involving Manavgat:
+Manavgat against Muğla, which is also supported on the original areas, and Manavgat against Evia,
+which is supported only on the collar. Manavgat against Bejís, supported on the original areas, misses
+support on the collar by 0.004.
 Neither survives the Holm intersection-union correction, which adjusts the tests of both regions
 together (adjusted *p* = 0.33 for Manavgat against Evia and 0.79 for Manavgat against Muğla, normal
 approximation).
@@ -869,7 +881,7 @@ depend on analysis choices. None of them was used to select a reported configura
 | Metric dependence (a5) | Is the frame cost specific to ROC-AUC? | Region-wide minus scar-frame over nine scars: partial AUC (FPR ≤ 0.1) 0.088 [0.048, 0.128]; average precision −0.342 [−0.477, −0.206], higher on the scar frame because its prevalence is higher |
 | Collar within-region increment | Does the within-region increment survive the collar? | +0.083 [+0.037, +0.129] over five regions (Student *t*), against +0.087 [+0.037, +0.136] as drawn |
 | Equalised Δ by resampling unit | Does the collar Δ exclude zero? | Table S31: two of six computable units exclude zero; the two-way estimators are undefined |
-| Equivalence of the equalised Δ | How large a gain is excluded? | Within ±0.05 under four of five units; no gain above 0.047 at 90 % (pair cluster); not within ±0.02 under any unit |
+| Equivalence of the equalised Δ | How large a gain is excluded? | Within ±0.05 under four of six computable units; no gain above 0.047 at 90 % (pair cluster); not within ±0.02 under any unit |
 | Within minus transfer increment | Is the local-versus-portable contrast itself supported? | Full frame +0.079 [+0.014, +0.145]; 10 km collar +0.059 [+0.007, +0.110]; 5 km collar +0.026 [−0.012, +0.063] |
 | Reversal multiplicity | Do the collar reversals survive correction? | Table S30: two per-comparison reversals, none after Holm intersection-union |
 | scikit-learn version | Do point estimates depend on the library version? | Under 1.5.2 against 1.9.0, single directions move by up to 0.047 and means by at most 0.003; one support count changes (`round7/sklearn152/compare_vs_1_9_0.json`) |
@@ -905,16 +917,17 @@ describes each script.
 |---|---|---|
 | Random-forest seed (R8a) | Do the transfer results depend on the fitted forest? | With ten seeds, mean transfer on the original study areas ranged from 0.525 to 0.530 and the mean thermal gain from +0.005 to +0.008. The seed-to-seed standard deviation of a direction had a median of 0.005 (maximum 0.015), and no direction changed side of chance. On the 10 km collar, mean transfer ranged from 0.588 to 0.592, and one direction (Montiferru to Manavgat) changed side. Averaging the predictions of the ten forests gave 0.527 (gain +0.006) and 0.590 (gain +0.025). Seed 42 reproduces the published matrix exactly |
 | CORAL variants and placebo (R8c) | Is the movement toward chance specific to aligning with the target? | CORAL with λ = 1 gave a mean of 0.512 and CORAL on two thermal principal components 0.523, against 0.527 without adaptation. A placebo that aligns the source with the covariance of a third region instead of the target gave 0.507 and moved 15 of 20 directions closer to chance, against 16 of 20 for CORAL. The movement is therefore not specific to the target. The published CORAL values were reproduced to within 0.009 |
-| Permutation test of the similarity measures (R8d) | Does any measure predict transfer under a permutation test? | No. With all 120 permutations of the five regions, the smallest two-sided p-value was 0.10 (vector Spearman, six directions only); the two supported-feature conditional measures gave 0.125 and 0.15, and all other measures 0.15 or more. The smallest attainable p-value is 1/120 |
+| Permutation test of the similarity measures (R8d) | Does any measure predict transfer under a permutation test? | No. With all 120 permutations of the five regions, the smallest two-sided p-value was 0.10 (vector Spearman, six directions only); the two supported-feature conditional measures gave 0.125 and 0.15, and all other measures 0.15 or more. The smallest attainable p-value is 1/120 for measures defined on all twenty directions, and 1/24 for those defined on the twelve directions among four regions. Without Manavgat, most correlations are based on 2 to 12 directions; some rise, for example the supported-feature agreement to ρ = 0.70 (10 directions) and climatic distance to ρ = 0.72 (6 directions), but none of these samples can support inference |
 | Without Manavgat (R8d) | Does one region drive the transfer results? | Without the eight directions that involve Manavgat, mean transfer was 0.566 on the original study areas (two of twelve directions below chance) and 0.631 on the 10 km collar (none below chance). The thermal gain was +0.015 and +0.032. Transfer is better without Manavgat, but it stays far below within-region skill |
 | Equivalence on the original study areas (R8d) | Is the as-drawn thermal gain within ±0.05? | Yes, under all six resampling units that can be computed; the 90 % upper bounds range from 0.021 to 0.037. It is not within ±0.02 under any unit |
 | Intervals for Table S27 (R8e) | Are the stratified LST associations supported? | On the 10 km collar, the Manavgat LST association within elevation deciles is 0.403 [0.343, 0.464], and after removing the linear effect of elevation 0.409 [0.350, 0.475]; both intervals exclude 0.5. On the original study area the values are 0.455 [0.396, 0.509] and 0.446 [0.387, 0.502], which include 0.5 |
 | Capture of burned cells (R8b, R8g) | How many burned cells fall in the highest-scored cells? | In transfer, the 10 % of target cells with the highest thermal scores contained on average 10.3 % of the burned cells (range 0.7 % to 27.1 %), which is what a random ranking gives; eight of twenty directions were below it. The top 20 % contained 19.9 %. Within regions (5 km blocking) the top 10 % contained 35.5 % of the burned cells on average (18.9 % to 44.5 %), and the top 20 % contained 55.7 % |
-| Pre-fire land cover (R8i, R8j) | Does the post-fire WorldCover v200 map (2021 images) affect the population or the results? | The 2020 map (v100) was fetched on each region's 30 m grid and aggregated to the same cells; the same procedure applied to v200 reproduces the pipeline's raster and every cell value of the modelling datasets exactly. With the 2020 map, at most 43 burned cells left or entered the natural-vegetation population in Manavgat, Bejís, Muğla and Evia. In Montiferru, 142 burned cells entered it, and the gate fraction rose from 0.773 to 0.977, so the 2021 map left out about a fifth of the burned natural vegetation there. The within-region thermal gain (5 km blocking) changed from +0.062, +0.045, +0.079, +0.148 and +0.099 to +0.060, +0.071, +0.083, +0.155 and +0.095 (Manavgat, Bejís, Muğla, Evia, Montiferru). Mean transfer changed from 0.527 to 0.513, and the mean thermal gain in transfer from +0.007 to +0.013; seven directions were below chance with both maps, and no direction changed side. Part of the class changes reflects the different algorithms of v100 and v200, not the fires |
+| Pre-fire land cover (R8i, R8j) | Does the post-fire WorldCover v200 map (2021 images) affect the population or the results? | The 2020 map (v100) was fetched on each region's 30 m grid and aggregated to the same cells; the same procedure applied to v200 reproduces the pipeline's raster and every cell value of the modelling datasets exactly. With the 2020 map, at most 43 burned cells left or entered the natural-vegetation population in Manavgat, Bejís, Muğla and Evia. In Montiferru, 142 burned cells entered it: the share of burned modelled cells with a natural-vegetation fraction of at least 0.5 rose from 0.773 to 0.977, so the 2021 map left out about a fifth of the burned natural vegetation there. This share is computed on the modelled cells and is not the gate fraction of Table S15 (0.723 for Montiferru with the 2021 map), which the gate computes on its own inputs. The within-region thermal gain (5 km blocking) changed from +0.062, +0.045, +0.079, +0.148 and +0.099 to +0.060, +0.071, +0.083, +0.155 and +0.095 (Manavgat, Bejís, Muğla, Evia, Montiferru). Mean transfer changed from 0.527 to 0.513, and the mean thermal gain in transfer from +0.007 to +0.013; seven directions were below chance with both maps, and no direction changed side. Part of the class changes reflects the different algorithms of v100 and v200, not the fires |
 | Second burned-area product (R8k, R8m) | Do the results depend on MCD64A1? | The MCD64A1 labels fetched again from Earth Engine reproduce the modelling datasets exactly in all five regions. VIIRS VNP64A1 v002 labels, built the same way, agree with them with a Jaccard index of 0.941, 0.950, 0.925, 0.978 and 0.865 (Manavgat, Bejís, Muğla, Evia, Montiferru). With VNP64A1 labels, the within-region thermal gain (5 km blocking) is +0.057, +0.055, +0.089, +0.147 and +0.082; the elevation association of Manavgat is 0.228 (0.232 with MCD64A1); mean transfer is 0.525 (0.527), the mean thermal gain in transfer +0.005 (+0.007), seven directions are below chance with both products, and no direction changes side |
-| Terrain aspect (R8k, R8m, R8n) | Does aspect explain the thermal gain or the LST sign? | Northness and eastness from the Copernicus DEM were added to both feature sets. The within-region thermal gain (5 km blocking) became +0.051 [+0.030, +0.070], +0.044 [+0.025, +0.065], +0.073 [+0.047, +0.099] and +0.139 [+0.109, +0.173] in Manavgat, Bejís, Muğla and Evia, and +0.020 [−0.025, +0.066] in Montiferru, against +0.099 [+0.017, +0.186] without aspect there. Within northness deciles, the LST association is 0.652, 0.482, 0.317, 0.376 and 0.417 (raw 0.665, 0.478, 0.324, 0.377 and 0.370), so aspect does not change its sign |
+| Terrain aspect (R8k, R8m, R8n) | Does aspect explain the thermal gain or the LST sign? | Northness and eastness from the Copernicus DEM were added to both feature sets. The within-region thermal gain (5 km blocking) became +0.051 [+0.030, +0.070], +0.044 [+0.025, +0.065], +0.073 [+0.047, +0.099] and +0.139 [+0.109, +0.173] in Manavgat, Bejís, Muğla and Evia, and +0.020 [−0.025, +0.066] in Montiferru, against +0.099 [+0.017, +0.186] without aspect there. Within northness deciles, the LST association is 0.652, 0.482, 0.317, 0.376 and 0.417 (raw 0.665, 0.478, 0.324, 0.377 and 0.370, with missing values filled by the median, so they differ from Table S9 in the third decimal), so aspect does not change its sign |
 | Weather reference (R8o) | Do the thermal channels follow weather anomalies? | Descriptively, across the five regions the mean Landsat LST anomaly follows the ERA5-Land anomaly of air temperature in the predictor window (Spearman ρ = 0.8) but not that of relative humidity (ρ = 0.0), and the mean TVDI difference does not follow humidity either (ρ = 0.0). With five regions this is descriptive only; it fits the reading that the channels describe temperature and surface state more than fuel moisture |
-| Crossed random effects (R8l) | Does a model with source and target random intercepts change the thermal gain in transfer? | No. The estimated source and target variances are close to zero. The mean gain is +0.007 [−0.035, +0.050] on the original study areas and +0.024 [−0.012, +0.060] on the 10 km collar (REML, t interval with four degrees of freedom); both include zero |
+| Missing thermal values (R8p) | How many modelled cells lack a thermal value, and is this related to burning? | In the natural-vegetation population, 1.7 %, 6.5 %, 3.2 %, 4.5 % and 0.1 % of cells (Manavgat, Bejís, Muğla, Evia, Montiferru) have at least one missing thermal channel. The ROC-AUC of this missingness flag against burning is 0.493 to 0.512. Among all valid cells the share is larger (up to 57.5 % in Evia, mostly sea and coast) |
+| Crossed random effects (R8l) | Does a model with source and target random intercepts change the thermal gain in transfer? | No. The estimated source and target variances are close to zero, so the fit is singular and reduces to a pooled interval with four degrees of freedom; it is a more conservative interval, not an independent confirmation. The mean gain is +0.007 [−0.035, +0.050] on the original study areas and +0.024 [−0.012, +0.060] on the 10 km collar (REML, t interval with four degrees of freedom); both include zero |
 | Residual spatial correlation (R8l) | Do 5 km blocks remove the spatial dependence? | Not fully. The correlation of out-of-fold residuals between cell pairs is 0.58 to 0.83 below 1 km, 0.15 to 0.48 at 5 to 10 km (except Montiferru, −0.01), and falls below 0.05 at 10 to 20 km in Manavgat, Bejís and Muğla, at 20 to 40 km in Evia and at 5 to 10 km in Montiferru. Intervals at 5 km blocking may therefore be somewhat too narrow |
 | Pooled against fold-averaged AUC (R8l) | Does pooling out-of-fold predictions inflate the within-region AUC? | No. The mean of the five fold AUCs is 0.004 to 0.018 higher than the pooled value in every region (thermal model, 5 km blocking) |
 | Estimator intervals (R8l) | How uncertain are the four estimators of Table S25? | Pair-cluster intervals of mean transfer: 0.527 [0.461, 0.588], 0.527 [0.460, 0.594], 0.522 [0.456, 0.584] and 0.481 [0.419, 0.542]; of the thermal gain in transfer: +0.007 [−0.022, +0.034], −0.011 [−0.040, +0.016], −0.019 [−0.045, +0.007] and −0.021 [−0.057, +0.010]. All gain intervals include zero |
@@ -1062,8 +1075,10 @@ each other. Read from
 Section 4.4 gives these results. The values per region are given here.
 
 ![**Fig. S1. The five study areas at cell level.** Grey shading is the elevation of the
-natural-vegetation cells, white cells lie outside this population, and burned cells are red. The dashed
-and solid blue lines are the 5 km and 10 km distance collars (Section 3.12). Axes give approximate
+natural-vegetation cells, white cells lie outside this population, and burned cells are orange. The
+dashed and solid blue lines are the 5 km and 10 km distance collars, and the dotted black lines the
+2 km scar frames of Table 2 (Section 3.12). In Muğla one burned area reaches the eastern edge of the
+study area (15 burned cells on the edge), so its collars are cut there. Axes give approximate
 distances in km on the ~500 m grid. Drawn by `paper/figures/figS1_study_areas.py` from the released
 modelling datasets.](figures/figS1_study_areas.png){width=100%}
 
@@ -1633,9 +1648,8 @@ general map are zero. Matrix powers use a symmetric eigendecomposition, with eig
 least $`10^{-12}`$. **The transform is applied to the source only.** The target stays at $`Z_t`$, and
 the classifier is refitted on $`Z_s^{\mathrm{al}}`$. Neither method uses a target label, and this is
 checked at run time. The sensitivity to λ was tested over nine values on four of the twenty
-directions; transfer AUC moved by at most 0.014, and λ was not selected on performance. The λ = 1 of
-the original CORAL formulation lies outside this range. The value used throughout is λ = 10⁻⁵
-(Section S1.2).
+directions; transfer AUC moved by at most 0.014, and λ was not selected on performance. λ = 1, the value of the original CORAL formulation, is tested in Sections S1.2 and S1.23. The value
+used throughout is λ = 10⁻⁵.
 
 # S4 Target-label recovery curve
 
@@ -1724,12 +1738,12 @@ earlier commits and are reproduced by it (Section S3.6.2).
 | `paper/figures/` | One script per figure. Each asserts every plotted value against the frozen outputs and the manuscript text, and checks its layout. |
 | `paper/figures/check_all.py` | Runs all figure scripts and `appendix_tables.py`, restores the committed outputs byte for byte, and exits 0 when everything passes. |
 | `paper/tex/` | Builds the manuscript and this document from their Markdown sources and checks the port: every number survives, and every cross-reference, citation and supplementary reference resolves. |
-| `paper/labelfix_rerun/` | The corrected-label outputs from which every corrected number is read: `code/`, `geometry/`, `inference/`, `labels/` and `round3/` to `round7/` hold the analysis outputs, `pipeline/` the re-frozen pipeline outputs for Manavgat, and `exports/` the released pipeline diagnostics (few-shot recovery, CORAL λ sweep, window closure), each with its SHA-256 in `exports/SHA256SUMS.txt`. |
+| `paper/labelfix_rerun/` | The corrected-label outputs from which every corrected number is read: `code/`, `geometry/`, `inference/`, `labels/` and `round3/` to `round8/` hold the analysis outputs, `pipeline/` the re-frozen pipeline outputs for Manavgat, and `exports/` the released pipeline diagnostics (few-shot recovery, CORAL λ sweep, window closure), each with its SHA-256 in `exports/SHA256SUMS.txt`. |
 
 All commands are run from the repository root. The environment is Python 3.12.10 with NumPy 2.4.4,
 pandas 3.0.2 and scikit-learn 1.9.0, fixed in `ENVIRONMENT.md`. Point estimates depend on the
 scikit-learn version (Section S3.5(vi)). Fig. 1 also needs cartopy; without it, `check_all.py`
-reports this figure as skipped. Tables S1 and S20 to S34 and the values in the text are not checked by
+reports this figure as skipped. Tables S1, S8, S19 to S36 and the values in the text are not checked by
 `appendix_tables.py`; they name their source files in their captions or text.
 
 # S6 Data

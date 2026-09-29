@@ -68,11 +68,12 @@ given in the text. Cell counts per scar are in Table S1.
 | C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.546 | [0.488, 0.604] |
 | D. Foreign region | another region, 306 to 2,802 km away | the scar area | 0.553 | [0.495, 0.611] |
 
-**The same model scores 0.16 lower on the scar frame.** Rows A and B use one model and one set of
-predictions, and only the scored cells differ. With the region as the unit, this change costs
-**+0.160 [+0.090, +0.230]** over all nine scars in five regions, and +0.137 [+0.048, +0.226] over the
-three regions of Table 2. Over the seven scars the cost is 0.133 [+0.060, +0.207], but this interval
-is too narrow, because row A is repeated for each scar of a region. With the region as the unit, the
+**The same model scores lower on the scar frame.** Rows A and B use one model and one set of
+predictions, and only the scored cells differ. Over the seven scars of Table 2, A minus B is 0.133
+[+0.060, +0.207]. The primary estimate uses all nine scars, including the single scars of Manavgat
+and Bejís, which have no row C (Tables S1 and S5). With the region as the unit, the change then
+costs **+0.160 [+0.090, +0.230]** over five regions, and +0.137 [+0.048, +0.226] over the three
+regions of Table 2. The seven-scar interval is too narrow, because row A is repeated for each scar of a region. With the region as the unit, the
 fall from A to C is +0.266 [−0.022, +0.553]. **Only the frame cost is therefore established at the
 region level.** The two frames answer different questions (Section 3.12), so the region-wide score is
 not a biased version of the scar score. It is, however, the more optimistic of the two, and it holds
@@ -85,9 +86,9 @@ frame cost +0.149 [+0.087, +0.211]. Replacing only the unburned cells explained 
 of this, and replacing only the burned cells −0.002 [−0.055, +0.051] (Section S1.9.1). A placebo
 collar of the same shape, placed away from any burned cell, reproduced the region-wide score, and
 excluding up to two cells at the scar edge left the cost at 0.145 or more with the region as the
-unit (Table S21). Across regions, the cost was not related to the share of distant cells in the study
-area (slope 0.005 [−0.41, +0.42], n = 5). The unburned cells next to a fire are therefore hard to rank,
-rather than the distant cells being easy.
+unit (Table S21). Across regions, the cost showed no relation to the share of distant cells in the study area (slope
+0.005 [−0.41, +0.42], n = 5), although this test has little power. The pool swaps and the placebo
+collar show that the cost comes from the unburned cells next to the fire.
 
 **Withholding the fire or moving the model had no measurable cost, but the test is weak.** B minus
 C, the effect of withholding the scar, is +0.094 [−0.012, +0.200]. C minus D, the effect of using a
@@ -109,7 +110,7 @@ S1.9.3).
 
 The five study areas differ strongly in how many distant unburned cells they contain. The share of
 cells more than 10 km from any burned cell is **2.1 %** in Montiferru and **63.1 %** in Bejís (Table
-S13). In Manavgat, the median elevation of these cells rises from 330 m within 5 km of the fire to
+S13). In Manavgat, the median elevation of the modelled cells rises from 330 m within 5 km of the fire to
 1,273 m at 20 to 50 km, while the burned cells have a median of 287 m.
 
 **Comparable study areas.** Every region was restricted to cells within 10 km of any burned cell.
@@ -123,7 +124,8 @@ before a fire (Section 3.12).
 ordered directions, primary population, thermal feature set unless stated. The below-chance count is
 a point count. "Supported above / below" counts directions whose interval excludes 0.5, from a 10-cell
 (about 5 km) target-block bootstrap. Δ is the paired thermal-minus-baseline difference with a
-pair-cluster bootstrap interval, 1000 replicates. W − T is the within-region thermal gain minus the
+pair-cluster bootstrap interval, 1000 replicates (with 20,000 replicates, as in Table S31, the collar
+interval is [−0.003, +0.051]). W − T is the within-region thermal gain minus the
 transfer gain, averaged by target region, with a Student *t* interval over the five targets.
 
 | Frame (source and target) | Mean thermal AUC | Mean baseline AUC | Δ [95 % CI] | Below 0.5 (point) | Supported above / below | W − T [95 % CI] |
@@ -144,10 +146,13 @@ collar (Table 3).
 **Associations on the collar.** On the collar, four regions agree in sign on elevation, LST and TVDI,
 and Manavgat is on the other side of 0.5 on all three. Its elevation association is 0.376 [0.300,
 0.465], against 0.606 [0.525, 0.685] in Muğla and 0.648 [0.550, 0.740] in Evia (Bejís and Montiferru
-in Table S14). Under the per-comparison criterion of Section 3.10, **two reversals remain on the
-collar. Both are on elevation, and both involve Manavgat.** Neither survives a Holm correction over
-the ninety feature-by-pair comparisons (adjusted *p* = 0.33 and 0.79; Section S1.19). All other
-supported elevation reversals disappear on the collar.
+in Table S14). Under the per-comparison criterion of Section 3.10, **two reversals are supported on the collar.
+Both are on elevation, and both involve Manavgat.** They are not the same pairs as on the original
+areas. Manavgat against Muğla is supported on both frames. Manavgat against Evia becomes supported on
+the collar, because the Evia interval excludes 0.5 only there. Manavgat against Bejís loses support
+narrowly: the Bejís interval, [0.496, 0.722], misses 0.5 by 0.004. Neither collar reversal survives
+a Holm correction over the ninety feature-by-pair comparisons (adjusted *p* = 0.33 and 0.79; Section
+S1.19).
 
 **Hotter surfaces burned less at the point estimates.** In four of five regions, a hotter pre-fire
 surface was associated with *less* burning, which is the opposite of what the dryness idea predicts.
@@ -201,16 +206,16 @@ thermal model, so the failure is not specific to the thermal predictors.
 
 **The thermal gain varies in sign between pairs.** The paired gains ranged from **−0.148 to +0.132**,
 with twelve positive and eight negative, and a mean of +0.007. The directions are not independent,
-because each region appears in eight of them. Accordingly, all four resampling units that apply to
-this frame give intervals that include zero, from [−0.018, +0.033] to [−0.028, +0.043] (Section
-S1.20).
+because each region appears in eight of them. Accordingly, all six resampling units that can be computed on this frame give intervals that include
+zero, from [−0.006, +0.022] (clustering by target region) to [−0.028, +0.045] (pigeonhole bootstrap;
+Sections S1.15 and S1.23).
 
 **The two label-free adaptation methods moved transfer toward chance** (Fig. 5). Under region-wise
 z-scoring the twenty directions ranged from 0.302 to 0.630, and under CORAL from 0.406 to 0.624. Under
 CORAL, sixteen of twenty directions moved closer to chance. This helped the directions that failed
 and harmed those that worked, so the mean fell from 0.527 to **0.517**. Choosing the better method in
-each direction gave 0.523, but this choice uses target labels. The gap decomposition covers the
-twelve directions among the four regions of the pipeline's decomposition run, without Montiferru.
+each direction gave 0.523, but this choice uses target labels. The gap decomposition covers the twelve directions among Manavgat, Bejís, Muğla and Evia. It was
+computed before Montiferru was added to the cohort and does not include it.
 There, seven directions showed negative recovery, five of them with intervals below zero (Section
 S1.10). A movement toward chance is also what any loss of information would produce. Indeed, aligning the
 source with the covariance of a third, unrelated region moved 15 of 20 directions toward chance as
@@ -224,8 +229,9 @@ the methods removed a distribution shift.
 single-source model for one target of five, Evia (0.715 [0.668, 0.757] against 0.569), and worse
 for the other four at the point estimates (Fig. 6).
 
-**Feature removal.** Removing the two reversing features cost −0.076 AUC within regions and changed
-transfer by +0.014 [−0.028, +0.056], which includes zero (Fig. 7).
+**Feature removal.** Removing the two reversing features lowered within-region AUC by 0.076 and changed transfer by
++0.014 [−0.028, +0.056], which includes zero (Fig. 7); the primary pair-cluster bootstrap gives
+[−0.018, +0.049] (Section S1.14).
 
 **Target labels.** With 32 labelled 5 km blocks from the target, the gap between raw transfer and the
 target's own ceiling was closed by 83 to 89 % in three of six directions, and by 30 to 52 % in the

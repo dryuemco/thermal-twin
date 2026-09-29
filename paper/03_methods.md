@@ -10,9 +10,8 @@ around one fire. An **evaluation frame** is the set of cells on which a score is
 The analyses fall into two groups. The within-region comparison, the transfer matrix, the two
 adaptation methods, the gap decomposition and the reversal test follow the fixed protocols of the
 processing pipeline. The twenty similarity measures were recorded on 8 August 2026, before the label
-correction of Section 3.2. By contrast, the frame test (Section 3.12), the distance collars, the
-equivalence tests, the additional resampling units and the analyses listed in Table S21 were added
-after the first results. These are exploratory, and they are reported as such.
+correction of Section 3.2. By contrast, the frame test (Section 3.12), the distance collars, the equivalence tests, the additional resampling units and the analyses listed in Tables S21 and S35
+(Sections S1.22 and S1.23) were added after the first results. These are exploratory, and they are reported as such.
 
 ## 3.1 Study regions and temporal windows
 
@@ -51,7 +50,7 @@ Section 3.5.
 
 **Earlier burning.** Cells that burned in the predictor window were removed in Muğla (49 cells),
 North Evia (16) and Montiferru (61). Manavgat had no burning in that window. In Bejís this removal
-was not applied, so 49 cells that burned before the label window were kept. Burning in the five
+was not applied, so 48 cells that burned before the label window were kept. Burning in the five
 previous years was not screened in any region. When those cells were excluded, the mean transfer
 gain fell from +0.007 to +0.003, while the within-region gain stayed positive in all regions
 (Section S3.1.1).
@@ -89,8 +88,8 @@ the two anomaly channels at 0.71 to 0.94. As a result, two principal components 
 of their variance (Section S3.4), and counts over the nine numeric predictors are read with care.
 
 **Land cover.** WorldCover v200 is built from 2021 images, which is after the fire for the four
-2021 events. All analyses were therefore repeated with the 2020 map (WorldCover v100), aggregated to
-the same cells. The 2020 map changed the population by at most 43 burned cells in four regions. In
+2021 events. All analyses were therefore repeated with the 2020 map (WorldCover v100 [@Zanaga2021]), aggregated
+to the same cells. The 2020 map changed the population by at most 43 burned cells in four regions. In
 Montiferru, however, it added 142 burned cells that the 2021 map did not class as natural
 vegetation. The within-region gains and the transfer results did not change in any conclusion
 (Section S1.23).
@@ -102,8 +101,7 @@ NDVI, elevation and slope are available for at least 30 % of the cell and at lea
 pixel is valid. Thermal completeness is not required. The **primary** population contains the valid
 cells in which tree, shrub and grass cover together reach 0.50, so cropland and water are excluded.
 In this population, 0.1 % to 6.5 % of cells have at least one missing thermal value, depending on
-the region. These values are filled inside the model pipeline (Section 3.6), and missingness is not
-related to burning (AUC 0.49 to 0.51 in every region). A **secondary** population of all valid cells
+the region. These values are filled inside the model pipeline (Section 3.6), and missingness is not related to burning (AUC 0.49 to 0.51 in every region; Table S35). A **secondary** population of all valid cells
 is used only as a within-region sensitivity analysis in two regions (Section S1.17).
 
 ## 3.6 Classifier
@@ -138,9 +136,11 @@ burned and $`F^{-}`$ the unburned cells of $`F`$, and $`s_i`$ the predicted scor
 
 This is the probability that a burned cell in $`F`$ is ranked above an unburned one. The metric can
 therefore change when the frame changes, even when no score changes (Section 3.12). Precision-recall AUC is also reported, because it reflects how a susceptibility map is used when
-burned cells are rare [@Sofaer2019]. The out-of-fold residuals stay spatially correlated up to 5 to
-10 km, and in three regions they fall below 0.05 only at 10 to 20 km (Section S1.23). Intervals at
-5 km blocking may therefore still be somewhat too narrow, and the 10 km results are given as a check.
+burned cells are rare [@Sofaer2019]. The out-of-fold residuals stay spatially correlated beyond 5 km. Their correlation falls below 0.05
+at 10 to 20 km in Manavgat, Bejís and Muğla, at 5 to 10 km in Montiferru, and only at 20 to 40 km in
+North Evia (Section S1.23). Intervals at 5 km blocking may therefore be too narrow, especially in
+North Evia, where even 10 km blocks do not remove the dependence; the 10 km results are given as a
+check.
 
 Uncertainty is estimated with a spatial-block bootstrap. Blocks are resampled with replacement, 1000
 times, with seed 42, and the 2.5 and 97.5 percentiles give the interval. Differences are paired
@@ -165,7 +165,7 @@ Two label-free methods were tested on every direction and in both feature sets. 
 z-score** standardises the numeric features of each region with its own statistics. **CORAL after
 region-wise z-score** then aligns the source covariance with the target covariance [@Sun2016], with
 λ = 10⁻⁵. Both methods use target feature statistics, which are available before a fire, but never
-target labels. The value of λ was not chosen by performance; its effect is reported in Section S1.2.
+target labels. The value of λ was not chosen by performance; its effect is reported in Sections S1.2 and S1.23.
 Details are given in Section S3.8.
 
 ## 3.10 Transfer-gap decomposition and the reversal criterion
@@ -251,8 +251,9 @@ how the evaluation area changes the metric, but they cannot be drawn before a fi
 A list of forbidden columns is checked at every model fit: coordinates, all burn-date and
 label-provenance columns, and the agreement fraction. The vegetation mask defines the population and
 is never used as a predictor. All randomness uses seed 42. Because the random-forest seed is fixed,
-direction-level intervals are conditional on one fitted source model. Refitting with ten seeds,
-however, changed mean transfer by at most 0.003 (Section S1.23). Across five bootstrap seeds,
+direction-level intervals are conditional on one fitted source model. Refitting with ten seeds changed mean transfer by at most 0.003, but single directions by up to
+0.049 (seed-to-seed standard deviation at most 0.015; Section S1.23). This variation is not part of
+the direction-level intervals. Across five bootstrap seeds,
 every transfer verdict at 1 km blocking is stable, whereas at 5 km three verdicts change (Section
 S1.20).
 

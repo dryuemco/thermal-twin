@@ -17,6 +17,7 @@ datasets through `paper/code/_canonical.py` (SHA-256 checked) and write only int
 | `r8n_aspect_gain_intervals.py` | Bootstrap intervals of the within-region gain with and without aspect. | `r8n_summary.json` |
 | `r8l_statistics.py` | Crossed random effects, residual correlogram, fold-averaged AUC, PR lift, estimator intervals. | `r8l_summary.json` |
 | `r8o_era5_descriptive.py` | Thermal channels against ERA5-Land weather anomalies, region level. | `r8o_summary.json` |
+| `r8p_thermal_missingness.py` | Share of modelled cells with a missing thermal value and its relation to burning. | `r8p_summary.json` |
 | `r8g_capture.py` | Capture of burned cells in the top 10 % and 20 % of transferred scores. | `r8g_capture_transfer.csv`, `r8g_summary.json` |
 
 **A design that was tried and not used.** `r8b_buffered_within.py` also computes a leave-one-block-out

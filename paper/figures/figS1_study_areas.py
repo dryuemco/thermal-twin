@@ -46,6 +46,15 @@ for ax, (reg, name) in zip(axes.flat, REG):
     xx = (np.arange(W) + 0.5) * 0.40
     ax.contour(xx, yy, dist, levels=[5], colors="#0072B2", linewidths=0.7, linestyles="--")
     ax.contour(xx, yy, dist, levels=[10], colors="#0072B2", linewidths=0.9)
+    # scar frames of Table 2: 8-connected scars of >= 50 burned cells plus a collar of 4 grid steps
+    # (Manhattan distance), as in Section 3.12
+    lab, _ = ndimage.label(burned, structure=np.ones((3, 3)))
+    sizes = np.bincount(lab.ravel())
+    big = np.isin(lab, [k for k in range(1, len(sizes)) if sizes[k] >= 50])
+    frame = ndimage.distance_transform_cdt(~big, metric="taxicab") <= 4
+    ax.contour(xx, yy, frame.astype(float), levels=[0.5], colors="black", linewidths=0.6, linestyles=":")
+    edge = int(burned[0, :].sum() + burned[-1, :].sum() + burned[:, 0].sum() + burned[:, -1].sum())
+    print(f"{reg}: burned cells on the study-area edge = {edge}")
     ax.set_title(name, fontsize=8.5)
     ax.set_xlabel("km", fontsize=7)
     ax.set_ylabel("km", fontsize=7)
@@ -55,7 +64,8 @@ axes.flat[-1].legend(handles=[Patch(color="#D55E00", label="burned cells"),
                               Patch(facecolor="0.55", label="natural vegetation\n(shade = elevation)"),
                               Patch(facecolor="white", edgecolor="0.6", label="outside the population"),
                               Line2D([], [], color="#0072B2", ls="--", lw=0.8, label="5 km collar"),
-                              Line2D([], [], color="#0072B2", lw=1.0, label="10 km collar")],
+                              Line2D([], [], color="#0072B2", lw=1.0, label="10 km collar"),
+                              Line2D([], [], color="black", ls=":", lw=0.8, label="scar frame (2 km)")],
                      loc="center", frameon=False, fontsize=7.5)
 fig.tight_layout()
 for ext_ in ("png", "pdf"):

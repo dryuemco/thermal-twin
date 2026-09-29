@@ -1,0 +1,27 @@
+{
+ "manavgat_2021": {
+  "share_primary": 0.017210277412120327,
+  "share_all_valid": 0.08510814962427865,
+  "auc_missing_vs_burned": 0.49671728871412857
+ },
+ "bejis_2022": {
+  "share_primary": 0.06451612903225806,
+  "share_all_valid": 0.062440510184656385,
+  "auc_missing_vs_burned": 0.5117765662300794
+ },
+ "mugla_2021": {
+  "share_primary": 0.03213515456506111,
+  "share_all_valid": 0.33331507974536245,
+  "auc_missing_vs_burned": 0.49343679948486624
+ },
+ "evia_2021_extended": {
+  "share_primary": 0.04527855452785545,
+  "share_all_valid": 0.5750458395180302,
+  "auc_missing_vs_burned": 0.4961535623655009
+ },
+ "montiferru_2021": {
+  "share_primary": 0.0011792452830188679,
+  "share_all_valid": 0.06019539867633155,
+  "auc_missing_vs_burned": 0.49925187032418955
+ }
+}
