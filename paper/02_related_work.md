@@ -1,82 +1,63 @@
 # 2. Related work
 
+## 2.1 Pre-fire thermal dryness
 
-## 2.1 Fire susceptibility mapping, and what it reports
+Satellite thermal data can be used to estimate fuel moisture [@Yebra2013]. Land surface
+temperature (LST) combined with a vegetation index was used by Chuvieco et al. [@Chuvieco2004] to
+estimate live fuel moisture for fire-danger rating. The Temperature-Vegetation Dryness Index (TVDI)
+[@Sandholt2002] is an internally normalised form of this approach, so it is often expected to
+transfer better than raw temperature. Pre-fire LST anomalies are related to the burned area and
+duration of later fires [@Maffei2018; @Maffei2021], and pre-fire optical moisture indices carry
+similar information [@MaffeiMenenti2019]. Dead fuel moisture was the strongest predictor of
+human-caused ignition across Europe in a pooled model [@Gelabert2025]. Satellite fuel-moisture
+models are, however, usually site-specific, and their transfer is rarely tested [@Marino2024].
+Within-region susceptibility models already exist for Turkish Mediterranean landscapes
+[@AlkanAkinci2023; @Iban2022]. To our knowledge, the transfer of a classifier that uses pre-fire
+thermal state to an unseen region, without target labels, has not been tested. Large datacubes now
+support deep-learning fire-danger models [@Kondylatos2023]. Here a simple fixed classifier was used,
+so that only the evaluation changes.
 
-The dominant pattern is described in Section 1; the figure it publishes, a cross-validated AUC of
-0.85 to 0.95, is a within-region estimate. Comparable within-region results already exist for the
-landscapes studied here [@AlkanAkinci2023; @Iban2022].
+## 2.2 Spatial validation, transferability and shift
 
-## 2.2 Pre-fire thermal dryness
+Spatially blocked cross-validation reduces the optimism of random folds [@Roberts2017;
+@Valavi2019]. Its use for map accuracy is debated [@Wadoux2021; @deBruin2022], and methods have
+been proposed that match the distances of the prediction task [@Mila2022]. The area of
+applicability shows where predictor values are too far from the training data [@Meyer2021].
+Transferability is an open problem in ecological modelling [@Yates2018].
 
-Satellite thermal observation gives repeated access to surface state through fuel moisture content
-[@Yebra2013]. Chuvieco et al. [@Chuvieco2004] established the pairing of land surface temperature
-with a vegetation index as a live-fuel-moisture estimator for fire-danger rating. The
-Temperature-Vegetation Dryness Index [@Sandholt2002] formalises that feature space into an
-internally normalised measure, which is why it is often expected to travel better than raw
-temperature. That pre-fire thermal state carries information about subsequent fire is established
-[@Maffei2018; @MaffeiMenenti2019; @Maffei2021]. Gelabert et al. [@Gelabert2025] found dead fine
-fuel moisture and its anomalies the most influential predictor of human-caused ignition likelihood
-across Europe, testing generalisation by pooled fitting with per-site evaluation. What has not
-been tested is whether such a classifier survives strict, label-free application to an unseen
-region.
+Two types of shift are usually separated [@MorenoTorres2012]. Under covariate shift, the predictor
+distribution changes but the predictor-response relationship stays the same. Under concept shift,
+the relationship itself changes. Covariate shift can in principle be corrected without target
+labels, for example by per-region standardisation or by covariance alignment (CORAL) [@Sun2016].
+Domain adaptation is well established in remote sensing [@Tuia2016; @Persello2012]. Concept shift
+cannot be corrected in this way, because a reversed association can only be seen with target
+labels. Shift decomposition has been used in remote sensing [@Huang2026], but we found no use of
+covariance alignment for fire susceptibility or burned-area prediction.
 
-## 2.3 Spatial validation and transferability
+## 2.3 Transfer of fire models and the evaluation area
 
-The canonical taxonomy separates covariate shift from concept shift [@MorenoTorres2012]. Under
-covariate shift the predictor distribution moves but the predictor-response relationship holds;
-under concept shift the relationship itself changes. Covariate shift is in principle correctable
-without target labels, by per-region standardisation or covariance alignment such as CORAL
-[@Sun2016], and domain adaptation has an established remote-sensing literature [@Tuia2016;
-@Persello2012]. Concept shift is not: no realignment of inputs can repair a
-reversal in the sign of an association, because detecting one requires the labels being withheld.
-Shift decomposition in applied remote sensing is not itself new [@Huang2026], but we are aware
-of no prior application of covariance alignment to fire susceptibility, fire occurrence or
-burned-area prediction.
+Few studies test the transfer of fire models directly. Global fire-danger indices did not transfer
+well between fire environments in Peru [@Podschwit2022]. In the Alps and the Mediterranean Basin,
+regional fire-occurrence models transferred well only under similar conditions, and a pooled model
+was more robust [@Bekar2020]. WildfireGenome [@Liu2025] trained models in one of seven US counties
+and tested them in the others. Transfer was good between similar counties and poor between
+dissimilar ones. Its label is a composite of hazard indicators, not observed burned area. Xu et al.
+[@Xu2026] showed that conclusions about wildfire models depend on the evaluation design. The closest
+Mediterranean study is Dimarco et al. [@Dimarco2026]. They used 500 m predictors in four countries
+and a full transfer matrix. No transfer fell below AUC 0.80, and similar countries scored higher.
+Their predictors are static attributes of a place, and their response is human-caused ignition.
+Here the predictors describe the surface state in one season, and the response is burned area.
 
-## 2.4 Cross-region generalisation of fire models
+**Evaluation area and AUC.** In species distribution modelling, the evaluation area is known to
+affect AUC. Lobo et al. [@Lobo2008] rank it as the most important reason to be careful when AUC
+values are compared. A larger area adds more easy absences and raises the score. The same effect
+was shown for calibration [@VanDerWal2009] and was described in general terms as the accessible
+area [@Barve2011]. The size of the effect depends on the problem, so it was not given in general.
+We found no wildfire study that keeps the model fixed and changes only the evaluation cells.
+Region-wide scores are often reported as if they described performance at the fire.
 
-Few studies test fire-model transfer directly. Podschwit et al. [@Podschwit2022] report, in a
-Peruvian case study, that meteorologically derived danger indices do not port cleanly between fire
-environments. WildfireGenome [@Liu2025] runs a leave-one-county-out matrix across seven US counties,
-and reports strong within-county performance with highly variable off-diagonal transfer, similar pairs
-transferring well and dissimilar pairs collapsing. Its label is a principal-component composite of
-hazard *indicators* rather than observed burned area, and it applies no adaptation. Xu et al.
-[@Xu2026] argue that wildfire transfer conclusions depend strongly on evaluation design. We address
-that caution in two ways: the protocol was fixed in a project log before the diagnostics were
-computed, and every sensitivity axis is reported. That log is not a formal pre-registration, and
-Section S4 states what was fixed and when. Kondylatos et al. [@Kondylatos2023] provide Mesogeos, a
-1 km Mediterranean datacube.
-
-**Evaluation extent and AUC.** Species distribution modelling settled long ago that the area a model
-is evaluated over is not a neutral choice. Lobo et al. [@Lobo2008] make it the fifth and, by their
-own ranking, most important reason to distrust AUC comparatively. The extent of the modelled area
-governs how many easy absences enter the calculation, and therefore the score. VanDerWal et al.
-[@VanDerWal2009] show the same lever on the calibration side, and Barve et al. [@Barve2011] give the
-argument its general form as the accessible area. That literature is qualitative about magnitude,
-because magnitude is problem-specific, so our Contribution 1 is a measurement inside that
-framework rather than a new phenomenon. The wildfire literature has largely not imported the lesson:
-region-wide figures are reported as though they described performance at the fire. We know of no
-wildfire study that holds the model fixed and varies only the evaluation cells. That is why Section
-5.6 treats the 0.133 as a reporting problem rather than a caveat.
-
-**The nearest neighbour, and the contrast this paper draws.** Dimarco et al. [@Dimarco2026] is the
-closest Mediterranean analogue. They harmonise 500 m predictors across four countries and fit tree
-ensembles under spatial cross-validation. Transfer is tested both leave-one-country-out and as a full
-4 × 4 matrix. Every transfer exceeds AUC 0.80, bioclimatically similar countries score higher, and no
-domain adaptation is used.[^dimarco-lst] Much of the design is shared: Mediterranean regions, 500 m
-cells, MCD64A1-derived targets, tree ensembles, spatially aware validation and an explicit transfer
-matrix; two things differ. **The predictor class**: their model rests on attributes of a place, all
-spatially stationary, ours on the state of a surface in one season. **The response variable**:
-theirs is human-driven ignition, ours burned area, which have different dominant controls. Read
-together, the two results suggest the relationship between domain similarity and transfer success
-may be predictor-class dependent. Vesk et al. [@Vesk2021] align with that reading from species
-distribution modelling, while Dimarco et al. and WildfireGenome run against it. Rousseau and Betts
-[@Rousseau2022] found environmental similarity not a significant predictor of transferability; our
-result is consistent with theirs. We present that as a live disagreement; Section 5.5 states why our data do not
-settle it.
-
-[^dimarco-lst]: Their Results text refers to "LST anomalies", inconsistent with their own Methods,
-where no land surface temperature or TVDI variable appears and the only temperature predictor is a
-static ERA5-Land seasonal climatology [@MunozSabater2021]. We follow their Methods and note the
-discrepancy so the comparison is transparent.
+**Similarity and transfer.** Species distribution studies disagree on the role of similarity.
+Vesk et al. [@Vesk2021] found that trait-based models did not predict worse with increasing
+geographic or environmental distance. Rousseau and Betts [@Rousseau2022] found that transferability
+decreased with geographic distance and with extrapolation. The niche overlap measures used here are
+Schoener's *D* and Warren's *I* [@Schoener1968; @Warren2008].

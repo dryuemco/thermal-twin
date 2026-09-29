@@ -1,12 +1,12 @@
 {
- "figure": "Fig. 6 - pooled (LORO) training beats the best single source only for Evia",
+ "figure": "Fig. 6 - pooled (LORO) training beats the mean single source only for Evia",
  "script": "paper/figures/fig6_loro.py",
  "data": {
   "path": "paper/figures/data/fig_data_corrected.json",
   "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
   "note": "loro_pooled_transfer.json from paper/labelfix_rerun/round3 (corrected label); sha256 inside"
  },
- "asserts": "pooled beats the best pairwise source only for Evia, 0.715 [0.668, 0.757] against 0.654, interval excluding it; Manavgat pooled 0.426 [0.369, 0.486], the only interval entirely below chance; shortfalls 0.09-0.25 and ceiling gaps 0.20-0.48; every number found verbatim in Appendix A(n)(a) or the caption; every value inside the x axis (and _conservation_common.py)",
+ "asserts": "pooled beats the mean single source (round7/r7d_pooled_vs_single.csv) only for Evia, 0.715 [0.668, 0.757] against 0.569, and the oracle best source (0.654) likewise; Manavgat pooled 0.426 [0.369, 0.486], the only interval entirely below chance; shortfalls against the mean 0.009-0.057 and ceiling gaps 0.20-0.48; every number found verbatim in Section S1.14(a) or the caption; every value inside the x axis",
  "legend": "in a reserved band below the plotted rows; chance drawn as a segment over the data rows only",
  "canvas_mm": [
   190,
@@ -17,6 +17,6 @@
   "body": 9.0,
   "minimum": 8.0
  },
- "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 21 data artists registered",
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 26 data artists registered",
  "environment": "matplotlib 3.11.0"
 }

@@ -1,0 +1,470 @@
+{
+  "allowed_statuses": [
+    "bootstrap_supported_increase",
+    "bootstrap_supported_decrease",
+    "interval_includes_zero"
+  ],
+  "analysis_contract": [
+    "Only the predictor closure timing was changed; both window ends moved together so the window LENGTH is preserved.",
+    "The label window was held fixed and is identical in every variant.",
+    "One exact common cohort was held fixed across all six evaluations.",
+    "One shared spatial-fold assignment was used by all six evaluations.",
+    "The model family, feature registry, preprocessing, hyper-parameters and seeds were held fixed.",
+    "The existing production MODIS seasonal policy was preserved.",
+    "Reducer, QA and processing policy were held fixed; the closure date's interaction with the fixed production policy could change observation support and effective MODIS coverage.",
+    "The analysis therefore measures the closure date together with its interaction with that fixed production policy, not the closure date in isolation."
+  ],
+  "analysis_id": "ccd42192a789adedac69d97791ab3879143d9396945f05b74e8802d429774682",
+  "bootstrap_recomputed": false,
+  "bootstrap_run": false,
+  "bootstrap_summary_row_count": 27,
+  "canonical_outputs_modified": false,
+  "closure_change_row_count": 12,
+  "compare_run": true,
+  "comparison_family_order": [
+    "thermal_contribution_within_variant",
+    "closure_change_within_model_family",
+    "thermal_contribution_change"
+  ],
+  "display_decimals": 3,
+  "downscaling_model_fit": false,
+  "evidence_status_counts": {
+    "bootstrap_supported_decrease": 9,
+    "bootstrap_supported_increase": 13,
+    "interval_includes_zero": 5
+  },
+  "expected_cardinalities": {
+    "bootstrap_evidence_matrix": 27,
+    "closure_changes": 12,
+    "point_metrics": 18,
+    "thermal_contribution_changes": 6,
+    "thermal_contributions": 9
+  },
+  "experiment_id": "manavgat_2021",
+  "fire_risk_model_fit": false,
+  "frozen_hashes_unchanged": true,
+  "frozen_input_sha256_after": {
+    "canonical_step8a": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+    "canonical_step8a_stats": "0382e417b3764de8927b87b641409ba05447d1365646ddee33b35e1461db4107",
+    "dem_elevation": "b14db8411fa21c41e266be962c715080e06922d2210479aae196c54a67c88022",
+    "dem_slope": "d4ad7db9c28698b46c517a695044e921b0d25ea0a61e7f8020acc0d8bb52022d",
+    "label_burned_binary": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98",
+    "label_raw_burndate": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25",
+    "landcover_aligned": "785e555ea2d91061c4bed27d845d22b34e9d5c510538995c728326a80f33c233",
+    "local_downstream_metadata__close_14d_earlier": "047a8a8d2d7167d4e422c5b3982b08343091c5f832f33782484ac0c731033720",
+    "local_downstream_metadata__close_7d_earlier": "69e66f4d03f64cd32e0ef5fa3912152950381169a4ed9137d76d6d0113f17899",
+    "model_artifact__bootstrap/paired_bootstrap_replicates.parquet": "1cc56d8ee5843ee17bb16f3719dec1f960c8e10cb9bcf5e08135a6aa47e3f779",
+    "model_artifact__bootstrap/paired_bootstrap_summary.csv": "92d77bff01bea9c9974776327180eb22df94c75dbbc486e436a53c583d5f20b4",
+    "model_artifact__bootstrap/paired_bootstrap_summary.json": "75051f313311203c73c00e452807b8a30051c099d2190ddc06acf31fbb1fee72",
+    "model_artifact__common_cohort/common_cohort.parquet": "c1d750efcf5b8ef94da20ef2d5097032201c24b43bc6912684a11b05879fdc55",
+    "model_artifact__common_cohort/common_cohort_metadata.json": "556df322ce34cb94cd92db5d84310fdf1cc5a243228e2ecd37ba66ae24bf7656",
+    "model_artifact__metrics/point_metrics.csv": "93a5d5dfd50c5599e5ca7a23033f007cc890a58d65f40092885a89e34fc85d25",
+    "model_artifact__metrics/point_metrics.json": "4d6bf320bd6202ab97f2d84fbb728c5203349cf57910aabf56f90834d93b1949",
+    "model_artifact__metrics/thermal_contributions.csv": "511b8100321643226de81bd2966a3bccbe6896dfd1a3543025691b79f5772f00",
+    "model_artifact__model_stage_metadata.json": "74385e364c96f2af800b3345a29abd65082943b3247fbe1c0cf22badd3b4f339",
+    "model_artifact__shared_folds/shared_spatial_folds.parquet": "986d82ab882654116497c02e35724f76b1eda453018001e53469d2351e70367f",
+    "model_artifact__shared_folds/shared_spatial_folds_metadata.json": "4d4f73ff9c9b7200de22892db89643e90e724674db2ad922f73ffe2b1e8ef260",
+    "model_artifact__variants/canonical/baseline/fold_metrics.csv": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd",
+    "model_artifact__variants/canonical/baseline/oof_predictions.parquet": "8b7b0a70aa859bfbf6321392c713c404d96be51d3ff6a4ff34ff8505551c9742",
+    "model_artifact__variants/canonical/thermal/fold_metrics.csv": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd",
+    "model_artifact__variants/canonical/thermal/oof_predictions.parquet": "01c7396415e5cf04dd49df77f5c1c6ac159f4afef0897836f70f2f18ef72aa14",
+    "model_artifact__variants/close_14d_earlier/baseline/fold_metrics.csv": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a",
+    "model_artifact__variants/close_14d_earlier/baseline/oof_predictions.parquet": "bd61f0381594487564801ebd44407b3e2a927602897c8d98468b17e0ae13ae14",
+    "model_artifact__variants/close_14d_earlier/thermal/fold_metrics.csv": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a",
+    "model_artifact__variants/close_14d_earlier/thermal/oof_predictions.parquet": "441f6e95af548a222a570c422b659abf9fe244460e07c8b3db9905f0893d6c08",
+    "model_artifact__variants/close_7d_earlier/baseline/fold_metrics.csv": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91",
+    "model_artifact__variants/close_7d_earlier/baseline/oof_predictions.parquet": "b2af973cfcb70b4bb0f4ba54f2b73832a6f6e1268391313de84e211e6365f820",
+    "model_artifact__variants/close_7d_earlier/thermal/fold_metrics.csv": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91",
+    "model_artifact__variants/close_7d_earlier/thermal/oof_predictions.parquet": "5a991975e06eb2ac123e0ee7a4439291f618feda8f9345146c9b053755bab314",
+    "model_stage_metadata": "74385e364c96f2af800b3345a29abd65082943b3247fbe1c0cf22badd3b4f339",
+    "predictor_export_metadata__close_14d_earlier": "f8b0ed94e943317087bf73ef028294e64269d91edf316317b5050579499fa79a",
+    "predictor_export_metadata__close_7d_earlier": "792f3b8dacacf2cfef0fc639603bc98567f66e2181599ce98ce4a66fa1fad126",
+    "predictor_raster__close_14d_earlier__baseline_lst_2017__scene_valid_count": "660ba207639247659317b54841f03101b216a44b5d7187325b66b03f57da9395",
+    "predictor_raster__close_14d_earlier__baseline_lst_2017__scene_weighted_median": "d4f0d7bd1b94d78d229fc77427eb6610a8d7e5c14aef7cddf09c51dcd4ba8781",
+    "predictor_raster__close_14d_earlier__baseline_lst_2018__scene_valid_count": "1391b192cc4138c917194d24473a08d83dffa8aa6a6d4889f0f7be0880bcba83",
+    "predictor_raster__close_14d_earlier__baseline_lst_2018__scene_weighted_median": "a82ff6f22cffe913428985a8c4b1943106a8df27e9003b9af41df64023914a9e",
+    "predictor_raster__close_14d_earlier__baseline_lst_2019__scene_valid_count": "9276e4f6f8e0eb172a3cff45b0e7ddefa1101d64a290dc001e4acd307fdff829",
+    "predictor_raster__close_14d_earlier__baseline_lst_2019__scene_weighted_median": "4c75f39da53274cef462eb93e4c8bc01f5c0940d2a38d42e684adde75e2e7556",
+    "predictor_raster__close_14d_earlier__baseline_lst_2020__scene_valid_count": "ff7e91c796f271f1a506fe8a278d149b67f5ec5930ce1f173a4a45170ed85202",
+    "predictor_raster__close_14d_earlier__baseline_lst_2020__scene_weighted_median": "e8fa62748c7fc21379734c57572d2b52b3ec2ce4b2bf7742f2de8fe2881a8dd8",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2017__scene_valid_count": "f1bb7cab7a502b5e623b142d2e5a2dfe58fe00fded3abfed780b71dabe1784ce",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2017__scene_weighted_median": "fd543187ab0ef594a956a80635300c65a6a3f8ba9afb2543abe64dde5d34b67e",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2018__scene_valid_count": "78ffba82d7f793349ce691d12bbc64c0607d74cef77e8204c423d7c3456dd8e2",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2018__scene_weighted_median": "c5750bfe133a8a7050432ff2dcbb3af54a1090c57a7265f5a69ef82cfbdd531d",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2019__scene_valid_count": "e5a7649dc486bfb1acbd2654e639ea582606edf6c99673b17444d626440472de",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2019__scene_weighted_median": "aa2b583c39fb5823d7bdc7da94e9c488c88bed967ae312c00ade7bc8bafda1cd",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2020__scene_valid_count": "2e2ffb14f91bf53b28fe775ed9790beee10a99a51849134438f8d58b60bef4f5",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2020__scene_weighted_median": "d7938d1a0f737d2a16f33632533f77352ded507342b609fb8c8c2c8559b8c441",
+    "predictor_raster__close_14d_earlier__current_lst__scene_valid_count": "5aab4374ca77f37366c72b85e5758026aafc86fed771237809a6ba322360239b",
+    "predictor_raster__close_14d_earlier__current_lst__scene_weighted_median": "824b174848f076d71726fe78c5a292cf786f7977f399cf8f1317e371ac4d1220",
+    "predictor_raster__close_14d_earlier__current_ndvi__scene_valid_count": "069c9ccff06d8acc2f0d5395eb7c76010bd782414d57247249a163b65664dc6b",
+    "predictor_raster__close_14d_earlier__current_ndvi__scene_weighted_median": "8358f4eb2e1eeb083b1a52ae8f00dc605bfd400b5d26befbae3edfbfdfc2e380",
+    "predictor_raster__close_14d_earlier__modis_lst_mean": "1ea3b3ab22fc4be0c7cb4edbc5a19d58de182bb6b133dfa71b3740da8b392c1e",
+    "predictor_raster__close_14d_earlier__modis_lst_std": "c699a111aa3ecd19986bee6efa7cad507387882dca01d2e308071f380ac65209",
+    "predictor_raster__close_14d_earlier__modis_valid_observation_count": "5169310196d0fcf4ae7482666077acacea96bfe2b1f62492090d1f0417edcf22",
+    "predictor_raster__close_7d_earlier__baseline_lst_2017__scene_valid_count": "c7775012c0e82001095243001b386dc0f6fdcada109b29f6254bfb79f49988a6",
+    "predictor_raster__close_7d_earlier__baseline_lst_2017__scene_weighted_median": "6a3df761569959e535f2575851b601b8692c25eb5ff0699935687176a829475a",
+    "predictor_raster__close_7d_earlier__baseline_lst_2018__scene_valid_count": "20869926d543e11f70d1d606e52112f139fd550430c76bddb312038591441ad1",
+    "predictor_raster__close_7d_earlier__baseline_lst_2018__scene_weighted_median": "70890b545cb49cea242d12d1a9d58ff0460b5b6be941896eab6aab009b6d8e30",
+    "predictor_raster__close_7d_earlier__baseline_lst_2019__scene_valid_count": "a16eee2dd4666eaf54596a12b76b71c92ab2a9cddf3096aab4e1ba373c2e3547",
+    "predictor_raster__close_7d_earlier__baseline_lst_2019__scene_weighted_median": "5a77aa71d4b8d46e2fa8df2aa25e02911135e30d8c01952a35056ac0cee4af75",
+    "predictor_raster__close_7d_earlier__baseline_lst_2020__scene_valid_count": "86df26db00877327251a519cdd800430e4b169fd55bdf0dca5399d02b7e29c9f",
+    "predictor_raster__close_7d_earlier__baseline_lst_2020__scene_weighted_median": "b911d84fefe9343558aa3f6c6873b1fab5ea8364a440c160d7ee48596d4a62b6",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2017__scene_valid_count": "66a0bb21c49ccffd1e08bfd04e08f75d642294effe3889e0bc8d268c2cdb9021",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2017__scene_weighted_median": "dca8aed4ad58295f3b614e2552dfaa612a7914feca091f47e118e0ac7e6cf02c",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2018__scene_valid_count": "a32d59542d5b0ff0ee141015ee446fdea6454cac5fc431f9033e53fdce4594cf",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2018__scene_weighted_median": "24e002698d5441299818388b2d84d99cd808c534122528b993da0c748cdf3266",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2019__scene_valid_count": "38e1f7f095ec8ec3ed28373d21e687d594084710ce59c651fb04ada17bf5d37c",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2019__scene_weighted_median": "537adf1a0829e1cc6d3d10ca5ec1eb28e07dc241e77caa86f058ce5ed684fe9f",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2020__scene_valid_count": "c6928a91c2615c2376320fe5454611edaaabf8c2c1151239168326a184e182ed",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2020__scene_weighted_median": "384f307f12af1e0552a9da06c63b520c2a7a54174766cf0b7905c91f14d1ed72",
+    "predictor_raster__close_7d_earlier__current_lst__scene_valid_count": "f2844287094f8f29002bd9dec50e2593241ba9e4a5093227ed56de137acd9a6b",
+    "predictor_raster__close_7d_earlier__current_lst__scene_weighted_median": "f5b4d47109ca131ffab534b5eba6e6f43d7ae1958a55d5b23caf66ea080e08fc",
+    "predictor_raster__close_7d_earlier__current_ndvi__scene_valid_count": "e8701fa15160b94bbb9745bb7fb2e5fae13e32864d751ed25753f45c627fb181",
+    "predictor_raster__close_7d_earlier__current_ndvi__scene_weighted_median": "659226c764d283d18aba7e5b8b39764d9392e31ae812e9086d6e9c82a4e7cb93",
+    "predictor_raster__close_7d_earlier__modis_lst_mean": "bce3d1c8cc3b6360aa7726fe5ea023f03bba9a38a3f7262dc1dcaaecedfaf8b1",
+    "predictor_raster__close_7d_earlier__modis_lst_std": "829f4f7058c222b6579ced4a1e618939b42bf921e9ddd2a03bb7749253db75ee",
+    "predictor_raster__close_7d_earlier__modis_valid_observation_count": "8cd087e56f2ba4f023963a97d1fd349ab56c368e79e35d401b9c92e072bf88dc",
+    "prelabel_burndate": "755899775ae83e5085b7a00b320dc277d5076320f25d217c10c8c006ee4cd190",
+    "variant_step8a__close_14d_earlier": "b0af3ad8bdcc9ebd93702c7d772335a0d0fb3996f157ed063e98cd6aa4611402",
+    "variant_step8a__close_7d_earlier": "d7ee35c9d83e5d94b7aa43b7f591dcc665737f36d69ee55b938a2fbe7e01aa04",
+    "variant_step8a_stats__close_14d_earlier": "ad7812c7f773a2df564149f03ec14b3992ab3273891c367d0f593cc4f51c1a27",
+    "variant_step8a_stats__close_7d_earlier": "2ac1dca87920f1c14ba9da4123c1bce4718e32511bf3554a2fa4319cfd9e0ec5"
+  },
+  "frozen_input_sha256_before": {
+    "canonical_step8a": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+    "canonical_step8a_stats": "0382e417b3764de8927b87b641409ba05447d1365646ddee33b35e1461db4107",
+    "dem_elevation": "b14db8411fa21c41e266be962c715080e06922d2210479aae196c54a67c88022",
+    "dem_slope": "d4ad7db9c28698b46c517a695044e921b0d25ea0a61e7f8020acc0d8bb52022d",
+    "label_burned_binary": "e08541633d2ddf482a5b1c3ab3cde12165f590ae5eeb95c88357a79ed2d9df98",
+    "label_raw_burndate": "32d1d0d3fd9db568800f6447354269a8e299e6bd7a1e2c31678df0edc723dc25",
+    "landcover_aligned": "785e555ea2d91061c4bed27d845d22b34e9d5c510538995c728326a80f33c233",
+    "local_downstream_metadata__close_14d_earlier": "047a8a8d2d7167d4e422c5b3982b08343091c5f832f33782484ac0c731033720",
+    "local_downstream_metadata__close_7d_earlier": "69e66f4d03f64cd32e0ef5fa3912152950381169a4ed9137d76d6d0113f17899",
+    "model_artifact__bootstrap/paired_bootstrap_replicates.parquet": "1cc56d8ee5843ee17bb16f3719dec1f960c8e10cb9bcf5e08135a6aa47e3f779",
+    "model_artifact__bootstrap/paired_bootstrap_summary.csv": "92d77bff01bea9c9974776327180eb22df94c75dbbc486e436a53c583d5f20b4",
+    "model_artifact__bootstrap/paired_bootstrap_summary.json": "75051f313311203c73c00e452807b8a30051c099d2190ddc06acf31fbb1fee72",
+    "model_artifact__common_cohort/common_cohort.parquet": "c1d750efcf5b8ef94da20ef2d5097032201c24b43bc6912684a11b05879fdc55",
+    "model_artifact__common_cohort/common_cohort_metadata.json": "556df322ce34cb94cd92db5d84310fdf1cc5a243228e2ecd37ba66ae24bf7656",
+    "model_artifact__metrics/point_metrics.csv": "93a5d5dfd50c5599e5ca7a23033f007cc890a58d65f40092885a89e34fc85d25",
+    "model_artifact__metrics/point_metrics.json": "4d6bf320bd6202ab97f2d84fbb728c5203349cf57910aabf56f90834d93b1949",
+    "model_artifact__metrics/thermal_contributions.csv": "511b8100321643226de81bd2966a3bccbe6896dfd1a3543025691b79f5772f00",
+    "model_artifact__model_stage_metadata.json": "74385e364c96f2af800b3345a29abd65082943b3247fbe1c0cf22badd3b4f339",
+    "model_artifact__shared_folds/shared_spatial_folds.parquet": "986d82ab882654116497c02e35724f76b1eda453018001e53469d2351e70367f",
+    "model_artifact__shared_folds/shared_spatial_folds_metadata.json": "4d4f73ff9c9b7200de22892db89643e90e724674db2ad922f73ffe2b1e8ef260",
+    "model_artifact__variants/canonical/baseline/fold_metrics.csv": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd",
+    "model_artifact__variants/canonical/baseline/oof_predictions.parquet": "8b7b0a70aa859bfbf6321392c713c404d96be51d3ff6a4ff34ff8505551c9742",
+    "model_artifact__variants/canonical/thermal/fold_metrics.csv": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd",
+    "model_artifact__variants/canonical/thermal/oof_predictions.parquet": "01c7396415e5cf04dd49df77f5c1c6ac159f4afef0897836f70f2f18ef72aa14",
+    "model_artifact__variants/close_14d_earlier/baseline/fold_metrics.csv": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a",
+    "model_artifact__variants/close_14d_earlier/baseline/oof_predictions.parquet": "bd61f0381594487564801ebd44407b3e2a927602897c8d98468b17e0ae13ae14",
+    "model_artifact__variants/close_14d_earlier/thermal/fold_metrics.csv": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a",
+    "model_artifact__variants/close_14d_earlier/thermal/oof_predictions.parquet": "441f6e95af548a222a570c422b659abf9fe244460e07c8b3db9905f0893d6c08",
+    "model_artifact__variants/close_7d_earlier/baseline/fold_metrics.csv": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91",
+    "model_artifact__variants/close_7d_earlier/baseline/oof_predictions.parquet": "b2af973cfcb70b4bb0f4ba54f2b73832a6f6e1268391313de84e211e6365f820",
+    "model_artifact__variants/close_7d_earlier/thermal/fold_metrics.csv": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91",
+    "model_artifact__variants/close_7d_earlier/thermal/oof_predictions.parquet": "5a991975e06eb2ac123e0ee7a4439291f618feda8f9345146c9b053755bab314",
+    "model_stage_metadata": "74385e364c96f2af800b3345a29abd65082943b3247fbe1c0cf22badd3b4f339",
+    "predictor_export_metadata__close_14d_earlier": "f8b0ed94e943317087bf73ef028294e64269d91edf316317b5050579499fa79a",
+    "predictor_export_metadata__close_7d_earlier": "792f3b8dacacf2cfef0fc639603bc98567f66e2181599ce98ce4a66fa1fad126",
+    "predictor_raster__close_14d_earlier__baseline_lst_2017__scene_valid_count": "660ba207639247659317b54841f03101b216a44b5d7187325b66b03f57da9395",
+    "predictor_raster__close_14d_earlier__baseline_lst_2017__scene_weighted_median": "d4f0d7bd1b94d78d229fc77427eb6610a8d7e5c14aef7cddf09c51dcd4ba8781",
+    "predictor_raster__close_14d_earlier__baseline_lst_2018__scene_valid_count": "1391b192cc4138c917194d24473a08d83dffa8aa6a6d4889f0f7be0880bcba83",
+    "predictor_raster__close_14d_earlier__baseline_lst_2018__scene_weighted_median": "a82ff6f22cffe913428985a8c4b1943106a8df27e9003b9af41df64023914a9e",
+    "predictor_raster__close_14d_earlier__baseline_lst_2019__scene_valid_count": "9276e4f6f8e0eb172a3cff45b0e7ddefa1101d64a290dc001e4acd307fdff829",
+    "predictor_raster__close_14d_earlier__baseline_lst_2019__scene_weighted_median": "4c75f39da53274cef462eb93e4c8bc01f5c0940d2a38d42e684adde75e2e7556",
+    "predictor_raster__close_14d_earlier__baseline_lst_2020__scene_valid_count": "ff7e91c796f271f1a506fe8a278d149b67f5ec5930ce1f173a4a45170ed85202",
+    "predictor_raster__close_14d_earlier__baseline_lst_2020__scene_weighted_median": "e8fa62748c7fc21379734c57572d2b52b3ec2ce4b2bf7742f2de8fe2881a8dd8",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2017__scene_valid_count": "f1bb7cab7a502b5e623b142d2e5a2dfe58fe00fded3abfed780b71dabe1784ce",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2017__scene_weighted_median": "fd543187ab0ef594a956a80635300c65a6a3f8ba9afb2543abe64dde5d34b67e",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2018__scene_valid_count": "78ffba82d7f793349ce691d12bbc64c0607d74cef77e8204c423d7c3456dd8e2",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2018__scene_weighted_median": "c5750bfe133a8a7050432ff2dcbb3af54a1090c57a7265f5a69ef82cfbdd531d",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2019__scene_valid_count": "e5a7649dc486bfb1acbd2654e639ea582606edf6c99673b17444d626440472de",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2019__scene_weighted_median": "aa2b583c39fb5823d7bdc7da94e9c488c88bed967ae312c00ade7bc8bafda1cd",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2020__scene_valid_count": "2e2ffb14f91bf53b28fe775ed9790beee10a99a51849134438f8d58b60bef4f5",
+    "predictor_raster__close_14d_earlier__baseline_ndvi_2020__scene_weighted_median": "d7938d1a0f737d2a16f33632533f77352ded507342b609fb8c8c2c8559b8c441",
+    "predictor_raster__close_14d_earlier__current_lst__scene_valid_count": "5aab4374ca77f37366c72b85e5758026aafc86fed771237809a6ba322360239b",
+    "predictor_raster__close_14d_earlier__current_lst__scene_weighted_median": "824b174848f076d71726fe78c5a292cf786f7977f399cf8f1317e371ac4d1220",
+    "predictor_raster__close_14d_earlier__current_ndvi__scene_valid_count": "069c9ccff06d8acc2f0d5395eb7c76010bd782414d57247249a163b65664dc6b",
+    "predictor_raster__close_14d_earlier__current_ndvi__scene_weighted_median": "8358f4eb2e1eeb083b1a52ae8f00dc605bfd400b5d26befbae3edfbfdfc2e380",
+    "predictor_raster__close_14d_earlier__modis_lst_mean": "1ea3b3ab22fc4be0c7cb4edbc5a19d58de182bb6b133dfa71b3740da8b392c1e",
+    "predictor_raster__close_14d_earlier__modis_lst_std": "c699a111aa3ecd19986bee6efa7cad507387882dca01d2e308071f380ac65209",
+    "predictor_raster__close_14d_earlier__modis_valid_observation_count": "5169310196d0fcf4ae7482666077acacea96bfe2b1f62492090d1f0417edcf22",
+    "predictor_raster__close_7d_earlier__baseline_lst_2017__scene_valid_count": "c7775012c0e82001095243001b386dc0f6fdcada109b29f6254bfb79f49988a6",
+    "predictor_raster__close_7d_earlier__baseline_lst_2017__scene_weighted_median": "6a3df761569959e535f2575851b601b8692c25eb5ff0699935687176a829475a",
+    "predictor_raster__close_7d_earlier__baseline_lst_2018__scene_valid_count": "20869926d543e11f70d1d606e52112f139fd550430c76bddb312038591441ad1",
+    "predictor_raster__close_7d_earlier__baseline_lst_2018__scene_weighted_median": "70890b545cb49cea242d12d1a9d58ff0460b5b6be941896eab6aab009b6d8e30",
+    "predictor_raster__close_7d_earlier__baseline_lst_2019__scene_valid_count": "a16eee2dd4666eaf54596a12b76b71c92ab2a9cddf3096aab4e1ba373c2e3547",
+    "predictor_raster__close_7d_earlier__baseline_lst_2019__scene_weighted_median": "5a77aa71d4b8d46e2fa8df2aa25e02911135e30d8c01952a35056ac0cee4af75",
+    "predictor_raster__close_7d_earlier__baseline_lst_2020__scene_valid_count": "86df26db00877327251a519cdd800430e4b169fd55bdf0dca5399d02b7e29c9f",
+    "predictor_raster__close_7d_earlier__baseline_lst_2020__scene_weighted_median": "b911d84fefe9343558aa3f6c6873b1fab5ea8364a440c160d7ee48596d4a62b6",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2017__scene_valid_count": "66a0bb21c49ccffd1e08bfd04e08f75d642294effe3889e0bc8d268c2cdb9021",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2017__scene_weighted_median": "dca8aed4ad58295f3b614e2552dfaa612a7914feca091f47e118e0ac7e6cf02c",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2018__scene_valid_count": "a32d59542d5b0ff0ee141015ee446fdea6454cac5fc431f9033e53fdce4594cf",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2018__scene_weighted_median": "24e002698d5441299818388b2d84d99cd808c534122528b993da0c748cdf3266",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2019__scene_valid_count": "38e1f7f095ec8ec3ed28373d21e687d594084710ce59c651fb04ada17bf5d37c",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2019__scene_weighted_median": "537adf1a0829e1cc6d3d10ca5ec1eb28e07dc241e77caa86f058ce5ed684fe9f",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2020__scene_valid_count": "c6928a91c2615c2376320fe5454611edaaabf8c2c1151239168326a184e182ed",
+    "predictor_raster__close_7d_earlier__baseline_ndvi_2020__scene_weighted_median": "384f307f12af1e0552a9da06c63b520c2a7a54174766cf0b7905c91f14d1ed72",
+    "predictor_raster__close_7d_earlier__current_lst__scene_valid_count": "f2844287094f8f29002bd9dec50e2593241ba9e4a5093227ed56de137acd9a6b",
+    "predictor_raster__close_7d_earlier__current_lst__scene_weighted_median": "f5b4d47109ca131ffab534b5eba6e6f43d7ae1958a55d5b23caf66ea080e08fc",
+    "predictor_raster__close_7d_earlier__current_ndvi__scene_valid_count": "e8701fa15160b94bbb9745bb7fb2e5fae13e32864d751ed25753f45c627fb181",
+    "predictor_raster__close_7d_earlier__current_ndvi__scene_weighted_median": "659226c764d283d18aba7e5b8b39764d9392e31ae812e9086d6e9c82a4e7cb93",
+    "predictor_raster__close_7d_earlier__modis_lst_mean": "bce3d1c8cc3b6360aa7726fe5ea023f03bba9a38a3f7262dc1dcaaecedfaf8b1",
+    "predictor_raster__close_7d_earlier__modis_lst_std": "829f4f7058c222b6579ced4a1e618939b42bf921e9ddd2a03bb7749253db75ee",
+    "predictor_raster__close_7d_earlier__modis_valid_observation_count": "8cd087e56f2ba4f023963a97d1fd349ab56c368e79e35d401b9c92e072bf88dc",
+    "prelabel_burndate": "755899775ae83e5085b7a00b320dc277d5076320f25d217c10c8c006ee4cd190",
+    "variant_step8a__close_14d_earlier": "b0af3ad8bdcc9ebd93702c7d772335a0d0fb3996f157ed063e98cd6aa4611402",
+    "variant_step8a__close_7d_earlier": "d7ee35c9d83e5d94b7aa43b7f591dcc665737f36d69ee55b938a2fbe7e01aa04",
+    "variant_step8a_stats__close_14d_earlier": "ad7812c7f773a2df564149f03ec14b3992ab3273891c367d0f593cc4f51c1a27",
+    "variant_step8a_stats__close_7d_earlier": "2ac1dca87920f1c14ba9da4123c1bce4718e32511bf3554a2fa4319cfd9e0ec5"
+  },
+  "gee_exports_run": false,
+  "gee_queries_run": false,
+  "input_artifact_count": 22,
+  "input_artifacts": [
+    {
+      "bytes": 300734,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\bootstrap\\paired_bootstrap_replicates.parquet",
+      "relative_path": "bootstrap/paired_bootstrap_replicates.parquet",
+      "sha256": "1cc56d8ee5843ee17bb16f3719dec1f960c8e10cb9bcf5e08135a6aa47e3f779"
+    },
+    {
+      "bytes": 9957,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\bootstrap\\paired_bootstrap_summary.csv",
+      "relative_path": "bootstrap/paired_bootstrap_summary.csv",
+      "sha256": "92d77bff01bea9c9974776327180eb22df94c75dbbc486e436a53c583d5f20b4"
+    },
+    {
+      "bytes": 23846,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\bootstrap\\paired_bootstrap_summary.json",
+      "relative_path": "bootstrap/paired_bootstrap_summary.json",
+      "sha256": "75051f313311203c73c00e452807b8a30051c099d2190ddc06acf31fbb1fee72"
+    },
+    {
+      "bytes": 4373843,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\common_cohort\\common_cohort.parquet",
+      "relative_path": "common_cohort/common_cohort.parquet",
+      "sha256": "c1d750efcf5b8ef94da20ef2d5097032201c24b43bc6912684a11b05879fdc55"
+    },
+    {
+      "bytes": 4321,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\common_cohort\\common_cohort_metadata.json",
+      "relative_path": "common_cohort/common_cohort_metadata.json",
+      "sha256": "556df322ce34cb94cd92db5d84310fdf1cc5a243228e2ecd37ba66ae24bf7656"
+    },
+    {
+      "bytes": 1245,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\metrics\\point_metrics.csv",
+      "relative_path": "metrics/point_metrics.csv",
+      "sha256": "93a5d5dfd50c5599e5ca7a23033f007cc890a58d65f40092885a89e34fc85d25"
+    },
+    {
+      "bytes": 3244,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\metrics\\point_metrics.json",
+      "relative_path": "metrics/point_metrics.json",
+      "sha256": "4d6bf320bd6202ab97f2d84fbb728c5203349cf57910aabf56f90834d93b1949"
+    },
+    {
+      "bytes": 1947,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\metrics\\thermal_contributions.csv",
+      "relative_path": "metrics/thermal_contributions.csv",
+      "sha256": "511b8100321643226de81bd2966a3bccbe6896dfd1a3543025691b79f5772f00"
+    },
+    {
+      "bytes": 162361,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\shared_folds\\shared_spatial_folds.parquet",
+      "relative_path": "shared_folds/shared_spatial_folds.parquet",
+      "sha256": "986d82ab882654116497c02e35724f76b1eda453018001e53469d2351e70367f"
+    },
+    {
+      "bytes": 972,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\shared_folds\\shared_spatial_folds_metadata.json",
+      "relative_path": "shared_folds/shared_spatial_folds_metadata.json",
+      "sha256": "4d4f73ff9c9b7200de22892db89643e90e724674db2ad922f73ffe2b1e8ef260"
+    },
+    {
+      "bytes": 972,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\baseline\\fold_metrics.csv",
+      "relative_path": "variants/canonical/baseline/fold_metrics.csv",
+      "sha256": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd"
+    },
+    {
+      "bytes": 351171,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\baseline\\oof_predictions.parquet",
+      "relative_path": "variants/canonical/baseline/oof_predictions.parquet",
+      "sha256": "8b7b0a70aa859bfbf6321392c713c404d96be51d3ff6a4ff34ff8505551c9742"
+    },
+    {
+      "bytes": 972,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\thermal\\fold_metrics.csv",
+      "relative_path": "variants/canonical/thermal/fold_metrics.csv",
+      "sha256": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd"
+    },
+    {
+      "bytes": 348014,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\thermal\\oof_predictions.parquet",
+      "relative_path": "variants/canonical/thermal/oof_predictions.parquet",
+      "sha256": "01c7396415e5cf04dd49df77f5c1c6ac159f4afef0897836f70f2f18ef72aa14"
+    },
+    {
+      "bytes": 973,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\baseline\\fold_metrics.csv",
+      "relative_path": "variants/close_14d_earlier/baseline/fold_metrics.csv",
+      "sha256": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a"
+    },
+    {
+      "bytes": 351211,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\baseline\\oof_predictions.parquet",
+      "relative_path": "variants/close_14d_earlier/baseline/oof_predictions.parquet",
+      "sha256": "bd61f0381594487564801ebd44407b3e2a927602897c8d98468b17e0ae13ae14"
+    },
+    {
+      "bytes": 973,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\thermal\\fold_metrics.csv",
+      "relative_path": "variants/close_14d_earlier/thermal/fold_metrics.csv",
+      "sha256": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a"
+    },
+    {
+      "bytes": 345840,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\thermal\\oof_predictions.parquet",
+      "relative_path": "variants/close_14d_earlier/thermal/oof_predictions.parquet",
+      "sha256": "441f6e95af548a222a570c422b659abf9fe244460e07c8b3db9905f0893d6c08"
+    },
+    {
+      "bytes": 969,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\baseline\\fold_metrics.csv",
+      "relative_path": "variants/close_7d_earlier/baseline/fold_metrics.csv",
+      "sha256": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91"
+    },
+    {
+      "bytes": 351414,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\baseline\\oof_predictions.parquet",
+      "relative_path": "variants/close_7d_earlier/baseline/oof_predictions.parquet",
+      "sha256": "b2af973cfcb70b4bb0f4ba54f2b73832a6f6e1268391313de84e211e6365f820"
+    },
+    {
+      "bytes": 969,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\thermal\\fold_metrics.csv",
+      "relative_path": "variants/close_7d_earlier/thermal/fold_metrics.csv",
+      "sha256": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91"
+    },
+    {
+      "bytes": 346841,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\thermal\\oof_predictions.parquet",
+      "relative_path": "variants/close_7d_earlier/thermal/oof_predictions.parquet",
+      "sha256": "5a991975e06eb2ac123e0ee7a4439291f618feda8f9345146c9b053755bab314"
+    }
+  ],
+  "interpretation_limits": [
+    "Results apply to the Manavgat-2021-style common cohort of this analysis only; they are not automatically transferable to another AOI or fire season.",
+    "These results are descriptive and do not establish an underlying mechanism.",
+    "It is not an operational forecasting validation and supports no deployment or alerting claim.",
+    "Where a bootstrap interval includes zero, the direction of the change is not resolved by these data; uncertainty remains.",
+    "The compare stage produces no new model and no new uncertainty estimate. It summarises verified model-stage outputs.",
+    "No global comparison-evidence criterion is preregistered in this analysis, so no such overall claim is made."
+  ],
+  "machine_readable_values_rounded": false,
+  "majority_vote_across_metrics_taken": false,
+  "metric_order": [
+    "roc_auc",
+    "pr_auc",
+    "brier"
+  ],
+  "model_family_order": [
+    "baseline",
+    "thermal"
+  ],
+  "model_fit": false,
+  "output_artifact_count": 10,
+  "output_artifacts": [
+    {
+      "bytes": 10249,
+      "media_type": "text/markdown",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\report\\window_closure_comparison.md",
+      "relative_path": "report/window_closure_comparison.md",
+      "sha256": "19587a393bd8c6b11c74b35b1ac07be2a25450356d04f67e0d3978d0f8ca2651"
+    },
+    {
+      "bytes": 58947,
+      "media_type": "application/json",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\summaries\\comparison_summary.json",
+      "relative_path": "summaries/comparison_summary.json",
+      "sha256": "bfe6957a1b0775bbf860a6e4d01729f96412f6aa8278fb4768d14ec43819aaea"
+    },
+    {
+      "bytes": 10160,
+      "media_type": "application/json",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\summaries\\provenance_summary.json",
+      "relative_path": "summaries/provenance_summary.json",
+      "sha256": "b1f86ae12659d1be049191b5b07b814a934e8d3605e0aed9b3359805249a74e6"
+    },
+    {
+      "bytes": 20730,
+      "media_type": "application/json",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\summaries\\scientific_conclusions.json",
+      "relative_path": "summaries/scientific_conclusions.json",
+      "sha256": "1d5169c91709ee656ec0233697a9a07f79c9736b9f73e60e3e69b5a69dc6a68a"
+    },
+    {
+      "bytes": 14963,
+      "media_type": "text/csv",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\tables\\bootstrap_evidence_matrix.csv",
+      "relative_path": "tables/bootstrap_evidence_matrix.csv",
+      "sha256": "9d86a488f44fad9a2cae1aa032a3f7632e0a3465798e1f8a369433ef3f0d82d7"
+    },
+    {
+      "bytes": 2810,
+      "media_type": "text/csv",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\tables\\closure_changes.csv",
+      "relative_path": "tables/closure_changes.csv",
+      "sha256": "19ecd96da2d7bd4effea5f1cd71c8d9b8e970e30ce7f9bd22e2aca8085469733"
+    },
+    {
+      "bytes": 3249,
+      "media_type": "text/csv",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\tables\\point_metrics_long.csv",
+      "relative_path": "tables/point_metrics_long.csv",
+      "sha256": "aa610c460cbefa261c4dbb3255b6d1a271f491c616af9a2f1c243327e3bc66e4"
+    },
+    {
+      "bytes": 1825,
+      "media_type": "text/csv",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\tables\\point_metrics_wide.csv",
+      "relative_path": "tables/point_metrics_wide.csv",
+      "sha256": "4bf526e89e54ef56f5b29ca40cb527b5530e6c32937122909e87124d3930bb0a"
+    },
+    {
+      "bytes": 1611,
+      "media_type": "text/csv",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\tables\\thermal_contribution_changes.csv",
+      "relative_path": "tables/thermal_contribution_changes.csv",
+      "sha256": "a73ef3e36fb758c80821fbe8e47b2db05e6b2805dd6acdc1672afd6927485f37"
+    },
+    {
+      "bytes": 1813,
+      "media_type": "text/csv",
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\compare\\tables\\thermal_contributions.csv",
+      "relative_path": "tables/thermal_contributions.csv",
+      "sha256": "8f2b7ca006f2e6256fea43c41ce7ea558c1ef970a073ed37d11270d5e382f56f"
+    }
+  ],
+  "point_metric_row_count": 18,
+  "primary_population": "burnable_tree_shrub_grass",
+  "schema_version": "window_closure_compare.v1",
+  "single_overall_scientific_verdict_produced": false,
+  "source_model_metadata_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\model_stage_metadata.json",
+  "source_model_metadata_sha256": "74385e364c96f2af800b3345a29abd65082943b3247fbe1c0cf22badd3b4f339",
+  "source_model_schema": "window_closure_model.v1",
+  "stage": "compare",
+  "status": "pass",
+  "technical_validation_status": "pass",
+  "thermal_contribution_change_row_count": 6,
+  "thermal_contribution_row_count": 9,
+  "upstream_outputs_modified": false,
+  "variant_order": [
+    "canonical",
+    "close_7d_earlier",
+    "close_14d_earlier"
+  ]
+}

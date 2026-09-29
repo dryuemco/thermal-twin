@@ -1,84 +1,63 @@
 # 1. Introduction
 
+Wildfire is a major disturbance in Mediterranean landscapes, and climate change is changing where
+and how it burns [@Pausas2021]. Fire susceptibility maps are usually made in the same way
+[@Vibhandik2026; @Jodhani2026]. Predictors are collected over a study region and matched with a
+record of burned areas. A classifier, most often a random forest [@Breiman2001], is then trained.
+The map is reported with a cross-validated score from the same region. **How well the model works
+in another region is not reported.** This study measures it.
 
----
+## 1.1 Transfer is rarely measured
 
-Wildfire is a defining disturbance of Mediterranean-basin landscapes, and a changing climate is
-reshaping where and how it burns [@Pausas2021]. The dominant pattern in fire susceptibility mapping
-[@Vibhandik2026; @Jodhani2026] is settled. Geospatial predictors are assembled over a study region, paired with a historical
-burned-area record and fitted with a supervised classifier, most often a random forest
-[@Breiman2001]. The surface is then published with a cross-validated AUC of 0.85 to 0.95. **That pattern does not report portability**, and this paper measures it.
+The skill of a susceptibility model is almost always a *within-region* estimate. The test folds come
+from the same area and season, and often from the same fire. Random folds also let spatial
+autocorrelation raise the score [@Roberts2017; @Ploton2020]. Spatially blocked cross-validation
+reduces this problem [@Valavi2019; @Meyer2018], but it does not show how the model works on a fire
+it has not seen.
 
-## 1.1 Portability goes unmeasured
+A regional product built from local models is expected to work outside its training area. This is
+rarely tested. Fire-danger indices did not transfer well between fire environments in Peru
+[@Podschwit2022]. Regional fire-occurrence models in the Alps and the Mediterranean Basin
+transferred well only under similar conditions [@Bekar2020]. Two recent studies also found that
+transfer mainly succeeds between similar regions [@Dimarco2026; @Liu2025]. All of these studies use
+mainly static predictors, which describe a place. It is not known whether dynamic, season-specific
+predictors behave in the same way.
 
-A susceptibility model's reported skill is almost always a *within-region* estimate: held-out folds
-come from the same study area and season, often the same fire, and random folds over cells let
-spatial autocorrelation inflate it further. The problem is documented across ecological modelling
-[@Roberts2017; @Ploton2020] and addressed by spatially blocked cross-validation [@Valavi2019;
-@Meyer2018], but blocking does not make the estimate honest about a fire the model has not seen.
+## 1.2 Pre-fire thermal dryness as a test case
 
-A predictor block is adopted on the increment it delivers inside its training footprint; whether
-that survives a change of region is not asked. Yet any regional product built from locally trained models implicitly
-promises generalisation beyond it. Meteorological fire-danger indices are known not to port cleanly in a Peruvian case study
-[@Podschwit2022]. The two studies that test transfer systematically [@Dimarco2026; @Liu2025] both
-report that it largely succeeds between similar regions. Both transfer models whose dominant
-predictors are *spatially stationary*. Whether a dynamic, season-specific class behaves the same way
-is this paper's question.
-
-## 1.2 Pre-fire thermal dryness is the natural test case
-
-Pre-fire thermal dryness is the dynamic class most plausibly *expected* to transfer. Standard predictors are static or near-static over the timescale at which fire danger varies, so
-they explain poorly why one summer burned and the preceding one did not. What changes is the state
-of the surface, to which satellite thermal observation gives partial access (Section 2.2). The physics
-linking moisture stress to combustion is universal, which makes the class diagnostic: a loss cannot be dismissed as a peculiarity of a locally defined
-covariate. The expectation is sharpest for the internally normalised channels, which should
-be least exposed to absolute-temperature offsets between regions; **they transfer no better than the
-absolute ones** (Section S1.6). The expectation motivates the design and is not a finding of it.
-Section 4.4 reports the associations running the other way.
+Pre-fire thermal dryness is the dynamic predictor class that is most expected to transfer. Static
+predictors change little between years, so they cannot explain why one summer burned and another
+did not. Surface state changes, and satellite thermal data give partial access to it (Section 2.1).
+The link between moisture stress and burning is physical and general. Therefore, if thermal
+predictors do not transfer, the failure cannot easily be blamed on a local variable. The normalised
+channels were expected to transfer best, because they should be less affected by temperature
+differences between regions. They did not transfer better than the absolute channels (Section
+S1.6).
 
 ## 1.3 Contributions
 
+**Contribution 1. The evaluation area changes what a model appears to know.** It is known from
+species distribution modelling that the evaluation area affects AUC (Section 2.3). Here the size of
+this effect was measured with a controlled design. The model, the predictors and the fitting were
+kept fixed, and only the scored cells were changed. The score fell by **0.133 ROC-AUC** over seven
+scars, and by 0.160 with the region as the unit. The loss came from the unburned cells near the
+fire, not from class balance (Section 4.3). The same test shows that four of our own between-region
+quantities depend on the study areas (Section 4.4).
 
+**Contribution 2. Local skill transfers at most weakly.** The thermal predictors improved
+within-region skill in all five regions. At the burn scar itself, the gain was small and not
+established (Section 4.3). Across twenty transfer directions, the gain was +0.007 on the original
+study areas and +0.024 on comparable study areas. Both intervals included zero, and gains above
+about 0.05 were excluded (Section 4.4). The static baseline did not transfer better. On matched
+areas, transfer stayed **0.197** below the within-region reference.
 
-**Contribution 1. Where a model is scored decides what it appears to know, and the effect is large
-enough to dissolve findings of our own.** That evaluation extent inflates AUC is established in
-species distribution modelling (Section 2.4). What is new is a magnitude under a controlled design.
-Holding model, predictors and fitting fixed and changing only which cells are scored costs **0.133
-ROC-AUC**, the size of the increments this design measures for a predictor block. The cause is
-measured as the composition of the negative pool rather than class balance (Section 4.3), and the
-cost holds with the region as the resampling unit. Applied between regions, the same test shows
-four of our own quantities to be properties of the frames, including the one arm that held place
-fixed (Section 4.4). One reversal survives it, Manavgat's elevation. The practical consequence is a
-reporting standard (Section 5.6).
+**Contribution 3. No similarity measure was shown to predict transfer.** Twenty similarity
+measures were tested, from predictor distance to niche overlap and the agreement of
+predictor-burning relationships. On the original study areas, no measure predicted transfer
+(Section 4.6). With ten independent region pairs, this shows a failure to find an ordering, not
+proof that none exists.
 
-**Contribution 2. Local skill does not travel, and correcting the frame does not rescue it.** The
-thermal block is worth a substantial within-region increment in all five regions, every bootstrap
-interval above zero, and it stays positive when the frame is equalised. At the scar level much of
-it is a property of interleaved holdout; clustered by region, that part is not established
-(Section 4.3). Across twenty transfer directions the paired contribution spans zero on both frames
-under the primary resampling unit. Once equalised it lies much closer to the boundary, and under one
-admissible unit, clustering by target region, it excludes zero (Section 4.4). Its sign belongs to the pair rather than
-the block. Two controls bound this. The static baseline transfers no better on either frame, so the
-failure is not the thermal block's peculiarity. On matched frames and blocking, equalised transfer
-still falls **0.197** short of the within-region reference. The within-region half is not novel
-[@AlkanAkinci2023; @Iban2022]; the paired contrast against portability is.
-
-**Contribution 3. No similarity diagnostic we tested is shown to order transfer, conditional ones
-included.** Twenty measures were fixed in advance. They range from marginal covariate distance
-through niche overlap and regime structure to the conditional agreement of predictor–burning
-relationships. Under the corrected label nineteen have correlation intervals spanning zero. The
-twentieth is defined in only six directions, with a degenerate interval, and is not interpreted
-(Section 4.6, Section S4). The conditional measure that had ordered transfer under the frozen label
-(ρ = +0.84) no longer does (+0.52 [−0.27, +0.87]). With ten effective region pairs this is a failure
-to show ordering, not proof that none exists. The practical consequence is that no pre-deployment
-shortcut replaces measuring transfer on the target.
-
-Two consequences follow, as supporting results. Label-free alignment by standardisation and
-covariance alignment [@Sun2016] does not repair transfer, in what we believe is its first
-application to fire susceptibility. And because the residual is conditional, the resource that
-closes it is target labels, priced in Section S1.19.
-
-The leakage-audited, spatially blocked protocol is released with code, configuration and frozen
-outputs, so most of this can be re-run rather than taken on trust. The release is complete, as the
-declarations record. That matters given evidence that wildfire transfer conclusions are sensitive to
-evaluation design [@Xu2026]. A companion paper treats the observational layer beneath this one.
+Label-free domain adaptation [@Sun2016] also did not improve transfer. The analysis code,
+configuration and frozen outputs are public, so the results can be checked and re-run
+(Declarations). This matters because conclusions about wildfire models depend on how they are
+evaluated [@Xu2026].

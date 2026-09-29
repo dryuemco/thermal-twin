@@ -1,51 +1,8 @@
-% =============================================================================
-% REFERENCES.bib
-% Manuscript: pre-fire thermal dryness and its cross-region transferability
-% Target journal: Environmental Modelling & Software (Elsevier); retargeted 2026-09-19
-%
-% VERIFICATION STATUS
-% Every entry below was checked against publisher-deposited metadata via the
-% Crossref REST API on 2026-07-23, except where an explicit % VERIFY comment
-% says otherwise. Author lists, volumes, issues, pages and years are as
-% returned by Crossref, not from memory.
-%
-% FULL RE-VERIFICATION 2026-08-13 (47 entries checked; 45 remain after the two
-% removals recorded in Block H). Every DOI was resolved and year/volume/pages
-% machine-compared against Crossref. Outcome:
-%   - 42 entries confirmed field-for-field against Crossref.
-%   - Cook2014: DOI was BROKEN (10.3390/rs6111244, 404) and is corrected to
-%     10.3390/rs61111244. Title, authors, volume, issue, pages and year were
-%     already right; only the DOI digit was wrong.
-%   - Kondylatos2023 gained a DOI (NeurIPS proceedings are now Crossref-
-%     registered under 10.52202; the record confirms the existing page range).
-%   - Vibhandik2026 gained its article number; Xu2026 and Liu2025 gained their
-%     arXiv DOIs and primaryClass.
-%   - Valavi2019 and Vesk2021 differ from Crossref's "issued" year because that
-%     field carries the online-first date; both keep their print/issue year and
-%     carry a note. Do not "correct" them.
-%   - 3 DOIs are DataCite rather than Crossref (Liu2025, Xu2026 arXiv;
-%     Zanaga2022 Zenodo) and were verified against the DataCite API.
-%   - No duplicate keys, no duplicate DOIs, and every key cited in the
-%     manuscript resolves to an entry here.
-%   - Soydan2022 and Varela2022 were the only entries cited nowhere. REMOVED
-%     2026-08-13 by decision; see Block H at the end of this file.
-% 2026-09-19: 48 entries after Block I restored ten keys cited in the supplementary
-% appendices (removed with Contribution 3 on 2026-08-14). Checked by script: every entry is cited and every citation resolves. No orphans in either
-% direction.
-%
-% RULES OBSERVED
-%   - No invented reference, DOI, volume or page number appears in this file.
-%   - Where a field could not be confirmed it is either omitted or carries a
-%     "% VERIFY" comment immediately above the entry.
-%   - Elsevier's elsarticle-num / elsarticle-harv styles are both supported by
-%     these fields; DOIs are given bare (no https://doi.org/ prefix) so the
-%     style file can format them.
-% =============================================================================
-
-
-% -----------------------------------------------------------------------------
-% Block A -- Fire susceptibility mapping with machine learning
-% -----------------------------------------------------------------------------
+% REFERENCES.bib, Evaluation geometry and the limits of cross-region transfer in pre-fire thermal
+% wildfire prediction (target journal: Natural Hazards, Springer). Journal entries were checked against
+% Crossref and dataset/preprint entries against DataCite; last full check 2026-09-29. Dataset and
+% preprint records are typed @article with the repository or server as the journal field, so that
+% Springer's basic style prints the repository and the DOI.
 
 @article{Iban2022,
   author  = {Iban, Muzaffer Can and Sekertekin, Aliihsan},
@@ -60,7 +17,7 @@
 }
 
 @article{AlkanAkinci2023,
-  author  = {Alkan Ak{\i}nc{\i}, Hazan and Ak{\i}nc{\i}, Halil},
+  author  = {Ak{\i}nc{\i}, Hazan Alkan and Ak{\i}nc{\i}, Halil},
   title   = {Machine learning based forest fire susceptibility assessment of
              {Manavgat} district ({Antalya}), {Turkey}},
   journal = {Earth Science Informatics},
@@ -72,12 +29,6 @@
 }
 
 
-% Resolved 2026-08-08: Crossref reports an article number for this record (the
-% DOI suffix pads it to 00921); the DOI alone is sufficient for Elsevier styles.
-% Updated 2026-08-13: article number re-read from Crossref as 921 and now given
-% in `pages`, so the entry is complete for styles that print an article number.
-% Springer "Discover" journals use article numbers, not page ranges.
-% Article number 921, confirmed in Crossref 2026-08-13.
 @article{Vibhandik2026,
   author  = {Vibhandik, Priyanka and Sawant, Suraj and Joshi, Amit and
              Bidwe, Ranjeet},
@@ -87,7 +38,7 @@
   journal = {Discover Artificial Intelligence},
   volume  = {6},
   number  = {1},
-  pages   = {921},
+  pages   = {396},
   year    = {2026},
   doi     = {10.1007/s44163-026-00921-0},
 }
@@ -106,9 +57,6 @@
 }
 
 
-% -----------------------------------------------------------------------------
-% Block B -- Thermal dryness indicators and pre-fire surface state
-% -----------------------------------------------------------------------------
 
 @article{Sandholt2002,
   author  = {Sandholt, Inge and Rasmussen, Kjeld and Andersen, Jens},
@@ -160,7 +108,7 @@
 @article{Chuvieco2004,
   author  = {Chuvieco, Emilio and Cocero, David and Ria{\~n}o, David and
              Martin, Pilar and Mart{\'i}nez-Vega, Javier and
-             de la Riva, Juan and P{\'e}rez, Fernando},
+             {de la Riva}, Juan and P{\'e}rez, Fernando},
   title   = {Combining {NDVI} and surface temperature for the estimation of
              live fuel moisture content in forest fire danger rating},
   journal = {Remote Sensing of Environment},
@@ -185,9 +133,6 @@
 }
 
 
-% -----------------------------------------------------------------------------
-% Block C -- Spatial validation, transferability and area of applicability
-% -----------------------------------------------------------------------------
 
 @article{Roberts2017,
   author  = {Roberts, David R. and Bahn, Volker and Ciuti, Simone and
@@ -249,10 +194,6 @@
   doi     = {10.1111/2041-210X.13107},
 }
 
-% Added 2026-08-14 (referee round 2). The three entries below carry the live
-% dispute about spatial cross-validation, which Section 2.3 previously presented
-% as settled. All three verified against Crossref on 2026-08-14: title, journal,
-% volume, pages, year and author list machine-compared, DOI resolved.
 @article{MorenoTorres2012,
   author  = {Moreno-Torres, Jose G. and Raeder, Troy and
              Alaiz-Rodr{\'i}guez, Roc{\'i}o and Chawla, Nitesh V. and
@@ -266,13 +207,6 @@
   doi     = {10.1016/j.patcog.2011.06.019},
 }
 
-% VERIFY: authors, title, venue and year confirmed via dblp (conf/aaai/SunFS16)
-% and researchr. The page range 2058--2065 is reported by dblp but AAAI
-% proceedings pagination is inconsistently indexed -- confirm against the
-% official AAAI proceedings before submission. The AAAI article DOI was NOT
-% retrieved and is deliberately omitted rather than guessed.
-% DOI confirmed via Crossref REST API 2026-08-08 (Proceedings of the AAAI
-% Conference on Artificial Intelligence 30(1)); pages per dblp conf/aaai/SunFS16.
 @inproceedings{Sun2016,
   author    = {Sun, Baochen and Feng, Jiashi and Saenko, Kate},
   title     = {Return of frustratingly easy domain adaptation},
@@ -310,14 +244,11 @@
 }
 
 
-% -----------------------------------------------------------------------------
-% Block E -- Cross-region generalisation of fire models (nearest neighbours)
-% -----------------------------------------------------------------------------
 
 @article{Dimarco2026,
   author  = {Dimarco, Nicola Aimane and Faraji, Ibtissam and Wahbi, Miriam and
              Maatouk, Mustapha and Boulaassal, Hakim and
-             Yazidi Aalaoui, Otman and El Kharki, Omar},
+             Aalaoui, Otman Yazidi and El Kharki, Omar},
   title   = {Generalizing human-driven wildfire ignition models across
              {Mediterranean} regions using harmonized remote-sensing and
              machine-learning data},
@@ -329,22 +260,18 @@
   doi     = {10.3390/geomatics6010013},
 }
 
-% NOTE: arXiv preprint. Re-checked 2026-08-13: still no peer-reviewed version.
-% Crossref returns zero works with "WildfireGenome" in the title, and a
-% bibliographic query returns no Liu/Mostafavi journal article on this work.
-% arXiv listing shows v2 (last revised Nov 2025) with no journal-ref field.
-% Cite as preprint. Re-check once more at proof stage.
-@misc{Liu2025,
+@article{Liu2025,
   author       = {Liu, Chenyue and Mostafavi, Ali},
   title        = {{WildfireGenome}: Interpretable machine learning reveals
                   local drivers of wildfire risk and their cross-county
                   variation},
-  howpublished = {arXiv preprint arXiv:2511.11589},
   year         = {2025},
   eprint       = {2511.11589},
   archivePrefix = {arXiv},
   primaryClass = {cs.LG},
   doi          = {10.48550/arXiv.2511.11589},
+  journal   = {arXiv preprint},
+  pages     = {arXiv:2511.11589},
 }
 
 
@@ -352,7 +279,7 @@
   author  = {Gelabert, Pere Joan and Jim{\'e}nez-Ruano, Adri{\'a}n and
              Ochoa, Clara and Alcasena, Ferm{\'i}n and Sj{\"o}str{\"o}m, Johan and
              Marrs, Christopher and Ribeiro, Lu{\'i}s M{\'a}rio and
-             Palaiologou, Palaiologos and Bentu Mart{\'i}nez, Carmen and
+             Palaiologou, Palaiologos and Bentu{\'e} Mart{\'i}nez, Carmen and
              Chuvieco, Emilio and Vega-Garc{\'i}a, Cristina and
              Rodrigues, Marcos},
   title   = {Assessing human-caused wildfire ignition likelihood across
@@ -391,26 +318,21 @@
   doi       = {10.52202/075280-2204},
 }
 
-% NOTE: arXiv preprint (v1 14 May 2026, v2 21 May 2026). Re-checked
-% 2026-08-13: arXiv record carries no journal-ref, so still a preprint.
-% Re-check once more at proof stage, as for Liu2025.
-@misc{Xu2026,
+@article{Xu2026,
   author        = {Xu, Yangshuang and Dai, Yuyang and Chang, Liling and
                    Wang, Qi and Dong, Yushun},
   title         = {Does your wildfire prediction model actually work, or just
                    score well?},
-  howpublished  = {arXiv preprint arXiv:2605.18911},
   year          = {2026},
   eprint        = {2605.18911},
   archivePrefix = {arXiv},
   primaryClass  = {cs.LG},
   doi           = {10.48550/arXiv.2605.18911},
+  journal   = {arXiv preprint},
+  pages     = {arXiv:2605.18911},
 }
 
 
-% -----------------------------------------------------------------------------
-% Block D2 -- Shift decomposition and transferability outside fire
-% -----------------------------------------------------------------------------
 
 @article{Huang2026,
   author  = {Huang, Yurong and Liu, Nanfeng and Chen, Wenqian and Tan, Wei and
@@ -426,10 +348,6 @@
   doi     = {10.1016/j.rse.2026.115336},
 }
 
-% NOTE: published online 2020, print issue January 2021. Cite as 2021.
-% YEAR NOTE (checked 2026-08-13): Crossref "issued" is 2020 (online-first,
-% 10 Nov 2020); published-print is Jan 2021, vol 44(1). The issue year 2021 below is
-% correct. Do not "fix" to 2020.
 @article{Vesk2021,
   author  = {Vesk, Peter A. and Morris, William K. and Neal, Will C. and
              Mokany, Karel and Pollock, Laura J.},
@@ -455,9 +373,6 @@
 }
 
 
-% -----------------------------------------------------------------------------
-% Block F -- Data products, algorithms and fire-regime context
-% -----------------------------------------------------------------------------
 
 @article{Giglio2018,
   author  = {Giglio, Louis and Boschetti, Luigi and Roy, David P. and
@@ -483,7 +398,7 @@
   doi     = {10.1016/j.rse.2019.111490},
 }
 
-@misc{Zanaga2022,
+@article{Zanaga2022,
   author       = {Zanaga, Daniele and Van De Kerchove, Ruben and Daems, Dirk and
                   De Keersmaecker, Wanda and Brockmann, Carsten and
                   Kirches, Grit and Wevers, Jan and Cartus, Oliver and
@@ -491,33 +406,10 @@
                   Herold, Martin and Tsendbazar, Nandin-Erdene and Xu, Panpan and
                   Ramoino, Fabrizio and Arino, Olivier},
   title        = {{ESA} {WorldCover} 10 m 2021 v200},
-  howpublished = {Zenodo},
   year         = {2022},
   doi          = {10.5281/zenodo.7254221},
+  journal   = {Zenodo},
 }
-
-@article{MunozSabater2021,
-  author  = {Mu{\~n}oz-Sabater, Joaqu{\'i}n and Dutra, Emanuel and
-             Agust{\'i}-Panareda, Anna and Albergel, Cl{\'e}ment and
-             Arduini, Gabriele and Balsamo, Gianpaolo and Boussetta, Souhail and
-             Choulga, Margarita and Harrigan, Shaun and Hersbach, Hans and
-             Martens, Brecht and Miralles, Diego G. and Piles, Mar{\'i}a and
-             Rodr{\'i}guez-Fern{\'a}ndez, Nemesio J. and Zsoter, Ervin and
-             Buontempo, Carlo and Th{\'e}paut, Jean-No{\"e}l},
-  title   = {{ERA5-Land}: a state-of-the-art global reanalysis dataset for land
-             applications},
-  journal = {Earth System Science Data},
-  volume  = {13},
-  number  = {9},
-  pages   = {4349--4383},
-  year    = {2021},
-  doi     = {10.5194/essd-13-4349-2021},
-}
-
-
-% DOI CORRECTED 2026-08-13: was 10.3390/rs6111244, which 404s in Crossref
-% (one digit short). MDPI pattern is rs{volume}{issue}{firstpage} =
-% rs + 6 + 11 + 11244. Correct DOI verified against Crossref.
 
 @article{Breiman2001,
   author  = {Breiman, Leo},
@@ -528,18 +420,6 @@
   pages   = {5--32},
   year    = {2001},
   doi     = {10.1023/A:1010933404324},
-}
-
-@article{Archibald2013,
-  author  = {Archibald, Sally and Lehmann, Caroline E. R. and
-             G{\'o}mez-Dans, Jose L. and Bradstock, Ross A.},
-  title   = {Defining pyromes and global syndromes of fire regimes},
-  journal = {Proceedings of the National Academy of Sciences},
-  volume  = {110},
-  number  = {16},
-  pages   = {6442--6447},
-  year    = {2013},
-  doi     = {10.1073/pnas.1211466110},
 }
 
 @article{Gorelick2017,
@@ -566,37 +446,8 @@
 }
 
 
-% =============================================================================
-% RESOLVED 2026-08-08 -- all former "STILL MISSING" items are now closed by an
-% explicit decision. Nothing in this block requires action before submission.
-%
-%   [CLOSED: Copernicus GLO-30 DEM]  No peer-reviewed citation and no working
-%       DOI exist. The candidate DataCite DOI 10.5270/ESA-c5d3d65 returned HTTP
-%       404 on 2026-08-08 and must NOT be used. DECISION: cite the official ESA
-%       Copernicus Data Space product page inline in Methods 3.4 (URL + access
-%       date, no DOI, no bib entry). Which DEM actually ran was verified from
-%       the frozen step2b_dem_metadata.json: dataset = COPERNICUS/DEM/GLO30,
-%       used_fallback = false. The SRTM fallback was never exercised, so
-%       Farr et al. 2007 is NOT cited.
-%   [CLOSED: 2022 Bejis / Castellon fire event description]  Crossref returned
-%       no record specific to the August 2022 Bejis fire (2026-08-08), and a
-%       follow-up search found no citable EFFIS or Generalitat Valenciana
-%       report for the individual event -- only press coverage and EU-wide
-%       season summaries. DECISION: no citation. The manuscript carries no
-%       narrative description of the Bejis event; its extent, dates and
-%       prevalence are reported from MCD64A1 in Table 1 / Table 2.
-%   [CLOSED: Mugla 2021]  The only candidate (Cosandal2022) was a tourism-
-%       impact study, never cited in the body text. DECISION: removed from this
-%       file; the event is described from MCD64A1 without a citation.
-%   (Manavgat 2021: resolved as Soydan2022. North Evia 2021: resolved as
-%    Varela2022. Google Earth Engine: verified and added as Gorelick2017.)
-% =============================================================================
 
 
-% -----------------------------------------------------------------------------
-% Block G -- Niche overlap statistics (added 2026-08-08; both entries verified
-% against Crossref REST API on 2026-08-08)
-% -----------------------------------------------------------------------------
 
 @article{Lobo2008,
   author  = {Lobo, Jorge M. and Jim{\'e}nez-Valverde, Alberto and Real, Raimundo},
@@ -632,16 +483,6 @@
 }
 
 
-% -----------------------------------------------------------------------------
-% Block I -- Entries restored for the supplementary appendices (added
-% 2026-09-19). supplementary_appendices.md cites these ten keys; they were
-% removed from this file in commit 0d6abc3 when Contribution 3 moved to the
-% appendices. Each was re-verified field-for-field against the Crossref REST API
-% on 2026-09-19 (DOI resolved; authors, title wording, journal, volume, issue,
-% pages/article number and year compared). Titles are given in this file's
-% sentence-case convention; wording is Crossref's. Yates2018 now carries the
-% full 50-author list from Crossref (the earlier entry truncated to "others").
-% -----------------------------------------------------------------------------
 
 @article{Meyer2021,
   author  = {Meyer, Hanna and Pebesma, Edzer},
@@ -785,4 +626,71 @@
   pages   = {276},
   year    = {2024},
   doi     = {10.3390/fire7080276},
+}
+
+@article{Bekar2020,
+  author  = {Bekar, {\.I}smail and Tav{\c{s}}ano{\u{g}}lu, {\c{C}}a{\u{g}}atay and Pezzatti, G. Boris and
+             Vacik, Harald and Pausas, Juli G. and Bugmann, Harald and Petter, Gunnar},
+  title   = {Cross-regional modelling of fire occurrence in the {Alps} and the {Mediterranean Basin}},
+  journal = {International Journal of Wildland Fire},
+  volume  = {29},
+  number  = {8},
+  pages   = {712--722},
+  year    = {2020},
+  doi     = {10.1071/WF19158},
+}
+@article{Katagis2022,
+  author  = {Katagis, Thomas and Gitas, Ioannis Z.},
+  title   = {Assessing the accuracy of {MODIS} {MCD64A1} {C6} and {FireCCI51} burned area products in
+             {Mediterranean} ecosystems},
+  journal = {Remote Sensing},
+  volume  = {14},
+  number  = {3},
+  pages   = {602},
+  year    = {2022},
+  doi     = {10.3390/rs14030602},
+}
+@article{MCD64A1,
+  author    = {Giglio, Louis and Justice, Christopher and Boschetti, Luigi and Roy, David},
+  title     = {{MODIS/Terra+Aqua} Burned Area Monthly {L3} Global 500m {SIN} Grid {V061} [dataset]},
+  year      = {2021},
+  doi       = {10.5067/MODIS/MCD64A1.061},
+  journal   = {NASA Land Processes Distributed Active Archive Center},
+}
+@article{MOD11A1,
+  author    = {Wan, Zhengming and Hook, Simon and Hulley, Glynn},
+  title     = {{MODIS/Terra} Land Surface Temperature/Emissivity Daily {L3} Global 1km {SIN} Grid {V061} [dataset]},
+  year      = {2021},
+  doi       = {10.5067/MODIS/MOD11A1.061},
+  journal   = {NASA Land Processes Distributed Active Archive Center},
+}
+@article{LandsatC2L2,
+  author    = {{U.S. Geological Survey Earth Resources Observation and Science (EROS) Center}},
+  title     = {Landsat 8-9 Operational Land Imager / Thermal Infrared Sensor Level-2, Collection 2 [dataset]},
+  year      = {2020},
+  doi       = {10.5066/P9OGBGM6},
+  journal   = {U.S. Geological Survey},
+}
+@article{CopernicusDEM,
+  author    = {{European Space Agency}},
+  title     = {Copernicus {DEM} {GLO-30} [dataset]},
+  year      = {2022},
+  doi       = {10.5270/ESA-c5d3d65},
+  note      = {Produced using Copernicus WorldDEM-30 {\textcopyright} DLR e.V. 2010-2014 and {\textcopyright} Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved},
+  journal   = {European Space Agency},
+}
+@article{VNP64A1,
+  author    = {Giglio, Louis},
+  title     = {{VIIRS/NPP} Burned Area Monthly {L4} Global 500m {SIN} Grid {V002} [dataset]},
+  year      = {2024},
+  doi       = {10.5067/VIIRS/VNP64A1.002},
+  journal   = {NASA Land Processes Distributed Active Archive Center},
+}
+@online{ThermalTwinRepo,
+  author    = {Cogurcu, Yunus Emre and Metin, Emrehan},
+  title     = {{thermal-twin}: analysis code, modelling datasets and frozen outputs},
+  organization = {GitHub},
+  year      = {2026},
+  url       = {https://github.com/dryuemco/thermal-twin},
+  urldate   = {2026-09-29},
 }

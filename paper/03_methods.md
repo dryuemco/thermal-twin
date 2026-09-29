@@ -1,108 +1,105 @@
 # 3. Data and methods
 
-
 ## 3.1 Study regions and temporal windows
 
-Five Mediterranean wildfire regions are analysed (Fig. 1): Manavgat 2021 and Muğla 2021 in Türkiye,
-Bejís 2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. Each is a
-place-based rectangle in EPSG:4326, defined from place coverage rather than from a fire perimeter and
-deliberately not clipped to it, so that unburned cells around each fire form the negative class.
-**The record does not show every box fixed before any outcome was seen**, so what it does show is
-stated region by region. In the pipeline's version history each box has a single committed value,
-never changed afterwards. Montiferru's is derived deterministically from the union of four municipal
-boundaries. Manavgat's was drawn to exclude the coastal cropland belt; its final coordinates are in a dated
-AOI preview record of 7 July 2026, the day before its first gate result. Bejís's is still labelled the initial candidate in the registry but was committed after its first
-gate and model results. Muğla's coordinates appear in a dated preflight record about four minutes
-before its first gate result and were committed to the registry only afterwards. No box needed
-adjusting to pass the gate, whose admitted margins are wide (Section 4.1). **One choice was label-informed and
-is stated as such**: the North Evia box was extended after the legacy box proved atypically high in
-burned prevalence, the extended geometry then defined from place anchors and the legacy variant kept
-as a sensitivity arm. Its consequences are in Section 4.4 and Section S3.5(ix). A sixth region, Kozan 2023, is carried as a negative control and excluded by the gate of
-Section 3.3.
+Five Mediterranean wildfire regions were analysed (Fig. 1): Manavgat 2021 and Muğla 2021 in Türkiye,
+Bejís 2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. All five are large,
+well-documented fires. They were not sampled from a defined population of fires, so the results
+describe these events. Each region is a rectangle in EPSG:4326 around the fire. It was not clipped to
+the fire perimeter, so unburned cells around each fire form the negative class. The rectangles were
+not all fixed before any outcome was seen; the record for each region is given in Section S3.3 and
+Table S19. The North Evia rectangle was extended after the first one showed a very high burned
+fraction; the first rectangle is kept as a sensitivity arm (Section S1.1). A sixth region, Kozan
+2023, was used as a negative control and was excluded by the gate of Section 3.3.
 
-Each region has two non-overlapping windows. The **predictor window** closes the day before the
-**label window** opens, so no predictor observation can post-date the first labelled burning. Lengths
-vary with the event: 57 to 61 days for predictors, 35 to 59 for labels, counted inclusively. A four-year baseline of window-symmetric composites precedes each
-predictor window and supplies the climatological reference for the anomaly channels. Region
-identifiers, bounding boxes, window dates and baseline years are registered in `core/regions.py` and
-reproduced in Section S3, Table S19. The processing chain and the evaluation
-programme it feeds are drawn in Fig. 2.
+Each region has two windows that do not overlap. The **predictor window** ends the day before the
+**label window** starts, so no predictor observation is later than the first labelled burning.
+Predictor windows are 57 to 61 days long and label windows 35 to 59 days. Four earlier years of
+composites from the same calendar window are used as the baseline for the anomaly channels. The
+processing chain is shown in Fig. 2.
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
-Labels come from MODIS MCD64A1 Collection 6.1 [@Giglio2018] retrieved through Google Earth Engine
-[@Gorelick2017], whose omission and commission characteristics [@Boschetti2019] bound every model
-here. The analysis grid is **reconstructed rather than native**: the pipeline's 30 m EPSG:4326
-reference grid is partitioned into 17 x 17 blocks, giving a nominal 510 m cell that approximates
-rather than reproduces the MODIS cell and is square in degrees but not on the ground. A cell's burn
-date is the mode of its positive sub-pixel day-of-year values, tested against the label window; the
-label never affects eligibility for modelling. Two safeguards are recorded rather than assumed: cells burning before the label window opens are
-removed, and burning in earlier years is screened for; the counts by region are in Section S3.1.1. Section S3.1 gives the
-full specification, including what follows from the grid's shape.
+Labels were taken from the MODIS MCD64A1 burned-area product, Collection 6.1 [@Giglio2018], through
+Google Earth Engine [@Gorelick2017]. Its errors [@Boschetti2019] limit every model in this study.
+The analysis grid is built from the 30 m reference grid of the processing pipeline in blocks of
+17 × 17 pixels. A cell is about 510 m north to south and 390 to 407 m east to west, with an area of
+0.199 to 0.208 km² (a MODIS cell is 0.215 km²). A cell is labelled burned when any of its pixels has
+a burn date in the label window. This rule can widen a scar by up to one cell at its edge. Water
+cells are removed by the population filter of Section 3.5.
 
-**The Manavgat 2021 label is a corrected one.** The label first used for Manavgat was a stale export
-that missed the fire's first four days, 28 to 31 July. The corrected label only adds burned cells,
-raising the primary population's burned count from 784 to 2,935; the correction, the re-freeze and
-its control arm are specified in Section S3.1.2.
+**Earlier burning.** Cells that burned in the predictor window were removed in Muğla (49 cells),
+North Evia (16) and Montiferru (61). Manavgat had no burning in that window. In Bejís this removal
+was not applied, so 49 cells that burned before the label window were kept. Burning in the five
+previous years was not screened in any region. When those cells were excluded, the mean transfer
+gain fell from +0.007 to +0.003, and the within-region gain stayed positive in all regions (Section
+S3.1.1).
+
+**Corrected Manavgat label.** The label first used for Manavgat missed the first four days of the
+fire, 28 to 31 July. The corrected label only adds burned cells. It raises the number of burned cells
+in the primary population from 784 to 2,935. "Original label" in this paper means the label before
+this correction. The correction and its control run are described in Section S3.1.2.
 
 ## 3.3 Burned-landcover admissibility gate
 
-Before any modelling each region passes a gate asking what fraction of its burned cells is dominated
-by natural vegetation, using ESA WorldCover classes [@Zanaga2022] on the same cells. A region is admitted at 0.50
-with at least 30 burned cells, and rejected as a cropland-dominated control at 0.50 cropland.
-Verdicts and the purpose of the gate are in Section 4.1, the full rule in Section S3.1.
+Before modelling, each region had to pass a gate. The gate asks what fraction of the burned cells is
+covered mainly by natural vegetation, using ESA WorldCover classes [@Zanaga2022]. A region is
+admitted if this fraction is at least 0.50 and at least 30 cells burned. It is rejected as a cropland
+control if the cropland fraction is at least 0.50 (Section S3.1).
 
 ## 3.4 Predictor variables
 
-Two feature sets are used. The **baseline** is terrain, fuel and greenness: elevation, slope,
-dominant land cover and a predictor-window median vegetation-index composite, all static or
-near-static over the timescale at which fire danger varies. The **thermal** set adds six pre-fire
-channels: current land surface temperature, its anomaly against a four-year window-symmetric
-baseline at the same cell, the Temperature-Vegetation Dryness Index and its difference against that
-baseline, and two coordinate-informed products, a downscaled and a fused surface temperature. The
-two differenced channels are the ones constructed to isolate the dynamic anomaly. TVDI's wet and dry
-edges are percentiles of the values a given area and window happen to contain, so **it is not
-portable as a physical quantity independently of any concept shift** (Sections S3.4, S3.5).
+Ten predictors were used (Table S20). The **baseline** set contains elevation and slope from the
+Copernicus DEM GLO-30 [@CopernicusDEM], dominant land cover from ESA WorldCover v200 [@Zanaga2022],
+and the median NDVI of the predictor window from Landsat 8 Collection 2 Level-2 [@LandsatC2L2].
+These change little over one fire season. The **thermal** set adds six channels from Landsat 8
+surface temperature. They are screened for quality and composited as the median of the predictor
+window. The six channels are current LST, its anomaly against the four baseline years, the TVDI
+[@Sandholt2002], its difference from the baseline years, a downscaled LST and a fused LST. The last two use MODIS MOD11A1
+v061 daily LST [@MOD11A1] to fill gaps in Landsat (0.11 % to 9.70 % of pixels, depending on the
+region). TVDI edges are fitted inside each area and window, so a TVDI value does not mean the same
+moisture state in two regions (Section S3.4).
 
-**Quality screening of the coarse thermal input** is compared in Section S1.5, *Quality screening,
-and a correction*: the two arms ran different step7 versions, and the result does not change
-(elevation 0.232; no other signed AUC moves by more than 0.005).
+**The six thermal channels carry about two signals.** Current, fused and downscaled LST are
+correlated at 0.97 to 1.00 in every region. Current LST and TVDI are correlated at 0.88 to 0.98, and
+the two anomaly channels at 0.71 to 0.94. Two principal components explain 92 % to 98 % of their variance
+(`paper/labelfix_rerun/labels/r4_dimensionality.json`). Counts over the nine numeric predictors are
+therefore read with care.
+
+**Land cover.** WorldCover v200 is built from 2021 images. This is after the fire for the four 2021
+events. Burned land may therefore be under-represented in its pre-fire vegetation class. The wide
+gate margins (Section 4.1) make it unlikely that this changes a gate decision.
 
 ## 3.5 Cell aggregation, validity and analysis populations
 
-Cell-level values are means over the ~510 m cell from valid 30 m pixels only, with the valid fraction
-recorded. A cell is `valid_for_modeling` when it is not excluded for pre-label burning and its predictors
-are valid: joint finite NDVI, elevation and slope support over
-at least 30 % of the cell, finite means for those three channels, and at least one valid land-cover
-pixel. **Thermal completeness is not part of the definition**: depending on the region, 6 % to 58 %
-of valid cells carry at least one missing thermal channel, and missing values are imputed inside the
-fitting pipeline (Section 3.6) rather than by excluding the cell. The **primary** population is natural vegetation, cells whose combined tree,
-shrub and grass fraction reaches 0.50, which excludes cropland from every burnable mask. The
-**secondary** population is all valid cells; the frozen export carries it for the within-region arm
-in two regions as a sensitivity (Section S1.17); the transfer matrix uses the primary population
-only.
+Cell values are means over the valid 30 m pixels of the cell. A cell is valid for modelling when
+NDVI, elevation and slope are available for at least 30 % of the cell and at least one land-cover
+pixel is valid. Thermal completeness is not required. Missing thermal values (6 % to 58 % of valid
+cells, depending on the region) are filled inside the model pipeline (Section 3.6). The **primary**
+population contains cells in which tree, shrub and grass cover together reach 0.50. Cropland and
+water are therefore excluded. A **secondary** population of all valid cells is used only as a
+within-region sensitivity arm in two regions (Section S1.17).
 
 ## 3.6 Classifier
 
-The thermal set nests the baseline (Section 3.4). Land cover is one-hot encoded. Missing numeric values are median-imputed and the
-categorical channel most-frequent-imputed, with the imputers fitted inside each training fold, and
-on the source alone in transfer, so no held-out statistic enters a fit in the raw arms. Features are
-not otherwise standardised. The adapted arms of Section 3.9 are the exception, and fill missing
-values with the region's own mean. The classifier is a random forest [@Breiman2001] with 300 trees, unlimited depth,
-`min_samples_leaf = 3`, balanced class weights and `random_state = 42`, identical in every arm, so
-that no comparison here is confounded by a model choice.
+The thermal set contains the baseline set (Section 3.4). Land cover is one-hot encoded. Missing
+numeric values are replaced by the median and missing land cover by the most frequent class. These
+values are fitted inside each training fold, and on the source region only in transfer, so no test
+data are used in fitting. The adapted arms of Section 3.9 are the only exception. The classifier is a
+random forest [@Breiman2001] with 300 trees, unlimited depth, `min_samples_leaf = 3`, balanced class
+weights and `random_state = 42`. The same settings are used in every arm.
 
 ## 3.7 Spatial-block cross-validation and bootstrap uncertainty
 
-Cross-validation is spatially blocked. Cell $`i`$ at grid position $`(r_i, c_i)`$, from `row_500m` and
-`col_500m`, is assigned to the block
+Cross-validation is spatially blocked. Cell $`i`$ at grid position $`(r_i, c_i)`$ is assigned to the
+block
 
 ```math {#eq:block}
 b_k(i) = \left( \lfloor r_i / k \rfloor,\; \lfloor c_i / k \rfloor \right).
 ```
 
-Five folds are drawn over whole blocks, stratified by label, so no block is split between training
-and test. The block size $`k`$ is reported at 2, 10 and 20 cells, about 1, 5 and 10 km.
+Five folds are drawn over whole blocks, stratified by label, so a block is never split between
+training and test. Block sizes of $`k`$ = 2, 10 and 20 cells (about 1, 5 and 10 km) are reported.
 
 Every score is a ROC-AUC on a named set of cells $`F`$, its **evaluation frame**. With $`F^{+}`$ the
 burned and $`F^{-}`$ the unburned cells of $`F`$, and $`s_i`$ the predicted score,
@@ -111,138 +108,126 @@ burned and $`F^{-}`$ the unburned cells of $`F`$, and $`s_i`$ the predicted scor
 \mathrm{AUC}(s; F) = \frac{1}{|F^{+}|\,|F^{-}|} \sum_{i \in F^{+}} \sum_{j \in F^{-}} \left[ \mathbf{1}(s_i > s_j) + \tfrac{1}{2}\,\mathbf{1}(s_i = s_j) \right].
 ```
 
-This is the probability that a burned cell in $`F`$ outranks an unburned one, so changing the frame
-changes the metric even when no score changes (Section 3.12).
+This is the probability that a burned cell in $`F`$ is ranked above an unburned one. The metric can
+therefore change when the frame changes, even when no score changes (Section 3.12).
 
-Uncertainty is a spatial-block bootstrap: the blocks of [#eq:block] are resampled with replacement,
-1000 replicates, seed 42, and the interval is the 2.5 and 97.5 percentiles. Differences are paired
-within replicates, and a verdict resting on too few positive-carrying blocks
-is stated as indicative. Direction-level intervals resample the ten unordered region pairs, and a
-quantity with one value per scar or target region gets a Student t interval; the mechanics are in
-Section S3.6.1. **The effective sample is thus ten pairs or five regions for
-direction-level intervals, and at most seven scars from three regions for scar-level ones.**
+Uncertainty is estimated with a spatial-block bootstrap: blocks are resampled with replacement,
+1000 times, with seed 42, and the 2.5 and 97.5 percentiles give the interval. Differences are paired
+within each replicate. The block size is given with every result. Quantities with one value per
+direction are resampled over the ten region pairs. This is the **primary resampling unit** for
+direction-level intervals; other units are given in Section S1.23. Quantities with one value per
+scar or target region get a Student *t* interval. The effective sample is therefore ten pairs or five
+regions for direction-level intervals, and at most seven scars from three regions for scar-level
+intervals.
 
 ## 3.8 Cross-region transfer protocol
 
-For each ordered pair the model is fitted on the source population and applied to the target with
-**no target label used at any point**: no refitting, no threshold selection, no calibration. Both
-feature sets are transferred, so the thermal block's contribution is a paired difference within a
-direction rather than a comparison across directions. All twenty ordered directions are computed.
+For each ordered pair of regions, the model was fitted on the source region and applied to the
+target region. **No target label was used**: there was no refitting, threshold selection or
+calibration on the target. Both feature sets were transferred, so the gain from the thermal block is
+a paired difference within each direction. All twenty ordered directions were computed.
 
 ## 3.9 Label-blind domain adaptation
 
-Two label-free remedies are tested on every direction, in both feature sets.
-
-**Region-wise z-score** standardises each region's numeric features with its own statistics, never
-pooled. **CORAL after region-wise z-score** then aligns the source covariance to the target's by the
-whitening-recolouring map [@Sun2016], with λ = 10⁻⁵, applied to the source only. Target feature
-statistics, never target labels, enter the adapted arms, and both variants are verified label-blind at
-run time. λ sensitivity was assessed over nine values on four of the twenty directions, moving
-transfer AUC by at most 0.014, and no value of λ was selected on performance (Section S1.2). The
-equations and numerical details are in Section S3.8, *Label-blind adaptation, full specification*.
+Two label-free methods were tested on every direction and in both feature sets. **Region-wise
+z-score** standardises the numeric features of each region with its own statistics. **CORAL after
+region-wise z-score** then aligns the source covariance with the target covariance [@Sun2016], with
+λ = 10⁻⁵. Only target feature statistics, never target labels, are used. The value of λ was not
+chosen by performance; its effect is reported in Section S1.2. Details are in Section S3.8.
 
 ## 3.10 Transfer-gap decomposition and the concept-shift criterion
 
-For a direction into a target, let $`A_{\mathrm{w}}`$ be the target's within-region thermal AUC
-under blocked cross-validation, $`A_{\mathrm{raw}}`$ the raw transfer AUC and $`A_{\mathrm{ad}}`$
-the transfer AUC after adaptation method $`m`$, all on the same target cells. The gap is decomposed as
+For a direction into a target, let $`A_{\mathrm{w}}`$ be the within-region thermal AUC of the target,
+$`A_{\mathrm{raw}}`$ the raw transfer AUC and $`A_{\mathrm{ad}}`$ the transfer AUC after adaptation
+method $`m`$, all on the same target cells. The gap is split as
 
 ```math {#eq:decomp}
-G = A_{\mathrm{w}} - A_{\mathrm{raw}}, \qquad R_m = A_{\mathrm{ad}} - A_{\mathrm{raw}}, \qquad U_m = A_{\mathrm{w}} - A_{\mathrm{ad}}, \qquad \rho_m = R_m / G,
+G = A_{\mathrm{w}} - A_{\mathrm{raw}}, \qquad R_m = A_{\mathrm{ad}} - A_{\mathrm{raw}}, \qquad U_m = A_{\mathrm{w}} - A_{\mathrm{ad}}, \qquad f_m = R_m / G,
 ```
 
-so $`R_m + U_m = G`$. The recovered fraction $`\rho_m`$ is signed and unclipped. **When adaptation
-lowers AUC, $`R_m`$ and $`\rho_m`$ are negative and reported as negative recovery, never set to
-zero.** No fraction is reported when $`G \le 0`$. Intervals come from the paired spatial-block bootstrap
-of Section 3.7 on 2-cell target blocks, resampling within-region out-of-fold and transfer scores
-together and evaluating [#eq:decomp] per replicate (degenerate replicates: Section S3.7).
-Where one method is shown per direction it is the one with the higher $`A_{\mathrm{ad}}`$, a choice
-that uses target labels. Section 4.3 shows the remainder should not be read as a
-conditional residual, because much of it is incurred inside a single region (Sections S1.10, S3.7).
+so that $`R_m + U_m = G`$. The recovered fraction $`f_m`$ is signed and is not clipped. When
+adaptation lowers AUC, the recovery is negative and is reported as negative. Intervals come from the
+paired bootstrap of Section 3.7 (Section S3.7).
 
-The mechanism is diagnosed by **signed univariate association**: the raw ROC-AUC of each numeric
-predictor against `burned` is computed per region and never folded to max(AUC, 1 − AUC), so a value
-below 0.5 is a direction rather than weakness. A reversal is called bootstrap-supported only when the
-two regions' point estimates fall on opposite sides of 0.5 **and each region's own interval excludes
-0.5**. That is stricter than requiring the intervals to be disjoint, and a feature failing the second
-condition is recorded as a point reversal only.
+The direction of each predictor was measured with a **signed univariate association**: the ROC-AUC
+of each numeric predictor against `burned`, computed in each region and never folded to
+max(AUC, 1 − AUC). A value below 0.5 shows a direction, not weakness. A reversal between two regions
+is called supported only when the two values are on opposite sides of 0.5 **and** each region's own
+interval excludes 0.5. This is a per-comparison criterion. A Holm correction over each family of
+feature-by-pair comparisons is also reported (Section S1.20).
 
 ## 3.11 Interventions
 
-**Pooled multi-region training.** Leave-one-region-out: the model is trained on the pooled primary
-populations of the other four regions and evaluated on the held-out region, with folds blocked as
-before. This asks whether pooling recovers what single-source transfer loses.
+**Pooled training.** In leave-one-region-out training, a model was trained on the other four regions
+together and tested on the held-out region. It was compared with the mean of the four single-source
+models, because choosing the best single source would require target labels.
 
-**Removal of direction-reversing features.** The two predictors reversing with bootstrap support
-**on the frames as drawn** are **`elevation_mean`** and **`lst_anomaly_mean`**. Section 4.4 withdraws
-that support under an equalised frame, so the selection rule is frame-dependent and this arm is
-reported as a measurement under the original protocol, not as a consequence of an established
-reversal. Both are dropped and everything refitted, within-region and across every direction, and
-each is dropped singly so the cost can be attributed. The two features are selected by the same
-reversal analysis the result is then read against, so **both quantities are post-selection estimates**
-with no correction applied.
+**Removal of reversing features.** The two predictors whose reversal was supported under the
+original label, `elevation_mean` and `lst_anomaly_mean`, were removed, and all models were refitted.
+Each was also removed alone. The selection was not repeated under the corrected label (Table S10).
+Because the two features were chosen from the same data, both results are post-selection estimates.
 
 ## 3.12 Evaluation frames and controls on the transfer path
 
-Let $`V_R`$ be the primary population of region $`R`$ and $`P_R \subset V_R`$ its burned cells. By
-[#eq:auc], a frame fixes which burned and unburned cells are compared. The **region-wide frame** is
-$`V_R`$, the rectangle as drawn, used in Sections 4.2 and 4.5.
+Let $`V_R`$ be the primary population of region $`R`$ and $`P_R \subset V_R`$ its burned cells. The
+**region-wide frame** is $`V_R`$, the rectangle as drawn.
 
-**Scar frames.** A scar is an 8-connected component $`K`$ of $`P_R`$ with at least 50 cells. Its
-**scar + 2 km collar** is
+**Scar frames.** A scar is an 8-connected group $`K`$ of at least 50 burned cells. Its **scar and
+2 km collar** is
 
 ```math {#eq:scar}
 H_K = \Big\{ i \in V_R : \min_{j \in K} \big( |r_i - r_j| + |c_i - c_j| \big) \le m \Big\},
 ```
 
-with $`m = \mathrm{round}(2 / 0.45) = 4`$ grid steps, computed as $`m`$ steps of 4-connected dilation. Its negatives are all fire-adjacent. Four evaluations
-use it (Table S1). A scores out-of-fold predictions from 5-fold blocked cross-validation ($`k = 10`$) on
-$`V_R`$, and B scores the same predictions on $`H_K`$. B is thus the **same blocked model
-restricted** to the scar area, which isolates the evaluation region from the training regime. C is
-**leave-one-scar-out**: a model fitted on $`V_R \setminus H_K`$ is scored on $`H_K`$, skipped if
-either set has one class. D, the **foreign-region evaluation**, averages over the four other regions
-a model fitted on that region's population and scored on $`H_K`$. Buffers of 2, 5 and 10 km were
-run, 2 km primary. Three controls reuse A's predictions, prevalence-matched, negative-pool and positive-pool, and a
-within-region half-split completes the set; their specification is in Section S1.9.3.
+with $`m = 4`$ grid steps. All its unburned cells are next to the fire. Four evaluations use it
+(Table 2). A scores the out-of-fold predictions of 5-fold blocked cross-validation ($`k = 10`$) on
+$`V_R`$, and B scores the same predictions on $`H_K`$. B is therefore the same model scored on a
+different set of cells. C is **leave-one-scar-out**: a model fitted on $`V_R \setminus H_K`$ is
+scored on $`H_K`$. D averages over the four other regions a model fitted on that region and scored on
+$`H_K`$. Three controls reuse the predictions of A: a prevalence-matched sample, a negative-pool swap
+and a positive-pool swap (Section S1.9.3).
 
-**Distance collars.** With 0.45 km per grid step on both axes, the distance to the nearest burned
-cell and the collar of radius $`r`$, for $`r`$ of 5 and 10 km, are
+**Distance collars.** The distance to the nearest burned cell and the collar of radius $`r`$ (5 or
+10 km) are
 
 ```math {#eq:collar}
 d_i = 0.45 \min_{j \in P_R} \big\lVert (r_i, c_i) - (r_j, c_j) \big\rVert_2, \qquad F_R(r) = \{ i \in V_R : d_i \le r \}.
 ```
 
-Every burned cell has $`d_i = 0`$ and is kept, so only far-field negatives leave. In transfer the
-model is fitted on $`F_s(r_s)`$ and scored on $`F_t(r_t)`$, with the pairs of Table S8 and
-$`r = \infty`$ for the region-wide frame.
+The 0.45 km step is a single value for both axes, so collar radii are nominal to within about 15 %.
+Every burned cell has $`d_i = 0`$ and is kept; only distant unburned cells are removed. In transfer
+the model is fitted on $`F_s(r_s)`$ and scored on $`F_t(r_t)`$.
 
-**Every collar frame, $`H_K`$ and $`F_R(r)`$ alike, is defined from burned cells, so it is
-label-conditioned.** It is a diagnostic of how the scoring extent shapes the metric. It cannot be
-drawn before a fire.
+**Every collar frame is defined from burned cells.** It is used to show how the evaluation area
+changes the metric. It cannot be drawn before a fire.
 
 ## 3.13 Leakage control and reproducibility
 
-An explicit forbidden-column set is enforced at every model fit as an assertion rather than a
-convention: coordinates and their normalised forms, every burn-date and label-provenance column, and
-the agreement fraction are excluded from all feature sets. The natural-vegetation mask defines the
-population and is never a predictor. All randomness uses seed 42 and the bootstrap 1000
-replicates (the diagnostic bootstraps of the Supplementary Material use per-measure offsets from that seed, so
-that independent measures do not share a draw). Across five seeds every transfer verdict at 1 km blocking is stable; at
-5 km one level verdict and two paired-delta verdicts are not, and Section S1.21 identifies them.
-The repository's own reproduction check refitted every within-region model and all twenty directed
-CORAL transfers against the frozen upstream output, Manavgat's re-frozen one included (Section
-3.2): the within-region comparisons agree exactly and the transfer directions to within 1.3×10⁻⁸.
-The tolerances, the re-freeze's one-line patch and the frame-transfer script's run-to-run
-variation are in Section S3.6.2. The re-freeze and this check were carried out by the
-manuscript authors rather than independently by the pipeline's original author. Headline results are repeated across two
-populations, three block sizes, the CORAL sweep, both feature sets and four classifier capacities,
-and where a conclusion depends on one of those choices **the dependence is reported rather than
-resolved by choosing the favourable setting** (Sections S1, S3.6).
+A list of forbidden columns is checked at every model fit: coordinates, all burn-date and
+label-provenance columns, and the agreement fraction. The vegetation mask defines the population and
+is never used as a predictor. All randomness uses seed 42. The random-forest seed is fixed, so
+direction-level intervals are conditional on one fitted source model. Across five bootstrap seeds,
+every transfer verdict at 1 km blocking is stable; at 5 km, three verdicts change (Section S1.21).
+
+The reproduction check refitted every within-region model and all twenty CORAL transfers against
+the frozen pipeline outputs. The within-region results agree exactly and the transfers to within
+1.3×10⁻⁸ (Section S3.6.2). Point estimates depend on the scikit-learn version. Under version 1.5.2
+instead of 1.9.0, single-direction AUCs moved by up to 0.047 and one support count changed
+(`paper/labelfix_rerun/round7/sklearn152/`). Exact reproduction therefore needs the archived
+environment. The label correction and the re-run were done by the corresponding author; they were
+not repeated independently by the author of the pipeline. Where a result depends on a design choice,
+the dependence is reported (Sections S1 and S3.6). Analyses added after the main results are
+listed in Section S1.23.
+
+**Use of AI tools.** Claude (Anthropic; Opus-family models, July to September 2026) was used to
+write and run analysis, verification and figure code, including the label correction and re-run. It
+was also used to check reported numbers, to run simulated reviews, and to draft and edit text. Every
+input is identified by SHA-256, and reported numbers are checked against tracked outputs by
+`paper/figures/check_all.py`. The corresponding author reviewed the code, outputs and text.
 
 ## 3.14 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 
-Muğla admits a comparison in which place is held fixed and the event varies: a second fire burned
-inside the identical AOI, on the identical grid, eleven months after the first. Signed univariate
-AUCs are computed for both arms under the same 10-cell bootstrap used elsewhere. **Season, year and
-population all differ**, since the 2022 arm is defined by removing the 2021 scar (Sections S1.13,
-S3.3).
+A second fire burned inside the same Muğla study area eleven months after the first. The signed
+associations of both fires were computed with the same bootstrap. Season, year and population all
+differ between the two arms, because the 2022 arm is defined by removing the 2021 scar (Sections
+S1.13 and S3.3).

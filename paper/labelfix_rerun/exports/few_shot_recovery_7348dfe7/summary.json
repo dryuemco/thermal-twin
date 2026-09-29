@@ -1,0 +1,609 @@
+{
+  "analysis_id": "7348dfe74423acef7b5da3c0b64c45c73978738038797d490717d2c04e42b7c5",
+  "bootstrap_performed": false,
+  "ceiling_reproduction": {
+    "bejis_2022": {
+      "available": true,
+      "family": {
+        "baseline": {
+          "abs_diff": 0.0,
+          "distinct_observed_values": 1,
+          "expected": 0.7793700238725079,
+          "match": true,
+          "observed": 0.7793700238725079,
+          "tolerance": 1e-09
+        },
+        "thermal": {
+          "abs_diff": 0.0,
+          "distinct_observed_values": 1,
+          "expected": 0.8244685786179753,
+          "match": true,
+          "observed": 0.8244685786179753,
+          "tolerance": 1e-09
+        }
+      }
+    },
+    "manavgat_2021": {
+      "available": true,
+      "family": {
+        "baseline": {
+          "abs_diff": 0.0,
+          "distinct_observed_values": 1,
+          "expected": 0.8203196301445599,
+          "match": true,
+          "observed": 0.8203196301445599,
+          "tolerance": 1e-09
+        },
+        "thermal": {
+          "abs_diff": 0.0,
+          "distinct_observed_values": 1,
+          "expected": 0.8822236106383259,
+          "match": true,
+          "observed": 0.8822236106383259,
+          "tolerance": 1e-09
+        }
+      }
+    },
+    "mugla_2021": {
+      "available": true,
+      "family": {
+        "baseline": {
+          "abs_diff": 0.0,
+          "distinct_observed_values": 1,
+          "expected": 0.6979859420145867,
+          "match": true,
+          "observed": 0.6979859420145867,
+          "tolerance": 1e-09
+        },
+        "thermal": {
+          "abs_diff": 0.0,
+          "distinct_observed_values": 1,
+          "expected": 0.7773268638729566,
+          "match": true,
+          "observed": 0.7773268638729566,
+          "tolerance": 1e-09
+        }
+      }
+    }
+  },
+  "diagnostic_class": "target_label_supervised_few_shot_adaptation_sensitivity",
+  "earth_engine_used": false,
+  "external_ceiling_reference": {
+    "bejis_2022": {
+      "auc_baseline": {
+        "lower": 0.7238017629508953,
+        "upper": 0.8302552859598145
+      },
+      "auc_thermal": {
+        "lower": 0.764593967919069,
+        "upper": 0.8837889809696836
+      },
+      "available": true,
+      "block_size_cells": 10,
+      "comparable_to_raw_endpoint": false,
+      "interval_name_in_source": "spatial_block_bootstrap_2_5 / spatial_block_bootstrap_97_5",
+      "is_selection_interval": false,
+      "n_replicates": 1000,
+      "note": "Frozen 10-cell paired spatial-block bootstrap of the target-only ceiling. Reproduced verbatim for context. It is NOT a selection interval and there is no comparable interval for the raw endpoint.",
+      "random_seed": 42,
+      "source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block\\manavgat_2021__bejis_2022\\bejis_2022\\block_10_cells\\step8c_large_block_bootstrap_summary.json"
+    },
+    "manavgat_2021": {
+      "auc_baseline": {
+        "lower": 0.7768729395249651,
+        "upper": 0.8602216001261771
+      },
+      "auc_thermal": {
+        "lower": 0.8450525289998627,
+        "upper": 0.9136599918297995
+      },
+      "available": true,
+      "block_size_cells": 10,
+      "comparable_to_raw_endpoint": false,
+      "interval_name_in_source": "spatial_block_bootstrap_2_5 / spatial_block_bootstrap_97_5",
+      "is_selection_interval": false,
+      "n_replicates": 1000,
+      "note": "Frozen 10-cell paired spatial-block bootstrap of the target-only ceiling. Reproduced verbatim for context. It is NOT a selection interval and there is no comparable interval for the raw endpoint.",
+      "random_seed": 42,
+      "source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\robustness\\step8_large_block\\manavgat_2021__bejis_2022\\manavgat_2021\\block_10_cells\\step8c_large_block_bootstrap_summary.json"
+    },
+    "mugla_2021": {
+      "auc_baseline": {
+        "lower": 0.6562496847700009,
+        "upper": 0.7326792374068737
+      },
+      "auc_thermal": {
+        "lower": 0.7261831436032956,
+        "upper": 0.8190206726620467
+      },
+      "available": true,
+      "block_size_cells": 10,
+      "comparable_to_raw_endpoint": false,
+      "interval_name_in_source": "spatial_block_bootstrap_2_5 / spatial_block_bootstrap_97_5",
+      "is_selection_interval": false,
+      "n_replicates": 1000,
+      "note": "Frozen 10-cell paired spatial-block bootstrap of the target-only ceiling. Reproduced verbatim for context. It is NOT a selection interval and there is no comparable interval for the raw endpoint.",
+      "random_seed": 42,
+      "source_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\rerun_labelfix\\pipeline\\outputs\\experiments\\mugla_2021\\robustness\\step8_big_blocks\\block_10_cells\\bootstrap_summary.json"
+    }
+  },
+  "fit_accounting": {
+    "ceiling_fits": 30,
+    "ceiling_reuse_per_fit": 2.0,
+    "expected": {
+      "ceiling_fits": 30,
+      "few_shot_fits": 3600,
+      "raw_fits": 12,
+      "unique_fits": 3642
+    },
+    "few_shot_fits": 3600,
+    "matches_expected": true,
+    "raw_fits": 12,
+    "raw_reuse_per_fit": 5.0,
+    "references_by_condition": {
+      "ceiling": 60,
+      "few_shot": 3600,
+      "raw": 60
+    },
+    "reuse_events": 78,
+    "reused_directions": [],
+    "unique_fits": 3642
+  },
+  "headline": {
+    "interval_name": "selection_interval",
+    "per_direction": [
+      {
+        "budget_curve": [
+          {
+            "absolute_recovery": 0.0,
+            "budget_blocks": 0,
+            "fewshot_value": 0.3141548720223256,
+            "recovery_fraction": 0.0,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.3141548720223256,
+            "selection_interval_upper": 0.3141548720223256
+          },
+          {
+            "absolute_recovery": 0.20341671680989803,
+            "budget_blocks": 1,
+            "fewshot_value": 0.5175715888322237,
+            "recovery_fraction": 0.35808468761278284,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.35269899609503125,
+            "selection_interval_upper": 0.5818997118573492
+          },
+          {
+            "absolute_recovery": 0.2505166804431317,
+            "budget_blocks": 2,
+            "fewshot_value": 0.5646715524654573,
+            "recovery_fraction": 0.44099712484350323,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5395928543278391,
+            "selection_interval_upper": 0.609823546308308
+          },
+          {
+            "absolute_recovery": 0.3449667988483599,
+            "budget_blocks": 4,
+            "fewshot_value": 0.6591216708706855,
+            "recovery_fraction": 0.607262423362375,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6068401569160051,
+            "selection_interval_upper": 0.7075087095594192
+          },
+          {
+            "absolute_recovery": 0.3836013702284128,
+            "budget_blocks": 8,
+            "fewshot_value": 0.6977562422507384,
+            "recovery_fraction": 0.6752728044197436,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6539425000911108,
+            "selection_interval_upper": 0.739729653996196
+          },
+          {
+            "absolute_recovery": 0.43579145016551135,
+            "budget_blocks": 16,
+            "fewshot_value": 0.749946322187837,
+            "recovery_fraction": 0.7671456296420055,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.7264368046988343,
+            "selection_interval_upper": 0.7770424126441586
+          },
+          {
+            "absolute_recovery": 0.5058003150494053,
+            "budget_blocks": 32,
+            "fewshot_value": 0.8199551870717309,
+            "recovery_fraction": 0.8903857590926388,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.8150595762651408,
+            "selection_interval_upper": 0.8236348640976274
+          }
+        ],
+        "ceiling_gap": 0.5680687386160003,
+        "ceiling_value": 0.8822236106383259,
+        "direction": "bejis_2022_to_manavgat_2021",
+        "raw_value": 0.3141548720223256,
+        "source_experiment": "bejis_2022",
+        "target_experiment": "manavgat_2021"
+      },
+      {
+        "budget_curve": [
+          {
+            "absolute_recovery": 0.0,
+            "budget_blocks": 0,
+            "fewshot_value": 0.6184747489978262,
+            "recovery_fraction": 0.0,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6184747489978262,
+            "selection_interval_upper": 0.6184747489978262
+          },
+          {
+            "absolute_recovery": -0.04259505900018201,
+            "budget_blocks": 1,
+            "fewshot_value": 0.5758796899976442,
+            "recovery_fraction": -0.26814285119001974,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5330428584080674,
+            "selection_interval_upper": 0.6173138398018748
+          },
+          {
+            "absolute_recovery": -0.04109854489529918,
+            "budget_blocks": 2,
+            "fewshot_value": 0.577376204102527,
+            "recovery_fraction": -0.2587220505537852,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5454865783743912,
+            "selection_interval_upper": 0.6098064510459712
+          },
+          {
+            "absolute_recovery": -0.04001643234817853,
+            "budget_blocks": 4,
+            "fewshot_value": 0.5784583166496476,
+            "recovery_fraction": -0.2519099753858136,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5377977432261906,
+            "selection_interval_upper": 0.6010292380914767
+          },
+          {
+            "absolute_recovery": -0.020769997310404076,
+            "budget_blocks": 8,
+            "fewshot_value": 0.5977047516874221,
+            "recovery_fraction": -0.13075052432717588,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5503794170337122,
+            "selection_interval_upper": 0.6396418206451351
+          },
+          {
+            "absolute_recovery": 0.018764749337554454,
+            "budget_blocks": 16,
+            "fewshot_value": 0.6372394983353806,
+            "recovery_fraction": 0.11812716092766498,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5743463325538465,
+            "selection_interval_upper": 0.6522113523120175
+          },
+          {
+            "absolute_recovery": 0.04766086489589316,
+            "budget_blocks": 32,
+            "fewshot_value": 0.6661356138937193,
+            "recovery_fraction": 0.300032926431972,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6298895620611824,
+            "selection_interval_upper": 0.6948220926566955
+          }
+        ],
+        "ceiling_gap": 0.1588521148751304,
+        "ceiling_value": 0.7773268638729566,
+        "direction": "bejis_2022_to_mugla_2021",
+        "raw_value": 0.6184747489978262,
+        "source_experiment": "bejis_2022",
+        "target_experiment": "mugla_2021"
+      },
+      {
+        "budget_curve": [
+          {
+            "absolute_recovery": 0.0,
+            "budget_blocks": 0,
+            "fewshot_value": 0.3964026711400735,
+            "recovery_fraction": 0.0,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.3964026711400735,
+            "selection_interval_upper": 0.3964026711400735
+          },
+          {
+            "absolute_recovery": 0.05047964384799025,
+            "budget_blocks": 1,
+            "fewshot_value": 0.44688231498806374,
+            "recovery_fraction": 0.11792493390891257,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.40318853877669525,
+            "selection_interval_upper": 0.5140941496225563
+          },
+          {
+            "absolute_recovery": 0.05944783534421577,
+            "budget_blocks": 2,
+            "fewshot_value": 0.45585050648428926,
+            "recovery_fraction": 0.13887542620357982,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.408460894251242,
+            "selection_interval_upper": 0.511292605974579
+          },
+          {
+            "absolute_recovery": 0.1445008710239371,
+            "budget_blocks": 4,
+            "fewshot_value": 0.5409035421640106,
+            "recovery_fraction": 0.33756687580030353,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.4663114604168011,
+            "selection_interval_upper": 0.5917528598619266
+          },
+          {
+            "absolute_recovery": 0.20131485902316276,
+            "budget_blocks": 8,
+            "fewshot_value": 0.5977175301632363,
+            "recovery_fraction": 0.47028940054880525,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5655816455900381,
+            "selection_interval_upper": 0.6162408284405446
+          },
+          {
+            "absolute_recovery": 0.29340063875088723,
+            "budget_blocks": 16,
+            "fewshot_value": 0.6898033098909607,
+            "recovery_fraction": 0.6854099652073636,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6828729692238209,
+            "selection_interval_upper": 0.7002418156010066
+          },
+          {
+            "absolute_recovery": 0.35588176656558496,
+            "budget_blocks": 32,
+            "fewshot_value": 0.7522844377056584,
+            "recovery_fraction": 0.8313714321759127,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.7358148606361701,
+            "selection_interval_upper": 0.7619858248919285
+          }
+        ],
+        "ceiling_gap": 0.4280659074779018,
+        "ceiling_value": 0.8244685786179753,
+        "direction": "manavgat_2021_to_bejis_2022",
+        "raw_value": 0.3964026711400735,
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "bejis_2022"
+      },
+      {
+        "budget_curve": [
+          {
+            "absolute_recovery": 0.0,
+            "budget_blocks": 0,
+            "fewshot_value": 0.4376617829318566,
+            "recovery_fraction": 0.0,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.4376617829318566,
+            "selection_interval_upper": 0.4376617829318566
+          },
+          {
+            "absolute_recovery": 0.008874639675972795,
+            "budget_blocks": 1,
+            "fewshot_value": 0.4465364226078294,
+            "recovery_fraction": 0.026127618568809293,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.44040937103218136,
+            "selection_interval_upper": 0.4594066477776977
+          },
+          {
+            "absolute_recovery": 0.015442198516843586,
+            "budget_blocks": 2,
+            "fewshot_value": 0.4531039814487002,
+            "recovery_fraction": 0.04546301454968036,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.4427574941322555,
+            "selection_interval_upper": 0.4681176693790733
+          },
+          {
+            "absolute_recovery": 0.030272481463155754,
+            "budget_blocks": 4,
+            "fewshot_value": 0.46793426439501234,
+            "recovery_fraction": 0.08912450281695335,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.4451129836877646,
+            "selection_interval_upper": 0.4813356806464559
+          },
+          {
+            "absolute_recovery": 0.0522141560207518,
+            "budget_blocks": 8,
+            "fewshot_value": 0.4898759389526084,
+            "recovery_fraction": 0.15372247237214842,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.4669091882833798,
+            "selection_interval_upper": 0.5046259930865539
+          },
+          {
+            "absolute_recovery": 0.09446573470588943,
+            "budget_blocks": 16,
+            "fewshot_value": 0.532127517637746,
+            "recovery_fraction": 0.2781143544227626,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.4983891957715586,
+            "selection_interval_upper": 0.5682189639487171
+          },
+          {
+            "absolute_recovery": 0.13298486756561329,
+            "budget_blocks": 32,
+            "fewshot_value": 0.5706466504974699,
+            "recovery_fraction": 0.39151763024081265,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5568440012477996,
+            "selection_interval_upper": 0.590963931920952
+          }
+        ],
+        "ceiling_gap": 0.3396650809411,
+        "ceiling_value": 0.7773268638729566,
+        "direction": "manavgat_2021_to_mugla_2021",
+        "raw_value": 0.4376617829318566,
+        "source_experiment": "manavgat_2021",
+        "target_experiment": "mugla_2021"
+      },
+      {
+        "budget_curve": [
+          {
+            "absolute_recovery": 0.0,
+            "budget_blocks": 0,
+            "fewshot_value": 0.5831912381443964,
+            "recovery_fraction": 0.0,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5831912381443964,
+            "selection_interval_upper": 0.5831912381443964
+          },
+          {
+            "absolute_recovery": -0.005586392670494877,
+            "budget_blocks": 1,
+            "fewshot_value": 0.5776048454739016,
+            "recovery_fraction": -0.023153407856410856,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.5539309052196916,
+            "selection_interval_upper": 0.606996586070069
+          },
+          {
+            "absolute_recovery": 0.019444899670946425,
+            "budget_blocks": 2,
+            "fewshot_value": 0.6026361378153429,
+            "recovery_fraction": 0.08059148709439519,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.574560111942706,
+            "selection_interval_upper": 0.6743722949867732
+          },
+          {
+            "absolute_recovery": 0.04184298987031432,
+            "budget_blocks": 4,
+            "fewshot_value": 0.6250342280147108,
+            "recovery_fraction": 0.17342279133293226,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6044761129750307,
+            "selection_interval_upper": 0.6885099764500936
+          },
+          {
+            "absolute_recovery": 0.08305245499709657,
+            "budget_blocks": 8,
+            "fewshot_value": 0.666243693141493,
+            "recovery_fraction": 0.3442198709339274,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6334842151106523,
+            "selection_interval_upper": 0.6994840263887993
+          },
+          {
+            "absolute_recovery": 0.15991396219110898,
+            "budget_blocks": 16,
+            "fewshot_value": 0.7431052003355054,
+            "recovery_fraction": 0.662780689961312,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.7355433511839473,
+            "selection_interval_upper": 0.7485813423446674
+          },
+          {
+            "absolute_recovery": 0.205634363507323,
+            "budget_blocks": 32,
+            "fewshot_value": 0.7888256016517194,
+            "recovery_fraction": 0.8522738318637968,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.7733260081295568,
+            "selection_interval_upper": 0.797340142912446
+          }
+        ],
+        "ceiling_gap": 0.24127734047357885,
+        "ceiling_value": 0.8244685786179753,
+        "direction": "mugla_2021_to_bejis_2022",
+        "raw_value": 0.5831912381443964,
+        "source_experiment": "mugla_2021",
+        "target_experiment": "bejis_2022"
+      },
+      {
+        "budget_curve": [
+          {
+            "absolute_recovery": 0.0,
+            "budget_blocks": 0,
+            "fewshot_value": 0.3449553227686198,
+            "recovery_fraction": 0.0,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.3449553227686198,
+            "selection_interval_upper": 0.3449553227686198
+          },
+          {
+            "absolute_recovery": 0.013106569939339618,
+            "budget_blocks": 1,
+            "fewshot_value": 0.3580618927079594,
+            "recovery_fraction": 0.024394832591567578,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.35013424808221516,
+            "selection_interval_upper": 0.3846432788070925
+          },
+          {
+            "absolute_recovery": 0.035504906799499636,
+            "budget_blocks": 2,
+            "fewshot_value": 0.3804602295681194,
+            "recovery_fraction": 0.06608412891867907,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.3488477216298514,
+            "selection_interval_upper": 0.40180367529207783
+          },
+          {
+            "absolute_recovery": 0.06227763156976479,
+            "budget_blocks": 4,
+            "fewshot_value": 0.4072329543383846,
+            "recovery_fraction": 0.11591533127089727,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.3767408224317037,
+            "selection_interval_upper": 0.43849336277438883
+          },
+          {
+            "absolute_recovery": 0.09169329556565825,
+            "budget_blocks": 8,
+            "fewshot_value": 0.43664861833427804,
+            "recovery_fraction": 0.17066575049353172,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.42007929665782434,
+            "selection_interval_upper": 0.4802703663583374
+          },
+          {
+            "absolute_recovery": 0.160062748179917,
+            "budget_blocks": 16,
+            "fewshot_value": 0.5050180709485368,
+            "recovery_fraction": 0.2979195902564309,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.4864381984997352,
+            "selection_interval_upper": 0.5325600764051025
+          },
+          {
+            "absolute_recovery": 0.27920374422609734,
+            "budget_blocks": 32,
+            "fewshot_value": 0.6241590669947171,
+            "recovery_fraction": 0.519672853451212,
+            "recovery_fraction_status": "interpretable",
+            "selection_interval_lower": 0.6204114518675381,
+            "selection_interval_upper": 0.626119558457832
+          }
+        ],
+        "ceiling_gap": 0.5372682878697062,
+        "ceiling_value": 0.8822236106383259,
+        "direction": "mugla_2021_to_manavgat_2021",
+        "raw_value": 0.3449553227686198,
+        "source_experiment": "mugla_2021",
+        "target_experiment": "manavgat_2021"
+      }
+    ],
+    "primary_family": "thermal",
+    "primary_metric": "roc_auc"
+  },
+  "limitations": [
+    "Outer evaluation blocks are 10-cell (~5 km), not Step8B's canonical 2-cell blocks. Values are not directly comparable to 2-cell Step8B/Step9B/Step10 numbers.",
+    "No bootstrap interval exists for the raw endpoint at this block scale; existing Step9C/Step10 replicates resample 2-cell blocks and are not comparable. No new bootstrap was designed.",
+    "The reported interval is a selection interval over 10 repeats. It describes block-selection variability only, is not a confidence interval, and supports no claim about statistical support.",
+    "The frozen 10-cell ceiling anchors come from two separate robustness namespaces: the paired large-block run for manavgat_2021 and bejis_2022, and the per-experiment big-block run for mugla_2021. Both are read-only reproduction anchors under the same 10-cell contract; neither was produced or re-run by this analysis.",
+    "At k=16 and k=32 some folds must include unburned-only adaptation blocks; the tier composition columns record where.",
+    "evia_2021_extended is excluded by design; nothing here describes high-prevalence different-regime transfer."
+  ],
+  "p_values_produced": false,
+  "recovery_curve_rows": 252,
+  "repeat_metric_rows": 13392,
+  "schema_version": "few_shot_recovery.v1"
+}

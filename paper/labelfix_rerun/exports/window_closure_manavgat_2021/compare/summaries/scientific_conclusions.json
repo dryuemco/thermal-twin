@@ -1,0 +1,485 @@
+{
+  "allowed_statuses": [
+    "bootstrap_supported_increase",
+    "bootstrap_supported_decrease",
+    "interval_includes_zero"
+  ],
+  "analysis_contract": [
+    "Only the predictor closure timing was changed; both window ends moved together so the window LENGTH is preserved.",
+    "The label window was held fixed and is identical in every variant.",
+    "One exact common cohort was held fixed across all six evaluations.",
+    "One shared spatial-fold assignment was used by all six evaluations.",
+    "The model family, feature registry, preprocessing, hyper-parameters and seeds were held fixed.",
+    "The existing production MODIS seasonal policy was preserved.",
+    "Reducer, QA and processing policy were held fixed; the closure date's interaction with the fixed production policy could change observation support and effective MODIS coverage.",
+    "The analysis therefore measures the closure date together with its interaction with that fixed production policy, not the closure date in isolation."
+  ],
+  "conclusions_by_comparison_family": {
+    "closure_change_within_model_family": {
+      "comparison_family": "closure_change_within_model_family",
+      "evidence_counts": {
+        "bootstrap_supported_decrease": 3,
+        "bootstrap_supported_increase": 4,
+        "interval_includes_zero": 5
+      },
+      "row_count": 12,
+      "rows": [
+        {
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "metric": "roc_auc",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "metric": "pr_auc",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher Brier score.",
+          "metric": "brier",
+          "model_family": "baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "roc_auc",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "pr_auc",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "metric": "brier",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "metric": "roc_auc",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "metric": "pr_auc",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "metric": "brier",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower metric value.",
+          "metric": "roc_auc",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower metric value.",
+          "metric": "pr_auc",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher Brier score.",
+          "metric": "brier",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        }
+      ]
+    },
+    "thermal_contribution_change": {
+      "comparison_family": "thermal_contribution_change",
+      "evidence_counts": {
+        "bootstrap_supported_decrease": 3,
+        "bootstrap_supported_increase": 3,
+        "interval_includes_zero": 0
+      },
+      "row_count": 6,
+      "rows": [
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "roc_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "pr_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "metric": "brier",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower metric value.",
+          "metric": "roc_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower metric value.",
+          "metric": "pr_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher Brier score.",
+          "metric": "brier",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        }
+      ]
+    },
+    "thermal_contribution_within_variant": {
+      "comparison_family": "thermal_contribution_within_variant",
+      "evidence_counts": {
+        "bootstrap_supported_decrease": 3,
+        "bootstrap_supported_increase": 6,
+        "interval_includes_zero": 0
+      },
+      "row_count": 9,
+      "rows": [
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "roc_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "canonical"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "pr_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "canonical"
+        },
+        {
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "metric": "brier",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "canonical"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "roc_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "pr_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "metric": "brier",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "roc_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a higher metric value.",
+          "metric": "pr_auc",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "metric": "brier",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        }
+      ]
+    }
+  },
+  "conclusions_by_metric": {
+    "brier": {
+      "evidence_counts": {
+        "bootstrap_supported_decrease": 5,
+        "bootstrap_supported_increase": 3,
+        "interval_includes_zero": 1
+      },
+      "metric": "brier",
+      "metric_direction_note": "Brier score is a loss: a negative raw delta indicates a lower Brier score. The sign is reported raw and is never re-oriented.",
+      "row_count": 9,
+      "rows": [
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "canonical"
+        },
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval supports a higher Brier score.",
+          "model_family": "baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval supports a higher Brier score.",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_change",
+          "evidence_statement": "The interval supports a lower Brier score.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_change",
+          "evidence_statement": "The interval supports a higher Brier score.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        }
+      ]
+    },
+    "pr_auc": {
+      "evidence_counts": {
+        "bootstrap_supported_decrease": 2,
+        "bootstrap_supported_increase": 5,
+        "interval_includes_zero": 2
+      },
+      "metric": "pr_auc",
+      "metric_direction_note": "PR-AUC: a positive raw delta indicates a higher PR-AUC value.",
+      "row_count": 9,
+      "rows": [
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "canonical"
+        },
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval supports a lower metric value.",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_change",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_change",
+          "evidence_statement": "The interval supports a lower metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        }
+      ]
+    },
+    "roc_auc": {
+      "evidence_counts": {
+        "bootstrap_supported_decrease": 2,
+        "bootstrap_supported_increase": 5,
+        "interval_includes_zero": 2
+      },
+      "metric": "roc_auc",
+      "metric_direction_note": "ROC-AUC: a positive raw delta indicates a higher ROC-AUC value.",
+      "row_count": 9,
+      "rows": [
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "canonical"
+        },
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_within_variant",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval includes zero; uncertainty remains about the direction of the metric change.",
+          "model_family": "baseline",
+          "status": "interval_includes_zero",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "closure_change_within_model_family",
+          "evidence_statement": "The interval supports a lower metric value.",
+          "model_family": "thermal",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_change",
+          "evidence_statement": "The interval supports a higher metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_increase",
+          "variant_id": "close_7d_earlier"
+        },
+        {
+          "comparison_family": "thermal_contribution_change",
+          "evidence_statement": "The interval supports a lower metric value.",
+          "model_family": "thermal_minus_baseline",
+          "status": "bootstrap_supported_decrease",
+          "variant_id": "close_14d_earlier"
+        }
+      ]
+    }
+  },
+  "evidence_counts": {
+    "bootstrap_supported_decrease": 9,
+    "bootstrap_supported_increase": 13,
+    "interval_includes_zero": 5
+  },
+  "interpretation_limits": [
+    "Results apply to the Manavgat-2021-style common cohort of this analysis only; they are not automatically transferable to another AOI or fire season.",
+    "These results are descriptive and do not establish an underlying mechanism.",
+    "It is not an operational forecasting validation and supports no deployment or alerting claim.",
+    "Where a bootstrap interval includes zero, the direction of the change is not resolved by these data; uncertainty remains.",
+    "The compare stage produces no new model and no new uncertainty estimate. It summarises verified model-stage outputs.",
+    "No global comparison-evidence criterion is preregistered in this analysis, so no such overall claim is made."
+  ],
+  "majority_vote_across_metrics_taken": false,
+  "schema_version": "window_closure_compare.v1",
+  "single_overall_scientific_verdict_produced": false,
+  "technical_validation_status": "pass"
+}

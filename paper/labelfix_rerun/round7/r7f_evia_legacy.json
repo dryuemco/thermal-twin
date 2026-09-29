@@ -1,0 +1,12 @@
+{
+ "inputs_sha256": {
+  "thermal-twin/drive_new/cross_region/bejis_2022__evia_2021/step9b/cross_region_transfer_predictions.csv": "072f525a570a09e1b91562d597cc2aca80d169a263fe218589e00939fb5e2477",
+  "thermal-twin/drive_new/cross_region/bejis_2022__evia_2021_extended/step9b/cross_region_transfer_predictions.csv": "54ba38fedc59aa69073755860614c398ed98336363daf00987b6dcebd8173320",
+  "thermal-twin-main/paper/labelfix_rerun/pipeline/cross_region/manavgat_2021__evia_2021/step9b/cross_region_transfer_predictions.csv": "b0afebbceef325f601ae168098582d3a20f100b669bd3f06c36a2b173a915d1b",
+  "thermal-twin-main/paper/labelfix_rerun/pipeline/cross_region/manavgat_2021__evia_2021_extended/step9b/cross_region_transfer_predictions.csv": "17388ba8e9ef41cb570a9b95e165495769197bea0aa5e5ceea74bd370ab82b02",
+  "thermal-twin/drive_new/cross_region/mugla_2021__evia_2021/step9b/cross_region_transfer_predictions.csv": "e7d38454db990a90455bfb358415a1b995e7e02246d6e1fa5827bf6d17dabfbf",
+  "thermal-twin/drive_new/cross_region/mugla_2021__evia_2021_extended/step9b/cross_region_transfer_predictions.csv": "98969f4508957262707126c9b7ff8fc3a34dc25db8122ddf9b30fe7288bfc404"
+ },
+ "max_abs_change": 0.13367754464621495,
+ "n_crossing_chance": 0
+}

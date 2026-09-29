@@ -1,0 +1,4 @@
+variant_id,shift_days,predictor_start_date,predictor_end_date,duration_days,duration_preserved,label_start_date,label_end_date,label_window_unchanged,lead_days,is_canonical
+canonical,0,2021-06-01,2021-07-27,56,True,2021-07-28,2021-08-31,True,1,True
+close_7d_earlier,7,2021-05-25,2021-07-20,56,True,2021-07-28,2021-08-31,True,8,False
+close_14d_earlier,14,2021-05-18,2021-07-13,56,True,2021-07-28,2021-08-31,True,15,False

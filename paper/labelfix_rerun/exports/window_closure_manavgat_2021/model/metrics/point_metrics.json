@@ -1,0 +1,89 @@
+{
+  "analysis_id": "ccd42192a789adedac69d97791ab3879143d9396945f05b74e8802d429774682",
+  "metric_sign_conventions": {
+    "brier": "delta_brier = thermal - baseline (RAW). Brier is a LOSS, so a NEGATIVE delta_brier means the thermal model scored BETTER. The sign is never flipped to an improvement orientation in this stage.",
+    "pr_auc": "higher is better; delta_pr_auc = thermal - baseline",
+    "roc_auc": "higher is better; delta_roc_auc = thermal - baseline"
+  },
+  "point_metrics": [
+    {
+      "brier": 0.13136992681179965,
+      "fold_count": 5,
+      "metric_source": "src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics",
+      "model_family": "baseline",
+      "negative_count": 16681,
+      "positive_count": 2725,
+      "pr_auc": 0.4678619980145746,
+      "prevalence": 0.14042048850870864,
+      "roc_auc": 0.8408597816886652,
+      "row_count": 19406,
+      "variant_id": "canonical"
+    },
+    {
+      "brier": 0.09529637827587839,
+      "fold_count": 5,
+      "metric_source": "src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics",
+      "model_family": "thermal",
+      "negative_count": 16681,
+      "positive_count": 2725,
+      "pr_auc": 0.6385011154227265,
+      "prevalence": 0.14042048850870864,
+      "roc_auc": 0.9063382445225545,
+      "row_count": 19406,
+      "variant_id": "canonical"
+    },
+    {
+      "brier": 0.13149778751669464,
+      "fold_count": 5,
+      "metric_source": "src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics",
+      "model_family": "baseline",
+      "negative_count": 16681,
+      "positive_count": 2725,
+      "pr_auc": 0.46652432376758896,
+      "prevalence": 0.14042048850870864,
+      "roc_auc": 0.8399939721564227,
+      "row_count": 19406,
+      "variant_id": "close_14d_earlier"
+    },
+    {
+      "brier": 0.0985633236170058,
+      "fold_count": 5,
+      "metric_source": "src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics",
+      "model_family": "thermal",
+      "negative_count": 16681,
+      "positive_count": 2725,
+      "pr_auc": 0.618595757616533,
+      "prevalence": 0.14042048850870864,
+      "roc_auc": 0.8979384884962235,
+      "row_count": 19406,
+      "variant_id": "close_14d_earlier"
+    },
+    {
+      "brier": 0.1319545976507216,
+      "fold_count": 5,
+      "metric_source": "src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics",
+      "model_family": "baseline",
+      "negative_count": 16681,
+      "positive_count": 2725,
+      "pr_auc": 0.4647379829065947,
+      "prevalence": 0.14042048850870864,
+      "roc_auc": 0.8399752506422458,
+      "row_count": 19406,
+      "variant_id": "close_7d_earlier"
+    },
+    {
+      "brier": 0.08619761717983902,
+      "fold_count": 5,
+      "metric_source": "src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics",
+      "model_family": "thermal",
+      "negative_count": 16681,
+      "positive_count": 2725,
+      "pr_auc": 0.6915454115250967,
+      "prevalence": 0.14042048850870864,
+      "roc_auc": 0.9223174418623837,
+      "row_count": 19406,
+      "variant_id": "close_7d_earlier"
+    }
+  ],
+  "schema_version": "window_closure_model.v1"
+}

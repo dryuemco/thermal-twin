@@ -1,0 +1,165 @@
+{
+ "arms": {
+  "full": {
+   "mean_transfer": 0.5267118,
+   "dirs_above_0.5": 13,
+   "mean_within": 0.895948
+  },
+  "baseline_only": {
+   "mean_transfer": 0.5193836000000001,
+   "dirs_above_0.5": 13,
+   "mean_within": 0.7972656
+  },
+  "anomaly_only": {
+   "mean_transfer": 0.5244866,
+   "dirs_above_0.5": 14,
+   "mean_within": 0.8620832
+  },
+  "absolute_only": {
+   "mean_transfer": 0.53078515,
+   "dirs_above_0.5": 13,
+   "mean_within": 0.8640532000000001
+  },
+  "no_coord_channels": {
+   "mean_transfer": 0.5277261999999999,
+   "dirs_above_0.5": 13,
+   "mean_within": 0.8884926
+  },
+  "drop_elev": {
+   "mean_transfer": 0.5329857500000001,
+   "dirs_above_0.5": 16,
+   "mean_within": 0.8397118000000001
+  },
+  "drop_anom": {
+   "mean_transfer": 0.5293658,
+   "dirs_above_0.5": 13,
+   "mean_within": 0.8825189999999999
+  },
+  "drop_both": {
+   "mean_transfer": 0.54073295,
+   "dirs_above_0.5": 15,
+   "mean_within": 0.8200196
+  }
+ },
+ "normalised_minus_absolute": {
+  "mean": -0.00629855,
+  "positive": 11,
+  "min": -0.09931699999999999,
+  "max": 0.08718799999999993
+ },
+ "no_coord_increment": {
+  "manavgat_2021": {
+   "full": 0.06689300000000009,
+   "without": 0.06354100000000007,
+   "retained": 0.949890123032305
+  },
+  "bejis_2022": {
+   "full": 0.05613299999999999,
+   "without": 0.046048999999999896,
+   "retained": 0.8203552277626335
+  },
+  "mugla_2021": {
+   "full": 0.11566300000000007,
+   "without": 0.09712500000000002,
+   "retained": 0.8397240258336716
+  },
+  "evia_2021_extended": {
+   "full": 0.153285,
+   "without": 0.14462000000000008,
+   "retained": 0.9434713116090947
+  },
+  "montiferru_2021": {
+   "full": 0.10143799999999992,
+   "without": 0.1048,
+   "retained": 1.0331433979376574
+  }
+ },
+ "no_coord_increment_mean": {
+  "full": 0.09868240000000002,
+  "without": 0.09122700000000002
+ },
+ "feature_drop_within_cost_mean": {
+  "drop_elev": -0.05623619999999985,
+  "drop_anom": -0.013429000000000024,
+  "drop_both": -0.07592840000000001
+ },
+ "feature_drop_within_cost_by_region": {
+  "manavgat_2021": {
+   "drop_elev": -0.031826,
+   "drop_anom": -0.003245,
+   "drop_both": -0.034726
+  },
+  "bejis_2022": {
+   "drop_elev": -0.113669,
+   "drop_anom": -0.009169,
+   "drop_both": -0.129948
+  },
+  "mugla_2021": {
+   "drop_elev": -0.05942,
+   "drop_anom": -0.008669,
+   "drop_both": -0.07349
+  },
+  "evia_2021_extended": {
+   "drop_elev": -0.023442,
+   "drop_anom": -0.035049,
+   "drop_both": -0.062553
+  },
+  "montiferru_2021": {
+   "drop_elev": -0.052823,
+   "drop_anom": -0.011011,
+   "drop_both": -0.078926
+  }
+ },
+ "feature_drop_within_ci_by_region": {
+  "manavgat_2021": [
+   -0.0470088456767236,
+   -0.023892857994795597
+  ],
+  "bejis_2022": [
+   -0.16737742549921283,
+   -0.09103136208954868
+  ],
+  "mugla_2021": [
+   -0.09158503327712494,
+   -0.05838171925464299
+  ],
+  "evia_2021_extended": [
+   -0.0828827923382505,
+   -0.04404846207387633
+  ],
+  "montiferru_2021": [
+   -0.1190475437083169,
+   -0.04694271636036871
+  ]
+ },
+ "model_capacity": {
+  "rf_canonical": {
+   "within_thermal": 0.8959479413911648,
+   "within_increment": 0.09868234263503414,
+   "transfer_thermal": 0.5267118880452303,
+   "transfer_increment": 0.007328256754744136,
+   "above_chance": 13
+  },
+  "rf_shallow": {
+   "within_thermal": 0.8378823467365061,
+   "within_increment": 0.0529289436785866,
+   "transfer_thermal": 0.526992545787096,
+   "transfer_increment": -0.011413018326833151,
+   "above_chance": 13
+  },
+  "rf_leaf200": {
+   "within_thermal": 0.8139472386719315,
+   "within_increment": 0.04553025198844176,
+   "transfer_thermal": 0.5224262622903446,
+   "transfer_increment": -0.018944238250045476,
+   "above_chance": 13
+  },
+  "logistic": {
+   "within_thermal": 0.7590828488376148,
+   "within_increment": 0.04612598929565361,
+   "transfer_thermal": 0.48115565400372545,
+   "transfer_increment": -0.020969553491963777,
+   "above_chance": 11
+  }
+ }
+}

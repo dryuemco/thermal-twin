@@ -86,7 +86,7 @@ REGION_LABEL = {
     "bejis_2022": "Bejís", "montiferru_2021": "Montiferru",
 }
 DBAR = "D̄"
-NDASH = "–"
+NDASH = " and "
 
 raw = SRC.read_bytes()
 sha = hashlib.sha256(raw).hexdigest()
@@ -157,7 +157,7 @@ B10_EXPECTED = [
     f"| transfer, 10 km collar | {_cv[MM_][0]:.3f}, {_cv[MG_][0]:.3f} | {_cv[BM_][0]:.3f}, {_cv[MB_][0]:.3f} |",
     f"| rank of 20 on the collar, from the bottom | {_ord(_cv[MM_][3])}, {_ord(_cv[MG_][3])} | "
     f"{_ord(_cv[BM_][3])}, {_ord(_cv[MB_][3])} |",
-    f"| target cells inside the AoA | {_aoa[MM_]:.3f}, {_aoa[MG_]:.3f} | — |",
+    f"| target cells inside the AoA | {_aoa[MM_]:.3f}, {_aoa[MG_]:.3f} | n/a |",
 ]
 _supp = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
 for _row in B10_EXPECTED:
@@ -240,10 +240,11 @@ def draw_panel(ax_main, ax_bar, pair, region_a, region_b, panel_tag,
             for cap in (lo, hi):
                 ax_main.plot([cap, cap], [yline - 0.11, yline + 0.11],
                              color=colour, lw=0.9, alpha=0.6, zorder=2)
-            head = "-|>" if supported(v) else "->"
+            # filled triangle = interval excludes 0.5; open (white-filled) triangle = it does not
             arr = FancyArrowPatch(
-                (0.5, yline), (auc, yline), arrowstyle=head,
-                mutation_scale=8, lw=1.7, color=colour, linestyle=style,
+                (0.5, yline), (auc, yline), arrowstyle="-|>",
+                mutation_scale=11, lw=1.7, edgecolor=colour,
+                facecolor=colour if supported(v) else "white", linestyle=style,
                 zorder=3, shrinkA=0, shrinkB=0)
             ax_main.add_patch(arr)
         b = ax_bar.barh(y, per[fkey]["schoener_d_this_feature"], height=0.62,
@@ -280,10 +281,13 @@ def draw_panel(ax_main, ax_bar, pair, region_a, region_b, panel_tag,
 
     hA = Line2D([], [], color=COL_A, lw=1.8, ls=STYLE_A)
     hB = Line2D([], [], color=COL_B, lw=1.8, ls=STYLE_B)
-    ax_main.legend([hA, hB], [REGION_LABEL[region_a], REGION_LABEL[region_b]],
+    hF = Line2D([], [], color="#333333", marker=">", mfc="#333333", mec="#333333", ls="", ms=6)
+    hO = Line2D([], [], color="#333333", marker=">", mfc="white", mec="#333333", ls="", ms=6)
+    ax_main.legend([hA, hF, hB, hO], [REGION_LABEL[region_a], "CI excludes 0.5",
+                                      REGION_LABEL[region_b], "CI covers 0.5"],
                    loc="lower left", bbox_to_anchor=(0.0, 0.0), ncol=2,
-                   frameon=False, fontsize=FS_SMALL, handlelength=2.4,
-                   columnspacing=1.8, handletextpad=0.6, borderpad=0.0)
+                   frameon=False, fontsize=FS_SMALL, handlelength=2.0,
+                   columnspacing=0.8, handletextpad=0.6, borderpad=0.0)
 
 
 axL = fig.add_subplot(gs[0, 0])
@@ -296,18 +300,18 @@ nr = P_RIGHT["niche_overlap"]
 draw_panel(
     axL, axLb, P_LEFT, "manavgat_2021", "mugla_2021", "a",
     f"Manavgat{NDASH}Muğla",
-    f"Schoener {DBAR} = {nl['schoener_d_mean1d']:.2f} — highest overlap",
+    f"Schoener {DBAR} = {nl['schoener_d_mean1d']:.2f}, highest overlap",
     f"transfer {tl['manavgat_2021_to_mugla_2021']['auc']:.3f} / "
-    f"{tl['mugla_2021_to_manavgat_2021']['auc']:.3f} — both below chance",
+    f"{tl['mugla_2021_to_manavgat_2021']['auc']:.3f}, both below chance",
     f"jointly supported: {len(JS_LEFT)}, all opposite in sign; agree {AGREE_LEFT}/9",
     show_ylabels=True,
 )
 draw_panel(
     axR, axRb, P_RIGHT, "bejis_2022", "montiferru_2021", "b",
     f"Bejís{NDASH}Montiferru",
-    f"Schoener {DBAR} = {nr['schoener_d_mean1d']:.2f} — lowest overlap",
-    "transfer 0.594 / 0.548 — both above chance",
-    f"jointly supported features: {len(JS_RIGHT)} — sets disjoint",
+    f"Schoener {DBAR} = {nr['schoener_d_mean1d']:.2f}, lowest overlap",
+    "transfer 0.594 / 0.548, both above chance",
+    f"jointly supported features: {len(JS_RIGHT)}, sets disjoint",
     show_ylabels=False,
 )
 

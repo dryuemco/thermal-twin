@@ -1,106 +1,98 @@
 # Evaluation geometry and the limits of cross-region transfer in pre-fire thermal wildfire prediction
 
-Analysis code, frozen outputs and manuscript sources for a study that asks whether pre-fire thermal
-predictors, added to a terrain, fuel and greenness baseline, transfer between wildfire regions. Five
-Mediterranean fires are compared: Manavgat 2021 and Muğla 2021 (Türkiye), Bejís 2022 (Spain), North
-Evia 2021 (Greece) and Montiferru 2021 (Sardinia), with MCD64A1 burned-area labels and spatially
-blocked validation. Scoring the same model on the burn scar and its 2 km collar rather than
-region-wide costs 0.133 ROC-AUC, and the thermal block adds skill within regions but +0.007
-[−0.021, +0.037] across twenty transfer directions. At the point estimates, similarity is neither
-sufficient nor necessary: the most niche-similar pair fails both ways (0.438, 0.345), the least
-similar transfers above chance (0.594, 0.548).
+Analysis code, frozen outputs and manuscript sources for a study that tests whether pre-fire thermal
+predictors transfer between wildfire regions. Five Mediterranean fires are compared: Manavgat 2021
+and Muğla 2021 (Türkiye), Bejís 2022 (Spain), North Evia 2021 (Greece) and Montiferru 2021
+(Sardinia, Italy). Burned areas come from MODIS MCD64A1, and all validation is spatially blocked.
 
-| Fig. 8. The contrast pairs | Fig. 4. Cross-region transfer, and what label-blind adaptation does to it |
+Main results:
+
+- When the same model is scored on the burn scar and a 2 km band around it, instead of the whole
+  region, 0.133 ROC-AUC is lost over seven scars (0.160 with the region as the unit).
+- The thermal predictors add skill within regions, but only +0.007 [−0.020, +0.038] across twenty
+  transfer directions (+0.024 [−0.004, +0.049] on comparable study areas).
+- Similarity between regions does not predict transfer. The most similar pair fails in both
+  directions (0.438, 0.345), and the least similar pair transfers above chance (0.594, 0.548).
+
+| Fig. 8. The contrast pairs | Fig. 4. Cross-region transfer |
 |---|---|
 | ![Fig. 8](paper/figures/fig8_contrast_pairs_preview.png) | ![Fig. 4](paper/figures/fig4_transfer_matrix_preview.png) |
 
 ## Repository layout
 
-| Path | Role |
+| Path | Content |
 |---|---|
-| `paper/00_abstract.md` … `paper/07_declarations.md` | Manuscript, one file per section |
-| `paper/supplementary.md` | Supplementary Material: Sections S1–S5, Tables S1–S22 (`paper/SUPPLEMENT_MAP.md` maps former appendix names) |
-| `paper/figure_captions.tex`, `highlights.md`, `frontmatter.json`, `REFERENCES.bib` | Captions, highlights, title data, bibliography |
-| `paper/figures/` | One script per figure and the graphical abstract, their PDF/SVG outputs, previews and provenance records |
-| `paper/code/` | Analysis and verification scripts; `_canonical.py` loads every modelling dataset, checks its SHA-256 and enforces the leakage exclusions |
-| `paper/data/<region>/` | The five step8a modelling datasets (Manavgat on the corrected label); for Manavgat also the corrected burned-area raster and the re-freeze manifest |
-| `design/` | Design notes for the analysis; where they differ from the manuscript, the manuscript is authoritative |
-| `paper/labelfix_rerun/` | **Internal working notes for the label-correction re-run**: round reports, change logs and the outputs every corrected number is read from; `round5/tables/SOURCES.sha256` pins the 49 files the supplementary tables are built from |
-| `paper/canonical_rerun/`, `step9g_raw/`, `mugla_*_raw/`, `era5_raw/`, `reproduction_check/` | Frozen pipeline outputs and re-run records the analyses read |
-| `paper/tex/` | Build and check tooling and the generated LaTeX and PDFs |
-| `paper/submission/` | Submission package: `manuscript.docx`, `supplement.pdf`, `fig1.pdf`–`fig8.pdf`, `graphical_abstract.pdf`, `highlights.txt`; `MANIFEST.md` gives sizes, SHA-256 and the source commit |
-| `paper/REFEREE_ROUND_2.md` | Internal pre-submission review record |
-| `ENVIRONMENT.md` | The exact Python environment and how it was verified |
-| `repo/` | Submodule: the processing pipeline (below) |
+| `paper/00_abstract.md` to `paper/07_declarations.md` | Manuscript, one file per section |
+| `paper/supplementary.md` | Supplementary Material |
+| `paper/figure_captions.tex`, `frontmatter.json`, `REFERENCES.bib` | Captions, title data and bibliography |
+| `paper/figures/` | One script per figure, with PDF and SVG outputs, previews and provenance records |
+| `paper/code/` | Analysis and verification scripts. `_canonical.py` loads every modelling dataset, checks its SHA-256 and applies the leakage exclusions |
+| `paper/data/<region>/` | The five modelling datasets (Manavgat on the corrected label), and for Manavgat the corrected burned-area raster and re-freeze manifest |
+| `paper/labelfix_rerun/` | Corrected-label outputs that the reported numbers are read from. `round5/tables/SOURCES.sha256` pins the 49 files the supplementary tables are built from; `exports/SHA256SUMS.txt` pins the released pipeline diagnostics |
+| `paper/canonical_rerun/`, `step9g_raw/`, `mugla_*_raw/`, `era5_raw/`, `reproduction_check/` | Frozen pipeline outputs and re-run records |
+| `paper/tex/` | `build_docx.py`, which builds the Word files, and the citation style |
+| `paper/submission/` | Submission files: manuscript, supplement and figures, with `MANIFEST.md` |
+| `step10/`, `experiments/` | Two-region transfer analysis and its outputs |
+| `ENVIRONMENT.md` | The Python environment and how it was verified |
+| `repo/` | Submodule: the processing pipeline (see Data) |
 
 ## How to run
 
 Set up the environment in [`ENVIRONMENT.md`](ENVIRONMENT.md): Python 3.12.10 with NumPy 2.4.4,
-pandas 3.0.2 and scikit-learn 1.9.0. Use those pins rather than the pipeline's `requirements.txt`;
-scikit-learn versions differ by about ±0.02 to 0.03 AUC across regions. Run everything from the
-repository root.
+pandas 3.0.2 and scikit-learn 1.9.0. Use these versions. Under another scikit-learn version, single
+transfer AUCs move by up to about 0.05 (`paper/labelfix_rerun/round7/sklearn152/`). Run all commands
+from the repository root.
 
-On Windows, clone to a short path (e.g. `C:\tt`); paths over 260 characters cause spurious check
-failures. Some tracked files have long paths, so clone with
-`git clone -c core.longpaths=true <url> C:\tt`, or the checkout itself stops partway.
+On Windows, clone to a short path with long paths enabled:
+`git clone -c core.longpaths=true <url> C:\tt`.
 
 | Command | What it does |
 |---|---|
-| `python paper/figures/check_all.py` | Runs every figure script, each asserting its plotted values against the frozen outputs and the manuscript text and checking its layout, and `appendix_tables.py`. Committed outputs are restored byte for byte. Exit 0: all pass; 1: a failure; 2: something skipped (Fig. 1 needs cartopy). |
-| `python paper/code/appendix_tables.py` | Rebuilds Tables S2–S7 and S9–S18 (176 rows) from their pinned sources and compares them with the text; `--write` rewrites them |
-| `python paper/figures/fig4_transfer_matrix.py` (and the other `fig*.py`) | Draws one figure and asserts it |
-| `node paper/tex/build_tex.mjs`, `node paper/tex/verify_tex.mjs` | Build the LaTeX; check that every number survives the port and every cross-reference, citation and supplement reference resolves |
+| `python paper/figures/check_all.py` | Runs every figure script and `appendix_tables.py`. Each script checks its plotted values against the frozen outputs and the manuscript text, and checks its layout. Tracked outputs are restored byte for byte. Exit 0: all pass; 1: a failure; 2: something skipped (Fig. 1 needs cartopy). |
+| `python paper/code/appendix_tables.py` | Rebuilds Tables S2 to S7 and S9 to S18 (176 rows) from their pinned sources and compares them with the text |
+| `python paper/figures/fig4_transfer_matrix.py` (and the other `fig*.py`) | Draws and checks one figure |
 | `python paper/tex/build_docx.py` | Builds the Word files (needs `pip install pypandoc_binary python-docx`) |
+| `python paper/code/check_stale_values.py` | Fails if a value that holds only under the original Manavgat label appears without a label |
+| `python paper/code/verify_references.py` | Checks every reference DOI against Crossref or DataCite, and every citation key against the bibliography |
 
 ## Data
 
 The satellite processing pipeline is a separate repository,
 [emrehann17/satellite-thermal-digital-twin](https://github.com/emrehann17/satellite-thermal-digital-twin)
-(MIT licence), included here as the submodule `repo/`. **Commit of record: `6381f4c`.** All satellite
-inputs are public and are retrieved through Google Earth Engine.
+(MIT licence), included as the submodule `repo/`. The Manavgat outputs were re-frozen at commit
+`6381f4c`. The other regions' outputs were produced at earlier commits and are reproduced by it. All
+satellite inputs are public and are retrieved through Google Earth Engine.
 
-The five modelling datasets the analyses read are tracked here, one per region, as
+The five modelling datasets are tracked here as
 `paper/data/<region>/step8a_500m_modeling_dataset.parquet` (about 27 MB in total). For Manavgat this
-is the table on the corrected burned-area label, the official re-freeze (SHA-256 `5a5e876c…`); the
-original-label table (SHA-256 `054a1961…`, built on the label exported on 8 July 2026) is not in the
-repository and is regenerated by the pipeline. These are the only tracked pipeline inputs;
-everything else here is derived from them or
-regenerates from the pipeline at `6381f4c`. `paper/code/_canonical.py` loads them and refuses any
-file whose SHA-256 differs from the pipeline's record, so a clone runs `check_all.py` without
-further downloads. To read a pipeline output tree instead, set `THERMAL_TWIN_DATA` to its root
-(`experiments/<region>/step8a/...`); with such a tree, `THERMAL_TWIN_LABELS=frozen` selects the original
-Manavgat label instead of the corrected one.
-
-The commit history contains local file paths from the pipeline author's environment; these are
-build artefacts, not sensitive data.
+is the table on the corrected burned-area label (SHA-256 `5a5e876c…`). The original-label table
+(SHA-256 `054a1961…`) is not included and can be regenerated by the pipeline.
+`paper/code/_canonical.py` refuses any file whose SHA-256 differs from the recorded value, so a clone
+runs `check_all.py` without further downloads. To read a pipeline output tree instead, set
+`THERMAL_TWIN_DATA` to its root (`experiments/<region>/step8a/...`).
 
 ## Citation
 
 Metin, E., Cogurcu, Y. E. *Evaluation geometry and the limits of cross-region transfer in pre-fire
-thermal wildfire prediction.* Manuscript under review at *Ecological Informatics*.
+thermal wildfire prediction.* Manuscript in preparation for submission to *Natural Hazards*.
+
+## Third-party data
+
+The modelling datasets are derived from MODIS (MCD64A1 v061, MOD11A1 v061; NASA LP DAAC), Landsat 8
+Collection 2 Level-2 (U.S. Geological Survey), the Copernicus DEM GLO-30 and ESA WorldCover v200, and
+remain subject to the terms of these products. WorldCover: © ESA WorldCover project 2021, contains
+modified Copernicus Sentinel data (2021) processed by the ESA WorldCover consortium, CC BY 4.0.
+Copernicus DEM: produced using Copernicus WorldDEM-30 © DLR e.V. 2010 to 2014 and © Airbus Defence
+and Space GmbH 2014 to 2018, provided under COPERNICUS by the European Union and ESA; all rights
+reserved. The MIT licence below covers the code, not these data.
 
 ## Funding
 
 This work was supported by the Çukurova University Scientific Research Projects Coordination Unit
-(Bilimsel Araştırma Projeleri Koordinasyon Birimi) under the Career Starter Project (Kariyer
-Başlangıç Projesi) scheme, project code FKB-2025-17608 ("Termal Dijital İkiz Tabanlı Sürü İHA
-Sistemi ile Orman Yangınlarının Erken Tespiti ve Önlenmesi").
-
-## Acknowledgments
-
-The authors gratefully acknowledge the Çukurova University Scientific Research Projects Coordination
-Unit for financial support of this research, and the Department of Computer Engineering at Çukurova
-University for providing the laboratory environment and institutional support that made this work
-possible.
-
-## AI assistance
-
-During the preparation of this work the authors used Claude (Anthropic) in order to write and run
-analysis and verification code against the frozen pipeline outputs, cross-check reported numbers
-against those outputs, and draft and edit manuscript text. After using this tool, the authors
-reviewed and edited the content as needed and take full responsibility for the content of the
-publication.
+under its Career Starter Project scheme, project code FKB-2025-17608 ("Early detection and prevention
+of forest fires with a thermal digital twin-based UAV swarm system"). The funder had no role in the
+study design, analysis, interpretation or the decision to publish.
 
 ## Licence
 
-MIT; see [`LICENSE`](LICENSE). The pipeline in `repo/` carries its own MIT licence.
+MIT; see [`LICENSE`](LICENSE). The pipeline in `repo/` has its own MIT licence.

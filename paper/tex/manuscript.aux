@@ -1,0 +1,238 @@
+\relax 
+\emailauthor{ycogurcu@cu.edu.tr}{Yunus Emre Cogurcu\corref {cor1}}
+\def\@LN@column{1}
+\Newlabel{cor1}{1}
+\citation{Pausas2021}
+\citation{Vibhandik2026,Jodhani2026}
+\citation{Breiman2001}
+\def\@LN@column{1}
+\Newlabel{inst1}{a}
+\citation{Roberts2017,Ploton2020}
+\citation{Valavi2019,Meyer2018}
+\citation{Podschwit2022}
+\citation{Dimarco2026,Liu2025}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{}\protected@file@percent }
+\newlabel{sec:1}{{1}{2}{}{section.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Portability goes unmeasured}{2}{}\protected@file@percent }
+\newlabel{sec:1.1}{{1.1}{2}{}{subsection.1.1}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Pre-fire thermal dryness is the natural test case}{3}{}\protected@file@percent }
+\newlabel{sec:1.2}{{1.2}{3}{}{subsection.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Contributions}{3}{}\protected@file@percent }
+\newlabel{sec:1.3}{{1.3}{3}{}{subsection.1.3}{}}
+\citation{AlkanAkinci2023,Iban2022}
+\def\@LN@column{1}
+\citation{Sun2016}
+\citation{Xu2026}
+\citation{AlkanAkinci2023,Iban2022}
+\citation{Yebra2013}
+\citation{Chuvieco2004}
+\citation{Sandholt2002}
+\citation{Maffei2018,MaffeiMenenti2019,Maffei2021}
+\citation{Gelabert2025}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related work}{5}{}\protected@file@percent }
+\newlabel{sec:2}{{2}{5}{}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Fire susceptibility mapping, and what it reports}{5}{}\protected@file@percent }
+\newlabel{sec:2.1}{{2.1}{5}{}{subsection.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Pre-fire thermal dryness}{5}{}\protected@file@percent }
+\newlabel{sec:2.2}{{2.2}{5}{}{subsection.2.2}{}}
+\citation{MorenoTorres2012}
+\citation{Sun2016}
+\citation{Tuia2016,Persello2012}
+\citation{Huang2026}
+\citation{Podschwit2022}
+\citation{Liu2025}
+\citation{Xu2026}
+\citation{Kondylatos2023}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Spatial validation and transferability}{6}{}\protected@file@percent }
+\newlabel{sec:2.3}{{2.3}{6}{}{subsection.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Cross-region generalisation of fire models}{6}{}\protected@file@percent }
+\newlabel{sec:2.4}{{2.4}{6}{}{subsection.2.4}{}}
+\citation{Lobo2008}
+\citation{VanDerWal2009}
+\citation{Barve2011}
+\citation{Dimarco2026}
+\citation{MunozSabater2021}
+\citation{Vesk2021}
+\citation{Rousseau2022}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data and methods}{8}{}\protected@file@percent }
+\newlabel{sec:3}{{3}{8}{}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Study regions and temporal windows}{8}{}\protected@file@percent }
+\newlabel{sec:3.1}{{3.1}{8}{}{subsection.3.1}{}}
+\def\@LN@column{1}
+\citation{Giglio2018}
+\citation{Gorelick2017}
+\citation{Boschetti2019}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {Study regions and the gate negative control.} Locations of the five wildfire regions analysed in this study (blue, circular markers): Manavgat 2021 and Mu\u {g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North Evia 2021 (Greece, extended AOI) and Montiferru 2021 (Sardinia, Italy). Rectangles are the true analysis areas of interest; the ring marks each centroid, because at basin scale the rectangles alone are hard to locate. Kozan 2023 (grey, dashed outline, square marker) is \emph  {not} a study region: it is the negative control used to calibrate the burned-landcover admissibility gate, and it enters no model, transfer or diagnostic anywhere in this paper. Its rectangle is the true extent of its processed AOI and is larger than the study AOIs for that reason alone; the difference in size carries no methodological meaning and is not a design choice. Coastlines are Natural Earth 1:50\,m; country borders are omitted deliberately. The scale bar is exact only at 38\textdegree N. Region bounding boxes match Table~S19 to $5\times 10^{-3}$ degrees.}}{10}{}\protected@file@percent }
+\newlabel{fig:study-map}{{1}{10}{}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Burned-area label and the $\sim $500 m analysis grid}{10}{}\protected@file@percent }
+\newlabel{sec:3.2}{{3.2}{10}{}{subsection.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {Processing pipeline and evaluation programme.} Flow from source products (left) to the transfer and diagnostic programme (right); every box carries the Methods subsection that specifies it. The five source products (MCD64A1 burned area, Landsat Collection 2 Level-2, MOD11A1, Copernicus DEM GLO-30 and ESA WorldCover) merge onto the reconstructed $\sim $510\,m analysis grid ($17\times 17$ pixels of the 30\,m reference grid). The burned-landcover admissibility gate has two outcomes: regions that \emph  {pass} proceed to the natural-vegetation primary population, while the rejecting branch (grey, dashed) terminates in the Kozan 2023 negative control, whose burned area is 98\% cropland and which is never modelled. The dashed connector deliberately carries no arrowhead onward, so the control cannot be read as entering the pipeline. Feature sets feed two evaluations in parallel: within-region (random forest under spatial-block cross-validation) and cross-region transfer (source-only, 20 ordered directions, with label-blind z-score and CORAL adaptation). Their levels are combined in the transfer-gap decomposition (\S  3.10). The footer states what applies throughout: leakage hard-exclusion, seed 42, 1000-replicate spatial-block bootstrap (\S  3.13), and the sensitivity designs (Section S1). Section references, in the figure and in this caption, are verified against the Methods heading list when the figure is built.}}{11}{}\protected@file@percent }
+\newlabel{fig:pipeline}{{2}{11}{}{figure.2}{}}
+\citation{Zanaga2022}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Burned-landcover admissibility gate}{12}{}\protected@file@percent }
+\newlabel{sec:3.3}{{3.3}{12}{}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Predictor variables}{12}{}\protected@file@percent }
+\newlabel{sec:3.4}{{3.4}{12}{}{subsection.3.4}{}}
+\citation{Breiman2001}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Cell aggregation, validity and analysis populations}{13}{}\protected@file@percent }
+\newlabel{sec:3.5}{{3.5}{13}{}{subsection.3.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Classifier}{13}{}\protected@file@percent }
+\newlabel{sec:3.6}{{3.6}{13}{}{subsection.3.6}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Spatial-block cross-validation and bootstrap uncertainty}{14}{}\protected@file@percent }
+\newlabel{sec:3.7}{{3.7}{14}{}{subsection.3.7}{}}
+\newlabel{eq:block}{{1}{14}{}{equation.1}{}}
+\newlabel{eq:auc}{{2}{14}{}{equation.2}{}}
+\citation{Sun2016}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}Cross-region transfer protocol}{15}{}\protected@file@percent }
+\newlabel{sec:3.8}{{3.8}{15}{}{subsection.3.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}Label-blind domain adaptation}{15}{}\protected@file@percent }
+\newlabel{sec:3.9}{{3.9}{15}{}{subsection.3.9}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.10}Transfer-gap decomposition and the concept-shift criterion}{16}{}\protected@file@percent }
+\newlabel{sec:3.10}{{3.10}{16}{}{subsection.3.10}{}}
+\newlabel{eq:decomp}{{3}{16}{}{equation.3}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.11}Interventions}{17}{}\protected@file@percent }
+\newlabel{sec:3.11}{{3.11}{17}{}{subsection.3.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.12}Evaluation frames and controls on the transfer path}{17}{}\protected@file@percent }
+\newlabel{sec:3.12}{{3.12}{17}{}{subsection.3.12}{}}
+\newlabel{eq:scar}{{4}{17}{}{equation.4}{}}
+\def\@LN@column{1}
+\newlabel{eq:collar}{{5}{18}{}{equation.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.13}Leakage control and reproducibility}{18}{}\protected@file@percent }
+\newlabel{sec:3.13}{{3.13}{18}{}{subsection.3.13}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.14}Same-geography event-to-event comparison (Muğla 2021 versus 2022)}{19}{}\protected@file@percent }
+\newlabel{sec:3.14}{{3.14}{19}{}{subsection.3.14}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{20}{}\protected@file@percent }
+\newlabel{sec:4}{{4}{20}{}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Study regions and the admissibility gate}{20}{}\protected@file@percent }
+\newlabel{sec:4.1}{{4.1}{20}{}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Within-region: the thermal increment replicates in five regions}{20}{}\protected@file@percent }
+\newlabel{sec:4.2}{{4.2}{20}{}{subsection.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {The thermal increment replicates in all five regions and survives coarser spatial blocking.} Natural-vegetation primary population; random forest with the primary weighted configuration; all intervals are 95\% spatial-block bootstrap intervals (1000 replicates, seed 42). \textbf  {(a)} Baseline versus thermal out-of-fold ROC-AUC per region at the default 2-cell ($\sim $1\,km) blocking: the open marker is the static baseline feature set, the filled marker is the baseline plus the six thermal predictors, and the connecting bar is the increment. The right-hand column reports the paired $\Delta $AUC and its 95\% interval; it is a fixed column placed beyond the plotted AUC range, so no label position depends on a data value. Every interval excludes zero. \textbf  {(b)} Absolute thermal ROC-AUC against spatial block size (2, 10 and 20 cells, $\approx $1, 5 and 10\,km): absolute skill falls as blocking coarsens, in every region. \textbf  {(c)} The thermal increment $\Delta $AUC against the same block sizes, with 95\% intervals: the increment does \emph  {not} melt away, and its interval excludes zero in all ten of the 2- and 10-cell region--block-size combinations. The five 20-cell intervals also lie above zero but rest on 6 to 33 positive-carrying blocks each, so they are plotted as indicative rather than as intervals (Table~\ref {tab:1}, table note). In (c) the five regions are offset horizontally by 0.15 cell so their whiskers separate; \textbf  {this offset is cosmetic, since all five regions are evaluated at exactly the same three block sizes} (2, 10, 20 cells), and the offset is smaller than half the spacing between block sizes, so the groups cannot merge. Colour and marker shape both encode region, so the panels remain readable in greyscale.}}{21}{}\protected@file@percent }
+\newlabel{fig:within-robustness}{{3}{21}{}{figure.3}{}}
+\def\@LN@column{1}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Within-region baseline versus thermal performance and block-size robustness. Primary (TSG) population; spatially blocked 5-fold CV (Section~\ref {sec:3.7}); paired spatial-block bootstrap, 1000 replicates. Block sizes 2/10/20 cells $\approx $ 1/5/10 km. Baseline and Thermal columns are ROC-AUC; the 95 \% CI belongs to $\Delta $AUC.}}{22}{}\protected@file@percent }
+\newlabel{tab:1}{{1}{22}{}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}What the evaluation frame is worth, within one region}{22}{}\protected@file@percent }
+\newlabel{sec:4.3}{{4.3}{22}{}{subsection.4.3}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}The same effect between regions, applied to our own matrix}{24}{}\protected@file@percent }
+\newlabel{sec:4.4}{{4.4}{24}{}{subsection.4.4}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Cross-region transfer, and what label-free adaptation does to it}{27}{}\protected@file@percent }
+\newlabel{sec:4.5}{{4.5}{27}{}{subsection.4.5}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textbf  {Cross-region transfer, and what label-blind adaptation does to it.} Thermal transfer ROC-AUC for all 20 ordered source--target directions among the five regions, natural-vegetation primary population. \textbf  {(a)} Raw transfer, no adaptation. \textbf  {(b)} After region-wise z-score standardisation. \textbf  {(c)} After CORAL. Rows are the source region, columns the target; the grey diagonal is within-region performance and is \emph  {not} a transfer result. The diverging colour scale is centred exactly on chance (0.5, marked by the black rule on the colour bar), so orange is below chance and purple above. Each panel header states that panel's range: adaptation narrows the spread from 0.314--0.677 (raw) to 0.302--0.630 (z-score) and 0.406--0.624 (CORAL). It compresses the matrix toward chance rather than lifting transfer, with one exception at the low end: under z-scoring Bej\'is$\rightarrow $Manavgat moves further below chance (0.314 to 0.302). Cells below chance are hatched. The hatch is a redundant cue for print: a diverging palette is symmetric in luminance about its centre, so in greyscale a below-chance cell would otherwise be indistinguishable from an equally distant above-chance one. Hatching follows the \emph  {exact} value while the printed label is rounded to two decimals, so three cells print ``0.50'' with different hatching: CORAL Bej\'is$\rightarrow $Evia is 0.4991 (hatched, below chance), while z-score Evia$\rightarrow $Mu\u {g}la is 0.5013 and CORAL Manavgat$\rightarrow $Evia 0.5043 (both un-hatched, above chance). Every cell carries its value, and every label's colour is chosen by measured WCAG contrast against that cell's rendered colour (worst case 4.6:1). Confidence intervals for these directions are given in Table~S16. Manavgat directions are on the corrected label (Section~\ref {sec:3.2}).}}{28}{}\protected@file@percent }
+\newlabel{fig:transfer-matrix}{{4}{28}{}{figure.4}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Label-blind adaptation compresses the matrix toward chance.} All 12 ordered directions among the four regions carrying the full decomposition (Manavgat, Bej\'is, Mu\u {g}la, Evia), natural-vegetation primary population. Each row is one direction. The open circle is raw transfer ROC-AUC and the arrow runs to the best label-blind adapted result for that direction (region-wise z-score or CORAL, whichever is better); the grey vertical tick is the within-region reference for that target, and the dashed vertical rule is chance. \textbf  {Solid blue arrows are the five directions where adaptation moves transfer toward the within-region reference (recovery); dashed orange arrows are the seven where it moves \emph  {away} from it (negative recovery).} Line style and colour both encode this class, because the two hues differ by only 2.30:1 in relative luminance and would nearly merge in greyscale. All six directions starting above chance are pushed down, and five of the six starting below chance are pushed up, so eleven of twelve end closer to chance and adaptation acts on the spread rather than on skill. The exception is Manavgat$\rightarrow $Mu\u {g}la, which starts below chance at 0.438 and is pushed further down to 0.427. Bej\'is$\rightarrow $Manavgat is drawn as a recovery because its better method, CORAL, lifts it from 0.314 to 0.406; its z-score arm alone moves further below chance, to 0.302 (Fig.~\ref {fig:transfer-matrix}). The worst case is Evia$\rightarrow $Manavgat, where raw transfer of 0.677 is dragged down to 0.417 against a within-region reference of 0.908, a recovered fraction of $-1.126$. No arrow reaches its within-region tick. Manavgat directions are on the corrected label (Section~\ref {sec:3.2}).}}{31}{}\protected@file@percent }
+\newlabel{fig:adaptation}{{5}{31}{}{figure.5}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Further arms}{32}{}\protected@file@percent }
+\newlabel{sec:4.6}{{4.6}{32}{}{subsection.4.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{32}{}\protected@file@percent }
+\newlabel{sec:5}{{5}{32}{}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Reading the three findings together}{32}{}\protected@file@percent }
+\newlabel{sec:5.1}{{5.1}{32}{}{subsection.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \textbf  {The contrast pairs.} \textbf  {(a)} Manavgat--Mu\u {g}la, the pair whose burned cells overlap most in environmental space (mean Schoener $\bar  {D}=0.80$, rank 1 of 10 on all five overlap measures), transfers below chance in both directions at the point estimates (0.438 and 0.345). \textbf  {(b)} Bej\'is--Montiferru, the pair that overlaps least ($\bar  {D}=0.48$, rank 10), transfers above chance in both directions at the point estimates (0.594 and 0.548). Arrows run from 0.5 to each region's signed univariate AUC, the probability that a predictor takes a higher value on a burned cell than on an unburned one. A filled head marks a 95\% spatial-block (10-cell, $\approx $5\,km) bootstrap interval that excludes 0.5; an open head marks one that does not. Solid blue is the first region named, dashed orange the second; line style is included because the two hues nearly merge in greyscale. Shaded rows mark features whose sign differs between the two regions, and side bars give Schoener's $D$ per feature. In (a), six features are interval-supported in both regions, and all six have opposite signs; the signs agree on 2 of 9 features overall. In (b) the two supported sets do not intersect, and the signs agree on 7 of 9. The transfer verdicts use the 1\,km bootstrap, under which all four directions are off chance. At 5\,km blocking only Mu\u {g}la $\rightarrow $ Manavgat stays interval-supported, which is why the contrast is stated at the point estimates. Manavgat values are on the corrected label (Section~\ref {sec:3.2}).}}{33}{}\protected@file@percent }
+\newlabel{fig:contrast-pairs}{{6}{33}{}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \textbf  {Removing the direction-reversing features costs locally and returns nothing measurable on transfer.} Mean within-region ROC-AUC across the five regions (horizontal) against mean transfer ROC-AUC across the 20 ordered directions (vertical), for four feature configurations: the full thermal set, the set without the LST anomaly, without elevation, and without both. Each configuration has its own marker and is named in the key; the grey path connects them in that order. Moving left along the path, within-region skill falls monotonically (0.896 $\rightarrow $ 0.820) while the transfer mean rises monotonically (0.527 $\rightarrow $ 0.541). Both monotonicities are verified when the figure is built. The within-region cost is 0.076 AUC and is supported in every region. The change in transfer is near zero: $+$0.014 AUC, with a pair-$t$ interval over the ten region pairs of [$-$0.028, $+$0.056] that spans zero. No exchange between the two is demonstrated, since a local cost is measured and no compensating transfer gain is. The vertical whisker at the ``without both'' point is that interval, drawn about the full-set transfer level (dotted line, no change), so its crossing of the no-change level can be read directly. Manavgat values are on the corrected label (Section~\ref {sec:3.2}).}}{34}{}\protected@file@percent }
+\newlabel{fig:feature-drop}{{7}{34}{}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \textbf  {Pooling every other region does not beat the best single source for four of five targets.} Leave-one-region-out evaluation: for each held-out target region (rows), a model trained on the pooled remaining four regions (filled orange circle, with its 95\% spatial-block ($\approx $5\,km) bootstrap interval drawn just below the row) is compared against the best individual source region for that same target (open blue diamond), with the within-region ceiling as a grey vertical tick and chance as the dashed rule. Natural-vegetation primary population, thermal feature set, no adaptation. The pooled model lies to the left of the best pairwise source in four targets. For Evia it lies to the right, at 0.715 [0.668, 0.757] against 0.654 for the best single source, Manavgat (Section~\ref {sec:5.3}). Elsewhere, adding source regions does not accumulate transferable signal. In two targets the pooled model falls \emph  {below chance} at the point estimate (Manavgat 0.426, Bej\'is 0.458), and only for Manavgat does the interval lie entirely below chance, while a single well-chosen source reaches 0.677 and 0.583 respectively. Every point remains far below the within-region ceiling. Manavgat values are on the corrected label (Section~\ref {sec:3.2}).}}{35}{}\protected@file@percent }
+\newlabel{fig:loro}{{8}{35}{}{figure.8}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Why the thermal increment is real but local}{36}{}\protected@file@percent }
+\newlabel{sec:5.2}{{5.2}{36}{}{subsection.5.2}{}}
+\citation{Archibald2013}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}What the two interventions do and do not show}{37}{}\protected@file@percent }
+\newlabel{sec:5.3}{{5.3}{37}{}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}The regime hypothesis, reported as it happened}{37}{}\protected@file@percent }
+\newlabel{sec:5.4}{{5.4}{37}{}{subsection.5.4}{}}
+\def\@LN@column{1}
+\citation{Dimarco2026}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}The empirical contrast with Dimarco et al.}{39}{}\protected@file@percent }
+\newlabel{sec:5.5}{{5.5}{39}{}{subsection.5.5}{}}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Implications}{40}{}\protected@file@percent }
+\newlabel{sec:5.6}{{5.6}{40}{}{subsection.5.6}{}}
+\citation{Barve2011}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Limitations}{41}{}\protected@file@percent }
+\newlabel{sec:5.7}{{5.7}{41}{}{subsection.5.7}{}}
+\citation{Giglio2018}
+\citation{Boschetti2019}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions}{43}{}\protected@file@percent }
+\newlabel{sec:6}{{6}{43}{}{section.6}{}}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\def\@LN@column{1}
+\bibstyle{elsarticle-harv}
+\bibdata{../REFERENCES}
+\bibcite{AlkanAkinci2023}{{1}{2023}{{Alkan~Ak{\i }nc{\i } and Ak{\i }nc{\i }}}{{}}}
+\bibcite{Archibald2013}{{2}{2013}{{Archibald et~al.}}{{Archibald, Lehmann, G{\'o}mez-Dans and Bradstock}}}
+\bibcite{Barve2011}{{3}{2011}{{Barve et~al.}}{{Barve, Barve, Jim{\'e}nez-Valverde, Lira-Noriega, Maher, Peterson, Sober{\'o}n and Villalobos}}}
+\def\@LN@column{1}
+\bibcite{Boschetti2019}{{4}{2019}{{Boschetti et~al.}}{{Boschetti, Roy, Giglio, Huang, Zubkova and Humber}}}
+\bibcite{Breiman2001}{{5}{2001}{{Breiman}}{{}}}
+\bibcite{Chuvieco2004}{{6}{2004}{{Chuvieco et~al.}}{{Chuvieco, Cocero, Ria{\~n}o, Martin, Mart{\'i}nez-Vega, de~la Riva and P{\'e}rez}}}
+\bibcite{Dimarco2026}{{7}{2026}{{Dimarco et~al.}}{{Dimarco, Faraji, Wahbi, Maatouk, Boulaassal, Yazidi~Aalaoui and El~Kharki}}}
+\bibcite{Gelabert2025}{{8}{2025}{{Gelabert et~al.}}{{Gelabert, Jim{\'e}nez-Ruano, Ochoa, Alcasena, Sj{\"o}str{\"o}m, Marrs, Ribeiro, Palaiologou, Bentu~Mart{\'i}nez, Chuvieco, Vega-Garc{\'i}a and Rodrigues}}}
+\bibcite{Giglio2018}{{9}{2018}{{Giglio et~al.}}{{Giglio, Boschetti, Roy, Humber and Justice}}}
+\def\@LN@column{1}
+\bibcite{Gorelick2017}{{10}{2017}{{Gorelick et~al.}}{{Gorelick, Hancher, Dixon, Ilyushchenko, Thau and Moore}}}
+\bibcite{Huang2026}{{11}{2026}{{Huang et~al.}}{{Huang, Liu, Chen, Tan, Deng, Wang, Chlus, Shen and Townsend}}}
+\bibcite{Iban2022}{{12}{2022}{{Iban and Sekertekin}}{{}}}
+\bibcite{Jodhani2026}{{13}{2026}{{Jodhani et~al.}}{{Jodhani, Bhatiya, Sirvi, Chanda, Thakkar and Rathnayake}}}
+\bibcite{Kondylatos2023}{{14}{2023}{{Kondylatos et~al.}}{{Kondylatos, Prapas, Camps-Valls and Papoutsis}}}
+\bibcite{Liu2025}{{15}{2025}{{Liu and Mostafavi}}{{}}}
+\def\@LN@column{1}
+\bibcite{Lobo2008}{{16}{2008}{{Lobo et~al.}}{{Lobo, Jim{\'e}nez-Valverde and Real}}}
+\bibcite{Maffei2018}{{17}{2018}{{Maffei et~al.}}{{Maffei, Alfieri and Menenti}}}
+\bibcite{Maffei2021}{{18}{2021}{{Maffei et~al.}}{{Maffei, Lindenbergh and Menenti}}}
+\bibcite{MaffeiMenenti2019}{{19}{2019}{{Maffei and Menenti}}{{}}}
+\bibcite{Meyer2018}{{20}{2018}{{Meyer et~al.}}{{Meyer, Reudenbach, Hengl, Katurji and Nauss}}}
+\bibcite{MorenoTorres2012}{{21}{2012}{{Moreno-Torres et~al.}}{{Moreno-Torres, Raeder, Alaiz-Rodr{\'i}guez, Chawla and Herrera}}}
+\def\@LN@column{1}
+\bibcite{MunozSabater2021}{{22}{2021}{{Mu{\~n}oz-Sabater et~al.}}{{Mu{\~n}oz-Sabater, Dutra, Agust{\'i}-Panareda, Albergel, Arduini, Balsamo, Boussetta, Choulga, Harrigan, Hersbach, Martens, Miralles, Piles, Rodr{\'i}guez-Fern{\'a}ndez, Zsoter, Buontempo and Th{\'e}paut}}}
+\bibcite{Pausas2021}{{23}{2021}{{Pausas and Keeley}}{{}}}
+\bibcite{Persello2012}{{24}{2012}{{Persello and Bruzzone}}{{}}}
+\bibcite{Ploton2020}{{25}{2020}{{Ploton et~al.}}{{Ploton, Mortier, R{\'e}jou-M{\'e}chain, Barbier, Picard, Rossi, Dormann, Cornu, Viennois, Bayol, Lyapustin, Gourlet-Fleury and P{\'e}lissier}}}
+\bibcite{Podschwit2022}{{26}{2022}{{Podschwit et~al.}}{{Podschwit, Jolly, Alvarado, Verma, Ponce, Markos, Aliaga-Nestares and Rodriguez-Zimmermann}}}
+\bibcite{Roberts2017}{{27}{2017}{{Roberts et~al.}}{{Roberts, Bahn, Ciuti, Boyce, Elith, Guillera-Arroita, Hauenstein, Lahoz-Monfort, Schr{\"o}der, Thuiller, Warton, Wintle, Hartig and Dormann}}}
+\def\@LN@column{1}
+\bibcite{Rousseau2022}{{28}{2022}{{Rousseau and Betts}}{{}}}
+\bibcite{Sandholt2002}{{29}{2002}{{Sandholt et~al.}}{{Sandholt, Rasmussen and Andersen}}}
+\bibcite{Sun2016}{{30}{2016}{{Sun et~al.}}{{Sun, Feng and Saenko}}}
+\bibcite{Tuia2016}{{31}{2016}{{Tuia et~al.}}{{Tuia, Persello and Bruzzone}}}
+\bibcite{Valavi2019}{{32}{2019}{{Valavi et~al.}}{{Valavi, Elith, Lahoz-Monfort and Guillera-Arroita}}}
+\bibcite{VanDerWal2009}{{33}{2009}{{VanDerWal et~al.}}{{VanDerWal, Shoo, Graham and Williams}}}
+\def\@LN@column{1}
+\bibcite{Vesk2021}{{34}{2021}{{Vesk et~al.}}{{Vesk, Morris, Neal, Mokany and Pollock}}}
+\bibcite{Vibhandik2026}{{35}{2026}{{Vibhandik et~al.}}{{Vibhandik, Sawant, Joshi and Bidwe}}}
+\bibcite{Xu2026}{{36}{2026}{{Xu et~al.}}{{Xu, Dai, Chang, Wang and Dong}}}
+\bibcite{Yebra2013}{{37}{2013}{{Yebra et~al.}}{{Yebra, Dennison, Chuvieco, Ria{\~n}o, Zylstra, Hunt, Danson, Qi and Jurdao}}}
+\bibcite{Zanaga2022}{{38}{2022}{{Zanaga et~al.}}{{Zanaga, Van De~Kerchove, Daems, De~Keersmaecker, Brockmann, Kirches, Wevers, Cartus, Santoro, Fritz, Lesiv, Herold, Tsendbazar, Xu, Ramoino and Arino}}}
+\def\@LN@column{1}
+\gdef \@abspage@last{54}

@@ -98,7 +98,12 @@ for ax, (key, title) in zip(axes, VARIANTS):
         for j, t in enumerate(REGIONS):
             if s != t:
                 M[i, j] = fig5[f"{s}_to_{t}"][key]
-    im = ax.imshow(M, cmap=cmap, norm=norm)
+    # vector cells (readiness audit F117): pcolormesh instead of imshow, which embedded a
+    # low-resolution raster in the PDF; axes set up exactly as imshow did
+    edges = np.arange(6) - 0.5
+    im = ax.pcolormesh(edges, edges, np.ma.masked_invalid(M), cmap=cmap, norm=norm,
+                       edgecolors='none', antialiased=False)
+    ax.set_xlim(-0.5, 4.5); ax.set_ylim(4.5, -0.5); ax.set_aspect('equal')
     for i in range(5):
         ax.add_patch(plt.Rectangle((i - 0.5, i - 0.5), 1, 1, facecolor=DIAG_GREY,
                                    edgecolor="white", zorder=2))
@@ -131,7 +136,7 @@ for ax, (key, title) in zip(axes, VARIANTS):
     ax.set_xlabel("target", fontsize=FS_BODY)
     if ax is axes[0]:
         ax.set_ylabel("source", fontsize=FS_BODY)
-    ax.set_title(f"{title}\nrange {rng[key][0]:.3f}–{rng[key][1]:.3f}",
+    ax.set_title(f"{title}\nrange {rng[key][0]:.3f} to {rng[key][1]:.3f}",
                  fontsize=FS_BODY, pad=5)
     ax.tick_params(length=0)
     for s in ax.spines.values():

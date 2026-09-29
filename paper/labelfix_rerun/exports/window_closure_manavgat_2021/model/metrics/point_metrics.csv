@@ -1,0 +1,7 @@
+brier,fold_count,metric_source,model_family,negative_count,positive_count,pr_auc,prevalence,roc_auc,row_count,variant_id
+0.13136992681179965,5,src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics,baseline,16681,2725,0.4678619980145746,0.14042048850870864,0.8408597816886652,19406,canonical
+0.09529637827587839,5,src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics,thermal,16681,2725,0.6385011154227265,0.14042048850870864,0.9063382445225545,19406,canonical
+0.13149778751669464,5,src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics,baseline,16681,2725,0.46652432376758896,0.14042048850870864,0.8399939721564227,19406,close_14d_earlier
+0.0985633236170058,5,src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics,thermal,16681,2725,0.618595757616533,0.14042048850870864,0.8979384884962235,19406,close_14d_earlier
+0.1319545976507216,5,src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics,baseline,16681,2725,0.4647379829065947,0.14042048850870864,0.8399752506422458,19406,close_7d_earlier
+0.08619761717983902,5,src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics,thermal,16681,2725,0.6915454115250967,0.14042048850870864,0.9223174418623837,19406,close_7d_earlier

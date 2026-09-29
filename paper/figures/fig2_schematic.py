@@ -197,9 +197,9 @@ box(C3[0], 46, w(C3), 18, "feature sets\n(§3.4, §3.6)\nbaseline vs\n+ 6 therma
 elbow([(C2[1], 34), (82.5, 34), (82.5, 55), (C3[0], 55)])
 
 # ---------------- column 4: the two evaluations -----------------------------
-box(C4[0], 66, w(C4), 18, "within-region (§3.6–3.7)\nRF, spatial-block CV,\n"
+box(C4[0], 66, w(C4), 18, "within-region (§3.6, §3.7)\nRF, spatial-block CV,\n"
                           "block-size robustness")
-box(C4[0], 34, w(C4), 20, "cross-region transfer\n(§3.8–3.9)\n20 ordered directions\n"
+box(C4[0], 34, w(C4), 20, "cross-region transfer\n(§3.8, §3.9)\n20 ordered directions\n"
                           "z-score / CORAL")
 elbow([(C3[1], 55), (111.5, 55), (111.5, 75), (C4[0], 75)])
 elbow([(C3[1], 55), (111.5, 55), (111.5, 44), (C4[0], 44)])
@@ -225,9 +225,9 @@ elbow([(C4[1], 38), (155.6, 38), (155.6, 23), (C5[0], 23)])
 ax.add_patch(Rectangle((3, 2), 184, 11, facecolor="#F7F7F7",
                        edgecolor="#CCCCCC", linewidth=0.8, zorder=1))
 ax.text(95, 7.5,
-        "Applies throughout — leakage hard-exclusion, seed 42, 1000-replicate "
+        "Applies throughout: leakage hard-exclusion, seed 42, 1000-replicate "
         "spatial-block bootstrap (§3.7, §3.13);\nsensitivity designs: Evia AOI, "
-        "Montiferru population, predictor-window closure (Appendix A)",
+        "second population, predictor-window closure (Section S1)",
         fontsize=FS_NOTE, ha="center", va="center", linespacing=1.5, zorder=3)
 
 ax.text(3, 91.5, "Section numbers refer to Methods.", fontsize=FS_NOTE,

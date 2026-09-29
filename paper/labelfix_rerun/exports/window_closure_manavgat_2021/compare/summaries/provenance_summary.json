@@ -1,0 +1,159 @@
+{
+  "analysis_id": "ccd42192a789adedac69d97791ab3879143d9396945f05b74e8802d429774682",
+  "bootstrap_recomputed": false,
+  "bootstrap_run": false,
+  "canonical_outputs_modified": false,
+  "canonical_step8a_sha256": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+  "compare_run": true,
+  "downscaling_model_fit": false,
+  "experiment_id": "manavgat_2021",
+  "fire_risk_model_fit": false,
+  "gee_exports_run": false,
+  "gee_queries_run": false,
+  "input_artifact_count": 22,
+  "input_artifacts": [
+    {
+      "bytes": 300734,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\bootstrap\\paired_bootstrap_replicates.parquet",
+      "relative_path": "bootstrap/paired_bootstrap_replicates.parquet",
+      "sha256": "1cc56d8ee5843ee17bb16f3719dec1f960c8e10cb9bcf5e08135a6aa47e3f779"
+    },
+    {
+      "bytes": 9957,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\bootstrap\\paired_bootstrap_summary.csv",
+      "relative_path": "bootstrap/paired_bootstrap_summary.csv",
+      "sha256": "92d77bff01bea9c9974776327180eb22df94c75dbbc486e436a53c583d5f20b4"
+    },
+    {
+      "bytes": 23846,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\bootstrap\\paired_bootstrap_summary.json",
+      "relative_path": "bootstrap/paired_bootstrap_summary.json",
+      "sha256": "75051f313311203c73c00e452807b8a30051c099d2190ddc06acf31fbb1fee72"
+    },
+    {
+      "bytes": 4373843,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\common_cohort\\common_cohort.parquet",
+      "relative_path": "common_cohort/common_cohort.parquet",
+      "sha256": "c1d750efcf5b8ef94da20ef2d5097032201c24b43bc6912684a11b05879fdc55"
+    },
+    {
+      "bytes": 4321,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\common_cohort\\common_cohort_metadata.json",
+      "relative_path": "common_cohort/common_cohort_metadata.json",
+      "sha256": "556df322ce34cb94cd92db5d84310fdf1cc5a243228e2ecd37ba66ae24bf7656"
+    },
+    {
+      "bytes": 1245,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\metrics\\point_metrics.csv",
+      "relative_path": "metrics/point_metrics.csv",
+      "sha256": "93a5d5dfd50c5599e5ca7a23033f007cc890a58d65f40092885a89e34fc85d25"
+    },
+    {
+      "bytes": 3244,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\metrics\\point_metrics.json",
+      "relative_path": "metrics/point_metrics.json",
+      "sha256": "4d6bf320bd6202ab97f2d84fbb728c5203349cf57910aabf56f90834d93b1949"
+    },
+    {
+      "bytes": 1947,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\metrics\\thermal_contributions.csv",
+      "relative_path": "metrics/thermal_contributions.csv",
+      "sha256": "511b8100321643226de81bd2966a3bccbe6896dfd1a3543025691b79f5772f00"
+    },
+    {
+      "bytes": 162361,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\shared_folds\\shared_spatial_folds.parquet",
+      "relative_path": "shared_folds/shared_spatial_folds.parquet",
+      "sha256": "986d82ab882654116497c02e35724f76b1eda453018001e53469d2351e70367f"
+    },
+    {
+      "bytes": 972,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\shared_folds\\shared_spatial_folds_metadata.json",
+      "relative_path": "shared_folds/shared_spatial_folds_metadata.json",
+      "sha256": "4d4f73ff9c9b7200de22892db89643e90e724674db2ad922f73ffe2b1e8ef260"
+    },
+    {
+      "bytes": 972,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\baseline\\fold_metrics.csv",
+      "relative_path": "variants/canonical/baseline/fold_metrics.csv",
+      "sha256": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd"
+    },
+    {
+      "bytes": 351171,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\baseline\\oof_predictions.parquet",
+      "relative_path": "variants/canonical/baseline/oof_predictions.parquet",
+      "sha256": "8b7b0a70aa859bfbf6321392c713c404d96be51d3ff6a4ff34ff8505551c9742"
+    },
+    {
+      "bytes": 972,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\thermal\\fold_metrics.csv",
+      "relative_path": "variants/canonical/thermal/fold_metrics.csv",
+      "sha256": "1230b9c0dc5fcde22d44acaba622cdc1a703eac8aaba2363af251b1d23be1ccd"
+    },
+    {
+      "bytes": 348014,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\canonical\\thermal\\oof_predictions.parquet",
+      "relative_path": "variants/canonical/thermal/oof_predictions.parquet",
+      "sha256": "01c7396415e5cf04dd49df77f5c1c6ac159f4afef0897836f70f2f18ef72aa14"
+    },
+    {
+      "bytes": 973,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\baseline\\fold_metrics.csv",
+      "relative_path": "variants/close_14d_earlier/baseline/fold_metrics.csv",
+      "sha256": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a"
+    },
+    {
+      "bytes": 351211,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\baseline\\oof_predictions.parquet",
+      "relative_path": "variants/close_14d_earlier/baseline/oof_predictions.parquet",
+      "sha256": "bd61f0381594487564801ebd44407b3e2a927602897c8d98468b17e0ae13ae14"
+    },
+    {
+      "bytes": 973,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\thermal\\fold_metrics.csv",
+      "relative_path": "variants/close_14d_earlier/thermal/fold_metrics.csv",
+      "sha256": "2f0c89e0d76028270a7afbee3249527b239ec6ac83a3a0324e2a7f898860bc5a"
+    },
+    {
+      "bytes": 345840,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_14d_earlier\\thermal\\oof_predictions.parquet",
+      "relative_path": "variants/close_14d_earlier/thermal/oof_predictions.parquet",
+      "sha256": "441f6e95af548a222a570c422b659abf9fe244460e07c8b3db9905f0893d6c08"
+    },
+    {
+      "bytes": 969,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\baseline\\fold_metrics.csv",
+      "relative_path": "variants/close_7d_earlier/baseline/fold_metrics.csv",
+      "sha256": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91"
+    },
+    {
+      "bytes": 351414,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\baseline\\oof_predictions.parquet",
+      "relative_path": "variants/close_7d_earlier/baseline/oof_predictions.parquet",
+      "sha256": "b2af973cfcb70b4bb0f4ba54f2b73832a6f6e1268391313de84e211e6365f820"
+    },
+    {
+      "bytes": 969,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\thermal\\fold_metrics.csv",
+      "relative_path": "variants/close_7d_earlier/thermal/fold_metrics.csv",
+      "sha256": "e2279f8d910173ff65f7e505f64c9b632e6aa5cf9058e83bce7aaa4b71dc2b91"
+    },
+    {
+      "bytes": 346841,
+      "path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\variants\\close_7d_earlier\\thermal\\oof_predictions.parquet",
+      "relative_path": "variants/close_7d_earlier/thermal/oof_predictions.parquet",
+      "sha256": "5a991975e06eb2ac123e0ee7a4439291f618feda8f9345146c9b053755bab314"
+    }
+  ],
+  "input_dataset_sha256": {
+    "canonical": "5a5e876cebc8c708c5650cd69095ddff2e160c4d7f410e777ffad616460541eb",
+    "close_14d_earlier": "b0af3ad8bdcc9ebd93702c7d772335a0d0fb3996f157ed063e98cd6aa4611402",
+    "close_7d_earlier": "d7ee35c9d83e5d94b7aa43b7f591dcc665737f36d69ee55b938a2fbe7e01aa04"
+  },
+  "model_fit": false,
+  "schema_version": "window_closure_compare.v1",
+  "source_model_metadata_path": "C:\\Users\\CORSAIR\\projects\\thermal-twin\\refreeze\\manavgat_2021\\outputs\\diagnostics\\window_closure_sensitivity\\manavgat_2021\\model\\model_stage_metadata.json",
+  "source_model_metadata_sha256": "74385e364c96f2af800b3345a29abd65082943b3247fbe1c0cf22badd3b4f339",
+  "source_model_schema": "window_closure_model.v1",
+  "upstream_outputs_modified": false
+}

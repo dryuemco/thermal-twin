@@ -1,0 +1,10 @@
+baseline,metric,metric_direction_note,raw_delta_definition,thermal,thermal_contribution_raw_delta,variant_id
+0.7449633376161665,roc_auc,ROC-AUC: a positive raw delta indicates a higher ROC-AUC value.,thermal - baseline (raw),0.8599713429606032,0.11500800534443667,canonical
+0.2292174183423347,pr_auc,PR-AUC: a positive raw delta indicates a higher PR-AUC value.,thermal - baseline (raw),0.4521558093191672,0.22293839097683252,canonical
+0.10935094571887849,brier,Brier score is a loss: a negative raw delta indicates a lower Brier score. The sign is reported raw and is never re-oriented.,thermal - baseline (raw),0.06945740629220196,-0.03989353942667653,canonical
+0.745100433200677,roc_auc,ROC-AUC: a positive raw delta indicates a higher ROC-AUC value.,thermal - baseline (raw),0.8588226019041962,0.11372216870351926,close_7d_earlier
+0.2307758326388783,pr_auc,PR-AUC: a positive raw delta indicates a higher PR-AUC value.,thermal - baseline (raw),0.41334160990349605,0.18256577726461776,close_7d_earlier
+0.1084607603919851,brier,Brier score is a loss: a negative raw delta indicates a lower Brier score. The sign is reported raw and is never re-oriented.,thermal - baseline (raw),0.07197643603193078,-0.03648432436005432,close_7d_earlier
+0.7474503489357933,roc_auc,ROC-AUC: a positive raw delta indicates a higher ROC-AUC value.,thermal - baseline (raw),0.8751414237408217,0.1276910748050284,close_14d_earlier
+0.22882009583602694,pr_auc,PR-AUC: a positive raw delta indicates a higher PR-AUC value.,thermal - baseline (raw),0.4367259286456761,0.20790583280964917,close_14d_earlier
+0.10737208654275976,brier,Brier score is a loss: a negative raw delta indicates a lower Brier score. The sign is reported raw and is never re-oriented.,thermal - baseline (raw),0.07017845852672754,-0.037193628016032224,close_14d_earlier

@@ -1,12 +1,12 @@
 {
   "title": "Evaluation geometry and the limits of cross-region transfer in pre-fire thermal wildfire prediction",
-  "journal": "Ecological Informatics",
+  "journal": "Natural Hazards",
   "keywords": [
     "wildfire",
     "model transferability",
-    "model evaluation",
+    "evaluation extent",
     "land surface temperature",
-    "domain adaptation",
-    "concept shift"
+    "spatial cross-validation",
+    "domain adaptation"
   ]
 }

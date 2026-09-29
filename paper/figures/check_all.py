@@ -31,8 +31,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 SCRIPTS = ["fig1_study_map", "fig2_schematic", "fig3_within_robustness", "fig4_transfer_matrix",
-           "fig5_adaptation", "fig6_loro", "fig7_feature_drop", "fig8_contrast_pairs",
-           "graphical_abstract"]
+           "fig5_adaptation", "fig6_loro", "fig7_feature_drop", "fig8_contrast_pairs"]
+# The graphical abstract was an Ecological Informatics item; Natural Hazards does not take one, so it
+# is archived under paper/archive/ei_graphical_abstract/ (2026-09-29) and no longer checked.
 SHARED = {"fig5_adaptation", "fig6_loro", "fig7_feature_drop"}     # also run _conservation_common
 
 

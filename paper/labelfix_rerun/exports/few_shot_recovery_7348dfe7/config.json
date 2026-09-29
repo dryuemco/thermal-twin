@@ -1,0 +1,239 @@
+{
+  "analysis_id": "7348dfe74423acef7b5da3c0b64c45c73978738038797d490717d2c04e42b7c5",
+  "created_at_utc": "2026-09-22T20:50:39.651721+00:00",
+  "diagnostic_class": "target_label_supervised_few_shot_adaptation_sensitivity",
+  "git_commit": "6d024bc72e8cfc2b6dd8e26e4f7748a15de54fee",
+  "package_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scikit-learn": "1.9.0"
+  },
+  "schema_version": "few_shot_recovery.v1",
+  "scientific_configuration": {
+    "budgets": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "budgets_dropped": [],
+    "diagnostic_class": "target_label_supervised_few_shot_adaptation_sensitivity",
+    "directed_pairs": [
+      [
+        "manavgat_2021",
+        "bejis_2022"
+      ],
+      [
+        "manavgat_2021",
+        "mugla_2021"
+      ],
+      [
+        "bejis_2022",
+        "manavgat_2021"
+      ],
+      [
+        "bejis_2022",
+        "mugla_2021"
+      ],
+      [
+        "mugla_2021",
+        "manavgat_2021"
+      ],
+      [
+        "mugla_2021",
+        "bejis_2022"
+      ]
+    ],
+    "earth_engine": {
+      "importable": false,
+      "used": false
+    },
+    "excluded_experiments": {
+      "evia_2021": "out_of_scope_for_this_frozen_analysis",
+      "evia_2021_extended": "high_prevalence_different_regime_sensitivity_control_not_equal_prevalence_primary_transfer_validation_aoi"
+    },
+    "expected_directed_pairs": 6,
+    "families": {
+      "primary": "thermal",
+      "secondary": "baseline"
+    },
+    "feature_lists": {
+      "baseline": [
+        "ndvi_mean",
+        "elevation_mean",
+        "slope_mean",
+        "landcover_dominant"
+      ],
+      "thermal": [
+        "ndvi_mean",
+        "elevation_mean",
+        "slope_mean",
+        "landcover_dominant",
+        "lst_anomaly_mean",
+        "current_lst_mean",
+        "current_tvdi_mean",
+        "tvdi_difference_mean",
+        "downscaled_lst_mean",
+        "fused_lst_mean"
+      ]
+    },
+    "forbidden_feature_columns": [
+      "burned",
+      "burn_date",
+      "burn_month",
+      "burn_day_of_year",
+      "label_source",
+      "burn_date_pixel_agreement_fraction",
+      "out_of_window_burndate",
+      "cell_id",
+      "row_500m",
+      "col_500m",
+      "valid_for_modeling",
+      "invalid_reason",
+      "source_mask_majority",
+      "observed_fraction",
+      "gapfilled_fraction",
+      "invalid_source_fraction",
+      "lon",
+      "lat"
+    ],
+    "input_hashes": {
+      "bejis_2022": "3dec785a7d8e31db2d67ed283546bbfbca1559f56df46663488d0afc24d9e393",
+      "manavgat_2021": "e4ab8b85df0d3a0b15f7404050b10ea062dd164f474b7791324ffdec0daa4d49",
+      "mugla_2021": "c4ab107db2207f9f20775ccc0b3bf39381173fd07d4e82f6821ce7f40be7db8e"
+    },
+    "metrics": {
+      "brier_orientation": "oriented_value = -brier_score",
+      "helper": "src.step8b_train_baseline_vs_thermal_model.compute_binary_metrics",
+      "primary": "roc_auc",
+      "secondary": [
+        "pr_auc",
+        "brier_score"
+      ],
+      "threshold_selection_performed": false
+    },
+    "model": {
+      "class": "RandomForestClassifier",
+      "hyperparameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced",
+        "criterion": "gini",
+        "max_depth": null,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 3,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 300,
+        "n_jobs": -1,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "name": "random_forest",
+      "oversampling_performed": false,
+      "pre_existing_class_weighting": {
+        "mechanism": "class_weight='balanced'",
+        "note": "Canonical Step8B/9B/10 behaviour, recomputed by scikit-learn on whichever training frame is fitted. Because the few-shot frame is source union k target blocks, effective per-row weights shift slightly as k grows. Not introduced by this analysis; no new weighting rule added.",
+        "present": true
+      },
+      "sample_weight_argument_used": false,
+      "source": "src.step8b_train_baseline_vs_thermal_model.build_classifier",
+      "tuning_performed": false
+    },
+    "n_repeats": 10,
+    "n_repeats_ceiling": 1,
+    "n_repeats_raw": 1,
+    "outer_folds": {
+      "depends_on": "target_only",
+      "grouping_column": "large_block_id",
+      "n_splits": 5,
+      "random_state": 42,
+      "shuffle": true,
+      "splitter": "StratifiedGroupKFold",
+      "strict": true,
+      "utility": "src.step8b_train_baseline_vs_thermal_model.make_spatial_folds"
+    },
+    "population": "burnable_tree_shrub_grass",
+    "preprocessing": {
+      "categorical_encoding": "one_hot_handle_unknown_ignore",
+      "categorical_features": [
+        "landcover_dominant"
+      ],
+      "categorical_imputation": "most_frequent",
+      "fit_scope": "training_frame_of_each_condition_only",
+      "numeric_imputation": "median"
+    },
+    "primary_experiments": [
+      "manavgat_2021",
+      "bejis_2022",
+      "mugla_2021"
+    ],
+    "recovery": {
+      "absolute_valued": false,
+      "clipped": false,
+      "degenerate_denominator_threshold": 1e-06,
+      "flags": [
+        "denominator_near_zero",
+        "ceiling_not_above_raw",
+        "recovery_negative",
+        "recovery_above_ceiling"
+      ],
+      "statuses": [
+        "interpretable",
+        "undefined_degenerate_denominator",
+        "ceiling_not_above_raw"
+      ]
+    },
+    "schema_version": "few_shot_recovery.v1",
+    "selection": {
+      "nested": true,
+      "result_dependent_branching": false,
+      "seed_depends_on_budget": false,
+      "seed_depends_on_model_family": false,
+      "seed_derivation": "blake2b(schema|source|target|outer_fold|repeat, digest_size=8) mod 2**32",
+      "tier_order": [
+        "both_classes",
+        "positives_only",
+        "negatives_only"
+      ],
+      "unit": "spatial_block",
+      "within_tier": "shuffle_with_derived_rng_after_sorting_by_block_id"
+    },
+    "spatial_blocks": {
+      "assigned_before_population_filtering": true,
+      "block_size_cells": 10,
+      "canonical_small_block_size_cells": 2,
+      "departure_reason": "2-cell blocks hold a median of 4 cells; not a unit of labeling effort and adjacent to evaluation blocks. The ~5 km fallback is pre-authorised and already canonical in this repository.",
+      "id_format": "b10_r{block_row}_c{block_col}",
+      "nominal_scale": "approximately_5_km",
+      "origin": [
+        0,
+        0
+      ],
+      "utility": "src.step8_large_block_robustness.assign_large_blocks"
+    },
+    "uncertainty": {
+      "basis": "variability_across_block_selection_repeats_only",
+      "bootstrap_performed": false,
+      "forbidden_terms_count": 11,
+      "forbidden_terms_source": "src.few_shot_recovery.FORBIDDEN_UNCERTAINTY_TERMS",
+      "interval_name": "selection_interval",
+      "p_values_produced": false,
+      "percentile_method": "linear",
+      "percentiles": [
+        2.5,
+        97.5
+      ]
+    },
+    "valid_universe": "valid_for_modeling == True"
+  }
+}

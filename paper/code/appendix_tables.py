@@ -370,7 +370,7 @@ def table_b10():
         f"| transfer, frames as drawn | {tl[MM_]['auc']:.3f}, {tl[MG_]['auc']:.3f} | {tr[BM_]['auc']:.3f}, {tr[MB_]['auc']:.3f} |",
         f"| transfer, 10 km collar | {cv[MM_][0]:.3f}, {cv[MG_][0]:.3f} | {cv[BM_][0]:.3f}, {cv[MB_][0]:.3f} |",
         f"| rank of 20 on the collar, from the bottom | {o(cv[MM_][1])}, {o(cv[MG_][1])} | {o(cv[BM_][1])}, {o(cv[MB_][1])} |",
-        f"| target cells inside the AoA | {aoa[MM_]:.3f}, {aoa[MG_]:.3f} | — |",
+        f"| target cells inside the AoA | {aoa[MM_]:.3f}, {aoa[MG_]:.3f} | n/a |",
     ]
 
 
@@ -379,7 +379,7 @@ def table_a1():
     d = json.loads(src_code("positive_control.json").read_text(encoding="utf-8"))["splits"]
     rows = []
     for r in d:
-        fmt = lambda v: "—" if v is None or (isinstance(v, float) and np.isnan(v)) else f"{v:.3f}"
+        fmt = lambda v: "n/a" if v is None or (isinstance(v, float) and np.isnan(v)) else f"{v:.3f}"
         th, bl = fmt(r.get("thermal_auc")), fmt(r.get("baseline_auc"))
         rows.append(f"| {r['region'].replace('_', ' ')} | {r['split_axis'].replace('_', '-')} | "
                     f"{r['direction'].replace('_', ' ')} | {r['source_positives']:,} | {r['target_positives']:,} | {th} | {bl} |")
@@ -439,8 +439,17 @@ def a4_differences():
 
 # ---- A5: the transfer-gap decomposition --------------------------------------------------------------
 A5_METHOD = {"regionwise_zscore": "z-score", "coral_after_regionwise_zscore": "CORAL"}
-A5_STATUS = {"supported_relative_recovery_but_chance_not_excluded": "recovery, chance not excluded",
-             "supported_recovery_above_chance": "recovery above chance", "negative_recovery": "**negative recovery**"}
+def a5_status(r):
+    """Status of the adapted value against chance, read from its own interval (readiness audit F65:
+    the pipeline's 'chance not excluded' label also covered adapted intervals lying entirely below
+    0.5)."""
+    if r.recovery_status == "negative_recovery":
+        return "**negative recovery**"
+    if r.adapted_auc_ci_low > r.chance_level:
+        return "adapted above chance"
+    if r.adapted_auc_ci_high < r.chance_level:
+        return "adapted still below chance"
+    return "adapted, chance not excluded"
 
 
 def a5_records():
@@ -461,7 +470,7 @@ def table_a5():
         a, b = r.direction.split("_to_")
         rows.append(f"| {NAME[a]}→{NAME[b]} | {r.within_target_auc:.3f} | {r.raw_auc:.3f} | {r.adapted_auc:.3f} "
                     f"({A5_METHOD[r.adaptation_method]}) | {s(r.recovered_fraction, 2)} [{s(r.recovered_fraction_ci_low, 2)}, "
-                    f"{s(r.recovered_fraction_ci_high, 2)}] | {A5_STATUS[r.recovery_status]} |")
+                    f"{s(r.recovered_fraction_ci_high, 2)}] | {a5_status(r)} |")
     return rows
 
 

@@ -1,27 +1,26 @@
-# === Emrehan'in ayri deposu ===
-# 2026-08-11: artik ignore DEGIL. `repo/` bir git submodule olarak bagli
-# (github.com/emrehann17/satellite-thermal-digital-twin), 48b56e7'e sabitli.
-# Makale Methods'u bu commit'teki satir numaralarina atif veriyor, bu yuzden
-# pinlenmis olmasi provenance'in parcasi. Icerigi hala SALT OKUNUR.
+# Processing pipeline: tracked as the git submodule repo/ (read-only).
 
-# === Sanal ortam ===
+# Virtual environments
 .venv-step10/
+.venv-fire2/
 
-# === Agir / bizim uretmedigimiz mevcut ciktilar ===
+# Large pipeline outputs that are not produced here
 outputs/
 data/
-# The label-corrected Manavgat table is primary data and must travel with the code (2026-09-19).
+drive_archive
+drive_new
+# The five modelling datasets are primary data and are tracked.
 !paper/data/
 !paper/data/**
-# Figure data: the frozen and the corrected-label extraction are part of the figures'
-# provenance chain (sha256 in each figN_provenance.json), so these two files are tracked (2026-09-23).
+
+# Figure data: only the extracted inputs recorded in each figN_provenance.json are tracked.
 !paper/figures/data/
 paper/figures/data/*
 !paper/figures/data/fig_data.json
 !paper/figures/data/fig_data_corrected.json
 !paper/figures/data/fig1_aoi.json
 
-# Agir step ciktilari (Step10 disi)
+# Heavy pipeline step outputs (Step 10 outputs are tracked below)
 experiments/*/step0/
 experiments/*/step5*/
 experiments/*/step7*/
@@ -31,66 +30,38 @@ experiments/*/step8c/
 experiments/*/step8d/
 experiments/*/gate_inputs/
 experiments/*/validation/
-
-# Emrehan'in kok-seviye yardimci dosyalari (bizim isimiz degil)
 experiments/*/predictor_export_metadata.json
-
-# step8e: SADECE JSON raporunu tut (provenance); .md ve digerleri disari
+# step8e: only the JSON report is tracked
 experiments/*/step8e/*
 !experiments/*/step8e/final_step8_report.json
 
-# =====================================================================
-# MUAFIYETLER: bizim Step10 urunlerimiz dahil (whitelist)
-# =====================================================================
+# Step 10 code and outputs
 !step10/
 !step10/**
-
-# Step10 metin ciktilari (cross_region)
 !experiments/cross_region/
 !experiments/cross_region/step10/
 !experiments/cross_region/step10/**
-
-# Step10 within-robustness JSON'lari (bolge bazli)
 !experiments/*/step10/
 !experiments/*/step10/**
 
-# =====================================================================
-# SON SOZ (whitelist'i ezer): agir ikililer + build/OS artiklari HER YERDE
-# ignore. Bu, step10 dizinlerindeki predictions.parquet ve __pycache__/*.pyc
-# gibi dosyalarin da ASLA staged olmamasini garanti eder.
-# =====================================================================
+# Binary and build artefacts, everywhere
 *.parquet
 *.tif
-# the graphical abstract is a submission file, not a raster input (2026-09-23)
-!paper/figures/graphical_abstract.tif
 *.tiff
 *.joblib
 *.zip
 .DS_Store
+desktop.ini
 __pycache__/
 *.pyc
-
-drive_archive
-
-drive_new
-
-# Per-cell prediction dumps from step9b: same policy as *.parquet above --
-# heavy row-level output, not cited anywhere. The file is still hashed in the
-# raw directory's SHA256SUMS.txt so its provenance is recorded.
+# Per-cell step9b prediction dumps (hashed in the raw directory's SHA256SUMS.txt)
 cross_region_transfer_predictions.csv
+# Build record written by paper/tex/build_docx.py
+paper/tex/manuscript_assembled.md
 
-# LaTeX build products (the PDF is a deliverable, the rest is noise)
-paper/tex/*.aux
-paper/tex/*.log
-paper/tex/*.out
-paper/tex/*.blg
-paper/tex/*.spl
-
-# Primary label-corrected data (2026-09-19); overrides the *.parquet / *.tif rules above.
+# The modelling datasets override the binary rules above
 !paper/data/**/*.parquet
 !paper/data/**/*.tif
 
-.venv-fire2/
-
-# internal status notes stay local
+# Local notes
 STATUS.md
