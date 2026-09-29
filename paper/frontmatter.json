@@ -1,12 +1,12 @@
 {
-  "title": "Evaluation geometry and the limits of cross-region transfer in pre-fire thermal wildfire prediction",
+  "title": "Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: five large Mediterranean fires",
   "journal": "Natural Hazards",
   "keywords": [
-    "wildfire",
+    "wildfire susceptibility",
+    "Mediterranean",
     "model transferability",
-    "evaluation extent",
+    "evaluation area",
     "land surface temperature",
-    "spatial cross-validation",
-    "domain adaptation"
+    "spatial cross-validation"
   ]
 }

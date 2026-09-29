@@ -62,7 +62,7 @@ identifiable data.
 ## Use of generative AI
 
 Claude (Anthropic) was used in the research and in preparing this manuscript, as described in
-Section 3.13: to write and run analysis, verification and figure code, to check reported numbers
-against the frozen outputs, to run simulated internal reviews, and to draft and edit text. The
-authors reviewed and edited all of this material and take full responsibility for the content of the
-publication.
+Section 3.13. It was used to write and run analysis, verification and figure code, to check reported
+numbers against the frozen outputs, to draft and edit text, and to produce simulated referee reports
+on drafts. The authors reviewed and edited all of this material and take full responsibility for the
+content of the publication.

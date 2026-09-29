@@ -138,7 +138,8 @@ released grid alone.
 This is the opposite of what the superseded two-region run showed and of what the scale argument in
 Section 3.11 predicted. The two are not in direct contradiction: that run used a different region
 set, and the sweep's four directions do not include Bejis to Manavgat, where its result sat.
-Machine-readable: `paper/coral_lambda1.csv`.
+These values were withdrawn from the release, because the script that produced them was not kept.
+They are not used in the paper.
 ## Provenance
 
 Machine-readable: `paper/observational_sensitivities.json`. Inputs are the frozen

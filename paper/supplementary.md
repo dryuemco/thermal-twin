@@ -1,11 +1,10 @@
 # Supplementary Material
 
-Supplementary material for *Evaluation geometry and the limits of cross-region transfer in pre-fire
-thermal wildfire prediction*.
+Supplementary material for *Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: five large Mediterranean fires*.
 
 Section S1 gives the sensitivity analyses and the details behind the Results. Section S2 gives the
-supporting tables, Section S3 the protocol details and limitations, Section S5 the target-label
-recovery curve, Section S6 the code and Section S7 the data. Tables are numbered S1 to S34,
+supporting tables, Section S3 the protocol details and limitations, Section S4 the target-label
+recovery curve, Section S5 the code and Section S6 the data. Tables are numbered S1 to S34,
 independently of the sections. Supplementary equations are numbered (S1), (S2) and so on. Every value
 is read from a released output, named by its path in the repository
 <https://github.com/dryuemco/thermal-twin>. Paths that begin with `paper/labelfix_rerun/` hold the
@@ -33,17 +32,15 @@ label".
   - S1.16 The contrast pair, in full
   - S1.17 The sensitivity arms, summarised
   - S1.18 Distance within a region
-  - S1.20 The frame test, elaborated
-  - S1.21 The transfer matrix and adaptation, elaborated
-  - S1.22 The similarity diagnostics
-  - S1.23 Additional robustness analyses
+  - S1.19 The frame test, elaborated
+  - S1.20 The transfer matrix and adaptation, elaborated
+  - S1.21 The similarity diagnostics
+  - S1.22 Additional robustness analyses
 - S2 Supporting tables
 - S3 Protocol detail and limitations
-- S5 Target-label recovery curve
-- S6 Code
-- S7 Data
-
-The section numbers S1.19 and S4 are not used.
+- S4 Target-label recovery curve
+- S5 Code
+- S6 Data
 
 # S1 Sensitivity analyses and detail
 
@@ -282,8 +279,8 @@ values per scar at both block sizes. Over the seven scars, the region-wide gain 
 blocking and +0.117 at 1 km. On the scar area, the same predictions give +0.021 and +0.056.
 Leave-one-scar-out gives +0.024, and a foreign-region model +0.008, at both block sizes. Blocked minus
 leave-one-scar-out is −0.004 [−0.070, +0.063] at 5 km and +0.031 [−0.027, +0.090] at 1 km. Region-wide
-minus scar area at 5 km is +0.074 [−0.009, +0.157] at scar level and [+0.034, +0.146] with a
-region-cluster bootstrap. The within-region half-split gives +0.028, positive in 13 of 18 splits
+minus scar area at 5 km is +0.074 [−0.009, +0.157] at scar level. With only three regions, no
+reliable region-level interval can be given for this difference. The within-region half-split gives +0.028, positive in 13 of 18 splits
 (`paper/labelfix_rerun/inference/ladder_summary.json`, `paper/labelfix_rerun/code/positive_control.json`).
 
 **Table S26. The thermal gain by scar: region-wide, on the scar area, withheld and foreign.**
@@ -485,7 +482,7 @@ On the collar, 27 of the 90 feature-by-pair differences have intervals that excl
 about 4.5 expected by chance at 5 %. Four of the 27 are for this feature. Three of these four have
 point estimates on opposite sides of 0.5, and two of the three involve Evia. With a Holm correction
 on normal-approximation p-values, 12 of the 90 remain. With the stricter intersection-union form, which
-also requires the association in each region to be significant, none remains (Section S1.20). The
+also requires the association in each region to be significant, none remains (Section S1.19). The
 nine features carry about two independent thermal signals (Section 3.4), so the 90 comparisons are
 not independent. This result is weaker than a reversal.
 
@@ -591,7 +588,7 @@ Manavgat. On the collar, elevation is below 0.5 in Manavgat, at 0.376 [0.300, 0.
 in the other four regions. It is supported in two of them: Muğla at 0.606 [0.525, 0.685] and Evia at
 0.648 [0.550, 0.740] (`paper/labelfix_rerun/code/collar_frame_bootstrap.csv`). These two pairs are
 the only supported reversals left on the collar, and neither survives the Holm intersection-union
-correction (Section S1.20). The LST anomaly differs between regions only under the weaker difference
+correction (Section S1.19). The LST anomaly differs between regions only under the weaker difference
 test (Section S1.12).
 
 **The common sign.** On the collar, LST is below 0.5 in four of five regions: 0.405, 0.332, 0.286 and
@@ -674,7 +671,7 @@ most different values on every overlap measure. They transfer above chance in bo
 only at the point estimate: neither direction has interval support at 5 km blocking. The
 applicability measure was not produced for Montiferru. **At the point estimates, high niche overlap
 did not ensure transfer, and low overlap did not prevent it.** This rests on two pairs. It is not a
-correlation across pairs; that is tested in Section S1.22.
+correlation across pairs; that is tested in Section S1.21.
 
 ## S1.17 The sensitivity arms, summarised
 
@@ -739,7 +736,7 @@ distance from crossing a study-area boundary, but not from the land cover, terra
 that change with distance. The analysis gives a length scale for the fall of skill within a region,
 not a cause.
 
-## S1.20 The frame test, elaborated
+## S1.19 The frame test, elaborated
 
 Section 4.4 gives these results. Sources: `paper/labelfix_rerun/code/aoi_frame_auc.csv` (signed
 associations by frame), `paper/labelfix_rerun/code/collar_frame_bootstrap.csv` (their 10-cell
@@ -834,7 +831,7 @@ unmatched comparison, and it becomes smaller as the frame moves closer to the fi
 collar, the within-region gain falls by half but stays positive in all five regions, with a mean of
 +0.042 (Manavgat +0.035).
 
-## S1.21 The transfer matrix and adaptation, elaborated
+## S1.20 The transfer matrix and adaptation, elaborated
 
 Section 4.5 gives these results.
 
@@ -848,7 +845,7 @@ directions below chance, Manavgat to Bejís (0.407 [0.323, 0.493]) and Muğla to
 5 km collar. The lowest direction on the original study areas is Bejís to Manavgat, at 0.314 [0.296,
 0.332].
 
-**Label-blind adaptation.** Under region-wise z-scoring the twenty directions range from 0.302 to
+**Label-free adaptation.** Under region-wise z-scoring the twenty directions range from 0.302 to
 0.630, and under CORAL from 0.406 to 0.624. The change is not uniform: under z-scoring, Bejís to
 Manavgat falls further below chance, from 0.314 to 0.302. With the better of the two methods in each
 direction, 15 of the 20 directions end closer to chance and 5 end further from it. Four of these five
@@ -868,7 +865,7 @@ intervals per direction are conditional on one fitted source model.
 **Jackknife.** Leaving out one region at a time moves the mean paired contribution between +0.001
 (without Evia) and +0.015 (without Manavgat). Its sign never changes.
 
-## S1.22 The similarity diagnostics
+## S1.21 The similarity diagnostics
 
 Twenty similarity measures from five families were each rank-correlated with raw thermal transfer
 AUC over the directions on which they are defined. One pair-based bootstrap is used for all of them
@@ -896,7 +893,7 @@ for the others. Every row was therefore recomputed on the common subsets of twel
 directions. On both, every interpretable row includes zero
 (`paper/labelfix_rerun/round5/out_official/diagnostics_common_subset.json`).
 
-**The collar.** Section S1.20 gives the two measures recomputed on the collar. One of them, the
+**The collar.** Section S1.19 gives the two measures recomputed on the collar. One of them, the
 all-feature cosine, orders collar transfer with an interval that excludes zero. It is reported with
 its limits and is not used.
 
@@ -906,7 +903,7 @@ give little power, and a moderate ordering would usually be missed. These result
 failure to find an ordering, not proof that none exists (Section S3.5(xiii)). Measures based on
 interval support are unstable when bounds lie near 0.5 (Section S3.5(viii)).
 
-## S1.23 Additional robustness analyses
+## S1.22 Additional robustness analyses
 
 The analyses in Table S21 were run after the main results. They test whether the main quantities
 depend on analysis choices. None of them was used to select a reported configuration.
@@ -918,10 +915,11 @@ depend on analysis choices. None of them was used to select a reported configura
 |---|---|---|
 | Edge-excluded frame cost (a1) | Is the frame cost carried by the scar's edge cells? | Over nine scars, excluding 0, 1 or 2 cells of the scar edge gives A − B = 0.147 [0.086, 0.208], 0.137 [0.069, 0.205] and 0.129 [0.055, 0.204]; with the region as unit 0.160, 0.150 and 0.145, every interval above zero |
 | Placebo collars (a2) | Is the cost a property of any fire-shaped frame? | The scar's real positives scored against the negatives of a same-shaped collar placed away from any burned cell reproduce A (A − placebo −0.002 [−0.056, +0.052], eight scars with placements); the real collar costs +0.155 [+0.108, +0.202] more, so the cost is the fire-adjacent negatives |
+| Frame cost against the share of distant cells (a3) | Is the cost larger where the study area has more distant cells? | No. Region-level slope 0.005 [−0.41, +0.42], r = 0.02 (n = 5); scar-level slope −0.049 [−0.34, +0.24] (n = 9, scars not independent). The test has little power |
 | Label-free target frames (a4) | Does a frame drawn without target labels change transfer? | Trimming the target to the source's per-feature range, or to the source's area of applicability [@Meyer2021], gives means of 0.520 to 0.574, and a 20 km window 0.482; every paired thermal Δ interval spans zero |
 | Metric dependence (a5) | Is the frame cost specific to ROC-AUC? | Region-wide minus scar-frame over nine scars: partial AUC (FPR ≤ 0.1) 0.088 [0.048, 0.128]; average precision −0.342 [−0.477, −0.206], higher on the scar frame because its prevalence is higher |
 | Collar within-region increment | Does the within-region increment survive the collar? | +0.083 [+0.037, +0.129] over five regions (Student *t*), against +0.087 [+0.037, +0.136] as drawn |
-| Equalised Δ by resampling unit | Does the collar Δ exclude zero? | Table S31: two of five computable units exclude zero; the two-way estimators are undefined |
+| Equalised Δ by resampling unit | Does the collar Δ exclude zero? | Table S31: two of six computable units exclude zero; the two-way estimators are undefined |
 | Equivalence of the equalised Δ | How large a gain is excluded? | Within ±0.05 under four of five units; no gain above 0.047 at 90 % (pair cluster); not within ±0.02 under any unit |
 | Within minus transfer increment | Is the local-versus-portable contrast itself supported? | Full frame +0.079 [+0.014, +0.145]; 10 km collar +0.059 [+0.007, +0.110]; 5 km collar +0.026 [−0.012, +0.063] |
 | Reversal multiplicity | Do the collar reversals survive correction? | Table S30: two per-comparison reversals, none after Holm intersection-union |
@@ -1507,7 +1505,7 @@ within 0.005; the largest change is −0.0044 for downscaled LST. The within-reg
 
 (xiii) **The similarity tests rest on ten independent region pairs.** Five regions give twenty
 ordered directions, but the two directions of a pair share both regions and are not independent. All
-results of Section S1.22, positive and negative, have this low power. With ten pairs, a moderate true
+results of Section S1.21, positive and negative, have this low power. With ten pairs, a moderate true
 ordering would usually be missed.
 
 (xiv) **The frame cost rests on few scars.** The full comparison of Section 4.3 is defined on seven
@@ -1595,8 +1593,8 @@ given in Section S3.5(vi).
 For each direction, the gap between the within-region skill of the target and the raw transfer
 result is split in two parts. One part is what the best label-free adaptation recovers, and the other
 is what it does not recover. The recovered fraction is (adapted − raw) / (within − raw), signed and not
-clipped, with its interval from the same paired bootstrap. It is an upper limit on what a correction
-of the predictor distributions can achieve. Section 4.3 shows that the remainder should not be read
+clipped, with its interval from the same paired bootstrap. It describes what the two methods tested achieved, with the better one chosen using target labels;
+other correction methods were not tested. Section 4.3 shows that the remainder should not be read
 as a concept-shift residual, because much of it already appears inside a single region (Section
 S1.10).
 
@@ -1616,7 +1614,7 @@ point reversal only. Section S2 repeats the rule next to the counts, and
 
 Replicates with $`|G| < 10^{-6}`$ are dropped.
 
-## S3.8 Label-blind adaptation, full specification
+## S3.8 Label-free adaptation, full specification
 
 **Region-wise z-score.** The numeric features of each region are standardised with the statistics
 of that region: source statistics from source data and target statistics from target data, never
@@ -1649,9 +1647,9 @@ directions; transfer AUC moved by at most 0.014, and λ was not selected on perf
 the original CORAL formulation lies outside this range. The value used throughout is λ = 10⁻⁵
 (Section S1.2).
 
-# S5 Target-label recovery curve
+# S4 Target-label recovery curve
 
-## S5.1 Purpose
+## S4.1 Purpose
 
 The main text shows that label-free alignment does not close the transfer gap. This section asks
 how much of the gap a small number of target labels can close. It is not a proposed method or an
@@ -1661,7 +1659,7 @@ few-shot recovery diagnostic on the corrected label, analysis `7348dfe7…`, rel
 `paper/labelfix_rerun/exports/few_shot_recovery_7348dfe7/` (`recovery_curve.csv`,
 `repeat_metrics.csv`, `report.md`); every value below is read from it.
 
-## S5.2 Design
+## S4.2 Design
 
 The unit of labelling effort is one 10-cell (≈5 km) spatial block of the target. For a budget of k
 blocks, k target blocks are drawn from the training folds of a 5-fold spatially blocked split of the
@@ -1674,7 +1672,7 @@ share of the gap between raw transfer and the ceiling that the labels close; it 
 clipped. The intervals are **selection intervals**: the 2.5th and 97.5th percentiles over the ten
 block draws. They describe only which blocks were drawn, and no hypothesis test is made.
 
-## S5.3 Result
+## S4.3 Result
 
 **Table S22. Few-shot recovery of target ROC-AUC, thermal model, natural-vegetation population.** Raw
 = source-only transfer (budget 0); ceiling = target-only model at the same 10-cell blocking. Values
@@ -1702,7 +1700,7 @@ transfer and the ceiling. It is still below 0.5 after 8 labelled blocks and clos
 labels (0.618), and target labels help it least. The curve is below the raw value at 1, 2, 4 and 8
 blocks (0.576 to 0.598), rises above it only at 16 blocks, and closes 30 % at 32.
 
-## S5.4 Limits
+## S4.4 Limits
 
 1. **Three regions, six directions.** Evia and Montiferru are not included, so this covers six of
    the twenty directions and cannot cover all five regions. Six directions cannot support a general
@@ -1719,7 +1717,7 @@ blocks (0.576 to 0.598), rises above it only at 16 blocks, and closes 30 % at 32
    so it is lower. The recovered fractions can only be read against this matched ceiling, and on the
    original study areas, which are not comparable across regions (Section 4.4).
 
-# S6 Code
+# S5 Code
 
 The analysis code is public at <https://github.com/dryuemco/thermal-twin> under the MIT licence.
 This section is a guide to it; the README of the repository gives the same information. The satellite
@@ -1743,7 +1741,7 @@ scikit-learn version (Section S3.5(vi)). Fig. 1 also needs cartopy; without it, 
 reports this figure as skipped. Tables S1 and S20 to S34 and the values in the text are not checked by
 `appendix_tables.py`; they name their source files in their captions or text.
 
-# S7 Data
+# S6 Data
 
 All satellite inputs are public and were retrieved through Google Earth Engine (Table S20). No
 proprietary or restricted data were used.

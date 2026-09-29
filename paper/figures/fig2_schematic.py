@@ -67,8 +67,8 @@ SECTIONS = {
     "3.6": 'Classifier',
     "3.7": 'Spatial-block cross-validation and bootstrap uncertainty',
     "3.8": 'Cross-region transfer protocol',
-    "3.9": 'Label-blind domain adaptation',
-    "3.10": 'Transfer-gap decomposition and the concept-shift criterion',
+    "3.9": 'Label-free domain adaptation',
+    "3.10": 'Transfer-gap decomposition and the reversal criterion',
     "3.11": 'Interventions',
     "3.12": 'Evaluation frames and controls on the transfer path',
     "3.13": 'Leakage control and reproducibility',
@@ -249,7 +249,7 @@ if "--preview" in sys.argv:
                "verified against the live 03_methods.md heading list at build "
                "time - number AND title - so a renumbered Methods breaks the "
                "build; (a2, 2026-09-23) every § printed in the figure, ranges expanded, "
-               "equals that table exactly; (a3) every \S in the caption is a live heading and "
+               "equals that table exactly; (a3) every \\S in the caption is a live heading and "
                "sits next to its topic word; (b) every box label is checked to fit its own box",
     "printed_section_references": len(PRINTED_REFS),
     "caption_section_references": CAPTION_REFS,

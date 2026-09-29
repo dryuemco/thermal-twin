@@ -3,98 +3,115 @@
 ## 5.1 The three findings together
 
 The first finding sets the size of the second. When the study areas were made comparable, four
-between-region quantities were shown to depend on the study areas and not on the relationship
-between predictors and burning (Section 4.4). Two results remained. Transfer stayed well below
-within-region skill, and one reversed relationship remained: the elevation association of Manavgat.
-This reversal is supported under the per-comparison criterion but not after multiplicity
-correction. The third finding closes an obvious way around the second. If transfer cannot be
-assumed, it might still be predicted from the similarity of two regions. None of the twenty measures
-did this on the original study areas.
+between-region results changed (Section 4.4). Two results remained: transfer stayed well below
+within-region skill, and one reversed relationship remained, the elevation association of Manavgat.
+This reversal is supported under the per-comparison criterion but not after multiplicity correction.
+The third finding closes an obvious way around the second. If transfer cannot be assumed, it might
+still be predicted from the similarity of two regions, but none of the twenty measures did this on
+the original study areas.
 
-## 5.2 The thermal gain within regions and at the fire
+## 5.2 What the within-region score measures
 
 The thermal gain within regions is robust. It was supported in all five regions under blocked
 validation, in all sensitivity analyses (Sections S1.1 to S1.8), and when the predictor window was
-closed up to two weeks earlier (Section S1.4). At the burn scar, the same gain fell to +0.021 and was
-not established. Withholding the scar did not change it. The fall is therefore caused by the cells
-that are scored, not by the choice of held-out cells. These comparisons rest on seven scars in three
-regions. With the region as the unit, only the frame cost is established (Section 4.3).
+closed up to two weeks earlier (Section S1.4). On the scar frame, however, the same gain fell to
++0.021 and was not established, and withholding the scar did not change it. The fall is therefore
+caused by the cells that are scored, not by the choice of held-out cells.
 
-Each region contributes one fire season. The shortfall in transfer can therefore not be attributed
-to the region rather than to the event. The two Muğla fires were included to separate these two
-effects, but this comparison was mainly affected by the study area (Section 4.4). Each burned area
-is also a single outcome of ignition, wind and suppression, which are not observed here. A pre-fire
-surface predictor can only rank cells by their condition before the fire. The five fires were large
-events, so the conclusions are stated for large events.
+The within-region score also describes skill close to the training cells. Inside one region, skill
+fell from 0.709 within 5 km of the training cells to 0.519 at 10 to 20 km (Section S1.18). The
+within-region reference therefore measures how well a model fills gaps inside an observed fire
+season. Part of the transfer shortfall is thus a matter of distance, and a model of this kind is best
+described as having short-range skill.
+
+Each region also contributes one fire season, dominated by one large fire. The negative class
+therefore contains cells that could have burned but were not reached, and ignition, wind and
+suppression decided much of this. Burned-area patterns have different controls at different scales
+[@ParisienMoritz2009], and a pre-fire surface predictor can only rank cells by their condition
+before the fire. The shortfall can therefore not be attributed to the region rather than to the
+event. The two Muğla fires were included to separate these effects, but this comparison was mainly
+affected by the study area (Section 4.4). The conclusions are stated for large single-season events.
 
 ## 5.3 The two interventions
 
 Pooling four source regions was better than the mean single-source model only for Evia, where it
 reached 0.715 [0.668, 0.757] against 0.569 (Section S1.14). For all five targets it stayed well
 below the within-region ceiling. Removing the two reversing predictors cost −0.076 of within-region
-skill, with interval support in every region. It changed mean transfer by +0.014 [−0.028, +0.056].
+skill, with interval support in every region, and changed mean transfer by +0.014 [−0.028, +0.056].
 
 These two numbers should not be read as an exchange of local skill for transfer. The thermal
-contribution to transfer is +0.007, and removal returns +0.014. Both intervals include zero. A local
-cost is therefore measured, but no gain in transfer.
+contribution to transfer is +0.007, and removal returns +0.014, and both intervals include zero. A
+local cost is therefore measured, but no gain in transfer.
 
-## 5.4 Comparison with earlier work
+## 5.4 What the thermal predictors measured
+
+The thermal predictors were chosen as a measure of pre-fire dryness, but they did not behave as one.
+Hotter surfaces burned less in four of five regions, and in Manavgat once elevation was held
+(Section 4.4). In summer, land surface temperature is strongly shaped by canopy cover, exposed soil
+and terrain. Dense, cooler vegetation carries more fuel, so a negative association is consistent
+with LST acting as a land-surface descriptor. The normalised channels did not transfer better than
+the absolute ones either (Section S1.6). In Mediterranean ecosystems, the link between fire and
+climate also depends on fuel and productivity [@PausasPaula2012], so the sign of a surface predictor
+may differ between landscapes.
 
 Dimarco et al. [@Dimarco2026] found good transfer in a similar Mediterranean design, while transfer
 failed here. The two studies differ in two ways. Their predictors are static attributes of a place,
-and their response is human-caused ignition. Here the predictors describe the surface in one season,
-and the response is burned area. These two differences cannot be separated in this comparison. In
-this cohort the static baseline also did not transfer (mean 0.519), so predictor class alone does not
-explain the difference.
-
-Hotter pre-fire surfaces burned less in four of five regions, and in Manavgat once elevation was held
-constant (Section 4.4). In this cohort, the absolute thermal channels therefore behaved as
-land-surface descriptors and not as a dryness index. The normalised channels did not transfer better
-(Section S1.6).
+and their response is a record of human-caused ignitions. Here the predictors describe the surface in
+one season, and the response is the footprint of one fire season per region. These two differences
+cannot be separated in this comparison. In this cohort the static baseline also did not transfer
+(mean 0.519), so predictor class alone does not explain the difference.
 
 ## 5.5 Implications for practice
 
-Three changes in reporting are supported by these results.
+Four changes in practice are supported by these results.
 
-**Report skill at the fire, together with the region-wide score.** On the same model, the two scores
-differed by 0.133 ROC-AUC over seven scars and by 0.160 with the region as the unit. This is larger
-than the thermal gain within most regions (Table 1). A region-wide blocked score should
-therefore be read as an upper bound.
+**Report the evaluation frame, and name the question it answers.** A region-wide score describes
+where in a landscape fire occurred, which is the question behind prevention planning. A scar-frame
+score describes which cells next to a fire burned. On the same model the two differed by 0.160
+ROC-AUC with the region as the unit, which is larger than the thermal gain within most regions (Table
+1). Both numbers are needed to judge a model.
 
 **Measure transfer in the target region.** A within-region score does not show how a model will work
 elsewhere, and no similarity measure tested here could replace the measurement. In precision terms,
 a model moved to a new region did not usefully rank the burned cells there (Section 4.5). Target
-labels closed much of the gap (Section S5), but they come from the fire that is being predicted.
+labels from the predicted fire closed much of the gap (Section S4), but they are not available in
+advance. Where a burned-area record of earlier fires exists for the target region, it offers a way to
+check a transferred model before use; this option was not tested here.
 
 **Fix the study area by a stated rule before the predictors are computed.** The study areas used
 here were not comparable, and this changed four between-region results (Section 4.4). An
 accessible-area rule [@Barve2011] is one option.
 
-Label-blind domain adaptation should not be expected to repair transfer. It moved most directions
-toward chance, including those that had worked (Section 4.5). A reversed association is not corrected
-by aligning the predictor distributions.
+**Do not expect label-free adaptation to repair transfer.** Both methods tested moved most directions
+toward chance, including those that had worked (Section 4.5). A reversed association cannot be seen
+without target labels, so aligning the predictor distributions cannot correct it.
 
 ## 5.6 Limitations
 
 The limitations are given in full in Section S3.5. The following ones affect the conclusions.
 
-- **The study areas were not comparable.** They could be restricted but not extended, because they
-  were fixed earlier in the pipeline (Section 4.4; S3.5(ix)).
-- **The frame cost rests on few scars.** The full comparison is defined on seven scars in three
-  regions. The region-level estimates should be quoted (Section 4.3).
 - **Each region contributes one fire season,** so region and event effects cannot be separated
   (S3.5(v)).
+- **The study areas were not comparable.** They could be restricted but not extended, because they
+  were fixed earlier in the processing pipeline (Section 4.4; S3.5(ix)).
+- **The frame cost rests on few scars.** The full comparison is defined on seven scars in three
+  regions, so the region-level estimates should be quoted (Section 4.3).
+- **Intervals are conditional on one fitted forest.** The random-forest seed is fixed, and under
+  another scikit-learn version single directions moved by up to 0.047 (Section 3.13; S3.5(vi)).
 - **The similarity tests rest on ten independent region pairs,** so both positive and negative
   results have low power (S3.5(xiii)).
 - **Measures based on interval support are unstable.** Five to six interval bounds lie within 0.01
-  of 0.5, and one changed flag moved a correlation by about 0.2 (Section S1.21; S3.5(viii)).
+  of 0.5, and one changed flag moved a correlation by about 0.2 (Section S1.20; S3.5(viii)).
+- **The reversal test is marginal.** A reversal of a single predictor can also come from different
+  predictor distributions, so it does not prove a change in the predictor-burning relationship
+  (Section 3.10).
 - **The low transfer into Manavgat is located but not explained.** Weather, quality screening and the
-  study area were tested, and none explained it. Terrain was held only through elevation (S3.5(vii)).
-- **Point estimates depend on the software version.** Under another scikit-learn version, single
-  directions moved by up to 0.047, so exact reproduction needs the archived environment (Section 3.13;
-  S3.5(vi)).
+  study area were tested, and none explained it. Terrain was held only through elevation, and in
+  Manavgat burn timing and elevation are confounded (S3.5(vii), S3.5(xi)).
 - **All labels come from one burned-area product,** MCD64A1 [@Giglio2018], with known omission and
-  commission errors [@Boschetti2019; @Katagis2022]. VIIRS VNP64A1 [@VNP64A1] was not used as a label
-  sensitivity (S3.5(iii)).
-- **No weather predictors were used** (S3.5(i)). Other classifiers were compared by point estimate
-  only (Section S1.8; S3.5(x)).
+  commission errors [@Boschetti2019; @Katagis2022], which are concentrated at scar edges. VIIRS
+  VNP64A1 [@VNP64A1] and independent fire perimeters were not used as a label check (S3.5(iii)).
+- **The land-cover map is post-fire for four events.** WorldCover v200 is built from 2021 images
+  (Section 3.4).
+- **No weather predictors were used** (S3.5(i)), and other classifiers were compared by point
+  estimate only (Section S1.8; S3.5(x)).

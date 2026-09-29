@@ -4,13 +4,13 @@ LaTeX build uses, formatted for Natural Hazards (Springer).
 Springer's submission guidelines for Natural Hazards (read 2026-09-29) ask for: a title page with
 authors, affiliations (institution, department, city, country) and the corresponding author's e-mail;
 an abstract of 150 to 250 words; 4 to 6 keywords; name-year citations; a reference list in Springer's
-basic style with DOIs as full links; and, after the reference list, a section headed "Statements and
-Declarations" (funding, competing interests, author contributions, data and code availability,
-ethics). Acknowledgements go on the title page. The document is A4, 2.5 cm margins, Times New Roman
+basic style with DOIs as full links; and, before the reference list, Acknowledgements and a section
+headed "Statements and Declarations" (funding, competing interests, author contributions, data and
+code availability, ethics). The document is A4, 2.5 cm margins, Times New Roman
 12 pt, double spaced, with continuous line numbers and page numbers.
 
-Order: title page, abstract, keywords, sections 1-6, references, Statements and Declarations
-(07_declarations.md), figure captions. Figures are separate files.
+Order: title page, abstract, keywords, sections 1-6, Acknowledgements, Statements and Declarations
+(07_declarations.md), references, figure captions. Figures are separate files.
 
 Drafting notes (Markdown blockquotes) are not allowed in the sources any more: the build fails on
 one, and on any "NEEDS AUTHOR INPUT" marker. Display equations are numbered in order of appearance,
@@ -107,9 +107,6 @@ Adana, Türkiye
 
 ORCID: Yunus Emre Cogurcu, 0000-0002-9229-9657
 
-**Acknowledgements.** The authors thank the Department of Computer Engineering at Çukurova University
-for the laboratory environment in which this work was carried out.
-
 @@WORDCOUNT@@
 
 # Abstract
@@ -147,8 +144,10 @@ assert all(_first), [n + 1 for n, m in enumerate(_first) if not m]
 _pos = [m.start() for m in _first]
 assert _pos == sorted(_pos), f"figures first cited out of order: {_pos}"
 fig_md = "# Figure captions\n\n" + "\n\n".join(f"**Fig. {n}** {c}" for n, c in enumerate(caps, 1))
-ms_md = (title_page + "\n\n" + body + "\n\n# References\n\n::: {#refs}\n:::\n\n" + decl + "\n\n"
-         + fig_md + "\n")
+ACK = ("# Acknowledgements\n\nThe authors thank the Department of Computer Engineering at Çukurova "
+       "University for the laboratory environment in which this work was carried out.")
+ms_md = (title_page + "\n\n" + body + "\n\n" + ACK + "\n\n" + decl
+         + "\n\n# References\n\n::: {#refs}\n:::\n\n" + fig_md + "\n")
 
 # ---------------------------------------------------------------- supplement
 SEQ = {}
@@ -283,7 +282,7 @@ def main_text_words(doc):
         if p.style.name.startswith("Heading 1"):
             if p.text.startswith("1 "):
                 on = True
-            elif p.text == "References":
+            elif p.text in ("Acknowledgements", "Statements and Declarations", "References"):
                 break
         if on:
             n += len(p.text.split())

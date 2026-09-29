@@ -25,6 +25,7 @@ def plain(s):
     for k, v in LATEX.items():
         s = s.replace(k, v)
     s = re.sub(r"[{}\\]", "", s)
+    s = s.replace("‐", "-").replace("‑", "-")   # Crossref writes some names with Unicode hyphens
     return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower().strip()
 
 

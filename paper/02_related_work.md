@@ -36,8 +36,8 @@ covariance alignment for fire susceptibility or burned-area prediction.
 
 ## 2.3 Transfer of fire models and the evaluation area
 
-Few studies test the transfer of fire models directly. Global fire-danger indices did not transfer
-well between fire environments in Peru [@Podschwit2022]. In the Alps and the Mediterranean Basin,
+Few studies test the transfer of fire models directly. Global fire-danger indices, which are dynamic and driven by weather, did not transfer well between
+fire environments in Peru [@Podschwit2022]. In the Alps and the Mediterranean Basin,
 regional fire-occurrence models transferred well only under similar conditions, and a pooled model
 was more robust [@Bekar2020]. WildfireGenome [@Liu2025] trained models in one of seven US counties
 and tested them in the others. Transfer was good between similar counties and poor between
@@ -49,12 +49,14 @@ Their predictors are static attributes of a place, and their response is human-c
 Here the predictors describe the surface state in one season, and the response is burned area.
 
 **Evaluation area and AUC.** In species distribution modelling, the evaluation area is known to
-affect AUC. Lobo et al. [@Lobo2008] rank it as the most important reason to be careful when AUC
-values are compared. A larger area adds more easy absences and raises the score. The same effect
+affect AUC. Lobo et al. [@Lobo2008] list it among the main reasons for caution when AUC
+values are compared, because a larger area adds more easy absences and raises the score. Related
+effects were shown for spatial sorting bias between training and test sites [@Hijmans2012] and in a
+general analysis of AUC [@JimenezValverde2012]. The same effect
 was shown for calibration [@VanDerWal2009] and was described in general terms as the accessible
 area [@Barve2011]. The size of the effect depends on the problem, so it was not given in general.
 We found no wildfire study that keeps the model fixed and changes only the evaluation cells.
-Region-wide scores are often reported as if they described performance at the fire.
+Region-wide scores are often reported as if they described performance next to the fire.
 
 **Similarity and transfer.** Species distribution studies disagree on the role of similarity.
 Vesk et al. [@Vesk2021] found that trait-based models did not predict worse with increasing

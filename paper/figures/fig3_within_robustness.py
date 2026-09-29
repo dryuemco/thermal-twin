@@ -147,7 +147,7 @@ for reg, off in zip(REGIONS, offsets):
                  ms=5.0, lw=1.5, capsize=2.5, elinewidth=1.0)
 
 for ax, title, ylab in ((axB, "(b) Thermal AUC", "thermal ROC-AUC"),
-                        (axC, "(c) ΔAUC stays > 0",
+                        (axC, "(c) ΔAUC",
                          "ΔAUC (thermal − baseline)")):
     ax.set_xticks(x, [BLOCK_LABEL[b] for b in BLOCKS], fontsize=FS_TICK)
     ax.set_title(title, fontsize=FS_BODY, loc="left")

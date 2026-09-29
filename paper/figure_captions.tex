@@ -30,7 +30,7 @@
   that pass the admissibility gate are used in the natural-vegetation population. Kozan 2023 fails
   the gate (98\% of its burned area is cropland) and is not modelled. Two evaluations are made:
   within-region cross-validation and cross-region transfer in 20 directions, with and without
-  label-blind adaptation. Both are combined in the transfer-gap decomposition (\S3.10). Leakage
+  label-free adaptation. Both are combined in the transfer-gap decomposition (\S3.10). Leakage
   control, seed 42 and the spatial-block bootstrap (\S3.13) apply throughout.}
   \label{fig:pipeline}
 \end{figure}
@@ -54,7 +54,7 @@
 \begin{figure}[htbp]
   \centering
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig4_transfer_matrix.pdf}}
-  \caption{\textbf{Cross-region transfer, without and with label-blind adaptation.} Thermal
+  \caption{\textbf{Cross-region transfer, without and with label-free adaptation.} Thermal
   transfer ROC-AUC for the 20 ordered directions; natural-vegetation population; original study
   areas. \textbf{(a)} Raw transfer. \textbf{(b)} After region-wise z-scoring. \textbf{(c)} After
   CORAL. Rows are source regions and columns are target regions (Man.\ = Manavgat, Bej.\ = Bej\'is,
@@ -72,11 +72,12 @@
 \begin{figure}[htbp]
   \centering
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig5_adaptation.pdf}}
-  \caption{\textbf{Label-blind adaptation moves transfer toward chance.} The 12 ordered directions
-  among Manavgat, Bej\'is, Mu\u{g}la and Evia; natural-vegetation population; original study areas.
+  \caption{\textbf{Label-free adaptation moves transfer toward chance.} The 12 ordered directions
+  among Manavgat, Bej\'is, Mu\u{g}la and Evia, the four regions of the pipeline's gap decomposition;
+  Montiferru is not part of that decomposition. Natural-vegetation population; original study areas.
   The open circle is raw transfer ROC-AUC. The arrow ends at the better of the two adapted results
-  (z-score or CORAL); this choice uses target labels. The grey tick is the target's within-region
-  reference, and the dashed line is chance. \textbf{Solid blue arrows (five) move toward the
+  (z-score or CORAL). This choice uses target labels, so the arrows show an optimistic case. The grey
+  tick is the target's within-region reference at 1 km blocking, and the dashed line is chance. \textbf{Solid blue arrows (five) move toward the
   reference; dashed orange arrows (seven) move away from it.} Eleven of twelve directions end closer
   to chance. The exception is Manavgat$\rightarrow$Mu\u{g}la (0.438 to 0.427).
   Bej\'is$\rightarrow$Manavgat is shown as a recovery because CORAL raises it from 0.314 to 0.406;

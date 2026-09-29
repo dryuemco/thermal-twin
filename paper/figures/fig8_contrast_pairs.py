@@ -302,7 +302,7 @@ draw_panel(
     f"Manavgat{NDASH}Muğla",
     f"Schoener {DBAR} = {nl['schoener_d_mean1d']:.2f}, highest overlap",
     f"transfer {tl['manavgat_2021_to_mugla_2021']['auc']:.3f} / "
-    f"{tl['mugla_2021_to_manavgat_2021']['auc']:.3f}, both below chance",
+    f"{tl['mugla_2021_to_manavgat_2021']['auc']:.3f}, both below chance (point)",
     f"jointly supported: {len(JS_LEFT)}, all opposite in sign; agree {AGREE_LEFT}/9",
     show_ylabels=True,
 )
@@ -310,7 +310,7 @@ draw_panel(
     axR, axRb, P_RIGHT, "bejis_2022", "montiferru_2021", "b",
     f"Bejís{NDASH}Montiferru",
     f"Schoener {DBAR} = {nr['schoener_d_mean1d']:.2f}, lowest overlap",
-    "transfer 0.594 / 0.548, both above chance",
+    "transfer 0.594 / 0.548, both above chance (point)",
     f"jointly supported features: {len(JS_RIGHT)}, sets disjoint",
     show_ylabels=False,
 )
