@@ -14,9 +14,11 @@ population (Section S1.1).
 Adding the thermal predictors to the baseline raised the spatially blocked out-of-fold ROC-AUC in
 every region (Fig. 3; Table 1). The interval of the gain excluded zero in all five regions at 1 km
 and at 5 km blocking. At 10 km blocking the point estimates stayed positive, from +0.047 to +0.154,
-but they rest on only 6 to 33 blocks that contain burned cells, so they are indicative. The gain also
-stayed positive, with interval support in all five regions, when the predictor window was closed up
-to two weeks earlier (Section S1.4).
+but they rest on only 6 to 33 blocks that contain burned cells, so they are indicative. The gain also stayed positive, with interval support in all five regions, when the predictor window
+was closed up to two weeks earlier (Section S1.4). With labels from VIIRS VNP64A1 instead of
+MCD64A1, the gain stayed positive in all five regions at the point estimates (Section S1.23). When terrain aspect was added to both feature sets, the
+gain stayed supported in four regions (+0.044 to +0.139) but fell to +0.020 [−0.025, +0.066] in
+Montiferru (Section S1.23).
 
 **Table 1. Within-region baseline versus thermal performance and block-size robustness.** Primary
 (natural-vegetation) population; spatially blocked 5-fold CV (Section 3.7); paired spatial-block
@@ -57,7 +59,7 @@ together with its 2 km collar.
 and D are scored on the scar frame. Row A is the whole region and is shown to make the difference
 visible. Means and Student *t* intervals over the seven scars that allow row C: four in Muğla, two in
 Montiferru and one in Evia. The *t* intervals treat scars as independent; region-level estimates are
-given in the text.
+given in the text. Cell counts per scar are in Table S1.
 
 | Evaluation | Model trained on | Scored on | Mean AUC | 95 % CI |
 |---|---|---|---:|---|
@@ -188,7 +190,8 @@ far below within-region skill (Section S1.23).
 
 **In precision terms, transfer is weaker still.** Precision-recall AUC averaged **0.181, against a
 no-skill baseline of 0.157**; the baseline of each target is its burned prevalence, which ranges from
-0.070 to 0.287. Seven of twenty directions were below their own baseline. At 5 km blocking, two of these seven had intervals below the baseline, both into Manavgat (Table
+0.070 to 0.287. The median lift over the baseline was 1.18. Seven of twenty directions were below their own
+baseline. At 5 km blocking, two of these seven had intervals below the baseline, both into Manavgat (Table
 S11). In map terms, the 10 % of target cells with the highest scores contained on average 10.3 % of
 the burned cells, which is what a random ranking gives, and eight of twenty directions did worse.
 Within regions, the same share was 35.5 % (Section S1.23).

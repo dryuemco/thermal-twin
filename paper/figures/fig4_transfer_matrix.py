@@ -82,6 +82,21 @@ assert tuple(f"{x:.3f}" for x in rng["coral"]) == ("0.406", "0.624"), rng["coral
 BELOW = {k: sorted(d for d in fig5 if fig5[d][k] < 0.5) for k in ("raw", "zscore", "coral")}
 assert len(BELOW["raw"]) == 7, BELOW["raw"]
 
+# 10-cell (~5 km) interval support of the raw directions (reviewer request): a dot in the cell
+# corner marks a direction whose target-block interval excludes 0.5 (Table 3: 9 above, 6 below)
+import pandas as _pd
+_ci = _pd.read_csv(HERE.parent / "labelfix_rerun/round5/out_official/transfer_ci_blocksize.csv")
+_nm = {"manavgat": "manavgat_2021", "bejis": "bejis_2022", "mugla": "mugla_2021",
+       "evia": "evia_2021_extended", "montiferru": "montiferru_2021"}
+SUPPORT10 = {}
+for _, _r in _ci.iterrows():
+    _s, _t = _r.direction.lower().replace("ğ", "g").split("_to_")
+    if _r.verdict_10cell in ("above", "below"):
+        SUPPORT10[f"{_nm[_s]}_to_{_nm[_t]}"] = _r.verdict_10cell
+assert sum(v == "above" for v in SUPPORT10.values()) == 9 and sum(v == "below" for v in SUPPORT10.values()) == 6, SUPPORT10
+for _d, _v in SUPPORT10.items():
+    assert (fig5[_d]["raw"] > 0.5) == (_v == "above"), _d
+
 MM = 1 / 25.4
 plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
 fig, axes = plt.subplots(1, 3, figsize=(190 * MM, 71 * MM))
@@ -125,6 +140,8 @@ for ax, (key, title) in zip(axes, VARIANTS):
                 ax.add_patch(plt.Rectangle(
                     (j - 0.5, i - 0.5), 1, 1, fill=False, hatch="////",
                     edgecolor=colour, linewidth=0.0, zorder=2.5, alpha=0.55))
+            if key == "raw" and f"{REGIONS[i]}_to_{REGIONS[j]}" in SUPPORT10:
+                ax.plot(j + 0.34, i - 0.34, marker="o", ms=2.4, color=colour, zorder=3.5)
             ax.text(j, i, f"{M[i, j]:.2f}", ha="center", va="center",
                     fontsize=FS_CELL, zorder=3, color=colour,
                     bbox=dict(boxstyle="square,pad=0.12", facecolor=bg,

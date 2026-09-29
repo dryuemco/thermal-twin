@@ -53,7 +53,7 @@ CONTROL = "kozan_2023"
 
 LABEL = {
     "manavgat_2021": "Manavgat 2021", "bejis_2022": "Bejís 2022",
-    "mugla_2021": "Muğla 2021", "evia_2021_extended": "Evia 2021",
+    "mugla_2021": "Muğla 2021", "evia_2021_extended": "North Evia 2021",
     "montiferru_2021": "Montiferru 2021",
     # two lines: the single-line form is ~10 deg wide at this scale and cannot
     # be placed without either clipping the frame or crowding Manavgat

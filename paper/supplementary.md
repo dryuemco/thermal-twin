@@ -4,7 +4,7 @@ Supplementary material for *Evaluation area and the limits of cross-region trans
 
 Section S1 gives the sensitivity analyses and the details behind the Results. Section S2 gives the
 supporting tables, Section S3 the protocol details and limitations, Section S4 the target-label
-recovery curve, Section S5 the code and Section S6 the data. Tables are numbered S1 to S35,
+recovery curve, Section S5 the code and Section S6 the data. Tables are numbered S1 to S36,
 independently of the sections. Supplementary equations are numbered (S1), (S2) and so on. Every value
 is read from a released output, named by its path in the repository
 <https://github.com/dryuemco/thermal-twin>. Paths that begin with `paper/labelfix_rerun/` hold the
@@ -28,7 +28,7 @@ label".
   - S1.12 The LST anomaly under the difference instrument
   - S1.13 The same-geography event pair
   - S1.14 The two interventions, in full
-  - S1.15 Signed associations on both frames
+  - S1.15 The paired thermal contribution to transfer
   - S1.16 The contrast pair, in full
   - S1.17 The sensitivity arms, summarised
   - S1.18 Distance within a region
@@ -459,7 +459,8 @@ terrain held, Manavgat has the same sign as the other four regions. Second, in t
 the sign stays below 0.5 within elevation deciles in three regions and within NDVI deciles in all
 four. In Bejís it moves to 0.509 within elevation deciles and stays below 0.5 after detrending. Third,
 NDVI reverses in two regions once LST is held, but LST reverses in none of the four once NDVI is
-held. Aspect and illumination are not used, so terrain is held only through elevation.
+held. Holding northness (the cosine of aspect) through deciles does not change the sign of the LST
+association in any region (Table S35).
 
 ## S1.12 The LST anomaly under the difference instrument
 
@@ -580,35 +581,11 @@ is not an exchange, because neither transfer effect is established: the thermal 
 transfer is +0.007 and removing the reversing predictors gives +0.014, and both intervals include
 zero.
 
-## S1.15 Signed associations on both frames
+## S1.15 The paired thermal contribution to transfer
 
-Section 4.4 gives the collar results. The values per region are given here. Values per feature on
-both frames are in Table S14.
-
-**Reversals that meet the per-comparison criterion.** On the original study areas, Table S10 counts
-fourteen supported reversals between pairs, across seven features. All but the anomaly pair involve
-Manavgat. On the collar, elevation is below 0.5 in Manavgat, at 0.376 [0.300, 0.465], and above 0.5
-in the other four regions. It is supported in two of them: Muğla at 0.606 [0.525, 0.685] and Evia at
-0.648 [0.550, 0.740] (`paper/labelfix_rerun/code/collar_frame_bootstrap.csv`). These two pairs are
-the only supported reversals left on the collar, and neither survives the Holm intersection-union
-correction (Section S1.19). The LST anomaly differs between regions only under the weaker difference
-test (Section S1.12).
-
-**The common sign.** On the collar, LST is below 0.5 in four of five regions: 0.405, 0.332, 0.286 and
-0.376 in Bejís, Muğla, Evia and Montiferru. A hotter pre-fire surface is therefore associated with
-less burning there, and the same holds for TVDI. Manavgat is the exception in the raw association
-(0.522 for LST, 0.527 for TVDI), but it shows the same sign once elevation is held (Section S1.11).
-Interval support differs: LST is supported in three of the four regions and TVDI in two, so "four of
-five agree" refers to point estimates. The absolute thermal channels therefore behave here as
-land-surface descriptors and not as a dryness index. The two differenced channels have no consistent
-direction across regions.
-
-**The number of independent reversals.** The channels whose reversals disappear on the collar partly
-measure terrain. Across the regions, current LST is correlated with elevation at −0.695 to −0.125, and
-TVDI at −0.722 to −0.298. Within the collar, `fused_lst_mean` is correlated with `current_lst_mean`
-at 0.99 to 1.00, `downscaled_lst_mean` at 0.97 to 0.99 and `current_tvdi_mean` at 0.87 to 0.98. The
-two differenced channels are correlated at 0.64 to 0.94. Counts over the nine features therefore
-count features, not independent quantities. The thermal set carries about two independent signals.
+The signed associations on both frames are given in Tables S9, S10 and S14, and their stratified
+values in Section S1.11; Section 4.4 summarises them. This section gives the uncertainty of the
+paired thermal contribution to transfer.
 
 **The paired thermal contribution to transfer.** The thermal and baseline matrices were
 differenced direction by direction. The mean is **+0.007**. The single contributions range from
@@ -631,26 +608,6 @@ include zero (1000 replicates where resampled; source
 Leaving out Manavgat, Bejís, Muğla, Evia and Montiferru in turn gives +0.0148, +0.0050, +0.0072,
 +0.0010 and +0.0087. No single region therefore carries the mean or changes its sign. These units
 resample only between directions. They do not include the sampling variability within a direction.
-
-**Precision.** Across the twenty directions, the mean PR-AUC of the thermal model is **0.181, against
-a no-skill baseline of 0.157**. The mean of the twenty lifts over the baseline is 1.13. Seven of the
-twenty directions are below their own no-skill baseline at the point estimate. At 1 km blocking all
-seven have intervals fully below it. At 5 km blocking two do: Bejís to Manavgat and Muğla to Manavgat
-(`paper/labelfix_rerun/round7/r7a_pr_auc_10cell.csv`). Only one direction, Evia to Manavgat, is above
-twice its baseline, at 0.321 against 0.143 (Table S11).
-
-**The within-region gain on the collar.** The baseline model was also run on the collar
-(`paper/labelfix_rerun/round6/cosine/official_collar_increment_and_cosine.csv`). The thermal gain at
-5 km blocking is +0.073, +0.030, +0.088, +0.134 and +0.090 in the five regions. It is positive in all
-five, with a mean of +0.083, against +0.087 on the original study areas. On a 5 km collar the mean
-falls to +0.042, but it is still positive in all five regions. These are point estimates. The
-intervals of Table 1 refer to the original study areas.
-
-**The five study areas are not comparable.** The share of modelled cells more than 10 km from any
-burned cell is 58.5 % in Manavgat, 63.1 % in Bejís, 55.3 % in Muğla, 43.7 % in Evia and **2.1 %** in
-Montiferru. The median distances are 13.1, 13.5, 11.3, 8.0 and 2.7 km (Table S13). In Manavgat, the
-median elevation of modelled cells rises from 330 m within 5 km of the fire to 995 m at 10 to 20 km
-and 1,273 m at 20 to 50 km. The median elevation of the burned cells is 287 m.
 
 ## S1.16 The contrast pair, in full
 
@@ -693,11 +650,6 @@ against +0.045 to +0.067 in the primary population. The paired difference betwee
 −0.011 to +0.011, with no consistent sign
 (`paper/labelfix_rerun/pipeline/robustness/step8_large_block_primary_all_valid/`; Table 1). The gain
 is therefore not caused by excluding cropland. This analysis says nothing about transfer.
-
-**The block size.** Larger blocks (5 km instead of 1 km) change the paired thermal-minus-baseline
-verdicts from twelve positive, seven negative and one uncertain to six, five and nine. The verdicts
-for the thermal model itself change from eleven above, seven below and two uncertain to nine, six and
-five (Section S1.3). Support is removed, never added. The point estimates do not change.
 
 ## S1.18 Distance within a region
 
@@ -890,12 +842,6 @@ pair. Because it always succeeds, it gives no ordering. The twentieth measure, t
 signed AUCs over supported features, is defined on only six directions. Its interval is degenerate
 (the upper bound equals the point estimate), so it is listed but not interpreted.
 
-**Equal samples.** The families use different samples: twelve directions for the marginal,
-applicability, climatic and geographic rows, eighteen for the supported conditional rows, and twenty
-for the others. Every row was therefore recomputed on the common subsets of twelve and sixteen
-directions. On both, every interpretable row includes zero
-(`paper/labelfix_rerun/round5/out_official/diagnostics_common_subset.json`).
-
 **The collar.** Section S1.19 gives the two measures recomputed on the collar. One of them, the
 all-feature cosine, orders collar transfer with an interval that excludes zero. It is reported with
 its limits and is not used.
@@ -949,8 +895,8 @@ resamples, so the two region-clustered intervals are coarse.
 ## S1.23 Analyses added after the pre-submission review
 
 The analyses in Table S35 were run after an internal review of the manuscript. They test the
-dependence of the main results on the fitted forest, the adaptation method, the inference for the
-similarity measures, and two data choices. Sources are in `paper/labelfix_rerun/round8/`, which also
+main results against the fitted forest, the adaptation method, the inference, the land-cover map,
+the burned-area product, terrain aspect and a weather reference. Sources are in `paper/labelfix_rerun/round8/`, which also
 describes each script.
 
 **Table S35. Analyses added after the pre-submission review (post hoc).**
@@ -965,6 +911,13 @@ describes each script.
 | Intervals for Table S27 (R8e) | Are the stratified LST associations supported? | On the 10 km collar, the Manavgat LST association within elevation deciles is 0.403 [0.343, 0.464], and after removing the linear effect of elevation 0.409 [0.350, 0.475]; both intervals exclude 0.5. On the original study area the values are 0.455 [0.396, 0.509] and 0.446 [0.387, 0.502], which include 0.5 |
 | Capture of burned cells (R8b, R8g) | How many burned cells fall in the highest-scored cells? | In transfer, the 10 % of target cells with the highest thermal scores contained on average 10.3 % of the burned cells (range 0.7 % to 27.1 %), which is what a random ranking gives; eight of twenty directions were below it. The top 20 % contained 19.9 %. Within regions (5 km blocking) the top 10 % contained 35.5 % of the burned cells on average (18.9 % to 44.5 %), and the top 20 % contained 55.7 % |
 | Pre-fire land cover (R8i, R8j) | Does the post-fire WorldCover v200 map (2021 images) affect the population or the results? | The 2020 map (v100) was fetched on each region's 30 m grid and aggregated to the same cells; the same procedure applied to v200 reproduces the pipeline's raster and every cell value of the modelling datasets exactly. With the 2020 map, at most 43 burned cells left or entered the natural-vegetation population in Manavgat, Bejís, Muğla and Evia. In Montiferru, 142 burned cells entered it, and the gate fraction rose from 0.773 to 0.977, so the 2021 map left out about a fifth of the burned natural vegetation there. The within-region thermal gain (5 km blocking) changed from +0.062, +0.045, +0.079, +0.148 and +0.099 to +0.060, +0.071, +0.083, +0.155 and +0.095 (Manavgat, Bejís, Muğla, Evia, Montiferru). Mean transfer changed from 0.527 to 0.513, and the mean thermal gain in transfer from +0.007 to +0.013; seven directions were below chance with both maps, and no direction changed side. Part of the class changes reflects the different algorithms of v100 and v200, not the fires |
+| Second burned-area product (R8k, R8m) | Do the results depend on MCD64A1? | The MCD64A1 labels fetched again from Earth Engine reproduce the modelling datasets exactly in all five regions. VIIRS VNP64A1 v002 labels, built the same way, agree with them with a Jaccard index of 0.941, 0.950, 0.925, 0.978 and 0.865 (Manavgat, Bejís, Muğla, Evia, Montiferru). With VNP64A1 labels, the within-region thermal gain (5 km blocking) is +0.057, +0.055, +0.089, +0.147 and +0.082; the elevation association of Manavgat is 0.228 (0.232 with MCD64A1); mean transfer is 0.525 (0.527), the mean thermal gain in transfer +0.005 (+0.007), seven directions are below chance with both products, and no direction changes side |
+| Terrain aspect (R8k, R8m, R8n) | Does aspect explain the thermal gain or the LST sign? | Northness and eastness from the Copernicus DEM were added to both feature sets. The within-region thermal gain (5 km blocking) became +0.051 [+0.030, +0.070], +0.044 [+0.025, +0.065], +0.073 [+0.047, +0.099] and +0.139 [+0.109, +0.173] in Manavgat, Bejís, Muğla and Evia, and +0.020 [−0.025, +0.066] in Montiferru, against +0.099 [+0.017, +0.186] without aspect there. Within northness deciles, the LST association is 0.652, 0.482, 0.317, 0.376 and 0.417 (raw 0.665, 0.478, 0.324, 0.377 and 0.370), so aspect does not change its sign |
+| Weather reference (R8o) | Do the thermal channels follow weather anomalies? | Descriptively, across the five regions the mean Landsat LST anomaly follows the ERA5-Land anomaly of air temperature in the predictor window (Spearman ρ = 0.8) but not that of relative humidity (ρ = 0.0), and the mean TVDI difference does not follow humidity either (ρ = 0.0). With five regions this is descriptive only; it fits the reading that the channels describe temperature and surface state more than fuel moisture |
+| Crossed random effects (R8l) | Does a model with source and target random intercepts change the thermal gain in transfer? | No. The estimated source and target variances are close to zero. The mean gain is +0.007 [−0.035, +0.050] on the original study areas and +0.024 [−0.012, +0.060] on the 10 km collar (REML, t interval with four degrees of freedom); both include zero |
+| Residual spatial correlation (R8l) | Do 5 km blocks remove the spatial dependence? | Not fully. The correlation of out-of-fold residuals between cell pairs is 0.58 to 0.83 below 1 km, 0.15 to 0.48 at 5 to 10 km (except Montiferru, −0.01), and falls below 0.05 at 10 to 20 km in Manavgat, Bejís and Muğla, at 20 to 40 km in Evia and at 5 to 10 km in Montiferru. Intervals at 5 km blocking may therefore be somewhat too narrow |
+| Pooled against fold-averaged AUC (R8l) | Does pooling out-of-fold predictions inflate the within-region AUC? | No. The mean of the five fold AUCs is 0.004 to 0.018 higher than the pooled value in every region (thermal model, 5 km blocking) |
+| Estimator intervals (R8l) | How uncertain are the four estimators of Table S25? | Pair-cluster intervals of mean transfer: 0.527 [0.461, 0.588], 0.527 [0.460, 0.594], 0.522 [0.456, 0.584] and 0.481 [0.419, 0.542]; of the thermal gain in transfer: +0.007 [−0.022, +0.034], −0.011 [−0.040, +0.016], −0.019 [−0.045, +0.007] and −0.021 [−0.057, +0.010]. All gain intervals include zero |
 | Bejís pre-label cells (R8b) | Do the 48 cells that burned in the predictor window affect the results? | Ten of them are labelled burned. Without them, the within-region thermal gain was +0.050 at 1 km blocking (+0.056 with them) and +0.061 at 5 km (+0.045). Transfer in the eight directions that involve Bejís changed by at most 0.015, and their mean thermal gain from +0.011 to +0.007 |
 
 A leave-one-block-out reference with a 10 km buffer was also tried. Its pooled AUC combines the
@@ -1108,6 +1061,12 @@ each other. Read from
 
 Section 4.4 gives these results. The values per region are given here.
 
+![**Fig. S1. The five study areas at cell level.** Grey shading is the elevation of the
+natural-vegetation cells, white cells lie outside this population, and burned cells are red. The dashed
+and solid blue lines are the 5 km and 10 km distance collars (Section 3.12). Axes give approximate
+distances in km on the ~500 m grid. Drawn by `paper/figures/figS1_study_areas.py` from the released
+modelling datasets.](figures/figS1_study_areas.png){width=100%}
+
 **Table S13. Geometry of the five study areas.** Natural-vegetation population. Distance is the
 Euclidean distance to the nearest burned cell on the 500 m grid, at 0.45 km per cell. Corrected
 Manavgat label. Computed by `paper/code/appendix_tables.py` from the step8a tables (read through
@@ -1121,6 +1080,10 @@ Manavgat label. Computed by `paper/code/appendix_tables.py` from the step8a tabl
 | Muğla | 41,730 | 2,911 | 11.3 km | 55.3 % |
 | Evia | 9,298 | 2,664 | 8.0 km | 43.7 % |
 | Montiferru | 2,544 | 539 | 2.7 km | **2.1 %** |
+
+In Manavgat, the median elevation of the modelled cells is 330 m within 5 km of the fire (burned cells
+included), 995 m at 10 to 20 km and 1,273 m at 20 to 50 km; the burned cells have a median of 287 m
+(printed by `paper/code/verify_aoi_frame.py`, stage 1b).
 
 **Table S14. Signed univariate AUC, original study area against a 10 km collar.** Point estimates.
 The intervals used for the reversal test are given in the text and in `collar_frame_bootstrap.csv`
@@ -1222,12 +1185,6 @@ is low, and the intervals are wide enough to include moderate true correlations 
 ‡ The last row belongs to the set of measures fixed in advance, so it stays in the table. It is
 defined on six directions only, and its interval is degenerate (the upper bound equals the point
 estimate), so it is not interpreted and cannot be compared with the other nineteen.
-
-**Under the original label**, the two supported-feature variants excluded zero (+0.84 and +0.81 over
-sixteen directions). Both choose their predictors by whether the bootstrap intervals of two regions
-exclude 0.5, a choice made on the same data. Under the corrected label neither excludes zero (+0.52
-and +0.49 over eighteen directions), and no interpretable row does (see Section S3.5(viii) on why
-measures based on interval support are unstable).
 
 **Equal-sample check.** The families use different samples: twelve directions for the marginal,
 applicability, climatic and geographic rows, eighteen for the supported conditional rows, and twenty
@@ -1384,12 +1341,8 @@ confounded, and no difference can be attributed to the year alone. The compariso
 fires in one place. The pair is kept out of the twenty-direction matrix, and this is enforced in the
 released code.
 
-Two further properties limit the comparison. A historical-burn exclusion applies only to the 2022
-population: every cell that burned in 2021 is masked, so the scar of the previous year does not enter
-the analysis. This removes 3,073 cells, 2,941 of them in the primary population, and reduces the
-population from 41,730 to 38,790 rows (7.0 %). The two populations therefore share 38,789 of 38,790
-cells and three identical static predictors. In the 2022-to-2021 direction, no burned target cell is
-in the source training data. Section S1.13 describes the consequences.
+The 2022 population is the 2021 population without the 2021 scar; Section S1.13 describes what
+follows from this.
 
 **Table S19. Study regions, study areas and time windows.** Bounding boxes are in EPSG:4326, as
 recorded. Window lengths in brackets are day counts, both ends included. The baseline years are the
@@ -1453,6 +1406,25 @@ channels explain 92 % to 98 % of their variance, and their participation ratio i
 Compositing uses the median over the predictor window. The anomaly channels refer to four baseline
 years (Table S19). WorldCover 2021 is later than four of the five fires (Section 3.4).
 
+
+**Table S36. Landsat 8 observations per window.** Scenes = Landsat 8 Collection 2 Level-2 scenes
+whose footprint intersects the study area. Clear observations = number of clear observations per
+pixel after the pipeline's QA mask (`src/step3_landsat_lst.py`), median and 10th to 90th percentile
+over the study area at 300 m. The pipeline also filters the predictor window by calendar month, so
+its counts can be slightly lower. Landsat 9 is not used. Source
+`paper/labelfix_rerun/round8/r8k_landsat_observations.csv`.
+
+| Region | Predictor window scenes | Clear observations, predictor window | Clear observations, baseline years (medians) |
+|---|---:|---|---|
+| Manavgat 2021 | 14 | 6 [3 to 10] | 7, 7, 6, 6 |
+| Bejís 2022 | 16 | 3 [2 to 6] | 4, 4, 3, 2 |
+| Muğla 2021 | 18 | 6 [3 to 10] | 6, 6, 6, 6 |
+| North Evia 2021 | 8 | 4 [3 to 4] | 4, 3, 2, 1 |
+| Montiferru 2021 | 4 | 3 [2 to 4] | 4, 3, 2, 3 |
+
+The anomaly channels therefore rest on few clear observations per year, one to seven depending on
+region and year, which adds noise to the four-year baseline.
+
 ## S3.5 Limitations, in full
 
 Section 5.6 lists the limitations that affect the conclusions. All fourteen are given here.
@@ -1471,8 +1443,8 @@ code and the same fixed environment, not read from a frozen export.
 
 (iii) **All labels come from one burned-area product**, MCD64A1 [@Giglio2018]. Its omission and
 commission errors [@Boschetti2019] limit every model here. Its accuracy in the Mediterranean was
-assessed against reference perimeters [@Katagis2022]. A second 500 m product, VIIRS VNP64A1
-[@VNP64A1], covers both years but was not used as a label sensitivity.
+assessed against reference perimeters [@Katagis2022]. A second 500 m product, VIIRS VNP64A1 [@VNP64A1], was used as a label check (Table S35), and no
+conclusion changed. Independent fire perimeters were not used.
 
 (iv) **Evia has the most unusual class balance**, even on the extended study area. Its TSG prevalence
 is 0.287, the highest in the cohort, against 0.070 to 0.212 in the other four regions.
@@ -1491,8 +1463,8 @@ verified version, and exact reproduction needs the archived environment.
 (0.435), has the largest matched shortfall (+0.319) and has the most unusual univariate profile in
 the cohort. Two processing causes were tested, and neither explains it. The quality screening of its
 coarse thermal input moves no signed association by more than 0.005 (Section S1.5), and its elevation
-reversal remains on the collar (Section 4.4). Holding elevation reverses its raw LST association
-(Section S1.11). This rests on one region and one fire.
+reversal remains on the collar (Section 4.4). Holding elevation reverses its raw LST association (Section S1.11), while holding aspect does not.
+This rests on one region and one fire.
 
 (viii) **Measures based on interval support are less stable than the point estimates.** Five to six
 of the pipeline's interval bounds lie within 0.01 of 0.5, under both labels. One such flag, the NDVI
@@ -1551,18 +1523,7 @@ natural-vegetation mask is used only to define the population, never as a predic
 keeps neighbouring cells in the same fold.
 
 **Reproducibility.** All random processes use seed 42, and every bootstrap uses 1000 replicates. The
-transfer and adaptation analysis runs in an environment separate from the pipeline. Every
-within-region model was therefore refitted there and compared with the frozen pipeline output, and
-the independent adaptation code was compared with the pipeline's own. The within-region results agree
-exactly. The twenty CORAL transfers agree to within 1.3×10⁻⁸ with the re-frozen outputs (1.6×10⁻⁷
-with the frozen ones), below the tolerance of 10⁻⁶ set in the repository (Section 3.13). All numbers
-were produced under scikit-learn 1.9.0 or checked against it. The version sensitivity is given in
-Section S3.5(vi).
-
-**Sensitivity analyses.** The within-region results are repeated for three block sizes, four
-classifier capacities and, in two regions, a second population. The transfer results are repeated for
-both feature sets, the CORAL sweep, the Evia study-area variant and three evaluation frames. Where a
-conclusion depends on one of these choices, the dependence is reported (Section S1).
+reproduction check is described in Section S3.6.2.
 
 ### S3.6.1 Resampling units
 

@@ -39,9 +39,11 @@ processing chain is shown in Fig. 2.
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
 Labels were taken from the MODIS MCD64A1 burned-area product, Collection 6.1 [@MCD64A1;
-@Giglio2018], through Google Earth Engine [@Gorelick2017]. Its errors [@Boschetti2019] limit every
-model in this study. The analysis grid is built from the 30 m reference grid of the processing
-pipeline in blocks of 17 × 17 pixels. A cell is therefore about 510 m from north to south and 390 to
+@Giglio2018], through Google Earth Engine [@Gorelick2017]. Its errors [@Boschetti2019] limit every model in this study. As a check, the within-region and transfer analyses
+were repeated with the VIIRS VNP64A1 product [@VNP64A1] (Section S1.23). The MCD64A1 monthly burn-date
+layer was sampled onto the 30 m reference grid of the processing pipeline by
+nearest neighbour, so each ~500 m observation is repeated over the 30 m pixels below it. The
+analysis grid is built from this grid in blocks of 17 × 17 pixels. A cell is therefore about 510 m from north to south and 390 to
 407 m from east to west, with an area of 0.199 to 0.208 km² (a MODIS cell is 0.215 km²). A cell is
 labelled burned when any of its pixels has a burn date in the label window. Because of this rule, a
 scar can grow by up to one cell at its edge. Water cells are removed by the population filter of
@@ -74,10 +76,12 @@ and the median NDVI of the predictor window from Landsat 8 Collection 2 Level-2 
 These change little over one fire season. The **thermal** set adds six channels derived from Landsat
 8 surface temperature, screened for quality and composited as the median of the predictor window.
 The six channels are current LST, its anomaly against the four baseline years, the TVDI
-[@Sandholt2002], its difference from the baseline years, a downscaled LST and a fused LST. The last
-two use MODIS MOD11A1 v061 daily LST [@MOD11A1] to fill gaps in Landsat (0.11 % to 9.70 % of pixels,
-depending on the region). Because TVDI edges are fitted inside each study area and window, a TVDI
-value does not mean the same moisture state in two regions (Section S3.4).
+[@Sandholt2002], its difference from the baseline years, a downscaled LST and a fused LST. The last two use MODIS MOD11A1 v061 daytime LST (Terra, about 10:30 local time) [@MOD11A1] and a
+random-forest downscaling model to fill gaps in Landsat (0.11 % to 9.70 % of pixels,
+depending on the region). Because TVDI edges are fitted inside each study area and window, a TVDI value does not mean the
+same moisture state in two regions (Section S3.4). The median pixel had three to six clear Landsat
+observations in the predictor window, and one to seven in each baseline year (Table S36). Landsat 9
+was not used.
 
 **The six thermal channels carry about two signals.** Current, fused and downscaled LST are
 correlated at 0.97 to 1.00 in every region. Current LST and TVDI are correlated at 0.88 to 0.98, and
@@ -133,9 +137,10 @@ burned and $`F^{-}`$ the unburned cells of $`F`$, and $`s_i`$ the predicted scor
 ```
 
 This is the probability that a burned cell in $`F`$ is ranked above an unburned one. The metric can
-therefore change when the frame changes, even when no score changes (Section 3.12). Precision-recall
-AUC is also reported, because it reflects how a susceptibility map is used when burned cells are
-rare [@Sofaer2019].
+therefore change when the frame changes, even when no score changes (Section 3.12). Precision-recall AUC is also reported, because it reflects how a susceptibility map is used when
+burned cells are rare [@Sofaer2019]. The out-of-fold residuals stay spatially correlated up to 5 to
+10 km, and in three regions they fall below 0.05 only at 10 to 20 km (Section S1.23). Intervals at
+5 km blocking may therefore still be somewhat too narrow, and the 10 km results are given as a check.
 
 Uncertainty is estimated with a spatial-block bootstrap. Blocks are resampled with replacement, 1000
 times, with seed 42, and the 2.5 and 97.5 percentiles give the interval. Differences are paired
@@ -235,6 +240,8 @@ d_i = 0.45 \min_{j \in P_R} \big\lVert (r_i, c_i) - (r_j, c_j) \big\rVert_2, \qq
 The 0.45 km step is a single value for both axes, so collar radii are nominal to within about 15 %.
 Every burned cell has $`d_i = 0`$ and is kept; only distant unburned cells are removed. In transfer
 the model is fitted on $`F_s(r_s)`$ and scored on $`F_t(r_t)`$.
+
+The study areas, burned cells and collars are mapped in Fig. S1.
 
 **Every scar frame and distance collar is defined from burned cells.** These frames therefore show
 how the evaluation area changes the metric, but they cannot be drawn before a fire.

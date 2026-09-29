@@ -21,6 +21,6 @@
   "body": 9.0,
   "minimum": 8.0
  },
- "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 25 data artists registered",
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 37 data artists registered",
  "environment": "matplotlib 3.11.0"
 }

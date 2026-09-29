@@ -60,7 +60,8 @@
   CORAL. Rows are source regions and columns are target regions (Man.\ = Manavgat, Bej.\ = Bej\'is,
   Mu\u{g}.\ = Mu\u{g}la, Evia = North Evia, Mont.\ = Montiferru). The diagonal is empty. The colour
   scale is centred on 0.5: orange is below chance and purple is above. Cells below chance are also
-  hatched. The ranges are 0.314 to 0.677 (raw), 0.302 to 0.630 (z-score) and 0.406 to 0.624
+  hatched. In (a), a dot marks a direction whose 10-cell ($\approx$5\,km) target-block interval
+  excludes 0.5 (nine above and six below chance). The ranges are 0.314 to 0.677 (raw), 0.302 to 0.630 (z-score) and 0.406 to 0.624
   (CORAL). Adaptation moves the matrix toward chance. Under z-scoring, Bej\'is$\rightarrow$Manavgat
   falls further below chance (0.314 to 0.302). Hatching uses the exact value, so three cells printed
   as 0.50 are hatched differently (CORAL Bej\'is$\rightarrow$Evia is 0.4991). Intervals are given in
@@ -76,8 +77,9 @@
   among Manavgat, Bej\'is, Mu\u{g}la and Evia, the four regions of the pipeline's gap decomposition;
   Montiferru is not part of that decomposition. Natural-vegetation population; original study areas.
   The open circle is raw transfer ROC-AUC. The arrow ends at the better of the two adapted results
-  (z-score or CORAL). This choice uses target labels, so the arrows show an optimistic case. The grey
-  tick is the target's within-region reference at 1 km blocking, and the dashed line is chance. \textbf{Solid blue arrows (five) move toward the
+  (z-score or CORAL). This choice uses target labels, so the arrows show an optimistic case. A cross marks the result
+  of CORAL alone, which uses no target labels. The grey tick is the target's within-region reference
+  at 1 km blocking, and the dashed line is chance. \textbf{Solid blue arrows (five) move toward the
   reference; dashed orange arrows (seven) move away from it.} Eleven of twelve directions end closer
   to chance. The exception is Manavgat$\rightarrow$Mu\u{g}la (0.438 to 0.427).
   Bej\'is$\rightarrow$Manavgat is shown as a recovery because CORAL raises it from 0.314 to 0.406;

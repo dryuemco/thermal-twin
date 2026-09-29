@@ -1,0 +1,52 @@
+{
+ "manavgat_2021": {
+  "label_window": [
+   "2021-07-28",
+   "2021-08-31"
+  ],
+  "mcd_cells_agree_with_dataset": 1.0,
+  "mcd_burned_cells": 3046,
+  "dataset_burned_cells": 3046,
+  "vnp_burned_cells": 3015
+ },
+ "bejis_2022": {
+  "label_window": [
+   "2022-08-15",
+   "2022-09-30"
+  ],
+  "mcd_cells_agree_with_dataset": 1.0,
+  "mcd_burned_cells": 1103,
+  "dataset_burned_cells": 1103,
+  "vnp_burned_cells": 1103
+ },
+ "mugla_2021": {
+  "label_window": [
+   "2021-07-29",
+   "2021-09-15"
+  ],
+  "mcd_cells_agree_with_dataset": 1.0,
+  "mcd_burned_cells": 3073,
+  "dataset_burned_cells": 3073,
+  "vnp_burned_cells": 2966
+ },
+ "evia_2021_extended": {
+  "label_window": [
+   "2021-08-03",
+   "2021-09-30"
+  ],
+  "mcd_cells_agree_with_dataset": 1.0,
+  "mcd_burned_cells": 2803,
+  "dataset_burned_cells": 2803,
+  "vnp_burned_cells": 2793
+ },
+ "montiferru_2021": {
+  "label_window": [
+   "2021-07-24",
+   "2021-08-31"
+  ],
+  "mcd_cells_agree_with_dataset": 1.0,
+  "mcd_burned_cells": 748,
+  "dataset_burned_cells": 748,
+  "vnp_burned_cells": 718
+ }
+}

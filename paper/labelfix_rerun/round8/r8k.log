@@ -1,0 +1,15 @@
+*** Earth Engine *** Share your feedback by taking our Annual Developer Satisfaction Survey: https://google.qualtrics.com/jfe/form/SV_9oS0DRcPvElRMNw?source=python
+C:\Users\CORSAIR\projects\thermal-twin\.venv-step10\Lib\site-packages\ee\deprecation.py:215: DeprecationWarning: 
+
+Attention required for COPERNICUS/DEM/GLO30! You are using a deprecated asset.
+To make sure your code keeps working, please update it.
+This dataset has been superseded by COPERNICUS/DEM/GLO30_2024_1
+
+Learn more: https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30
+
+  warnings.warn(warning, category=DeprecationWarning)
+manavgat_2021 {'label_window': ['2021-07-28', '2021-08-31'], 'mcd_cells_agree_with_dataset': 1.0, 'mcd_burned_cells': 3046, 'dataset_burned_cells': 3046, 'vnp_burned_cells': 3015} [('current', 14, 5.999999999999995), ('baseline_2017', 16, 7.000000000000001), ('baseline_2018', 14, 7.0000000000000036), ('baseline_2019', 14, 5.999999999999998), ('baseline_2020', 14, 5.999999999999997)]
+bejis_2022 {'label_window': ['2022-08-15', '2022-09-30'], 'mcd_cells_agree_with_dataset': 1.0, 'mcd_burned_cells': 1103, 'dataset_burned_cells': 1103, 'vnp_burned_cells': 1103} [('current', 16, 2.999999999999999), ('baseline_2018', 16, 4), ('baseline_2019', 16, 4), ('baseline_2020', 14, 3.0000000000000044), ('baseline_2021', 16, 2)]
+mugla_2021 {'label_window': ['2021-07-29', '2021-09-15'], 'mcd_cells_agree_with_dataset': 1.0, 'mcd_burned_cells': 3073, 'dataset_burned_cells': 3073, 'vnp_burned_cells': 2966} [('current', 18, 6.000000000000009), ('baseline_2017', 17, 5.999999999999989), ('baseline_2018', 20, 6.000000000000043), ('baseline_2019', 18, 6.000000000000026), ('baseline_2020', 18, 6.000000000000065)]
+evia_2021_extended {'label_window': ['2021-08-03', '2021-09-30'], 'mcd_cells_agree_with_dataset': 1.0, 'mcd_burned_cells': 2803, 'dataset_burned_cells': 2803, 'vnp_burned_cells': 2793} [('current', 8, 4), ('baseline_2017', 7, 4), ('baseline_2018', 8, 3.000000000000002), ('baseline_2019', 7, 2), ('baseline_2020', 7, 1)]
+montiferru_2021 {'label_window': ['2021-07-24', '2021-08-31'], 'mcd_cells_agree_with_dataset': 1.0, 'mcd_burned_cells': 748, 'dataset_burned_cells': 748, 'vnp_burned_cells': 718} [('current', 4, 2.999999999999998), ('baseline_2017', 4, 4), ('baseline_2018', 4, 3.000000000000015), ('baseline_2019', 3, 2), ('baseline_2020', 4, 2.9999999999999902)]

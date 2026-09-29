@@ -12,6 +12,11 @@ datasets through `paper/code/_canonical.py` (SHA-256 checked) and write only int
 | `r8b_buffered_within.py` | Capture of burned cells by within-region models; Bejís without the 48 cells that burned in the predictor window. | `r8b_summary.json` |
 | `r8i_worldcover2020_fetch.py` | Fetches WorldCover v100 (2020) and v200 on each region's 30 m grid and aggregates them to the cells as step8a does. Needs Earth Engine and the gate-input rasters; v200 reproduces the pipeline exactly. | `r8i_worldcover_cells.csv.gz`, `r8i_fetch_summary.json` |
 | `r8j_worldcover2020_effect.py` | Population, gate and model results with the 2020 map. | `r8j_summary.json`, `r8j_transfer_2020_vs_2021.csv` |
+| `r8k_labels_aspect_fetch.py` | Fetches VIIRS VNP64A1 and MODIS MCD64A1 labels, aspect (northness, eastness) and Landsat 8 observation counts on the pipeline grid. MCD64A1 reproduces the dataset labels exactly. Needs Earth Engine. | `r8k_cells.csv.gz`, `r8k_landsat_observations.csv`, `r8k_fetch_summary.json` |
+| `r8m_labels_aspect_effect.py` | Label agreement and model results with VNP64A1; thermal gain and LST sign with aspect. | `r8m_summary.json`, `r8m_transfer_vnp_vs_mcd.csv` |
+| `r8n_aspect_gain_intervals.py` | Bootstrap intervals of the within-region gain with and without aspect. | `r8n_summary.json` |
+| `r8l_statistics.py` | Crossed random effects, residual correlogram, fold-averaged AUC, PR lift, estimator intervals. | `r8l_summary.json` |
+| `r8o_era5_descriptive.py` | Thermal channels against ERA5-Land weather anomalies, region level. | `r8o_summary.json` |
 | `r8g_capture.py` | Capture of burned cells in the top 10 % and 20 % of transferred scores. | `r8g_capture_transfer.csv`, `r8g_summary.json` |
 
 **A design that was tried and not used.** `r8b_buffered_within.py` also computes a leave-one-block-out

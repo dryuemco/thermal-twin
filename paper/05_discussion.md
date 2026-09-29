@@ -48,8 +48,11 @@ local cost is therefore measured, but no gain in transfer.
 The thermal predictors were chosen as a measure of pre-fire dryness, but they did not behave as one.
 Hotter surfaces burned less in four of five regions, and in Manavgat once elevation was held
 (Section 4.4). In summer, land surface temperature is strongly shaped by canopy cover, exposed soil
-and terrain. Dense, cooler vegetation carries more fuel, so a negative association is consistent
-with LST acting as a land-surface descriptor. The normalised channels did not transfer better than
+and terrain. Dense, cooler vegetation carries more fuel, so a negative association is consistent with LST acting
+as a land-surface descriptor. In Montiferru, most of the within-region thermal gain disappeared once
+terrain aspect was added, which fits this reading. Across the five regions, the mean LST anomaly
+also followed the ERA5-Land [@MunozSabater2021] air-temperature anomaly of the predictor window, but
+not its relative-humidity anomaly (Section S1.23). The normalised channels did not transfer better than
 the absolute ones either (Section S1.6). In Mediterranean ecosystems, the link between fire and
 climate also depends on fuel and productivity [@PausasPaula2012], so the sign of a surface predictor
 may differ between landscapes.
@@ -99,6 +102,9 @@ The limitations are given in full in Section S3.5. The following ones affect the
 - **Point estimates depend on the software version.** Under another scikit-learn version, single
   directions moved by up to 0.047, while ten random-forest seeds changed mean transfer by at most
   0.003 (Section 3.13; S1.23; S3.5(vi)).
+- **Spatial dependence reaches beyond the 5 km blocks.** Residual correlation falls below 0.05
+  only at 10 to 20 km in three regions, so intervals at 5 km blocking may be somewhat narrow
+  (Section 3.7; S1.23).
 - **The similarity tests rest on ten independent region pairs,** so both positive and negative
   results have low power (S3.5(xiii)).
 - **Measures based on interval support are unstable.** Five to six interval bounds lie within 0.01
@@ -107,11 +113,12 @@ The limitations are given in full in Section S3.5. The following ones affect the
   predictor distributions, so it does not prove a change in the predictor-burning relationship
   (Section 3.10).
 - **The low transfer into Manavgat is located but not explained.** Weather, quality screening and the
-  study area were tested, and none explained it. Terrain was held only through elevation, and in
-  Manavgat burn timing and elevation are confounded (S3.5(vii), S3.5(xi)).
+  study area were tested, and none explained it. Terrain was held through elevation and aspect only, and in Manavgat burn timing and elevation are
+  confounded (S3.5(vii), S3.5(xi)).
 - **All labels come from one burned-area product,** MCD64A1 [@Giglio2018], with known omission and
-  commission errors [@Boschetti2019; @Katagis2022], which are concentrated at scar edges. VIIRS
-  VNP64A1 [@VNP64A1] and independent fire perimeters were not used as a label check (S3.5(iii)).
+  commission errors [@Boschetti2019; @Katagis2022], which are concentrated at scar edges. With VIIRS VNP64A1 labels [@VNP64A1], which overlap MCD64A1
+  by 87 % to 98 %, no conclusion changed; independent fire perimeters were not used (S1.23;
+  S3.5(iii)).
 - **The land-cover map is post-fire for four events.** With the 2020 map, mean transfer was 0.513
   instead of 0.527, and no conclusion changed; in Montiferru, however, the 2021 map left out about a
   fifth of the burned natural vegetation (Section 3.4; S1.23).

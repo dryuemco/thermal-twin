@@ -36,7 +36,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _layout_check import check as layout_check, contrast_ratio, assert_inside
 from _conservation_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK,
                           RECOVERY_STYLE, NEGATIVE_STYLE, decomp, neg,
-                          dirlabel, style_axes, chance_segment, save)
+                          dirlabel, style_axes, chance_segment, save, DATA)
 
 HUE_ONLY_CONTRAST = contrast_ratio((0x00 / 255, 0x72 / 255, 0xB2 / 255),
                                    (0xE6 / 255, 0x9F / 255, 0x00 / 255))
@@ -59,7 +59,12 @@ for y, d in enumerate(order):
                  mew=1.3, zorder=3)
     tick, = ax.plot([d["within"], d["within"]], [y - 0.30, y + 0.30], color=GREY,
                     lw=2.0, zorder=2)
-    data_artists += [(m, f"raw:{d['direction']}"), (tick, f"within:{d['direction']}")]
+    # CORAL alone, the pre-specified label-free result (reviewer request); the arrow end is the
+    # better of z-score and CORAL, a choice that uses target labels
+    cx, = ax.plot(DATA["fig5"][d["direction"]]["coral"], y, marker="x", color="black", ms=4.5,
+                  mew=1.1, lw=0, zorder=4)
+    data_artists += [(m, f"raw:{d['direction']}"), (tick, f"within:{d['direction']}"),
+                     (cx, f"coral:{d['direction']}")]
 
 N = len(order)
 data_artists.append((chance_segment(ax, -0.6, N - 0.4), "chance"))
@@ -70,17 +75,19 @@ ax.set_ylim(-2.35, N - 0.35)
 ax.set_xticks([0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
 ax.set_xlabel("thermal transfer ROC-AUC", fontsize=FS_BODY)
 style_axes(ax)
-assert_inside(ax, "Fig. 5", xs=[v for d in order for v in (d["raw"], d["best_adapted"], d["within"])])
+assert_inside(ax, "Fig. 5", xs=[v for d in order for v in (d["raw"], d["best_adapted"], d["within"],
+                                                           DATA["fig5"][d["direction"]]["coral"])])
 
 hRec = plt.Line2D([], [], color=BLUE, lw=1.8, ls=RECOVERY_STYLE)
 hNeg = plt.Line2D([], [], color=ORANGE, lw=1.8, ls=NEGATIVE_STYLE)
 hWit = plt.Line2D([], [], color=GREY, lw=0, marker="|", ms=10, mew=2.0)
 hCha = plt.Line2D([], [], color="black", lw=0.9, ls=(0, (4, 2)))
-ax.legend([hRec, hNeg, hWit, hCha],
-          [f"recovery ({len(order) - len(neg)})", f"negative recovery ({len(neg)})",
-           "within-region reference", "chance (0.5)"],
+hCor = plt.Line2D([], [], color="black", lw=0, marker="x", ms=4.5, mew=1.1)
+ax.legend([hRec, hNeg, hCor, hWit, hCha],
+          [f"best method, recovery ({len(order) - len(neg)})", f"best method, negative ({len(neg)})",
+           "CORAL alone", "within-region reference", "chance (0.5)"],
           fontsize=FS_TICK, frameon=False, loc="lower left",
-          bbox_to_anchor=(0.0, 0.0), ncol=4, handlelength=1.9,
+          bbox_to_anchor=(0.0, 0.0), ncol=3, handlelength=1.9,
           columnspacing=1.1, handletextpad=0.5, borderpad=0.0)
 
 print(f"[greyscale] blue-vs-orange hue contrast {HUE_ONLY_CONTRAST:.2f}:1 - "

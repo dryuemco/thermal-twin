@@ -1,0 +1,22 @@
+manavgat_2021 {"cells": 20511, "mcd_burned": 2935, "vnp_burned": 2895, "both": 2827, "mcd_only": 108, "vnp_only": 68, "jaccard": 0.9413919413919414, "elevation_auc_mcd": 0.232040982011245, "elevation_auc_vnp": 0.2277668754578582, "lst_auc_raw": 0.6649365442577342, "lst_auc_within_northness": 0.6522127746085475, "within_mcd": {"thermal": 0.8822236106383259, "baseline": 0.8203196301445599, "gain": 0.061903980493766}, "within_vnp": {"thermal": 0.8722757141803887, "baseline": 0.8156134849147972, "gain": 0.0566622292655915}, "within_with_aspect": {"thermal": 0.8830580011150406, "baseline": 0.832457939780047, "gain": 0.05060006133499362}}
+bejis_2022 {"cells": 15190, "mcd_burned": 1100, "vnp_burned": 1100, "both": 1072, "mcd_only": 28, "vnp_only": 28, "jaccard": 0.950354609929078, "elevation_auc_mcd": 0.6432824053164721, "elevation_auc_vnp": 0.6376444931931093, "lst_auc_raw": 0.47821082005290666, "lst_auc_within_northness": 0.48176509356107305, "within_mcd": {"thermal": 0.8244685786179753, "baseline": 0.7793700238725079, "gain": 0.04509855474546742}, "within_vnp": {"thermal": 0.8598329892251113, "baseline": 0.8050170656171367, "gain": 0.054815923607974604}, "within_with_aspect": {"thermal": 0.8272653074391897, "baseline": 0.7829309632879542, "gain": 0.044334344151235494}}
+mugla_2021 {"cells": 41730, "mcd_burned": 2911, "vnp_burned": 2830, "both": 2758, "mcd_only": 153, "vnp_only": 72, "jaccard": 0.9245725779416695, "elevation_auc_mcd": 0.6114025048859928, "elevation_auc_vnp": 0.6115195163824975, "lst_auc_raw": 0.32444463934739487, "lst_auc_within_northness": 0.31737076548795495, "within_mcd": {"thermal": 0.7773268638729566, "baseline": 0.6979859420145867, "gain": 0.07934092185836983}, "within_vnp": {"thermal": 0.7826325633362704, "baseline": 0.6934968252382206, "gain": 0.08913573809804975}, "within_with_aspect": {"thermal": 0.7805565602319864, "baseline": 0.7074664774619384, "gain": 0.07309008277004803}}
+evia_2021_extended {"cells": 9298, "mcd_burned": 2664, "vnp_burned": 2654, "both": 2630, "mcd_only": 34, "vnp_only": 24, "jaccard": 0.9784226190476191, "elevation_auc_mcd": 0.540559580910425, "elevation_auc_vnp": 0.5414321560676306, "lst_auc_raw": 0.37689195639715695, "lst_auc_within_northness": 0.37635478805815065, "within_mcd": {"thermal": 0.8641886346702445, "baseline": 0.7159564410657265, "gain": 0.148232193604518}, "within_vnp": {"thermal": 0.8703299961390959, "baseline": 0.7237933767575393, "gain": 0.1465366193815566}, "within_with_aspect": {"thermal": 0.8666016974164397, "baseline": 0.7277964390377715, "gain": 0.1388052583786682}}
+montiferru_2021 {"cells": 2544, "mcd_burned": 539, "vnp_burned": 513, "both": 488, "mcd_only": 51, "vnp_only": 25, "jaccard": 0.8652482269503546, "elevation_auc_mcd": 0.5837706290859124, "elevation_auc_vnp": 0.5895251285388371, "lst_auc_raw": 0.3704643770906685, "lst_auc_within_northness": 0.41664744550801525, "within_mcd": {"thermal": 0.7199006195087421, "baseline": 0.6204294458658548, "gain": 0.09947117364288727}, "within_vnp": {"thermal": 0.7363295815445393, "baseline": 0.6541832589022202, "gain": 0.08214632264231914}, "within_with_aspect": {"thermal": 0.7389568749739751, "baseline": 0.7185931275706837, "gain": 0.020363747403291388}}
+{
+ "transfer_mcd_reproduction_max_abs_diff": 5.551115123125783e-17,
+ "transfer_mcd": {
+  "mean_thermal": 0.5267118880452303,
+  "mean_baseline": 0.5193836180143304,
+  "mean_delta": 0.007328270030899755,
+  "below_chance": 7
+ },
+ "transfer_vnp": {
+  "mean_thermal": 0.5250374459645244,
+  "mean_baseline": 0.5198515155010888,
+  "mean_delta": 0.005185930463435526,
+  "below_chance": 7
+ },
+ "transfer_max_abs_change_thermal": 0.02513134144327911,
+ "transfer_directions_changing_side": []
+}

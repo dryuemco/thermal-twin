@@ -1,0 +1,42 @@
+{
+ "table": [
+  {
+   "region": "manavgat_2021",
+   "lst_anomaly_mean": -0.268,
+   "tvdi_difference_mean": -0.035,
+   "era5_temperature_anomaly": -0.113,
+   "era5_humidity_anomaly": -1.25
+  },
+  {
+   "region": "bejis_2022",
+   "lst_anomaly_mean": 0.43,
+   "tvdi_difference_mean": 0.121,
+   "era5_temperature_anomaly": 1.938,
+   "era5_humidity_anomaly": -0.136
+  },
+  {
+   "region": "mugla_2021",
+   "lst_anomaly_mean": -0.111,
+   "tvdi_difference_mean": -0.017,
+   "era5_temperature_anomaly": 0.497,
+   "era5_humidity_anomaly": -1.48
+  },
+  {
+   "region": "evia_2021_extended",
+   "lst_anomaly_mean": 0.278,
+   "tvdi_difference_mean": -0.015,
+   "era5_temperature_anomaly": 2.677,
+   "era5_humidity_anomaly": -2.965
+  },
+  {
+   "region": "montiferru_2021",
+   "lst_anomaly_mean": -0.535,
+   "tvdi_difference_mean": -0.129,
+   "era5_temperature_anomaly": 0.421,
+   "era5_humidity_anomaly": -0.431
+  }
+ ],
+ "spearman_lst_anomaly_vs_era5_temperature": 0.7999999999999999,
+ "spearman_lst_anomaly_vs_era5_humidity": 0.0,
+ "spearman_tvdi_difference_vs_era5_humidity": 0.0
+}
