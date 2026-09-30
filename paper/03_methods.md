@@ -37,9 +37,10 @@ processing chain is shown in Fig. 2.
 
 ## 3.2 Burned-area label and the ~500 m analysis grid
 
-Labels were taken from the MODIS MCD64A1 burned-area product, Collection 6.1 [@MCD64A1;
+Labels were taken from the Moderate Resolution Imaging Spectroradiometer (MODIS) MCD64A1
+burned-area product, Collection 6.1 [@MCD64A1;
 @Giglio2018], through Google Earth Engine [@Gorelick2017]. Its errors [@Boschetti2019] limit every model in this study. As a check, the within-region and transfer analyses
-were repeated with the VIIRS VNP64A1 product [@VNP64A1] (Section S1.23). The MCD64A1 monthly burn-date
+were repeated with the Visible Infrared Imaging Radiometer Suite (VIIRS) VNP64A1 product [@VNP64A1] (Section S1.23). The MCD64A1 monthly burn-date
 layer was sampled onto the 30 m reference grid of the processing pipeline by
 nearest neighbour, so each ~500 m observation is repeated over the 30 m pixels below it. The
 analysis grid is built from this grid in blocks of 17 × 17 pixels. A cell is therefore about 510 m from north to south and 390 to
@@ -63,7 +64,7 @@ before this correction. The correction and its control run are described in Sect
 ## 3.3 Burned-landcover admissibility gate
 
 Before modelling, each region had to pass a gate. The gate asks what fraction of the burned cells is
-covered mainly by natural vegetation, using ESA WorldCover classes [@Zanaga2022]. A region is
+covered mainly by natural vegetation, using European Space Agency (ESA) WorldCover classes [@Zanaga2022]. A region is
 admitted if this fraction is at least 0.50 and at least 30 cells burned. Conversely, it is rejected
 as a cropland control if the cropland fraction is at least 0.50 (Section S3.1).
 
@@ -71,7 +72,7 @@ as a cropland control if the cropland fraction is at least 0.50 (Section S3.1).
 
 Ten predictors were used (Table S20). The **baseline** set contains elevation and slope from the
 Copernicus DEM GLO-30 [@CopernicusDEM], dominant land cover from ESA WorldCover v200 [@Zanaga2022],
-and the median NDVI of the predictor window from Landsat 8 Collection 2 Level-2 [@LandsatC2L2].
+and the median normalised difference vegetation index (NDVI) of the predictor window from Landsat 8 Collection 2 Level-2 [@LandsatC2L2].
 These change little over one fire season. The **thermal** set adds six channels derived from Landsat
 8 surface temperature, screened for quality and composited as the median of the predictor window.
 The six channels are current LST, its anomaly against the four baseline years, the TVDI
@@ -265,7 +266,7 @@ S3.5(vi)). Exact reproduction therefore needs the archived environment. The labe
 re-run were done by the corresponding author and were not repeated independently by the author of
 the pipeline. The source file of every reported number is named in the Supplementary Material.
 
-**Use of AI tools.** Claude (Anthropic; Opus-family models, July to September 2026) was used to
+**Use of artificial intelligence (AI) tools.** Claude (Anthropic; Opus-family models, July to September 2026) was used to
 write and run analysis, verification and figure code, including the label correction and re-run. It
 was also used to check reported numbers, to draft and edit text, and to produce simulated referee
 reports on drafts, which the authors used as an internal check. Every input is identified by

@@ -21,9 +21,9 @@ gain stayed supported in four regions (+0.044 to +0.139) but fell to +0.020 [−
 Montiferru (Section S1.23).
 
 **Table 1. Within-region baseline versus thermal performance and block-size robustness.** Primary
-(natural-vegetation) population; spatially blocked 5-fold CV (Section 3.7); paired spatial-block
+(natural-vegetation) population; spatially blocked 5-fold cross-validation (CV; Section 3.7); paired spatial-block
 bootstrap, 1000 replicates. Block sizes of 2, 10 and 20 cells correspond to about 1, 5 and 10 km.
-The Baseline and Thermal columns are ROC-AUC, and the 95 % CI belongs to ΔAUC. Source files are
+The Baseline and Thermal columns are ROC-AUC, and the 95 % confidence interval (CI) belongs to ΔAUC. Source files are
 listed in the Supplementary Material.
 
 | Region | Block | Baseline | Thermal | ΔAUC | 95% CI |

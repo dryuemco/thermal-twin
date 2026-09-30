@@ -38,7 +38,8 @@ therefore informative.
 ## 1.3 Contributions
 
 **Contribution 1. The evaluation area changes what a model appears to know.** It is known from
-species distribution modelling that the evaluation area affects AUC (Section 2.3). Here the size of
+species distribution modelling (Section 2.3) that the evaluation area affects the area under the
+receiver operating characteristic curve (ROC-AUC). Here the size of
 this effect was measured for burned-area models with a controlled design. The model, the predictors
 and the fitting were kept fixed, and only the scored cells were changed. With the region as the unit,
 the score fell by **0.160 ROC-AUC** across five regions. The loss came from the unburned cells next to
