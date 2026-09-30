@@ -72,8 +72,12 @@ SECTION_RENAME = {"Data and methods": "Materials and Methods"}
 DECLARATIONS_REF = {"01_introduction": [("re-run\n(Declarations).", "re-run\n(Data Availability Statement).")],
                     "supplementary": [("given\nin the Declarations.",
                                        "given\nin the Data Availability Statement of the main article.")]}
-AUTHORS = [("Emrehan Metin", "E.M."), ("Yunus Emre Cogurcu", "Y.E.C.")]
+# author order confirmed by the corresponding author 2026-09-30: Metin first, Cogurcu second and
+# corresponding; both at the affiliation below. MDPI publishes every author's e-mail address.
+AUTHORS = [("Emrehan Metin", "E.M.", "emrehann17@gmail.com"), ("Yunus Emre Cogurcu", "Y.E.C.", "ycogurcu@cu.edu.tr")]
 CORRESPONDING = "ycogurcu@cu.edu.tr"
+BAP_CODE = "FKB-2025-17608"
+BAP_TITLE = "Early detection and prevention of forest fires with a thermal digital twin-based UAV swarm system"
 AFFILIATION = ("Department of Computer Engineering, Faculty of Engineering, Çukurova University, "
                "01330 Sarıçam, Adana, Türkiye")
 FUNDER_REGISTRY = "Çukurova University"   # Crossref Funder Registry 501100002964, alt-name of "Çukurova Üniversitesi"
@@ -167,7 +171,7 @@ def author_contributions(text):
     assert text.startswith("Stated in CRediT terms."), text[:60]
     assert text.endswith("Both authors read and approved the final manuscript."), text[-60:]
     roles = {}
-    for name, initials in AUTHORS:
+    for name, initials, _ in AUTHORS:
         m = re.search(rf"\*\*{re.escape(name)}:\*\* (.+?)\.(?= \*\*| Both authors)", text)
         assert m, f"no CRediT roles for {name}"
         for r in (x.strip() for x in m.group(1).split(", ")):
@@ -542,7 +546,9 @@ def build(template, pdf=True):
                                 "supplementary")
     sup_list = supplementary_items(sup_src)
 
-    authors = ", ".join(f"{name}^1{',\\*' if i == len(AUTHORS) - 1 else ''}^" for i, (name, _) in enumerate(AUTHORS))
+    names = [f"{name}^1{',\\*' if mail == CORRESPONDING else ''}^" for name, _, mail in AUTHORS]
+    authors = ", ".join(names[:-1]) + " and " + names[-1]
+    emails = "; ".join(f"{mail} ({ini})" for _, ini, mail in AUTHORS)
     front = f"""---
 title: ""
 lang: en-GB
@@ -557,11 +563,11 @@ Article
 :::
 
 ::: {{custom-style="MDPI_1.3_authornames"}}
-\\[AUTHOR ORDER: NEEDS AUTHOR INPUT\\] {authors}
+{authors}
 :::
 
 ::: {{custom-style="MDPI_1.6_affiliation"}}
-^1^ {AFFILIATION}
+^1^ {AFFILIATION}; {emails}
 
 ^\\*^ Correspondence: {CORRESPONDING}
 :::
@@ -634,6 +640,10 @@ https://www.mdpi.com/article/doi/s1: the Supplementary Material (one PDF file), 
     d = Document(out)
 
     n_ref, n_cit = check_citations(d)
+    fund = [t for _, st, t in paragraphs(d) if st == "MDPI62backmatter" and t.startswith("Funding:")]
+    assert len(fund) == 1 and BAP_CODE in fund[0] and BAP_TITLE in fund[0], "BAP code or project title missing from Funding"
+    head = " ".join(t for _, _, t in paragraphs(d)[:12])
+    assert "NEEDS AUTHOR INPUT" not in head and all(m in head for *_, m in AUTHORS), "author line or e-mails wrong"
     items = check_display_items(d, len(caps), len(re.findall(r"(?m)^\*\*Table \d+\. ", body)))
     sources = "\n".join([abstract, "\n".join(raw.values()), "\n".join(B.captions()), decl_src])
     n_dec = check_numbers(sources, ms_md, d)
@@ -677,7 +687,7 @@ https://www.mdpi.com/article/doi/s1: the Supplementary Material (one PDF file), 
     print(f"manuscript.docx: {n_abs}-word abstract, {len(kw)} keywords, {len(caps)} figures embedded, "
           f"{n_ref} references, {n_cit} citation numbers, {n_dec} decimals matched")
     print("display items (first citing paragraph, caption paragraph):", json.dumps(items))
-    print("NOTE: the author list carries [AUTHOR ORDER: NEEDS AUTHOR INPUT]")
+    print(f"Funding names {BAP_CODE} and the project title; authors: " + " and ".join(n for n, *_ in AUTHORS))
 
 
 def manifest(fig_src, n_abs, n_ref, n_cit, items, n_dec):
@@ -712,10 +722,12 @@ numbers); every figure and table cited in body prose, in order, and placed after
 {n_dec} decimals identical between the assembled Markdown and the .docx. Run separately:
 `paper/figures/check_all.py`, `paper/code/check_stale_values.py`, `paper/code/verify_references.py`.
 
-Open items: the author order (`[AUTHOR ORDER: NEEDS AUTHOR INPUT]` on the title page) and every
-author's e-mail address, which MDPI publishes; the cover letter's date, signature and the check that
-the manuscript is not under consideration elsewhere when it is sent; three suggested reviewers in the
-submission system.
+Authors: Emrehan Metin (first) and Yunus Emre Cogurcu (second, corresponding), both Department of
+Computer Engineering, Çukurova University, with their e-mail addresses on the title page. Funding names
+the BAP project {BAP_CODE}, "{BAP_TITLE}" (checked in the .docx at build time).
+
+Open items: the cover letter's date, signature and the check that the manuscript is not under
+consideration elsewhere when it is sent; three suggested reviewers in the submission system.
 
 | File | Size (bytes) | SHA-256 | Source |
 |---|---:|---|---|
