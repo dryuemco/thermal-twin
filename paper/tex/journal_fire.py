@@ -622,6 +622,10 @@ https://www.mdpi.com/article/doi/s1: the Supplementary Material (one PDF file), 
     cp.title, cp.author, cp.last_modified_by = FM["title"], "", ""
     cp.comments = cp.keywords = cp.subject = cp.category = cp.identifier = ""
     cp.revision = 1
+    # dates of the source commit, not of the build, so a rebuild reproduces MANIFEST.md's SHA-256
+    import datetime
+    iso = subprocess.run(["git", "log", "-1", "--format=%cI"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    cp.created = cp.modified = datetime.datetime.fromisoformat(iso).astimezone(datetime.timezone.utc).replace(tzinfo=None)
     d.save(out)
     B.strip_custom_props(out)
     ref.unlink()

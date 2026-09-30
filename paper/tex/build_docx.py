@@ -177,7 +177,8 @@ def reference_doc(path):
 
 def strip_custom_props(path):
     """pandoc records the local bibliography and CSL paths in docProps/custom.xml; drop the part
-    (added 2026-09-30: the paths named the build machine's user directory)."""
+    (added 2026-09-30: the paths named the build machine's user directory). Zip entries get a fixed
+    timestamp, so that a rebuild from the same sources reproduces the file byte for byte."""
     buf = io.BytesIO()
     with zipfile.ZipFile(path) as zin, zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zout:
         for item in zin.infolist():
@@ -188,7 +189,9 @@ def strip_custom_props(path):
                 data = re.sub(rb'<Relationship [^>]*Target="docProps/custom.xml"[^>]*/>', b"", data)
             if item.filename == "[Content_Types].xml":
                 data = re.sub(rb'<Override [^>]*PartName="/docProps/custom.xml"[^>]*/>', b"", data)
-            zout.writestr(item, data)
+            fixed = zipfile.ZipInfo(item.filename, date_time=(1980, 1, 1, 0, 0, 0))
+            fixed.compress_type, fixed.external_attr = zipfile.ZIP_DEFLATED, item.external_attr
+            zout.writestr(fixed, data)
     path.write_bytes(buf.getvalue())
 
 
