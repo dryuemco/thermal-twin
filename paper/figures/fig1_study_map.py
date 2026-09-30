@@ -3,7 +3,7 @@
 
 Natural Earth 1:50m coastline + land, five study AOI rectangles (single colour -
 no regime implication among study regions), region + year labels, approximate
-scale bar. No topography, no satellite background; country borders omitted (kept
+scale bar and north arrow. No topography, no satellite background; country borders omitted (kept
 plain per design decision).
 
 Kozan 2023 IS drawn, in a deliberately different style (grey, dashed edge, open
@@ -181,6 +181,14 @@ for xe in (x0, x0 + bar_deg):
 ax.text(x0 + bar_deg / 2, y0 + 0.35, f"{bar_km} km (at 38°N)",
         fontsize=FS_SMALL, ha="center", va="bottom", transform=proj,
         bbox=halo, zorder=5)
+
+# north arrow (MDPI asks maps for a compass direction, 2026-09-30); plate carree, so north is up
+NA_X, NA_Y0, NA_Y1 = 32.0, 43.35, 45.05
+ax.annotate("N", xy=(NA_X, NA_Y1), xytext=(NA_X, NA_Y0), xycoords=proj._as_mpl_transform(ax),
+            textcoords=proj._as_mpl_transform(ax), fontsize=FS_SMALL, fontweight="bold",
+            ha="center", va="top", zorder=5,
+            arrowprops=dict(arrowstyle="-|>", lw=1.2, color="black", shrinkA=0, shrinkB=0,
+                            mutation_scale=9))
 
 problems = layout_check(fig, "Fig. 1 - study-area map",
                         min_gap_pt=6.0, min_font_pt=8.0)

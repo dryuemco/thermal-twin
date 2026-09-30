@@ -1,0 +1,82 @@
+{
+ "figure": "Graphical abstract (Fire, MDPI: optional)",
+ "script": "paper/figures/graphical_abstract.py",
+ "panels": [
+  "C1 evaluation area",
+  "C2 local skill, weak transfer",
+  "C3 similarity does not predict transfer"
+ ],
+ "data": {
+  "04_results.md": "Table 1 (block 10), Table 3 (as drawn, 10 km collar), the Section 4.3 frame-cost sentence, the Section 4.5 contrast-pair sentence (parsed at build time)",
+  "00_abstract.md": "the same values, checked",
+  "contrast_pairs": {
+   "path": "paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json",
+   "sha256": "bbb70787fe5e99ddf475db8b3e6d29365b2e8f231127725792ac766a2d487e9a"
+  },
+  "s7": {
+   "path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",
+   "sha256": "746d9a6bd4aa4f14c42200eb0ad1806374b83435d9a6649929714cd58620da67"
+  }
+ },
+ "within_region_5km": {
+  "Manavgat 2021": 0.062,
+  "Bejís 2022": 0.045,
+  "Muğla 2021": 0.079,
+  "North Evia 2021 (ext.)": 0.148,
+  "Montiferru 2021": 0.099
+ },
+ "transfer_as_drawn": [
+  0.007,
+  -0.02,
+  0.038
+ ],
+ "transfer_10km_collar": [
+  0.024,
+  -0.004,
+  0.049
+ ],
+ "frame_cost_region_unit": [
+  0.16,
+  0.09,
+  0.23
+ ],
+ "contrast_pair": {
+  "most_similar_Man_Mug": {
+   "D_bar": 0.799,
+   "transfer": [
+    0.4377,
+    0.345
+   ]
+  },
+  "least_similar_Bej_Mont": {
+   "D_bar": 0.479,
+   "transfer": [
+    0.5937,
+    0.5483
+   ]
+  }
+ },
+ "mdpi_spec": {
+  "minimum_px_h_w": [
+   560,
+   1100
+  ],
+  "formats": [
+   "PNG",
+   "JPEG",
+   "TIFF"
+  ]
+ },
+ "canvas_mm": [
+  140.0,
+  70.0
+ ],
+ "pixels_w_h": [
+  1653,
+  826
+ ],
+ "font_pt": {
+  "minimum": 8.0
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time"
+}

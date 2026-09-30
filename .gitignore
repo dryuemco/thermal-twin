@@ -58,6 +58,9 @@ __pycache__/
 cross_region_transfer_predictions.csv
 # Build record written by paper/tex/build_docx.py
 paper/tex/manuscript_assembled.md
+paper/tex/manuscript_fire_assembled.md
+# The Fire manuscript is in the MDPI template, licensed for submission only (not for posting online)
+paper/submission_fire/manuscript.docx
 
 # The modelling datasets override the binary rules above
 !paper/data/**/*.parquet

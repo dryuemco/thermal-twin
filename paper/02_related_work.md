@@ -22,7 +22,8 @@ so that only the evaluation changes.
 Spatially blocked cross-validation reduces the optimism of random folds [@Roberts2017;
 @Valavi2019]. Its use for map accuracy is debated [@Wadoux2021; @deBruin2022], and methods have
 been proposed that match the distances of the prediction task [@Mila2022]. The area of
-applicability shows where predictor values are too far from the training data [@Meyer2021].
+applicability shows where predictor values are too far from the training data [@Meyer2021; @Meyer2022;
+@Ludwig2023].
 Transferability is an open problem in ecological modelling [@Yates2018].
 
 Two types of shift are usually separated [@MorenoTorres2012]. Under covariate shift, the predictor

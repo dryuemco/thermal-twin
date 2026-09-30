@@ -17,7 +17,7 @@ that built it (default: Ubuntu-22.04, /home/yunus/mm-thermal/bin/python; overrid
 "SKIPPED: cartopy env not available" and the exit status says so; it is never passed silently.
 
 Usage (from the repository root or from paper/figures):
-    python paper/figures/check_all.py            # all ten
+    python paper/figures/check_all.py            # all nine and the tables
     python paper/figures/check_all.py --only fig4_transfer_matrix graphical_abstract
     python paper/figures/check_all.py --skip-fig1
 Exit status: 0 all PASS; 1 any FAIL; 2 no FAIL but something SKIPPED.
@@ -31,9 +31,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 SCRIPTS = ["fig1_study_map", "fig2_schematic", "fig3_within_robustness", "fig4_transfer_matrix",
-           "fig5_adaptation", "fig6_loro", "fig7_feature_drop", "fig8_contrast_pairs"]
-# The graphical abstract was an Ecological Informatics item; Natural Hazards does not take one, so it
-# is archived under paper/archive/ei_graphical_abstract/ (2026-09-29) and no longer checked.
+           "fig5_adaptation", "fig6_loro", "fig7_feature_drop", "fig8_contrast_pairs", "graphical_abstract"]
+# The graphical abstract is a Fire (MDPI) item; Natural Hazards does not take one. The Ecological
+# Informatics version, with pre-review values, stays archived under paper/archive/ei_graphical_abstract/.
 SHARED = {"fig5_adaptation", "fig6_loro", "fig7_feature_drop"}     # also run _conservation_common
 
 

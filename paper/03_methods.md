@@ -216,7 +216,7 @@ H_K = \Big\{ i \in V_R : \min_{j \in K} \big( |r_i - r_j| + |c_i - c_j| \big) \l
 
 with $`m = 4`$ grid steps. On this grid the collar is therefore about 1.6 to 2.0 km wide along the
 axes and about 1.3 km along the diagonals, and all its unburned cells are next to the fire. Four
-evaluations use it (Table 2). A scores the out-of-fold predictions of 5-fold blocked cross-validation
+evaluations use it (Section 4.3). A scores the out-of-fold predictions of 5-fold blocked cross-validation
 ($`k = 10`$) on $`V_R`$, and B scores the same predictions on $`H_K`$, so B is the same model scored
 on a different set of cells. C is **leave-one-scar-out**: a model fitted on $`V_R \setminus H_K`$ is
 scored on $`H_K`$. D averages, over the four other regions, a model fitted on that region and scored

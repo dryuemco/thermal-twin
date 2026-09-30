@@ -17,11 +17,17 @@ one, and on any "NEEDS AUTHOR INPUT" marker. Display equations are numbered in o
 (1), (2), ... in the manuscript and (S1), (S2), ... in the supplement; "[#eq:x]" becomes "Eq. (n)",
 and a supplement reference to a manuscript equation reads "Eq. (n) of the main text".
 
+The same sources also build the Fire (MDPI) package: `--journal fire` runs journal_fire.py, which
+reuses the helpers here and writes to paper/submission_fire/. Journal differences live only in the
+build profiles; the Markdown, figures, supplement source and REFERENCES.bib are shared.
+
 Usage (needs pandoc; pypandoc_binary and python-docx supply it):
-    python paper/tex/build_docx.py
+    python paper/tex/build_docx.py                   # Natural Hazards (default)
         -> paper/submission/manuscript.docx; paper/tex/supplementary_material.docx
+    python paper/tex/build_docx.py --journal fire --template <fire-template.dot>
+        -> paper/submission_fire/ (see journal_fire.py)
 """
-import json, re, subprocess
+import argparse, io, json, re, subprocess, sys, zipfile
 from pathlib import Path
 
 import pypandoc
@@ -34,7 +40,6 @@ from docx.shared import Pt, Cm
 HERE = Path(__file__).resolve().parent
 P = HERE.parent
 OUT = P / "submission"
-OUT.mkdir(exist_ok=True)
 FM = json.loads((P / "frontmatter.json").read_text(encoding="utf-8"))
 BODY = ["01_introduction", "02_related_work", "03_methods", "04_results", "05_discussion",
         "06_conclusions"]
@@ -84,37 +89,9 @@ def equations(md, eq, prefix="", external=None):
     return re.sub(r"\$`([^`]+)`\$", r"$\1$", md)                   # GitLab inline math
 
 
-# ---------------------------------------------------------------- manuscript
-EQ = {}
-body = equations(narrative("\n\n".join(clean((P / f"{f}.md").read_text(encoding="utf-8"), f) for f in BODY)), EQ)
-body = re.sub(r"(?m)^# (\d+)\. ", r"# \1 ", body)                # keep the section numbers as text
-decl = narrative(clean((P / f"{DECL}.md").read_text(encoding="utf-8"), DECL))
-abstract = re.sub(r"(?m)^# Abstract\s*$", "", clean((P / "00_abstract.md").read_text(encoding="utf-8"), "abstract")).strip()
-n_abs = len(abstract.split())
-assert 150 <= n_abs <= 250, f"abstract has {n_abs} words; Natural Hazards asks for 150 to 250"
-assert 4 <= len(FM["keywords"]) <= 6, "Natural Hazards asks for 4 to 6 keywords"
-title_page = f"""---
-title: "{FM['title']}"
-lang: en-GB
----
-
-Emrehan Metin^1^, Yunus Emre Cogurcu^1,\\*^
-
-^1^ Department of Computer Engineering, Faculty of Engineering, Çukurova University, 01330 Sarıçam,
-Adana, Türkiye
-
-^\\*^ Corresponding author: Yunus Emre Cogurcu, ycogurcu@cu.edu.tr
-
-ORCID: Yunus Emre Cogurcu, 0000-0002-9229-9657
-
-@@WORDCOUNT@@
-
-# Abstract
-
-{abstract}
-
-**Keywords:** {'; '.join(FM['keywords'])}
-"""
+# Acknowledgements text, shared by both journal profiles
+ACK = ("# Acknowledgements\n\nThe authors thank the Department of Computer Engineering at Çukurova "
+       "University for the laboratory environment in which this work was carried out.")
 
 
 def captions():
@@ -135,27 +112,6 @@ def captions():
         return re.sub(r"\\ref\{(?:sec|tab):([^}]+)\}", r"\1", c)
     return [pypandoc.convert_text(refs(c), "markdown", format="latex", extra_args=["--wrap=none"]).strip()
             for c in out]
-
-
-caps = captions()
-# figures must be cited in numerical order (Springer; internal review F21)
-_first = [re.search(rf"Fig\. {n}\b", body) for n in range(1, len(caps) + 1)]
-assert all(_first), [n + 1 for n, m in enumerate(_first) if not m]
-_pos = [m.start() for m in _first]
-assert _pos == sorted(_pos), f"figures first cited out of order: {_pos}"
-fig_md = "# Figure captions\n\n" + "\n\n".join(f"**Fig. {n}** {c}" for n, c in enumerate(caps, 1))
-ACK = ("# Acknowledgements\n\nThe authors thank the Department of Computer Engineering at Çukurova "
-       "University for the laboratory environment in which this work was carried out.")
-ms_md = (title_page + "\n\n" + body + "\n\n" + ACK + "\n\n" + decl
-         + "\n\n# References\n\n::: {#refs}\n:::\n\n" + fig_md + "\n")
-
-# ---------------------------------------------------------------- supplement
-SEQ = {}
-sup = clean((P / "supplementary.md").read_text(encoding="utf-8"), "supplementary")
-sup = equations(narrative(sup), SEQ, prefix="S", external=EQ)
-sup = re.sub(r"\A# Supplementary Material\s*\n", "", sup)
-sup_md = (f'---\ntitle: "Supplementary Material"\nsubtitle: "{FM["title"]}"\nlang: en-GB\n---\n\n' + sup
-          + "\n\n# References\n\n::: {#refs}\n:::\n")
 
 
 # ---------------------------------------------------------------- Word
@@ -219,6 +175,23 @@ def reference_doc(path):
     d.save(path)
 
 
+def strip_custom_props(path):
+    """pandoc records the local bibliography and CSL paths in docProps/custom.xml; drop the part
+    (added 2026-09-30: the paths named the build machine's user directory)."""
+    buf = io.BytesIO()
+    with zipfile.ZipFile(path) as zin, zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            data = zin.read(item.filename)
+            if item.filename == "docProps/custom.xml":
+                continue
+            if item.filename == "_rels/.rels":
+                data = re.sub(rb'<Relationship [^>]*Target="docProps/custom.xml"[^>]*/>', b"", data)
+            if item.filename == "[Content_Types].xml":
+                data = re.sub(rb'<Override [^>]*PartName="/docProps/custom.xml"[^>]*/>', b"", data)
+            zout.writestr(item, data)
+    path.write_bytes(buf.getvalue())
+
+
 def to_docx(md, out, title):
     ref = OUT / "_reference.docx"
     reference_doc(ref)
@@ -270,6 +243,7 @@ def to_docx(md, out, title):
     cp.comments = cp.keywords = cp.subject = cp.category = cp.identifier = ""
     cp.revision = 1
     d.save(out)
+    strip_custom_props(out)
     return Document(out)
 
 
@@ -289,19 +263,87 @@ def main_text_words(doc):
     return n
 
 
-TITLE = FM["title"]
-ms_doc = to_docx(ms_md.replace("@@WORDCOUNT@@\n", ""), OUT / "manuscript.docx", TITLE)
-WORDS = main_text_words(ms_doc)
-WORDLINE = (f"**Word count:** {WORDS:,} words in the main text (Sections 1 to 6, table captions and notes "
-            "included; tables, references, declarations and figure captions excluded). Abstract "
-            f"{n_abs} words.")
-ms_md = ms_md.replace("@@WORDCOUNT@@", WORDLINE)
-(HERE / "manuscript_assembled.md").write_text(ms_md, encoding="utf-8")   # build record, not submitted
-ms_doc = to_docx(ms_md, OUT / "manuscript.docx", TITLE)
-assert main_text_words(ms_doc) == WORDS
-sup_doc = to_docx(sup_md, OUT / "supplementary_material.docx", "Supplementary Material: " + TITLE)
+def build_nh():
+    # ---------------------------------------------------------------- manuscript
+    OUT.mkdir(exist_ok=True)
+    EQ = {}
+    body = equations(narrative("\n\n".join(clean((P / f"{f}.md").read_text(encoding="utf-8"), f) for f in BODY)), EQ)
+    body = re.sub(r"(?m)^# (\d+)\. ", r"# \1 ", body)                # keep the section numbers as text
+    decl = narrative(clean((P / f"{DECL}.md").read_text(encoding="utf-8"), DECL))
+    abstract = re.sub(r"(?m)^# Abstract\s*$", "", clean((P / "00_abstract.md").read_text(encoding="utf-8"), "abstract")).strip()
+    n_abs = len(abstract.split())
+    assert 150 <= n_abs <= 250, f"abstract has {n_abs} words; Natural Hazards asks for 150 to 250"
+    assert 4 <= len(FM["keywords"]) <= 6, "Natural Hazards asks for 4 to 6 keywords"
+    title_page = f"""---
+title: "{FM['title']}"
+lang: en-GB
+---
 
-for name, doc, eqs in (("manuscript.docx", ms_doc, EQ), ("supplementary_material.docx", sup_doc, SEQ)):
-    print(f"{name}: {len(doc.paragraphs)} paragraphs, {len(doc.tables)} tables, {len(eqs)} numbered equations")
-print(WORDLINE.replace("**", ""))
-print(f"{len(caps)} figure captions")
+Emrehan Metin^1^, Yunus Emre Cogurcu^1,\\*^
+
+^1^ Department of Computer Engineering, Faculty of Engineering, Çukurova University, 01330 Sarıçam,
+Adana, Türkiye
+
+^\\*^ Corresponding author: Yunus Emre Cogurcu, ycogurcu@cu.edu.tr
+
+ORCID: Yunus Emre Cogurcu, 0000-0002-9229-9657
+
+@@WORDCOUNT@@
+
+# Abstract
+
+{abstract}
+
+**Keywords:** {'; '.join(FM['keywords'])}
+"""
+
+
+    caps = captions()
+    # figures must be cited in numerical order (Springer; internal review F21)
+    _first = [re.search(rf"Fig\. {n}\b", body) for n in range(1, len(caps) + 1)]
+    assert all(_first), [n + 1 for n, m in enumerate(_first) if not m]
+    _pos = [m.start() for m in _first]
+    assert _pos == sorted(_pos), f"figures first cited out of order: {_pos}"
+    fig_md = "# Figure captions\n\n" + "\n\n".join(f"**Fig. {n}** {c}" for n, c in enumerate(caps, 1))
+    ms_md = (title_page + "\n\n" + body + "\n\n" + ACK + "\n\n" + decl
+             + "\n\n# References\n\n::: {#refs}\n:::\n\n" + fig_md + "\n")
+
+    # ---------------------------------------------------------------- supplement
+    SEQ = {}
+    sup = clean((P / "supplementary.md").read_text(encoding="utf-8"), "supplementary")
+    sup = equations(narrative(sup), SEQ, prefix="S", external=EQ)
+    sup = re.sub(r"\A# Supplementary Material\s*\n", "", sup)
+    sup_md = (f'---\ntitle: "Supplementary Material"\nsubtitle: "{FM["title"]}"\nlang: en-GB\n---\n\n' + sup
+              + "\n\n# References\n\n::: {#refs}\n:::\n")
+
+
+    TITLE = FM["title"]
+    ms_doc = to_docx(ms_md.replace("@@WORDCOUNT@@\n", ""), OUT / "manuscript.docx", TITLE)
+    WORDS = main_text_words(ms_doc)
+    WORDLINE = (f"**Word count:** {WORDS:,} words in the main text (Sections 1 to 6, table captions and notes "
+                "included; tables, references, declarations and figure captions excluded). Abstract "
+                f"{n_abs} words.")
+    ms_md = ms_md.replace("@@WORDCOUNT@@", WORDLINE)
+    (HERE / "manuscript_assembled.md").write_text(ms_md, encoding="utf-8")   # build record, not submitted
+    ms_doc = to_docx(ms_md, OUT / "manuscript.docx", TITLE)
+    assert main_text_words(ms_doc) == WORDS
+    sup_doc = to_docx(sup_md, OUT / "supplementary_material.docx", "Supplementary Material: " + TITLE)
+
+    for name, doc, eqs in (("manuscript.docx", ms_doc, EQ), ("supplementary_material.docx", sup_doc, SEQ)):
+        print(f"{name}: {len(doc.paragraphs)} paragraphs, {len(doc.tables)} tables, {len(eqs)} numbered equations")
+    print(WORDLINE.replace("**", ""))
+    print(f"{len(caps)} figure captions")
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description="Build the submission .docx files for one journal.")
+    ap.add_argument("--journal", choices=["nh", "fire"], default="nh",
+                    help="nh: Natural Hazards -> paper/submission/; fire: Fire (MDPI) -> paper/submission_fire/")
+    ap.add_argument("--template", type=Path, help="fire only: the MDPI Fire Word template (.dot, .dotx or .docx)")
+    ap.add_argument("--no-pdf", action="store_true", help="fire only: skip the Word PDF export of the supplement")
+    args = ap.parse_args()
+    if args.journal == "nh":
+        build_nh()
+    else:
+        import journal_fire
+        journal_fire.build(args.template, pdf=not args.no_pdf)

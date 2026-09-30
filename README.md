@@ -30,8 +30,9 @@ Main results:
 | `paper/data/<region>/` | The five modelling datasets (Manavgat on the corrected label), and for Manavgat the corrected burned-area raster and re-freeze manifest |
 | `paper/labelfix_rerun/` | Corrected-label outputs that the reported numbers are read from. `round5/tables/SOURCES.sha256` pins the 49 files the supplementary tables are built from; `exports/SHA256SUMS.txt` pins the released pipeline diagnostics |
 | `paper/canonical_rerun/`, `step9g_raw/`, `mugla_*_raw/`, `era5_raw/`, `reproduction_check/` | Frozen pipeline outputs and re-run records |
-| `paper/tex/` | `build_docx.py`, which builds the Word files, and the citation style |
-| `paper/submission/` | Submission files: manuscript, supplement and figures, with `MANIFEST.md` |
+| `paper/tex/` | `build_docx.py`, which builds the Word files for each journal (`--journal nh` or `fire`), the Fire profile `journal_fire.py`, and the citation styles |
+| `paper/submission/` | Submission files for *Natural Hazards* (first target): manuscript, supplement and figures, with `MANIFEST.md` |
+| `paper/submission_fire/` | Submission files for *Fire* (MDPI; second target): `supplement.pdf`, the figures at 600 dpi, the graphical abstract, a draft cover letter, and `MANIFEST.md`. Built from the same sources; only the build profile differs. The manuscript itself (`manuscript.docx`, with the figures embedded) is built in the MDPI template, which MDPI licenses for submission only, so it is not committed; `MANIFEST.md` gives its SHA-256 |
 | `step10/`, `experiments/` | Two-region transfer analysis and its outputs |
 | `ENVIRONMENT.md` | The Python environment and how it was verified |
 | `repo/` | Submodule: the processing pipeline (see Data) |
@@ -54,7 +55,8 @@ On Windows, clone to a short path with long paths enabled:
 | `python paper/figures/check_all.py` | Runs every figure script and `appendix_tables.py`. Each script checks its plotted values against the frozen outputs and the manuscript text, and checks its layout. Tracked outputs are restored byte for byte. Exit 0: all pass; 1: a failure; 2: something skipped (Fig. 1 needs cartopy). |
 | `python paper/code/appendix_tables.py` | Rebuilds Tables S2 to S7 and S9 to S18 (176 rows) from their pinned sources and compares them with the text |
 | `python paper/figures/fig4_transfer_matrix.py` (and the other `fig*.py`) | Draws and checks one figure |
-| `python paper/tex/build_docx.py` | Builds the Word files (needs `pip install pypandoc_binary python-docx`) |
+| `python paper/tex/build_docx.py` | Builds the *Natural Hazards* Word files (needs `pip install pypandoc_binary python-docx`) |
+| `python paper/tex/build_docx.py --journal fire --template <fire-template.dot>` | Builds the *Fire* package in `paper/submission_fire/` (also needs `pymupdf` and Microsoft Word for the supplement PDF). The MDPI Word template is downloaded from the journal and is not in this repository. The build checks the abstract length, the numbered citations against the reference list, the citation and placement of every figure and table, and that every number in the text survives into the Word file |
 | `python paper/code/check_stale_values.py` | Fails if a value that holds only under the original Manavgat label appears without a label |
 | `python paper/code/verify_references.py` | Checks every reference DOI against Crossref or DataCite, and every citation key against the bibliography |
 
