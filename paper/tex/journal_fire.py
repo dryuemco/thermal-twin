@@ -114,6 +114,7 @@ ISO4 = {
     "Environ. Model. Softw.", "Environmental Reviews": "Environ. Rev.", "Evolution": "Evolution", "Fire": "Fire",
     "Fire Ecology": "Fire Ecol.", "Forest Ecology and Management": "For. Ecol. Manag.",
     "Frontiers in Ecology and the Environment": "Front. Ecol. Environ.", "Geomatics": "Geomatics", "Geosciences": "Geosciences",
+    "Geomatics, Natural Hazards and Risk": "Geomat. Nat. Hazards Risk",
     "Global Ecology and Biogeography": "Glob. Ecol. Biogeogr.",
     "IEEE Geoscience and Remote Sensing Magazine": "IEEE Geosci. Remote Sens. Mag.",
     "IEEE Transactions on Geoscience and Remote Sensing": "IEEE Trans. Geosci. Remote Sens.",
@@ -427,6 +428,40 @@ def mdpi_styles(d):
                     tb = OxmlElement("w:tcBorders"); _border(tb, "bottom", 4); tcpr.append(tb)
 
 
+def balance_tables(path, width=B.TEXT_WIDTH, twips_per_char=105):
+    """Supplement tables: B.to_docx sizes columns by their longest cell, so a short-text column next to
+    a long-text one became narrower than its words ("Do es poo ling", independent review m8). Here
+    every column first gets its longest word, and the remaining width follows the text length."""
+    d = Document(path)
+    for t in d.tables:
+        cols = t.columns
+        words = [max((len(w) for c in col.cells for w in _text(c._tc).split()), default=4) + 1 for col in cols]
+        total = [max(sum(len(_text(c._tc)) for c in col.cells), 1) for col in cols]
+        base = [w * twips_per_char for w in words]
+        if sum(base) >= width:
+            widths = [round(width * b / sum(base)) for b in base]
+        else:
+            rest = width - sum(base)
+            widths = [round(b + rest * n / sum(total)) for b, n in zip(base, total)]
+        for gc, cw in zip(t._tbl.tblGrid.findall(qn("w:gridCol")), widths):
+            gc.set(qn("w:w"), str(cw))
+        for row in t.rows:
+            for c, cw in zip(row.cells, widths):
+                tcpr = c._tc.get_or_add_tcPr()
+                tcw = tcpr.find(qn("w:tcW"))
+                if tcw is None:
+                    tcw = OxmlElement("w:tcW"); tcpr.insert(0, tcw)
+                tcw.set(qn("w:type"), "dxa"); tcw.set(qn("w:w"), str(cw))
+                for p in c.paragraphs:
+                    ppr = p._p.get_or_add_pPr()
+                    if ppr.find(qn("w:suppressAutoHyphens")) is None:
+                        e = OxmlElement("w:suppressAutoHyphens")
+                        st = ppr.find(qn("w:pStyle"))
+                        (st.addnext(e) if st is not None else ppr.insert(0, e))
+    d.save(path)
+    B.strip_custom_props(path)
+
+
 def word_pdf(docx, pdf):
     ps = (f"$w = New-Object -ComObject Word.Application; $w.Visible = $false; "
           f"$d = $w.Documents.Open('{docx}', $false, $true); $d.ExportAsFixedFormat('{pdf}', 17); "
@@ -675,6 +710,7 @@ https://www.mdpi.com/article/doi/s1: the Supplementary Material (one PDF file), 
     sup_md = (f'---\ntitle: "Supplementary Material"\nsubtitle: "{FM["title"]}"\nlang: en-GB\n---\n\n*{note}*\n\n' + sup)
     sup_docx = OUT / "_supplement.docx"
     B.to_docx(sup_md, sup_docx, "Supplementary Material: " + FM["title"])
+    balance_tables(sup_docx)
     if pdf:
         word_pdf(sup_docx, OUT / "supplement.pdf")
     sup_docx.unlink()

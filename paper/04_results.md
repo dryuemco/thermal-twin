@@ -229,8 +229,8 @@ single-source model for one target of five, Evia (0.715 [0.668, 0.757] against 0
 for the other four at the point estimates (Fig. 6).
 
 **Feature removal.** Removing the two reversing features lowered within-region AUC by 0.076 and changed transfer by
-+0.014 [−0.028, +0.056], which includes zero (Fig. 7); the primary pair-cluster bootstrap gives
-[−0.018, +0.049] (Section S1.14).
++0.014 [−0.018, +0.049] under the primary pair-cluster bootstrap, which includes zero; the pair-t
+interval plotted in Fig. 7 is +0.014 [−0.028, +0.056] (Section S1.14).
 
 **Target labels.** With 32 labelled 5 km blocks from the target, the gap between raw transfer and the
 target's own ceiling was closed by 83 to 89 % in three of six directions, and by 30 to 52 % in the

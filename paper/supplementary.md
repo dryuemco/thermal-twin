@@ -1,6 +1,6 @@
 # Supplementary Material
 
-Supplementary material for *Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: five large Mediterranean fires*.
+Supplementary material for *Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: five large Mediterranean fires*.
 
 Section S1 gives the sensitivity analyses and the details behind the Results. Section S2 gives the
 supporting tables, Section S3 the protocol details and limitations, Section S4 the target-label

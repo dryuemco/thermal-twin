@@ -22,8 +22,8 @@ so that only the evaluation changes.
 Spatially blocked cross-validation reduces the optimism of random folds [@Roberts2017;
 @Valavi2019], although its use for map accuracy is debated [@Wadoux2021; @deBruin2022; @Mila2022].
 The area of applicability shows where predictor values are too far from the training data
-[@Meyer2021; @Meyer2022; @Ludwig2023], and transferability remains an open problem in ecological
-modelling [@Yates2018]. Under covariate shift only the predictor distribution changes, which can in
+[@Meyer2021; @Meyer2022; @Ludwig2023], and transferability, which must be tested on spatially or temporally separate data [@Wenger2012],
+remains an open problem in ecological modelling [@Yates2018]. Under covariate shift only the predictor distribution changes, which can in
 principle be corrected without target labels, for example by per-region standardisation or by
 covariance alignment (CORAL) [@Sun2016], as is common in remote sensing [@Tuia2016; @Persello2012];
 under concept shift the predictor-response relationship itself changes [@MorenoTorres2012], and a

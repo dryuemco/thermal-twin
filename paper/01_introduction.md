@@ -48,8 +48,9 @@ receiver operating characteristic curve (ROC-AUC). Here the size of
 this effect was measured for burned-area models with a controlled design. The model, the predictors
 and the fitting were kept fixed, and only the scored cells were changed. With the region as the unit,
 the score fell by **0.160 ROC-AUC** across five regions. The loss came from the unburned cells next to
-the fire, not from class balance (Section 4.3). The same test showed that four between-region
-results of this study depend on the study areas: mean transfer, the supported elevation reversals,
+the fire, not from class balance (Section 4.3). A second test, on distance collars, showed that four
+between-region results of this study depend on the study areas: mean transfer, which elevation
+reversals have interval support,
 the reversal between the two Muğla fires, and the correlation of one similarity measure with
 transfer (Section 4.4).
 

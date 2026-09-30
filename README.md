@@ -1,4 +1,4 @@
-# Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: five large Mediterranean fires
+# Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: five large Mediterranean fires
 
 Analysis code, frozen outputs and manuscript sources for a study that tests whether pre-fire thermal
 predictors transfer between wildfire regions. Five Mediterranean fires are compared: Manavgat 2021
@@ -78,7 +78,7 @@ runs `check_all.py` without further downloads. To read a pipeline output tree in
 
 ## Citation
 
-Metin, E., Cogurcu, Y. E. *Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: five large Mediterranean fires.* Manuscript in preparation for submission to *Natural Hazards*.
+Metin, E., Cogurcu, Y. E. *Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: five large Mediterranean fires.* Manuscript in preparation for submission to *Natural Hazards*.
 
 Code and data archive: Metin, E., Cogurcu, Y. E. (2026). Version 1.1.0. Zenodo.
 https://doi.org/10.5281/zenodo.23038039 (all versions: https://doi.org/10.5281/zenodo.23035270)

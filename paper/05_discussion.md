@@ -39,8 +39,9 @@ affected by the study area (Section 4.4). The conclusions are stated for large s
 
 Pooling four source regions was better than the mean single-source model only for Evia, where it
 reached 0.715 [0.668, 0.757] against 0.569 (Section S1.14). For all five targets it stayed well
-below the within-region ceiling. Removing the two reversing predictors cost −0.076 of within-region
-skill, with interval support in every region, and changed mean transfer by +0.014 [−0.028, +0.056].
+below the within-region ceiling. Removing the two reversing predictors lowered within-region skill
+by 0.076, most of it from elevation, with interval support in every region, and changed mean transfer
+by +0.014 [−0.018, +0.049] (pair-t, as plotted in Fig. 7: +0.014 [−0.028, +0.056]).
 
 These two numbers should not be read as an exchange of local skill for transfer. The thermal
 contribution to transfer is +0.007, and removal returns +0.014, and both intervals include zero. A
@@ -61,7 +62,8 @@ climate also depends on fuel and productivity [@PausasPaula2012], so the sign of
 may differ between landscapes. Whether a fire becomes very large depends mostly on fire weather
 acting on drought-stressed fuel [@Ghasemiazma2026], which no surface predictor measured before the
 fire can carry; the surface component tested here would complement, not replace, weather-driven
-danger rating [@Vitolo2020].
+danger rating [@Vitolo2020], as in products that combine susceptibility with pre-season weather
+[@Bergonse2021].
 
 Dimarco et al. [@Dimarco2026] found good transfer in a similar Mediterranean design, while transfer
 failed here. The two studies differ in two ways. Their predictors are static attributes of a place,
@@ -85,7 +87,7 @@ ROC-AUC with the region as the unit, which is larger than the thermal gain withi
 **Measure transfer in the target region.** A within-region score does not show how a model will work
 elsewhere, and no similarity measure tested here could replace the measurement. On average, a model moved to a new region did not usefully rank the burned cells there: its
 highest-scored 10 % of cells contained about as many burned cells as a random choice, although the
-best direction reached 27 % (Section 4.5). Target
+best direction reached 27 % (Table S35). Target
 labels from the predicted fire closed much of the gap (Section S4), but they are not available in
 advance. Where a burned-area record of earlier fires exists for the target region, it offers a way to
 check a transferred model before use; this option was not tested here.
@@ -115,6 +117,9 @@ The limitations are given in full in Section S3.5. The following ones affect the
 - **Spatial dependence reaches beyond the 5 km blocks.** Residual correlation falls below 0.05
   only at 10 to 20 km in three regions and at 20 to 40 km in North Evia, so intervals at 5 km
   blocking may be too narrow, especially in North Evia (Section 3.7; S1.23).
+- **The thermal contribution to transfer depends on the estimator.** It was +0.007 for the random
+  forest used here but negative for a shallower forest, a forest with large leaves and a penalised
+  logistic regression (−0.011 to −0.021, point estimates only; Table S25).
 - **The similarity tests rest on ten independent region pairs,** so both positive and negative
   results have low power (S3.5(xiii)).
 - **Measures based on interval support are unstable.** Five to six interval bounds lie within 0.01
