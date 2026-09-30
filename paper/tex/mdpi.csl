@@ -101,7 +101,9 @@
       <if type="book chapter" match="any">
         <text variable="ISBN" prefix=" ISBN "/>
       </if>
-      <else-if type="article-journal">
+      <!-- modified 2026-09-30 for paper/tex/journal_fire.py: conference papers also print their DOI,
+           as MDPI asks for the DOI of every reference where available -->
+      <else-if type="article-journal paper-conference" match="any">
         <text variable="DOI" prefix=", doi:"/>
       </else-if>
     </choose>

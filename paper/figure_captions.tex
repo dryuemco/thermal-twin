@@ -26,7 +26,7 @@
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig2_schematic.pdf}}
   \caption{\textbf{Processing chain and evaluation design.} Each box names the Methods section
   that describes it. Five source products (MCD64A1, Landsat Collection 2 Level-2, MOD11A1,
-  Copernicus DEM GLO-30 and ESA WorldCover) are combined on the $\sim$510\,m analysis grid. Regions
+  Copernicus DEM GLO-30 and European Space Agency (ESA) WorldCover) are combined on the $\sim$510\,m analysis grid. Regions
   that pass the admissibility gate are used in the natural-vegetation population. Kozan 2023 fails
   the gate (98\% of its burned area is cropland) and is not modelled. Two evaluations are made:
   within-region cross-validation and cross-region transfer in 20 directions, with and without
@@ -41,7 +41,8 @@
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig3_within_robustness.pdf}}
   \caption{\textbf{The within-region thermal gain in all five regions, by block size.}
   Natural-vegetation population; random forest; 95\% spatial-block bootstrap intervals (1000
-  replicates, seed 42). \textbf{(a)} Baseline (open marker) and thermal (filled marker) ROC-AUC at
+  replicates, seed 42). \textbf{(a)} Baseline (open marker) and thermal (filled marker) area under the receiver operating
+  characteristic curve (ROC-AUC) at
   2-cell ($\sim$1\,km) blocking. The right-hand column gives the paired $\Delta$AUC and its interval.
   \textbf{(b)} Thermal ROC-AUC at 2, 10 and 20 cells ($\approx$1, 5 and 10\,km). Skill falls as the
   blocks become larger. \textbf{(c)} $\Delta$AUC at the same block sizes. The interval excludes zero
@@ -113,9 +114,9 @@
   \caption{\textbf{Removing the reversing features costs local skill and gives no measurable
   transfer gain.} Mean within-region ROC-AUC over five regions (horizontal) against mean transfer
   ROC-AUC over 20 directions (vertical), for four feature sets: the full thermal set, without the
-  LST anomaly, without elevation, and without both. Along the grey path, within-region skill falls
+  land surface temperature (LST) anomaly, without elevation, and without both. Along the grey path, within-region skill falls
   (0.896 $\rightarrow$ 0.820) and mean transfer rises (0.527 $\rightarrow$ 0.541). The within-region
-  cost is 0.076 AUC and is supported in every region. The change in transfer is $+$0.014 AUC, with a
+  cost is 0.076 ROC-AUC and is supported in every region. The change in transfer is $+$0.014 ROC-AUC, with a
   pair-$t$ interval over ten region pairs of [$-$0.028, $+$0.056], which includes zero. The vertical
   whisker shows this interval around the full-set transfer level (dotted line).}
   \label{fig:feature-drop}

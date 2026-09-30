@@ -197,7 +197,11 @@ def funding_and_coi(funding, competing):
     assert uni == FUNDER_REGISTRY, uni
     fund = f"This research was funded by the {unit} {native} under its {scheme} scheme, grant number {code} {title}."
     assert flat(competing) == "The authors have no relevant financial or non-financial interests to disclose.", competing
-    return fund, "The authors declare no conflicts of interest. " + role
+    assert role.startswith("The funder had no role"), role
+    # MDPI's fixed wording for a funder without a role (Fire Word template, 2026-09-30)
+    return fund, ("The authors declare no conflicts of interest. The funders had no role in the design of the study; "
+                  "in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in "
+                  "the decision to publish the results.")
 
 
 def genai(text, methods):
