@@ -265,6 +265,8 @@ instead of 1.9.0, single-direction AUCs moved by up to 0.047 and one support cou
 S3.5(vi)). Exact reproduction therefore needs the archived environment. The label correction and the
 re-run were done by the corresponding author and were not repeated independently by the author of
 the pipeline. The source file of every reported number is named in the Supplementary Material.
+Every input dataset is identified by its SHA-256 hash, and the reported numbers are checked
+automatically against the tracked outputs.
 
 **Use of artificial intelligence (AI) tools.** Claude (Anthropic; Opus-family models, July to September 2026) was used to
 write analysis and figure code, to check reported numbers and to edit the text. The authors reviewed
