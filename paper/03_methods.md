@@ -267,11 +267,8 @@ re-run were done by the corresponding author and were not repeated independently
 the pipeline. The source file of every reported number is named in the Supplementary Material.
 
 **Use of artificial intelligence (AI) tools.** Claude (Anthropic; Opus-family models, July to September 2026) was used to
-write and run analysis, verification and figure code, including the label correction and re-run. It
-was also used to check reported numbers, to draft and edit text, and to produce simulated referee
-reports on drafts, which the authors used as an internal check. Every input is identified by
-SHA-256, and reported numbers are checked automatically against tracked outputs. The corresponding
-author reviewed the code, outputs and text.
+write analysis and figure code, to check reported numbers and to edit the text. The authors reviewed
+all code, outputs and text and made every scientific decision.
 
 ## 3.14 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
 

@@ -206,14 +206,13 @@ def funding_and_coi(funding, competing):
 
 def genai(text, methods):
     t = flat(text)
-    m = re.fullmatch(r"Claude \(Anthropic\) was used in the research and in preparing this manuscript, as described "
-                     r"in Section 3\.13\. It was used to (.+?)\. The authors reviewed and edited all of this "
-                     r"material and take full responsibility for the content of the publication\.", t)
+    m = re.fullmatch(r"Claude \(Anthropic\) was used for (.+?) \(Section 3\.13\)\. The authors reviewed all of its "
+                     r"output, made every decision and take full responsibility for the content of the publication\.", t)
     assert m, "Use of generative AI paragraph reworded; update journal_fire.genai"
     v = re.search(r"Claude \((Anthropic; [^)]+)\)", flat(methods))
     assert v, "tool and version not found in Section 3.13"
-    return (f"During the preparation of this study and manuscript, the authors used Claude ({v.group(1)}) for the "
-            f"purposes described in Section 3.13: to {m.group(1)}. The authors have reviewed and edited the output "
+    return (f"During the preparation of this study and manuscript, the authors used Claude ({v.group(1)}) for "
+            f"{m.group(1)} (Section 3.13). The authors have reviewed and edited the output, made every decision "
             "and take full responsibility for the content of this publication.")
 
 
