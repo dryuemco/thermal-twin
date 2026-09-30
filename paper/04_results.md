@@ -103,8 +103,8 @@ about 0.2 therefore cannot be excluded.
 the thermal gain at 5 km blocking. Averaged over the seven scars, with Muğla counted four times, the
 region-wide gain is +0.095. On the scar frame the same predictions give +0.021 [−0.059, +0.100].
 Leave-one-scar-out gives +0.024 [−0.040, +0.089], and a foreign model +0.008 [−0.021, +0.038]. The
-fall from +0.095 therefore occurs when the frame changes, not when the training data change (Section
-S1.9.3).
+fall from +0.095 is therefore consistent with a change of frame rather than of training data, but
+with effects of up to about 0.2 not excluded, the data do not resolve this (Section S1.9.3).
 
 ## 4.4 The frame effect between regions
 
@@ -138,7 +138,9 @@ transfer gain, averaged by target region, with a Student *t* interval over the f
 zero under the primary resampling unit. Of the five other units that can be computed, two exclude
 zero: clustering by target region and clustering by source region (Section S1.22). In an exploratory equivalence test with a margin of ±0.05, set after the results, the gain on the
 original study areas was within the margin under all six units that can be computed, and the collar
-gain under four of six (Table S21). The difference between the within-region and
+gain under four of six (Table S21). The margin was set after the results and equals the smallest
+within-region gain (+0.045), so the test does not show that the transfer gain is negligible
+relative to local gains. The difference between the within-region and
 transfer gains (W − T) is positive on the original areas and on the 10 km collar, but not on the 5 km
 collar (Table 3).
 
@@ -169,10 +171,8 @@ associations. The sign-agreement fraction did not predict transfer on the origin
 ρ = +0.57 [+0.05, +0.88]. However, this is one of about forty uncorrected tests, on a frame defined by
 the labels, so it is reported but not used (Section S1.19).
 
-**Two further results depend on the frame.** In the Muğla two-fire comparison, 93.2 % of the 2022
-cells lie more than 10 km from a burned cell, against 55.3 % in 2021, and on the collar the Muğla
-elevation reversal disappears (Section S1.13). By contrast, the within-region gain stays positive in
-all five regions on the collar, with a mean of +0.083 against +0.087 on the original areas.
+**The within-region gain does not depend on the frame.** It stays positive in all five regions on
+the collar, with a mean of +0.083 against +0.087 on the original areas.
 
 **The transfer shortfall remains on matched frames.** A fair comparison needs the same frame and the
 same blocking. On the 10 km collar at 5 km blocking, the within-region reference is 0.786, and
@@ -207,7 +207,8 @@ thermal model, so the failure is not specific to the thermal predictors.
 with twelve positive and eight negative, and a mean of +0.007. The directions are not independent,
 because each region appears in eight of them. Accordingly, all six resampling units that can be computed on this frame give intervals that include
 zero, from [−0.006, +0.022] (clustering by target region) to [−0.028, +0.045] (pigeonhole bootstrap;
-Sections S1.15 and S1.23).
+Sections S1.15 and S1.23). A crossed random-effects model with source and target intercepts, the
+most conservative unit, gives +0.007 [−0.035, +0.050] (Table S35).
 
 **The two label-free adaptation methods moved transfer toward chance** (Fig. 5). Under region-wise
 z-scoring the twenty directions ranged from 0.302 to 0.630, and under CORAL from 0.406 to 0.624. Under
@@ -232,16 +233,15 @@ for the other four at the point estimates (Fig. 6).
 +0.014 [−0.018, +0.049] under the primary pair-cluster bootstrap, which includes zero; the pair-t
 interval plotted in Fig. 7 is +0.014 [−0.028, +0.056] (Section S1.14).
 
-**Target labels.** With 32 labelled 5 km blocks from the target, the gap between raw transfer and the
-target's own ceiling was closed by 83 to 89 % in three of six directions, and by 30 to 52 % in the
-other three. However, these blocks are 7 to 20 % of the target population and contain most of its
-burned cells, for example 880 of 1,100 in Bejís. They also come from the fire that is predicted, so
-they are not available before that fire (Section S4).
-
 **Similarity measures.** Twenty similarity measures were recorded on 8 August 2026 and were not
 changed after the label correction. On the original study areas, none predicted transfer with an interval that excludes zero (Table
 S17), and in a permutation test over all 120 orderings of the five regions no measure reached
-p < 0.10 (Section S1.23). One measure is defined on only six directions and is not interpreted. The contrast pairs illustrate this at the point estimates (Fig. 8). Manavgat and Muğla
+p < 0.10 (Section S1.23). Under the original Manavgat label, the two largest conditional
+measures, the sign-agreement fraction and its cosine, had intervals that excluded zero (+0.84 and
++0.81); after the label correction they did not, so this null result depends on the correction
+(Section S1.21). The conditional and niche-overlap measures also need burned labels in both regions,
+so only the marginal family could be computed before a fire, and it did not predict transfer
+(Section S1.21). One measure is defined on only six directions and is not interpreted. The contrast pairs illustrate this at the point estimates (Fig. 8). Manavgat and Muğla
 have the highest niche overlap in the cohort (mean one-dimensional Schoener's *D* = 0.80), but
 transfer was below chance in both directions, at 0.438 and 0.345. Conversely, Bejís and Montiferru
 have the lowest overlap (*D* = 0.48), but transfer was above chance in both directions, at 0.594 and

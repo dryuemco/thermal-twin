@@ -2,7 +2,7 @@
 
 ## 5.1 The three findings together
 
-The first finding sets the size of the second. When the study areas were made comparable, four
+The first finding sets the size of the second. When the study areas were made comparable, three
 between-region results changed (Section 4.4). Two results remained: transfer stayed well below within-region skill, and the elevation association
 of Manavgat stayed reversed against other regions. The supported pairs, however, change between the
 frames, and none survives multiplicity correction (Section 4.4).
@@ -19,12 +19,13 @@ channels (Section S1.7) and with VNP64A1 labels (Section S1.23). Once terrain as
 however, the gain in Montiferru was no longer supported (Section 4.2). In addition, on the scar
 frame the same gain fell to
 +0.021 and was not established, and withholding the scar did not change it. The fall is therefore
-caused by the cells that are scored, not by the choice of held-out cells.
+consistent with an effect of the scored cells rather than of the held-out cells, although the data
+cannot exclude the latter (Section 4.3).
 
 The within-region score also describes skill close to the training cells. Inside one region, skill
 fell from 0.709 within 5 km of the training cells to 0.519 at 10 to 20 km (Section S1.18). The
-within-region reference therefore measures how well a model fills gaps inside an observed fire
-season. Part of the transfer shortfall is thus a matter of distance, and a model of this kind is best
+within-region reference therefore measures interpolation, how well a model fills gaps inside an
+observed fire season, whereas transfer is extrapolation to a new one. Part of the transfer shortfall is thus a matter of distance, and a model of this kind is best
 described as having short-range skill.
 
 Each region also contributes one fire season, dominated by one large fire. The negative class
@@ -32,8 +33,8 @@ therefore contains cells that could have burned but were not reached, and igniti
 suppression decided much of this. Burned-area patterns have different controls at different scales
 [@ParisienMoritz2009], and a pre-fire surface predictor can only rank cells by their condition
 before the fire. The shortfall can therefore not be attributed to the region rather than to the
-event. The two Muğla fires were included to separate these effects, but this comparison was mainly
-affected by the study area (Section 4.4). The conclusions are stated for large single-season events.
+event. A second Muğla fire was examined for this purpose, but that comparison is confounded by overlapping
+populations and the study area and is reported only in Section S1.13. The conclusions are stated for large single-season events.
 
 ## 5.3 The two interventions
 
@@ -41,7 +42,8 @@ Pooling four source regions was better than the mean single-source model only fo
 reached 0.715 [0.668, 0.757] against 0.569 (Section S1.14). For all five targets it stayed well
 below the within-region ceiling. Removing the two reversing predictors lowered within-region skill
 by 0.076, most of it from elevation, with interval support in every region, and changed mean transfer
-by +0.014 [−0.018, +0.049] (pair-t, as plotted in Fig. 7: +0.014 [−0.028, +0.056]).
+by +0.014 [−0.018, +0.049] under the primary pair-cluster bootstrap (the pair-t interval plotted in
+Fig. 7 is +0.014 [−0.028, +0.056]).
 
 These two numbers should not be read as an exchange of local skill for transfer. The thermal
 contribution to transfer is +0.007, and removal returns +0.014, and both intervals include zero. A
@@ -87,13 +89,11 @@ ROC-AUC with the region as the unit, which is larger than the thermal gain withi
 **Measure transfer in the target region.** A within-region score does not show how a model will work
 elsewhere, and no similarity measure tested here could replace the measurement. On average, a model moved to a new region did not usefully rank the burned cells there: its
 highest-scored 10 % of cells contained about as many burned cells as a random choice, although the
-best direction reached 27 % (Table S35). Target
-labels from the predicted fire closed much of the gap (Section S4), but they are not available in
-advance. Where a burned-area record of earlier fires exists for the target region, it offers a way to
+best direction reached 27 % (Table S35). Where a burned-area record of earlier fires exists for the target region, it offers a way to
 check a transferred model before use; this option was not tested here.
 
 **Fix the study area by a stated rule before the predictors are computed.** The study areas used
-here were not comparable, and this changed four between-region results (Section 4.4). An
+here were not comparable, and this changed three between-region results (Section 4.4). An
 accessible-area rule [@Barve2011] is one option.
 
 **Do not expect label-free adaptation to repair transfer.** Both methods tested moved most directions

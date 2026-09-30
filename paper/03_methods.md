@@ -274,9 +274,3 @@ automatically against the tracked outputs.
 write analysis and figure code, to check reported numbers and to edit the text. The authors reviewed
 all code, outputs and text and made every scientific decision.
 
-## 3.14 Same-geography event-to-event comparison (Muğla 2021 versus 2022)
-
-A second fire burned inside the same Muğla study area eleven months after the first. The signed
-associations of both fires were computed with the same bootstrap. However, season, year and
-population all differ between the two fires, because the 2022 population is defined by removing the
-2021 scar (Sections S1.13 and S3.3).

@@ -497,8 +497,9 @@ not independent. This result is weaker than a reversal.
 
 ## S1.13 The same-geography event pair
 
-Section 4.4 gives the result and shows why it does not survive the frame test. The design and two
-differences from the twenty-direction matrix are given here. The protocol is in Section S3.3.
+This comparison is reported only here: the two populations overlap, only elevation and slope can be
+evaluated, and the result does not survive the frame test (below). The design and two differences
+from the twenty-direction matrix are given here. The protocol is in Section S3.3.
 
 This comparison was designed to keep the place fixed and change only the fire. Muğla burned in 2021
 and again eleven months later, on the same grid and with the same processing. The 2022 population is
@@ -598,7 +599,7 @@ differenced direction by direction. The mean is **+0.007**. The single contribut
 **−0.148 to +0.132**, with **twelve positive and eight negative**. A mean near zero therefore comes
 from positive and negative values that cancel, not from a consistent absence of effect. The
 directions are not independent, because each region appears in eight of the twenty. The interval
-therefore depends on the resampling unit. All four units that the design allows give intervals that
+therefore depends on the resampling unit. All four units in Table S29 give intervals that
 include zero (1000 replicates where resampled; source
 `paper/labelfix_rerun/code/transfer_delta_ci.json`):
 
@@ -611,9 +612,10 @@ include zero (1000 replicates where resampled; source
 | Unordered pairs, Student *t* on pair means | 10 | [−0.028, +0.043] |
 | Regions, leave-one-out jackknife | 5 | [−0.018, +0.033] |
 
-Two further units can be computed on this frame (20,000 replicates; `paper/labelfix_rerun/round8/r8d_summary.json`):
+Three further units can be computed on this frame (20,000 replicates; `paper/labelfix_rerun/round8/r8d_summary.json`):
 clustering by target region gives [−0.006, +0.022], clustering by source region [−0.008, +0.026] and the
-pigeonhole bootstrap [−0.028, +0.045]. All six computable units therefore include zero.
+pigeonhole bootstrap [−0.028, +0.045]. Leaving out the naive direction bootstrap, which ignores the
+dependence between directions, six units can be computed, and all seven intervals include zero.
 
 Leaving out Manavgat, Bejís, Muğla, Evia and Montiferru in turn gives +0.0148, +0.0050, +0.0072,
 +0.0010 and +0.0087. No single region therefore carries the mean or changes its sign. These units
@@ -1053,7 +1055,7 @@ feature are kept here because this comparison led to the frame test.
 
 **Table S12. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against
 `burned`, not folded to max(AUC, 1 − AUC); 10-cell (≈ 5 km) spatial-block bootstrap, 1,000
-replicates, seed 42 (Section 3.14). Analysis population 41,730 rows / 2,911 burned (2021) and 38,790
+replicates, seed 42 (Section S1.13). Analysis population 41,730 rows / 2,911 burned (2021) and 38,790
 rows / 331 burned (2022). **Blocks of 5 km with burned cells: 70 in 2021 and 11 in 2022.** The note
 to Table 1 sets sixteen as the minimum for this blocking, so the 2022 intervals are indicative, like
 the 20-cell row of Table 1. The 2022 fire is also one compact scar, so its eleven blocks are next to
@@ -1262,7 +1264,7 @@ cell is modelled: unburned, all-no-data and out-of-window cells all stay in the 
 
 Earlier burning is handled differently in each region; this is given in Section S3.1.1. The only
 historical exclusion applied by design removes the 2021 Muğla scar from the 2022 experiment of
-Section 3.14.
+Section S1.13.
 
 Before any modelling, each region passes a gate that asks one question: what fraction of the burned
 cells is dominated by natural vegetation? A region is admitted as a wildfire case when this fraction

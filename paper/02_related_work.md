@@ -12,8 +12,9 @@ similar information [@MaffeiMenenti2019]. Dead fuel moisture was the strongest p
 human-caused ignition across Europe in a pooled model [@Gelabert2025]. Satellite fuel-moisture
 models are, however, usually site-specific, and their transfer is rarely tested [@Marino2024].
 Within-region susceptibility models already exist for Turkish Mediterranean landscapes
-[@AlkanAkinci2023; @Iban2022]. To our knowledge, the transfer of a classifier that uses pre-fire
-thermal state to an unseen region, without target labels, has not been tested. Large datacubes now
+[@AlkanAkinci2023; @Iban2022]. Pre-fire evaporative stress from ECOSTRESS thermal data has been used to predict unseen fires within
+one region [@PascoliniCampbell2025], but to our knowledge the transfer of a classifier that uses
+pre-fire thermal state to another region, without target labels, has not been tested. Large datacubes now
 support deep-learning fire-danger models [@Kondylatos2023]. Here a simple fixed classifier was used,
 so that only the evaluation changes.
 

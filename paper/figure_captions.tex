@@ -98,7 +98,7 @@
   model trained on the other four regions together (filled orange circle, with its 95\%
   spatial-block, $\approx$5\,km, bootstrap interval below the row) is compared with the mean of the
   four single-source models (open grey square) and the best single source (open blue diamond; this
-  choice uses target labels). The grey tick is the within-region ceiling, and the dashed line is
+  choice uses target labels). The grey tick is the within-region ceiling at 1\,km blocking, and the dashed line is
   chance. Natural-vegetation population; thermal feature set; no adaptation. The pooled model is
   better than the mean single source only for Evia, at 0.715 [0.668, 0.757] against 0.569, and
   there it is also better than the best single source, 0.654. For Manavgat and Bej\'is it is below
@@ -112,7 +112,7 @@
   \centering
   \makebox[\linewidth][c]{\includegraphics[width=140mm]{figures/fig7_feature_drop.pdf}}
   \caption{\textbf{Removing the reversing features costs local skill and gives no measurable
-  transfer gain.} Mean within-region ROC-AUC over five regions (horizontal) against mean transfer
+  transfer gain.} Mean within-region ROC-AUC over five regions at 1\,km blocking (horizontal) against mean transfer
   ROC-AUC over 20 directions (vertical), for four feature sets: the full thermal set, without the
   land surface temperature (LST) anomaly, without elevation, and without both. Along the grey path, within-region skill falls
   (0.896 $\rightarrow$ 0.820) and mean transfer rises (0.527 $\rightarrow$ 0.541). The within-region

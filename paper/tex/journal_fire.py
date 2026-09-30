@@ -434,8 +434,14 @@ def balance_tables(path, width=B.TEXT_WIDTH, twips_per_char=105):
     every column first gets its longest word, and the remaining width follows the text length."""
     d = Document(path)
     for t in d.tables:
+        # an interval "[0.179, 0.288]" must not break inside (independent review 2, m11): the space after
+        # its comma becomes a no-break space, and a column is at least as wide as its widest interval
+        for e in t._tbl.iter(qn("w:t")):
+            if e.text and "[" in e.text or (e.text or "").endswith(","):
+                e.text = re.sub(r",[ ](?=[^\[\]]*\])", ", ", e.text)
         cols = t.columns
-        words = [max((len(w) for c in col.cells for w in _text(c._tc).split()), default=4) + 1 for col in cols]
+        words = [max((len(w) for c in col.cells for w in re.split(r"[ \t\n]+", _text(c._tc)) if w), default=4) + 1
+                 for col in cols]
         total = [max(sum(len(_text(c._tc)) for c in col.cells), 1) for col in cols]
         base = [w * twips_per_char for w in words]
         if sum(base) >= width:
