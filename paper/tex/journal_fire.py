@@ -390,12 +390,14 @@ def mdpi_styles(d):
         for tag in ("w:tblStyle", "w:tblW", "w:tblInd", "w:tblBorders", "w:jc"):
             for e in tblpr.findall(qn(tag)):
                 tblpr.remove(e)
-        ncol = len(t.columns)
-        width, indent = (TEXT_W, INDENT) if ncol <= 5 else (FULL_W, 0)
+        # full page width (the three tables have 5 to 7 columns of intervals); each column is sized by its
+        # longest body cell, and a header may wrap between words, so no interval breaks across lines
+        width, indent = FULL_W, 0
         w = OxmlElement("w:tblW"); w.set(qn("w:w"), str(width)); w.set(qn("w:type"), "dxa"); tblpr.append(w)
         ind = OxmlElement("w:tblInd"); ind.set(qn("w:w"), str(indent)); ind.set(qn("w:type"), "dxa"); tblpr.append(ind)
         bd = OxmlElement("w:tblBorders"); _border(bd, "top", 8); _border(bd, "bottom", 8); tblpr.append(bd)
-        need = [max(max(len(_text(c._tc).strip()) for c in col.cells), 4) for col in t.columns]
+        need = [max(max(len(_text(c._tc).strip()) for c in col.cells[1:]),
+                    max(len(x) for x in (_text(col.cells[0]._tc).split() or [""])) + 2, 4) for col in t.columns]
         widths = [round(width * n / sum(need)) for n in need]
         for gc, cw in zip(t._tbl.tblGrid.findall(qn("w:gridCol")), widths):
             gc.set(qn("w:w"), str(cw))
@@ -408,6 +410,11 @@ def mdpi_styles(d):
                 for e in tcpr.findall(qn("w:tcW")) + tcpr.findall(qn("w:tcBorders")):
                     tcpr.remove(e)
                 tcw = OxmlElement("w:tcW"); tcw.set(qn("w:type"), "dxa"); tcw.set(qn("w:w"), str(cw)); tcpr.insert(0, tcw)
+                if i > 0 and re.search(r"\[[^\]]+\]", _text(c._tc)) and tcpr.find(qn("w:noWrap")) is None:
+                    nw = OxmlElement("w:noWrap")                       # an interval stays on one line
+                    later = [e for e in tcpr if e.tag in {qn(x) for x in ("w:tcMar", "w:textDirection", "w:tcFitText",
+                                                                           "w:vAlign", "w:hideMark")}]
+                    (later[0].addprevious(nw) if later else tcpr.append(nw))   # schema order of w:tcPr
                 if i == 0:
                     tb = OxmlElement("w:tcBorders"); _border(tb, "bottom", 4); tcpr.append(tb)
 
@@ -681,7 +688,7 @@ https://www.mdpi.com/article/doi/s1: the Supplementary Material (one PDF file), 
         assert s in flat(letter), f"cover letter lacks the required statement: {s[:50]}"
     stray = set(DEC.findall(letter)) - set(DEC.findall(abstract))
     assert not stray, f"cover letter numbers not in the abstract: {stray}"
-    B.to_docx(letter, OUT / "cover_letter.docx", "Cover letter")
+    B.to_docx(letter, OUT / "cover_letter_draft.docx", "Cover letter")   # the signed cover_letter.docx is local only
 
     manifest(fig_src, n_abs, n_ref, n_cit, items, n_dec)
     print(f"manuscript.docx: {n_abs}-word abstract, {len(kw)} keywords, {len(caps)} figures embedded, "
@@ -698,12 +705,12 @@ def manifest(fig_src, n_abs, n_ref, n_cit, items, n_dec):
     src = {"manuscript.docx": "paper/0*.md, figure_captions.tex, frontmatter.json, REFERENCES.bib via build_docx.py --journal fire",
            "supplement.pdf": "paper/supplementary.md via build_docx.py --journal fire and Word PDF export",
            "graphical_abstract.png": "paper/figures/graphical_abstract.py, flattened to RGB",
-           "cover_letter.docx": "paper/tex/fire_cover_letter.md (draft: date and signature to add)"}
+           "cover_letter_draft.docx": "paper/tex/fire_cover_letter.md (unsigned draft; the signed cover_letter.docx is kept locally, not committed)"}
     for n, f in fig_src.items():
         src[f"Figure{n}.png"] = f"{f.relative_to(ROOT).as_posix()}, rasterised at 600 dpi"
     rows = []
     for name in ["manuscript.docx", "supplement.pdf", *[f"Figure{n}.png" for n in fig_src], "graphical_abstract.png",
-                 "cover_letter.docx"]:
+                 "cover_letter_draft.docx"]:
         f = OUT / name
         if f.exists():
             rows.append(f"| `{name}` | {f.stat().st_size} | `{hashlib.sha256(f.read_bytes()).hexdigest()}` | {src[name]} |")

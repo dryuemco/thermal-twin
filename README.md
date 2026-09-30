@@ -32,7 +32,7 @@ Main results:
 | `paper/canonical_rerun/`, `step9g_raw/`, `mugla_*_raw/`, `era5_raw/`, `reproduction_check/` | Frozen pipeline outputs and re-run records |
 | `paper/tex/` | `build_docx.py`, which builds the Word files for each journal (`--journal nh` or `fire`), the Fire profile `journal_fire.py`, and the citation styles |
 | `paper/submission/` | Submission files for *Natural Hazards* (first target): manuscript, supplement and figures, with `MANIFEST.md` |
-| `paper/submission_fire/` | Submission files for *Fire* (MDPI; second target): `supplement.pdf`, the figures at 600 dpi, the graphical abstract, a draft cover letter, and `MANIFEST.md`. Built from the same sources; only the build profile differs. The manuscript itself (`manuscript.docx`, with the figures embedded) is built in the MDPI template, which MDPI licenses for submission only, so it is not committed; `MANIFEST.md` gives its SHA-256 |
+| `paper/submission_fire/` | Submission files for *Fire* (MDPI; second target): `supplement.pdf`, the figures at 600 dpi, the graphical abstract, an unsigned draft cover letter (`cover_letter_draft.docx`; the signed letter is kept locally), and `MANIFEST.md`. Built from the same sources; only the build profile differs. The manuscript itself (`manuscript.docx`, with the figures embedded) is built in the MDPI template, which MDPI licenses for submission only, so it is not committed; `MANIFEST.md` gives its SHA-256 |
 | `step10/`, `experiments/` | Two-region transfer analysis and its outputs |
 | `ENVIRONMENT.md` | The Python environment and how it was verified |
 | `repo/` | Submodule: the processing pipeline (see Data) |

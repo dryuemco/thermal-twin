@@ -61,6 +61,8 @@ paper/tex/manuscript_assembled.md
 paper/tex/manuscript_fire_assembled.md
 # The Fire manuscript is in the MDPI template, licensed for submission only (not for posting online)
 paper/submission_fire/manuscript.docx
+# The signed cover letter (with a signature image) stays local; the build writes cover_letter_draft.docx
+paper/submission_fire/cover_letter.docx
 
 # The modelling datasets override the binary rules above
 !paper/data/**/*.parquet
