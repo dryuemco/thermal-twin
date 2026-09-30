@@ -1,7 +1,7 @@
 # Submission package: Fire (MDPI)
 
 Second target; the Natural Hazards package in `paper/submission/` is unchanged. Built from commit
-`0293094df64785288e4aa41e319095d0a414b2f4` by `python paper/tex/build_docx.py --journal fire --template <fire-template.dot>` (the MDPI
+`2013bb1643d104cad17264d4c9bfd9f185727f02` by `python paper/tex/build_docx.py --journal fire --template <fire-template.dot>` (the MDPI
 template is not in the repository). `manuscript.docx` is built in the MDPI template, which MDPI
 licenses for submission only and not for posting online, so it is not committed to this public
 repository; rebuild it and compare its SHA-256 below. The text, figures, supplement source and references are the ones
@@ -22,8 +22,8 @@ consideration elsewhere when it is sent; three suggested reviewers in the submis
 
 | File | Size (bytes) | SHA-256 | Source |
 |---|---:|---|---|
-| `manuscript.docx` | 1309125 | `ec84dab94c96574b8f6fbab47d898cb40c48aa43d72744d34a08700d45549756` | paper/0*.md, figure_captions.tex, frontmatter.json, REFERENCES.bib via build_docx.py --journal fire |
-| `supplement.pdf` | 1247643 | `a0de04d62384f21d90a1a94938f684c5656ec2e68738d15c77ee7b8f79514a9d` | paper/supplementary.md via build_docx.py --journal fire and Word PDF export |
+| `manuscript.docx` | 1308964 | `8733256bb9293f2d9b4cd38d0fae9e953ff9d3c80babd93c914cc81150a40c35` | paper/0*.md, figure_captions.tex, frontmatter.json, REFERENCES.bib via build_docx.py --journal fire |
+| `supplement.pdf` | 1247643 | `4f8e9e45e41db48233897286a69824faaa5e0e92234c0b1868e1edc24dca444f` | paper/supplementary.md via build_docx.py --journal fire and Word PDF export |
 | `Figure1.png` | 428923 | `53445edaf8368757120984692a0ebb6841765b7c9ebc1c2439da22a7d2f893f4` | paper/figures/fig1_study_map.pdf, rasterised at 600 dpi |
 | `Figure2.png` | 529953 | `7578b3396bb53dca1482b4bc83569b0e9ea8d2ad9965212522d8d88e98e2947a` | paper/figures/fig2_schematic.pdf, rasterised at 600 dpi |
 | `Figure3.png` | 376264 | `db5ae57a56ca391272815c3282a5b528fe398e855359d667bb33f4b9404ce5a2` | paper/figures/fig3_within_robustness.pdf, rasterised at 600 dpi |
@@ -33,4 +33,4 @@ consideration elsewhere when it is sent; three suggested reviewers in the submis
 | `Figure7.png` | 229159 | `b0f78484dd497222830d481940253d6bfc5832e6098eefb1f5a4e378f78d8fb8` | paper/figures/fig7_feature_drop.pdf, rasterised at 600 dpi |
 | `Figure8.png` | 354176 | `3017f53389394dc31df9005fed45450044ab272ebd47d3549eea93d44939efaf` | paper/figures/fig8_contrast_pairs.pdf, rasterised at 600 dpi |
 | `graphical_abstract.png` | 129019 | `c07d9b3435372eca1f4f5f165678cdfdcee3a7bfcda8e3a1b42d855be69d25e7` | paper/figures/graphical_abstract.py, flattened to RGB |
-| `cover_letter_draft.docx` | 12086 | `fa82cd1494df8fe1ec7128548ec75dcc504bb066de283668fd89f39326bcf567` | paper/tex/fire_cover_letter.md (unsigned draft; the signed cover_letter.docx is kept locally, not committed) |
+| `cover_letter_draft.docx` | 12086 | `5e68a67ececbe8086e8ff814a8a7c9b5e8ea4dda84eeb01534624093f40f4d55` | paper/tex/fire_cover_letter.md (unsigned draft; the signed cover_letter.docx is kept locally, not committed) |
