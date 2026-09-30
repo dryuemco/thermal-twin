@@ -468,6 +468,22 @@ def balance_tables(path, width=B.TEXT_WIDTH, twips_per_char=105):
     B.strip_custom_props(path)
 
 
+def letter_format(path):
+    """B.to_docx formats a manuscript (line numbers, double spacing); a cover letter has neither."""
+    from docx.enum.text import WD_LINE_SPACING
+    d = Document(path)
+    for sect in d.element.body.iter(qn("w:sectPr")):
+        for ln in sect.findall(qn("w:lnNumType")):
+            sect.remove(ln)
+    for s in d.styles:
+        pf = getattr(s, "paragraph_format", None)
+        if pf is not None and s.name in ("Normal", "Body Text", "First Paragraph", "Compact"):
+            pf.line_spacing_rule = WD_LINE_SPACING.SINGLE
+            pf.space_after = Pt(8)
+    d.save(path)
+    B.strip_custom_props(path)
+
+
 def word_pdf(docx, pdf):
     ps = (f"$w = New-Object -ComObject Word.Application; $w.Visible = $false; "
           f"$d = $w.Documents.Open('{docx}', $false, $true); $d.ExportAsFixedFormat('{pdf}', 17); "
@@ -739,6 +755,7 @@ https://www.mdpi.com/article/doi/s1: the Supplementary Material (one PDF file), 
     stray = set(DEC.findall(letter)) - set(DEC.findall(abstract))
     assert not stray, f"cover letter numbers not in the abstract: {stray}"
     B.to_docx(letter, OUT / "cover_letter_draft.docx", "Cover letter")   # the signed cover_letter.docx is local only
+    letter_format(OUT / "cover_letter_draft.docx")
 
     manifest(fig_src, n_abs, n_ref, n_cit, items, n_dec)
     print(f"manuscript.docx: {n_abs}-word abstract, {len(kw)} keywords, {len(caps)} figures embedded, "

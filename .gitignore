@@ -63,6 +63,7 @@ paper/tex/manuscript_fire_assembled.md
 paper/submission_fire/manuscript.docx
 # The signed cover letter (with a signature image) stays local; the build writes cover_letter_draft.docx
 paper/submission_fire/cover_letter.docx
+paper/submission_fire/cover_letter.pdf
 # Suggested reviewers are confidential
 paper/submission_fire/suggested_reviewers.md
 
