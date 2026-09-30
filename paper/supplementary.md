@@ -1049,8 +1049,8 @@ shows that the number of directions below chance depends largely on the study ar
 
 ## S2.2 The same-geography event pair, in full
 
-Section S1.13 reports this comparison. Section 4.4 shows that its elevation reversal is caused by
-the study area, and Section S1.13 explains why its thermal channels are not evaluated. The values per
+Section S1.13 reports this comparison, shows that its elevation reversal is caused by the study
+area and explains why its thermal channels are not evaluated. The values per
 feature are kept here because this comparison led to the frame test.
 
 **Table S12. Signed univariate feature-burned AUC, Muğla 2021 versus 2022.** Raw AUC against

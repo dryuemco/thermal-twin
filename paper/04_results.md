@@ -138,7 +138,7 @@ transfer gain, averaged by target region, with a Student *t* interval over the f
 zero under the primary resampling unit. Of the five other units that can be computed, two exclude
 zero: clustering by target region and clustering by source region (Section S1.22). In an exploratory equivalence test with a margin of ±0.05, set after the results, the gain on the
 original study areas was within the margin under all six units that can be computed, and the collar
-gain under four of six (Table S21). The margin was set after the results and equals the smallest
+gain under four of six (Table S21). The margin was set after the results and is close to the smallest
 within-region gain (+0.045), so the test does not show that the transfer gain is negligible
 relative to local gains. The difference between the within-region and
 transfer gains (W − T) is positive on the original areas and on the 10 km collar, but not on the 5 km
@@ -171,7 +171,7 @@ associations. The sign-agreement fraction did not predict transfer on the origin
 ρ = +0.57 [+0.05, +0.88]. However, this is one of about forty uncorrected tests, on a frame defined by
 the labels, so it is reported but not used (Section S1.19).
 
-**The within-region gain does not depend on the frame.** It stays positive in all five regions on
+**The within-region gain survives the collar.** It stays positive in all five regions on
 the collar, with a mean of +0.083 against +0.087 on the original areas.
 
 **The transfer shortfall remains on matched frames.** A fair comparison needs the same frame and the
@@ -207,8 +207,9 @@ thermal model, so the failure is not specific to the thermal predictors.
 with twelve positive and eight negative, and a mean of +0.007. The directions are not independent,
 because each region appears in eight of them. Accordingly, all six resampling units that can be computed on this frame give intervals that include
 zero, from [−0.006, +0.022] (clustering by target region) to [−0.028, +0.045] (pigeonhole bootstrap;
-Sections S1.15 and S1.23). A crossed random-effects model with source and target intercepts, the
-most conservative unit, gives +0.007 [−0.035, +0.050] (Table S35).
+Sections S1.15 and S1.23). A crossed random-effects model with source and target intercepts gives
+the widest interval, +0.007 [−0.035, +0.050]; it is more conservative, not an independent
+confirmation (Table S35).
 
 **The two label-free adaptation methods moved transfer toward chance** (Fig. 5). Under region-wise
 z-scoring the twenty directions ranged from 0.302 to 0.630, and under CORAL from 0.406 to 0.624. Under
@@ -240,8 +241,8 @@ p < 0.10 (Section S1.23). Under the original Manavgat label, the two largest con
 measures, the sign-agreement fraction and its cosine, had intervals that excluded zero (+0.84 and
 +0.81); after the label correction they did not, so this null result depends on the correction
 (Section S1.21). The conditional and niche-overlap measures also need burned labels in both regions,
-so only the marginal family could be computed before a fire, and it did not predict transfer
-(Section S1.21). One measure is defined on only six directions and is not interpreted. The contrast pairs illustrate this at the point estimates (Fig. 8). Manavgat and Muğla
+so only the marginal measures and geographic distance could be computed before a fire, and none
+of them predicted transfer (Section S1.21). One measure is defined on only six directions and is not interpreted. The contrast pairs illustrate this at the point estimates (Fig. 8). Manavgat and Muğla
 have the highest niche overlap in the cohort (mean one-dimensional Schoener's *D* = 0.80), but
 transfer was below chance in both directions, at 0.438 and 0.345. Conversely, Bejís and Montiferru
 have the lowest overlap (*D* = 0.48), but transfer was above chance in both directions, at 0.594 and
