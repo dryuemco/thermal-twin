@@ -211,7 +211,7 @@ box(C5[0], 53, w(C5), 18, "transfer-gap\ndecomposition\n(§3.10): recovered\nvs 
     fc=BLUE_FILL, ec=BLUE)
 box(C5[0], 34, w(C5), 16, "evaluation frames\n(§3.12): region,\nscar, 5/10 km collar",
     fc=ORANGE_FILL, ec=ORANGE)
-box(C5[0], 15, w(C5), 16, "interventions\n(§3.11): LORO,\nfeature removal")
+box(C5[0], 15, w(C5), 16, "interventions\n(§3.11): pooled\ntraining, feature\nremoval")
 
 # Three routing lanes in the 152-157 gap; lanes are reused only where the
 # vertical runs cannot overlap in y, so no two connectors ever share a segment.
@@ -225,8 +225,8 @@ elbow([(C4[1], 38), (155.6, 38), (155.6, 23), (C5[0], 23)])
 ax.add_patch(Rectangle((3, 2), 184, 11, facecolor="#F7F7F7",
                        edgecolor="#CCCCCC", linewidth=0.8, zorder=1))
 ax.text(95, 7.5,
-        "Applies throughout: leakage hard-exclusion, seed 42, 1000-replicate "
-        "spatial-block bootstrap (§3.7, §3.13);\nsensitivity designs: Evia AOI, "
+        "Applies throughout: leakage columns excluded, fixed seed, 1000-replicate "
+        "spatial-block bootstrap (§3.7, §3.13);\nsensitivity designs: first Evia rectangle, "
         "second population, predictor-window closure (Section S1)",
         fontsize=FS_NOTE, ha="center", va="center", linespacing=1.5, zorder=3)
 

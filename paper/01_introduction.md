@@ -4,8 +4,9 @@ Wildfire is a major disturbance in Mediterranean landscapes, and climate change 
 and how it burns [@Pausas2021]. Most fire susceptibility maps follow a common workflow
 [@Jain2020; @Vibhandik2026; @Jodhani2026]. Predictors are collected over a study region and matched
 with a record of burned areas, and a classifier, most often a random forest [@Breiman2001;
-@Oliveira2012], is then trained. Finally, the map is reported with a cross-validated score from the
-same region. **How well the model works in another region is not reported.** This study measures it.
+@Oliveira2012; @Tonini2020], is then trained. Finally, the map is reported with a cross-validated score from the
+same region. Agencies without a long local fire record, for example after a first large fire, would
+instead use a map trained elsewhere. **How well the model works in another region is not reported.** This study measures it.
 
 ## 1.1 Transfer is rarely measured
 
@@ -17,12 +18,16 @@ fire it has not seen.
 
 A regional product built from local models is expected to work outside its training area, yet this
 is rarely tested. Fire-danger indices, which are driven by weather, did not transfer well between
-fire environments in Peru [@Podschwit2022]. Regional fire-occurrence models in the Alps and the
+fire environments in Peru [@Podschwit2022]. Operational fire-danger rating in Europe, as in the
+European Forest Fire Information System (EFFIS), also rests on weather-driven indices such as the
+Canadian Fire Weather Index (FWI) [@Vitolo2020], and large Mediterranean fires grow under heat,
+wind and drought [@Ruffault2020; @Ghasemiazma2026]. Regional fire-occurrence models in the Alps and the
 Mediterranean Basin transferred well only under similar conditions [@Bekar2020], and two recent
 studies also found that transfer mainly succeeds between similar regions [@Dimarco2026; @Liu2025].
 Satellite measurements of the land surface before a fire are a third kind of predictor. They change
 from season to season like weather, but they describe each location like a map. Whether models built
-on them transfer between regions has not been tested.
+on them transfer between regions has not been tested. They are meant to complement weather-driven
+danger ratings, not to replace them, and this study isolates this surface component.
 
 ## 1.2 Pre-fire thermal state as a test case
 

@@ -20,20 +20,16 @@ so that only the evaluation changes.
 ## 2.2 Spatial validation, transferability and shift
 
 Spatially blocked cross-validation reduces the optimism of random folds [@Roberts2017;
-@Valavi2019]. Its use for map accuracy is debated [@Wadoux2021; @deBruin2022], and methods have
-been proposed that match the distances of the prediction task [@Mila2022]. The area of
-applicability shows where predictor values are too far from the training data [@Meyer2021; @Meyer2022;
-@Ludwig2023].
-Transferability is an open problem in ecological modelling [@Yates2018].
-
-Two types of shift are usually separated [@MorenoTorres2012]. Under covariate shift, the predictor
-distribution changes but the predictor-response relationship stays the same. Under concept shift,
-the relationship itself changes. Covariate shift can in principle be corrected without target
-labels, for example by per-region standardisation or by covariance alignment (CORAL) [@Sun2016].
-Domain adaptation is well established in remote sensing [@Tuia2016; @Persello2012]. Concept shift
-cannot be corrected in this way, because a reversed association can only be seen with target
-labels. Shift decomposition has been used in remote sensing [@Huang2026], but we found no use of
-covariance alignment for fire susceptibility or burned-area prediction.
+@Valavi2019], although its use for map accuracy is debated [@Wadoux2021; @deBruin2022; @Mila2022].
+The area of applicability shows where predictor values are too far from the training data
+[@Meyer2021; @Meyer2022; @Ludwig2023], and transferability remains an open problem in ecological
+modelling [@Yates2018]. Under covariate shift only the predictor distribution changes, which can in
+principle be corrected without target labels, for example by per-region standardisation or by
+covariance alignment (CORAL) [@Sun2016], as is common in remote sensing [@Tuia2016; @Persello2012];
+under concept shift the predictor-response relationship itself changes [@MorenoTorres2012], and a
+reversed association can only be seen with target labels. Shift decomposition has been used in
+remote sensing [@Huang2026], but we found no use of covariance alignment for fire susceptibility or
+burned-area prediction.
 
 ## 2.3 Transfer of fire models and the evaluation area
 
@@ -48,6 +44,9 @@ Mediterranean study is Dimarco et al. [@Dimarco2026]. They used 500 m predictors
 and a full transfer matrix. No transfer fell below AUC 0.80, and similar countries scored higher.
 Their predictors are static attributes of a place, and their response is human-caused ignition.
 Here the predictors describe the surface state in one season, and the response is burned area.
+Susceptibility has also been mapped with one random forest for thirteen countries of the eastern
+Mediterranean and southern Black Sea from a decade of fires [@Trucchia2023]; such a model is fitted
+on all regions at once, so it does not measure transfer to a region without a fire record.
 
 **Evaluation area and AUC.** In species distribution modelling, the evaluation area is known to
 affect AUC. Lobo et al. [@Lobo2008] list it among the main reasons for caution when AUC

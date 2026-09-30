@@ -138,8 +138,7 @@ transfer gain, averaged by target region, with a Student *t* interval over the f
 zero under the primary resampling unit. Of the five other units that can be computed, two exclude
 zero: clustering by target region and clustering by source region (Section S1.22). In an exploratory equivalence test with a margin of ±0.05, set after the results, the gain on the
 original study areas was within the margin under all six units that can be computed, and the collar
-gain under four of six. It was not within the margin under the pigeonhole bootstrap or the region
-jackknife, whose 90 % upper bounds are 0.052 and 0.055. The difference between the within-region and
+gain under four of six (Table S21). The difference between the within-region and
 transfer gains (W − T) is positive on the original areas and on the 10 km collar, but not on the 5 km
 collar (Table 3).
 

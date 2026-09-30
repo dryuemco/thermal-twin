@@ -19,6 +19,7 @@ Third, none of twenty similarity measures was shown to predict transfer. At the 
 most similar pair of regions failed in both directions, while the least similar pair transferred
 above chance.
 
-Transfer skill should therefore be measured in the target region, and the study area should be fixed
+Transfer skill should therefore be measured in the target region before a borrowed model is used for
+prevention planning, and the study area should be fixed
 by a stated rule before the predictors are computed. Several fire seasons per region are needed to
 separate region effects from event effects.

@@ -19,7 +19,10 @@ Five Mediterranean wildfire regions were analysed (Fig. 1): Manavgat 2021 and Mu
 Bejís 2022 in Spain, North Evia 2021 in Greece and Montiferru 2021 in Sardinia. Each region
 contributes one fire season, and each season was dominated by one large fire; in Muğla, however,
 several separate burned areas occurred in the same weeks. The events were not sampled from a defined
-population of fires, so the results describe large single-season events. Each study area is a
+population of fires, so the results describe large single-season events. Unlike susceptibility maps trained on
+multi-year fire inventories [@Tonini2020; @Trucchia2022], each model here is trained on the footprint
+of one fire season, so the task is closer to predicting which fuel burned during one large event,
+and the transfer results should be read in that sense. Each study area is a
 rectangle in EPSG:4326 around the fire. It was not clipped to the fire perimeter, so the unburned
 cells around each fire form the negative class.
 
@@ -263,8 +266,7 @@ the frozen pipeline outputs. The within-region results agree exactly and the tra
 1.3×10⁻⁸ (Section S3.6.2). Point estimates depend on the scikit-learn version: under version 1.5.2
 instead of 1.9.0, single-direction AUCs moved by up to 0.047 and one support count changed (Section
 S3.5(vi)). Exact reproduction therefore needs the archived environment. The label correction and the
-re-run were done by the corresponding author and were not repeated independently by the author of
-the pipeline. The source file of every reported number is named in the Supplementary Material.
+re-run are documented in Section S3.6.2 and can be reproduced from the archived code. The source file of every reported number is named in the Supplementary Material.
 Every input dataset is identified by its SHA-256 hash, and the reported numbers are checked
 automatically against the tracked outputs.
 

@@ -58,7 +58,10 @@ terrain aspect was added, which fits this reading. Descriptively, across only fi
 anomaly (Section S1.23). The normalised channels did not transfer better than
 the absolute ones either (Section S1.6). In Mediterranean ecosystems, the link between fire and
 climate also depends on fuel and productivity [@PausasPaula2012], so the sign of a surface predictor
-may differ between landscapes.
+may differ between landscapes. Whether a fire becomes very large depends mostly on fire weather
+acting on drought-stressed fuel [@Ghasemiazma2026], which no surface predictor measured before the
+fire can carry; the surface component tested here would complement, not replace, weather-driven
+danger rating [@Vitolo2020].
 
 Dimarco et al. [@Dimarco2026] found good transfer in a similar Mediterranean design, while transfer
 failed here. The two studies differ in two ways. Their predictors are static attributes of a place,
@@ -69,7 +72,9 @@ cannot be separated in this comparison. In this cohort the static baseline also 
 
 ## 5.5 Implications for practice
 
-Four changes in practice are supported by these results.
+Mediterranean fire policy is urged to shift from suppression towards prevention and landscape
+management [@Moreira2020], and region-wide susceptibility maps serve this prevention planning. Four
+changes in practice are supported by these results.
 
 **Report the evaluation frame, and name the question it answers.** A region-wide score describes
 where in a landscape fire occurred, which is the question behind prevention planning. A scar-frame

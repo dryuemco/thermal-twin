@@ -113,7 +113,7 @@ ISO4 = {
     "Ecological Monographs": "Ecol. Monogr.", "Ecology": "Ecology", "Environmental Modelling \\& Software":
     "Environ. Model. Softw.", "Environmental Reviews": "Environ. Rev.", "Evolution": "Evolution", "Fire": "Fire",
     "Fire Ecology": "Fire Ecol.", "Forest Ecology and Management": "For. Ecol. Manag.",
-    "Frontiers in Ecology and the Environment": "Front. Ecol. Environ.", "Geomatics": "Geomatics",
+    "Frontiers in Ecology and the Environment": "Front. Ecol. Environ.", "Geomatics": "Geomatics", "Geosciences": "Geosciences",
     "Global Ecology and Biogeography": "Glob. Ecol. Biogeogr.",
     "IEEE Geoscience and Remote Sensing Magazine": "IEEE Geosci. Remote Sens. Mag.",
     "IEEE Transactions on Geoscience and Remote Sensing": "IEEE Trans. Geosci. Remote Sens.",
@@ -121,7 +121,9 @@ ISO4 = {
     "ISPRS Journal of Photogrammetry and Remote Sensing": "ISPRS J. Photogramm. Remote Sens.",
     "Machine Learning": "Mach. Learn.", "Methods in Ecology and Evolution": "Methods Ecol. Evol.",
     "Natural Hazards and Earth System Sciences": "Nat. Hazards Earth Syst. Sci.",
-    "Nature Communications": "Nat. Commun.", "Pattern Recognition": "Pattern Recognit.",
+    "Nature Communications": "Nat. Commun.", "npj Natural Hazards": "npj Nat. Hazards",
+    "Environmental Research Letters": "Environ. Res. Lett.", "Scientific Data": "Sci. Data",
+    "Scientific Reports": "Sci. Rep.", "Pattern Recognition": "Pattern Recognit.",
     "Remote Sensing": "Remote Sens.", "Remote Sensing of Environment": "Remote Sens. Environ.",
     "Trends in Ecology \\& Evolution": "Trends Ecol. Evol.",
 }
