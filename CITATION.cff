@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
-title: "Evaluation area and the limits of cross-region transfer of pre-fire thermal wildfire models: analysis code, modelling datasets and frozen outputs"
+title: "Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: analysis code, modelling datasets and frozen outputs"
 type: software
 license: MIT
-version: "1.1.0"
-doi: "10.5281/zenodo.23038039"
+version: "1.2.0"
+doi: "10.5281/zenodo.23035270"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.23035270"
