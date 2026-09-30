@@ -352,6 +352,9 @@ def mdpi_styles(d):
         in_table = any(a.tag == qn("w:tc") for a in p.iterancestors())
         if in_table:
             _set_style(p, "MDPI42tablebody")
+            ppr = p.get_or_add_pPr()                               # no "be-/low" in narrow header cells
+            if ppr.find(qn("w:suppressAutoHyphens")) is None:
+                ppr.find(qn("w:pStyle")).addnext(OxmlElement("w:suppressAutoHyphens"))
             for sz in p.iter(qn("w:sz")):
                 sz.set(qn("w:val"), "18")
             for r in p.iter(qn("w:r")):
