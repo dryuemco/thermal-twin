@@ -48,7 +48,7 @@ record still names the original-label table (`054a1961…`), which is not used h
 
 The upstream processing pipeline, `satellite-thermal-digital-twin` (E. Metin), is public at
 <https://github.com/emrehann17/satellite-thermal-digital-twin> under the MIT licence. The analysis
-code, figure scripts and checks are at <https://github.com/dryuemco/thermal-twin>, and version 1.1.0
+code, figure scripts and checks are at <https://github.com/dryuemco/thermal-twin>, and version 1.2.0
 is archived at Zenodo [@ThermalTwinRepo]. Figs. 1 to 8 are drawn
 by the scripts in `paper/figures/`, which also assert Table 1 and every plotted value against the
 frozen outputs. The supplementary tables S2 to S7 and S9 to S18 are rebuilt row by row by

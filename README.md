@@ -80,8 +80,8 @@ runs `check_all.py` without further downloads. To read a pipeline output tree in
 
 Metin, E., Cogurcu, Y. E. *Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: five large Mediterranean fires.* Manuscript in preparation.
 
-Code and data archive: Metin, E., Cogurcu, Y. E. (2026). Version 1.1.0. Zenodo.
-https://doi.org/10.5281/zenodo.23038039 (all versions: https://doi.org/10.5281/zenodo.23035270)
+Code and data archive: Metin, E., Cogurcu, Y. E. (2026). Version 1.2.0. Zenodo.
+https://doi.org/10.5281/zenodo.23070876 (all versions: https://doi.org/10.5281/zenodo.23035270)
 
 ## Third-party data
 
