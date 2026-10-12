@@ -76,7 +76,7 @@ def check(key, f):
 
 
 text = "\n".join((P / f).read_text(encoding="utf-8") for f in
-                 ["00_abstract.md", "01_introduction.md", "02_related_work.md", "03_methods.md", "04_results.md",
+                 ["00_abstract.md", "00_abstract_fire_ecology.md", "01_introduction.md", "03_methods.md", "04_results.md",
                   "05_discussion.md", "06_conclusions.md", "07_declarations.md", "supplementary.md"])
 cited = set(re.findall(r"@([A-Za-z][A-Za-z0-9]+)", re.sub(r"`[^`]*`", "", text)))
 cited -= {"Section"}

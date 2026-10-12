@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 P = Path(__file__).resolve().parents[1]
-FILES = ["00_abstract.md", "01_introduction.md", "02_related_work.md", "03_methods.md", "04_results.md",
+FILES = ["00_abstract.md", "00_abstract_fire_ecology.md", "01_introduction.md", "03_methods.md", "04_results.md",
          "05_discussion.md", "06_conclusions.md", "07_declarations.md", "supplementary.md", "figure_captions.tex"]
 # value -> what it was under the original label (from labelfix_rerun/CHANGES.md and round5/E1_CHANGELIST.md)
 STALE = {

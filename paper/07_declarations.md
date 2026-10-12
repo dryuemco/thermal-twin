@@ -56,7 +56,7 @@ frozen outputs. The supplementary tables S2 to S7 and S9 to S18 are rebuilt row 
 `paper/labelfix_rerun/round5/tables/SOURCES.sha256`; the other tables name their source files in
 their captions. `paper/figures/check_all.py` runs all of these checks. Software: Python 3.12.10 with
 NumPy 2.4.4, pandas 3.0.2 and scikit-learn 1.9.0. Point estimates depend on the scikit-learn version
-(Section 3.13), so exact reproduction needs this environment.
+(Section 2.13), so exact reproduction needs this environment.
 
 ## Ethics approval
 
@@ -65,6 +65,7 @@ identifiable data.
 
 ## Use of generative AI
 
-Claude (Anthropic) was used for analysis code, number checks and text editing (Section 3.13). The
-authors reviewed all of its output, made every decision and take full responsibility for the content
-of the publication.
+Claude (Anthropic; Opus-family models, July to October 2026) was used to write analysis and figure
+code, to check reported numbers, and to edit, restructure and shorten the text. The authors reviewed
+all of its output, made every scientific decision and take full responsibility for the content of the
+publication.

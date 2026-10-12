@@ -41,8 +41,9 @@ HERE = Path(__file__).resolve().parent
 P = HERE.parent
 OUT = P / "submission"
 FM = json.loads((P / "frontmatter.json").read_text(encoding="utf-8"))
-BODY = ["01_introduction", "02_related_work", "03_methods", "04_results", "05_discussion",
-        "06_conclusions"]
+# Introduction and Related work were merged into one Background section on 2026-10-12 (Fire Ecology asks for
+# Background, Methods, Results, Discussion, Conclusions), so the old 02_related_work.md is gone
+BODY = ["01_introduction", "03_methods", "04_results", "05_discussion", "06_conclusions"]
 DECL = "07_declarations"
 CSL = HERE / "springer-basic-author-date.csl"
 A4_W, A4_H, MARGIN = 11906, 16838, 1418            # twips; 1418 twips = 2.5 cm
@@ -251,7 +252,7 @@ def to_docx(md, out, title):
 
 
 def main_text_words(doc):
-    """Words of Sections 1-6 as Word holds them: from the '1 Introduction' heading to the References
+    """Words of Sections 1-5 as Word holds them: from the '1 Background' heading to the References
     heading, table cells excluded (tables are not paragraphs); figure captions, references and
     declarations lie outside the range. Table captions and table notes, which are paragraphs, count."""
     n, on = 0, False
@@ -323,7 +324,7 @@ ORCID: Yunus Emre Cogurcu, 0000-0002-9229-9657
     TITLE = FM["title"]
     ms_doc = to_docx(ms_md.replace("@@WORDCOUNT@@\n", ""), OUT / "manuscript.docx", TITLE)
     WORDS = main_text_words(ms_doc)
-    WORDLINE = (f"**Word count:** {WORDS:,} words in the main text (Sections 1 to 6, table captions and notes "
+    WORDLINE = (f"**Word count:** {WORDS:,} words in the main text (Sections 1 to 5, table captions and notes "
                 "included; tables, references, declarations and figure captions excluded). Abstract "
                 f"{n_abs} words.")
     ms_md = ms_md.replace("@@WORDCOUNT@@", WORDLINE)
@@ -340,13 +341,20 @@ ORCID: Yunus Emre Cogurcu, 0000-0002-9229-9657
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Build the submission .docx files for one journal.")
-    ap.add_argument("--journal", choices=["nh", "fire"], default="nh",
-                    help="nh: Natural Hazards -> paper/submission/; fire: Fire (MDPI) -> paper/submission_fire/")
+    ap.add_argument("--journal", choices=["nh", "fire", "fire-ecology"], default="nh",
+                    help="nh: Natural Hazards -> paper/submission/; fire-ecology: Fire Ecology -> "
+                         "paper/submission_fire_ecology/; fire: retired (see below)")
     ap.add_argument("--template", type=Path, help="fire only: the MDPI Fire Word template (.dot, .dotx or .docx)")
-    ap.add_argument("--no-pdf", action="store_true", help="fire only: skip the Word PDF export of the supplement")
+    ap.add_argument("--no-pdf", action="store_true", help="skip the Word PDF export of the supplement")
     args = ap.parse_args()
     if args.journal == "nh":
         build_nh()
+    elif args.journal == "fire-ecology":
+        import journal_fire_ecology
+        journal_fire_ecology.build(pdf=not args.no_pdf)
     else:
-        import journal_fire
-        journal_fire.build(args.template, pdf=not args.no_pdf)
+        # Fire (MDPI) rejected the manuscript without review on 2026-10-09; the sources were then
+        # restructured for Fire Ecology, and journal_fire.py parses wording that no longer exists.
+        # Its helpers are still imported by journal_fire_ecology.py.
+        sys.exit("The Fire (MDPI) package was built from commit ab058c2 (submitted 2026-10-06, rejected "
+                 "2026-10-09). Check out that commit to rebuild it.")

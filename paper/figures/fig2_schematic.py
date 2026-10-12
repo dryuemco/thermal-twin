@@ -32,6 +32,9 @@ now has §3.10 for the decomposition and ends at §3.14). Both checks are added 
 figure's own 18 references (12 sections) were already correct, and the caption is fixed.
 
 Okabe-Ito accents, greyscale-safe, vector.
+2026-10-12: the manuscript was restructured for Fire Ecology (Introduction and Related work merged
+into Background), so Methods is Section 2 and every printed reference moved from 3.x to 2.x; the
+heading checks below are unchanged in kind.
 """
 import json
 import re
@@ -60,20 +63,20 @@ FS_NOTE = 9.0   # footer band / orientation note (body)
 
 # --- every section number this figure prints, with the heading it must match --
 SECTIONS = {
-    "3.2": 'Burned-area label and the ~500 m analysis grid',
-    "3.3": 'Burned-landcover admissibility gate',
-    "3.4": 'Predictor variables',
-    "3.5": 'Cell aggregation, validity and analysis populations',
-    "3.6": 'Classifier',
-    "3.7": 'Spatial-block cross-validation and bootstrap uncertainty',
-    "3.8": 'Cross-region transfer protocol',
-    "3.9": 'Label-free domain adaptation',
-    "3.10": 'Transfer-gap decomposition and the reversal criterion',
-    "3.11": 'Interventions',
-    "3.12": 'Evaluation frames and controls on the transfer path',
-    "3.13": 'Leakage control and reproducibility',
+    "2.2": 'Burned-area label and the ~500 m analysis grid',
+    "2.3": 'Burned-landcover admissibility gate',
+    "2.4": 'Predictor variables',
+    "2.5": 'Cell aggregation, validity and analysis populations',
+    "2.6": 'Classifier',
+    "2.7": 'Spatial-block cross-validation and bootstrap uncertainty',
+    "2.8": 'Cross-region transfer protocol',
+    "2.9": 'Label-free domain adaptation',
+    "2.10": 'Transfer-gap decomposition and the reversal criterion',
+    "2.11": 'Interventions',
+    "2.12": 'Evaluation frames and controls on the transfer path',
+    "2.13": 'Leakage control and reproducibility',
 }
-_heads = dict(re.findall(r"^##+ (3\.\d+(?:\.\d+)?) (.+)$",
+_heads = dict(re.findall(r"^##+ (2\.\d+(?:\.\d+)?) (.+)$",
                          METHODS.read_text(encoding="utf-8"), re.M))
 for num, title in SECTIONS.items():
     assert num in _heads, f"Methods has no section {num} (figure references it)"
@@ -95,14 +98,14 @@ def _expand(a, b=None):
 _src = Path(__file__).read_text(encoding="utf-8")
 _body = _src[_src.index("_boxes = []"):]   # figure text only: not the docstring or these comments
 PRINTED_REFS = []
-for a, b in re.findall(r"§(3\.\d+)(?:–(3\.\d+))?", _body):
+for a, b in re.findall(r"§(2\.\d+)(?:–(2\.\d+))?", _body):
     PRINTED_REFS += _expand(a, b)
 assert set(PRINTED_REFS) == set(SECTIONS), (sorted(set(PRINTED_REFS)), sorted(SECTIONS))
 
 # (1c) the caption: every \S reference must be a live Methods heading, and must sit next to a
 # word from that heading's topic, so a renumbered section cannot survive under an old number
 # (the caption said "decomposition (\S3.12)" and "sensitivity designs (\S3.16)" after the split).
-CAPTION_TOPIC = {"3.10": r"decomposition", "3.13": r"leakage|seed|bootstrap"}
+CAPTION_TOPIC = {"2.10": r"decomposition", "2.13": r"leakage|seed|bootstrap"}
 _caps = (HERE.parent / "figure_captions.tex").read_text(encoding="utf-8")
 _cap2 = " ".join(_caps[_caps.index("fig2_schematic.pdf"):_caps.index(r"\label{fig:pipeline}")].split())
 CAPTION_REFS = re.findall(r"\\S(\d+\.\d+)", _cap2)
@@ -161,18 +164,18 @@ C1, C2, C3, C4, C5 = (3, 39), (44, 80), (85, 109), (114, 152), (157, 187)
 def w(c): return c[1] - c[0]
 
 # ---------------- column 1: source products + the negative control ----------
-box(C1[0], 76, w(C1), 12, "MCD64A1 burned area\n(label; §3.2)")
+box(C1[0], 76, w(C1), 12, "MCD64A1 burned area\n(label; §2.2)")
 box(C1[0], 54, w(C1), 19, "Landsat LST & NDVI,\nMODIS LST, TVDI,\n"
-                          "downscaling + fusion\n(§3.4)")
-box(C1[0], 39, w(C1), 12, "DEM, slope,\nESA WorldCover (§3.4)")
-box(C1[0], 18, w(C1), 18, "negative control\nKozan 2023 (§3.3):\n"
+                          "downscaling + fusion\n(§2.4)")
+box(C1[0], 39, w(C1), 12, "DEM, slope,\nESA WorldCover (§2.4)")
+box(C1[0], 18, w(C1), 18, "negative control\nKozan 2023 (§2.3):\n"
                           "98% cropland burned\n→ never modelled",
     fc=CTRL_FILL, ec=CTRL, tc=CTRL, dashed=True)
 
 # ---------------- column 2: grid, gate, population --------------------------
-box(C2[0], 74, w(C2), 14, "~510 m analysis grid\n(17×17 @ 30 m; §3.2)")
-box(C2[0], 50, w(C2), 14, "burned-landcover\nadmissibility gate\n(§3.3)")
-box(C2[0], 26, w(C2), 16, "primary population:\nnatural vegetation\n(§3.5)")
+box(C2[0], 74, w(C2), 14, "~510 m analysis grid\n(17×17 @ 30 m; §2.2)")
+box(C2[0], 50, w(C2), 14, "burned-landcover\nadmissibility gate\n(§2.3)")
+box(C2[0], 26, w(C2), 16, "primary population:\nnatural vegetation\n(§2.5)")
 
 # All three source products are aggregated onto the same grid, so they merge on
 # a collector bus rather than as three converging diagonals.
@@ -192,14 +195,14 @@ elbow([(C2[0], 57), (REJ_X, 57), (REJ_X, 27), (C1[1], 27)],
       color=CTRL, dashed=True)
 
 # ---------------- column 3: feature sets ------------------------------------
-box(C3[0], 46, w(C3), 18, "feature sets\n(§3.4, §3.6)\nbaseline vs\n+ 6 thermal",
+box(C3[0], 46, w(C3), 18, "feature sets\n(§2.4, §2.6)\nbaseline vs\n+ 6 thermal",
     fc=BLUE_FILL, ec=BLUE)
 elbow([(C2[1], 34), (82.5, 34), (82.5, 55), (C3[0], 55)])
 
 # ---------------- column 4: the two evaluations -----------------------------
-box(C4[0], 66, w(C4), 18, "within-region (§3.6, §3.7)\nRF, spatial-block CV,\n"
+box(C4[0], 66, w(C4), 18, "within-region (§2.6, §2.7)\nRF, spatial-block CV,\n"
                           "block-size robustness")
-box(C4[0], 34, w(C4), 20, "cross-region transfer\n(§3.8, §3.9)\n20 ordered directions\n"
+box(C4[0], 34, w(C4), 20, "cross-region transfer\n(§2.8, §2.9)\n20 ordered directions\n"
                           "z-score / CORAL")
 elbow([(C3[1], 55), (111.5, 55), (111.5, 75), (C4[0], 75)])
 elbow([(C3[1], 55), (111.5, 55), (111.5, 44), (C4[0], 44)])
@@ -207,11 +210,11 @@ elbow([(C3[1], 55), (111.5, 55), (111.5, 44), (C4[0], 44)])
 # ---------------- column 5: what comes out ----------------------------------
 box(C5[0], 74, w(C5), 14, "within-region ΔAUC\n5 regions ×\n3 block sizes",
     fc="#FFFFFF", ec="#555555")
-box(C5[0], 53, w(C5), 18, "transfer-gap\ndecomposition\n(§3.10): recovered\nvs residual",
+box(C5[0], 53, w(C5), 18, "transfer-gap\ndecomposition\n(§2.10): recovered\nvs residual",
     fc=BLUE_FILL, ec=BLUE)
-box(C5[0], 34, w(C5), 16, "evaluation frames\n(§3.12): region,\nscar, 5/10 km collar",
+box(C5[0], 34, w(C5), 16, "evaluation frames\n(§2.12): region,\nscar, 5/10 km collar",
     fc=ORANGE_FILL, ec=ORANGE)
-box(C5[0], 15, w(C5), 16, "interventions\n(§3.11): pooled\ntraining, feature\nremoval")
+box(C5[0], 15, w(C5), 16, "interventions\n(§2.11): pooled\ntraining, feature\nremoval")
 
 # Three routing lanes in the 152-157 gap; lanes are reused only where the
 # vertical runs cannot overlap in y, so no two connectors ever share a segment.
@@ -226,7 +229,7 @@ ax.add_patch(Rectangle((3, 2), 184, 11, facecolor="#F7F7F7",
                        edgecolor="#CCCCCC", linewidth=0.8, zorder=1))
 ax.text(95, 7.5,
         "Applies throughout: leakage columns excluded, fixed seed, 1000-replicate "
-        "spatial-block bootstrap (§3.7, §3.13);\nsensitivity designs: first Evia rectangle, "
+        "spatial-block bootstrap (§2.7, §2.13);\nsensitivity designs: first Evia rectangle, "
         "second population, predictor-window closure (Section S1)",
         fontsize=FS_NOTE, ha="center", va="center", linespacing=1.5, zorder=3)
 

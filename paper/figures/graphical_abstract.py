@@ -74,7 +74,7 @@ assert xreg == (0.007, -0.020, 0.038) and equal == (0.024, -0.004, 0.049), (xreg
 assert xreg[1] < 0 < xreg[2] and equal[1] < 0 < equal[2]
 
 # ---- evaluation-area cost, region as the unit (Section 4.3) ------------------
-m = re.search(r"With the region as the unit, the change then costs \*\*\+(\S+) \[\+(\S+), \+(\S+)\]\*\* over five regions",
+m = re.search(r"With the region as the unit, the change then cost \*\*\+(\S+) \[\+(\S+), \+(\S+)\]\*\* over five regions",
               FLAT)
 assert m, "Section 4.3 frame-cost sentence not found verbatim"
 frame = tuple(float(g) for g in m.groups())

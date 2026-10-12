@@ -1,30 +1,31 @@
-# 4. Results
+# 3. Results
 
-## 4.1 Study regions and the admissibility gate
+## 3.1 Study regions and the admissibility gate
 
-All five regions passed the burned-landcover gate, while the negative control failed it. Kozan 2023
+All five regions passed the burned-landcover gate, and the negative control failed it. Kozan 2023
 had a natural-vegetation fraction of 0.017 against the threshold of 0.50 and was excluded, whereas the
-five admitted regions had fractions of 0.723 to 0.991. The gate therefore separates the cases
+five admitted regions had fractions of 0.723 to 0.991. The gate therefore separated the cases
 clearly, although one negative control cannot show that it always works. The extended North Evia
 rectangle kept the burned scar almost unchanged and gave a burned prevalence of 0.287 in the primary
 population (Section S1.1).
 
-## 4.2 The thermal gain within regions
+## 3.2 The thermal gain within regions
 
 Adding the thermal predictors to the baseline raised the spatially blocked out-of-fold ROC-AUC in
 every region (Fig. 3; Table 1). The interval of the gain excluded zero in all five regions at 1 km
 and at 5 km blocking. At 10 km blocking the point estimates stayed positive, from +0.047 to +0.154,
-but they rest on only 6 to 33 blocks that contain burned cells, so they are indicative. The gain also stayed positive, with interval support in all five regions, when the predictor window
-was closed up to two weeks earlier (Section S1.4). With labels from VIIRS VNP64A1 instead of
-MCD64A1, the gain stayed positive in all five regions at the point estimates (Section S1.23). When terrain aspect was added to both feature sets, the
-gain stayed supported in four regions (+0.044 to +0.139) but fell to +0.020 [−0.025, +0.066] in
-Montiferru (Section S1.23).
+but they rested on only 6 to 33 blocks that contain burned cells, so they are indicative. The gain
+also stayed positive, with interval support in all five regions, when the predictor window was closed
+up to two weeks earlier (Section S1.4), and at the point estimates in all five regions with labels
+from VIIRS VNP64A1 instead of MCD64A1 (Section S1.23). When terrain aspect was added to both feature
+sets, the gain stayed supported in four regions (+0.044 to +0.139) but fell to +0.020 [−0.025, +0.066]
+in Montiferru (Section S1.23).
 
 **Table 1. Within-region baseline versus thermal performance and block-size robustness.** Primary
-(natural-vegetation) population; spatially blocked 5-fold cross-validation (CV; Section 3.7); paired spatial-block
-bootstrap, 1000 replicates. Block sizes of 2, 10 and 20 cells correspond to about 1, 5 and 10 km.
-The Baseline and Thermal columns are ROC-AUC, and the 95 % confidence interval (CI) belongs to ΔAUC. Source files are
-listed in the Supplementary Material.
+(natural-vegetation) population; spatially blocked 5-fold cross-validation (Section 2.7); paired
+spatial-block bootstrap, 1000 replicates. Block sizes of 2, 10 and 20 cells correspond to about 1, 5
+and 10 km. The Baseline and Thermal columns are ROC-AUC, and the 95 % confidence interval (CI)
+belongs to ΔAUC. Source files are listed in the Supplementary Material.
 
 | Region | Block | Baseline | Thermal | ΔAUC | 95% CI |
 |---|---|---|---|---|---|
@@ -48,11 +49,11 @@ listed in the Supplementary Material.
 the coarsest blocking that the design supports. The 20-cell rows are indicative. Block counts are
 given in Section S1.3.
 
-## 4.3 The effect of the evaluation frame within one region
+## 3.3 The effect of the evaluation frame within one region
 
-This section measures the effect of the evaluation frame on one model in one region, so no transfer
-is involved. Four evaluations are compared (Table 2). The last three are scored on **the same cells**,
-so they differ only in the training data. The held-out unit is a scar of at least 50 burned cells
+This test measured the effect of the evaluation frame on one model in one region, so no transfer was
+involved. We compared four evaluations (Table 2). The last three were scored on **the same cells**,
+so they differed only in the training data. The held-out unit was a scar of at least 50 burned cells
 together with its 2 km collar.
 
 **Table 2. The four evaluations of the frame test.** Primary population, 5 km blocking. Rows B, C
@@ -68,57 +69,56 @@ given in the text. Cell counts per scar are in Table S1.
 | C. Leave-one-scar-out | the region, **scar withheld** | the scar area | 0.546 | [0.488, 0.604] |
 | D. Foreign region | another region, 306 to 2,802 km away | the scar area | 0.553 | [0.495, 0.611] |
 
-**The same model scores lower on the scar frame.** Rows A and B use one model and one set of
-predictions, and only the scored cells differ. Over the seven scars of Table 2, A minus B is 0.133
+**The same model scored lower on the scar frame.** Rows A and B used one model and one set of
+predictions, and only the scored cells differed. Over the seven scars of Table 2, A minus B was 0.133
 [+0.060, +0.207]. The primary estimate uses all nine scars, including the single scars of Manavgat
-and Bejís, which have no row C (Tables S1 and S5). With the region as the unit, the change then
-costs **+0.160 [+0.090, +0.230]** over five regions, and +0.137 [+0.048, +0.226] over the three
-regions of Table 2. The seven-scar interval is too narrow, because row A is repeated for each scar of a region. With the region as the unit, the
-fall from A to C is +0.266 [−0.022, +0.553]. **Only the frame cost is therefore established at the
-region level.** The two frames answer different questions (Section 3.12), so the region-wide score is
-not a biased version of the scar score. It is, however, the more optimistic of the two, and it holds
-in all nine scars.
+and Bejís, which have no row C (Tables S1 and S5). With the region as the unit, the change then cost
+**+0.160 [+0.090, +0.230]** over five regions, and +0.137 [+0.048, +0.226] over the three regions of
+Table 2. The seven-scar interval is too narrow, because row A is repeated for each scar of a region.
+With the region as the unit, the fall from A to C was +0.266 [−0.022, +0.553]. **Only the frame cost
+is therefore established at the region level.** The two frames answer different questions (Section
+2.12), so the region-wide score is not a biased version of the scar score. It was, however, the more
+optimistic of the two in all nine scars.
 
-**The cost comes from the unburned cells next to the fire.** Over nine scars, scoring the predictions
+**The cost came from the unburned cells next to the fire.** Over nine scars, scoring the predictions
 on a random sample with the same burned fraction as the scar frame changed nothing (−0.002 [−0.005,
-+0.001]). This is expected, because ROC-AUC does not depend on class balance. Scoring them on the scar
++0.001]), as expected, because ROC-AUC does not depend on class balance. Scoring them on the scar
 frame cost +0.149 [+0.087, +0.211]. Replacing only the unburned cells explained 0.139 [0.098, 0.181]
 of this, and replacing only the burned cells −0.002 [−0.055, +0.051] (Section S1.9.1). A placebo
 collar of the same shape, placed away from any burned cell, reproduced the region-wide score, and
-excluding up to two cells at the scar edge left the cost at 0.145 or more with the region as the
-unit (Table S21). Across regions, the cost showed no relation to the share of distant cells in the study area (slope
-0.005 [−0.41, +0.42], n = 5), although this test has little power. The pool swaps and the placebo
-collar show that the cost comes from the unburned cells next to the fire.
+excluding up to two cells at the scar edge left the cost at 0.145 or more with the region as the unit
+(Table S21). Across regions, the cost showed no relation to the share of distant cells in the study
+area (slope 0.005 [−0.41, +0.42], n = 5), although this test has little power.
 
-**Withholding the fire or moving the model had no measurable cost, but the test is weak.** B minus
-C, the effect of withholding the scar, is +0.094 [−0.012, +0.200]. C minus D, the effect of using a
-model from 306 to 2,802 km away, is −0.007 [−0.070, +0.057]. Both intervals include zero, and both
-evaluations are close to chance. In Evia, however, withholding the scar leaves only 11 burned cells
-for training. In Muğla alone, where every held-out case keeps a well-trained model, C and D are 0.579
-and 0.586. With region-level clustering the intervals widen strongly. For example, the difference in
-thermal gain between rows C and D widens from [−0.061, +0.094] to [−0.154, +0.186]. Effects of up to
+**Withholding the fire or moving the model had no measurable cost, but the test was weak.** B minus
+C, the effect of withholding the scar, was +0.094 [−0.012, +0.200]. C minus D, the effect of using a
+model from 306 to 2,802 km away, was −0.007 [−0.070, +0.057]. Both intervals included zero, and both
+evaluations were close to chance. In Evia, however, withholding the scar left only 11 burned cells for
+training. In Muğla alone, where every held-out case kept a well-trained model, C and D were 0.579 and
+0.586. With region-level clustering the intervals widened strongly; for example, the difference in
+thermal gain between rows C and D widened from [−0.061, +0.094] to [−0.154, +0.186]. Effects of up to
 about 0.2 therefore cannot be excluded.
 
-**On the scar frame, the thermal gain is not established.** The same four evaluations were applied to
-the thermal gain at 5 km blocking. Averaged over the seven scars, with Muğla counted four times, the
-region-wide gain is +0.095. On the scar frame the same predictions give +0.021 [−0.059, +0.100].
-Leave-one-scar-out gives +0.024 [−0.040, +0.089], and a foreign model +0.008 [−0.021, +0.038]. The
-fall from +0.095 is therefore consistent with a change of frame rather than of training data, but
-with effects of up to about 0.2 not excluded, the data do not resolve this (Section S1.9.3).
+**On the scar frame, the thermal gain was not established.** Averaged over the seven scars at 5 km
+blocking, with Muğla counted four times, the region-wide gain was +0.095. On the scar frame the same
+predictions gave +0.021 [−0.059, +0.100], leave-one-scar-out +0.024 [−0.040, +0.089], and a foreign
+model +0.008 [−0.021, +0.038]. The fall from +0.095 is therefore consistent with a change of frame
+rather than of training data, but with effects of up to about 0.2 not excluded, the data do not
+resolve this (Section S1.9.3).
 
-## 4.4 The frame effect between regions
+## 3.4 The frame effect between regions
 
-The five study areas differ strongly in how many distant unburned cells they contain. The share of
-cells more than 10 km from any burned cell is **2.1 %** in Montiferru and **63.1 %** in Bejís (Table
-S13). In Manavgat, the median elevation of the modelled cells rises from 330 m within 5 km of the fire to
-1,273 m at 20 to 50 km, while the burned cells have a median of 287 m.
+The five study areas differed strongly in how many distant unburned cells they contained. The share
+of cells more than 10 km from any burned cell was **2.1 %** in Montiferru and **63.1 %** in Bejís
+(Table S13). In Manavgat, the median elevation of the modelled cells rose from 330 m within 5 km of
+the fire to 1,273 m at 20 to 50 km, while the burned cells had a median of 287 m.
 
-**Comparable study areas.** Every region was restricted to cells within 10 km of any burned cell.
-This removes only distant unburned cells. Table 3 compares transfer on these collars with transfer on
-the original areas. Mean transfer rose from 0.527 to 0.589, and the number of directions below chance
+**Comparable study areas.** Restricting every region to cells within 10 km of any burned cell
+removes only distant unburned cells. Table 3 compares transfer on these collars with transfer on the
+original areas. Mean transfer rose from 0.527 to 0.589, and the number of directions below chance
 fell from seven to five. The thermal gain rose from +0.007 to +0.024, and the static baseline rose
 with it, from 0.519 to 0.565. Because the collars are defined from burned cells, they cannot be drawn
-before a fire (Section 3.12).
+before a fire (Section 2.12).
 
 **Table 3. Cross-region transfer on the original study areas and on the distance collars.** Twenty
 ordered directions, primary population, thermal feature set unless stated. The below-chance count is
@@ -134,116 +134,112 @@ transfer gain, averaged by target region, with a Student *t* interval over the f
 | 10 km collar | 0.589 | 0.565 | +0.024 [−0.004, +0.049] | 5 | 13 / 2 | +0.059 [+0.007, +0.110] |
 | 5 km collar | 0.591 | 0.574 | +0.017 [−0.004, +0.036] | 4 | 11 / 0 | +0.026 [−0.012, +0.063] |
 
-**The thermal gain in transfer is small on every frame.** On the 10 km collar its interval includes
-zero under the primary resampling unit. Of the five other units that can be computed, two exclude
-zero: clustering by target region and clustering by source region (Section S1.22). In an exploratory equivalence test with a margin of ±0.05, set after the results, the gain on the
-original study areas was within the margin under all six units that can be computed, and the collar
-gain under four of six (Table S21). The margin was set after the results and is close to the smallest
-within-region gain (+0.045), so the test does not show that the transfer gain is negligible
-relative to local gains. The difference between the within-region and
-transfer gains (W − T) is positive on the original areas and on the 10 km collar, but not on the 5 km
-collar (Table 3).
+**The thermal gain in transfer was small on every frame.** On the 10 km collar its interval included
+zero under the primary resampling unit. Of the five other units that can be computed, two excluded
+zero: clustering by target region and clustering by source region (Section S1.22). In an exploratory
+equivalence test with a margin of ±0.05, the gain was within the margin under all six units that can be
+computed on the original areas and under four of six on the collar (Table S21). The margin was set
+after the results and is close to the smallest within-region gain (+0.045), so the test does not show
+that the transfer gain is negligible relative to local gains. The difference between the
+within-region and transfer gains (W − T) was positive on the original areas and on the 10 km collar,
+but not on the 5 km collar (Table 3).
 
-**Associations on the collar.** On the collar, four regions agree in sign on elevation, LST and TVDI,
-and Manavgat is on the other side of 0.5 on all three. Its elevation association is 0.376 [0.300,
-0.465], against 0.606 [0.525, 0.685] in Muğla and 0.648 [0.550, 0.740] in Evia (Bejís and Montiferru
-in Table S14). Under the per-comparison criterion of Section 3.10, **two reversals are supported on the collar.
-Both are on elevation, and both involve Manavgat.** They are not the same pairs as on the original
-areas. Manavgat against Muğla is supported on both frames. Manavgat against Evia becomes supported on
-the collar, because the Evia interval excludes 0.5 only there. Manavgat against Bejís loses support
-narrowly: the Bejís interval, [0.496, 0.722], misses 0.5 by 0.004. Neither collar reversal survives
-a Holm correction over the ninety feature-by-pair comparisons (adjusted *p* = 0.33 and 0.79; Section
-S1.19).
+**Associations on the collar.** On the collar, four regions agreed in sign on elevation, LST and
+TVDI, and Manavgat was on the other side of 0.5 on all three. Its elevation association was 0.376
+[0.300, 0.465], against 0.606 [0.525, 0.685] in Muğla and 0.648 [0.550, 0.740] in Evia (Bejís and
+Montiferru in Table S14). Under the per-comparison criterion of Section 2.10, **two reversals were
+supported on the collar, both on elevation and both involving Manavgat.** They were not the same pairs
+as on the original areas. Manavgat against Muğla was supported on both frames. Manavgat against Evia
+became supported on the collar, because the Evia interval excluded 0.5 only there. Manavgat against
+Bejís lost support narrowly: the Bejís interval, [0.496, 0.722], missed 0.5 by 0.004. Neither collar
+reversal survived a Holm correction over the ninety feature-by-pair comparisons (adjusted *p* = 0.33
+and 0.79; Section S1.19).
 
 **Hotter surfaces burned less at the point estimates.** In four of five regions, a hotter pre-fire
 surface was associated with *less* burning, which is the opposite of what the dryness idea predicts.
-In Manavgat the burned cells are hotter (current LST 0.665 on the original area), but they are also
-low-lying. When elevation is held constant through deciles, the Manavgat LST association falls to 0.403
-[0.343, 0.464] on the collar, and after the linear effect of elevation is removed it is 0.409 [0.350,
-0.475]. On the original area the same values are 0.455 and 0.446, with intervals that include 0.5
-(Sections S1.11 and S1.23). These results
-indicate that the absolute thermal channels behaved here mainly as land-surface descriptors rather
-than as a dryness index.
+In Manavgat the burned cells were hotter (current LST 0.665 on the original area), but they were also
+low-lying. When elevation was held constant through deciles, the Manavgat LST association fell to
+0.403 [0.343, 0.464] on the collar, and after the linear effect of elevation was removed it was 0.409
+[0.350, 0.475]. On the original area the same values were 0.455 and 0.446, with intervals that include
+0.5 (Sections S1.11 and S1.23).
 
-**Similarity measures on the collar.** Two similarity measures are built from these signed
-associations. The sign-agreement fraction did not predict transfer on the original areas (ρ = +0.52
-[−0.27, +0.87]) or on the collar (ρ = +0.38). Its cosine version predicted collar transfer at
-ρ = +0.57 [+0.05, +0.88]. However, this is one of about forty uncorrected tests, on a frame defined by
-the labels, so it is reported but not used (Section S1.19).
+**Similarity measures on the collar.** The sign-agreement fraction, which is built from these signed
+associations, did not predict transfer on the original areas (ρ = +0.52 [−0.27, +0.87]) or on the
+collar (ρ = +0.38). Its cosine version predicted collar transfer at ρ = +0.57 [+0.05, +0.88]. However,
+this is one of about forty uncorrected tests, on a frame defined by the labels, so we report it but
+do not use it (Section S1.19).
 
-**The within-region gain survives the collar.** It stays positive in all five regions on
-the collar, with a mean of +0.083 against +0.087 on the original areas.
+**The within-region gain survived the collar.** It stayed positive in all five regions on the collar,
+with a mean of +0.083 against +0.087 on the original areas.
 
-**The transfer shortfall remains on matched frames.** A fair comparison needs the same frame and the
-same blocking. On the 10 km collar at 5 km blocking, the within-region reference is 0.786, and
-transfer is **+0.197 [+0.091, +0.303]** below it (Student *t* over the five targets). Manavgat has the
-largest shortfall (+0.319).
+**The transfer shortfall remained on matched frames.** On the 10 km collar at 5 km blocking, the
+within-region reference was 0.786, and transfer was **+0.197 [+0.091, +0.303]** below it (Student *t*
+over the five targets). Manavgat had the largest shortfall (+0.319).
 
-## 4.5 Cross-region transfer on the original study areas
+## 3.5 Cross-region transfer on the original study areas
 
-The results in this section use the original study areas and should be read together with Section
-4.4. Values for each direction are given in Table S16.
+These results use the original study areas and should be read together with Section 3.4. Values for
+each direction are given in Table S16.
 
 **Transfer varied widely, and some directions were below chance.** Target AUC ranged from 0.314 to
 0.677 (Fig. 4). At 5 km blocking, nine of twenty directions were above chance with interval support,
-six were below and five were uncertain; at 1 km blocking the intervals are narrower (Section S1.20).
-Two below-chance directions keep interval support on the collar: Manavgat to Bejís and Muğla to
+six were below and five were uncertain; at 1 km blocking the intervals were narrower (Section S1.20).
+Two below-chance directions kept interval support on the collar: Manavgat to Bejís and Muğla to
 Manavgat. Manavgat was the weakest target, with a mean of 0.435 against 0.494 to 0.572 for the other
 targets. Without the eight directions that involve Manavgat, mean transfer was 0.566, which is still
 far below within-region skill (Section S1.23).
 
-**In precision terms, transfer is weaker still.** Precision-recall AUC averaged **0.181, against a
+**In precision terms, transfer was weaker still.** Precision-recall AUC averaged **0.181, against a
 no-skill baseline of 0.157**; the baseline of each target is its burned prevalence, which ranges from
-0.070 to 0.287. The median lift over the baseline was 1.18. Seven of twenty directions were below their own
-baseline. At 5 km blocking, two of these seven had intervals below the baseline, both into Manavgat (Table
-S11). In map terms, the 10 % of target cells with the highest scores contained on average 10.3 % of
-the burned cells, which is what a random ranking gives, and eight of twenty directions did worse.
-Within regions, the same share was 35.5 % (Section S1.23).
+0.070 to 0.287. The median lift over the baseline was 1.18, and seven of twenty directions were below
+their own baseline; at 5 km blocking, two of these seven had intervals below the baseline, both into
+Manavgat (Table S11). In map terms, the 10 % of target cells with the highest scores contained on
+average 10.3 % of the burned cells, which is what a random ranking gives, and eight of twenty
+directions did worse. Within regions, the same share was 35.5 % (Section S1.23).
 
 **The static baseline did not transfer either.** Its mean was **0.519**, against **0.527** for the
 thermal model, so the failure is not specific to the thermal predictors.
 
-**The thermal gain varies in sign between pairs.** The paired gains ranged from **−0.148 to +0.132**,
+**The thermal gain varied in sign between pairs.** The paired gains ranged from **−0.148 to +0.132**,
 with twelve positive and eight negative, and a mean of +0.007. The directions are not independent,
-because each region appears in eight of them. Accordingly, all six resampling units that can be computed on this frame give intervals that include
-zero, from [−0.006, +0.022] (clustering by target region) to [−0.028, +0.045] (pigeonhole bootstrap;
-Sections S1.15 and S1.23). A crossed random-effects model with source and target intercepts gives
-the widest interval, +0.007 [−0.035, +0.050]; it is more conservative, not an independent
-confirmation (Table S35).
+because each region appears in eight of them. Accordingly, all six resampling units that can be
+computed on this frame gave intervals that include zero, from [−0.006, +0.022] (clustering by target
+region) to [−0.028, +0.045] (pigeonhole bootstrap; Sections S1.15 and S1.23). A crossed
+random-effects model with source and target intercepts gave the widest interval, +0.007 [−0.035,
++0.050]; it is more conservative, not an independent confirmation (Table S35).
 
 **The two label-free adaptation methods moved transfer toward chance** (Fig. 5). Under region-wise
 z-scoring the twenty directions ranged from 0.302 to 0.630, and under CORAL from 0.406 to 0.624. Under
-CORAL, sixteen of twenty directions moved closer to chance. This helped the directions that failed
+CORAL, sixteen of twenty directions moved closer to chance, which helped the directions that failed
 and harmed those that worked, so the mean fell from 0.527 to **0.517**. Choosing the better method in
-each direction gave 0.523, but this choice uses target labels. The gap decomposition covers the twelve directions among Manavgat, Bejís, Muğla and Evia. It was
-computed before Montiferru was added to the cohort and does not include it.
-There, seven directions showed negative recovery, five of them with intervals below zero (Section
-S1.10). A movement toward chance is also what any loss of information would produce. Indeed, aligning the
-source with the covariance of a third, unrelated region moved 15 of 20 directions toward chance as
-well (mean 0.507). CORAL with a stronger regularisation (λ = 1, mean 0.512) or on two thermal
-components (0.523) did not help either (Section S1.23). These results therefore do not show that
-the methods removed a distribution shift.
+each direction gave 0.523, but this choice uses target labels. In the gap decomposition, which was
+computed before Montiferru was added and covers the twelve directions among the other four regions,
+seven directions showed negative recovery, five of them with intervals below zero (Section S1.10).
+A movement toward chance is also what any loss of information would produce: aligning the source
+with the covariance of a third, unrelated region moved 15 of 20 directions toward chance as well
+(mean 0.507), and a stronger regularisation (λ = 1, mean 0.512) did not help (Section S1.23). These
+results therefore do not show that the methods removed a distribution shift.
 
-## 4.6 Further results
+## 3.6 Further results
 
 **Pooling.** A model trained on the other four regions together was better than the mean
-single-source model for one target of five, Evia (0.715 [0.668, 0.757] against 0.569), and worse
-for the other four at the point estimates (Fig. 6).
+single-source model for one target of five, Evia (0.715 [0.668, 0.757] against 0.569), and worse for
+the other four at the point estimates (Fig. 6).
 
-**Feature removal.** Removing the two reversing features lowered within-region AUC by 0.076 and changed transfer by
-+0.014 [−0.018, +0.049] under the primary pair-cluster bootstrap, which includes zero; the pair-t
-interval plotted in Fig. 7 is +0.014 [−0.028, +0.056] (Section S1.14).
+**Feature removal.** Removing the two reversing features lowered within-region AUC by 0.076 and
+changed transfer by +0.014 [−0.018, +0.049] under the primary pair-cluster bootstrap, which includes
+zero; the pair-t interval plotted in Fig. 7 is +0.014 [−0.028, +0.056] (Section S1.14).
 
-**Similarity measures.** Twenty similarity measures were recorded on 8 August 2026 and were not
-changed after the label correction. On the original study areas, none predicted transfer with an interval that excludes zero (Table
-S17), and in a permutation test over all 120 orderings of the five regions no measure reached
-p < 0.10 (Section S1.23). Under the original Manavgat label, the two largest conditional
-measures, the sign-agreement fraction and its cosine, had intervals that excluded zero (+0.84 and
-+0.81); after the label correction they did not, so this null result depends on the correction
-(Section S1.21). The conditional and niche-overlap measures also need burned labels in both regions,
-so only the marginal measures and geographic distance could be computed before a fire, and none
-of them predicted transfer (Section S1.21). One measure is defined on only six directions and is not interpreted. The contrast pairs illustrate this at the point estimates (Fig. 8). Manavgat and Muğla
-have the highest niche overlap in the cohort (mean one-dimensional Schoener's *D* = 0.80), but
-transfer was below chance in both directions, at 0.438 and 0.345. Conversely, Bejís and Montiferru
-have the lowest overlap (*D* = 0.48), but transfer was above chance in both directions, at 0.594 and
-0.548. At 5 km blocking only Muğla to Manavgat keeps interval support (Section S1.16).
+**Similarity measures.** The twenty similarity measures were not changed after the label correction.
+On the original study areas, none predicted transfer with an interval that excludes zero (Table S17),
+and in a permutation test over all 120 orderings of the five regions no measure reached p < 0.10
+(Section S1.23). Under the original Manavgat label, the two largest conditional measures, the
+sign-agreement fraction and its cosine, had intervals that excluded zero (+0.84 and +0.81); after the
+label correction they did not, so this null result depends on the correction (Section S1.21). Only
+the marginal measures and geographic distance can be computed before a fire, because the others need
+burned labels in both regions, and none of them predicted transfer (Section S1.21). The contrast pairs
+illustrate this at the point estimates (Fig. 8). Manavgat and Muğla have the highest niche
+overlap in the cohort (mean one-dimensional Schoener's *D* = 0.80), but transfer was below chance in
+both directions, at 0.438 and 0.345. Conversely, Bejís and Montiferru have the lowest overlap
+(*D* = 0.48), but transfer was above chance in both directions, at 0.594 and 0.548. At 5 km blocking
+only Muğla to Manavgat kept interval support (Section S1.16).

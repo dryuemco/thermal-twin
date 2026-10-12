@@ -8,5 +8,20 @@
     "evaluation area",
     "land surface temperature",
     "spatial cross-validation"
-  ]
+  ],
+  "fire_ecology": {
+    "title": "Evaluation area and the limits of wildfire model transfer",
+    "keywords": [
+      "Burned area",
+      "Fire susceptibility",
+      "Greece",
+      "Italy",
+      "Land surface temperature",
+      "Mediterranean Basin",
+      "Satellite thermal data",
+      "Spain",
+      "Spatial cross-validation",
+      "Türkiye"
+    ]
+  }
 }

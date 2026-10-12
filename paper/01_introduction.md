@@ -1,72 +1,105 @@
-# 1. Introduction
+# 1. Background
 
 Wildfire is a major disturbance in Mediterranean landscapes, and climate change is changing where
-and how it burns [@Pausas2021]. Most fire susceptibility maps follow a common workflow
-[@Jain2020; @Vibhandik2026; @Jodhani2026]. Predictors are collected over a study region and matched
-with a record of burned areas, and a classifier, most often a random forest [@Breiman2001;
-@Oliveira2012; @Tonini2020], is then trained. Finally, the map is reported with a cross-validated score from the
-same region. Agencies without a long local fire record, for example after a first large fire, would
-instead use a map trained elsewhere. **How well the model works in another region is not reported.** This study measures it.
+and how it burns [@Pausas2021]. Mediterranean fire policy is urged to shift from suppression towards
+prevention and landscape management [@Moreira2020], and susceptibility maps support this planning.
+Most such maps follow a common workflow [@Jain2020; @Vibhandik2026; @Jodhani2026]. Predictors are
+collected over a study region and matched with a record of burned areas, a classifier, most often a
+random forest [@Breiman2001; @Oliveira2012; @Tonini2020], is trained, and the map is reported with a
+cross-validated score from the same region. Agencies without a long local fire record, for example
+after a first large fire, would instead have to use a map trained elsewhere. **How well the model
+works in another region is rarely reported.**
 
 ## 1.1 Transfer is rarely measured
 
 The skill of a susceptibility model is almost always a *within-region* estimate. The test folds come
-from the same area and season, and often from the same fire. In addition, random folds let spatial
+from the same area and season, and often from the same fire, and random folds let spatial
 autocorrelation raise the score [@Roberts2017; @Ploton2020]. Spatially blocked cross-validation
-reduces this problem [@Valavi2019; @Meyer2018], but it still does not show how the model works on a
-fire it has not seen.
+reduces this optimism [@Valavi2019; @Meyer2018], although its use for map accuracy is debated
+[@Wadoux2021; @deBruin2022; @Mila2022], and the area of applicability shows where predictor values
+are too far from the training data [@Meyer2021; @Meyer2022; @Ludwig2023]. Neither shows how a model
+works on a fire it has not seen. Transferability must be tested on spatially or temporally separate
+data [@Wenger2012], and it remains an open problem in ecological modelling [@Yates2018].
 
-A regional product built from local models is expected to work outside its training area, yet this
-is rarely tested. Fire-danger indices, which are driven by weather, did not transfer well between
-fire environments in Peru [@Podschwit2022]. Operational fire-danger rating in Europe, as in the
-European Forest Fire Information System (EFFIS), also rests on weather-driven indices such as the
-Canadian Fire Weather Index (FWI) [@Vitolo2020], and large Mediterranean fires grow under heat,
-wind and drought [@Ruffault2020; @Ghasemiazma2026]. Regional fire-occurrence models in the Alps and the
-Mediterranean Basin transferred well only under similar conditions [@Bekar2020], and two recent
-studies also found that transfer mainly succeeds between similar regions [@Dimarco2026; @Liu2025].
-Satellite measurements of the land surface before a fire are a third kind of predictor. They change
-from season to season like weather, but they describe each location like a map. Whether models built
-on them transfer between regions has not been tested. They are meant to complement weather-driven
-danger ratings, not to replace them, and this study isolates this surface component.
+Few studies test the transfer of fire models directly. Fire-danger indices, which are driven by
+weather, did not transfer well between fire environments in Peru [@Podschwit2022]. Operational
+fire-danger rating in Europe, as in the European Forest Fire Information System, also rests on
+weather-driven indices such as the Canadian Fire Weather Index [@Vitolo2020], and large
+Mediterranean fires grow under heat, wind and drought [@Ruffault2020; @Ghasemiazma2026]. Regional
+fire-occurrence models in the Alps and the Mediterranean Basin transferred well only under similar
+conditions, and a pooled model was more robust [@Bekar2020]. WildfireGenome [@Liu2025] found good
+transfer between similar US counties and poor transfer between dissimilar ones, with a composite of
+hazard indicators as the label rather than observed burned area. The closest Mediterranean study
+[@Dimarco2026] used 500 m predictors in four countries and a full transfer matrix. No transfer fell
+below an AUC of 0.80, and similar countries scored higher, but the predictors were static attributes
+of a place and the response was human-caused ignition. Susceptibility has also been mapped with one
+random forest for thirteen countries of the eastern Mediterranean and southern Black Sea from a decade
+of fires [@Trucchia2023], but such a model is fitted on all regions at once, so it does not measure
+transfer to a region without a fire record.
+Conclusions about wildfire models also depend on how they are evaluated [@Xu2026].
+
+When a model is moved, the predictor distribution may change (covariate shift), which can in
+principle be corrected without target labels, for example by covariance alignment (CORAL)
+[@Sun2016], as is common in remote sensing [@Tuia2016; @Persello2012], where shift decomposition
+has also been used [@Huang2026]. The predictor-response relationship itself may also change (concept
+shift) [@MorenoTorres2012], and a reversed association can only be seen with target labels. We found
+no use of covariance alignment for fire susceptibility or burned-area prediction.
 
 ## 1.2 Pre-fire thermal state as a test case
 
-Pre-fire thermal state is a natural test case. Static predictors change little between years, so
-they cannot explain why one summer burned and another did not. Surface state does change, and
-satellite thermal data give partial access to it, because land surface temperature rises as
-vegetation dries (Section 2.1). If the link between moisture stress and burning is general, thermal
-predictors should keep at least part of their value in a new region. Normalised channels, such as
-the Temperature-Vegetation Dryness Index, were expected to transfer best, because they should be less
-affected by temperature differences between regions. A failure of these predictors to transfer is
-therefore informative.
+Satellite measurements of the land surface before a fire are a third kind of predictor. They change
+from season to season like weather, but they describe each location like a map. Static predictors
+change little between years, so they cannot explain why one summer burned and another did not.
+Satellite thermal data can be used to estimate fuel moisture [@Yebra2013], because land surface
+temperature (LST) rises as vegetation dries. LST combined with a vegetation index was used by
+Chuvieco et al. [@Chuvieco2004] to estimate live fuel moisture for fire-danger rating, and the
+Temperature-Vegetation Dryness Index (TVDI) [@Sandholt2002] is an internally normalised form of this
+approach, so it is often expected to transfer better than raw temperature. Pre-fire LST anomalies are
+related to the burned area and duration of later fires [@Maffei2018; @Maffei2021], pre-fire optical
+moisture indices carry similar information [@MaffeiMenenti2019], and dead fuel moisture was the
+strongest predictor of human-caused ignition across Europe in a pooled model [@Gelabert2025].
+Pre-fire evaporative stress from spaceborne thermal data has been used to predict unseen fires
+within one region [@PascoliniCampbell2025], and within-region susceptibility models exist for
+Turkish Mediterranean landscapes [@AlkanAkinci2023; @Iban2022]. Satellite fuel-moisture models are,
+however, usually site-specific, and their transfer is rarely tested [@Marino2024]. To our knowledge,
+the transfer of a classifier that uses pre-fire thermal state to another region, without target
+labels, has not been tested. Large datacubes now support deep-learning fire-danger models
+[@Kondylatos2023]; we used a simple fixed classifier, so that only the evaluation changes. Surface
+predictors of this kind are meant to complement weather-driven danger ratings, not to replace them.
 
-## 1.3 Contributions
+## 1.3 Evaluation area and similarity
 
-**Contribution 1. The evaluation area changes what a model appears to know.** It is known from
-species distribution modelling (Section 2.3) that the evaluation area affects the area under the
-receiver operating characteristic curve (ROC-AUC). Here the size of
-this effect was measured for burned-area models with a controlled design. The model, the predictors
-and the fitting were kept fixed, and only the scored cells were changed. With the region as the unit,
-the score fell by **0.160 ROC-AUC** across five regions. The loss came from the unburned cells next to
-the fire, not from class balance (Section 4.3). A second test, on distance collars, showed that three
-between-region results of this study depend on the study areas: mean transfer, which elevation
-reversals have interval support, and the correlation of one similarity measure with transfer
-(Section 4.4).
+In species distribution modelling, the evaluation area is known to affect the area under the
+receiver operating characteristic curve (ROC-AUC). Lobo et al. [@Lobo2008] list it among the main
+reasons for caution when AUC values are compared, because a larger area adds more easy absences and
+raises the score. Related effects were shown for spatial sorting bias between training and test
+sites [@Hijmans2012], in a general analysis of AUC [@JimenezValverde2012] and for calibration
+[@VanDerWal2009], and the effect was described in general terms as the accessible area [@Barve2011].
+Its size depends on the problem. We found no wildfire study that keeps the model fixed and changes
+only the evaluation cells, although region-wide scores are often read as if they described
+performance next to the fire.
 
-**Contribution 2. Local skill transfers at most weakly.** The thermal predictors improved
-within-region skill in all five regions. On the scar frame, however, the gain was small and not
-established (Section 4.3). Across twenty transfer directions the gain was +0.007 on the original
-study areas and +0.024 on comparable study areas. Both intervals included zero (Section 4.4). The
-static baseline did not transfer better. On matched areas, transfer stayed **0.197** below the
-within-region reference.
+If transfer cannot be assumed, it might still be predicted from the similarity of two regions.
+Species distribution studies disagree on this. Vesk et al. [@Vesk2021] found that trait-based models
+did not predict worse with increasing geographic or environmental distance, whereas Rousseau and
+Betts [@Rousseau2022] found that transferability decreased with geographic distance and with
+extrapolation. Niche overlap can be measured with Schoener's *D* and Warren's *I*
+[@Schoener1968; @Warren2008].
 
-**Contribution 3. No similarity measure was shown to predict transfer.** Twenty similarity
-measures were tested, ranging from predictor distance to niche overlap and the agreement of
-predictor-burning relationships. On the original study areas, none predicted transfer (Section
-4.6). With ten independent region pairs, this is a failure to find an ordering, not proof that none
-exists.
+## 1.4 Objectives
 
-The two label-free adaptation methods tested [@Sun2016] did not improve transfer either. The analysis
-code, configuration and frozen outputs are public, so all results can be checked and re-run
-(Declarations). This matters because conclusions about wildfire models depend on how they are
-evaluated [@Xu2026].
+We measured how far the skill of pre-fire thermal predictors transfers between five Mediterranean
+regions, each with one large fire season, and asked three questions.
+
+1. How much does the evaluation area change the score of one fixed model? We kept the model, the
+   predictors and the fitting fixed and changed only the scored cells.
+2. Does within-region thermal skill transfer to another region without target labels? If the link
+   between moisture stress and burning is general, thermal predictors should keep at least part of
+   their value in a new region, and normalised channels such as the TVDI should transfer best,
+   because they should be less affected by temperature differences between regions.
+3. Can the similarity of two regions predict transfer, so that a source region could be chosen
+   before a fire?
+
+We also tested two label-free adaptation methods [@Sun2016], pooled training and the removal of
+predictors whose association reversed between regions. The analysis code, configuration and frozen
+outputs are public, so all results can be checked and re-run (Data availability).

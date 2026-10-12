@@ -66,6 +66,11 @@ paper/submission_fire/cover_letter.docx
 paper/submission_fire/cover_letter.pdf
 # Suggested reviewers are confidential
 paper/submission_fire/suggested_reviewers.md
+# Fire Ecology: the reviewer list and the cover letter built with it (to be signed) stay local
+paper/tex/manuscript_fire_ecology_assembled.md
+paper/submission_fire_ecology/suggested_reviewers.md
+paper/submission_fire_ecology/cover_letter.docx
+paper/submission_fire_ecology/cover_letter.pdf
 
 # The modelling datasets override the binary rules above
 !paper/data/**/*.parquet
