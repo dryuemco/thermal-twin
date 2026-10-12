@@ -1,49 +1,14 @@
 # 1. Background
 
-Wildfire is a major disturbance in Mediterranean landscapes, and climate change is changing where
-and how it burns [@Pausas2021]. Mediterranean fire policy is urged to shift from suppression towards
-prevention and landscape management [@Moreira2020], and susceptibility maps support this planning.
-Most such maps follow a common workflow [@Jain2020; @Vibhandik2026; @Jodhani2026]. Predictors are
-collected over a study region and matched with a record of burned areas, a classifier, most often a
-random forest [@Breiman2001; @Oliveira2012; @Tonini2020], is trained, and the map is reported with a
-cross-validated score from the same region. Agencies without a long local fire record, for example
-after a first large fire, would instead have to use a map trained elsewhere. **How well the model
-works in another region is rarely reported.**
+Wildfire is a major disturbance in Mediterranean landscapes, and climate change is altering fire regimes [@Pausas2021]. Mediterranean fire policy needs to shift from suppression towards prevention and landscape management [@Moreira2020], with susceptibility maps supporting this planning. Most maps follow a common workflow [@Jain2020; @Vibhandik2026; @Jodhani2026], using predictors and burned-area records to train a classifier, most commonly a random forest [@Breiman2001; @Oliveira2012; @Tonini2020], whose performance is evaluated within the same region. However, agencies with limited local fire records may need to use a model trained elsewhere, but how well such models perform in another region is rarely reported.
 
 ## 1.1 Transfer is rarely measured
 
-The skill of a susceptibility model is almost always a *within-region* estimate. The test folds come
-from the same area and season, and often from the same fire, and random folds let spatial
-autocorrelation raise the score [@Roberts2017; @Ploton2020]. Spatially blocked cross-validation
-reduces this optimism [@Valavi2019; @Meyer2018], although its use for map accuracy is debated
-[@Wadoux2021; @deBruin2022; @Mila2022], and the area of applicability shows where predictor values
-are too far from the training data [@Meyer2021; @Meyer2022; @Ludwig2023]. Neither shows how a model
-works on a fire it has not seen. Transferability must be tested on spatially or temporally separate
-data [@Wenger2012], and it remains an open problem in ecological modelling [@Yates2018].
+Susceptibility models are usually evaluated within the regions where they are trained, often using test folds from the same area, season or fire. Random folds can inflate performance through spatial autocorrelation [@Roberts2017; @Ploton2020], while spatial blocking reduces this optimism [@Valavi2019; @Meyer2018], although its suitability for map accuracy assessment remains debated [@Wadoux2021; @deBruin2022; @Mila2022]. The area of applicability identifies locations where predictor values are sufficiently dissimilar from the training data, based on their distance in predictor space [@Meyer2021; @Meyer2022; @Ludwig2023]. However, neither approach establishes performance on an unseen fire. Transferability requires testing on spatially or temporally independent data [@Wenger2012] and remains an open challenge in ecological modelling [@Yates2018].
 
-Few studies test the transfer of fire models directly. Fire-danger indices, which are driven by
-weather, did not transfer well between fire environments in Peru [@Podschwit2022]. Operational
-fire-danger rating in Europe, as in the European Forest Fire Information System, also rests on
-weather-driven indices such as the Canadian Fire Weather Index [@Vitolo2020], and large
-Mediterranean fires grow under heat, wind and drought [@Ruffault2020; @Ghasemiazma2026]. Regional
-fire-occurrence models in the Alps and the Mediterranean Basin transferred well only under similar
-conditions, and a pooled model was more robust [@Bekar2020]. WildfireGenome [@Liu2025] found good
-transfer between similar US counties and poor transfer between dissimilar ones, with a composite of
-hazard indicators as the label rather than observed burned area. The closest Mediterranean study
-[@Dimarco2026] used 500 m predictors in four countries and a full transfer matrix. No transfer fell
-below an AUC of 0.80, and similar countries scored higher, but the predictors were static attributes
-of a place and the response was human-caused ignition. Susceptibility has also been mapped with one
-random forest for thirteen countries of the eastern Mediterranean and southern Black Sea from a decade
-of fires [@Trucchia2023], but such a model is fitted on all regions at once, so it does not measure
-transfer to a region without a fire record.
-Conclusions about wildfire models also depend on how they are evaluated [@Xu2026].
+Few studies directly assess the transferability of fire models. Weather-driven fire-danger indices transferred poorly between fire environments in Peru [@Podschwit2022]. European operational fire-danger systems, including the European Forest Fire Information System, also rely on weather-based indices such as the Canadian Fire Weather Index [@Vitolo2020], while major Mediterranean fires are driven by heat, wind and drought [@Ruffault2020; @Ghasemiazma2026]. Regional fire-occurrence models transferred well across the Alps and Mediterranean Basin only under similar conditions, with a pooled model proving more robust [@Bekar2020]. WildfireGenome [@Liu2025] likewise found better transfer between similar US counties than dissimilar ones, but used composite hazard indicators rather than observed burned areas as the response. The closest Mediterranean study [@Dimarco2026] evaluated a full transfer matrix across four countries using 500 m predictors; all transfers achieved an AUC of at least 0.80, with higher scores between similar countries. However, its predictors described static place characteristics, and its response was human-caused ignition. A random forest susceptibility model covering thirteen eastern Mediterranean and southern Black Sea countries was trained on a decade of fire records [@Trucchia2023], but fitting all regions jointly does not test transfer to a region without a fire record. More broadly, conclusions about wildfire models depend on how performance is evaluated [@Xu2026].
 
-When a model is moved, the predictor distribution may change (covariate shift), which can in
-principle be corrected without target labels, for example by covariance alignment (CORAL)
-[@Sun2016], as is common in remote sensing [@Tuia2016; @Persello2012], where shift decomposition
-has also been used [@Huang2026]. The predictor-response relationship itself may also change (concept
-shift) [@MorenoTorres2012], and a reversed association can only be seen with target labels. We found
-no use of covariance alignment for fire susceptibility or burned-area prediction.
+When a model is transferred to a new region, its predictor distribution may change (covariate shift). This can potentially be addressed without target labels using methods such as covariance alignment (CORAL) [@Sun2016]. Domain adaptation more broadly is well established in remote sensing [@Tuia2016; @Persello2012], including approaches that decompose different sources of shift [@Huang2026]. However, the predictor-response relationship may also change (concept shift) [@MorenoTorres2012], and detecting a reversal in association requires target labels. We found no previous application of covariance alignment to fire susceptibility or burned-area prediction.
 
 ## 1.2 Pre-fire thermal state as a test case
 

@@ -1,25 +1,7 @@
 # Abstract
 
-**Background** Wildfire susceptibility maps are usually scored in the region where they were trained,
-yet agencies without a long fire record may borrow a map from elsewhere. We tested whether pre-fire
-satellite thermal predictors, expected to track fuel dryness, transfer between Mediterranean regions.
-Six land surface temperature (LST) and dryness predictors extended a terrain, land-cover and greenness
-baseline. We fitted random forests in five regions, each with one large fire season (2021 or 2022):
-Manavgat and Muğla (Türkiye), Bejís (Spain), North Evia (Greece) and Montiferru (Italy). Skill was the
-spatially blocked area under the receiver operating characteristic curve (ROC-AUC) against Moderate
-Resolution Imaging Spectroradiometer (MODIS) burned areas, within each region and across all twenty
-ordered pairs of regions without target labels.
+**Background** Wildfire susceptibility maps are usually evaluated in their training region, although agencies with limited fire records may need to use maps developed elsewhere. We tested whether pre-fire satellite thermal predictors, expected to track fuel dryness, improve cross-region transferability. Six land surface temperature (LST) and dryness predictors were added to a terrain, land-cover and greenness baseline. Random forests were trained separately in each of five regions, each represented by one major fire season (2021 or 2022): Manavgat and Muğla (Türkiye), Bejís (Spain), North Evia (Greece) and Montiferru (Italy). Performance was measured using spatially blocked area under the receiver operating characteristic curve (ROC-AUC) against Moderate Resolution Imaging Spectroradiometer (MODIS) burned areas, within regions and across all 20 ordered source–target pairs without target labels.
 
-**Results** Scored on the burn scar and a 2 km collar, not region-wide, the same models lost 0.160
-[0.090, 0.230] ROC-AUC on average. At 5 km blocking, thermal predictors added +0.045 to +0.148 within
-regions, but only +0.007 [−0.020, +0.038] across twenty directions and +0.024 [−0.004, +0.049] on
-comparable areas. Two label-free adaptation methods moved transfer toward chance. None of twenty
-similarity measures was shown to predict transfer. At point estimates, the most similar pair of
-regions failed in both directions, and hotter surfaces burned less in four of five regions (two with
-interval support), consistent with LST describing land surface rather than dryness.
+**Results** Evaluating models on the burn scar and its 2 km collar reduced ROC-AUC by 0.160 [0.090, 0.230] on average compared with region-wide evaluation. With 5 km spatial blocking, thermal predictors improved within-region ROC-AUC by 0.045–0.148, but gains were small across 20 transfer directions (+0.007 [−0.020, +0.038]) and comparable evaluation areas (+0.024 [−0.004, +0.049]). Two label-free adaptation methods moved transfer performance closer to chance, and none of the 20 similarity measures was shown to predict transfer. The most similar region pair failed to transfer in either direction at point estimates. In four of five regions, hotter surfaces were associated with less burning, with interval support in two, consistent with LST acting as a land-surface descriptor of vegetation, soil and terrain rather than a direct indicator of fuel dryness.
 
-**Conclusions** A score from the training region does not show how a susceptibility map will perform
-in another region. Before a borrowed single-season model is used for prevention planning, fire
-agencies should test it against burned areas in the target region and report on which cells its score
-was computed. Region and event effects are confounded here, so several fire seasons per region are
-needed to generalise.
+**Conclusions** Performance measured in one region does not demonstrate that a susceptibility map will generalise to another region. Before a model trained in one region and fire season is transferred to another region for prevention planning, its performance should be evaluated using burned areas in the target region, and the evaluation area should be clearly reported. Because region and event effects cannot be separated when each region is represented by a single fire season, multiple fire seasons within each region are needed to determine whether these findings generalise beyond individual fire events.
