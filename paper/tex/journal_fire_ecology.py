@@ -427,6 +427,10 @@ Not applicable.
 
     # ---- Additional file 1: the shared Supplementary Material, with its own reference list
     SEQ = {}
+    old = f"Supplementary material for *{B.FM['title']}*."
+    assert sup_src.count(old) == 1, "the supplement's opening line no longer names the shared title"
+    sup_src = sup_src.replace(old, f"Supplementary material for *{title}*.")
+    assert B.FM["title"] not in sup_src, "the supplement still names the shared title"
     sup = B.equations(B.narrative(sup_src), SEQ, prefix="S", external=EQ)
     sup = re.sub(r"\A# Supplementary Material\s*\n", "", sup)
     sup_md = (f'---\ntitle: "Additional file 1: Supplementary Material"\nsubtitle: "{title}"\nlang: en-GB\n---\n\n'
