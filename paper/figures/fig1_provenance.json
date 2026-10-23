@@ -6,6 +6,68 @@
   "sha256": "9484187f0677ef845018a3b189b5f7c92bbb0f7163cda9636bbf6f02cb4c5636",
   "note": "step0 geojson / 30m-grid-derived; sha256 per source inside"
  },
+ "panel_b_data": {
+  "path": "paper/figures/data/fig1b_frames.npz",
+  "sha256": "7155336e32c3bc449d078c4b9b1189378c512eeb5d16f155165c460bcb17bd89",
+  "written_by": "paper/figures/fig1b_data.py (project venv, modelling datasets via _canonical.py)",
+  "stats": {
+   "bejis_2022": {
+    "beyond_10km_pct": 63.1,
+    "burned": 1100,
+    "cells": 15190,
+    "cols": 153,
+    "edge_burned": 0,
+    "ew_km": 0.3911758277994422,
+    "ns_km": 0.5100023328837442,
+    "rows": 103,
+    "scars_ge_50": 1
+   },
+   "evia_2021_extended": {
+    "beyond_10km_pct": 43.7,
+    "burned": 2664,
+    "cells": 9298,
+    "cols": 175,
+    "edge_burned": 0,
+    "ew_km": 0.39718626637560567,
+    "ns_km": 0.5100023328837442,
+    "rows": 131,
+    "scars_ge_50": 1
+   },
+   "manavgat_2021": {
+    "beyond_10km_pct": 58.5,
+    "burned": 2935,
+    "cells": 20511,
+    "cols": 175,
+    "edge_burned": 0,
+    "ew_km": 0.4071247378910127,
+    "ns_km": 0.5100023328837442,
+    "rows": 138,
+    "scars_ge_50": 1
+   },
+   "montiferru_2021": {
+    "beyond_10km_pct": 2.1,
+    "burned": 539,
+    "cells": 2544,
+    "cols": 66,
+    "edge_burned": 0,
+    "ew_km": 0.38978066962045965,
+    "ns_km": 0.5100023328837442,
+    "rows": 49,
+    "scars_ge_50": 2
+   },
+   "mugla_2021": {
+    "beyond_10km_pct": 55.3,
+    "burned": 2911,
+    "cells": 41730,
+    "cols": 393,
+    "edge_burned": 15,
+    "ew_km": 0.40717820337739874,
+    "ns_km": 0.5100023328837442,
+    "rows": 186,
+    "scars_ge_50": 4
+   }
+  }
+ },
  "basemap": {
   "dataset": "Natural Earth 1:50m physical: coastline + land",
   "fetched_via": "cartopy 0.25.0 downloader; files read from the cartopy cache",
@@ -45,19 +107,14 @@
   "proj": "9.8.1"
  },
  "reproducibility": "Re-rendered 2026-09-23 and committed as the figure of record. The previous render (2026-08-08) could not be reproduced by this script with the Natural Earth files, the AOI file and the geo stack recorded here, although all three predate it; the cause was not identified. Its production environment is uncertain: its SVG dc:date reads 23:46 while the commit that added it is timed 20:49, which is inconsistent. The present render is deterministic in this environment (two consecutive rebuilds are identical once matplotlib ids are normalised). It differs from the previous one by two small paths at the top-left edge of the map, one land fill and its coastline; no AOI, marker or label is affected. An earlier commit message (67790d8) attributed the difference to cartopy re-fetching its coastline data; that was wrong, since the cache files date from 2026-08-08.",
- "asserts": "all five AOI bboxes match 03_methods Table 1 to 5e-3 deg",
- "design": "single AOI colour across the five study regions (no regime grouping implied); no topography/satellite; Kozan 2023 drawn as gate control in a distinct style (grey + dashed edge + square marker + role in label + separate legend entry) so its location is findable from Methods 3.3 / Results 4.1 without implying it entered any model",
+ "asserts": "all five AOI bboxes match Table S19 to 5e-3 deg; panel (b) cells, burned cells and the share beyond 10 km match Tables S13, S15 and Table 1",
+ "design": "2026-10-23 redraw: one blue dot per study area (no regime grouping implied); no topography/satellite; Kozan 2023 as an open grey square with its own key entry, so its location is findable from the gate section without implying it entered any model; 170 mm wide (SpringerOpen full page width), key inside the graphic",
  "kozan_bbox_source": "drive_new/kozan-legacy/step8a/step8a_dataset_stats.json (30 m reference-grid transform); cross-checked in-script against the independent step2b_dem_metadata.json AOI polygon to 5e-3 deg",
  "palette": "Okabe-Ito blue (study) / neutral grey (control) on very light neutral land; greyscale-safe",
- "legend": [
-  "Study region (n = 5)",
-  "Gate control (not modelled)"
- ],
  "canvas_mm": [
-  190.0,
-  62.3
+  170.0,
+  108.6
  ],
- "column": "double (190 mm)",
  "font_pt": {
   "body": 9.0,
   "minimum": 8.0

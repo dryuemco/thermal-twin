@@ -415,7 +415,7 @@ def table_a4():
     d = a4_records()
     # The producer (prevalence_control.py) stores these at 4 dp, so the table prints them at 4 dp:
     # rounding a stored ...5 to 3 dp would double-round and cannot be done unambiguously.
-    # Cross-check: column A is the region's 5 km blocked thermal AUC, which Table 1 prints (block 10).
+    # Cross-check: column A is the region's 5 km blocked thermal AUC, which Table 2 prints (block 10).
     fig = json.loads(f(P / "figures" / "data" / "fig_data_corrected.json", P / "figures" / "data" / "fig_data.json").read_text(encoding="utf-8"))["fig34"]
     for r in d:
         assert abs(r["A_region"] - fig[r["region"]]["10"]["thermal"]) < 5.1e-5, (r["region"], r["A_region"])

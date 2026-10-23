@@ -88,7 +88,7 @@ ABBREVIATIONS = {
     "TVDI": "Temperature-Vegetation Dryness Index",
     "VIIRS": "Visible Infrared Imaging Radiometer Suite",
 }
-ADDITIONAL = ("Sections, tables and figures numbered with S (for example Section S1.23, Table S21 and Fig. S1) "
+ADDITIONAL = ("Sections and tables numbered with S (for example Section S1.23 and Table S21) "
               "are in Additional file 1.")
 # where the first pointer to the supplement goes: after the paragraph that first cites an S section
 ADDITIONAL_AFTER = "after the first results; they\nare exploratory, and we report them as such."
@@ -146,7 +146,9 @@ def tables(body):
         table = re.sub(r"(?<=\d),(?=\d{3}\b)", "", table)                  # 2,802 -> 2802 inside tables
         below = re.sub(r"(?<=\d),(?=\d{3}\b)", "", below)
         items.append((int(num), words(title), words(below)))
-        return f"**Table {num}** {title}\n\n{table.rstrip()}\n\n{below}"
+        # the trailing newline keeps the next paragraph apart: without it the paragraph after a table
+        # joined its legend in the .docx and was left out of the word count (found 2026-10-23)
+        return f"**Table {num}** {title}\n\n{table.rstrip()}\n\n{below}\n"
     body = pat.sub(fix, body)
     assert not re.search(r"\*\*Table \d+\. ", body), "a table caption was not converted"
     return body, items
@@ -268,6 +270,98 @@ def check_numbers(sources, md, path):
     return sum(asm_body.values())
 
 
+# ---------------------------------------------------------------- cross-reference links
+# Every "Fig. n", "Table n", "Section a.b" and "Eq. (n)" becomes an internal link to its figure, table,
+# heading or equation (author's request, 2026-10-23). Applied after the citation checks above, which
+# read the plain text. A reference into the other file (main text to Additional file 1 or back) has
+# no target in its own file and stays plain. Identifiers use underscores, which Word accepts in
+# bookmark names.
+_SEP = r"(?:, | and | to |–)"
+
+
+def _key(num):
+    return num.lower().replace(".", "_")
+
+
+def anchor_targets(md, s=""):
+    """Identifiers for the numbered headings, figures, tables and equations of one file; s = "" for the
+    main text, "S" for Additional file 1. Returns the Markdown and the set of identifiers."""
+    ids = set()
+
+    def head(m):
+        ids.add(f"sec_{_key(m.group(2))}")
+        return f"{m.group(1)} {m.group(2)} {m.group(3)} {{#sec_{_key(m.group(2))}}}"
+    md = re.sub(rf"(?m)^(#{{1,4}}) ({s}\d+(?:\.\d+)*) (.+?)\s*$", head, md)
+
+    def fig(m):
+        ids.add(f"fig_{_key(m.group(2))}")
+        return f"::: {{#fig_{_key(m.group(2))}}}\n{m.group(1)}\n:::"
+    md = re.sub(rf"(?ms)^(!\[\*\*Fig\. ({s}\d+)[ .].*?\)\{{[^}}]*\}})", fig, md)
+
+    def tab(m):
+        ids.add(f"tab_{_key(m.group(1))}")
+        return f"[]{{#tab_{_key(m.group(1))}}}**Table {m.group(1)}"
+    md = re.sub(rf"(?m)^\*\*Table ({s}\d+)(?=[ .*])", tab, md)
+
+    def eq(m):
+        ids.add(f"eq_{_key(m.group(2))}")
+        return f"::: {{#eq_{_key(m.group(2))}}}\n$$\n{m.group(1)}\n$$\n:::"
+    md = re.sub(rf"(?ms)^\$\$\n(.*?\\qquad \(({s}\d+)\))\n\$\$", eq, md)
+    return md, ids
+
+
+def link_refs(md, ids, s=""):
+    """Turn the references of one file into links to the identifiers of anchor_targets; headings and
+    code spans are left alone. Returns the Markdown and the number of links."""
+    num = rf"{s}\d+(?:\.\d+)*"
+    kinds = ((r"Figs?\.", "fig", rf"{s}\d+[a-z]?"), (r"Tables?", "tab", num), (r"Sections?", "sec", num),
+             (r"Eqs?\.", "eq", rf"\({num}\)"))          # "Fig. 1b" links to Fig. 1
+    count = 0
+
+    def one(seg):
+        nonlocal count
+        for word, kind, n in kinds:
+            def repl(m):
+                nonlocal count
+                parts = re.split(rf"({_SEP})", m.group("nums"))
+                out = []
+                for i, p in enumerate(parts):
+                    target = (f"{kind}_{_key(re.sub(r'(?<=\d)[a-z]$', '', p.strip('()')))}"
+                              if i % 2 == 0 else None)
+                    text = f"{m.group('w')} {p}" if i == 0 else p
+                    if target in ids:
+                        out.append(f"[{text}](#{target})")
+                        count += 1
+                    else:
+                        out.append(text)
+                return "".join(out)
+            # not inside a link already, not a bold caption title ("**Fig. 3", "**Table 1"), and a
+            # continuation number is not a quantity ("Section 3.3 and 5 km")
+            more = rf"(?:{_SEP}{n}(?!\.?\d|\s?(?:km|m\b|cells|days|%|°)))*"
+            seg = re.sub(rf"(?<![\[\w*])(?P<w>{word}) (?P<nums>{n}{more})(?![\w.]*\])", repl, seg)
+        return seg
+
+    lines = []
+    for line in md.split("\n"):
+        if line.startswith("#"):
+            lines.append(line)
+            continue
+        bits = line.split("`")
+        lines.append("`".join(one(b) if i % 2 == 0 else b for i, b in enumerate(bits)))
+    return "\n".join(lines), count
+
+
+def check_links(path):
+    """Every internal link of the .docx points at a bookmark that exists in it."""
+    import zipfile
+    x = zipfile.ZipFile(path).read("word/document.xml").decode("utf-8")
+    marks = set(re.findall(r'<w:bookmarkStart [^>]*w:name="([^"]+)"', x))
+    anchors = re.findall(r'<w:hyperlink [^>]*w:anchor="([^"]+)"', x)
+    missing = sorted(set(anchors) - marks)
+    assert not missing, f"{path.name}: links without a target: {missing}"
+    return len(anchors)
+
+
 # ---------------------------------------------------------------- build
 def build(pdf=True):
     OUT.mkdir(exist_ok=True)
@@ -358,7 +452,7 @@ Article type: Research. Main text (Background to Conclusions, tables, figures an
 
 Additional file 1 (Additional_file_1.pdf; PDF). Supplementary Material: sensitivity analyses and detail
 (Sections S1.1 to S1.23), supporting tables (Section S2), protocol detail and the full list of limitations
-(Section S3), the target-label recovery curve (Section S4), Fig. S1 and Tables S1 to S{n_sup_tab}, each with
+(Section S3), the target-label recovery curve (Section S4) and Tables S1 to S{n_sup_tab}, each with
 the source files of its values.
 
 # Acknowledgements
@@ -408,10 +502,14 @@ Not applicable.
     assert "Additional file 1" in body, "Additional file 1 not cited in the text"
     items = check_display_items(ms_md.replace("@@WORDS@@", "0"), len(caps), len(tab_items))
     ms_md = ms_md.replace("@@WORDS@@", f"{n_words:,}")
+    ms_md, ms_ids = anchor_targets(ms_md)
+    ms_md, n_ms_links = link_refs(ms_md, ms_ids)
+    assert "\u00a7" not in ms_md and "\\S" not in ms_md, "section sign in the manuscript (author's rule)"
     (HERE / "manuscript_fire_ecology_assembled.md").write_text(ms_md, encoding="utf-8")   # build record
 
     out = OUT / "manuscript.docx"
     doc = B.to_docx(ms_md, out, title)
+    n_ms_links = check_links(out)
     docx_left_aligned(out)
     d = Document(out)
     allt = "\n".join(F._text(p) for p in d.element.body.iter(qn("w:p")))
@@ -433,10 +531,18 @@ Not applicable.
     assert B.FM["title"] not in sup_src, "the supplement still names the shared title"
     sup = B.equations(B.narrative(sup_src), SEQ, prefix="S", external=EQ)
     sup = re.sub(r"\A# Supplementary Material\s*\n", "", sup)
+    sup, sup_ids = anchor_targets(sup, "S")
+    head, toc, rest = re.split(r"(?ms)(^## Contents\n.*?)(?=^# )", sup, maxsplit=1)
+    toc = re.sub(r"(?m)^(\s*- )(S\d+(?:\.\d+)*) (.+)$",
+                 lambda m: (f"{m.group(1)}[{m.group(2)} {m.group(3)}](#sec_{_key(m.group(2))})"
+                            if f"sec_{_key(m.group(2))}" in sup_ids else m.group(0)), toc)
+    sup, n_sup_links = link_refs(head + toc + rest, sup_ids, "S")
+    assert "\u00a7" not in sup and "\\S" not in sup, "section sign in Additional file 1 (author's rule)"
     sup_md = (f'---\ntitle: "Additional file 1: Supplementary Material"\nsubtitle: "{title}"\nlang: en-GB\n---\n\n'
               + sup + "\n\n# References\n\n::: {#refs}\n:::\n")
     sup_docx = OUT / "_additional_file_1.docx"
     B.to_docx(sup_md, sup_docx, "Additional file 1: " + title)
+    n_sup_links = check_links(sup_docx)
     F.balance_tables(sup_docx)
     if pdf:
         F.word_pdf(sup_docx, OUT / "Additional_file_1.pdf")
@@ -469,7 +575,8 @@ Not applicable.
     manifest(fig_src, n_abs, n_words, n_dec, tab_items, items)
     print(f"manuscript.docx: title {len(title.split())} words, abstract {n_abs} words, {len(kw)} keywords, "
           f"main text {n_words} words (target {WORD_TARGET}, limit {WORD_LIMIT}), {len(caps)} figures and "
-          f"{len(tab_items)} tables embedded, {n_dec} decimals matched")
+          f"{len(tab_items)} tables embedded, {n_dec} decimals matched; internal links: "
+          f"{n_ms_links} in the manuscript, {n_sup_links} in Additional file 1")
 
 
 def manifest(fig_src, n_abs, n_words, n_dec, tab_items, items):

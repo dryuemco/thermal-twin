@@ -1,30 +1,21 @@
 #!/usr/bin/env python3
-"""Figure 5 - label-blind adaptation compresses the matrix toward chance.
+"""Figure 5 - label-free adaptation moves transfer toward chance (2026-10-23 redraw).
 
-Four-AOI decomposition, 12 ordered directions: raw (open circle) -> best-adapted
-(arrow head), with the within-region reference as a grey tick. Directions where
-adaptation moves AWAY from the within reference (negative recovery, 7/12) are
-orange AND dashed; recoveries are blue AND solid, so the class survives
-greyscale print where the two hues differ by only ~2.3:1 in luminance.
+All 20 ordered directions, sorted by raw transfer ROC-AUC. In each panel a row joins the raw
+value (open grey circle) to the adapted value (filled blue dot): (a) region-wise z-score,
+(b) CORAL after region-wise z-score. Neither method uses target labels.
 
-Split out of the former three-panel conservation figure: 12 direction labels plus a wide AUC
-axis need the full column width, and sharing a row with two other panels forced
-cramped legends and two-line titles.
+The earlier version showed the 12 directions of the pipeline's gap decomposition with an
+arrow to the better of the two methods, a choice that uses target labels, plus CORAL crosses
+and within-region ticks; it is in the git history before 2026-10-23. The decomposition and its
+asserts stay in _conservation_common.py and Section S1.10.
 
-Data: paper/figures/data/fig_data_corrected.json. Asserts in _conservation_common.py:
-every arrow against Table B9 and every within tick against Table 1 at 3 dp, zero tolerance.
-
-2026-09-23 revision (corrected Manavgat label): the title no longer says "every direction"
-(Manavgat -> Muğla moves away from chance, as it already did under the frozen label); 11 of
-12 move closer, asserted; worst recovery Evia -> Manavgat -1.126; Bejís -> Manavgat is a
-recovery by its better method (CORAL 0.314 -> 0.406) although its z-score arm alone falls to
-0.302, which the caption states.
-
-2026-09-24 revision: no in-figure title. Elsevier takes the caption from the manuscript,
-not the figure file, and figure_captions.tex already carries the statement; the axes
-grow into the band the title occupied.
+Data: paper/figures/data/fig_data_corrected.json. Asserts: all 60 values against Table S16
+(via _conservation_common.py); the means, ranges and counts printed in 04 Section 3.5 and in
+the caption.
 """
 import json
+import statistics
 import sys
 from pathlib import Path
 
@@ -33,94 +24,80 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _layout_check import check as layout_check, contrast_ratio, assert_inside
-from _conservation_common import (HERE, MM, BLUE, ORANGE, GREY, FS_BODY, FS_TICK,
-                          RECOVERY_STYLE, NEGATIVE_STYLE, decomp, neg,
-                          dirlabel, style_axes, chance_segment, save, DATA)
+from _layout_check import check as layout_check, assert_inside
+from _conservation_common import HERE, DATA, B9, LABEL
+import _style as S
 
-HUE_ONLY_CONTRAST = contrast_ratio((0x00 / 255, 0x72 / 255, 0xB2 / 255),
-                                   (0xE6 / 255, 0x9F / 255, 0x00 / 255))
+NAME = {**LABEL, "evia_2021_extended": "North Evia"}
 
-plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
-fig = plt.figure(figsize=(190 * MM, 108 * MM))
-ax = fig.add_axes([0.205, 0.175, 0.780, 0.795])
 
+def dirlabel(d):
+    s, t = d.split("_to_")
+    return f"{NAME[s]}→{NAME[t]}"
+
+T = DATA["fig5"]
+assert len(T) == 20
+for _d, _row in T.items():                      # every plotted value as printed in Table S16
+    for _k in ("raw", "zscore", "coral"):
+        assert f"{_row[_k]:.3f}" == B9[_d][_k], (_d, _k)
+
+MEAN = {k: statistics.mean(r[k] for r in T.values()) for k in ("raw", "zscore", "coral")}
+CLOSER = {k: sum(abs(r[k] - 0.5) < abs(r["raw"] - 0.5) for r in T.values()) for k in ("zscore", "coral")}
+# 04 Section 3.5: CORAL moved 16 of 20 closer to chance and the mean fell from 0.527 to 0.517;
+# the caption adds the z-score count and mean
+assert (f"{MEAN['raw']:.3f}", f"{MEAN['coral']:.3f}", f"{MEAN['zscore']:.3f}") == ("0.527", "0.517", "0.510"), MEAN
+assert CLOSER == {"zscore": 13, "coral": 16}, CLOSER
+RANGE = {k: (min(r[k] for r in T.values()), max(r[k] for r in T.values())) for k in ("zscore", "coral")}
+assert tuple(f"{v:.3f}" for v in RANGE["zscore"]) == ("0.302", "0.630")
+assert tuple(f"{v:.3f}" for v in RANGE["coral"]) == ("0.406", "0.624")
+
+S.apply()
+fig, axes = plt.subplots(1, 2, figsize=(S.WIDTH_MM * S.MM, 118 * S.MM), sharey=True)
+order = sorted(T, key=lambda d: T[d]["raw"])
 data_artists = []
-order = sorted(decomp, key=lambda d: d["raw"])
-for y, d in enumerate(order):
-    negative = d["best_adapted"] < d["raw"]
-    colour = ORANGE if negative else BLUE
-    style = NEGATIVE_STYLE if negative else RECOVERY_STYLE
-    ax.annotate("", xy=(d["best_adapted"], y), xytext=(d["raw"], y),
-                arrowprops=dict(arrowstyle="-|>", color=colour, lw=1.6,
-                                linestyle=style, mutation_scale=10,
-                                shrinkA=0, shrinkB=0))
-    m, = ax.plot(d["raw"], y, marker="o", mfc="white", mec=colour, ms=5.5,
-                 mew=1.3, zorder=3)
-    tick, = ax.plot([d["within"], d["within"]], [y - 0.30, y + 0.30], color=GREY,
-                    lw=2.0, zorder=2)
-    # CORAL alone, the pre-specified label-free result (reviewer request); the arrow end is the
-    # better of z-score and CORAL, a choice that uses target labels
-    cx, = ax.plot(DATA["fig5"][d["direction"]]["coral"], y, marker="x", color="black", ms=4.5,
-                  mew=1.1, lw=0, zorder=4)
-    data_artists += [(m, f"raw:{d['direction']}"), (tick, f"within:{d['direction']}"),
-                     (cx, f"coral:{d['direction']}")]
+for ax, (key, title) in zip(axes, (("zscore", "(a) Region-wise z-score"), ("coral", "(b) Region-wise z-score + CORAL"))):
+    S.chance(ax)
+    for y, d in enumerate(order):
+        raw, ad = T[d]["raw"], T[d][key]
+        seg, = ax.plot([raw, ad], [y, y], color="#CFCFCF", lw=1.4, solid_capstyle="butt", zorder=1)
+        r, = ax.plot(raw, y, marker="o", ms=4.5, mfc="white", mec=S.GREY, mew=1.0, lw=0, zorder=2)
+        a, = ax.plot(ad, y, marker="o", ms=4.5, color=S.BLUE, lw=0, zorder=3)
+        data_artists += [(r, f"raw:{d}"), (a, f"{key}:{d}")]
+    ax.set_title(title)
+    ax.set_xlim(0.28, 0.72)
+    ax.set_xticks([0.3, 0.4, 0.5, 0.6, 0.7])
+    assert_inside(ax, f"Fig. 5 {key}", xs=[T[d][k] for d in order for k in ("raw", key)])
+axes[0].set_yticks(range(len(order)), [dirlabel(d) for d in order])
+axes[0].set_ylim(-0.7, len(order) - 0.3)
+axes[1].tick_params(axis="y", left=False)
+axes[1].spines["left"].set_visible(False)
 
-N = len(order)
-data_artists.append((chance_segment(ax, -0.6, N - 0.4), "chance"))
+handles = [plt.Line2D([], [], marker="o", ms=4.5, mfc="white", mec=S.GREY, mew=1.0, lw=0),
+           plt.Line2D([], [], marker="o", ms=4.5, color=S.BLUE, lw=0)]
+axes[0].legend(handles, ["raw transfer", "after adaptation"], loc="lower right",
+               handletextpad=0.3, labelspacing=0.3, borderaxespad=0.2)
+fig.supxlabel("ROC-AUC in the target region", fontsize=S.FS_BODY, y=0.005)
+fig.subplots_adjust(left=0.22, right=0.985, top=0.95, bottom=0.095, wspace=0.08)
 
-ax.set_yticks(range(N), [dirlabel(d["direction"]) for d in order], fontsize=FS_TICK)
-ax.set_xlim(0.28, 0.97)
-ax.set_ylim(-2.35, N - 0.35)
-ax.set_xticks([0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-ax.set_xlabel("thermal transfer ROC-AUC", fontsize=FS_BODY)
-style_axes(ax)
-assert_inside(ax, "Fig. 5", xs=[v for d in order for v in (d["raw"], d["best_adapted"], d["within"],
-                                                           DATA["fig5"][d["direction"]]["coral"])])
-
-hRec = plt.Line2D([], [], color=BLUE, lw=1.8, ls=RECOVERY_STYLE)
-hNeg = plt.Line2D([], [], color=ORANGE, lw=1.8, ls=NEGATIVE_STYLE)
-hWit = plt.Line2D([], [], color=GREY, lw=0, marker="|", ms=10, mew=2.0)
-hCha = plt.Line2D([], [], color="black", lw=0.9, ls=(0, (4, 2)))
-hCor = plt.Line2D([], [], color="black", lw=0, marker="x", ms=4.5, mew=1.1)
-ax.legend([hRec, hNeg, hCor, hWit, hCha],
-          [f"best method, recovery ({len(order) - len(neg)})", f"best method, negative ({len(neg)})",
-           "CORAL alone", "within-region reference", "chance (0.5)"],
-          fontsize=FS_TICK, frameon=False, loc="lower left",
-          bbox_to_anchor=(0.0, 0.0), ncol=3, handlelength=1.9,
-          columnspacing=1.1, handletextpad=0.5, borderpad=0.0)
-
-print(f"[greyscale] blue-vs-orange hue contrast {HUE_ONLY_CONTRAST:.2f}:1 - "
-      f"line style carries the class redundantly")
-problems = layout_check(fig, "Fig. 5 - adaptation", min_gap_pt=2.0,
-                        min_font_pt=8.0, data_artists=data_artists)
-save(fig, "fig5_adaptation", "--preview" in sys.argv)
+problems = layout_check(fig, "Fig. 5 - adaptation", min_gap_pt=2.0, min_font_pt=8.0,
+                        data_artists=data_artists)
+S.save(fig, HERE, "fig5_adaptation")
 
 (HERE / "fig5_provenance.json").write_text(json.dumps({
-    "figure": "Fig. 5 - label-blind adaptation compresses the matrix toward chance",
+    "figure": "Fig. 5 - label-free adaptation moves transfer toward chance",
     "script": "paper/figures/fig5_adaptation.py",
     "data": {"path": "paper/figures/data/fig_data_corrected.json",
              "sha256": __import__("hashlib").sha256(
                  (HERE / "data" / "fig_data_corrected.json").read_bytes()).hexdigest(),
-             "note": "four_aoi_decomposition.csv of the corrected-label overlay; sha256 inside"},
-    "asserts": "raw and best-adapted of all 12 arrows equal Table B9 at 3 dp and the within ticks "
-               "equal Table 1 (block 2); 7/12 negative recovery; worst Evia->Manavgat recovered "
-               "fraction -1.126; 11/12 closer to chance, exception Manavgat->Mugla; Bejis->Manavgat "
-               "a CORAL recovery with its z-score arm at 0.302; every value inside the x axis "
-               "(_conservation_common.py)",
-    "greyscale": {
-        "hue_only_contrast": round(HUE_ONLY_CONTRAST, 2),
-        "note": "Okabe-Ito blue (relative luminance 0.151) vs orange (0.413) separate by only "
-                "this ratio, below the 3:1 WCAG non-text minimum, so the two classes also "
-                "differ by line style (solid vs dashed); proof in fig5_adaptation_greyscale.png",
-    },
-    "legend": "in a reserved band below the plotted rows; the chance reference is a segment "
-              "over the data rows only, never an axvline, so it cannot cross legend text",
-    "canvas_mm": [190, 108],
-    "column": "double (190 mm)",
-    "font_pt": {"body": FS_BODY, "minimum": FS_TICK},
-    "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time; "
-                    f"{len(data_artists)} data artists registered",
+             "note": "step10_metrics.json of all 10 pairs, corrected-label overlay; sha256 inside"},
+    "asserts": "all 60 plotted values equal Table S16 at 3 dp; means raw 0.527, z-score 0.510, "
+               "CORAL 0.517; 13 (z-score) and 16 (CORAL) of 20 directions closer to chance; ranges "
+               "0.302-0.630 and 0.406-0.624; the decomposition asserts in _conservation_common.py",
+    "design": "2026-10-23 redraw: 20 directions, raw (open grey) to adapted (filled blue), one panel per "
+              "method; no target-label choice of method",
+    "canvas_mm": [S.WIDTH_MM, 118],
+    "font_pt": {"body": S.FS_BODY, "minimum": S.FS_SMALL},
+    "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False), encoding="utf-8")
-print(f"fig5 written; negative recovery {len(neg)} of {len(decomp)}")
+print(f"fig5 written; closer to chance {CLOSER}; means { {k: round(v, 3) for k, v in MEAN.items()} }")

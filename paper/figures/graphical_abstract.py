@@ -10,7 +10,7 @@ assert fails and nothing is written.
 
 Three panels, one per finding of the abstract: C1 the evaluation-area cost (Section 4.3), C2 the
 thermal gain within regions against transfer on the original and on comparable study areas
-(Table 1 at 5 km blocking; Table 3), C3 the contrast pairs (Section 4.5; the same files and
+(Table 2 at 5 km blocking; Table 4), C3 the contrast pairs (Section 4.5; the same files and
 checks as Fig. 8). C3 shows two pairs only and C2 combines two tables, so the graphical abstract
 repeats no figure of the paper, as MDPI asks.
 
@@ -44,7 +44,7 @@ def num(s):
     return float(s.replace(M, "-").replace("+", ""))
 
 
-# ---- within region, 5 km blocking: Table 1, block = 10 cells ----------------
+# ---- within region, 5 km blocking: Table 2, block = 10 cells ----------------
 # Continuation rows leave the region cell empty ("| | 10 | ..."), so the region
 # cell is matched with optional whitespace and carried forward.
 ROW = re.compile(r"^\|\s*([^|]*?)\s*\| (\d+) \| [\d.]+ \| [\d.]+ \| ([+−][\d.]+) \| "
@@ -61,11 +61,11 @@ assert len(rows) == 5, f"expected 5 regions at 10 cells, got {sorted(rows)}"
 within = sorted(rows.values())
 assert all(lo > 0 for _, lo, _ in within), "a 5 km within-region interval includes zero"
 
-# ---- transfer: Table 3, as drawn and on the 10 km collar ---------------------
+# ---- transfer: Table 4, as drawn and on the 10 km collar ---------------------
 def table3(label):
     m = re.search(rf"^\| {label} \| [\d.]+ \| [\d.]+ \| ([+−][\d.]+) \[([+−][\d.]+), ([+−][\d.]+)\] \|",
                   RESULTS, re.M)
-    assert m, f"Table 3 row '{label}' not found"
+    assert m, f"Table 4 row '{label}' not found"
     return tuple(num(g) for g in m.groups())
 
 
@@ -74,7 +74,7 @@ assert xreg == (0.007, -0.020, 0.038) and equal == (0.024, -0.004, 0.049), (xreg
 assert xreg[1] < 0 < xreg[2] and equal[1] < 0 < equal[2]
 
 # ---- evaluation-area cost, region as the unit (Section 4.3) ------------------
-m = re.search(r"With the region as the unit, the change then cost \*\*\+(\S+) \[\+(\S+), \+(\S+)\]\*\* over five regions",
+m = re.search(r"With the region as the unit, the change then cost (?:\*\*)?\+(\S+) \[\+(\S+), \+(\S+)\](?:\*\*)? over five regions",
               FLAT)
 assert m, "Section 4.3 frame-cost sentence not found verbatim"
 frame = tuple(float(g) for g in m.groups())
@@ -180,7 +180,7 @@ assert W_PX >= 1100 and H_PX >= 560, (W_PX, H_PX)                   # MDPI minim
     "figure": "Graphical abstract (Fire, MDPI: optional)",
     "script": "paper/figures/graphical_abstract.py",
     "panels": ["C1 evaluation area", "C2 local skill, weak transfer", "C3 similarity does not predict transfer"],
-    "data": {"04_results.md": "Table 1 (block 10), Table 3 (as drawn, 10 km collar), the Section 4.3 "
+    "data": {"04_results.md": "Table 2 (block 10), Table 4 (as drawn, 10 km collar), the Section 4.3 "
                               "frame-cost sentence, the Section 4.5 contrast-pair sentence (parsed at build time)",
              "00_abstract.md": "the same values, checked",
              "contrast_pairs": {"path": "paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json",

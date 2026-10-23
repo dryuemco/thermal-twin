@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
-"""Figure 1 - study-area location map (plain, Mediterranean basin).
+"""Figure 1 - study regions and study areas (2026-10-23 redraw).
 
-Natural Earth 1:50m coastline + land, five study AOI rectangles (single colour -
-no regime implication among study regions), region + year labels, approximate
-scale bar and north arrow. No topography, no satellite background; country borders omitted (kept
-plain per design decision).
+(b), added 2026-10-23 in place of the supplement's Fig. S1: the five study areas on the ~500 m grid,
+each at its own scale with a 10 km bar, in five classes (burned, 2 km scar frame, within 10 km of a
+burned cell, beyond 10 km, not modelled). The classes come from paper/figures/data/fig1b_frames.npz,
+written by fig1b_data.py in the project venv (this script runs where cartopy is, without the parquet
+stack). Asserts: cells, burned cells and the share beyond 10 km equal Table S15, Table S13 and the
+rows of Table 1 in 03_methods.md.
 
-Kozan 2023 IS drawn, in a deliberately different style (grey, dashed edge, open
-square marker, role stated in the label) and separated in the legend, because it
-is discussed in Methods 3.3 and Results 4.1 and a reader who meets it there will
-look for its location. The style difference carries the point that it is a gate
-negative control and entered no model, transfer or diagnostic.
+(a) Mercator map of Natural Earth 1:50m land and coastline; one filled blue dot per study area at
+its centre, a plain label beside each, and Kozan 2023 (the gate's negative control) as an open
+grey square. A two-entry key in the open sea south of Sicily explains the two marks, because
+Fire Ecology wants keys in the graphic and not in the legend. No rectangles (the bounding boxes
+are in Table S19), label boxes, leader lines, graticule lines or north arrow (north is up;
+latitude and longitude are labelled on the frame); a 500 km scale bar, exact at 38 N as the
+caption says. The earlier version is in the git history before 2026-10-23.
 
-AOI bounds: paper/figures/data/fig1_aoi.json (step0 geojson / grid-derived,
-sha256 per source inside; asserted here against 03_methods Table 1).
-Okabe-Ito, greyscale-safe, vector.
-
-2026-08-08 typography/space revision: double-column 190 mm, body 9 pt, minimum
-8 pt; extent widened east so the Manavgat label is no longer clipped by the
-frame; label anchors moved off the coastline; very light land fill and a white
-text halo so no label competes with a coast line. Layout verified by
-_layout_check.py (no overlaps, no clipping, no text below 8 pt).
+AOI bounds: paper/figures/data/fig1_aoi.json (step0 geojson / grid-derived, sha256 per source
+inside; asserted here against Table S19).
 """
 import json
 import sys
@@ -37,40 +34,36 @@ from matplotlib.lines import Line2D
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _layout_check import check as layout_check
+import _style as Sty
+import matplotlib.patheffects as pe
 
 HERE = Path(__file__).resolve().parent
 AOI = json.loads((HERE / "data" / "fig1_aoi.json").read_text())["aoi"]
 
-BLUE = "#0072B2"  # single colour for every STUDY AOI - no regime grouping implied
-GREY = "#767676"  # gate control only - visually separated from the study set
-LAND = "#F4F4F2"  # very light neutral fill: gives labels a surface to sit on
-COAST = "#7A7A7A"
-
-FS_BODY = 9.0     # region labels
-FS_SMALL = 8.0    # graticule labels, scale bar, legend  (minimum in this figure)
+BLUE = Sty.BLUE
+GREY = "#767676"   # gate control only
+LAND = "#EFEFEC"
+COAST = "#9A9A9A"
+FS_BODY, FS_SMALL = Sty.FS_BODY, Sty.FS_SMALL
 
 CONTROL = "kozan_2023"
 
 LABEL = {
     "manavgat_2021": "Manavgat 2021", "bejis_2022": "Bejís 2022",
     "mugla_2021": "Muğla 2021", "evia_2021_extended": "North Evia 2021",
-    "montiferru_2021": "Montiferru 2021",
-    # two lines: the single-line form is ~10 deg wide at this scale and cannot
-    # be placed without either clipping the frame or crowding Manavgat
-    "kozan_2023": "Kozan 2023\n(gate control)",
+    "montiferru_2021": "Montiferru 2021", "kozan_2023": "Kozan 2023",
 }
-# Absolute label anchors in data degrees (x, y, ha, va). Chosen to sit in open
-# water or empty land away from coastlines, with a leader line back to the AOI.
+# label position relative to the marker, in degrees (dx, dy, ha, va), chosen to sit in open sea
+# or on land away from coastlines
 ANCHOR = {
-    "bejis_2022":        (-3.05, 42.20, "center", "bottom"),
-    "montiferru_2021":   ( 6.10, 43.10, "center", "bottom"),
-    "evia_2021_extended":(19.60, 41.90, "center", "bottom"),
-    "mugla_2021":        (25.10, 35.10, "center", "top"),
-    "manavgat_2021":     (32.60, 35.10, "center", "top"),
-    "kozan_2023":        (35.60, 39.10, "center", "bottom"),
+    "bejis_2022":         (0.5, 0.45, "left", "bottom"),
+    "montiferru_2021":    (-0.55, -0.35, "right", "top"),
+    "evia_2021_extended": (0.0, 0.6, "center", "bottom"),
+    "mugla_2021":         (0.5, -0.7, "left", "top"),
+    "manavgat_2021":      (-0.35, 0.6, "left", "bottom"),
+    "kozan_2023":         (0.55, -0.45, "left", "top"),
 }
-
-# ---- asserts vs 03_methods Table 1 (study regions) ----
+# ---- asserts vs Table S19 (bounding boxes of the study regions) ----
 EXPECT = {
     "manavgat_2021": (31.05, 36.72, 31.85, 37.35),
     "bejis_2022": (-1.05, 39.68, -0.35, 40.15),
@@ -82,7 +75,7 @@ for reg, exp in EXPECT.items():
     got = AOI[reg]["bbox"]
     assert all(abs(g - e) < 5e-3 for g, e in zip(got, exp)), (reg, got, exp)
 
-# Kozan is not in Table 1 (it is not a study region), so it is cross-checked
+# Kozan is not in Table S19 (it is not a study region), so it is cross-checked
 # against an INDEPENDENT source: the frozen Step 2B DEM metadata AOI polygon,
 # which comes from the region registry rather than from the step8a grid.
 _KOZAN_STEP2B = (35.25828811820405, 37.00022858198274,
@@ -92,22 +85,84 @@ assert all(abs(g - e) < 5e-3 for g, e in zip(AOI[CONTROL]["bbox"], _KOZAN_STEP2B
 assert AOI[CONTROL]["role"] == "gate_control"
 
 MM = 1 / 25.4
-proj = ccrs.PlateCarree()
-plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
+proj = ccrs.PlateCarree()           # coordinates of the data
+mapproj = ccrs.Mercator()           # conformal, so shapes are not stretched east-west
+Sty.apply()
 
-# Canvas sized to the map's own aspect. PlateCarree holds an equal aspect, so a
-# canvas taller than the data ratio is padded with an empty band above and below
-# the map rather than with usable space; the axes box is therefore computed from
-# the extent instead of guessed.
-EXTENT = [-6.0, 39.4, 33.2, 45.6]
-W_MM, L_MM, R_MM, B_MM, T_MM = 190.0, 12.0, 3.0, 11.0, 3.5
+# ---- (b) data: five classes per study area, from fig1b_data.py --------------------------------
+import hashlib
+import io
+import re
+import zipfile
+B_REG = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021"]
+B_NAME = {"manavgat_2021": "Manavgat", "bejis_2022": "Bejís", "mugla_2021": "Muğla",
+          "evia_2021_extended": "North Evia", "montiferru_2021": "Montiferru"}
+B_DATA = HERE / "data" / "fig1b_frames.npz"
+with zipfile.ZipFile(B_DATA) as _z:
+    B_CAT = {r: np.load(io.BytesIO(_z.read(f"{r}.npy")), allow_pickle=False) for r in B_REG}
+    B_STATS = json.loads(_z.read("stats.json"))
+# Table S15 (cells, burned) and Table S13 (share beyond 10 km), as in fig1b_data.py
+_EXPECT_B = {"manavgat_2021": (20511, 2935, 58.5), "bejis_2022": (15190, 1100, 63.1),
+             "mugla_2021": (41730, 2911, 55.3), "evia_2021_extended": (9298, 2664, 43.7),
+             "montiferru_2021": (2544, 539, 2.1)}
+_t1 = (HERE.parent / "03_methods.md").read_text(encoding="utf-8")
+for r in B_REG:
+    s, cat = B_STATS[r], B_CAT[r]
+    assert (s["cells"], s["burned"], s["beyond_10km_pct"]) == _EXPECT_B[r], (r, s)
+    assert int((cat > 0).sum()) == s["cells"] and int((cat == 4).sum()) == s["burned"], r
+    # the row of Table 1 in Methods prints the same cells, burned cells, prevalence and share
+    row = re.search(rf"(?m)^\| {re.escape(LABEL[r])} .*$", _t1)
+    assert row, f"Table 1 has no row for {LABEL[r]}"
+    for v in (f"{s['cells']:,}", f"{s['burned']:,}", f"{s['burned'] / s['cells']:.3f}",
+              f"{s['beyond_10km_pct']:.1f} %"):
+        assert f" {v} |" in row.group(0), (r, v, row.group(0))
+B_COLOURS = ["white", "#E6E6E6", "#A9CCE3", BLUE, Sty.INK]   # not modelled, beyond, within 10 km, frame, burned
+B_KEY = ["burned", "2 km scar frame", "within 10 km", "beyond 10 km", "not modelled"]
+
+# ---- canvas, in mm from the bottom: key row, scale bars, (b) panels and titles, then (a) ---------
+EXTENT = [-6.0, 44.0, 33.2, 45.6]
+_c = mapproj.transform_points(proj, np.array([EXTENT[0], EXTENT[1]]), np.array([EXTENT[2], EXTENT[3]]))
+W_MM, L_MM, R_MM, B_MM, T_MM = Sty.WIDTH_MM, 12.0, 3.0, 9.0, 5.0
 AX_W_MM = W_MM - L_MM - R_MM
-AX_H_MM = AX_W_MM * (EXTENT[3] - EXTENT[2]) / (EXTENT[1] - EXTENT[0])
-H_MM = AX_H_MM + B_MM + T_MM
+AX_H_MM = AX_W_MM * (_c[1, 1] - _c[0, 1]) / (_c[1, 0] - _c[0, 0])
+KEY_Y, BAR_Y, PB_Y0, PB_X0, PB_X1, PB_GAP = 3.5, 11.5, 13.5, 8.5, 168.5, 3.0
+_km = {r: (B_STATS[r]["cols"] * B_STATS[r]["ew_km"], B_STATS[r]["rows"] * B_STATS[r]["ns_km"]) for r in B_REG}
+PB_H = (PB_X1 - PB_X0 - PB_GAP * (len(B_REG) - 1)) / sum(w / h for w, h in _km.values())
+PA_Y0 = PB_Y0 + PB_H + 1.0 + 3.5 + 1.5 + B_MM        # titles of (b), a gap, then the longitude labels of (a)
+H_MM = PA_Y0 + AX_H_MM + T_MM
 
 fig = plt.figure(figsize=(W_MM * MM, H_MM * MM))
-ax = fig.add_axes([L_MM / W_MM, B_MM / H_MM, AX_W_MM / W_MM, AX_H_MM / H_MM],
-                  projection=proj)
+ax = fig.add_axes([L_MM / W_MM, PA_Y0 / H_MM, AX_W_MM / W_MM, AX_H_MM / H_MM], projection=mapproj)
+fig.text(0.5 / W_MM, (PA_Y0 + AX_H_MM + 1.0) / H_MM, "(a)", fontsize=FS_BODY, ha="left", va="bottom")
+fig.text(0.5 / W_MM, (PB_Y0 + PB_H + 1.0) / H_MM, "(b)", fontsize=FS_BODY, ha="left", va="bottom")
+
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+x = PB_X0
+for r in B_REG:
+    wkm, hkm = _km[r]
+    w = PB_H * wkm / hkm
+    bx = fig.add_axes([x / W_MM, PB_Y0 / H_MM, w / W_MM, PB_H / H_MM])
+    bx.imshow(B_CAT[r], cmap=ListedColormap(B_COLOURS), vmin=-0.5, vmax=4.5, interpolation="nearest",
+              extent=[0, wkm, hkm, 0])
+    bx.set_xlim(0, wkm)
+    bx.set_ylim(hkm, 0)
+    bx.set_xticks([])
+    bx.set_yticks([])
+    for sp in bx.spines.values():
+        sp.set_visible(True)
+        sp.set_linewidth(0.6)
+        sp.set_edgecolor(Sty.MUTED)
+    bx.set_title(B_NAME[r], fontsize=FS_BODY, loc="left", pad=3)
+    bar = w * 10.0 / wkm                               # 10 km at this panel's scale
+    fig.add_artist(Line2D([x / W_MM, (x + bar) / W_MM], [BAR_Y / H_MM] * 2, color=Sty.INK, lw=1.2,
+                          solid_capstyle="butt"))
+    fig.text(x / W_MM, (BAR_Y - 1.0) / H_MM, "10 km", fontsize=FS_SMALL, ha="left", va="top")
+    x += w + PB_GAP
+fig.legend([Patch(facecolor=c, edgecolor=Sty.MUTED if c == "white" else c, linewidth=0.6)
+            for c in B_COLOURS[::-1]], B_KEY, loc="center", bbox_to_anchor=(0.5, KEY_Y / H_MM),
+           ncol=5, frameon=False, fontsize=FS_SMALL, handlelength=1.2, handleheight=1.0,
+           handletextpad=0.4, columnspacing=1.8, borderaxespad=0.0)
 ax.set_extent(EXTENT, crs=proj)
 
 ax.add_feature(cfeature.NaturalEarthFeature("physical", "land", "50m"),
@@ -115,80 +170,47 @@ ax.add_feature(cfeature.NaturalEarthFeature("physical", "land", "50m"),
 ax.add_feature(cfeature.NaturalEarthFeature("physical", "coastline", "50m"),
                edgecolor=COAST, facecolor="none", linewidth=0.6, zorder=1)
 
-halo = dict(boxstyle="round,pad=0.22", facecolor="white", alpha=0.82,
-            edgecolor="none")
-
+halo = [pe.withStroke(linewidth=1.0, foreground="white")]   # thin: keeps text legible on a coastline
 for reg, info in AOI.items():
     W, S, E, N = info["bbox"]
     control = reg == CONTROL
     col = GREY if control else BLUE
-    # AOIs are small at basin scale: draw the true box, then a marker so the
-    # location is findable without exaggerating the footprint. The control gets
-    # a dashed edge, a grey hue and a square marker - three redundant cues, so
-    # the distinction survives greyscale printing and colour-blind readers.
-    ax.add_patch(plt.Rectangle(
-        (W, S), E - W, N - S, facecolor=col, alpha=0.30 if not control else 0.16,
-        edgecolor=col, linewidth=1.2,
-        linestyle=(0, (2.4, 1.4)) if control else "solid",
-        transform=proj, zorder=3))
     cx, cy = (W + E) / 2, (S + N) / 2
-    ax.plot([cx], [cy], marker="s" if control else "o", markersize=6.5,
-            markerfacecolor="none", markeredgecolor=col, markeredgewidth=1.1,
-            transform=proj, zorder=3)
+    ax.plot([cx], [cy], marker="s" if control else "o", markersize=5.5,
+            markerfacecolor="white" if control else col, markeredgecolor=col, markeredgewidth=1.1,
+            transform=proj, zorder=4)
+    dx, dy, ha, va = ANCHOR[reg]
+    ax.text(cx + dx, cy + dy, LABEL[reg], fontsize=FS_BODY, ha=ha, va=va, transform=proj,
+            color=GREY if control else Sty.INK, path_effects=halo, zorder=5)
 
-    tx, ty, ha, va = ANCHOR[reg]
-    ax.annotate(LABEL[reg], xy=(cx, cy), xytext=(tx, ty),
-                fontsize=FS_BODY, ha=ha, va=va, transform=proj,
-                color=GREY if control else "black",
-                bbox=halo, zorder=5, linespacing=1.25,
-                arrowprops=dict(arrowstyle="-", lw=0.7, color=col if control else "#555555",
-                                linestyle="dashed" if control else "solid",
-                                shrinkA=0, shrinkB=5))
+# key in the open sea between Tunisia, Libya and Crete (no coastline north of 33.2 N there)
+key = [Line2D([], [], marker="o", markersize=5.5, color=BLUE, lw=0),
+       Line2D([], [], marker="s", markersize=5.5, markerfacecolor="white", markeredgecolor=GREY,
+              markeredgewidth=1.1, lw=0)]
+ax.legend(key, ["study area", "gate control, not modelled"], loc="lower left",
+          bbox_to_anchor=(12.6, 33.8), bbox_transform=proj._as_mpl_transform(ax), frameon=False,
+          fontsize=FS_SMALL, handletextpad=0.3, labelspacing=0.8, borderpad=0.0, borderaxespad=0.0)
 
-# ---- legend: two categories, stated in words -------------------------------
-n_study = sum(1 for r in AOI if r != CONTROL)
-handles = [
-    Line2D([], [], marker="o", linestyle="none", markersize=6.5,
-           markerfacecolor="none", markeredgecolor=BLUE, markeredgewidth=1.1,
-           label=f"Study region (n = {n_study})"),
-    Line2D([], [], marker="s", linestyle="none", markersize=6.5,
-           markerfacecolor="none", markeredgecolor=GREY, markeredgewidth=1.1,
-           label="Gate control (not modelled)"),
-]
-leg = ax.legend(handles=handles, loc="lower left",
-                bbox_to_anchor=(0.245, 0.035), fontsize=FS_SMALL,
-                frameon=True, framealpha=0.9, edgecolor="#BBBBBB",
-                borderpad=0.6, labelspacing=1.0, handletextpad=0.7)
-leg.get_frame().set_linewidth(0.6)
-leg.set_zorder(6)
-
-gl = ax.gridlines(draw_labels=True, linewidth=0.3, color="#CFCFCF",
-                  xlocs=range(-5, 40, 5), ylocs=range(34, 47, 2), zorder=2)
+gl = ax.gridlines(crs=proj, draw_labels=True, linewidth=0, xlocs=range(-5, 41, 5),
+                  ylocs=range(34, 47, 2), zorder=2)
 gl.top_labels = gl.right_labels = False
 gl.xlabel_style = {"size": FS_SMALL}
 gl.ylabel_style = {"size": FS_SMALL}
+for sp in ax.spines.values():
+    sp.set_linewidth(0.6)
+    sp.set_edgecolor(Sty.MUTED)
 
-# approximate scale bar at 38 N (1 deg lon = 111.32*cos(38 deg) ~ 87.7 km)
+# scale bar for 38 N (1 deg lon = 111.32*cos(38 deg) ~ 87.7 km); the caption states the latitude.
+# In Mercator a degree of longitude has the same length at every latitude, so the bar can sit
+# anywhere and still measure 500 km at 38 N.
 km_per_deg = 111.32 * np.cos(np.deg2rad(38))
 bar_km = 500
 bar_deg = bar_km / km_per_deg
-x0, y0 = -4.35, 43.85
-ax.plot([x0, x0 + bar_deg], [y0, y0], color="black", lw=1.6, transform=proj,
-        zorder=5)
-for xe in (x0, x0 + bar_deg):
-    ax.plot([xe, xe], [y0 - 0.16, y0 + 0.16], color="black", lw=1.2,
-            transform=proj, zorder=5)
-ax.text(x0 + bar_deg / 2, y0 + 0.35, f"{bar_km} km (at 38°N)",
-        fontsize=FS_SMALL, ha="center", va="bottom", transform=proj,
-        bbox=halo, zorder=5)
-
-# north arrow (MDPI asks maps for a compass direction, 2026-09-30); plate carree, so north is up
-NA_X, NA_Y0, NA_Y1 = 32.0, 43.35, 45.05
-ax.annotate("N", xy=(NA_X, NA_Y1), xytext=(NA_X, NA_Y0), xycoords=proj._as_mpl_transform(ax),
-            textcoords=proj._as_mpl_transform(ax), fontsize=FS_SMALL, fontweight="bold",
-            ha="center", va="top", zorder=5,
-            arrowprops=dict(arrowstyle="-|>", lw=1.2, color="black", shrinkA=0, shrinkB=0,
-                            mutation_scale=9))
+x0, y0 = -4.6, 44.6
+ax.plot([x0, x0 + bar_deg], [y0, y0], color=Sty.INK, lw=1.2, transform=proj, zorder=5,
+        solid_capstyle="butt")
+ax.text(x0 + bar_deg / 2, y0 - 0.3, f"{bar_km} km", fontsize=FS_SMALL, ha="center", va="top",
+        transform=proj, path_effects=halo, zorder=5)
 
 problems = layout_check(fig, "Fig. 1 - study-area map",
                         min_gap_pt=6.0, min_font_pt=8.0)
@@ -220,6 +242,10 @@ for _stem in ("ne_50m_land", "ne_50m_coastline"):
     "aoi_data": {"path": "paper/figures/data/fig1_aoi.json",
                  "sha256": hashlib.sha256((HERE / "data" / "fig1_aoi.json").read_bytes()).hexdigest(),
                  "note": "step0 geojson / 30m-grid-derived; sha256 per source inside"},
+    "panel_b_data": {"path": "paper/figures/data/fig1b_frames.npz",
+                     "sha256": hashlib.sha256(B_DATA.read_bytes()).hexdigest(),
+                     "written_by": "paper/figures/fig1b_data.py (project venv, modelling datasets via _canonical.py)",
+                     "stats": B_STATS},
     "basemap": {
         "dataset": "Natural Earth 1:50m physical: coastline + land",
         "fetched_via": f"cartopy {cartopy.__version__} downloader; files read from the cartopy cache",
@@ -242,18 +268,15 @@ for _stem in ("ne_50m_land", "ne_50m_coastline"):
         "is affected. An earlier commit message (67790d8) attributed the difference to cartopy "
         "re-fetching its coastline data; that was wrong, since the cache files date from "
         "2026-08-08."),
-    "asserts": "all five AOI bboxes match 03_methods Table 1 to 5e-3 deg",
-    "design": "single AOI colour across the five study regions (no regime grouping implied); "
-              "no topography/satellite; Kozan 2023 drawn as gate control in a distinct style "
-              "(grey + dashed edge + square marker + role in label + separate legend entry) so "
-              "its location is findable from Methods 3.3 / Results 4.1 without implying it "
-              "entered any model",
+    "asserts": "all five AOI bboxes match Table S19 to 5e-3 deg; panel (b) cells, burned cells and the share beyond 10 km match Tables S13, S15 and Table 1",
+    "design": "2026-10-23 redraw: one blue dot per study area (no regime grouping implied); no "
+              "topography/satellite; Kozan 2023 as an open grey square with its own key entry, so its "
+              "location is findable from the gate section without implying it entered any model; "
+              "170 mm wide (SpringerOpen full page width), key inside the graphic",
     "kozan_bbox_source": "drive_new/kozan-legacy/step8a/step8a_dataset_stats.json (30 m reference-grid transform); "
                          "cross-checked in-script against the independent step2b_dem_metadata.json AOI polygon to 5e-3 deg",
     "palette": "Okabe-Ito blue (study) / neutral grey (control) on very light neutral land; greyscale-safe",
-    "legend": ["Study region (n = 5)", "Gate control (not modelled)"],
     "canvas_mm": [round(W_MM, 1), round(H_MM, 1)],
-    "column": "double (190 mm)",
     "font_pt": {"body": FS_BODY, "minimum": FS_SMALL},
     "layout_check": "paper/figures/_layout_check.py; "
                     f"{len(problems)} problems at build time",

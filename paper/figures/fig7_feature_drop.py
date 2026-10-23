@@ -1,32 +1,16 @@
 #!/usr/bin/env python3
-"""Figure 7 - removing direction-reversing features costs within-region skill; the transfer
-change is near zero.
+"""Figure 7 - removing the reversing features costs within-region skill and gives no
+measurable transfer gain (2026-10-23 redraw).
 
-Mean within-region AUC (5 regions) against mean transfer AUC (20 directions) for
-four feature configurations. Along the connecting path the within-region mean falls and
-the transfer mean rises at every step, but the transfer change from the full set to
-removing both, +0.014, has a pair-t interval over the ten region pairs of
-[-0.028, +0.056], which spans zero. So the figure shows a measured local cost and no
-measurable transfer gain, not an exchange.
-
-2026-09-23 revision (corrected Manavgat label): the four means are 0.896/0.883/0.840/0.820
-(within) and 0.527/0.529/0.533/0.541 (transfer), asserted against Appendix A(n) at zero
-tolerance; the pair-t interval is computed here (it had no persisted producer) and
-asserted against the printed text; the same computation reproduces the frozen
-[-0.017, +0.045]. The title and the in-figure note no longer say "zero-sum" or "transfer
-gained". The transfer-change interval is drawn as a whisker at the "- both" point about the
-full-set level (dotted, no change), with the y axis opened to 0.49-0.59 so it shows whole.
-
-Each configuration has its own marker and is named in a fixed legend, so no
-label position depends on a data value (the labels previously sat next to their
-points and crowded them). Split out of the former three-panel conservation figure.
+Two dot plots that share their rows, one per feature set: (a) mean within-region ROC-AUC over
+the five regions at 1 km blocking, (b) mean transfer ROC-AUC over the 20 directions. Both axes
+span 0.12 AUC, so the two changes can be compared by eye. The whisker in (b) is the pair-t 95%
+interval over the ten region pairs of the change from the full set to removing both, placed
+about the full-set level; the thin vertical line marks that level. The earlier scatter-path
+version with a side legend is in the git history before 2026-10-23.
 
 Data: paper/figures/data/fig_data_corrected.json and paper/labelfix_rerun/round3/
 feature_drop_transfer.json (per-direction deltas). Asserts here and in _conservation_common.py.
-
-2026-09-24 revision: no in-figure title. Elsevier takes the caption from the manuscript,
-not the figure file, and figure_captions.tex already carries the statement; the axes
-grow into the band the title occupied.
 """
 import hashlib
 import json
@@ -42,13 +26,11 @@ import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _layout_check import check as layout_check, assert_inside
-from _conservation_common import (HERE, MM, BLUE, FS_BODY, FS_TICK, fdrop,
-                          style_axes, save)
+from _conservation_common import HERE, fdrop
+import _style as S
 
-CFG = [("full", "full (all features)", "o", True),
-       ("drop_anom", "− LST anomaly", "s", False),
-       ("drop_elev", "− elevation", "^", False),
-       ("drop_both", "− both", "D", True)]
+ROW = {"full": "all ten predictors", "drop_anom": "without LST anomaly",
+       "drop_elev": "without elevation", "drop_both": "without both"}
 PATH = ["full", "drop_anom", "drop_elev", "drop_both"]
 
 # the trade-off claim itself: within falls monotonically along the path while
@@ -85,88 +67,63 @@ assert PRINTED in _r04 and PRINTED in _d05, "04 / 05 must print the same interva
 assert DLO < 0 < DHI, "the caption says the transfer change spans zero"
 assert abs(DELTA - (fdrop["drop_both"]["mean_transfer"] - fdrop["full"]["mean_transfer"])) < 1e-6
 
-plt.rcParams.update({"svg.fonttype": "none", "pdf.fonttype": 42})
-fig = plt.figure(figsize=(190 * MM, 92 * MM))
-# plot on the left, legend in its own column on the right: at 190 mm there is
-# room for a real key, so nothing has to sit near a data point
-ax = fig.add_axes([0.085, 0.145, 0.560, 0.825])
-
-ax.plot(_w, _t, color="#BBBBBB", lw=1.3, zorder=1)
-data_artists = []
-handles = []
-for cfg, lab, mk, filled in CFG:
-    pt, = ax.plot(fdrop[cfg]["mean_within"], fdrop[cfg]["mean_transfer"], marker=mk,
-                  ms=7.0, mfc=(BLUE if filled else "white"), mec=BLUE, mew=1.4,
-                  zorder=3, ls="")
-    data_artists.append((pt, f"cfg:{cfg}"))
-    handles.append(plt.Line2D([], [], marker=mk, ms=7.0,
-                              mfc=(BLUE if filled else "white"), mec=BLUE,
-                              mew=1.4, ls="", label=lab))
-
-ax.set_xlabel("mean within-region ROC-AUC (5 regions)", fontsize=FS_BODY)
-ax.set_ylabel("mean transfer ROC-AUC (20 directions)", fontsize=FS_BODY)
-# The transfer change of "- both" drawn with its interval, so that the reader sees it span
-# zero before reading any caption: a whisker at the "- both" within value, running from the
-# full-set transfer level plus the lower bound to plus the upper bound, and a dotted line at
-# the full-set level marking "no change". The y axis is opened to show the whole interval;
-# the points compress, which is the message (the transfer change is not measurable).
 FULL_T = fdrop["full"]["mean_transfer"]
-X_BOTH = fdrop["drop_both"]["mean_within"]
+FULL_W = fdrop["full"]["mean_within"]
 Y_LO, Y_HI = FULL_T + DLO, FULL_T + DHI
 assert Y_LO < FULL_T < Y_HI, "the interval must contain the no-change level"
-ref, = ax.plot([0.795, 0.900], [FULL_T, FULL_T], color="#777777", lw=0.9, ls=(0, (1.5, 1.5)),
-               zorder=0)
-wk, = ax.plot([X_BOTH, X_BOTH], [Y_LO, Y_HI], color=BLUE, lw=1.3, zorder=2)
-for yy in (Y_LO, Y_HI):
-    ax.plot([X_BOTH - 0.0022, X_BOTH + 0.0022], [yy, yy], color=BLUE, lw=1.3, zorder=2)
-data_artists += [(ref, "no-change level"), (wk, "transfer-change CI")]
-handles += [plt.Line2D([], [], color=BLUE, lw=1.3, marker="_", ms=7,
-                       label="− both: 95% CI of the\ntransfer change"),
-            plt.Line2D([], [], color="#777777", lw=0.9, ls=(0, (1.5, 1.5)),
-                       label="no change (full set)")]
 
-ax.set_xlim(0.795, 0.900)
-ax.set_ylim(0.49, 0.59)
-ax.set_xticks([0.80, 0.82, 0.84, 0.86, 0.88, 0.90])
-ax.set_yticks([0.50, 0.52, 0.54, 0.56, 0.58])
-style_axes(ax)
-assert_inside(ax, "Fig. 7", xs=_w + [X_BOTH], ys=_t + [Y_LO, Y_HI])
+S.apply()
+fig, (axW, axT) = plt.subplots(1, 2, figsize=(S.WIDTH_MM * S.MM, 52 * S.MM), sharey=True)
+ys = list(range(len(PATH)))[::-1]
+data_artists = []
+for ax, key, ref in ((axW, "mean_within", FULL_W), (axT, "mean_transfer", FULL_T)):
+    ax.axvline(ref, color=S.RULE, lw=0.8, zorder=0)
+    for c, y in zip(PATH, ys):
+        pt, = ax.plot(fdrop[c][key], y, marker="o", ms=5.5, color=S.BLUE, lw=0, zorder=3)
+        data_artists.append((pt, f"{key}:{c}"))
+y_both = ys[PATH.index("drop_both")]
+wk, = axT.plot([Y_LO, Y_HI], [y_both, y_both], color=S.BLUE, lw=1.0, zorder=2)
+data_artists.append((wk, "transfer-change CI"))
+# key for the whisker, above its right end (the journal wants keys in the graphic)
+axT.text(Y_HI, y_both + 0.24, "95% interval\nof the change", fontsize=S.FS_SMALL, color=S.MUTED,
+         ha="right", va="bottom", linespacing=1.1)
 
-fig.legend(handles=handles, fontsize=FS_TICK, frameon=False, loc="center left",
-           bbox_to_anchor=(0.675, 0.55), handlelength=1.4, labelspacing=1.1,
-           handletextpad=0.7, title="feature configuration",
-           title_fontsize=FS_TICK)
-fig.text(0.675, 0.30,
-         "left along the path =\nwithin-region skill lost;\ntransfer change near zero,\n"
-         + f"+{DELTA:.3f} [{DLO:.3f}, +{DHI:.3f}]".replace("-", "\u2212"),
-         fontsize=FS_TICK, va="top", ha="left", color="#444444", linespacing=1.6)
+axW.set_xlim(0.79, 0.91); axW.set_xticks([0.80, 0.84, 0.88])
+axT.set_xlim(0.48, 0.60); axT.set_xticks([0.48, 0.52, 0.56, 0.60])
+axW.set_title("(a) Within regions")
+axT.set_title("(b) Across regions")
+for ax in (axW, axT):
+    ax.set_xlabel("mean ROC-AUC")
+    ax.tick_params(axis="y", length=0)
+    ax.spines["left"].set_visible(False)
+axW.set_yticks(ys, [ROW[c] for c in PATH])
+axW.set_ylim(-0.6, len(PATH) - 0.4)
+assert_inside(axW, "Fig. 7a", xs=_w)
+assert_inside(axT, "Fig. 7b", xs=_t + [Y_LO, Y_HI])
+fig.subplots_adjust(left=0.2, right=0.98, top=0.86, bottom=0.24, wspace=0.12)
 
-problems = layout_check(fig, "Fig. 7 - feature-removal trade-off", min_gap_pt=2.0,
-                        min_font_pt=8.0, data_artists=data_artists)
-save(fig, "fig7_feature_drop", "--preview" in sys.argv)
+problems = layout_check(fig, "Fig. 7 - feature removal", min_gap_pt=2.0, min_font_pt=8.0,
+                        data_artists=data_artists)
+S.save(fig, HERE, "fig7_feature_drop")
 
 (HERE / "fig7_provenance.json").write_text(json.dumps({
-    "figure": "Fig. 7 - feature removal costs within-region skill; the transfer change is near zero",
+    "figure": "Fig. 7 - feature removal costs within-region skill and gives no measurable transfer gain",
     "script": "paper/figures/fig7_feature_drop.py",
     "data": {"path": "paper/figures/data/fig_data_corrected.json",
              "sha256": hashlib.sha256((HERE / "data" / "fig_data_corrected.json").read_bytes()).hexdigest(),
              "deltas": "paper/labelfix_rerun/round3/feature_drop_transfer.json",
              "deltas_sha256": hashlib.sha256(FDROP_SRC.read_bytes()).hexdigest()},
     "asserts": "the four means 0.896/0.883/0.840/0.820 (within) and 0.527/0.529/0.533/0.541 "
-               "(transfer) equal Appendix A(n) at 3 dp (_conservation_common.py); within strictly "
-               "decreasing and transfer strictly increasing along full -> -anomaly -> -elevation -> "
-               "-both; transfer change +0.014, pair-t over ten region pairs [-0.028, +0.056], found "
-               "verbatim in 04 and 05 and spanning zero; the same computation reproduces the frozen "
-               "[-0.017, +0.045]; every value inside the axes",
+               "(transfer) equal Section S1.14 at 3 dp (_conservation_common.py); within strictly "
+               "decreasing and transfer strictly increasing along the rows; transfer change +0.014, "
+               "pair-t over ten region pairs [-0.028, +0.056], found verbatim in 04 and 05 and spanning "
+               "zero; the same computation reproduces the frozen [-0.017, +0.045]; every value inside the axes",
     "transfer_change": {"delta": round(DELTA, 4), "pair_t_95": [round(DLO, 4), round(DHI, 4)],
                         "unit": "ten unordered region pairs, direction deltas averaged within a pair"},
-    "labels": "one marker per configuration named in a fixed legend column to the right; "
-              "no label position depends on a data value",
-    "canvas_mm": [190, 92],
-    "column": "double (190 mm)",
-    "font_pt": {"body": FS_BODY, "minimum": FS_TICK},
+    "design": "2026-10-23 redraw: two dot plots sharing rows, equal 0.12 AUC axis spans",
+    "canvas_mm": [S.WIDTH_MM, 52],
+    "font_pt": {"body": S.FS_BODY, "minimum": S.FS_SMALL},
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False), encoding="utf-8")
-print("fig7 written; within", [round(v, 4) for v in _w],
-      "transfer", [round(v, 4) for v in _t])
+print("fig7 written; within", [round(v, 4) for v in _w], "transfer", [round(v, 4) for v in _t])

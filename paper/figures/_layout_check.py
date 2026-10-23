@@ -146,6 +146,10 @@ def check(fig, name, min_gap_pt=1.5, min_font_pt=8.0, data_artists=(),
 
     problems = []
 
+    # ---- (0) no section sign in any figure text (author's rule, 2026-10-23); a hard stop
+    with_sign = [e["text"] for e in entries if "\u00a7" in e["text"]]
+    assert not with_sign, f"{name}: section sign in figure text {with_sign}; write the number or 'Section'"
+
     # ---- (4) font sizes -------------------------------------------------
     for e in entries:
         if e["size"] < min_font_pt - 1e-6:

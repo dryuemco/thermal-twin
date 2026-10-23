@@ -56,13 +56,27 @@ def check(key, f):
     except Exception:
         try:
             a = get(f"https://api.datacite.org/dois/{doi}")["data"]["attributes"]
-        except Exception as e:
-            return f"DOI does not resolve at Crossref or DataCite ({e})", False
-        reg, year = "datacite", a.get("publicationYear")
-        issued = year
-        c = a.get("creators") or [{}]
-        fam = plain(c[0].get("familyName") or c[0].get("name", ""))
-        vol, pages = None, None
+            reg, year = "datacite", a.get("publicationYear")
+            issued = year
+            c = a.get("creators") or [{}]
+            fam = plain(c[0].get("familyName") or c[0].get("name", ""))
+            vol, pages = None, None
+        except Exception:
+            # other registration agencies (EU Publications Office reports, 10.2760/...): doi.org
+            # content negotiation; a corporate author ("literal") is not compared (added 2026-10-23)
+            try:
+                req = urllib.request.Request(f"https://doi.org/{doi}", headers={
+                    "Accept": "application/vnd.citationstyles.csl+json",
+                    "User-Agent": "thermal-twin reference check (mailto:ycogurcu@cu.edu.tr)"})
+                with urllib.request.urlopen(req, timeout=40) as r:
+                    c = json.load(r)
+            except Exception as e:
+                return f"DOI does not resolve at Crossref, DataCite or doi.org ({e})", False
+            reg, year = "doi.org", c["issued"]["date-parts"][0][0]
+            issued = year
+            au = (c.get("author") or [{}])[0]
+            fam = plain(au.get("family", "")) if "family" in au else ""
+            vol, pages = None, None
     bad = []
     if str(f.get("year")) not in {str(year), str(issued)}:
         bad.append(f"year {f.get('year')} vs {year}")

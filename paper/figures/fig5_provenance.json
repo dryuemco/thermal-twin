@@ -1,26 +1,21 @@
 {
- "figure": "Fig. 5 - label-blind adaptation compresses the matrix toward chance",
+ "figure": "Fig. 5 - label-free adaptation moves transfer toward chance",
  "script": "paper/figures/fig5_adaptation.py",
  "data": {
   "path": "paper/figures/data/fig_data_corrected.json",
   "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
-  "note": "four_aoi_decomposition.csv of the corrected-label overlay; sha256 inside"
+  "note": "step10_metrics.json of all 10 pairs, corrected-label overlay; sha256 inside"
  },
- "asserts": "raw and best-adapted of all 12 arrows equal Table B9 at 3 dp and the within ticks equal Table 1 (block 2); 7/12 negative recovery; worst Evia->Manavgat recovered fraction -1.126; 11/12 closer to chance, exception Manavgat->Mugla; Bejis->Manavgat a CORAL recovery with its z-score arm at 0.302; every value inside the x axis (_conservation_common.py)",
- "greyscale": {
-  "hue_only_contrast": 2.3,
-  "note": "Okabe-Ito blue (relative luminance 0.151) vs orange (0.413) separate by only this ratio, below the 3:1 WCAG non-text minimum, so the two classes also differ by line style (solid vs dashed); proof in fig5_adaptation_greyscale.png"
- },
- "legend": "in a reserved band below the plotted rows; the chance reference is a segment over the data rows only, never an axvline, so it cannot cross legend text",
+ "asserts": "all 60 plotted values equal Table S16 at 3 dp; means raw 0.527, z-score 0.510, CORAL 0.517; 13 (z-score) and 16 (CORAL) of 20 directions closer to chance; ranges 0.302-0.630 and 0.406-0.624; the decomposition asserts in _conservation_common.py",
+ "design": "2026-10-23 redraw: 20 directions, raw (open grey) to adapted (filled blue), one panel per method; no target-label choice of method",
  "canvas_mm": [
-  190,
-  108
+  170.0,
+  118
  ],
- "column": "double (190 mm)",
  "font_pt": {
   "body": 9.0,
   "minimum": 8.0
  },
- "layout_check": "paper/figures/_layout_check.py; 0 problems at build time; 37 data artists registered",
- "environment": "matplotlib 3.11.0"
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
 }

@@ -19,6 +19,7 @@ paper/figures/data/*
 !paper/figures/data/fig_data.json
 !paper/figures/data/fig_data_corrected.json
 !paper/figures/data/fig1_aoi.json
+!paper/figures/data/fig1b_frames.npz
 
 # Heavy pipeline step outputs (Step 10 outputs are tracked below)
 experiments/*/step0/

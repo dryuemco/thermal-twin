@@ -6,7 +6,7 @@ no code in this repository varies either parameter: every script hard-codes
 MIN_SCAR = 50 and 8-connectivity. The claim therefore had no computation behind
 it. This runs it.
 
-Two parameters are swept on the leave-one-scar-out arm (row C of Table 2):
+Two parameters are swept on the leave-one-scar-out arm (row C of Table 3):
   minimum component size  25, 50, 100, 200 cells
   connectivity            4 (von Neumann) and 8 (Moore)
 

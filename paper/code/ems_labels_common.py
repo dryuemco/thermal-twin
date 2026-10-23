@@ -1,6 +1,6 @@
 """Shared machinery for the ems_labels_* analyses (referee R3, label quality).
 
-Everything model-related is IMPORTED from step10 (the code that produced Table 1) and
+Everything model-related is IMPORTED from step10 (the code that produced Table 2) and
 everything label-related is IMPORTED from the upstream pipeline in repo/ (read-only;
 bytecode writing is disabled before import so nothing is written into repo/).
 See paper/ems_analyses/labels/SPEC.md.

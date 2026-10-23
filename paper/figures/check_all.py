@@ -151,6 +151,24 @@ def main():
                        if tabs else (out.strip().splitlines() or ["no output"])[-1][:160]}
         rows.append(row)
         print(f"{'appendix_tables':24s} {row['status']:8s} {nrows:>7d} {'-':>6s} {'-':>12s} {'-':>8s} {'-':>5s}  {row['note']}")
+    # the data of Fig. 1b (fig1b_data.py): rebuilt from the modelling datasets, must equal the file in use
+    if not args.only or "fig1b_data" in args.only:
+        npz = HERE / "data" / "fig1b_frames.npz"
+        kept = npz.read_bytes()
+        try:
+            r = subprocess.run([sys.executable, str(HERE / "fig1b_data.py")], cwd=HERE.parents[1],
+                               capture_output=True, text=True, encoding="utf-8", errors="replace",
+                               env={**__import__("os").environ, "PYTHONIOENCODING": "utf-8"})
+            same = npz.read_bytes() == kept
+        finally:
+            npz.write_bytes(kept)
+        out = (r.stdout + r.stderr).strip().splitlines() or ["no output"]
+        row = {"figure": "fig1b_data", "asserts": n_asserts("fig1b_data"), "problems": None,
+               "status": "PASS" if r.returncode == 0 and same else "FAIL",
+               "note": "rebuilt from the modelling datasets, byte-identical" if r.returncode == 0 and same
+                       else ("rebuilt data differ from fig1b_frames.npz" if r.returncode == 0 else out[-1][:160])}
+        rows.append(row)
+        print(f"{'fig1b_data':24s} {row['status']:8s} {row['asserts']:>7d} {'-':>6s} {'-':>12s} {'-':>8s} {'-':>5s}  {row['note']}")
     n = {s: sum(r["status"] == s for r in rows) for s in ("PASS", "FAIL", "SKIPPED")}
     print(f"\n{n['PASS']} PASS, {n['FAIL']} FAIL, {n['SKIPPED']} SKIPPED of {len(rows)}. "
           "Asserts are assert statements in the script (and _conservation_common.py for Figs. 5-7). "

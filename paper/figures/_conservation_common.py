@@ -43,7 +43,7 @@ def dirlabel(d):
 
 
 # ---- asserts (corrected label), zero tolerance at the printed 3 dp -----------
-# Fig. 5: every arrow against Table B9 as printed, every within tick against Table 1
+# Fig. 5: every arrow against Table B9 as printed, every within tick against Table 2
 B9_NAME = {"Manavgat": "manavgat_2021", "Bejís": "bejis_2022", "Muğla": "mugla_2021",
            "Evia": "evia_2021_extended", "Montiferru": "montiferru_2021"}
 _md = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
