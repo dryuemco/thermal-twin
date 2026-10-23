@@ -5,6 +5,11 @@ the profile is `paper/tex/journal_fire_ecology.py`. The shared sources were rest
 on 2026-10-12 (Background merged from the former Introduction and Related work, Methods in the active
 voice, about 900 words shorter); the earlier Fire (MDPI) package was built from commit `ab058c2`.
 
+Edited by hand after the build (2026-10-23): in `manuscript.docx` the authors reworded the statement on
+generative AI in the Acknowledgements in Word. This file therefore differs from the build of the
+commit above and from `paper/07_declarations.md`; its size and SHA-256 below are those of the edited
+file. Every other file is as built.
+
 Build-time checks: title 9 words, no numbers or acronyms; structured abstract
 332 words (limit 500); 10 keywords, alphabetical, none in the title; main text
 8536 words (about 8000 asked, 8800 at most without the Editor-in-Chief); figure and
@@ -21,7 +26,7 @@ after acceptance.
 
 | File | Size (bytes) | SHA-256 | Source |
 |---|---:|---|---|
-| `manuscript.docx` | 877475 | `59f00ad503134f631e6e7e185324224eb6fd3198ce190dcd4aca47a693fcb19a` | paper/01, 03-07 *.md, 00_abstract_fire_ecology.md, figure_captions.tex, frontmatter.json, REFERENCES.bib |
+| `manuscript.docx` | 990787 | `34e185465744ec94f34063170ce48b5847508ec09be5438830ef05ed0f01936b` | paper/01, 03-07 *.md, 00_abstract_fire_ecology.md, figure_captions.tex, frontmatter.json, REFERENCES.bib |
 | `Additional_file_1.pdf` | 1458787 | `3e16b125bddf91d44ba9c9afeda22243611d3547616584215f0a189c8cc57b00` | paper/supplementary.md, Word PDF export |
 | `Fig1.pdf` | 210524 | `9534c0e6407dd9ed48899690b25ee4a945176c330bab32f6abf4d6028f79bb38` | paper/figures/fig1_study_map.pdf (vector, unchanged) |
 | `Fig2.pdf` | 19769 | `36321b10208588d83805fb6f4d07f4913ebdc04c3a24a0f96541dad246d70c0a` | paper/figures/fig2_schematic.pdf (vector, unchanged) |
