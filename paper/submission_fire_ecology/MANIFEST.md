@@ -1,16 +1,16 @@
 # Submission package: Fire Ecology (SpringerOpen)
 
-Research article. Built from commit `9bae6c75b9d6c462fde1bea0b57a6f1f2563ccfc` by `python paper/tex/build_docx.py --journal fire-ecology`;
+Research article. Built from commit `01335156fac9e20097a5881af2f94a19a11315eb` by `python paper/tex/build_docx.py --journal fire-ecology`;
 the profile is `paper/tex/journal_fire_ecology.py`. The shared sources were restructured for this journal
 on 2026-10-12 (Background merged from the former Introduction and Related work, Methods in the active
 voice, about 900 words shorter); the earlier Fire (MDPI) package was built from commit `ab058c2`.
 
 Build-time checks: title 9 words, no numbers or acronyms; structured abstract
-342 words (limit 500); 10 keywords, alphabetical, none in the title; main text
-7862 words (about 8000 asked, 8800 at most without the Editor-in-Chief); figure and
-table titles at most 15 words and legends at most 300 (Table 1: title 8 words, legend 93 words; Table 2: title 7 words, legend 75 words; Table 3: title 12 words, legend 86 words); 8 figures and
-3 tables cited in body prose, in order, placed after their first citation; every
-citation resolved; abbreviations listed; 558 decimals identical between the assembled Markdown and the
+332 words (limit 500); 10 keywords, alphabetical, none in the title; main text
+8549 words (about 8000 asked, 8800 at most without the Editor-in-Chief); figure and
+table titles at most 15 words and legends at most 300 (Table 1: title 7 words, legend 77 words; Table 2: title 8 words, legend 93 words; Table 3: title 7 words, legend 75 words; Table 4: title 12 words, legend 86 words); 8 figures and
+4 tables cited in body prose, in order, placed after their first citation; every
+citation resolved; abbreviations listed; 575 decimals identical between the assembled Markdown and the
 .docx. Run separately: `paper/figures/check_all.py`, `paper/code/check_stale_values.py`,
 `paper/code/verify_references.py`.
 
@@ -21,14 +21,14 @@ after acceptance.
 
 | File | Size (bytes) | SHA-256 | Source |
 |---|---:|---|---|
-| `manuscript.docx` | 1259793 | `015f0433e6e43d29e1a842c154b3bd5e9d6eed7fd8c8f53db8cd9c87e0fdc9e4` | paper/01, 03-07 *.md, 00_abstract_fire_ecology.md, figure_captions.tex, frontmatter.json, REFERENCES.bib |
-| `Additional_file_1.pdf` | 1254593 | `10cf66397299539b2ecd34a7e1b21eb1f1474fdc494a3c1d555d9d71b46112d2` | paper/supplementary.md, Word PDF export |
-| `Fig1.pdf` | 184479 | `8a4c3d70ccb26bc456151c1bf171c497b402025fdc3a59f9a764d77b99535ce3` | paper/figures/fig1_study_map.pdf (vector, unchanged) |
-| `Fig2.pdf` | 100302 | `6efeecda7fc133e01bd867f3e747747f295168bcc2eeb9ba4d12049a7d7e5a63` | paper/figures/fig2_schematic.pdf (vector, unchanged) |
-| `Fig3.pdf` | 62922 | `7f6ae47fd2c1cbbefe64befe52764043523c417435e141a186474986c58bfb45` | paper/figures/fig3_within_robustness.pdf (vector, unchanged) |
-| `Fig4.pdf` | 53299 | `203f0064163f460b29b8e2b8ed185baad2ed3e41361db8f83ee0f20a4c603906` | paper/figures/fig4_transfer_matrix.pdf (vector, unchanged) |
-| `Fig5.pdf` | 64148 | `0eea6783f90170fbe69270a5a3e88b97eaa2e09e6d054ef2cfe2e3121d0fae0a` | paper/figures/fig5_adaptation.pdf (vector, unchanged) |
-| `Fig6.pdf` | 45110 | `065faaf3a398d2b5d2305a75e6bfb6d0717387e93541176c3cbddfbd4afad9bc` | paper/figures/fig6_loro.pdf (vector, unchanged) |
-| `Fig7.pdf` | 65723 | `f794794dcf4a493967479f213e1a1c47d4d06d0c8b9f256d7bc2064c5909b90e` | paper/figures/fig7_feature_drop.pdf (vector, unchanged) |
-| `Fig8.pdf` | 109340 | `63687ef11a5654a25a12c3a24a570d6a6723fe5bd0d09eeed1ec361184a5540c` | paper/figures/fig8_contrast_pairs.pdf (vector, unchanged) |
-| `cover_letter_draft.docx` | 12557 | `adc32aac0a463e5e5d5f35c89a46d51c2a25327b7184785cd0f58c885df9e53b` | paper/tex/fire_ecology_cover_letter.md (unsigned, without the reviewers) |
+| `manuscript.docx` | 877545 | `9c7d34d24058db29eac7e05cf41c5c5e3a3f8b39c9895b085e2d1d3bbf418592` | paper/01, 03-07 *.md, 00_abstract_fire_ecology.md, figure_captions.tex, frontmatter.json, REFERENCES.bib |
+| `Additional_file_1.pdf` | 1027973 | `9a5595a546b6693b9ff77007f465e13d81db2f33fd8d0726857640b7f908bf98` | paper/supplementary.md, Word PDF export |
+| `Fig1.pdf` | 210524 | `9534c0e6407dd9ed48899690b25ee4a945176c330bab32f6abf4d6028f79bb38` | paper/figures/fig1_study_map.pdf (vector, unchanged) |
+| `Fig2.pdf` | 19769 | `36321b10208588d83805fb6f4d07f4913ebdc04c3a24a0f96541dad246d70c0a` | paper/figures/fig2_schematic.pdf (vector, unchanged) |
+| `Fig3.pdf` | 21335 | `0009b6c39aeb51bc5dee8f49a83f431de88fcfb0bf7d7adaf1601c2f2f66b3da` | paper/figures/fig3_within_robustness.pdf (vector, unchanged) |
+| `Fig4.pdf` | 24594 | `47492f0bc53b5b589e693af75f8add8501c0b6a9398b55c7ab3af5a23105b4c3` | paper/figures/fig4_transfer_matrix.pdf (vector, unchanged) |
+| `Fig5.pdf` | 32277 | `2190d7aed8dd39e9cf967cb216f97e2e4b4b37aae77cf2db64515c3cc8b8a4c5` | paper/figures/fig5_adaptation.pdf (vector, unchanged) |
+| `Fig6.pdf` | 19118 | `0770d95605747766cfcba5a6d07a08cb7a124b296063ceecace915db900afff4` | paper/figures/fig6_loro.pdf (vector, unchanged) |
+| `Fig7.pdf` | 15719 | `c042aa0e28c6f458ecf08d281f882f060e7ae4283dd1eabf539fd66b0b65a29f` | paper/figures/fig7_feature_drop.pdf (vector, unchanged) |
+| `Fig8.pdf` | 28444 | `6ae6c444b5d7a58346be28e7c85d55dc37245cabc63ffb87848e743e3e08c6a7` | paper/figures/fig8_contrast_pairs.pdf (vector, unchanged) |
+| `cover_letter_draft.docx` | 12518 | `95e9d0c09e025f9c9acd5ffbd58873c5048e153dea2fb8a7a4af7cad1b1ccd94` | paper/tex/fire_ecology_cover_letter.md (unsigned, without the reviewers) |
