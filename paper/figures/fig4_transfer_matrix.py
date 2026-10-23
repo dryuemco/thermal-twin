@@ -12,7 +12,7 @@ The earlier three-panel version (PuOr, hatching below chance, corner dots for in
 is in the git history before 2026-10-23.
 
 Data: paper/figures/data/fig_data_corrected.json (corrected Manavgat label; sha256 per source
-inside). Hard asserts tie all 60 values of Table S16 (supplementary.md) to the data at zero
+inside). Hard asserts tie all 60 values of Table S8 (supplementary.md) to the data at zero
 tolerance (3 dp), the three ranges to 04 Section 3.5, and the below-chance count to Table 4.
 """
 import json
@@ -44,7 +44,7 @@ MIN_CONTRAST = 4.5   # WCAG AA for normal text
 B9_NAME = {"Manavgat": "manavgat_2021", "Bejís": "bejis_2022", "Muğla": "mugla_2021",
            "Evia": "evia_2021_extended", "Montiferru": "montiferru_2021"}
 b9_md = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
-b9_md = b9_md[b9_md.index("**Table S16."):]
+b9_md = b9_md[b9_md.index("**Table S8."):]
 b9_rows = re.findall(r"^\| (\w+)→(\w+) \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \|$",
                      b9_md, flags=re.M)
 assert len(b9_rows) == 20, f"Table B9 rows parsed: {len(b9_rows)}"
@@ -149,7 +149,7 @@ S.save(fig, HERE, "fig4_transfer_matrix")
     "data": {"path": "paper/figures/data/fig_data_corrected.json",
              "sha256": __import__("hashlib").sha256(DATA_PATH.read_bytes()).hexdigest(),
              "note": "step10_metrics.json of all 10 pairs, corrected-label overlay; per-source sha256 inside"},
-    "asserts": "all 60 values of Table S16 equal the data at 3 dp, zero tolerance; ranges "
+    "asserts": "all 60 values of Table S8 equal the data at 3 dp, zero tolerance; ranges "
                "0.314-0.677 / 0.302-0.630 / 0.406-0.624 (04 3.5); 7 raw directions below chance and "
                "9 above / 6 below with interval support (Table 4); every value inside the colour norm "
                f"0.30-0.70; worst cell-label contrast >= {MIN_CONTRAST}:1",

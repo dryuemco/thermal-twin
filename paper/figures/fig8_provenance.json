@@ -5,7 +5,7 @@
   "path": "paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json",
   "sha256": "bbb70787fe5e99ddf475db8b3e6d29365b2e8f231127725792ac766a2d487e9a"
  },
- "asserts": "corrected-label source (Manavgat parquet prefix is not the frozen 054a1961); D-bar means 0.799/0.479; jointly supported features exactly the six [slope, elevation, current LST, current TVDI, downscaled LST, fused LST] in (a), all opposite in sign, and [] in (b); sign agreement 2/9 and 7/9; four transfer AUCs (0.438, 0.345 from the abstract; 0.594, 0.548) and 2-cell CI-off-chance checks; 10-cell verdicts from round5/s7 (only Mugla->Manavgat supported); Table S18 rows and Section S1.16 statements; every plotted value inside the axes",
+ "asserts": "corrected-label source (Manavgat parquet prefix is not the frozen 054a1961); D-bar means 0.799/0.479; jointly supported features exactly the six [slope, elevation, current LST, current TVDI, downscaled LST, fused LST] in (a), all opposite in sign, and [] in (b); sign agreement 2/9 and 7/9; four transfer AUCs (0.438, 0.345 from the abstract; 0.594, 0.548) and 2-cell CI-off-chance checks; 10-cell verdicts from round5/s7 (only Mugla->Manavgat supported); Table S7 rows and Section S3.4 statements; every plotted value inside the axes",
  "s7": {
   "path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",
   "sha256": "746d9a6bd4aa4f14c42200eb0ad1806374b83435d9a6649929714cd58620da67"

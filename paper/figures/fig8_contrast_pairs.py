@@ -10,10 +10,10 @@ small vertical offset as a second cue (vermillion is kept for "below chance" in 
 
 The earlier version (arrows from 0.5, open/filled arrowheads, dashed second region, shaded
 disagreement rows, Schoener D side bars and three header lines per panel) is in the git history
-before 2026-10-23; the per-feature D values are in Table S18.
+before 2026-10-23; the per-feature D values are in Table S7.
 
 Data: paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json, the corrected
-Manavgat label. Hard asserts tie every headline number to the abstract, Section S1.16 and round5/s7.
+Manavgat label. Hard asserts tie every headline number to the abstract, Section S3.4 and round5/s7.
 """
 import hashlib
 import json
@@ -127,7 +127,7 @@ B10_EXPECTED = [
 _supp = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
 for _row in B10_EXPECTED:
     assert _row in _supp, f"Table B10 row not as computed: {_row}"
-_as = " ".join(_supp[_supp.index("## S1.16 "):_supp.index("## S1.17 ")].split())   # former A(s)
+_as = " ".join(_supp[_supp.index("## S3.4 "):_supp.index("## S3.5 ")].split())   # former A(s)
 _lo, _hi = _ct.iloc[0], _ct.iloc[-1]
 for _s in (f"{tl[MM_]['auc']:.3f} and {tl[MG_]['auc']:.3f} as drawn",
            f"{_cv[MM_][0]:.3f} and {_cv[MG_][0]:.3f} under the collar",
@@ -221,8 +221,8 @@ S.save(fig, HERE, "fig8_contrast_pairs")
                 "[slope, elevation, current LST, current TVDI, downscaled LST, fused LST] in (a), "
                 "all opposite in sign, and [] in (b); sign agreement 2/9 and 7/9; four transfer "
                 "AUCs (0.438, 0.345 from the abstract; 0.594, 0.548) and 2-cell CI-off-chance "
-                "checks; 10-cell verdicts from round5/s7 (only Mugla->Manavgat supported); Table S18 "
-                "rows and Section S1.16 statements; every plotted value inside the axes"),
+                "checks; 10-cell verdicts from round5/s7 (only Mugla->Manavgat supported); Table S7 "
+                "rows and Section S3.4 statements; every plotted value inside the axes"),
     "s7": {"path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",
            "sha256": hashlib.sha256(S7.read_bytes()).hexdigest()},
     "design": "2026-10-23 redraw: dot + interval per region and feature, filled = interval excludes 0.5; "

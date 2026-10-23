@@ -32,7 +32,7 @@ article page and the "Fire Ecology Author Guidelines" document linked from them:
 
 Output, paper/submission_fire_ecology/:
     manuscript.docx          figures and tables embedded, references in the basic Springer style
-    Additional_file_1.pdf    the Supplementary Material with its own reference list
+    Additional_file_1.pdf    the Supplementary Material with its own reference list, single-spaced
     Fig1.pdf ... Fig8.pdf    the eight vector figures, as drawn and checked by paper/figures/
     cover_letter_draft.docx  unsigned draft, reviewers left out (they are not public)
     MANIFEST.md              file, size, SHA-256, source commit
@@ -57,8 +57,9 @@ from pathlib import Path
 
 import pypandoc
 from docx import Document
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from docx.oxml.ns import qn
+from docx.shared import Cm, Pt
 
 import build_docx as B
 import journal_fire as F
@@ -88,7 +89,7 @@ ABBREVIATIONS = {
     "TVDI": "Temperature-Vegetation Dryness Index",
     "VIIRS": "Visible Infrared Imaging Radiometer Suite",
 }
-ADDITIONAL = ("Sections and tables numbered with S (for example Section S1.23 and Table S21) "
+ADDITIONAL = ("Sections, figures and tables numbered with S (for example Section S1.2, Fig. S1 and Table S1) "
               "are in Additional file 1.")
 # where the first pointer to the supplement goes: after the paragraph that first cites an S section
 ADDITIONAL_AFTER = "after the first results; they\nare exploratory, and we report them as such."
@@ -246,6 +247,27 @@ def docx_left_aligned(path):
     for p in d.paragraphs:
         for br in p._p.iter(qn("w:br")):
             assert br.get(qn("w:type")) != "page", "page break in the manuscript"
+    d.save(path)
+    B.strip_custom_props(path)
+
+
+def supplement_layout(path):
+    """The manuscript format (12 pt, double spacing, line numbers) binds the manuscript only. Additional
+    file 1 is set single-spaced at 11 pt on 2 cm margins, which halves its page count with the same text;
+    tables keep the 10 pt that B.to_docx gives them."""
+    d = Document(path)
+    for sect in d.element.body.iter(qn("w:sectPr")):
+        for ln in sect.findall(qn("w:lnNumType")):
+            sect.remove(ln)
+    for sect in d.sections:
+        for side in ("left_margin", "right_margin", "top_margin", "bottom_margin"):
+            setattr(sect, side, Cm(2.0))
+    for s in d.styles:
+        pf = getattr(s, "paragraph_format", None)
+        if pf is not None and s.name in ("Normal", "Body Text", "First Paragraph", "Compact", "Bibliography"):
+            pf.line_spacing_rule = WD_LINE_SPACING.SINGLE
+            pf.space_after = Pt(6)
+            s.font.size = Pt(11)
     d.save(path)
     B.strip_custom_props(path)
 
@@ -450,10 +472,10 @@ Article type: Research. Main text (Background to Conclusions, tables, figures an
 
 # Supplementary Information
 
-Additional file 1 (Additional_file_1.pdf; PDF). Supplementary Material: sensitivity analyses and detail
-(Sections S1.1 to S1.23), supporting tables (Section S2), protocol detail and the full list of limitations
-(Section S3), the target-label recovery curve (Section S4) and Tables S1 to S{n_sup_tab}, each with
-the source files of its values.
+Additional file 1 (Additional_file_1.pdf; PDF). Supplementary Material: robustness checks (Section S1,
+Figs. S1 to S3), the evaluation frame scar by scar and by distance (Section S2, Figs. S4 and S5), signed
+associations and the frame test (Section S3), transfer, adaptation and similarity (Section S4), and data
+and methods (Section S5), with Tables S1 to S{n_sup_tab}, each naming the source files of its values.
 
 # Acknowledgements
 
@@ -544,6 +566,7 @@ Not applicable.
     B.to_docx(sup_md, sup_docx, "Additional file 1: " + title)
     n_sup_links = check_links(sup_docx)
     F.balance_tables(sup_docx)
+    supplement_layout(sup_docx)
     if pdf:
         F.word_pdf(sup_docx, OUT / "Additional_file_1.pdf")
         assert (OUT / "Additional_file_1.pdf").stat().st_size < 20 * 2 ** 20, "Additional file 1 exceeds 20 MB"

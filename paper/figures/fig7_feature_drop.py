@@ -114,7 +114,7 @@ S.save(fig, HERE, "fig7_feature_drop")
              "deltas": "paper/labelfix_rerun/round3/feature_drop_transfer.json",
              "deltas_sha256": hashlib.sha256(FDROP_SRC.read_bytes()).hexdigest()},
     "asserts": "the four means 0.896/0.883/0.840/0.820 (within) and 0.527/0.529/0.533/0.541 "
-               "(transfer) equal Section S1.14 at 3 dp (_conservation_common.py); within strictly "
+               "(transfer) equal the frozen values at 3 dp (_conservation_common.py); within strictly "
                "decreasing and transfer strictly increasing along the rows; transfer change +0.014, "
                "pair-t over ten region pairs [-0.028, +0.056], found verbatim in 04 and 05 and spanning "
                "zero; the same computation reproduces the frozen [-0.017, +0.045]; every value inside the axes",

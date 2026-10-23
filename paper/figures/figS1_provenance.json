@@ -1,0 +1,26 @@
+{
+ "figure": "Fig. S1 - the within-region thermal gain under every check",
+ "script": "paper/figures/figS1_within_checks.py",
+ "data": {
+  "inference/ladder_summary.json": "62948f253745a275688b8e1a39b556f72c81c7af8e2b6d039f2bb4ce891a3b80",
+  "round8/r8m_summary.json": "416e63fe1df1cf06dc9a08466d8506614424615f8a0c8fc17ef8bf01336b4031",
+  "round8/r8j_summary.json": "97b786d32a242da8e69427961bda524325445851d21ab7f4acc46c2a75b4c32f",
+  "round8/r8n_summary.json": "c85650e52d8e9aec1f84b0ed0f34fea67d25b1e1882f85ab3e9700403bcdc9af",
+  "labels/r2_history.json": "3df0200800838d72bc63d33d9fcf155ea05d170c3b8b0171f2fdc60f21c7ee82",
+  "round8/r8b_summary.json": "57dcca5a6c6a0b7a1db44e0a8770ed90f671a7fdc3a4f8d7ed81703e9972420c",
+  "round3/no_coord_channels.json": "c8408b690c81dde1e9a346bdd1c4e3d37f1eedf8b12181d35b92a88b3a4646c9",
+  "code/model_capacity.json": "ee3a39806362252b65d78eba5cce87828d79ff810044530da37da2885453005f",
+  "exports/window_closure_manavgat_2021/compare/tables/thermal_contributions.csv": "8f2b7ca006f2e6256fea43c41ce7ea558c1ef970a073ed37d11270d5e382f56f",
+  "exports/window_closure_bejis_2022/tables/thermal_contributions.csv": "ced17aacd8535df87283489c8d3e4c3194b793bd7b37256803eefc1a6a99f457",
+  "exports/window_closure_mugla_2021/tables/thermal_contributions.csv": "976e4b4b36464d955a0a97d9ad6bddbb13cfae38f9ad2e12dd64f7f00f1b6aa6",
+  "exports/window_closure_evia_2021_extended/tables/thermal_contributions.csv": "4288c22c386dd24eebbda60948beef68373ce343a973fbf1cbe311cc2caea813",
+  "exports/window_closure_montiferru_2021/tables/thermal_contributions.csv": "ef0fce1e33999f899ca938f9839a937548569da275be586b303ba2705c7beb5a"
+ },
+ "asserts": "the 5 km reference equals across r8n, r8m, r8j, r2 and the ladder; the 1 km reference equals across model_capacity and no_coord_channels; every check keeps the gain above zero in every region; only the Montiferru aspect interval includes zero, as Section S1.1 states",
+ "canvas_mm": [
+  170.0,
+  104
+ ],
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

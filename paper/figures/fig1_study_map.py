@@ -5,19 +5,19 @@
 each at its own scale with a 10 km bar, in five classes (burned, 2 km scar frame, within 10 km of a
 burned cell, beyond 10 km, not modelled). The classes come from paper/figures/data/fig1b_frames.npz,
 written by fig1b_data.py in the project venv (this script runs where cartopy is, without the parquet
-stack). Asserts: cells, burned cells and the share beyond 10 km equal Table S15, Table S13 and the
-rows of Table 1 in 03_methods.md.
+stack). Asserts: cells, burned cells and the share beyond 10 km equal the rows of Table 1 in
+03_methods.md.
 
 (a) Mercator map of Natural Earth 1:50m land and coastline; one filled blue dot per study area at
 its centre, a plain label beside each, and Kozan 2023 (the gate's negative control) as an open
 grey square. A two-entry key in the open sea south of Sicily explains the two marks, because
 Fire Ecology wants keys in the graphic and not in the legend. No rectangles (the bounding boxes
-are in Table S19), label boxes, leader lines, graticule lines or north arrow (north is up;
+are in Table S13), label boxes, leader lines, graticule lines or north arrow (north is up;
 latitude and longitude are labelled on the frame); a 500 km scale bar, exact at 38 N as the
 caption says. The earlier version is in the git history before 2026-10-23.
 
 AOI bounds: paper/figures/data/fig1_aoi.json (step0 geojson / grid-derived, sha256 per source
-inside; asserted here against Table S19).
+inside; asserted here against Table S13).
 """
 import json
 import sys
@@ -63,7 +63,7 @@ ANCHOR = {
     "manavgat_2021":      (-0.35, 0.6, "left", "bottom"),
     "kozan_2023":         (0.55, -0.45, "left", "top"),
 }
-# ---- asserts vs Table S19 (bounding boxes of the study regions) ----
+# ---- asserts vs Table S13 (bounding boxes of the study regions) ----
 EXPECT = {
     "manavgat_2021": (31.05, 36.72, 31.85, 37.35),
     "bejis_2022": (-1.05, 39.68, -0.35, 40.15),
@@ -75,7 +75,7 @@ for reg, exp in EXPECT.items():
     got = AOI[reg]["bbox"]
     assert all(abs(g - e) < 5e-3 for g, e in zip(got, exp)), (reg, got, exp)
 
-# Kozan is not in Table S19 (it is not a study region), so it is cross-checked
+# Kozan is not in Table S13 (it is not a study region), so it is cross-checked
 # against an INDEPENDENT source: the frozen Step 2B DEM metadata AOI polygon,
 # which comes from the region registry rather than from the step8a grid.
 _KOZAN_STEP2B = (35.25828811820405, 37.00022858198274,
@@ -101,7 +101,7 @@ B_DATA = HERE / "data" / "fig1b_frames.npz"
 with zipfile.ZipFile(B_DATA) as _z:
     B_CAT = {r: np.load(io.BytesIO(_z.read(f"{r}.npy")), allow_pickle=False) for r in B_REG}
     B_STATS = json.loads(_z.read("stats.json"))
-# Table S15 (cells, burned) and Table S13 (share beyond 10 km), as in fig1b_data.py
+# Table 1 (cells, burned, share beyond 10 km), as in fig1b_data.py
 _EXPECT_B = {"manavgat_2021": (20511, 2935, 58.5), "bejis_2022": (15190, 1100, 63.1),
              "mugla_2021": (41730, 2911, 55.3), "evia_2021_extended": (9298, 2664, 43.7),
              "montiferru_2021": (2544, 539, 2.1)}
@@ -268,7 +268,7 @@ for _stem in ("ne_50m_land", "ne_50m_coastline"):
         "is affected. An earlier commit message (67790d8) attributed the difference to cartopy "
         "re-fetching its coastline data; that was wrong, since the cache files date from "
         "2026-08-08."),
-    "asserts": "all five AOI bboxes match Table S19 to 5e-3 deg; panel (b) cells, burned cells and the share beyond 10 km match Tables S13, S15 and Table 1",
+    "asserts": "all five AOI bboxes match Table S13 to 5e-3 deg; panel (b) cells, burned cells and the share beyond 10 km match Table 1",
     "design": "2026-10-23 redraw: one blue dot per study area (no regime grouping implied); no "
               "topography/satellite; Kozan 2023 as an open grey square with its own key entry, so its "
               "location is findable from the gate section without implying it entered any model; "

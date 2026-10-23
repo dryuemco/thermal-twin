@@ -47,7 +47,7 @@ def dirlabel(d):
 B9_NAME = {"Manavgat": "manavgat_2021", "Bejís": "bejis_2022", "Muğla": "mugla_2021",
            "Evia": "evia_2021_extended", "Montiferru": "montiferru_2021"}
 _md = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
-_md = _md[_md.index("**Table S16."):]
+_md = _md[_md.index("**Table S8."):]
 B9 = {f"{B9_NAME[s]}_to_{B9_NAME[t]}": {"raw": r, "zscore": z, "coral": c}
       for s, t, r, z, c in re.findall(
           r"^\| (\w+)→(\w+) \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \| ([0-9.]+) \[[^]]*\] \|$",

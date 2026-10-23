@@ -6,7 +6,7 @@
   "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
   "note": "step10_metrics.json of all 10 pairs, corrected-label overlay; sha256 inside"
  },
- "asserts": "all 60 plotted values equal Table S16 at 3 dp; means raw 0.527, z-score 0.510, CORAL 0.517; 13 (z-score) and 16 (CORAL) of 20 directions closer to chance; ranges 0.302-0.630 and 0.406-0.624; the decomposition asserts in _conservation_common.py",
+ "asserts": "all 60 plotted values equal Table S8 at 3 dp; means raw 0.527, z-score 0.510, CORAL 0.517; 13 (z-score) and 16 (CORAL) of 20 directions closer to chance; ranges 0.302-0.630 and 0.406-0.624; the decomposition asserts in _conservation_common.py",
  "design": "2026-10-23 redraw: 20 directions, raw (open grey) to adapted (filled blue), one panel per method; no target-label choice of method",
  "canvas_mm": [
   170.0,

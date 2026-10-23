@@ -4,7 +4,7 @@
 Leave-one-region-out: for each held-out target, the mean of the four single-source models
 (open grey circle) and the model trained on the other four regions together (filled blue dot
 with its 95% spatial-block interval). The best single source, which needs target labels to
-choose, and the within-region ceiling are no longer drawn; both are in Section S1.14(a).
+choose, and the within-region ceiling are no longer drawn; both are in Section S4.4.
 The earlier version is in the git history before 2026-10-23.
 
 Data: paper/figures/data/fig_data_corrected.json and round7/r7d_pooled_vs_single.csv.
@@ -23,7 +23,7 @@ from _layout_check import check as layout_check, assert_inside
 from _conservation_common import HERE, LABEL, loro
 import _style as S
 
-# ---- asserts vs Section S1.14(a), the Fig. 6 caption and round7, zero tolerance ----------
+# ---- asserts vs Section S4.4, the Fig. 6 caption and round7, zero tolerance ----------
 # 2026-09-29 (internal review F61): the benchmark is the MEAN of the four single-source models;
 # the best single source is kept as an oracle marker, since choosing it uses target labels.
 import csv
@@ -35,8 +35,8 @@ for _t, _r in BY.items():   # the pooled and best-single values of the two sourc
     assert abs(float(_row["pooled"]) - _r["loro_raw"]) < 1e-9, _t
     assert abs(float(_row["best_single_oracle"]) - _r["best_pairwise"]) < 1e-6, _t
 _supp = (HERE.parent / "supplementary.md").read_text(encoding="utf-8")
-_an = " ".join(_supp[_supp.index("**(a) Pooled multi-region training**"):
-                     _supp.index("**(b) Removing the direction-reversing features.**")].split())
+_an = " ".join(_supp[_supp.index("## S4.4 "):
+                     _supp.index("## S4.5 ")].split())
 _cap = " ".join((HERE.parent / "figure_captions.tex").read_text(encoding="utf-8").split())
 _ev, _mv, _bj = BY["evia_2021_extended"], BY["manavgat_2021"], BY["bejis_2022"]
 fmt_ci = lambda r: f"{r['loro_raw']:.3f} [{r['loro_raw_ci'][0]:.3f}, {r['loro_raw_ci'][1]:.3f}]"
@@ -99,9 +99,9 @@ S.save(fig, HERE, "fig6_loro")
     "asserts": "pooled beats the mean single source only for Evia, 0.715 [0.668, 0.757] against 0.569, "
                "and the oracle best source (0.654) likewise; Manavgat pooled 0.426 [0.369, 0.486], the "
                "only interval entirely below chance; shortfalls and ceiling gaps as printed in Section "
-               "S1.14(a); caption numbers found verbatim; every value inside the x axis",
+               "S4.4; caption numbers found verbatim; every value inside the x axis",
     "design": "2026-10-23 redraw: mean single source (open grey) to pooled (filled blue, with interval); "
-              "oracle source and within-region ceiling left to Section S1.14(a)",
+              "oracle source and within-region ceiling left to Section S4.4",
     "canvas_mm": [S.WIDTH_MM, 62],
     "font_pt": {"body": S.FS_BODY, "minimum": S.FS_SMALL},
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",

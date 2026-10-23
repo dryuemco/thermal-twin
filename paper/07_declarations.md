@@ -41,7 +41,7 @@ number are released with the analysis code [@ThermalTwinRepo]. Each dataset is i
 in `paper/code/_canonical.py`, and every analysis script verifies that hash on load. For Bejís, Muğla,
 North Evia and Montiferru the hash equals the canonical-input record of the upstream pipeline at
 commit `6381f4c`. For Manavgat it is the corrected-label re-freeze (`5a5e876c…`), produced at the same
-commit. The two small changes needed for this are given in Section S3.6.2. The pipeline's own
+commit. The two small changes needed for this are given in Section S5.7. The pipeline's own
 record still names the original-label table (`054a1961…`), which is not used here.
 
 ## Code availability
@@ -49,9 +49,9 @@ record still names the original-label table (`054a1961…`), which is not used h
 The upstream processing pipeline, `satellite-thermal-digital-twin` (E. Metin), is public at
 <https://github.com/emrehann17/satellite-thermal-digital-twin> under the MIT licence. The analysis
 code, figure scripts and checks are at <https://github.com/dryuemco/thermal-twin>, and version 1.2.0
-is archived at Zenodo [@ThermalTwinRepo]. Figs. 1 to 8 are drawn
+is archived at Zenodo [@ThermalTwinRepo]. Figs. 1 to 8 and Figs. S1 to S5 are drawn
 by the scripts in `paper/figures/`, which also assert Table 2 and every plotted value against the
-frozen outputs. The supplementary tables S2 to S7 and S9 to S18 are rebuilt row by row by
+frozen outputs. Tables S2 to S4 and S7 to S11 are rebuilt row by row by
 `paper/code/appendix_tables.py` from source files whose SHA-256 values are pinned in
 `paper/labelfix_rerun/round5/tables/SOURCES.sha256`; the other tables name their source files in
 their captions. `paper/figures/check_all.py` runs all of these checks. Software: Python 3.12.10 with
@@ -65,7 +65,7 @@ identifiable data.
 
 ## Use of generative AI
 
-Claude (Anthropic; Opus-family models, July to October 2026) was used to write analysis and figure
-code, to check reported numbers, and to edit, restructure and shorten the text. The authors reviewed
+Claude (Anthropic; Opus-family models, July to October 2026) was used to write code, including the
+code that draws the figures, to check reported numbers, and to edit, restructure and shorten the text. The authors reviewed
 all of its output, made every scientific decision and take full responsibility for the content of the
 publication.

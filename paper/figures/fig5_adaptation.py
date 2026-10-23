@@ -8,9 +8,9 @@ value (open grey circle) to the adapted value (filled blue dot): (a) region-wise
 The earlier version showed the 12 directions of the pipeline's gap decomposition with an
 arrow to the better of the two methods, a choice that uses target labels, plus CORAL crosses
 and within-region ticks; it is in the git history before 2026-10-23. The decomposition and its
-asserts stay in _conservation_common.py and Section S1.10.
+asserts stay in _conservation_common.py and Section S4.2.
 
-Data: paper/figures/data/fig_data_corrected.json. Asserts: all 60 values against Table S16
+Data: paper/figures/data/fig_data_corrected.json. Asserts: all 60 values against Table S8
 (via _conservation_common.py); the means, ranges and counts printed in 04 Section 3.5 and in
 the caption.
 """
@@ -37,7 +37,7 @@ def dirlabel(d):
 
 T = DATA["fig5"]
 assert len(T) == 20
-for _d, _row in T.items():                      # every plotted value as printed in Table S16
+for _d, _row in T.items():                      # every plotted value as printed in Table S8
     for _k in ("raw", "zscore", "coral"):
         assert f"{_row[_k]:.3f}" == B9[_d][_k], (_d, _k)
 
@@ -90,7 +90,7 @@ S.save(fig, HERE, "fig5_adaptation")
              "sha256": __import__("hashlib").sha256(
                  (HERE / "data" / "fig_data_corrected.json").read_bytes()).hexdigest(),
              "note": "step10_metrics.json of all 10 pairs, corrected-label overlay; sha256 inside"},
-    "asserts": "all 60 plotted values equal Table S16 at 3 dp; means raw 0.527, z-score 0.510, "
+    "asserts": "all 60 plotted values equal Table S8 at 3 dp; means raw 0.527, z-score 0.510, "
                "CORAL 0.517; 13 (z-score) and 16 (CORAL) of 20 directions closer to chance; ranges "
                "0.302-0.630 and 0.406-0.624; the decomposition asserts in _conservation_common.py",
     "design": "2026-10-23 redraw: 20 directions, raw (open grey) to adapted (filled blue), one panel per "

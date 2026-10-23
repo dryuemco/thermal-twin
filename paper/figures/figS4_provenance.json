@@ -1,0 +1,17 @@
+{
+ "figure": "Fig. S4 - the evaluations of Section 3.3, scar by scar",
+ "script": "paper/figures/figS4_scars.py",
+ "data": {
+  "code/matched_holdout.json": "2342137cf08863be9026dc1cba5aa3e2128b3582cca96fed837cb2530a0fe9fd",
+  "code/prevalence_control.json": "389e54ce894e0f2231067364d6af8c5ad1dbc481557a34d595c6e665e1794fc3",
+  "code/d_per_source.json": "dd4b6d9d73868f459c5c4dc2f087b724df961b661766f6deaefe642efdcd04d2",
+  "inference/ladder_summary.json": "62948f253745a275688b8e1a39b556f72c81c7af8e2b6d039f2bb4ce891a3b80"
+ },
+ "asserts": "A and B agree between matched_holdout and prevalence_control; D is the mean of its four sources; nine-scar means 0.791 (A), 0.793 (A'), 0.644 (B), seven-scar C 0.546; gains +0.095, +0.021, +0.024, +0.008 equal the ladder means; 36 foreign scores, mean 0.556, ten below chance",
+ "canvas_mm": [
+  170.0,
+  82
+ ],
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

@@ -485,9 +485,12 @@ def letter_format(path):
 
 
 def word_pdf(docx, pdf):
-    ps = (f"$w = New-Object -ComObject Word.Application; $w.Visible = $false; "
-          f"$d = $w.Documents.Open('{docx}', $false, $true); $d.ExportAsFixedFormat('{pdf}', 17); "
-          f"$d.Close($false); $w.Quit()")
+    # A viewer that holds the old PDF open made the export fail with exit code 0 and left the old file in
+    # the package; removing it first stops the build here instead, with the path in the error.
+    pdf.unlink(missing_ok=True)
+    ps = (f"$ErrorActionPreference = 'Stop'; $w = New-Object -ComObject Word.Application; $w.Visible = $false; "
+          f"try {{ $d = $w.Documents.Open('{docx}', $false, $true); $d.ExportAsFixedFormat('{pdf}', 17); "
+          f"$d.Close($false) }} finally {{ $w.Quit() }}")
     subprocess.run(["powershell", "-NoProfile", "-Command", ps], check=True)
     assert pdf.exists() and pdf.stat().st_size > 0, pdf
 

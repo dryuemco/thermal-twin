@@ -1,0 +1,15 @@
+{
+ "figure": "Fig. S5 - within-region skill by distance from the training cells",
+ "script": "paper/figures/figS5_distance.py",
+ "data": {
+  "path": "paper/labelfix_rerun/round7/r7h_distance_curve.csv",
+  "sha256": "4e99b9e290a1670bb686043b11e10200723b64e0aa9f59e05fea840cb1f2ac2e"
+ },
+ "asserts": "bin counts 18/16/11/6/3/1; 0.709, 0.570 and 0.519 as quoted in 04_results.md; cross-region mean 0.527 over 20 directions; 1 to 1,067 burned cells per bin",
+ "canvas_mm": [
+  110,
+  52
+ ],
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

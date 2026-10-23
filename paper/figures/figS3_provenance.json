@@ -1,0 +1,17 @@
+{
+ "figure": "Fig. S3 - the paired thermal contribution to transfer by resampling unit",
+ "script": "paper/figures/figS3_units.py",
+ "data": {
+  "round8/r8d_summary.json": "c643b1d70a61fc2590ff0966aed0f709237f1120d1f229151100132176e68506",
+  "inference/units.json": "e60c515b657624091581c4e53ab02687647d5596c81dd502673d1ceecf851b3a",
+  "code/transfer_delta_ci.json": "366e9ce07bf7fe027a01bb92c32a65379d6bf919a5a15f07f3bb66cd0fb63216",
+  "round8/r8l_summary.json": "ad174a0f784c9111bc5bcdd0c6c7aaa6c95029f16679e59fe06248b97d2347b7"
+ },
+ "asserts": "means agree across sources; the two-way estimators are undefined; as drawn every interval includes zero; on the collar exactly the target- and source-region clusters exclude zero",
+ "canvas_mm": [
+  170.0,
+  62
+ ],
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

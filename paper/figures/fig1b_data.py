@@ -14,8 +14,8 @@ fig1_study_map.py reads. Each region becomes a grid of five classes:
 
 Distances follow Section 2.12: 0.45 km per grid step, Euclidean, to the nearest burned cell of the
 population; a scar is an 8-connected group of at least 50 burned cells and its frame reaches 4 grid
-steps (taxicab). Asserts: cells and burned cells equal Table S15 (and Table 1), and the share of cells
-beyond 10 km equals Table S13 (and Table 1) to 0.1 %. The archive is written with fixed timestamps,
+steps (taxicab). Asserts: cells and burned cells equal Table 1, and the share of cells beyond 10 km
+equals Table 1 to 0.1 %. The archive is written with fixed timestamps,
 so a rebuild from the same data is byte-identical.
 """
 import io
@@ -34,7 +34,7 @@ import _canonical  # noqa: E402
 REGIONS = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021"]
 CELL_KM, COLLAR_KM, SCAR_MIN, FRAME_STEPS = 0.45, 10.0, 50, 4
 NS_KM = 17 * 0.00026949458523585647 * 111.32        # 17 pixels of the 30 m reference grid, north-south
-# Table S15 (cells, burned cells of the natural-vegetation population) and Table S13 (share beyond 10 km)
+# Table 1 (cells and burned cells of the natural-vegetation population, share beyond 10 km)
 EXPECT = {"manavgat_2021": (20511, 2935, 58.5), "bejis_2022": (15190, 1100, 63.1),
           "mugla_2021": (41730, 2911, 55.3), "evia_2021_extended": (9298, 2664, 43.7),
           "montiferru_2021": (2544, 539, 2.1)}

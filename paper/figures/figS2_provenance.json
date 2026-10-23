@@ -1,0 +1,23 @@
+{
+ "figure": "Fig. S2 - mean cross-region transfer under every check",
+ "script": "paper/figures/figS2_transfer_checks.py",
+ "data": {
+  "code/transfer_delta_ci.json": "366e9ce07bf7fe027a01bb92c32a65379d6bf919a5a15f07f3bb66cd0fb63216",
+  "round8/r8l_summary.json": "ad174a0f784c9111bc5bcdd0c6c7aaa6c95029f16679e59fe06248b97d2347b7",
+  "round8/r8a_summary.json": "5fe058e6032356bc40b957732fd88bc2a9d14213e5bbcb88b26f07ca1065711f",
+  "round7/sklearn152/compare_vs_1_9_0.json": "509c7818cdc6097e4a771c1c681dcdb47dfcb9128fa9b969a65848fecb02635f",
+  "round3/no_coord_channels.json": "c8408b690c81dde1e9a346bdd1c4e3d37f1eedf8b12181d35b92a88b3a4646c9",
+  "round8/r8m_summary.json": "416e63fe1df1cf06dc9a08466d8506614424615f8a0c8fc17ef8bf01336b4031",
+  "round8/r8j_summary.json": "97b786d32a242da8e69427961bda524325445851d21ab7f4acc46c2a75b4c32f",
+  "labels/r2_history.json": "3df0200800838d72bc63d33d9fcf155ea05d170c3b8b0171f2fdc60f21c7ee82",
+  "geometry/a4_summary.json": "de710ffc22912677424b791d349fff59f72455116c0c32b95a7b942ce6c23b0e",
+  "round8/r8d_summary.json": "c643b1d70a61fc2590ff0966aed0f709237f1120d1f229151100132176e68506"
+ },
+ "asserts": "reference 0.527 and +0.007 agree across three outputs; the lowest check is the penalised logistic regression (0.481) and the highest the twelve directions without Manavgat (0.566); all seven gain intervals include zero; seed ranges 0.525-0.530 and +0.005 to +0.008",
+ "canvas_mm": [
+  170.0,
+  124
+ ],
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}
