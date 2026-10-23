@@ -65,7 +65,6 @@ identifiable data.
 
 ## Use of generative AI
 
-Claude (Anthropic; Opus-family models, July to October 2026) was used to write code, including the
-code that draws the figures, to check reported numbers, and to edit, restructure and shorten the text. The authors reviewed
+Claude (Anthropic; Opus-family models, July to October 2026) was used to write code, including the code that draws the figures, to check reported numbers, and to check grammar and improve sentence clarity. The authors reviewed
 all of its output, made every scientific decision and take full responsibility for the content of the
 publication.
