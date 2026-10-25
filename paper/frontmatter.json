@@ -9,6 +9,9 @@
     "land surface temperature",
     "spatial cross-validation"
   ],
+  "natural_hazards": {
+    "title": "Evaluation area and the limits of cross-region transfer of wildfire susceptibility models in five Mediterranean fires"
+  },
   "fire_ecology": {
     "title": "Evaluation area and the limits of wildfire model transfer",
     "keywords": [

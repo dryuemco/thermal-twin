@@ -30,7 +30,7 @@ article page and the "Fire Ecology Author Guidelines" document linked from them:
   or under consideration elsewhere, every journal that rejected it before, and at least five suggested
   reviewers with affiliation and e-mail.
 
-Output, paper/submission_fire_ecology/:
+Output, paper/submissions/fire_ecology/:
     manuscript.docx          figures and tables embedded, references in the basic Springer style
     Additional_file_1.pdf    the Supplementary Material with its own reference list, single-spaced
     Fig1.pdf ... Fig8.pdf    the eight vector figures, as drawn and checked by paper/figures/
@@ -67,7 +67,7 @@ import journal_fire as F
 HERE = Path(__file__).resolve().parent
 P = B.P
 ROOT = P.parent
-OUT = P / "submission_fire_ecology"
+OUT = P / "submissions" / "fire_ecology"
 CSL = B.CSL                                         # springer-basic-author-date.csl
 FIGS = P / "figures"
 FE = B.FM["fire_ecology"]
@@ -92,7 +92,7 @@ ABBREVIATIONS = {
 ADDITIONAL = ("Sections, figures and tables numbered with S (for example Section S1.2, Fig. S1 and Table S1) "
               "are in Additional file 1.")
 # where the first pointer to the supplement goes: after the paragraph that first cites an S section
-ADDITIONAL_AFTER = "after the first results; they\nare exploratory, and we report them as such."
+ADDITIONAL_AFTER = "after the first results. They\nare exploratory, and we report them as such."
 
 
 # ---------------------------------------------------------------- sources
@@ -604,7 +604,7 @@ Not applicable.
 
 def manifest(fig_src, n_abs, n_words, n_dec, tab_items, items):
     commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
-    dirty = subprocess.run(["git", "status", "--porcelain", "--", "paper", ":!paper/submission_fire_ecology",
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", "paper", ":!paper/submissions/fire_ecology",
                             ":!paper/tex/manuscript_fire_ecology_assembled.md"],
                            cwd=ROOT, capture_output=True, text=True).stdout.strip()
     state = commit + (" (with uncommitted source changes)" if dirty else "")

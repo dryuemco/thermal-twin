@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Fig. S4 - the evaluations of Section 3.3, scar by scar (Additional file 1, 2026-10-23).
+"""Fig. S4 - the evaluations of Section 3.3, scar by scar (Online Resource 1, redrawn 2026-10-25).
 
-One row per burned scar. (a) Thermal ROC-AUC of the same region model scored on the whole region
-(A), on a random sample of region cells with the burned share of the scar area (A'), and on the
-scar area (B); of a model fitted without the scar (C, leave-one-scar-out); and of models fitted on
-each of the other four regions (D, mean and range over the four). (b) The thermal gain (thermal
-minus baseline) under A, B, C and D at 5 km blocking, for the seven scars of Table 3. Replaces
-former Tables S1, S3, S4, S5 and S26.
+Two panels with the same layout. The horizontal axis runs through the four evaluations of Section 3.3
+in order (A whole region, B scar area, C scar withheld, D other regions). Each thin grey line is one
+burned scar and the dark line is the mean, whose value is printed under each design. (a) Thermal ROC-AUC for the nine scars (seven have a row C).
+(b) The thermal gain (thermal minus baseline) at 5 km blocking for the seven scars of Table 3.
 
-Data, under paper/labelfix_rerun/code/ and inference/: matched_holdout.json, prevalence_control.json,
+The 2026-10-23 version drew five marker types per scar row (A, A', B, C, D with its range) and the
+authors found it too dense. The prevalence-matched control A' is no longer drawn. Its nine-scar mean is
+stated in Section S2.1 and asserted below, as before.
+
+Data, under paper/labelfix_rerun/code/ and inference/, are matched_holdout.json, prevalence_control.json,
 d_per_source.json and ladder_summary.json.
 """
 import hashlib
@@ -18,6 +20,7 @@ from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
+import matplotlib.patheffects as pe
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
@@ -57,6 +60,7 @@ m = lambda vals: sum(vals) / len(vals)
 A9, A29, B9 = m([r["A"] for r in rows]), m([r["A2"] for r in rows]), m([r["B"] for r in rows])
 seven = [r for r in rows if r["g"]]
 C7 = m([r["C"] for r in seven])
+D9 = m([r["D"] for r in rows])
 gm = {g: m([r["g"][g] for r in seven]) for g in ("regionwide_inc", "blk_inc", "loso_inc", "foreign_inc")}
 assert [f"{v:.3f}" for v in (A9, A29, B9, C7)] == ["0.791", "0.793", "0.644", "0.546"], (A9, A29, B9, C7)
 assert [f"{gm[g]:+.3f}" for g in gm] == ["+0.095", "+0.021", "+0.024", "+0.008"], gm
@@ -64,44 +68,61 @@ for g in gm:
     assert abs(gm[g] - lad["scar_frame"]["B10"]["means"][g]) < 1e-4      # per-scar values are stored at 4 dp
 allD = [v for vs in D.values() for v in vs]
 assert len(allD) == 36 and f"{m(allD):.3f}" == "0.556" and sum(v < 0.5 for v in allD) == 10
+assert f"{D9:.3f}" == "0.556"                                              # four sources per scar, so equal
 
+# ---- drawing ----
 S.apply()
-fig, (axA, axG) = plt.subplots(1, 2, figsize=(S.WIDTH_MM * S.MM, 82 * S.MM), sharey=True,
-                               gridspec_kw={"width_ratios": [1.35, 1.0]})
-ys = list(range(len(rows)))[::-1]
-MK = {"A": ("o", S.INK, S.INK), "A2": ("o", "white", S.GREY), "B": ("s", S.BLUE, S.BLUE),
-      "C": ("^", S.VERMILLION, S.VERMILLION), "D": ("D", S.GREY, S.GREY)}
-arts, xa, xg = [], [], []
-axA.axvline(0.5, color=S.RULE, lw=0.8, zorder=0)
-axG.axvline(0.0, color=S.RULE, lw=0.8, zorder=0)
-for r, y in zip(rows, ys):
-    rng, = axA.plot([r["Dlo"], r["Dhi"]], [y, y], color=S.GREY, lw=0.8, zorder=1)
-    arts.append((rng, f"{r['label']}:Drange")); xa += [r["Dlo"], r["Dhi"]]
-    for k in ("A", "A2", "B", "C", "D"):
-        if r[k] is None:
-            continue
-        mk, fc, ec = MK[k]
-        p, = axA.plot(r[k], y, mk, ms=4.6, mfc=fc, mec=ec, mew=0.9, zorder=3)
-        arts.append((p, f"{r['label']}:{k}")); xa.append(r[k])
-    if r["g"]:
-        for k, gk in (("A", "regionwide_inc"), ("B", "blk_inc"), ("C", "loso_inc"), ("D", "foreign_inc")):
-            mk, fc, ec = MK[k]
-            p, = axG.plot(r["g"][gk], y, mk, ms=4.6, mfc=fc, mec=ec, mew=0.9, zorder=3)
-            arts.append((p, f"{r['label']}:g{k}")); xg.append(r["g"][gk])
-axA.set_xlim(0.35, 0.95); axA.set_xticks([0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-axG.set_xlim(-0.2, 0.2); axG.set_xticks([-0.15, 0, 0.15], ["−0.15", "0", "+0.15"])
-axA.set_title("(a) Thermal ROC-AUC"); axG.set_title("(b) Thermal gain, 5 km blocking")
-axA.set_xlabel("ROC-AUC"); axG.set_xlabel("thermal minus baseline ROC-AUC")
-for ax in (axA, axG):
-    ax.tick_params(axis="y", length=0); ax.spines["left"].set_visible(False)
-axA.set_yticks(ys, [r["label"] for r in rows]); axA.set_ylim(-0.6, len(rows) - 0.4)
-assert_inside(axA, "Fig. S4a", xs=xa); assert_inside(axG, "Fig. S4b", xs=xg)
-h = lambda k, lab: Line2D([], [], marker=MK[k][0], ls="", ms=4.6, mfc=MK[k][1], mec=MK[k][2], mew=0.9, label=lab)
-fig.legend(handles=[h("A", "A  whole region"), h("A2", "A′  burned share of the scar"), h("B", "B  scar area"),
-                    h("C", "C  scar withheld"),
-                    Line2D([], [], marker="D", ms=4.6, color=S.GREY, lw=0.8, label="D  other regions, mean and range")],
-           loc="upper left", bbox_to_anchor=(0.005, 0.995), ncol=3, handletextpad=0.3, columnspacing=1.0)
-fig.subplots_adjust(left=0.245, right=0.975, top=0.79, bottom=0.13, wspace=0.08)
+DESIGNS = ["A", "B", "C", "D"]
+TICKS = ["A\nwhole\nregion", "B\nscar\narea", "C\nscar\nwithheld", "D\nother\nregions"]
+GAIN = {"A": "regionwide_inc", "B": "blk_inc", "C": "loso_inc", "D": "foreign_inc"}
+SCAR = dict(color="#B4B4B4", lw=0.8, marker="o", ms=2.6, mfc="#B4B4B4", mec="#B4B4B4", zorder=2)
+MEAN = dict(color=S.INK, lw=1.6, marker="o", ms=5.2, mfc=S.INK, mec="white", mew=0.8, zorder=4)
+halo = [pe.withStroke(linewidth=2.2, foreground="white")]
+
+fig, (axA, axG) = plt.subplots(1, 2, figsize=(S.WIDTH_MM * S.MM, 86 * S.MM),
+                               gridspec_kw={"width_ratios": [1.0, 1.0]})
+arts, ya, yg = [], [], []
+
+
+def draw(ax, series, means, fmt, ys):
+    """One grey polyline per scar (broken where a design is missing) and the mean on top. The mean
+    values go under the design names, so no label sits on a line."""
+    for name, vals in series:
+        seg = []
+        for i, v in enumerate(vals + [None]):
+            if v is None:
+                if seg:
+                    ln, = ax.plot([p[0] for p in seg], [p[1] for p in seg], **SCAR)
+                    arts.append((ln, name))
+                seg = []
+            else:
+                seg.append((i, v)); ys.append(v)
+    ln, = ax.plot(range(4), means, **MEAN)
+    arts.append((ln, "mean"))
+    ax.set_xticks(range(4), [lab + "\n" + fmt(v) for lab, v in zip(TICKS, means)])
+    ax.set_xlim(-0.35, 3.35)
+    ax.tick_params(axis="x", length=0)
+
+
+S.chance(axA, 0.5, axis="y")
+draw(axA, [(r["label"], [r[d] for d in DESIGNS]) for r in rows], [A9, B9, C7, D9], lambda v: f"{v:.3f}", ya)
+axA.set_ylim(0.38, 0.92); axA.set_yticks([0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
+axA.set_ylabel("thermal ROC-AUC")
+axA.set_title("(a) ROC-AUC, nine scars")
+
+S.chance(axG, 0.0, axis="y")
+draw(axG, [(r["label"], [r["g"][GAIN[d]] for d in DESIGNS]) for r in seven],
+     [gm[GAIN[d]] for d in DESIGNS], lambda v: f"{v:+.3f}", yg)
+axG.set_ylim(-0.2, 0.2); axG.set_yticks([-0.15, 0, 0.15], ["−0.15", "0", "+0.15"])
+axG.set_ylabel("thermal minus baseline ROC-AUC")
+axG.set_title("(b) Thermal gain, seven scars")
+
+fig.legend(handles=[Line2D([], [], **{k: v for k, v in SCAR.items() if k != "zorder"}, label="one scar"),
+                    Line2D([], [], **{k: v for k, v in MEAN.items() if k != "zorder"},
+                           label="mean (value under each design)")],
+           loc="upper right", bbox_to_anchor=(0.995, 0.999), ncol=2, handlelength=2.2, columnspacing=1.2)
+assert_inside(axA, "Fig. S4a", ys=ya); assert_inside(axG, "Fig. S4b", ys=yg)
+fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.215, wspace=0.28)
 problems = layout_check(fig, "Fig. S4 - scars", min_gap_pt=2.0, min_font_pt=8.0, data_artists=arts)
 S.save(fig, HERE, "figS4_scars")
 fig.savefig(HERE / "figS4_scars.png", dpi=300)
@@ -110,9 +131,11 @@ fig.savefig(HERE / "figS4_scars.png", dpi=300)
     "script": "paper/figures/figS4_scars.py",
     "data": {p: hashlib.sha256((LR / p).read_bytes()).hexdigest() for p in SOURCES},
     "asserts": "A and B agree between matched_holdout and prevalence_control; D is the mean of its four "
-               "sources; nine-scar means 0.791 (A), 0.793 (A'), 0.644 (B), seven-scar C 0.546; gains +0.095, "
-               "+0.021, +0.024, +0.008 equal the ladder means; 36 foreign scores, mean 0.556, ten below chance",
-    "canvas_mm": [S.WIDTH_MM, 82],
+               "sources; nine-scar means 0.791 (A), 0.793 (A'), 0.644 (B), 0.556 (D), seven-scar C 0.546; gains "
+               "+0.095, +0.021, +0.024, +0.008 equal the ladder means; 36 foreign scores, mean 0.556, ten below chance",
+    "design": "2026-10-25 redraw, one grey line per scar across the four evaluations and the mean in dark ink; "
+              "A' and the range of D are stated in Section S2.1 and no longer drawn",
+    "canvas_mm": [S.WIDTH_MM, 86],
     "layout_check": f"paper/figures/_layout_check.py; {len(problems)} problems at build time",
     "environment": f"matplotlib {matplotlib.__version__}",
 }, indent=1, ensure_ascii=False), encoding="utf-8")

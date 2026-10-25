@@ -11,17 +11,17 @@
 \begin{figure}[htbp]
   \centering
   \makebox[\linewidth][c]{\includegraphics{figures/fig1_study_map.pdf}}
-  \caption{\textbf{Study regions and study areas.} \textbf{(a)} Centres of the five study areas:
-  Manavgat 2021 and Mu\u{g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North Evia 2021 (Greece,
-  extended area) and Montiferru 2021 (Sardinia, Italy). Kozan 2023 is the negative control of the
-  burned-landcover gate and is not used in any model. Mercator projection; coastlines from Natural
-  Earth 1:50\,m; country borders not shown. The scale bar is exact at 38\textdegree N.
-  \textbf{(b)} Each study area on the $\sim$500\,m analysis grid, at its own scale, with the cells
-  of the evaluation frames of Section 2.12. Distances are to the nearest burned cell; the scar
-  frames surround scars of at least 50 burned cells. Not modelled are cells outside the
-  natural-vegetation population. In Mu\u{g}la one burned area reaches the eastern edge of the study
-  area, so its collar is cut there. Bounding boxes are given in Table~S19, and the share of distant
-  cells in Table 1.}
+  \caption{\textbf{Study regions and study areas.} \textbf{(a)} Centres of the five study areas,
+  which are Manavgat 2021 and Mu\u{g}la 2021 (T\"urkiye), Bej\'is 2022 (Spain), North Evia 2021
+  (Greece, extended area) and Montiferru 2021 (Sardinia, Italy). Kozan 2023 is the negative control
+  of the burned-landcover gate and is not used in any model. Mercator projection, with coastlines
+  from Natural Earth 1:50\,m. Country borders are not shown. The scale bar is exact at
+  38\textdegree N. \textbf{(b)} Each study area on the $\sim$500\,m analysis grid, at its own
+  scale, with the cells of the evaluation frames of Section 2.12. Distances are to the nearest
+  burned cell, and the scar frames surround scars of at least 50 burned cells. Not modelled are
+  cells outside the natural-vegetation population. In Mu\u{g}la one burned area reaches the eastern
+  edge of the study area, so its collar is cut there. Bounding boxes are given in Table~S13, and the
+  share of distant cells in Table 1.}
   \label{fig:study-map}
 \end{figure}
 
@@ -30,8 +30,8 @@
   \centering
   \makebox[\linewidth][c]{\includegraphics{figures/fig2_schematic.pdf}}
   \caption{\textbf{Processing chain and evaluation design.} Five source products are combined on
-  the $\sim$510\,m analysis grid, and only regions that pass the burned-landcover gate are
-  modelled; Kozan 2023 fails it, because 98\% of its burned area is cropland. The baseline and
+  the $\sim$500\,m analysis grid, and only regions that pass the burned-landcover gate are
+  modelled. Kozan 2023 fails it, because 98\% of its burned area is cropland. The baseline and
   thermal predictor sets are evaluated within regions by spatially blocked cross-validation and
   across regions in 20 directions, without and with label-free adaptation, and the scores are
   computed on the whole region, on scar frames and on distance collars. The small grey numbers give
@@ -45,13 +45,14 @@
   \centering
   \makebox[\linewidth][c]{\includegraphics{figures/fig3_within_robustness.pdf}}
   \caption{\textbf{The within-region thermal gain in all five regions, by block size.}
-  Natural-vegetation population; random forest; spatially blocked five-fold cross-validation. Each
-  panel shows one region: the area under the receiver operating characteristic curve (ROC-AUC) of
-  the baseline and thermal sets with blocks of 2, 10 and 20 cells ($\approx$1, 5 and 10\,km). The shaded band is the thermal gain. Skill falls as the
-  blocks become larger, and the thermal set stays above the baseline at every block size. The 95\%
-  spatial-block bootstrap interval of the gain (1000 replicates, seed 42) excludes zero in all
-  regions at 2 and 10 cells. At 20 cells only 6 to 33 blocks contain burned cells, so these values
-  are indicative (Table~\ref{tab:2}, note).}
+  Natural-vegetation population, random forest and spatially blocked five-fold cross-validation.
+  Each panel shows, for one region, the area under the receiver operating characteristic curve
+  (ROC-AUC) of the baseline and thermal sets with blocks of 2, 10 and 20 cells ($\approx$1, 5 and
+  10\,km). The shaded band is the thermal gain. Skill falls as the blocks become larger, and the
+  thermal set stays above the baseline at every block size. The 95\% spatial-block bootstrap
+  interval of the gain (1000 replicates, seed 42) excludes zero in all regions at 2 and 10 cells.
+  At 20 cells only 6 to 33 blocks contain burned cells, so these values are indicative
+  (Table~\ref{tab:2}, note).}
   \label{fig:within-robustness}
 \end{figure}
 
@@ -60,11 +61,11 @@
   \centering
   \makebox[\linewidth][c]{\includegraphics{figures/fig4_transfer_matrix.pdf}}
   \caption{\textbf{Cross-region transfer without adaptation.} Thermal transfer ROC-AUC for the 20
-  ordered directions; natural-vegetation population; original study areas. Rows are source regions
-  and columns are target regions; the diagonal is empty. Values range from 0.314 to 0.677 and are
-  printed to two decimals. The interval in the key is the 95\% spatial-block bootstrap interval with
-  10-cell ($\approx$5\,km) target blocks; it excludes 0.5 in fifteen directions, nine above and six
-  below chance. Intervals are given in Table~S16.}
+  ordered directions, on the natural-vegetation population and the original study areas. Rows are
+  source regions and columns are target regions. The diagonal is empty. Values range from 0.314 to
+  0.677 and are printed to two decimals. The interval in the key is the 95\% spatial-block bootstrap
+  interval with 10-cell ($\approx$5\,km) target blocks, which excludes 0.5 in fifteen directions,
+  nine above and six below chance. Intervals are given in Table~S8.}
   \label{fig:transfer-matrix}
 \end{figure}
 
@@ -73,11 +74,12 @@
   \centering
   \makebox[\linewidth][c]{\includegraphics{figures/fig5_adaptation.pdf}}
   \caption{\textbf{Label-free adaptation moves transfer toward chance.} All 20 ordered directions,
-  sorted by raw transfer ROC-AUC; natural-vegetation population; original
-  study areas. Each row joins the raw value to the value after adaptation: \textbf{(a)} region-wise
-  z-score, \textbf{(b)} CORAL after region-wise z-score. Neither method uses target labels. Thirteen directions move closer to chance under
-  z-scoring and sixteen under CORAL, and the mean moves from 0.527 to 0.510 and to 0.517. The
-  vertical line is chance. Values and intervals are given in Table~S16.}
+  sorted by raw transfer ROC-AUC, on the natural-vegetation population and the original study
+  areas. Each row joins the raw value to the value after adaptation by \textbf{(a)} region-wise
+  z-score or \textbf{(b)} CORAL after region-wise z-score. Neither method uses target labels.
+  Thirteen directions move closer to chance under z-scoring and sixteen under CORAL, and
+  the mean moves from 0.527 to 0.510 and to 0.517. The vertical line is chance. Values and
+  intervals are given in Table~S8.}
   \label{fig:adaptation}
 \end{figure}
 
@@ -87,8 +89,9 @@
   \makebox[\linewidth][c]{\includegraphics{figures/fig6_loro.pdf}}
   \caption{\textbf{Pooling the other regions helps one target of five.} For each held-out target,
   the mean of the four single-source models and a model trained on the other four regions together,
-  with its 95\% spatial-block ($\approx$5\,km) bootstrap interval. Natural-vegetation population; thermal feature set; no adaptation. The pooled model is
-  better than the mean single source only for North Evia, at 0.715 [0.668, 0.757] against 0.569.
+  with its 95\% spatial-block ($\approx$5\,km) bootstrap interval. Natural-vegetation population
+  and thermal feature set, without adaptation. The pooled model is better than the mean single
+  source only for North Evia, at 0.715 [0.668, 0.757] against 0.569.
   For Manavgat and Bej\'is it is below chance at the point estimate (0.426 and 0.458), and only the
   Manavgat interval lies fully below chance. The vertical line is chance.}
   \label{fig:loro}
@@ -99,13 +102,13 @@
   \centering
   \makebox[\linewidth][c]{\includegraphics{figures/fig7_feature_drop.pdf}}
   \caption{\textbf{Removing the reversing features costs local skill and gives no measurable
-  transfer gain.} Four feature sets: all ten predictors, without the land surface temperature (LST)
-  anomaly, without elevation, and without both. \textbf{(a)} Mean within-region ROC-AUC over five
-  regions at 1\,km blocking. \textbf{(b)} Mean transfer ROC-AUC over 20 directions. Both axes span
-  0.12 ROC-AUC, and the vertical lines mark the full set. Within-region skill falls
-  (0.896 $\rightarrow$ 0.820), a cost of 0.076 that is supported in every region, while mean
+  transfer gain.} The four feature sets are all ten predictors and the sets without the land
+  surface temperature (LST) anomaly, without elevation and without both. \textbf{(a)} Mean
+  within-region ROC-AUC over five regions at 1\,km blocking. \textbf{(b)} Mean transfer ROC-AUC
+  over 20 directions. Both axes span 0.12 ROC-AUC, and the vertical lines mark the full set.
+  Within-region skill falls (0.896 $\rightarrow$ 0.820), a cost of 0.076 that is supported in every region, while mean
   transfer rises (0.527 $\rightarrow$ 0.541). The horizontal line in (b) is the full-set level plus
-  the pair-$t$ interval of this change over ten region pairs, [$-$0.028, $+$0.056]; it crosses the
+  the pair-$t$ interval of this change over ten region pairs, [$-$0.028, $+$0.056]. It crosses the
   vertical line, so zero change is included (the primary pair-cluster bootstrap gives
   [$-$0.018, $+$0.049]).}
   \label{fig:feature-drop}
@@ -116,16 +119,16 @@
   \centering
   \makebox[\linewidth][c]{\includegraphics{figures/fig8_contrast_pairs.pdf}}
   \caption{\textbf{The contrast pairs.} \textbf{(a)} Manavgat and Mu\u{g}la, the most similar pair
-  (mean one-dimensional Schoener's $D$, $\bar{D}=0.80$; rank 1 of 10 on all five overlap measures).
-  Transfer is below chance in both directions at the point estimates (0.438 and 0.345).
+  (mean one-dimensional Schoener's $D$, $\bar{D}=0.80$, and rank 1 of 10 on all five overlap
+  measures). Transfer is below chance in both directions at the point estimates (0.438 and 0.345).
   \textbf{(b)} Bej\'is and Montiferru, the least similar pair ($\bar{D}=0.48$, rank 10). Transfer
   is above chance in both directions (0.594 and 0.548). For each of the nine numeric predictors
   (land cover is categorical and has no signed AUC), a dot gives its signed univariate AUC in each
-  region with the 95\% spatial-block (10-cell, $\approx$5\,km) bootstrap interval; a value above 0.5
-  means that the predictor is higher on burned cells. The rows are grouped into static, anomaly and absolute thermal predictors. In (a), six predictors are
-  supported in both regions and all six have opposite signs; signs agree on 2 of 9. In (b), no
-  predictor is supported in both regions, and signs agree on 7 of 9. At 1\,km blocking all four
-  directions have interval support; at 5\,km only Mu\u{g}la$\rightarrow$Manavgat has, so the
-  contrast is stated at the point estimates.}
+  region with the 95\% spatial-block (10-cell, $\approx$5\,km) bootstrap interval. A value above 0.5
+  means that the predictor is higher on burned cells. The rows are grouped into static, anomaly and
+  absolute thermal predictors. In (a), six predictors are supported in both regions and all six
+  have opposite signs (signs agree on 2 of 9). In (b), no predictor is supported in both regions,
+  and signs agree on 7 of 9. At 1\,km blocking all four directions have interval support. At
+  5\,km only Mu\u{g}la$\rightarrow$Manavgat has, so the contrast is stated at the point estimates.}
   \label{fig:contrast-pairs}
 \end{figure}

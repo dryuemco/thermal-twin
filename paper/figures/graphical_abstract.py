@@ -99,7 +99,8 @@ assert max(T_HI) < 0.5 < min(T_LO)
 assert "*D* = 0.80)" in FLAT and "at 0.438 and 0.345" in FLAT and "(*D* = 0.48)" in FLAT and "at 0.594 and 0.548" in FLAT
 
 # ---- the abstract states the same values ------------------------------------
-for s in (f"{frame[0]:.3f} [{frame[1]:.3f}, {frame[2]:.3f}]", f"+{within[0][0]:.3f} to +{within[-1][0]:.3f}",
+for s in (f"{frame[0]:.3f} ROC-AUC on average (95% interval [{frame[1]:.3f}, {frame[2]:.3f}])",
+          f"+{within[0][0]:.3f} to +{within[-1][0]:.3f}",
           "+0.007 [−0.020, +0.038]", "+0.024 [−0.004, +0.049]", "the most similar pair of regions failed in both directions"):
     assert s in ABSTRACT, f"abstract lacks '{s}'"
 

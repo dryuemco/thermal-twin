@@ -117,7 +117,7 @@ w = lambda c: c[1] - c[0]
 
 box(C1[0], 13, w(C1), 32, "Inputs", ["MODIS burned area", "Landsat 8 LST, NDVI", "MODIS LST",
                                      "DEM, WorldCover"], ["2.2", "2.4"])
-box(C2[0], 13, w(C2), 32, "Grid and gate", ["~510 m cells", "natural vegetation", "five regions pass",
+box(C2[0], 13, w(C2), 32, "Grid and gate", ["~500 m cells", "natural vegetation", "five regions pass",
                                             "Kozan 2023 fails"], ["2.2", "2.3", "2.5"], {3: CTRL})
 box(C3[0], 13, w(C3), 32, "Predictor sets", ["baseline: terrain,", "land cover, NDVI", "thermal: baseline",
                                              "+ six LST/TVDI"], ["2.4", "2.6"])

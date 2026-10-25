@@ -53,11 +53,15 @@ LABEL = {
     "mugla_2021": "Muğla 2021", "evia_2021_extended": "North Evia 2021",
     "montiferru_2021": "Montiferru 2021", "kozan_2023": "Kozan 2023",
 }
+# map text where it differs from LABEL (LABEL also finds the Table 1 rows, so it keeps one line)
+MAP_LABEL = {"montiferru_2021": "Montiferru\n2021"}
 # label position relative to the marker, in degrees (dx, dy, ha, va), chosen to sit in open sea
 # or on land away from coastlines
 ANCHOR = {
     "bejis_2022":         (0.5, 0.45, "left", "bottom"),
-    "montiferru_2021":    (-0.55, -0.35, "right", "top"),
+    # below Sardinia on two lines (2026-10-25): to the left of the dot the label sat under "Bejís 2022"
+    # and read as a second label of the Bejís dot
+    "montiferru_2021":    (0.0, -1.35, "center", "top"),
     "evia_2021_extended": (0.0, 0.6, "center", "bottom"),
     "mugla_2021":         (0.5, -0.7, "left", "top"),
     "manavgat_2021":      (-0.35, 0.6, "left", "bottom"),
@@ -180,7 +184,8 @@ for reg, info in AOI.items():
             markerfacecolor="white" if control else col, markeredgecolor=col, markeredgewidth=1.1,
             transform=proj, zorder=4)
     dx, dy, ha, va = ANCHOR[reg]
-    ax.text(cx + dx, cy + dy, LABEL[reg], fontsize=FS_BODY, ha=ha, va=va, transform=proj,
+    ax.text(cx + dx, cy + dy, MAP_LABEL.get(reg, LABEL[reg]), fontsize=FS_BODY, ha=ha, va=va,
+            multialignment="center", transform=proj,
             color=GREY if control else Sty.INK, path_effects=halo, zorder=5)
 
 # key in the open sea between Tunisia, Libya and Crete (no coastline north of 33.2 N there)

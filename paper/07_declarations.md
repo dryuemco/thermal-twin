@@ -53,8 +53,8 @@ is archived at Zenodo [@ThermalTwinRepo]. Figs. 1 to 8 and Figs. S1 to S5 are dr
 by the scripts in `paper/figures/`, which also assert Table 2 and every plotted value against the
 frozen outputs. Tables S2 to S4 and S7 to S11 are rebuilt row by row by
 `paper/code/appendix_tables.py` from source files whose SHA-256 values are pinned in
-`paper/labelfix_rerun/round5/tables/SOURCES.sha256`; the other tables name their source files in
-their captions. `paper/figures/check_all.py` runs all of these checks. Software: Python 3.12.10 with
+`paper/labelfix_rerun/round5/tables/SOURCES.sha256`, while the other tables name their source files
+in their captions. `paper/figures/check_all.py` runs all of these checks. We used Python 3.12.10 with
 NumPy 2.4.4, pandas 3.0.2 and scikit-learn 1.9.0. Point estimates depend on the scikit-learn version
 (Section 2.13), so exact reproduction needs this environment.
 

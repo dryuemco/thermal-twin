@@ -75,35 +75,35 @@
   "files": {
    "ne_50m_land.shp": {
     "sha256": "140d1419f7ace66bf0ea8ceb068cab544d413170f4e8c48e0a11bde6c978b319",
-    "downloaded": "2026-08-08T20:03:42"
+    "downloaded": "2026-10-25T16:30:45"
    },
    "ne_50m_land.shx": {
     "sha256": "c1b93ee40fe83d6322197251517c141c2c91970915ac61d7bf7a4821fc2a68d7",
-    "downloaded": "2026-08-08T20:03:42"
+    "downloaded": "2026-10-25T16:30:45"
    },
    "ne_50m_land.dbf": {
     "sha256": "d082add78c82e01b9bf422df3143ad6fbe43ca1bcb798d12a334f9e001b67bc0",
-    "downloaded": "2026-08-08T20:03:42"
+    "downloaded": "2026-10-25T16:30:45"
    },
    "ne_50m_coastline.shp": {
     "sha256": "797d675af9613f80b51ab6049fa32e589974d7a97c6497ca56772965f179ed26",
-    "downloaded": "2026-08-08T20:03:44"
+    "downloaded": "2026-10-25T16:30:47"
    },
    "ne_50m_coastline.shx": {
     "sha256": "0ff1792f2d16b58246d074215edd9d12fa280880ecaad61a91b9382fee854065",
-    "downloaded": "2026-08-08T20:03:44"
+    "downloaded": "2026-10-25T16:30:47"
    },
    "ne_50m_coastline.dbf": {
     "sha256": "f100fa5a99786c63ec9eb2cd430e389bc6235b8e26d2712d33f9bfd6cb6aadfc",
-    "downloaded": "2026-08-08T20:03:44"
+    "downloaded": "2026-10-25T16:30:47"
    }
   }
  },
  "geo_stack": {
   "cartopy": "0.25.0",
-  "shapely": "2.1.2",
+  "shapely": "2.2.0",
   "geos": "3.14.1",
-  "pyproj": "3.7.2",
+  "pyproj": "3.8.0",
   "proj": "9.8.1"
  },
  "reproducibility": "Re-rendered 2026-09-23 and committed as the figure of record. The previous render (2026-08-08) could not be reproduced by this script with the Natural Earth files, the AOI file and the geo stack recorded here, although all three predate it; the cause was not identified. Its production environment is uncertain: its SVG dc:date reads 23:46 while the commit that added it is timed 20:49, which is inconsistent. The present render is deterministic in this environment (two consecutive rebuilds are identical once matplotlib ids are normalised). It differs from the previous one by two small paths at the top-left edge of the map, one land fill and its coastline; no AOI, marker or label is affected. An earlier commit message (67790d8) attributed the difference to cartopy re-fetching its coastline data; that was wrong, since the cache files date from 2026-08-08.",

@@ -2,12 +2,12 @@
 
 Supplementary material for *Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: five large Mediterranean fires*.
 
-The figures carry most of the results, and the text adds only what they do not show. Every value is
-read from a released output of the repository <https://github.com/dryuemco/thermal-twin>. File paths
+This supplement holds the checks, the per-scar and per-region detail, the full tables and the
+derivations that the main text refers to. The figures carry most of these results, and the text adds
+what they do not show. Every value is read from a released output of the repository
+<https://github.com/dryuemco/thermal-twin>, and each figure and table names its source. File paths
 that do not start with `paper/` are under `paper/labelfix_rerun/`, which holds the corrected-label
-outputs, and values computed under the original Manavgat label are marked "original label". The
-script that draws each figure checks every plotted value against its source, and
-`paper/code/appendix_tables.py` rebuilds Tables S2 to S4 and S7 to S11 row by row.
+outputs, and values computed under the original Manavgat label are marked "original label".
 
 ## Contents
 
@@ -45,27 +45,26 @@ script that draws each figure checks every plotted value against its source, and
 ## S1.1 The within-region gain
 
 Fig. S1 sets the within-region thermal gain under each check beside the gain it was compared with.
-The gain stays above zero in every region under every check. The only interval that includes zero is
-that of Montiferru with aspect added, +0.020 [−0.025, +0.066], against +0.099 without aspect. On the
-10 km collar the mean over the five regions is +0.083 [+0.037, +0.129], against +0.087 [+0.037,
-+0.136] as drawn (Student *t* over regions); on the 5 km collar it halves to +0.042.
+The only interval that includes zero is that of Montiferru with aspect added, +0.020 [−0.025,
++0.066], against +0.099 without aspect. Section 3.4 gives the collar means without intervals. With
+Student *t* intervals over regions they are +0.083 [+0.037, +0.129] on the 10 km collar and +0.087
+[+0.037, +0.136] as drawn, and on the 5 km collar the mean halves to +0.042.
 
 ![**Fig. S1. The within-region thermal gain under each check, by region.** Thermal minus baseline
-ROC-AUC. Open dots are the reference that a check is compared with (italic headings): the 5
-km-blocked gain, the 1 km-blocked gain of the random forest of the main text, or the pipeline's own
+ROC-AUC. Open dots are the reference that a check is compared with (italic headings), which is the 5
+km-blocked gain, the 1 km-blocked gain of the random forest of the main text or the pipeline's own
 window diagnostic. Filled dots are the gain with the check, and lines are 95 % block-bootstrap
 intervals where the source gives one. Drawn by `paper/figures/figS1_within_checks.py` from
 `inference/ladder_summary.json`, `round8/` (r8b, r8j, r8m, r8n), `labels/r2_history.json`,
 `round3/no_coord_channels.json`, `code/model_capacity.json` and
 `exports/window_closure_<region>/`.](figures/figS1_within_checks.png){width=100%}
 
-A few details are not in the figure. VNP64A1 and MCD64A1 labels agree at a Jaccard index of 0.865 (Montiferru)
-to 0.978 (Evia). With WorldCover 2020, at most 43 burned cells leave or enter the
-natural-vegetation population in four regions, but 142 enter it in Montiferru, where the share of
-burned cells with at least half natural vegetation rises from 0.773 to 0.977 (on the modelled cells;
-the gate fraction of Table 1 comes from the gate's own inputs). In Bejís, 48 cells burned inside the
-predictor window and ten of them are labelled burned; removing them changes transfer in the eight
-Bejís directions by at most 0.015. Rebuilding the Manavgat chain from a quality-screened MODIS input
+Some details are not in the figure. The VNP64A1 and MCD64A1 labels agree at a Jaccard index of 0.865
+(Montiferru) to 0.978 (Evia). With WorldCover 2020 (Section 2.4), the share of burned Montiferru
+cells with at least half natural vegetation rises from 0.773 to 0.977 on the modelled cells, whereas
+the gate fraction of Table 1 comes from the gate's own inputs. In Bejís, 48 cells burned inside the
+predictor window, and ten of these 48 are labelled burned. Removing all 48 cells changes transfer in
+the eight Bejís directions by at most 0.015. Rebuilding the Manavgat chain from a quality-screened MODIS input
 moved the gain from +0.067 to +0.068 and no signed association by more than 0.005
 (`round6/qc/qc_compare_manavgat_corrected.json`), although the two versions also differ in pipeline
 code, because the current step7 refuses the unscreened raster. The secondary population of all valid
@@ -77,31 +76,28 @@ primary population (`pipeline/robustness/step8_large_block_primary_all_valid/`).
 
 Fig. S2 repeats the transfer analysis under each check. Mean transfer ranges from 0.481 (penalised
 logistic regression) to 0.566 (the twelve directions without Manavgat), against 0.527 as drawn, and
-every interval of the thermal gain includes zero. The gain is +0.007 for the random forest of the
-main text and negative for the three other classifiers. Without Manavgat, mean transfer on the 10 km
+every interval of the thermal gain includes zero. Without Manavgat, mean transfer on the 10 km
 collar is 0.631, with no direction below chance (`round8/r8d_summary.json`).
 
 ![**Fig. S2. Mean cross-region transfer under each check.** (a) Mean thermal ROC-AUC over the
-twenty directions (twelve without Manavgat). (b) Mean thermal minus baseline ROC-AUC; for the three
-predictor sets it is taken against the baseline-only model (0.519). Lines are pair-cluster 95 %
+twenty directions (twelve without Manavgat). (b) Mean thermal minus baseline ROC-AUC, which for the
+three predictor sets is taken against the baseline-only model (0.519). Lines are pair-cluster 95 %
 intervals where computed, and thick bars are ranges over ten random-forest seeds. The last three
-target frames use no target label: cells inside the source's predictor range or area of
+target frames use no target label and are the cells inside the source's predictor range or area of
 applicability [@Meyer2021], or a 20 km square at the centre of each study area. Drawn by
 `paper/figures/figS2_transfer_checks.py`, which lists its sources.](figures/figS2_transfer_checks.png){width=100%}
 
-The anomaly channels and the absolute channels transfer about equally. Per direction their
-difference averages −0.006, is positive in 11 of 20 directions and ranges from −0.099 to +0.087, and
-within regions they reach 0.862 and 0.864, between the baseline (0.797) and all ten predictors
-(0.896). Between the two Muğla fires the anomaly channels keep their direction and the absolute
-channels do not (Section S3.5), but `lst_anomaly_mean` reverses between regions (Table S3), so
-normalisation protects a channel against a change of season in one place and fails across places.
+Section 3.5 compares the anomaly and the absolute channels in transfer. Within regions both sets lie
+between the baseline (0.797) and all ten predictors (0.896). Between the two Muğla fires the anomaly
+channels keep their direction and the absolute channels do not (Section S3.5), but
+`lst_anomaly_mean` reverses between regions (Table S3), so normalisation protects a channel against
+a change of season in one place and fails across places.
 
-Removing elevation and the LST anomaly together (Fig. 7) lowers mean within-region AUC by 0.076,
-with every regional interval below zero (−0.035, −0.130, −0.073, −0.063 and −0.079 for Manavgat,
-Bejís, Muğla, Evia and Montiferru), and changes mean transfer by +0.014, with a pair-cluster
-interval of [−0.018, +0.049] (`round8/r8q_summary.json`). About three quarters of the within-region
-cost comes from elevation: without it alone the mean falls from 0.896 to 0.840, and without the LST
-anomaly alone to 0.883.
+Section 3.6 gives the mean effect of removing elevation and the LST anomaly together (Fig. 7). By
+region the within-region change is −0.035, −0.130, −0.073, −0.063 and −0.079 (Manavgat, Bejís,
+Muğla, Evia and Montiferru), with every interval below zero (`round8/r8q_summary.json`). About three
+quarters of this cost comes from elevation, because without it alone the mean falls from 0.896 to
+0.840, and without the LST anomaly alone to 0.883.
 
 On the earlier, smaller Evia rectangle, whose burned prevalence is higher, the raw transfers between
 Evia and Bejís, Manavgat and Muğla moved by up to 0.134 (Evia to Manavgat, 0.543 against 0.677), and
@@ -110,28 +106,27 @@ none changed side of chance (`round7/r7f_evia_legacy.csv`).
 CORAL hardly depends on its regularisation. Over nine values of λ from 0 to 10⁻¹ on four directions,
 transfer moved by at most 0.014 (`exports/coral_lambda_sensitivity_b74d643e/`), and the Manavgat and
 Bejís pair, whose adapted result depended on λ under the original label, stays below chance in both
-directions at every λ from 10⁻⁵ to 1 (`step10/coral_lambda_sensitivity.csv`). CORAL with λ = 1 gives
-a mean of 0.512 and CORAL on two thermal principal components 0.523. A placebo that aligns each
-source with a third region instead of the target gives 0.507 and moves 15 of 20 directions toward
-chance, against 16 of 20 for CORAL, so this movement is not specific to the target
-(`round8/r8c_summary.json`).
+directions at every λ from 10⁻⁵ to 1 (`step10/coral_lambda_sensitivity.csv`). Section 3.5 reports
+CORAL with λ = 1 and a placebo that aligns each source with a third region instead of the target.
+Both come from `round8/r8c_summary.json`, which also gives CORAL on two thermal principal
+components, at a mean of 0.523.
 
 ## S1.3 Resampling units
 
 Fig. S3 gives the interval of the paired thermal contribution under every resampling unit that can
-be computed. As drawn, every interval includes zero. On the 10 km collar only the clusters by target
-region, [+0.010, +0.040], and by source region, [+0.010, +0.042], exclude it, and with five regions a
-percentile bootstrap over regions has at most 126 distinct resamples, so both are coarse. The two-way
-cluster and dyadic-robust estimators give negative variances and are undefined. In an equivalence
-test the gain as drawn lies within ±0.05 under all six computable units (90 % upper bounds 0.021 to
-0.037) and within ±0.02 under none; on the collar it lies within ±0.05 under four of the six, the
-exceptions being the pigeonhole bootstrap and the region jackknife (upper bounds 0.052 and 0.055).
-Leaving out one region at a time moves the mean contribution between +0.0010 (without Evia) and
-+0.0148 (without Manavgat), and its sign never changes (`code/transfer_delta_ci.json`).
+be computed. On the 10 km collar the two units that exclude zero are the clusters by target region,
+[+0.010, +0.040], and by source region, [+0.010, +0.042], but with five regions a percentile
+bootstrap over regions has at most 126 distinct resamples, so both are coarse. The two-way cluster
+and dyadic-robust estimators give negative variances and are undefined. In the equivalence test of
+Section 3.4, the 90 % upper bounds as drawn are 0.021 to 0.037, and no unit keeps the gain within a
+narrower margin of 0.02. The two units that exceed the margin of 0.05 on the collar are the
+pigeonhole bootstrap and the region jackknife (upper bounds 0.052 and 0.055). Leaving out one region
+at a time moves the mean contribution between +0.0010 (without Evia) and +0.0148 (without Manavgat),
+and its sign never changes (`code/transfer_delta_ci.json`).
 
 ![**Fig. S3. The paired thermal contribution to transfer, by resampling unit.** Mean thermal minus
 baseline ROC-AUC over the twenty directions (dot) and its 95 % interval (line), (a) on the study
-areas as drawn and (b) on the 10 km collar; 20,000 replicates where resampled. Blue is the
+areas as drawn and (b) on the 10 km collar, with 20,000 replicates where resampled. Blue is the
 pair-cluster bootstrap, the primary unit of the main text, whose interval as drawn is [−0.020,
 +0.038] at the 1000 replicates used there. Drawn by `paper/figures/figS3_units.py` from
 `round8/r8d_summary.json`, `inference/units.json`, `code/transfer_delta_ci.json` and
@@ -161,61 +156,57 @@ main results, and none was used to choose a reported configuration.
 
 ## S2.1 Scar by scar
 
-Fig. S4 shows the evaluations of Section 3.3 for each scar. Rows A to D of Table 3 average the seven
-scars that have a row C, four in Muğla, two in Montiferru and one in Evia; Manavgat and Bejís
-each have one burned area, and withholding it would leave nothing to train on. The controls reuse the
-predictions of A and are averaged over 20 draws without replacement. The prevalence-matched sample
-draws $`|H_K^{+}|`$ burned and $`|H_K^{-}|`$ unburned region cells, the negative-pool swap keeps the
-drawn burned cells and takes the unburned cells of the scar, $`H_K^{-}`$, and the positive-pool swap
-does the opposite.
+Fig. S4 shows the evaluations of Section 3.3 for each scar. Manavgat and Bejís have no row C,
+because each has one burned area and withholding it would leave nothing to train on. The three
+controls reuse the predictions of A and are averaged over 20 draws without replacement. The
+prevalence-matched sample draws $`|H_K^{+}|`$ burned and $`|H_K^{-}|`$ unburned region cells, the
+negative-pool swap keeps the drawn burned cells and takes the unburned cells of the scar,
+$`H_K^{-}`$, and the positive-pool swap does the opposite.
 
 Over nine scars the prevalence-matched sample (A′) scores 0.793 against 0.791 for the whole region,
-as ROC-AUC should, so the fall to 0.644 on the scar area (B) is not an effect of prevalence.
-Replacing only the unburned cells of the sample with those of the scar collar costs 0.139 [0.098,
-0.181], and replacing only the burned cells −0.002 [−0.055, +0.051] (`code/pool_decomposition.json`):
-the cost comes from unburned cells next to the fire, which share its terrain, land cover and weather.
-The intervals of Table 3 are Student *t* intervals over scars, and row A repeats one region value for
-each scar of a region, so its intervals and those of A − B and A − C are too narrow. With the region
-as the unit, A − B is +0.137 [+0.048, +0.226] over three regions and +0.160 [+0.090, +0.230] over all
-nine scars in five regions, but A − C is +0.266 [−0.022, +0.553]; only the frame cost is established
-(`round7/round7_summary.json`). Row C depends little on how a scar is defined: over a range of minimum
-sizes and buffers it ranges from 0.541 to 0.561 on nine to six scars (`code/scar_definition_sweep.csv`).
-For a single scar, row D depends on which region is the source; over the 36 source-scar combinations
-the mean is 0.556, and ten are below chance.
+as ROC-AUC should, so the fall to 0.644 on the scar area (B) is not an effect of prevalence. The
+pool swaps of Section 3.3 (`code/pool_decomposition.json`) place the cost in the unburned cells next
+to the fire, which share its terrain, land cover and weather. Row A repeats one region value for
+each scar of a region, so the Student *t* intervals of Table 3 for row A, A − B and A − C are too
+narrow, and the region-level estimates of Section 3.3 come from `round7/round7_summary.json`. Row C
+depends little on how a scar is defined. Over a range of minimum sizes and buffers it
+ranges from 0.541 to 0.561 on nine to six scars (`code/scar_definition_sweep.csv`). For a single
+scar, row D depends on which region is the source (over the 36 source-scar combinations the mean is
+0.556, and ten are below chance).
 
-Over the seven scars, the thermal gain at 5 km blocking is +0.095 on the whole region, +0.021 on the
-scar area, +0.024 with the scar withheld and +0.008 from a foreign region. Scar area minus withheld is
-−0.004 [−0.070, +0.063] (+0.031 [−0.027, +0.090] at 1 km), and whole region minus scar area +0.074
-[−0.009, +0.157]. With three regions no reliable region-level interval exists, and effects of up to
-about 0.2 are not excluded (`inference/ladder_summary.json`). A half-split of each region gives a gain
-of +0.028, positive in 13 of 18 splits, but a straight cut leaves unequal numbers of burned cells in
-the two halves (`code/positive_control.json`).
+Fig. S4b breaks down the thermal gains of Section 3.3 by scar. Over the seven scars at 5 km blocking
+they average +0.095 on the whole region, +0.021 on the scar area, +0.024 with the scar withheld and
++0.008 from a foreign region. Scar area minus withheld is −0.004 [−0.070, +0.063] (+0.031 [−0.027,
++0.090] at 1 km), and whole region minus scar area +0.074 [−0.009, +0.157], but with three regions
+no reliable region-level interval exists for these differences (`inference/ladder_summary.json`). A
+half-split of each region gives a gain of +0.028, positive in 13 of 18 splits, although a straight
+cut leaves unequal numbers of burned cells in the two halves (`code/positive_control.json`).
 
 ![**Fig. S4. The evaluations of Section 3.3, scar by scar.** (a) Thermal ROC-AUC of one region model
-scored on the whole region (A), on region cells with the burned share of the scar area (A′) and on
-the scar area (B); of a model fitted without the scar (C); and of the models of the other four
-regions (D, mean and range). (b) Thermal minus baseline ROC-AUC under A, B, C and D for the seven
-scars with a row C. Natural-vegetation population, 5 km blocking, 2 km collar. Drawn by
+scored on the whole region (A) and on the scar area (B), of a model fitted without the scar (C) and
+of the models of the other four regions (D, mean of the four). Each grey line is one scar, and the
+dark line is the mean, whose value is printed under each design. Manavgat and Bejís have no row C,
+and the horizontal line marks chance. (b) Thermal minus baseline ROC-AUC under A, B, C and D for the
+seven scars with a row C. Natural-vegetation population, 5 km blocking, 2 km collar. Drawn by
 `paper/figures/figS4_scars.py` from `code/matched_holdout.json`, `code/prevalence_control.json`,
 `code/d_per_source.json` and `inference/ladder_summary.json`.](figures/figS4_scars.png){width=100%}
 
 ## S2.2 Distance from the training cells
 
-A model fitted on one half of a region scores the other half, with the target cells binned by their
-distance from the training cells (`paper/code/distance_curve.py`). Skill falls to near chance at 10 to
-20 km (Fig. S5), which limits how far from its training cells such a model can be used. The far bins
-hold few cells, so the rise at 40 to 80 km is not evidence of an effect, and the near bins keep the
-spatial autocorrelation that blocked validation removes, so 0.709 is an upper bound. The two distance
-ranges do not overlap (2 to 86 km within regions, 306 km and more across them), and distance is not
-separated from the land cover, terrain and fire history that change with it, so the curve gives a
-length scale and no cause. Once the curve reaches chance, any cross-region mean near 0.5 lies on its
-continuation, so this comparison cannot show that the cross-region failure is only an effect of
-distance. A model without information gives no reliably reversed ranking, yet Manavgat to Bejís is
-below chance with interval support on both frames. A leave-one-block-out reference with a 10 km buffer was tried and is not reported,
-because its pooled AUC mixed models with different calibration.
+Fig. S5 draws the distance curve of Section 3.5 (`paper/code/distance_curve.py`), and this section
+gives its caveats. The far bins hold few cells, so the rise at 40 to 80 km is not evidence of an
+effect, and the near bins keep the spatial autocorrelation that blocked validation removes, so 0.709
+is an upper bound. The two distance ranges do not overlap (2 to 86 km within regions, 306 km and
+more across them), and distance is not separated from the land cover, terrain and fire history that
+change with it, so the curve gives a length scale and no cause. Once the curve reaches chance, any
+cross-region mean near 0.5 lies on its continuation, so this comparison cannot show that the
+cross-region failure is only an effect of distance. A model without information gives no reliably
+reversed ranking, yet Manavgat to Bejís is below chance with interval support on both frames. A
+leave-one-block-out reference with a 10 km buffer was tried and is not reported, because its pooled
+AUC mixed models with different calibration.
 
 ![**Fig. S5. Within-region skill by distance from the training cells.** Mean target ROC-AUC,
-unweighted over the distance bins of the five regions; the number of bins is under each class, and a
+unweighted over the distance bins of the five regions. The number of bins is under each class, and a
 bin holds 1 to 1,067 burned cells. The open dot is the mean of the twenty cross-region directions,
 306 to 2,802 km apart. Drawn by `paper/figures/figS5_distance.py` from
 `round7/r7h_distance_curve.csv`.](figures/figS5_distance.png){width=65%}
@@ -224,17 +215,16 @@ bin holds 1 to 1,067 burned cells. The open dot is the mean of the twenty cross-
 
 ## S3.1 Signed associations and reversals
 
-Table S2 gives the signed association of each predictor with burning in each region, and Table S3 the
-pairs of regions that reverse under the strict criterion of Section 2.10: the two associations lie
-on opposite sides of 0.5 and the interval of each region excludes 0.5. This is stricter than disjoint
-intervals. For `current_lst_mean` the Manavgat and Bejís intervals are disjoint ([0.608, 0.719]
-against [0.401, 0.547]), but the Bejís interval includes 0.5, so the pair reverses at the point
-estimate only.
+Table S2 gives the signed association of each predictor with burning in each region, and Table S3
+the pairs of regions that reverse under the strict criterion of Section 2.10. This criterion is
+stricter than disjoint intervals. For `current_lst_mean` the Manavgat and Bejís intervals are
+disjoint ([0.608, 0.719] against [0.401, 0.547]), but the Bejís interval includes 0.5, so the pair
+reverses at the point estimate only.
 
 **Table S2. Signed univariate AUC of each predictor against `burned`, by region.** Natural-vegetation
-population; 10-cell (~5 km) spatial-block bootstrap, 1000 replicates, seed 42. The AUC is not folded
-to max(AUC, 1 − AUC), so a value below 0.5 means that lower values rank burned cells higher. Bold
-marks a region whose own interval excludes 0.5. Source
+population, with a 10-cell (~5 km) spatial-block bootstrap (1000 replicates, seed 42). The AUC is
+not folded to max(AUC, 1 − AUC), so a value below 0.5 means that lower values rank burned cells
+higher. Bold marks a region whose own interval excludes 0.5. Source
 `round5/tables/step9g_multi_aoi_feature_stability.csv` (the pipeline's Step9G synthesis, sha256
 c864cd7d…).
 
@@ -274,21 +264,21 @@ which flags the same fourteen pairs.
 
 Thirteen of the fourteen reversals involve Manavgat. Under the original label there were three, on
 elevation and the LST anomaly, the two predictors that the feature-removal analysis of Section 2.11
-keeps. Twenty-six further pairs reverse at the point estimate only. None of the fourteen is corrected
-for multiplicity; Table S5 gives the corrected counts.
+removes. Twenty-six further pairs reverse at the point estimate only. None of the fourteen is corrected
+for multiplicity (Table S5 gives the corrected counts).
 
 ## S3.2 The 10 km collar
 
-The collar keeps every burned cell and the unburned cells within 10 km of one, so it removes distant
-unburned cells and nothing else (Fig. 1b). In Muğla one burned area touches the eastern edge of the
-study area (15 burned cells on the edge), where its collars are cut. The interval criterion was
-applied at 10 km, and the 5 and 10 km radii agree at the point estimate. The collar removes many
-cells in two regions, so part of any lost support is lost power; on average 2.3 features per
-direction are supported in both regions as drawn and 2.2 on the collar. Table S4 compares the three
-associations that straddle 0.5 on both frames.
+This section gives the reversal tests and the transfer detail behind the 10 km collar of
+Section 3.4. In Muğla one burned area touches the eastern edge of the study area (15 burned cells on
+the edge), where its collars are cut (Fig. 1b). The interval criterion was applied at 10 km, and the
+5 and 10 km radii agree at the point estimate. The collar removes many cells in two regions, so part
+of any lost support is lost power. On average 2.3 features per direction are supported in both
+regions as drawn and 2.2 on the collar. Table S4 compares the three associations that straddle 0.5
+on both frames.
 
 **Table S4. Signed univariate AUC as drawn and on the 10 km collar.** Point estimates, signed as in
-Table S2; the collar removes no burned cell. As drawn from the source of Table S2, collar from
+Table S2. The collar removes no burned cell. As drawn from the source of Table S2, collar from
 `code/aoi_frame_auc_frozen_mugla.csv`, with 10-cell intervals in `code/collar_frame_bootstrap.csv`. On
 every row Manavgat lies on the other side of 0.5 from the other regions.
 
@@ -301,12 +291,9 @@ every row Manavgat lies on the other side of 0.5 from the other regions.
 | current TVDI, full frame | **0.677** | 0.517 | 0.336 | 0.362 | 0.356 | **yes** |
 | current TVDI, 10 km collar | **0.527** | 0.454 | 0.342 | 0.250 | 0.361 | **yes** |
 
-Table S5 counts how many of the ninety feature-by-pair comparisons of each frame pass each test.
-The per-comparison criterion leaves two reversals on the collar, both on elevation and both involving
-Manavgat: against Muğla, also supported as drawn, and against Evia, supported only on the
-collar. Manavgat against Bejís misses support on the collar by 0.004. Neither collar reversal
-survives the Holm intersection-union correction (adjusted *p* = 0.33 against Evia and 0.79
-against Muğla, normal approximation).
+Table S5 counts how many of the ninety feature-by-pair comparisons of each frame pass each test. Of
+the two collar reversals of Section 3.4, both on elevation, the one against Evia has a Holm
+intersection-union adjusted *p* of 0.33 and the one against Muğla 0.79 (normal approximation).
 
 **Table S5. Reversal tests, ninety feature-by-pair comparisons per frame.** Source
 `inference/reversal_family_holm.csv` and `inference/reversal_per_region.csv`.
@@ -320,17 +307,16 @@ against Muğla, normal approximation).
 | Holm intersection-union (both regions' tests) | 5 | 0 |
 
 With only the target or only the source restricted to the collar, mean transfer is 0.559 and 0.546
-(`round5/collar/aoi_frame_transfer.csv`); Table 4 gives the matched frames. On these frames the
-within-region reference at 5 km blocking is 0.814 as drawn, 0.786 on the 10 km collar and 0.759 on
-the 5 km collar (`paper/code/verify_matched_gap.py`), so transfer falls short of it by 0.287, 0.197 and
-0.169; paired by target region the 10 km shortfall is +0.197 [+0.091, +0.303].
+(`round5/collar/aoi_frame_transfer.csv`), while Table 4 gives the matched frames. On these frames
+the within-region reference at 5 km blocking is 0.814 as drawn, 0.786 on the 10 km collar and 0.759
+on the 5 km collar (`paper/code/verify_matched_gap.py`), so transfer falls short of it by 0.287,
+0.197 and 0.169.
 
-Of the twenty similarity measures, the two built from signed associations were recomputed on the
-collar. There the all-feature cosine orders transfer at ρ = +0.57 [+0.05, +0.88], the only interval
-of a similarity measure in the study that excludes zero (`round6/diag_collar/`,
-`round7/r7g_collar_diagnostics.json`). We do not use it: it is one of about forty uncorrected tests,
-it rests on twenty directions that share regions, and it needs target labels twice, because the
-collar is drawn from the burned cells.
+Of the twenty similarity measures, only the two built from signed associations were recomputed on
+the collar (`round6/diag_collar/`, `round7/r7g_collar_diagnostics.json`). The all-feature cosine of
+Section 3.4 is the only similarity measure in the study whose interval excludes zero. Besides being
+one of about forty uncorrected tests, it rests on twenty directions that share regions and needs
+target labels twice, because the collar is drawn from the burned cells.
 
 After the frozen tables were computed, a quality-screening rebuild overwrote the Manavgat and Muğla
 modelling datasets at the pipeline path with new values of `downscaled_lst_mean` and
@@ -340,27 +326,26 @@ corrected re-freeze (`5a5e876c…`).
 
 ## S3.3 The temperature sign with terrain held
 
-Section 3.4 reports a negative association between pre-fire surface temperature and burning in four
-of five regions, and the same in Manavgat once elevation is held (Table S6). In Manavgat the raw
-association is above 0.5 and falls below it within elevation deciles, 0.403 [0.343, 0.464] on the
-collar, and after removing the linear effect of elevation (−5.6 K per km), 0.409 [0.350, 0.475]; on
-the original study area the same values are 0.455 [0.396, 0.509] and 0.446 [0.387, 0.502], which
-include 0.5 (`round8/r8e_stratified_intervals.csv`). The positive raw signal of Manavgat therefore
-comes from terrain. In the other four regions the sign stays below 0.5 within NDVI deciles in all four
-and within elevation deciles in three. NDVI reverses in two regions once LST is held, while LST
-reverses in none once NDVI is held. Holding northness through deciles leaves the sign unchanged in
-every region: 0.652, 0.482, 0.317, 0.376 and 0.417 against 0.665, 0.478, 0.324, 0.377 and 0.370 raw
-(with missing values filled by the median, so the raw values differ from Table S2 in the third
-decimal; `round8/r8m_summary.json`). In Manavgat, burn timing and elevation are confounded: cells
-that burned in the first four days lie at a median of 219 m, later burns at 512 m and unburned cells
-at 1,004 m.
+Table S6 holds one variable at a time in the LST association of Section 3.4. In Manavgat the raw
+association is above 0.5 and falls below it once elevation is held, so its positive raw signal comes
+from terrain. The detrending there removes a linear effect of elevation of −5.6 K per km. On the
+original study area the two held Manavgat values of Section 3.4 have the intervals [0.396, 0.509]
+within elevation deciles and [0.387, 0.502] after detrending
+(`round8/r8e_stratified_intervals.csv`). In the other four regions the sign stays below 0.5 within
+NDVI deciles everywhere and within elevation deciles in three of them. NDVI reverses in two regions
+once LST is held, while LST reverses in none once NDVI is held. Holding northness through deciles
+leaves the sign unchanged in every region, at 0.652, 0.482, 0.317, 0.376 and 0.417 against 0.665,
+0.478, 0.324, 0.377 and 0.370 raw (`round8/r8m_summary.json`, with missing values filled by the
+median, so the raw values differ from Table S2 in the third decimal). In Manavgat, cells that burned
+in the first four days lie at a median of 219 m, later burns at 512 m and unburned cells at 1,004 m,
+so burn timing and elevation are confounded.
 
 **Table S6. The LST association with one variable held, 10 km collar.** Signed AUC against `burned`.
 The held columns pool the concordance within deciles of the named variable, each decile weighted by
-its burned-unburned pairs; "detrended" removes the linear dependence of LST on elevation in the
+its burned-unburned pairs, and "detrended" removes the linear dependence of LST on elevation in the
 region. Bold marks the values discussed in the text. Sources `code/matched_frame_gap.csv`
-(recomputed by `paper/code/verify_matched_gap.py`) and `round7/r7b_lst_given_terrain.csv`; intervals
-for every cell in `round8/r8e_stratified_intervals.csv`.
+(recomputed by `paper/code/verify_matched_gap.py`) and `round7/r7b_lst_given_terrain.csv`, with
+intervals for every cell in `round8/r8e_stratified_intervals.csv`.
 
 | Region | LST raw | LST within elevation | LST detrended on elevation | LST within NDVI | LST within distance | NDVI raw | NDVI within LST |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -373,25 +358,25 @@ for every cell in `round8/r8e_stratified_intervals.csv`.
 ## S3.4 The contrast pair
 
 Manavgat and Muğla, 306 km apart in one country and one fire year, have the most similar burned-cell
-environmental range of any pair, and Bejís and Montiferru the least similar (Fig. 8; Table S7). For
-Manavgat and Muğla as drawn, seven of nine feature-response directions point opposite ways, and all
-six features supported in both regions have opposite signs, elevation included. On the collar the
-elevation reversal remains, at 0.376 [0.300, 0.465] in Manavgat against 0.606 [0.525, 0.685] in Muğla.
-Transfer is below chance in both directions on both frames, 0.438 and 0.345 as drawn and 0.493 and
-0.433 under the collar, where the interval of Muğla to Manavgat, [0.381, 0.491], excludes chance. The
-most similar pair is among the weakest in the matrix but not the weakest: on the collar the weakest
-direction is Manavgat to Bejís at 0.407 and the strongest Muğla to Evia at 0.728. Bejís and
-Montiferru hardly overlap on any measure and transfer above chance in both directions, though at the
-point estimate only. On these two pairs high niche overlap did not ensure transfer and low overlap did
-not prevent it; the correlation across all pairs is tested in Section S4.5.
+environmental range of any pair, and Bejís and Montiferru the least similar (Fig. 8 and Table S7).
+For Manavgat and Muğla as drawn, seven of nine feature-response directions point opposite ways, and
+all six features supported in both regions have opposite signs, elevation included. The elevation
+reversal remains on the collar (Section 3.4), and transfer is below chance in both directions on
+both frames, 0.438 and 0.345 as drawn and 0.493 and 0.433 under the collar, where the interval of
+Muğla to Manavgat, [0.381, 0.491], excludes chance. The most similar pair is among the weakest in
+the matrix but not the weakest. On the collar the weakest direction is Manavgat to Bejís at 0.407
+and the strongest Muğla to Evia at 0.728. Bejís and Montiferru hardly overlap on any measure and
+transfer above chance in both directions, though at the point estimate only. On these two pairs high
+niche overlap did not ensure transfer and low overlap did not prevent it, and Section S4.5 tests the
+correlation across all pairs.
 
 **Table S7. The most and least similar pairs, on both frames.** Schoener's *D* uses burned cells only
 and does not change with the collar. Transfer values are the two ordered directions of a pair, and
 ranks are out of the twenty directions on the collar. *D* and transfer as drawn from
 `round5/out_official/figure_contrast_pairs.json` (the source of Fig. 8), collar transfer and ranks
 from `round5/collar/aoi_frame_transfer.csv`, and the AoA shares from
-`round5/collar/aoa_directed_pair_summary.csv`; `paper/figures/fig8_contrast_pairs.py` checks every
-cell.
+`round5/collar/aoa_directed_pair_summary.csv`. The script `paper/figures/fig8_contrast_pairs.py`
+checks every cell.
 
 | | Manavgat and Muğla | Bejís and Montiferru |
 |---|---|---|
@@ -405,42 +390,39 @@ cell.
 ## S3.5 The two Muğla fires
 
 Muğla burned in 2021 and again eleven months later, on the same grid, so this pair holds the place
-fixed and changes the fire. It is reported only here. The 2022 population is the 2021 population
-without the 2021 scar (38,790 cells with 331 burned, against 41,730 with 2,911), the two share 38,789
-cells, and the 2022 fire started about six weeks earlier in its season, so year and seasonal phase
-are confounded. As drawn, elevation reverses with bootstrap support, from 0.611 [0.532, 0.690] in 2021
-to 0.296 [0.230, 0.355] in 2022, and the four absolute thermal channels cross 0.5 at the point
-estimate (current LST 0.325 to 0.515) while the two anomaly channels do not (LST anomaly 0.485 to
-0.380; `paper/step9g_raw/step9g_univariate_feature_auc_direction_reversal/mugla_2021__mugla_2022_event_relative/`).
+fixed and changes the fire. The 2022 population is the 2021 population without the 2021 scar (38,790
+cells with 331 burned, against 41,730 with 2,911), the two share 38,789 cells, and the 2022 fire
+started about six weeks earlier in its season, so year and seasonal phase are confounded. As drawn,
+elevation reverses with bootstrap support, from 0.611 [0.532, 0.690] in 2021 to 0.296 [0.230, 0.355]
+in 2022, and the four absolute thermal channels cross 0.5 at the point estimate (current LST 0.325
+to 0.515) while the two anomaly channels do not (LST anomaly 0.485 to 0.380,
+`paper/step9g_raw/step9g_univariate_feature_auc_direction_reversal/mugla_2021__mugla_2022_event_relative/`).
 The collar removes the elevation reversal. The 2022 scar is compact, so 93.2 % of the 2022 cells lie
 more than 10 km from it, and on the collar the 2022 value moves to 0.565, on the 2021 side of 0.5,
 with an interval that includes chance (`code/mugla_two_event_collar.csv`,
-`paper/code/verify_mugla_collar.py`). Only elevation and slope can be evaluated on the collar, because
-the modelling export of the 2022 fire is not in this repository and the rebuilt 2022 data differ from
-it on every seasonal channel.
+`paper/code/verify_mugla_collar.py`). Only elevation and slope can be evaluated on the collar,
+because the modelling export of the 2022 fire is not in this repository and the rebuilt 2022 data
+differ from it on every seasonal channel.
 
 # S4 Transfer, adaptation and similarity
 
 ## S4.1 The transfer matrix
 
 Table S8 gives all twenty directions with and without label-free adaptation, as plotted in Figs. 4
-and 5. At 2-cell blocking eleven directions are above chance with interval support and seven below:
-both directions between Manavgat and Bejís, between Manavgat and Muğla and between Bejís and North
-Evia, and Montiferru to Manavgat. At 10-cell blocking the same point estimates give 9 above, 6 below
-and 5 uncertain; Manavgat to Muğla loses its support, and no direction changes side of chance. The
-paired thermal contribution goes from twelve positive, seven negative and one uncertain verdict at 1
-km to six, five and nine at 5 km, so coarser blocking removed support from eight verdicts and added
-none. Across five bootstrap seeds every 1 km verdict is stable, whereas at 5 km three change (the
-level verdict of Evia to Bejís and the paired verdicts of Manavgat to Muğla and Evia to Montiferru),
-which makes the counts of supported directions the least stable numbers of the paper
-(`round5/out_official/transfer_ci_blocksize.csv`, `round6/seed_stability.json`). The random-forest
-seed is fixed, so every interval is conditional on one fitted source model; Table S1 gives the spread
-over ten seeds.
+and 5, with intervals at 2-cell blocking. At that blocking eleven directions are above chance with
+interval support and seven below (both directions between Manavgat and Bejís, between Manavgat and
+Muğla and between Bejís and North Evia, and Montiferru to Manavgat). At the 10-cell blocking of
+Section 3.5, Manavgat to Muğla loses its support, and no direction changes side of chance. The
+paired thermal contribution goes from twelve positive, seven negative and one uncertain verdict at
+1 km to six, five and nine at 5 km, so coarser blocking removed support from eight verdicts and
+added none. The three verdicts that change at 5 km across five bootstrap seeds (Section 2.13) are
+the level verdict of Evia to Bejís and the paired verdicts of Manavgat to Muğla and Evia to
+Montiferru, which makes the counts of supported directions the least stable numbers of the paper
+(`round5/out_official/transfer_ci_blocksize.csv`, `round6/seed_stability.json`).
 
-Under region-wise z-scoring the twenty directions range from 0.302 to 0.630, and under CORAL from
-0.406 to 0.624. With the better of the two methods in each direction, 15 directions end closer to
-chance and 5 further from it, four Montiferru directions that move up and Manavgat to Muğla, which
-moves down from 0.438 to 0.427; under CORAL alone, 16 end closer (`round5/matrix20_official.csv`).
+With the better of the two adaptation methods in each direction, 15 directions end closer to chance
+and 5 further from it, namely four Montiferru directions that move up and Manavgat to Muğla, which
+moves down from 0.438 to 0.427 (`round5/matrix20_official.csv`).
 
 **Table S8. The transfer matrix, thermal model, natural-vegetation population.** Target ROC-AUC with
 2-cell spatial-block bootstrap 95 % intervals (1000 replicates). CORAL follows region-wise z-scoring
@@ -473,10 +455,9 @@ moves down from 0.438 to 0.427; under CORAL alone, 16 end closer (`round5/matrix
 
 Table S9 splits the gap between the within-region skill of the target and raw transfer into the part
 that the better label-free method recovers and the rest. Among the directions that started below
-chance the recovered fraction is at most +0.28 (Bejís to Evia). Seven directions have negative
-recovery, five of them with intervals below zero. The within-region reference is not matched to a
-transfer evaluation (Section 3.3), and the raw column depends on the study area (Section 3.4), so the
-fractions hold only within this protocol.
+chance the recovered fraction is at most +0.28 (Bejís to Evia). The within-region reference is not
+matched to a transfer evaluation (Section 3.3), and the raw column depends on the study area
+(Section 3.4), so the fractions hold only within this protocol.
 
 **Table S9. Transfer-gap decomposition, four regions, 12 directions.** Within = within-region thermal
 AUC of the target. Best adapted = the better of z-score and CORAL, a choice that uses target labels.
@@ -502,16 +483,16 @@ not part of this decomposition. Source `four_aoi_decomposition.csv` in
 
 ## S4.3 Precision and recall
 
-A susceptibility map ranks areas, and at target prevalences of 7.0 to 28.7 % precision and recall can
-tell a different story from ROC-AUC. Table S10 gives PR-AUC against the no-skill baseline. The seven
-directions below their own baseline are the seven below chance on ROC-AUC. At 1 km blocking all seven
-have intervals below the baseline, and at 5 km two do, both into Manavgat: Bejís to Manavgat [0.067,
-0.132] and Muğla to Manavgat [0.071, 0.135], against 0.143.
+At target prevalences of 7.0 to 28.7 %, precision and recall can tell a different story from
+ROC-AUC, so Table S10 gives the PR-AUC of every direction against its no-skill baseline. The seven
+directions below their own baseline are the seven below chance on ROC-AUC, and at 1 km blocking all
+seven have intervals below the baseline. The two that keep this at 5 km (Section 3.5) are Bejís to
+Manavgat, [0.067, 0.132], and Muğla to Manavgat, [0.071, 0.135], against a baseline of 0.143.
 
 **Table S10. Thermal transfer as PR-AUC against the no-skill baseline.** The baseline is the burned
 prevalence of the target, and lift is PR-AUC divided by it, so a lift of 1 is a random ranking.
-Ordered by lift. From the step9b exports (`round5/tables/corrected/*/step9b_metrics.json`); intervals
-at 2-cell and 10-cell blocking in `round7/r7a_pr_auc_10cell.csv`.
+Ordered by lift. From the step9b exports (`round5/tables/corrected/*/step9b_metrics.json`), with
+intervals at 2-cell and 10-cell blocking in `round7/r7a_pr_auc_10cell.csv`.
 
 | Direction | ROC-AUC | PR-AUC | No-skill | Lift |
 |---|---:|---:|---:|---:|
@@ -549,35 +530,28 @@ Bejís it is below chance, with interval support only for Manavgat, at 0.426 [0.
 
 ## S4.5 Similarity measures
 
-Twenty similarity measures in five families were each rank-correlated with raw thermal transfer over
-the directions on which they are defined, with one pair-based bootstrap (unordered pairs resampled
-with replacement, both directions kept, 2000 replicates, seed 42). The marginal family compares
-predictor distributions: area-of-applicability dissimilarity in scaled, importance-weighted predictor
-space [@Meyer2021; @Meyer2022; @Ludwig2023], climatic distance and a domain classifier. The
-niche-overlap family uses Schoener's *D* [@Schoener1968] and Warren's *I* [@Warren2008] over burned
-cells, the regime family counts burned patches, and the conditional family measures how often signed
-associations agree, over all predictors and over those with interval support; geographic distance is
-the fifth family. The measures were recorded on 8 August 2026 with their results under the original
-label (commit abd6a4b on the `history-archive` branch of the public repository) and were not
-re-selected after the label correction. This is a dated record and was not pre-registered.
+Section 2.8 defines the twenty similarity measures and their five families, and Table S11 gives each
+one against raw thermal transfer. The pair-cluster bootstrap resamples unordered pairs with
+replacement and keeps both directions of each pair. The area-of-applicability dissimilarity is
+computed in scaled, importance-weighted predictor space [@Meyer2021; @Meyer2022; @Ludwig2023], and
+the conditional family counts sign agreement over all predictors and over those with interval
+support. The dated record of the measures (8 August 2026), with their results under the original
+label, is commit abd6a4b on the `history-archive` branch of the public repository, and it was not
+pre-registered.
 
-As drawn, no interpretable measure has an interval that excludes zero (Table S11). The conditional
-family comes closest, at +0.52 and +0.49; under the original label these two rows excluded zero (+0.84
-and +0.81), and after the correction they do not. Geographic distance does not order the matrix, and
-the domain classifier separates source from target at AUC ≥ 0.96 for every pair, so it gives no
-ordering. Over all 120 permutations of the five region labels the smallest two-sided *p*-value is
-0.10 (vector Spearman, six directions) and the two supported-feature measures give 0.125 and 0.15,
-where the smallest attainable value is 1/120 (`round8/r8d_summary.json`). On the twelve directions
-common to all families, every interpretable row still includes zero
-(`round5/out_official/diagnostics_common_subset.json`).
-
-Ten independent region pairs give little power, so a moderate ordering would usually be missed.
-Measures built on interval support are also unstable: five to six of the pipeline's interval bounds
-lie within 0.01 of 0.5, and one such flag, the NDVI of Manavgat, moved the supported-feature cosine
-from ρ = 0.49 to 0.70 when two equally valid bootstrap streams disagreed on it.
+The conditional family comes closest to an interval that excludes zero, at +0.52 and +0.49.
+Geographic distance does not order the matrix, and the domain classifier separates source from
+target at an AUC of at least 0.96 for every pair, so it gives no ordering. Over all 120 permutations
+of the five region labels the smallest two-sided *p*-value is 0.10 (vector Spearman, six directions)
+and the two supported-feature measures give 0.125 and 0.15, where the smallest attainable value is
+1/120 (`round8/r8d_summary.json`). On the twelve directions common to all families, every
+interpretable row still includes zero (`round5/out_official/diagnostics_common_subset.json`). The
+interval flag behind the instability noted in Section 4.6 is the NDVI of Manavgat, which moved the
+supported-feature cosine from ρ = 0.49 to 0.70 when two equally valid bootstrap streams disagreed on
+it.
 
 **Table S11. Similarity measures against raw thermal transfer.** Spearman ρ with pair-based bootstrap
-95 % intervals; Exp. = expected sign. Rows with n = 12 cover the four regions other than Montiferru,
+95 % intervals. Exp. = expected sign. Rows with n = 12 cover the four regions other than Montiferru,
 for which these measures were not produced, and the supported conditional rows use the 18 directions
 with at least one supported feature. Source `round5/s6_diagnostics_20.csv`. ‡ The last row belongs to
 the set fixed in advance and stays in the table, but it is defined on six directions and its interval
@@ -610,27 +584,19 @@ is degenerate (the upper bound equals the point estimate), so it is not interpre
 
 ## S5.1 Label, grid, gate and the Manavgat correction
 
-Labels come from MODIS MCD64A1 Collection 6.1 (`MODIS/061/MCD64A1`) through Google Earth Engine
-[@Gorelick2017]. Each native ~500 m observation is copied onto the 30 m EPSG:4326 grid of the
-pipeline, and the analysis grid is rebuilt from it in blocks of `round(500 / 30) = 17 × 17` pixels,
-identified by `row_500m` and `col_500m`. The cell is square in degrees, about 510 m from north to
-south and 390 to 407 m from east to west (0.199 to 0.208 km², against 0.215 km² for the native cell),
-so it approximates the MODIS cell without reproducing it. Block sizes refer to the north-south edge,
-and the collar step of 0.45 km per cell lies between the two edges, so collar radii are nominal to
-within about 15 %. A cell counts as burned when one burned sub-pixel falls inside the label window,
-which can widen a scar by one cell at its edge, and its burn date is the modal sub-pixel day of year.
-The label never decides whether a cell is modelled.
+This section adds pipeline detail to Sections 2.2 and 2.3. The label is read from the Earth Engine
+asset `MODIS/061/MCD64A1` [@Gorelick2017] and copied onto the 30 m EPSG:4326 grid of the pipeline,
+and the analysis cells are blocks of `round(500 / 30) = 17 × 17` pixels, identified by `row_500m`
+and `col_500m`. The cell is square in degrees, so it approximates the MODIS cell without reproducing
+it. Block sizes refer to its north-south edge, and the collar step of 0.45 km per cell lies between
+the two edges, which is why collar radii are nominal to within about 15 %. The burn date of a cell
+is the modal sub-pixel day of year, and the label never decides whether a cell is modelled. The gate
+reads the ESA WorldCover classes of the same cells, and it separates burning of natural fuel from
+stubble burning after harvest, which MCD64A1 does not distinguish.
 
-Before any modelling, each region passes a gate. It is admitted as a wildfire case when at least 30
-cells burned and at least half of the burned cells are dominated by natural vegetation (ESA
-WorldCover classes on the same cells), and rejected as a cropland control when the cropland share is
-at least half. The gate separates burning of natural fuel from stubble burning after harvest, which
-MCD64A1 does not distinguish; Table 1 gives its results.
-
-Table S12 gives the earlier burning of each region. Burning inside the predictor window was removed
-by the pipeline except in Bejís, and burning in the five previous years is not screened anywhere;
-removing either changes little (Figs. S1 and S2). The only historical exclusion applied by design
-removes the 2021 Muğla scar from the 2022 population of Section S3.5.
+Table S12 counts the earlier burning that Section 2.2 describes, region by region. The only
+historical exclusion applied by design removes the 2021 Muğla scar from the 2022 population of
+Section S3.5.
 
 **Table S12. Earlier burning by region, natural-vegetation population.** Pre-label burning lies
 inside the predictor window and historical burning in the five previous years. Recomputed from the
@@ -645,27 +611,26 @@ MCD64A1 export of each region by `paper/code/ems_labels_1_prelabel.py` and `ems_
 | North Evia 2021 | 16 | 0 | 366 | 88 |
 | Montiferru 2021 | 61 | 0 | 58 | 32 |
 
-The label first used for Manavgat 2021 was exported on 8 July 2026, before the month-alignment fix
-of the MCD64A1 query in the pipeline (commit 183be42, 11 July), and was not renewed, so it missed the
-first four days of the fire, 28 to 31 July; the code itself was correct. The corrected label only adds
-burned cells (784 to 2,935 in the primary population) and changes no predictor or validity flag. With
-it the Manavgat rows of Table 2 become stronger: absolute AUCs rise by 0.04 to 0.11, and the 1 km
-interval narrows from [+0.055, +0.079] to [+0.060, +0.073], because 814 blocks of 2 cells now hold
-burned cells instead of 235. The outputs were re-frozen with the pipeline at commit 6381f4c, Python
-3.12.10 and scikit-learn 1.9.0, with the two changes given in Section S5.7. A control run re-froze the
-original label with the same code and reproduced the published outputs to within 10⁻⁵, apart from the
-exceptions listed in the manifest, so differences between the runs come from the label alone. The
-correction, the re-freeze and the control run were carried out by the corresponding author with code
-written with Claude (see the statement on the use of generative AI in the main article) and were not
-repeated by the author of the pipeline; the manifest, hashes and scripts are in
-`paper/data/manavgat_2021/refreeze/`.
+The label first used for Manavgat 2021, which missed the first four days of the fire (Section 2.2),
+was exported on 8 July 2026, before the month-alignment fix of the MCD64A1 query in the pipeline
+(commit 183be42, 11 July), and was not renewed. The code itself was correct. The corrected label
+changes no predictor or validity flag. With it the Manavgat rows of Table 2 become stronger, as
+absolute AUCs rise by 0.04 to 0.11 and the 1 km interval narrows from [+0.055, +0.079] to [+0.060,
++0.073], because 814 blocks of 2 cells now hold burned cells instead of 235. The outputs were
+re-frozen with the pipeline at commit 6381f4c, with the two changes given in Section S5.7. A control
+run re-froze the original label with the same code and reproduced the published outputs to within
+10⁻⁵, apart from the exceptions listed in the manifest, so differences between the runs come from
+the label alone. The correction, the re-freeze and the control run were carried out by the
+corresponding author with code written with Claude (see the statement on the use of generative AI in
+the main text) and were not repeated by the author of the pipeline. The manifest, hashes and scripts
+are in `paper/data/manavgat_2021/refreeze/`.
 
 ## S5.2 Study areas and windows
 
-Table S13 gives the bounding box and the windows of each study area. The 2022 Muğla windows are set
-relative to the 2022 fire with the 2021 lengths: a 58-day predictor window that ends the day before
-ignition and a 49-day label window that opens on it. The Evia rectangle was extended after the
-first one showed a very high burned fraction, and Section S1.2 gives transfer on the first rectangle.
+Table S13 gives the bounding box and the windows of each study area, and Section S1.2 gives transfer
+on the first, smaller Evia rectangle. The 2022 Muğla windows of Section S3.5 are set relative to the
+2022 fire with the 2021 lengths, which gives a 58-day predictor window that ends the day before
+ignition and a 49-day label window that opens on it.
 
 **Table S13. Study regions, study areas and time windows.** Bounding boxes in EPSG:4326, as recorded.
 Day counts include both ends. The baseline years are the four years before each predictor window,
@@ -681,23 +646,20 @@ on the same calendar dates.
 
 ## S5.3 Predictors
 
-Ten predictors are summarised per cell over the predictor window (Fig. 2; Table S14). NDVI, current
-LST, the LST anomaly and the two TVDI channels come from Landsat 8 Collection 2 Level-2, screened per
-pixel with `QA_PIXEL` (the water bit is kept); elevation and slope come from the Copernicus DEM
-GLO-30, whose EGM2008 geoid heights are used without datum conversion; land cover is the dominant ESA
-WorldCover v200 class [@Zanaga2022]. The LST anomaly is a z-score of the current LST median against
-the four baseline years, set to no-data where the baseline standard deviation is below 1.0 °C. TVDI
-[@Sandholt2002] uses wet and dry edges at the 2nd and 98th LST percentiles within twenty NDVI bins,
-fitted for each study area and window, so a TVDI of 0.5 means a different moisture state in each
-region; the TVDI difference is its raw anomaly against the same four years. Downscaled LST comes from
-a MODIS-to-Landsat model that takes coordinates as inputs, the only route by which coordinates enter
-a feature set (Fig. S1 gives the gain without it), and fused LST keeps the observed Landsat LST
-wherever it is valid and fills 0.11 % to 9.70 % of cells, by region, from the downscaled surface.
+Table S14 lists the inputs of the ten predictors of Section 2.4, and this section describes how the
+pipeline derives them. The Landsat 8 channels (NDVI, current LST, the LST anomaly and the two TVDI
+channels) are screened per pixel with `QA_PIXEL`, and the water bit is kept. Elevation uses the
+EGM2008 geoid heights of the Copernicus DEM without datum conversion. The LST anomaly is a z-score
+of the current LST median against the four baseline years, set to no-data where the baseline
+standard deviation is below 1.0 °C. TVDI [@Sandholt2002] uses wet and dry edges at the 2nd and 98th
+LST percentiles within twenty NDVI bins of each study area and window, and the TVDI difference is
+its raw anomaly against the same four years. Downscaled LST comes from a MODIS-to-Landsat model that
+takes coordinates as inputs, which is the only route by which coordinates enter a feature set
+(Fig. S1 gives the gain without it). Fused LST keeps the observed Landsat LST wherever it is valid
+and fills the remaining cells from the downscaled surface.
 
-The six thermal channels carry about two signals. Current, fused and downscaled LST correlate at 0.97
-to 1.00 in every region, current LST and TVDI at 0.88 to 0.98, and the two anomaly channels at 0.71 to
-0.94, and two principal components explain 92 % to 98 % of their variance
-(`labels/r4_dimensionality.json`). The anomaly channels rest on one to seven clear Landsat
+The correlations and principal components of the six thermal channels quoted in Section 2.4 come
+from `labels/r4_dimensionality.json`. The anomaly channels rest on one to seven clear Landsat
 observations per pixel and year (Table S15), which adds noise to the four-year baseline.
 
 **Table S14. Input data.** All retrieved through Google Earth Engine.
@@ -713,7 +675,7 @@ observations per pixel and year (Table S15), which adds noise to the four-year b
 **Table S15. Landsat 8 observations per window.** Scenes that intersect the study area, and clear
 observations per pixel after the pipeline's QA mask (`src/step3_landsat_lst.py`), median and 10th to
 90th percentile at 300 m. The pipeline also filters by calendar month, so its counts can be slightly
-lower; Landsat 9 is not used. Source `round8/r8k_landsat_observations.csv`.
+lower. Landsat 9 is not used. Source `round8/r8k_landsat_observations.csv`.
 
 | Region | Predictor window scenes | Clear observations, predictor window | Clear observations, baseline years (medians) |
 |---|---:|---|---|
@@ -725,23 +687,22 @@ lower; Landsat 9 is not used. Source `round8/r8k_landsat_observations.csv`.
 
 ## S5.4 Resampling units
 
-Uncertainty comes from a spatial-block bootstrap. With $`\beta_1, \dots, \beta_M`$ the blocks of
-[#eq:block] that contain cells of $`F`$, replicate $`b`$ draws $`M`$ indices $`u_{bm}`$ uniformly with
-replacement:
+This section writes out the resampling of Section 2.7. With $`\beta_1, \dots, \beta_M`$ the blocks
+of [#eq:block] that contain cells of $`F`$, replicate $`b`$ draws $`M`$ indices $`u_{bm}`$ uniformly
+with replacement, which gives
 
 ```math {#eq:boot}
 F^{*b} = \biguplus_{m=1}^{M} \beta_{u_{bm}}, \qquad \mathrm{CI}_{95} = \left[ Q_{0.025}\{\theta(F^{*b})\}_{b},\; Q_{0.975}\{\theta(F^{*b})\}_{b} \right].
 ```
 
 Here $`\theta`$ is the statistic and $`Q`$ gives the 2.5 and 97.5 percentiles over 1000 replicates,
-seed 42, unless another number is given. A replicate with one class only is dropped, and differences
-are formed within each replicate, so they are paired. The reliability of an interval depends on the
-number of blocks with at least one burned cell, which falls from 192 to 843 at 2 cells to 6 to 33 at
-20 cells. The 10-cell blocking, with 16 to 70 such blocks per region, is the coarsest that the design
-supports, and the 20-cell row of Table 2 is indicative.
+seed 42, unless another number is given. A replicate with one class only is dropped. The reliability
+of an interval depends on the number of blocks with at least one burned cell, which is 192 to 843
+per region at 2 cells, 16 to 70 at 10 cells and 6 to 33 at 20 cells.
 
 Each region appears in eight of the twenty directions, so the *pair-cluster bootstrap* resamples the
-ten unordered region pairs, each carrying its set $`\pi_p`$ of ordered directions:
+ten unordered region pairs, each carrying its set $`\pi_p`$ of ordered directions, and the mean
+contribution of a replicate is
 
 ```math {#eq:pair}
 \bar{\delta}^{*b} = \frac{\sum_{m=1}^{10} \sum_{(s,t) \in \pi_{u_{bm}}} \delta_{st}}{\sum_{m=1}^{10} |\pi_{u_{bm}}|}.
@@ -749,32 +710,25 @@ ten unordered region pairs, each carrying its set $`\pi_p`$ of ordered direction
 
 Clustering by target region replaces $`\pi_p`$ by the four directions that share a target. A
 quantity with one value per held-out scar or target region gets a Student *t* interval over its $`n`$
-units:
+units, computed as
 
 ```math {#eq:tint}
 \bar{x} \pm t_{0.975,\,n-1}\, s_x / \sqrt{n}.
 ```
 
-The effective sample is therefore ten pairs or five regions for direction-level intervals, and at
-most seven scars in three regions for scar-level intervals. An assertion in the code excludes the
-same columns from every model fit: coordinates (`lon`, `lat`, `row`, `col` and their normalised
-forms), every burn-date and label-provenance column, and the agreement fraction.
-
 ## S5.5 Gap decomposition and reversal criterion
 
-The recovered fraction of a direction is (adapted − raw) / (within − raw), signed and not clipped,
-with its interval from the same paired bootstrap. It describes what the two tested methods achieved,
-the better one chosen with target labels, and much of the remainder already appears inside one
-region (Section 3.3), so it is not a concept-shift residual. The signed univariate association is the
-raw ROC-AUC of a predictor against `burned`, not folded to max(AUC, 1 − AUC). A reversal is
-bootstrap-supported only when the two point estimates lie on opposite sides of 0.5 and the 10-cell
-interval of each region excludes 0.5 (Section S3.1); `conditional_similarity_transfer.json` stores
-the rule as metadata. Replicates with $`|G| < 10^{-6}`$ are dropped.
+Section 2.10 defines the recovered fraction and the reversal criterion. The recovered fraction
+describes what the two tested methods achieved, with the better one chosen using target labels, and
+much of the remaining gap already appears inside one region (Section 3.3), so it is not a
+concept-shift residual. Its bootstrap drops replicates with $`|G| < 10^{-6}`$. The reversal
+criterion uses the 10-cell interval of each region (Section S3.1), and
+`conditional_similarity_transfer.json` stores the rule as metadata.
 
 ## S5.6 Label-free adaptation
 
-Region-wise z-scoring standardises the numeric features of each region with the statistics of that
-region, source statistics from source data and target statistics from target data, never pooled. For
+This section gives the two adaptation methods of Section 2.9 in full. Region-wise z-scoring takes
+source statistics from source data and target statistics from target data and never pools them. For
 feature $`j`$ in region $`R`$,
 
 ```math {#eq:zscore}
@@ -782,10 +736,9 @@ z_{ij} = \frac{x_{ij} - \mu_j^{R}}{\sigma_j^{R}}, \qquad \mu_j^{R} = \frac{1}{n_
 ```
 
 where $`O_j^{R}`$ contains the $`n_j^{R}`$ cells with an observed value (ddof 0). A missing value is
-first set to $`\mu_j^{R}`$, so it becomes zero, and $`\sigma_j^{R} < 10^{-12}`$ is replaced by 1;
-land cover is not transformed. The classifier is refitted on the z-scored source and applied to the
-z-scored target, which removes differences in the mean and variance of each feature, so the adapted
-models use target feature statistics and never target labels.
+first set to $`\mu_j^{R}`$, so it becomes zero, and $`\sigma_j^{R} < 10^{-12}`$ is replaced by 1.
+Land cover is not transformed. The classifier is refitted on the z-scored source and applied to the
+z-scored target, which removes differences in the mean and variance of each feature.
 
 CORAL then aligns the source covariance to the target covariance with the standard whitening and
 recolouring map [@Sun2016]. With $`Z_R`$ the $`n_R \times d`$ matrix of z-scored numeric features,
@@ -797,33 +750,31 @@ Z_s^{\mathrm{al}} = Z_s\,(C_s + \lambda I)^{-1/2}\,(C_t + \lambda I)^{1/2}, \qqu
 
 with $`\lambda = 10^{-5}`$ throughout (ddof 0). Both means are zero after [#eq:zscore], so the mean
 terms of the general map are zero, and matrix powers use a symmetric eigendecomposition with
-eigenvalues set to at least $`10^{-12}`$. The transform is applied to the source only; the target
+eigenvalues set to at least $`10^{-12}`$. The transform is applied to the source only. The target
 stays at $`Z_t`$, and the classifier is refitted on $`Z_s^{\mathrm{al}}`$. A run-time check confirms
-that neither method uses a target label. Section S1.2 gives the effect of other values of λ.
+that neither method uses a target label, and Section S1.2 gives the effect of other values of λ.
 
 ## S5.7 Reproduction, code and data
 
-The transfer analysis runs in an environment separate from the pipeline, so the repository refits
-every within-region model and all twenty CORAL transfers and compares them with the frozen pipeline
-output, for Manavgat the output re-frozen at pipeline commit 6381f4c (Section S5.1). That re-freeze
-needed two changes: a one-line patch that lets the window-closure module accept a population column
-added by the corrected label (its diff is released with the re-freeze), and a runtime setting that
-points the Earth Engine calls at the project `thermaltwin`. Within-region results agree exactly and
-the transfer directions to within 1.3×10⁻⁸, below the tolerance of 10⁻⁶. The frame-transfer script of
-Section 3.4 fits its forests in parallel, so its values vary between runs by up to 2×10⁻⁶, within the
-tolerance of 10⁻⁵ applied to it. Point estimates depend on the scikit-learn version: under 1.5.2
-instead of 1.9.0, single directions move by up to 0.023 for the thermal model and 0.047 for the
-baseline, means by at most 0.003, and one direction changes interval support on each frame
-(`round7/sklearn152/compare_vs_1_9_0.json`).
+This section gives the detail behind the reproduction checks of Section 2.13 and the Data and Code
+availability statements. The transfer analysis runs in an environment separate from the pipeline, so
+the repository refits every within-region model and all twenty CORAL transfers and compares them
+with the frozen pipeline output, for Manavgat the output re-frozen at pipeline commit 6381f4c
+(Section S5.1). The two changes that this re-freeze needed are a one-line patch that lets the
+window-closure module accept a population column added by the corrected label (its diff is released
+with the re-freeze) and a runtime setting that points the Earth Engine calls at the project
+`thermaltwin`. The transfer agreement of 1.3×10⁻⁸ is below the tolerance of 10⁻⁶. The frame-transfer
+script of Section 3.4 fits its forests in parallel, so its values vary between runs by up to 2×10⁻⁶,
+within the tolerance of 10⁻⁵ applied to it. Under scikit-learn 1.5.2 instead of 1.9.0, single
+directions move by up to 0.023 for the thermal model and 0.047 for the baseline, means by at most
+0.003, and one direction changes interval support on each frame
+(`round7/sklearn152/compare_vs_1_9_0.json`). The leakage check of Section 2.13 is an assertion in
+the code, and the coordinate columns it excludes are `lon`, `lat`, `row`, `col` and their normalised
+forms.
 
-The analysis code is public at <https://github.com/dryuemco/thermal-twin> under the MIT licence, and
-the version used here is archived at Zenodo (https://doi.org/10.5281/zenodo.23070876); the README of
-the repository describes each folder. The satellite processing pipeline is a separate public
-repository, <https://github.com/emrehann17/satellite-thermal-digital-twin> (MIT licence). The
-environment is Python 3.12.10 with NumPy 2.4.4, pandas 3.0.2 and scikit-learn 1.9.0, fixed in
-`ENVIRONMENT.md`. The five modelling datasets are in
-`paper/data/<region>/step8a_500m_modeling_dataset.parquet`, each checked on load against the SHA-256 in
-`paper/code/_canonical.py`; for Manavgat this is the corrected re-freeze (`5a5e876c…`), while the
-pipeline's own record still names the original-label table (`054a1961…`), which the pipeline can
-regenerate. All satellite inputs are public (Table S14), and the data derived from them remain under
-the terms of their products.
+The analysis code is under the MIT licence, the version used here has the Zenodo DOI
+https://doi.org/10.5281/zenodo.23070876, and the README of the repository describes each folder. The
+environment is fixed in `ENVIRONMENT.md`. The five modelling datasets are in
+`paper/data/<region>/step8a_500m_modeling_dataset.parquet`, and the pipeline can regenerate the
+original-label Manavgat table (`054a1961…`) that its own record still names. The data derived from
+the public satellite inputs (Table S14) remain under the terms of their products.

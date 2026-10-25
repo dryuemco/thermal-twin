@@ -23,7 +23,8 @@ build profiles; the Markdown, figures, supplement source and REFERENCES.bib are 
 
 Usage (needs pandoc; pypandoc_binary and python-docx supply it):
     python paper/tex/build_docx.py                   # Natural Hazards (default)
-        -> paper/submission/manuscript.docx; paper/tex/supplementary_material.docx
+        -> paper/submissions/natural_hazards/ (see journal_natural_hazards.py; build_nh below built the
+           unsent 2026-09-29 package and is no longer called)
     python paper/tex/build_docx.py --journal fire --template <fire-template.dot>
         -> paper/submission_fire/ (see journal_fire.py)
 """
@@ -39,7 +40,7 @@ from docx.shared import Pt, Cm
 
 HERE = Path(__file__).resolve().parent
 P = HERE.parent
-OUT = P / "submission"
+OUT = P / "submissions" / "natural_hazards"
 FM = json.loads((P / "frontmatter.json").read_text(encoding="utf-8"))
 # Introduction and Related work were merged into one Background section on 2026-10-12 (Fire Ecology asks for
 # Background, Methods, Results, Discussion, Conclusions), so the old 02_related_work.md is gone
@@ -268,6 +269,8 @@ def main_text_words(doc):
 
 
 def build_nh():
+    # Superseded on 2026-10-25 by journal_natural_hazards.py. This built the Natural Hazards package of
+    # 2026-09-29 (never submitted, kept in paper/submissions/natural_hazards/unsent_2026-09-29/).
     # ---------------------------------------------------------------- manuscript
     OUT.mkdir(exist_ok=True)
     EQ = {}
@@ -342,13 +345,14 @@ ORCID: Yunus Emre Cogurcu, 0000-0002-9229-9657
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Build the submission .docx files for one journal.")
     ap.add_argument("--journal", choices=["nh", "fire", "fire-ecology"], default="nh",
-                    help="nh: Natural Hazards -> paper/submission/; fire-ecology: Fire Ecology -> "
-                         "paper/submission_fire_ecology/; fire: retired (see below)")
+                    help="nh: Natural Hazards -> paper/submissions/natural_hazards/; fire-ecology: Fire Ecology -> "
+                         "paper/submissions/fire_ecology/; fire: retired (see below)")
     ap.add_argument("--template", type=Path, help="fire only: the MDPI Fire Word template (.dot, .dotx or .docx)")
     ap.add_argument("--no-pdf", action="store_true", help="skip the Word PDF export of the supplement")
     args = ap.parse_args()
     if args.journal == "nh":
-        build_nh()
+        import journal_natural_hazards
+        journal_natural_hazards.build(pdf=not args.no_pdf)
     elif args.journal == "fire-ecology":
         import journal_fire_ecology
         journal_fire_ecology.build(pdf=not args.no_pdf)

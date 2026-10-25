@@ -13,7 +13,7 @@ study areas and +0.024 on comparable areas, both intervals including zero, and o
 transfer stayed 0.197 below the within-region reference. Neither the static baseline nor the two
 label-free adaptation methods did better.
 
-Third, none of twenty similarity measures was shown to predict transfer: at the point estimates the
+Third, none of twenty similarity measures was shown to predict transfer. At the point estimates the
 most similar pair of regions failed in both directions, and the least similar pair transferred above
 chance.
 

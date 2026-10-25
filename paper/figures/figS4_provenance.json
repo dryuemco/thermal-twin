@@ -7,10 +7,11 @@
   "code/d_per_source.json": "dd4b6d9d73868f459c5c4dc2f087b724df961b661766f6deaefe642efdcd04d2",
   "inference/ladder_summary.json": "62948f253745a275688b8e1a39b556f72c81c7af8e2b6d039f2bb4ce891a3b80"
  },
- "asserts": "A and B agree between matched_holdout and prevalence_control; D is the mean of its four sources; nine-scar means 0.791 (A), 0.793 (A'), 0.644 (B), seven-scar C 0.546; gains +0.095, +0.021, +0.024, +0.008 equal the ladder means; 36 foreign scores, mean 0.556, ten below chance",
+ "asserts": "A and B agree between matched_holdout and prevalence_control; D is the mean of its four sources; nine-scar means 0.791 (A), 0.793 (A'), 0.644 (B), 0.556 (D), seven-scar C 0.546; gains +0.095, +0.021, +0.024, +0.008 equal the ladder means; 36 foreign scores, mean 0.556, ten below chance",
+ "design": "2026-10-25 redraw, one grey line per scar across the four evaluations and the mean in dark ink; A' and the range of D are stated in Section S2.1 and no longer drawn",
  "canvas_mm": [
   170.0,
-  82
+  86
  ],
  "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
  "environment": "matplotlib 3.11.2"
