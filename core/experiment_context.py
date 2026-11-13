@@ -154,6 +154,10 @@ def build_experiment_context(experiment_id: str) -> dict:
         # deferred to a helper so an invalid declaration fails closed here
         # rather than deep inside Step8A.
         "exclude_historical_burns": bool(exp.get("exclude_historical_burns", False)),
+        # MODIS predictor month filter (opt-out per experiment). True (default, every experiment
+        # of the manuscript) keeps only the SUMMER_MONTH_START..END days of the predictor window;
+        # False uses every day of the window (scale-up fires whose window starts before June).
+        "modis_predictor_month_filter": bool(exp.get("modis_predictor_month_filter", True)),
         "historical_burn_exclusion": _resolve_historical_contract(exp),
         "current_period_days": current_period_days,
         "current_period_end_date": current_period_end_date,

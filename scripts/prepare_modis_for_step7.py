@@ -193,7 +193,7 @@ def _qc_accept_mask(image):
     return qc_ok.And(dn_ok)
 
 
-def _build_qc_masked_modis_stack(region, start: str, end: str):
+def _build_qc_masked_modis_stack(region, start: str, end: str, month_filter: bool = True):
     """
     Deney-farkinda MODIS mean/std/valid-count hesaplayan, QC-maskeli
     agregasyon fonksiyonu (src/step2_modis_5year_mean.py:process_summer_mean()
@@ -221,13 +221,21 @@ def _build_qc_masked_modis_stack(region, start: str, end: str):
         ee.ImageCollection(MODIS_COLLECTION)
         .filterBounds(region)
         .filterDate(start, end)
-        .filter(ee.Filter.calendarRange(SUMMER_MONTH_START, SUMMER_MONTH_END, "month"))
     )
+    # month_filter=False (experiment registry key modis_predictor_month_filter) uses every day
+    # of the predictor window; the default keeps the summer-month filter unchanged.
+    if month_filter:
+        raw_collection = raw_collection.filter(
+            ee.Filter.calendarRange(SUMMER_MONTH_START, SUMMER_MONTH_END, "month")
+        )
+        months_label = f"{SUMMER_MONTH_START}-{SUMMER_MONTH_END}"
+    else:
+        months_label = "all (full predictor window, no month filter)"
     image_count = raw_collection.size().getInfo()
     if image_count == 0:
         raise ModisPrepError(
             f"Predictor penceresinde ({start} -> {end}, ay araligi "
-            f"{SUMMER_MONTH_START}-{SUMMER_MONTH_END}) hicbir MODIS sahnesi "
+            f"{months_label}) hicbir MODIS sahnesi "
             "bulunamadi."
         )
 
@@ -271,7 +279,7 @@ def _build_qc_masked_modis_stack(region, start: str, end: str):
         "input_band": "LST_Day_1km",
         "qc_band": "QC_Day",
         "image_count": image_count,
-        "months": f"{SUMMER_MONTH_START}-{SUMMER_MONTH_END}",
+        "months": months_label,
     }
     return mean_image, std_image, valid_count_image, source_meta
 
@@ -376,6 +384,7 @@ def prepare_modis_for_step7(ctx: dict, force: bool = False) -> dict:
     )
     mean_image, std_image, valid_count_image, source_meta = _build_qc_masked_modis_stack(
         region, ctx["predictor_start_date"], ctx["predictor_end_date"],
+        month_filter=ctx.get("modis_predictor_month_filter", True),
     )
 
     # Export ONCESI acikca finite sentinel ile unmask: maskeli/gozlemsiz

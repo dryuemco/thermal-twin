@@ -290,6 +290,35 @@ def build_regions() -> dict:
     # burned-landcover gate ile dogrulanmalidir.
     montiferru_aoi_candidate_bbox = ee.Geometry.BBox(*MONTIFERRU_AOI_BBOX)
     montiferru_aoi = montiferru_aoi_candidate_bbox
+    px01_2023_aoi = ee.Geometry.BBox(25.46, 40.63, 26.48, 41.39)   # scale-up fire px01_2023
+    px02_2018_aoi = ee.Geometry.BBox(-8.77, 37.04, -8.2, 37.57)   # scale-up fire px02_2018
+    px03_2022_aoi = ee.Geometry.BBox(-7.74, 40.16, -7.07, 40.76)   # scale-up fire px03_2022
+    px04_2017_aoi = ee.Geometry.BBox(16.12, 43.31, 17.0, 44.28)   # scale-up fire px04_2017
+    px05_2021_aoi = ee.Geometry.BBox(-5.16, 40.28, -4.33, 40.71)   # scale-up fire px05_2021
+    px06_2017_aoi = ee.Geometry.BBox(-8.76, 41.8, -8.02, 42.61)   # scale-up fire px06_2017
+    px07_2017_aoi = ee.Geometry.BBox(-9.01, 40.07, -8.41, 40.72)   # scale-up fire px07_2017
+    rhodes_aoi = ee.Geometry.BBox(27.72, 35.86, 28.2, 36.42)   # scale-up fire rhodes_2023
+    px09_2021_aoi = ee.Geometry.BBox(21.32, 37.46, 22.04, 37.89)   # scale-up fire px09_2021
+    px10_2022_aoi = ee.Geometry.BBox(-7.3, 42.15, -6.41, 42.68)   # scale-up fire px10_2022
+    px11_2020_aoi = ee.Geometry.BBox(-7.01, 37.47, -6.49, 37.96)   # scale-up fire px11_2020
+    px12_2022_aoi = ee.Geometry.BBox(-2.1, 41.16, -1.6, 41.6)   # scale-up fire px12_2022
+    px13_2021_aoi = ee.Geometry.BBox(18.52, 42.41, 19.17, 43.15)   # scale-up fire px13_2021
+    px14_2022_aoi = ee.Geometry.BBox(-5.95, 34.85, -5.44, 35.33)   # scale-up fire px14_2022
+    px15_2022_aoi = ee.Geometry.BBox(-0.47, 38.58, 0.06, 39.0)   # scale-up fire px15_2022
+    px16_2022_aoi = ee.Geometry.BBox(-6.5, 40.28, -5.99, 40.76)   # scale-up fire px16_2022
+    px17_2022_aoi = ee.Geometry.BBox(7.6, 36.21, 8.17, 36.82)   # scale-up fire px17_2022
+    px18_2021_aoi = ee.Geometry.BBox(17.6, 42.72, 18.21, 43.3)   # scale-up fire px18_2021
+    px19_2021_aoi = ee.Geometry.BBox(22.23, 36.56, 22.7, 37.0)   # scale-up fire px19_2021
+    px20_2021_aoi = ee.Geometry.BBox(6.62, 35.13, 7.17, 35.62)   # scale-up fire px20_2021
+    px21_2017_aoi = ee.Geometry.BBox(-7.0, 36.9, -6.49, 37.38)   # scale-up fire px21_2017
+    px22_2021_aoi = ee.Geometry.BBox(15.53, 37.85, 16.16, 38.31)   # scale-up fire px22_2021
+    px23_2023_aoi = ee.Geometry.BBox(35.78, 35.53, 36.3, 36.0)   # scale-up fire px23_2023
+    px24_2019_aoi = ee.Geometry.BBox(-8.33, 39.49, -7.82, 39.94)   # scale-up fire px24_2019
+    px25_2017_aoi = ee.Geometry.BBox(6.13, 36.46, 7.02, 37.24)   # scale-up fire px25_2017
+    px26_2021_aoi = ee.Geometry.BBox(-5.4, 36.3, -4.96, 36.75)   # scale-up fire px26_2021
+    rp01_2020_aoi = ee.Geometry.BBox(7.63, 36.2, 8.6, 36.99)   # scale-up fire rp01_2020
+    rp02_2023_aoi = ee.Geometry.BBox(-6.69, 40.07, -6.17, 40.49)   # scale-up fire rp02_2023
+    rp03_2023_aoi = ee.Geometry.BBox(22.52, 38.07, 23.07, 38.57)   # scale-up fire rp03_2023
 
     return {
         "dogu_akdeniz": dogu_akdeniz,
@@ -307,6 +336,35 @@ def build_regions() -> dict:
         "north_evia_extended_candidate_bbox": north_evia_extended_candidate_bbox,
         "montiferru_aoi": montiferru_aoi,
         "montiferru_aoi_candidate_bbox": montiferru_aoi_candidate_bbox,
+        "px01_2023_aoi": px01_2023_aoi,
+        "px02_2018_aoi": px02_2018_aoi,
+        "px03_2022_aoi": px03_2022_aoi,
+        "px04_2017_aoi": px04_2017_aoi,
+        "px05_2021_aoi": px05_2021_aoi,
+        "px06_2017_aoi": px06_2017_aoi,
+        "px07_2017_aoi": px07_2017_aoi,
+        "rhodes_aoi": rhodes_aoi,
+        "px09_2021_aoi": px09_2021_aoi,
+        "px10_2022_aoi": px10_2022_aoi,
+        "px11_2020_aoi": px11_2020_aoi,
+        "px12_2022_aoi": px12_2022_aoi,
+        "px13_2021_aoi": px13_2021_aoi,
+        "px14_2022_aoi": px14_2022_aoi,
+        "px15_2022_aoi": px15_2022_aoi,
+        "px16_2022_aoi": px16_2022_aoi,
+        "px17_2022_aoi": px17_2022_aoi,
+        "px18_2021_aoi": px18_2021_aoi,
+        "px19_2021_aoi": px19_2021_aoi,
+        "px20_2021_aoi": px20_2021_aoi,
+        "px21_2017_aoi": px21_2017_aoi,
+        "px22_2021_aoi": px22_2021_aoi,
+        "px23_2023_aoi": px23_2023_aoi,
+        "px24_2019_aoi": px24_2019_aoi,
+        "px25_2017_aoi": px25_2017_aoi,
+        "px26_2021_aoi": px26_2021_aoi,
+        "rp01_2020_aoi": rp01_2020_aoi,
+        "rp02_2023_aoi": rp02_2023_aoi,
+        "rp03_2023_aoi": rp03_2023_aoi,
     }
 
 
@@ -787,7 +845,781 @@ EXPERIMENTS = {
             "downstream execution."
         ),
     },
+    "px01_2023": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px01_2023_aoi",
+        "display_name": "Scale-up px01_2023 (2023-08-17, centre 25.97 E 41.01 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2023-06-20",
+        "predictor_end_date": "2023-08-16",
+        "label_start_date": "2023-08-17",
+        "label_end_date": "2023-10-04",
+        "baseline_years": [2019, 2020, 2021, 2022],
+        "output_namespace": "px01_2023",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2023-06-20", "2023-08-16"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px02_2018": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px02_2018_aoi",
+        "display_name": "Scale-up px02_2018 (2018-08-02, centre -8.48 E 37.3 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2018-06-05",
+        "predictor_end_date": "2018-08-01",
+        "label_start_date": "2018-08-02",
+        "label_end_date": "2018-09-19",
+        "baseline_years": [2014, 2015, 2016, 2017],
+        "output_namespace": "px02_2018",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2018-06-05", "2018-08-01"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px03_2022": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px03_2022_aoi",
+        "display_name": "Scale-up px03_2022 (2022-08-05, centre -7.41 E 40.46 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2022-06-08",
+        "predictor_end_date": "2022-08-04",
+        "label_start_date": "2022-08-05",
+        "label_end_date": "2022-09-22",
+        "baseline_years": [2018, 2019, 2020, 2021],
+        "output_namespace": "px03_2022",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2022-06-08", "2022-08-04"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px04_2017": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px04_2017_aoi",
+        "display_name": "Scale-up px04_2017 (2017-07-07, centre 16.56 E 43.8 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2017-05-10",
+        "predictor_end_date": "2017-07-06",
+        "label_start_date": "2017-07-07",
+        "label_end_date": "2017-08-24",
+        "baseline_years": [2013, 2014, 2015, 2016],
+        "output_namespace": "px04_2017",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2017-05-10", "2017-07-06"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px05_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px05_2021_aoi",
+        "display_name": "Scale-up px05_2021 (2021-08-05, centre -4.75 E 40.5 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-06-08",
+        "predictor_end_date": "2021-08-04",
+        "label_start_date": "2021-08-05",
+        "label_end_date": "2021-09-22",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px05_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-06-08", "2021-08-04"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px06_2017": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px06_2017_aoi",
+        "display_name": "Scale-up px06_2017 (2017-10-09, centre -8.39 E 42.2 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2017-08-12",
+        "predictor_end_date": "2017-10-08",
+        "label_start_date": "2017-10-09",
+        "label_end_date": "2017-11-26",
+        "baseline_years": [2013, 2014, 2015, 2016],
+        "output_namespace": "px06_2017",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2017-08-12", "2017-10-08"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px07_2017": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px07_2017_aoi",
+        "display_name": "Scale-up px07_2017 (2017-10-12, centre -8.71 E 40.39 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2017-08-15",
+        "predictor_end_date": "2017-10-11",
+        "label_start_date": "2017-10-12",
+        "label_end_date": "2017-11-29",
+        "baseline_years": [2013, 2014, 2015, 2016],
+        "output_namespace": "px07_2017",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2017-08-15", "2017-10-11"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "rhodes_2023": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "rhodes_aoi",
+        "display_name": "Scale-up rhodes_2023 (2023-07-19, centre 27.96 E 36.14 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2023-05-22",
+        "predictor_end_date": "2023-07-18",
+        "label_start_date": "2023-07-19",
+        "label_end_date": "2023-09-05",
+        "baseline_years": [2019, 2020, 2021, 2022],
+        "output_namespace": "rhodes_2023",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2023-05-22", "2023-07-18"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px09_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px09_2021_aoi",
+        "display_name": "Scale-up px09_2021 (2021-08-03, centre 21.68 E 37.67 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-06-06",
+        "predictor_end_date": "2021-08-02",
+        "label_start_date": "2021-08-03",
+        "label_end_date": "2021-09-20",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px09_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-06-06", "2021-08-02"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px10_2022": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px10_2022_aoi",
+        "display_name": "Scale-up px10_2022 (2022-07-13, centre -6.86 E 42.41 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2022-05-16",
+        "predictor_end_date": "2022-07-12",
+        "label_start_date": "2022-07-13",
+        "label_end_date": "2022-08-30",
+        "baseline_years": [2018, 2019, 2020, 2021],
+        "output_namespace": "px10_2022",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2022-05-16", "2022-07-12"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px11_2020": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px11_2020_aoi",
+        "display_name": "Scale-up px11_2020 (2020-08-27, centre -6.75 E 37.72 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2020-06-30",
+        "predictor_end_date": "2020-08-26",
+        "label_start_date": "2020-08-27",
+        "label_end_date": "2020-10-14",
+        "baseline_years": [2016, 2017, 2018, 2019],
+        "output_namespace": "px11_2020",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2020-06-30", "2020-08-26"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px12_2022": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px12_2022_aoi",
+        "display_name": "Scale-up px12_2022 (2022-07-14, centre -1.85 E 41.38 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2022-05-17",
+        "predictor_end_date": "2022-07-13",
+        "label_start_date": "2022-07-14",
+        "label_end_date": "2022-08-31",
+        "baseline_years": [2018, 2019, 2020, 2021],
+        "output_namespace": "px12_2022",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2022-05-17", "2022-07-13"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px13_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px13_2021_aoi",
+        "display_name": "Scale-up px13_2021 (2021-07-20, centre 18.84 E 42.78 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-05-23",
+        "predictor_end_date": "2021-07-19",
+        "label_start_date": "2021-07-20",
+        "label_end_date": "2021-09-06",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px13_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-05-23", "2021-07-19"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px14_2022": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px14_2022_aoi",
+        "display_name": "Scale-up px14_2022 (2022-07-10, centre -5.7 E 35.09 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2022-05-13",
+        "predictor_end_date": "2022-07-09",
+        "label_start_date": "2022-07-10",
+        "label_end_date": "2022-08-27",
+        "baseline_years": [2018, 2019, 2020, 2021],
+        "output_namespace": "px14_2022",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2022-05-13", "2022-07-09"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px15_2022": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px15_2022_aoi",
+        "display_name": "Scale-up px15_2022 (2022-08-13, centre -0.2 E 38.79 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2022-06-16",
+        "predictor_end_date": "2022-08-12",
+        "label_start_date": "2022-08-13",
+        "label_end_date": "2022-09-30",
+        "baseline_years": [2018, 2019, 2020, 2021],
+        "output_namespace": "px15_2022",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2022-06-16", "2022-08-12"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px16_2022": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px16_2022_aoi",
+        "display_name": "Scale-up px16_2022 (2022-07-08, centre -6.25 E 40.52 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2022-05-11",
+        "predictor_end_date": "2022-07-07",
+        "label_start_date": "2022-07-08",
+        "label_end_date": "2022-08-25",
+        "baseline_years": [2018, 2019, 2020, 2021],
+        "output_namespace": "px16_2022",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2022-05-11", "2022-07-07"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px17_2022": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px17_2022_aoi",
+        "display_name": "Scale-up px17_2022 (2022-08-14, centre 7.88 E 36.52 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2022-06-17",
+        "predictor_end_date": "2022-08-13",
+        "label_start_date": "2022-08-14",
+        "label_end_date": "2022-10-01",
+        "baseline_years": [2018, 2019, 2020, 2021],
+        "output_namespace": "px17_2022",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2022-06-17", "2022-08-13"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px18_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px18_2021_aoi",
+        "display_name": "Scale-up px18_2021 (2021-07-28, centre 17.91 E 43.01 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-05-31",
+        "predictor_end_date": "2021-07-27",
+        "label_start_date": "2021-07-28",
+        "label_end_date": "2021-09-14",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px18_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-05-31", "2021-07-27"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px19_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px19_2021_aoi",
+        "display_name": "Scale-up px19_2021 (2021-08-01, centre 22.46 E 36.78 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-06-04",
+        "predictor_end_date": "2021-07-31",
+        "label_start_date": "2021-08-01",
+        "label_end_date": "2021-09-18",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px19_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-06-04", "2021-07-31"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px20_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px20_2021_aoi",
+        "display_name": "Scale-up px20_2021 (2021-07-01, centre 6.89 E 35.38 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-05-04",
+        "predictor_end_date": "2021-06-30",
+        "label_start_date": "2021-07-01",
+        "label_end_date": "2021-08-18",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px20_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-05-04", "2021-06-30"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px21_2017": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px21_2017_aoi",
+        "display_name": "Scale-up px21_2017 (2017-06-06, centre -6.75 E 37.14 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2017-04-09",
+        "predictor_end_date": "2017-06-05",
+        "label_start_date": "2017-06-06",
+        "label_end_date": "2017-07-24",
+        "baseline_years": [2013, 2014, 2015, 2016],
+        "output_namespace": "px21_2017",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2017-04-09", "2017-06-05"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px22_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px22_2021_aoi",
+        "display_name": "Scale-up px22_2021 (2021-07-28, centre 15.84 E 38.08 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-05-31",
+        "predictor_end_date": "2021-07-27",
+        "label_start_date": "2021-07-28",
+        "label_end_date": "2021-09-14",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px22_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-05-31", "2021-07-27"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px23_2023": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px23_2023_aoi",
+        "display_name": "Scale-up px23_2023 (2023-07-12, centre 36.04 E 35.77 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2023-05-15",
+        "predictor_end_date": "2023-07-11",
+        "label_start_date": "2023-07-12",
+        "label_end_date": "2023-08-29",
+        "baseline_years": [2019, 2020, 2021, 2022],
+        "output_namespace": "px23_2023",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2023-05-15", "2023-07-11"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px24_2019": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px24_2019_aoi",
+        "display_name": "Scale-up px24_2019 (2019-07-18, centre -8.07 E 39.72 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2019-05-21",
+        "predictor_end_date": "2019-07-17",
+        "label_start_date": "2019-07-18",
+        "label_end_date": "2019-09-04",
+        "baseline_years": [2015, 2016, 2017, 2018],
+        "output_namespace": "px24_2019",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2019-05-21", "2019-07-17"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px25_2017": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px25_2017_aoi",
+        "display_name": "Scale-up px25_2017 (2017-07-05, centre 6.57 E 36.85 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2017-05-08",
+        "predictor_end_date": "2017-07-04",
+        "label_start_date": "2017-07-05",
+        "label_end_date": "2017-08-22",
+        "baseline_years": [2013, 2014, 2015, 2016],
+        "output_namespace": "px25_2017",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2017-05-08", "2017-07-04"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "px26_2021": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "px26_2021_aoi",
+        "display_name": "Scale-up px26_2021 (2021-09-07, centre -5.18 E 36.52 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2021-07-11",
+        "predictor_end_date": "2021-09-06",
+        "label_start_date": "2021-09-07",
+        "label_end_date": "2021-10-25",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "px26_2021",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-07-11", "2021-09-06"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter)."
+        ),
+    },
+    "rp01_2020": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "rp01_2020_aoi",
+        "display_name": "Scale-up rp01_2020 (2020-07-25, centre 8.12 E 36.59 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2020-05-28",
+        "predictor_end_date": "2020-07-24",
+        "label_start_date": "2020-07-25",
+        "label_end_date": "2020-09-11",
+        "baseline_years": [2016, 2017, 2018, 2019],
+        "output_namespace": "rp01_2020",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2020-05-28", "2020-07-24"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter). Repeat fire: same region as px17_2022 in another year; its rectangle shares cells with the partner, so it is used only for the same-region check."
+        ),
+    },
+    "rp02_2023": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "rp02_2023_aoi",
+        "display_name": "Scale-up rp02_2023 (2023-05-17, centre -6.43 E 40.28 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2023-03-20",
+        "predictor_end_date": "2023-05-16",
+        "label_start_date": "2023-05-17",
+        "label_end_date": "2023-07-04",
+        "baseline_years": [2019, 2020, 2021, 2022],
+        "output_namespace": "rp02_2023",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2023-03-20", "2023-05-16"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter). Repeat fire: same region as px16_2022 in another year; its rectangle shares cells with the partner, so it is used only for the same-region check."
+        ),
+    },
+    "rp03_2023": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "rp03_2023_aoi",
+        "display_name": "Scale-up rp03_2023 (2023-08-17, centre 22.8 E 38.32 N)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "not assigned (scale-up)",
+        "predictor_start_date": "2023-06-20",
+        "predictor_end_date": "2023-08-16",
+        "label_start_date": "2023-08-17",
+        "label_end_date": "2023-10-04",
+        "baseline_years": [2019, 2020, 2021, 2022],
+        "output_namespace": "rp03_2023",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2023-06-20", "2023-08-16"],
+        "modis_predictor_month_filter": False,
+        "notes": (
+            "Scale-up run (31 fires, November 2026). Event and rectangle defined by rule from MCD64A1: "
+            "anchor = first burn date of the dominant event, 58-day predictor window, 49-day label "
+            "window, rectangle = bounds of the labelled pixels plus 0.15 degree. MODIS predictor over the "
+            "whole predictor window (no month filter). Repeat fire: same region as evia_2021_extended in another year; its rectangle shares cells with the partner, so it is used only for the same-region check."
+        ),
+    },
+    "montiferru_2021_fullwindow": {
+        "enabled": True,
+        "variant_status": "canonical",
+        "region_key": "montiferru_aoi",
+        "display_name": "Montiferru / Oristano, Sardinia 2021 (MODIS over the whole predictor window)",
+        "role": "mediterranean_transfer_wildfire",
+        "country": "Italy",
+        "predictor_start_date": "2021-05-25",
+        "predictor_end_date": "2021-07-23",
+        "label_start_date": "2021-07-24",
+        "label_end_date": "2021-08-31",
+        "baseline_years": [2017, 2018, 2019, 2020],
+        "output_namespace": "montiferru_2021_fullwindow",
+        "exclude_pre_label_burns": True,
+        "pre_label_burn_window": ["2021-05-25", "2021-07-23"],
+        "modis_predictor_month_filter": False,
+        # Scale-up run (Nov 2026): identical to montiferru_2021 except that the MODIS predictor
+        # uses all 60 days of the window (montiferru_2021 drops 25-31 May by the month filter).
+        # Kanonik, JSON-serializable AOI turetme zinciri. MONTIFERRU_AOI_BBOX
+        # bu kaydin "final_bbox_epsg4326" alanina birebir esittir; bbox'in
+        # kendisi TEK KAYNAK olarak modul sabitinde kalir. Bu dict gate
+        # manifestine scientific.aoi.derivation olarak tasinir ve boylece
+        # analysis_id'nin parcasi olur.
+        "aoi_provenance": {
+            "source_authority": "ISTAT",
+            "source_dataset": "2021 non-generalized administrative boundaries",
+            "source_archive": "Limiti2021.zip",
+            "source_reference_date": "2021-12-31",
+            "administrative_level": "municipality/comune",
+            "municipalities": [
+                "Bonarcado",
+                "Cuglieri",
+                "Santu Lussurgiu",
+                "Scano di Montiferro",
+            ],
+            "derivation_method": (
+                "Select the four official municipality polygons, transform to "
+                "EPSG:4326, compute their union total bounds, then outward-round "
+                "each edge to two decimal degrees."
+            ),
+            "raw_union_total_bounds_epsg4326": [
+                8.454041028057148,
+                40.053824525866645,
+                8.745509975002108,
+                40.264205506896815,
+            ],
+            "rounding": {
+                "mode": "outward",
+                "decimal_places": 2,
+            },
+            "final_bbox_epsg4326": [
+                8.45,
+                40.05,
+                8.75,
+                40.27,
+            ],
+            "selection_constraint": (
+                "Defined only from official municipal boundaries; not tuned "
+                "using the fire footprint, MCD64A1 labels, prevalence, gate "
+                "outcome or model metrics."
+            ),
+        },
+        "notes": (
+            "Montiferru / Oristano 2021 wildfire AOI covering Bonarcado, "
+            "Santu Lussurgiu, Cuglieri and Scano di Montiferro. The AOI is "
+            "defined from geographic place coverage only and was not tuned on "
+            "MCD64A1 labels, burned prevalence, gate outcome or model metrics. "
+            "Mixed forest, olive-grove and grassland landscape; the canonical "
+            "burned-landcover gate may fail. Gate passage does not authorize "
+            "downstream execution."
+        ),
+    },
 }
+
+# Experiments of the scale-up run (November 2026), listed explicitly so that the registry
+# key-set tests name every addition deliberately.
+SCALEUP_EXPERIMENT_IDS = (
+    "px01_2023",
+    "px02_2018",
+    "px03_2022",
+    "px04_2017",
+    "px05_2021",
+    "px06_2017",
+    "px07_2017",
+    "rhodes_2023",
+    "px09_2021",
+    "px10_2022",
+    "px11_2020",
+    "px12_2022",
+    "px13_2021",
+    "px14_2022",
+    "px15_2022",
+    "px16_2022",
+    "px17_2022",
+    "px18_2021",
+    "px19_2021",
+    "px20_2021",
+    "px21_2017",
+    "px22_2021",
+    "px23_2023",
+    "px24_2019",
+    "px25_2017",
+    "px26_2021",
+    "rp01_2020",
+    "rp02_2023",
+    "rp03_2023",
+    "montiferru_2021_fullwindow",
+)
 
 # Geriye donuk uyumluluk: mevcut pipeline'in varsayilan deneyi.
 DEFAULT_EXPERIMENT_ID = "kozan_2023"

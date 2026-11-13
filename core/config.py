@@ -4,7 +4,9 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-GEE_PROJECT = "b7-thermal-digital-twin"
+# Earth Engine project; the GEE_PROJECT environment variable overrides it (the scale-up run uses
+# another account's project). Unset, the value is the original one.
+GEE_PROJECT = os.getenv("GEE_PROJECT", "b7-thermal-digital-twin")
 
 MODIS_COLLECTION = "MODIS/061/MOD11A1"
 LANDSAT_COLLECTION = "LANDSAT/LC08/C02/T1_L2"

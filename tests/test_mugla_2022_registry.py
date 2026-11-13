@@ -444,7 +444,8 @@ class TestExistingRecordsUnchanged(unittest.TestCase):
     def test_10_registry_contains_exactly_the_expected_keys(self):
         self.assertEqual(
             set(regions.EXPERIMENTS),
-            set(FROZEN_OTHER_EXPERIMENTS) | {OLD_ID, NEW_ID, SUCCESSOR_ID},
+            set(FROZEN_OTHER_EXPERIMENTS) | {OLD_ID, NEW_ID, SUCCESSOR_ID}
+            | set(regions.SCALEUP_EXPERIMENT_IDS),
         )
 
 

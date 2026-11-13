@@ -319,7 +319,9 @@ class TestMontiferruAOIDerivationProvenance(unittest.TestCase):
 
     def test_12_no_other_experiment_declares_aoi_provenance(self):
         for exp_id, exp in regions.EXPERIMENTS.items():
-            if exp_id == EXP_ID:
+            # montiferru_2021_fullwindow (scale-up run) is a copy of this record with the
+            # MODIS month filter off, so it carries the same provenance.
+            if exp_id in (EXP_ID, "montiferru_2021_fullwindow"):
                 continue
             self.assertNotIn("aoi_provenance", exp, exp_id)
 
@@ -564,7 +566,8 @@ class TestExistingExperimentsUnchanged(unittest.TestCase):
         #                              (tests/test_mugla_2022_event_relative.py)
         self.assertEqual(
             set(regions.EXPERIMENTS),
-            set(FROZEN_EXPERIMENTS) | {EXP_ID, "mugla_2022", "mugla_2022_event_relative"},
+            set(FROZEN_EXPERIMENTS) | {EXP_ID, "mugla_2022", "mugla_2022_event_relative"}
+            | set(regions.SCALEUP_EXPERIMENT_IDS),
         )
 
 
