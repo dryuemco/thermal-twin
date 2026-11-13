@@ -1516,7 +1516,7 @@ class TestExistingExperimentsUnchanged(unittest.TestCase):
     def test_16_registry_key_set_is_exactly_expected(self):
         self.assertEqual(
             set(regions.EXPERIMENTS),
-            set(FROZEN_UNCHANGED) | {LEGACY_ID, EVENT_ID},
+            set(FROZEN_UNCHANGED) | {LEGACY_ID, EVENT_ID} | set(regions.SCALEUP_EXPERIMENT_IDS),
         )
 
     def test_16_default_experiment_is_still_kozan(self):

@@ -94,7 +94,10 @@ OPTIONAL_COLUMNS = ("burn_date", "experiment_id", "region_key")
 #                             the comparison partly temporal and reuse one
 #                             AOI twice. Such an experiment is still fully
 #                             auditable via explicit --experiments selection.
-NON_COHORT_ROLES = ("negative_control", "temporal_transfer_wildfire")
+#   scaleup_wildfire          fires of the November 2026 scale-up run
+#                             (core.regions.SCALEUP_EXPERIMENT_IDS); analysed by
+#                             their own scripts, kept out of the five-AOI cohort.
+NON_COHORT_ROLES = ("negative_control", "temporal_transfer_wildfire", "scaleup_wildfire")
 
 # Reused, UNMODIFIED, exact existing Step8 natural-vegetation population
 # mask column (src/step8a_prepare_500m_modeling_dataset.py). This module

@@ -7,7 +7,7 @@ modis_predictor_month_filter = False (decision of 14 Nov 2026: the MODIS predict
 window). The experiments of the manuscript are not changed.
 
 The fires, windows and rectangles are those of the pilot (selection rule in scan_fires.py and
-make_registry.py of the pilot folder). The script starts from the committed regions.py (git show HEAD),
+make_registry.py of the pilot folder). The script starts from regions.py of main (git show main:core/regions.py),
 so it can be run again without piling up edits, and keeps the file's CRLF line endings.
 
 Usage: python add_scaleup_registry.py <repo> <pilot folder>
@@ -22,7 +22,7 @@ main = json.loads((pilot / "batch_candidates.json").read_text(encoding="utf-8"))
 rep = json.loads((pilot / "repeat_candidates.json").read_text(encoding="utf-8"))
 assert len(main) == 26 and len(rep) == 3, (len(main), len(rep))
 
-base = subprocess.run(["git", "-C", str(repo), "show", "HEAD:core/regions.py"],
+base = subprocess.run(["git", "-C", str(repo), "show", "main:core/regions.py"],
                       capture_output=True, check=True).stdout.decode("utf-8").replace("\r\n", "\n")
 
 geoms, keys, entries = [], [], []
@@ -41,7 +41,7 @@ for kind, rows in (("main", main), ("repeat", rep)):
         "variant_status": "canonical",
         "region_key": "{key}",
         "display_name": "Scale-up {exp} ({r['anchor']}, centre {round((a[0] + a[2]) / 2, 2)} E {round((a[1] + a[3]) / 2, 2)} N)",
-        "role": "mediterranean_transfer_wildfire",
+        "role": "scaleup_wildfire",
         "country": "not assigned (scale-up)",
         "predictor_start_date": "{r['predictor_start']}",
         "predictor_end_date": "{r['predictor_end']}",
@@ -70,6 +70,9 @@ block = block.replace('    "montiferru_2021": {\n', '    "montiferru_2021_fullwi
 block = block.replace('"output_namespace": "montiferru_2021",', '"output_namespace": "montiferru_2021_fullwindow",', 1)
 block = block.replace('"display_name": "Montiferru / Oristano, Sardinia 2021",',
                       '"display_name": "Montiferru / Oristano, Sardinia 2021 (MODIS over the whole predictor window)",', 1)
+role = '        "role": "mediterranean_transfer_wildfire",\n'
+assert block.count(role) == 1
+block = block.replace(role, '        "role": "scaleup_wildfire",\n', 1)
 anchor = '        "pre_label_burn_window": ["2021-05-25", "2021-07-23"],\n'
 assert block.count(anchor) == 1
 block = block.replace(anchor, anchor + '        "modis_predictor_month_filter": False,\n'
