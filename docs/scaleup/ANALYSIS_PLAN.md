@@ -362,3 +362,66 @@ Run order: claim10_persistent.py after claim9_synthetic.py has finished, then cl
 rho = 0 is added to the truth labels of 7.1 (same fits, a third truth label with S2 = S_new, no extra random
 draws), so that the effect of rho is read on the same models as {0, 0.5, 0.8}. rho = 0 is included as a
 within-run reference; it does not replace the decision of 6.2. The saved scores gain a y2_rho0 column.
+
+## Amendment 8 (15 November 2026, after claim9 and claim10 were seen; everything here is exploratory)
+
+### 8.0 Record
+
+- While amendment 7 was written (19:35 UTC), claim9_synthetic.py was running and printing every run's
+  measures to its console; the idea of a partly persistent field came from a critique of the truth
+  definition of 6.2 (that a fully redrawn field penalises any spatial signal), not from those results, but the
+  results were visible. GitHub recorded the pushes of 7 and 7.4 at 19:35:54 and 19:41:13 UTC.
+- claim10_persistent.py ran from 20:06:46 (log creation) to 20:52:58 UTC (last write of its runs file).
+- Base-rate finding (after the results): the measures are identical across rho because the models are; only
+  the truth changes. The share of runs whose truth is the environmental model is 0.76, 0.38 and 0.24 at rho 0,
+  0.5 and 0.8, and a constant rule "always choose the environmental model" agrees with the truth in 76-80% of
+  runs at rho = 0. Agreement with the truth therefore mixes the measure's preference with the base rate. From
+  here on, every comparison of measures reports separately (i) the preference, the share of runs in which the
+  measure chooses the environmental model, and (ii) discrimination, balanced accuracy and Cohen's kappa of
+  the choice against the truth. The interpretation of 7.1 ("which geometry is right depends on persistence")
+  is withdrawn. The decision of 6.2 stands (not met).
+
+### 8.1 Re-reporting of claim9 and claim10 (no new computation)
+
+Per scenario (a, b, L, rho) and pooled: preference of each measure; balanced accuracy and kappa against the
+truth; AUC loss on the truth label of the measure's choice (truth AUC of the better model minus truth AUC of the
+chosen one); Spearman correlation over fires, within each scenario, between each measure's difference
+(env - geo) and the truth difference. a = 0 scenarios are reported apart. Heat maps over a x b per L and rho.
+The two rho = 0 arms (claim9 and claim10 rho 0) are reported as two replicates, not as a range.
+
+### 8.2 Oracle truth on fixed scores (claim11_oracle.py)
+
+On the saved claim10 scores (out-of-fold scores of M_env and M_geo, null scores, y1), with E and S1 regenerated
+from the claim10 seeds: for rho in {-0.5, -0.25, 0, 0.25, 0.5, 0.7, 0.8, 0.9}, K = 50 second labels are drawn
+(eta2 = a*E + b*(rho*S1 + sqrt(1 - rho^2)*S_new) + noise, same burned share; seed 20,000,000 + 1000 * fire
+index + scenario index, draws in the order rho, k). Per run: expected truth AUC of each model over the K draws,
+the oracle truth (the model with the higher expected AUC), the rank stability (share of draws in which M_env
+wins) and the expected AUC loss of each measure's choice. Negative rho stands for reduced reburning of recently
+burned ground (fuel depletion). No model is refitted.
+
+### 8.3 Monte Carlo replicates (claim12_replicates.py)
+
+The design of 6.2 (rho = 0 truth, 5 km blocks, refitted models) with five new draws per fire and scenario
+(seed 30,000,000 + 100,000 * draw + 1000 * fire index + scenario index). Agreement, preference, balanced accuracy
+and kappa of the three measures and all pairwise differences (cAUC - AUC, sAUC_c - AUC, sAUC_c - cAUC) with
+95% intervals from 2000 bootstrap resamples of fires (draws kept within fires), seed 42.
+
+### 8.4 Blocks of 20 km (claim12_replicates.py --blocks 40)
+
+One draw per fire and scenario of the 6.2 design with blocks of 40 cells (about 20 km), seed 40,000,000 +
+1000 * fire index + scenario index; fires with fewer than five blocks are skipped and listed.
+
+### 8.5 Scenarios calibrated to the real fires (claim13_calibrated.py)
+
+Targets, from the real fires at 5 km blocks: null-model AUC 0.958, share of burned cells kept by matching 0.57,
+share of fires with sAUC support 19/31. Calibration (seed 50,000,000 + ...): for each fire, a in {0.5, 1, 2},
+b in {2, 4, 8, 16}, L in {5, 10, 20, 40} km, one draw each; the (b, L) pair per fire and a that minimises
+|null AUC - 0.958| / 0.05 + |kept share - 0.57| / 0.10 is retained. Main run with new seeds (60,000,000 + ...):
+three draws per fire and a at the retained (b, L), measures and the 8.1 quantities, plus a table comparing the
+simulated and the real fires on null AUC, kept share, sAUC support and burned share.
+
+### 8.6 Field checks (G4, descriptive)
+
+Realised correlation of the simulated field against distance (0.5 to 40 km) in five fires of different size,
+compared with exp(-r/L), and the same with the padding doubled to 4x, to show the effect of the finite raster
+and of centring within the fire.
