@@ -263,3 +263,14 @@ geometry changes. Two analyses are added; their definitions, settings and decisi
   is not lower than that of the calibrated AUC by more than 2 points. Otherwise sAUC is reported as a
   descriptive re-expression of the cAUC idea and no advantage is claimed. Scenarios where sAUC is not
   supported count as wrong for sAUC.
+
+### 6.3 Correction to 6.1 (14 November 2026, before any sAUC was computed on the fires)
+
+The unit test of the module on a synthetic grid (one circular burned patch, 5 km blocks, geonull/test_geonull.py)
+showed that within the strata of 6.1 the null model still separates the classes (sAUC of the null model 0.84),
+because a stratum such as 2-5 km is wide relative to the spread of z inside it. The strata are therefore
+replaced, before any fire was scored, by geometric strata matching the relative tolerance of the calibrated
+AUC: [0, 0.51) km, then [0.51 * 1.33^k, 0.51 * 1.33^(k+1)) for k = 0, 1, ... (on the test grid the null model's
+sAUC became 0.51-0.53). Everything else in 6.1 stands (support of 20 and 20, coverage >= 0.80, primary Q the
+burned cells' z, fire bootstrap). In addition, as in the calibrated AUC, the corrected value
+sAUC_c = sAUC_model + 0.5 - max(0.5, sAUC_null) is reported beside sAUC; the decision rule of 6.2 uses sAUC_c.
