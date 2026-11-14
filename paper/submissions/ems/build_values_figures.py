@@ -297,10 +297,13 @@ MS["note"] = ("Statistics computed by build_values_figures.py from the analysis 
               "at least 20 unburned cells, and far_band_used counts which band that was.")
 
 
-def _git(path):
+def _git(path, only=()):
+    """HEAD commit and whether tracked source files differ from it (only: limit the check to these paths, so the
+    outputs this script writes do not count)."""
     import subprocess
     r = subprocess.run(["git", "-C", str(path), "rev-parse", "HEAD"], capture_output=True, text=True)
-    d = subprocess.run(["git", "-C", str(path), "status", "--porcelain", "--untracked-files=no"], capture_output=True, text=True)
+    d = subprocess.run(["git", "-C", str(path), "status", "--porcelain", "--untracked-files=no", "--", *only],
+                       capture_output=True, text=True)
     return {"commit": r.stdout.strip(), "uncommitted_changes": bool(d.stdout.strip())}
 
 
@@ -314,7 +317,8 @@ def _sha(p):
 
 
 MS["provenance"] = {
-    "analysis_checkout": _git(REPO), "build_checkout": _git(HERE),
+    "analysis_checkout": _git(REPO),
+    "build_checkout": _git(HERE, ("build_values_figures.py", "make_highlights.py", "manuscript.tex", "references.bib")),
     "bootstrap": {"resamples": 2000, "seed": 42, "unit": "fire (node bootstrap for transfer directions)"},
     "inputs_sha256": {p.name: _sha(p) for p in sorted(AN.glob("*.json")) + sorted(AN.glob("*.csv"))},
 }
