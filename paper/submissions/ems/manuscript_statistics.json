@@ -219,12 +219,12 @@
  "note": "Statistics computed by build_values_figures.py from the analysis outputs. transfer_fire_level supersedes the direction-level intervals in claim4_summary.json (plan amendment 3). label_variants: near, far and rise are means over the same fires (those with both bands scored); far is the farthest band beyond 0.5 km with at least 20 unburned cells, and far_band_used counts which band that was.",
  "provenance": {
   "analysis_checkout": {
-   "commit": "c205876ba67ea8bb7ed31f692a0080c93bf5dde7",
-   "uncommitted_changes": true
+   "commit": "6b4c5b93f07034f8e37951615bd286b6dc679a23",
+   "uncommitted_changes": false
   },
   "build_checkout": {
-   "commit": "007bc484b2bd5b8bd8c88f1cd62733a6b8be01dd",
-   "uncommitted_changes": true
+   "commit": "71638f2921f25dc45bf30ab7ada36377f4bc7133",
+   "uncommitted_changes": false
   },
   "bootstrap": {
    "resamples": 2000,
