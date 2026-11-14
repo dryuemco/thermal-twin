@@ -1,0 +1,39 @@
+manavgat_2021 done
+bejis_2022 done
+mugla_2021 done
+evia_2021_extended done
+montiferru_2021_fullwindow done
+px01_2023 done
+px02_2018 done
+px03_2022 done
+px04_2017 done
+px05_2021 done
+px06_2017 done
+px07_2017 done
+rhodes_2023 done
+px09_2021 done
+px10_2022 done
+px11_2020 done
+px12_2022 done
+px13_2021 done
+px14_2022 done
+px15_2022 done
+px16_2022 done
+px17_2022 done
+px18_2021 done
+px19_2021 done
+px20_2021 done
+px21_2017 done
+px22_2021 done
+px23_2023 done
+px24_2019 done
+px25_2017 done
+px26_2021 done
+-0.5 {'runs': 744, 'oracle_env': 0.999, 'stability_mean': 0.981, 'loss_auc': 0.109, 'agree_auc': 0.179, 'balanced_acc_auc': 0.589, 'loss_cauc': 0.069, 'agree_cauc': 0.413, 'balanced_acc_cauc': 0.706, 'loss_saucc': 0.093, 'agree_saucc': 0.262, 'balanced_acc_saucc': 0.631, 'loss_always_env': 0.0, 'loss_always_geo': 0.144}
+-0.25 {'runs': 744, 'oracle_env': 0.996, 'stability_mean': 0.928, 'loss_auc': 0.074, 'agree_auc': 0.181, 'balanced_acc_auc': 0.589, 'loss_cauc': 0.043, 'agree_cauc': 0.415, 'balanced_acc_cauc': 0.706, 'loss_saucc': 0.062, 'agree_saucc': 0.265, 'balanced_acc_saucc': 0.631, 'loss_always_env': 0.0, 'loss_always_geo': 0.105}
+0.0 {'runs': 744, 'oracle_env': 0.856, 'stability_mean': 0.801, 'loss_auc': 0.039, 'agree_auc': 0.321, 'balanced_acc_auc': 0.604, 'loss_cauc': 0.017, 'agree_cauc': 0.547, 'balanced_acc_cauc': 0.724, 'loss_saucc': 0.029, 'agree_saucc': 0.405, 'balanced_acc_saucc': 0.652, 'loss_always_env': 0.001, 'loss_always_geo': 0.065}
+0.25 {'runs': 744, 'oracle_env': 0.532, 'stability_mean': 0.827, 'loss_auc': 0.017, 'agree_auc': 0.645, 'balanced_acc_auc': 0.667, 'loss_cauc': 0.004, 'agree_cauc': 0.839, 'balanced_acc_cauc': 0.846, 'loss_saucc': 0.01, 'agree_saucc': 0.728, 'balanced_acc_saucc': 0.745, 'loss_always_env': 0.017, 'loss_always_geo': 0.04}
+0.5 {'runs': 744, 'oracle_env': 0.356, 'stability_mean': 0.892, 'loss_auc': 0.005, 'agree_auc': 0.821, 'balanced_acc_auc': 0.749, 'loss_cauc': 0.002, 'agree_cauc': 0.899, 'balanced_acc_cauc': 0.907, 'loss_saucc': 0.002, 'agree_saucc': 0.891, 'balanced_acc_saucc': 0.851, 'loss_always_env': 0.046, 'loss_always_geo': 0.024}
+0.7 {'runs': 744, 'oracle_env': 0.259, 'stability_mean': 0.945, 'loss_auc': 0.002, 'agree_auc': 0.918, 'balanced_acc_auc': 0.842, 'loss_cauc': 0.006, 'agree_cauc': 0.845, 'balanced_acc_cauc': 0.894, 'loss_saucc': 0.001, 'agree_saucc': 0.956, 'balanced_acc_saucc': 0.943, 'loss_always_env': 0.075, 'loss_always_geo': 0.017}
+0.8 {'runs': 744, 'oracle_env': 0.231, 'stability_mean': 0.962, 'loss_auc': 0.001, 'agree_auc': 0.946, 'balanced_acc_auc': 0.884, 'loss_cauc': 0.009, 'agree_cauc': 0.817, 'balanced_acc_cauc': 0.879, 'loss_saucc': 0.001, 'agree_saucc': 0.96, 'balanced_acc_saucc': 0.966, 'loss_always_env': 0.09, 'loss_always_geo': 0.014}
+0.9 {'runs': 744, 'oracle_env': 0.196, 'stability_mean': 0.976, 'loss_auc': 0.0, 'agree_auc': 0.976, 'balanced_acc_auc': 0.944, 'loss_cauc': 0.013, 'agree_cauc': 0.785, 'balanced_acc_cauc': 0.866, 'loss_saucc': 0.002, 'agree_saucc': 0.933, 'balanced_acc_saucc': 0.956, 'loss_always_env': 0.107, 'loss_always_geo': 0.012}
