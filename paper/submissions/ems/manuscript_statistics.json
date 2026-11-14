@@ -33,6 +33,12 @@
  },
  "label_variants": {
   "a_s2_label_010": {
+   "fires": 31,
+   "fires_without_near_band": 0,
+   "fires_without_far_band": 0,
+   "far_band_used": {
+    "10-inf": 31
+   },
    "near": {
     "mean": 0.5020700659834662,
     "lo": 0.4485973503181475,
@@ -48,29 +54,39 @@
     "lo": 0.24950601218560037,
     "hi": 0.30087361946710256
    },
-   "fires_positive_rise": 31,
-   "fires": 31
+   "fires_positive_rise": 31
   },
   "b_drop_ambiguous_010": {
+   "fires": 22,
+   "fires_without_near_band": 9,
+   "fires_without_far_band": 0,
+   "far_band_used": {
+    "10-inf": 22
+   },
    "near": {
     "mean": 0.6462166606129837,
     "lo": 0.6054072997372811,
     "hi": 0.6890629433646882
    },
    "far": {
-    "mean": 0.88457770902015,
-    "lo": 0.8620189156553489,
-    "hi": 0.9061148044996664
+    "mean": 0.8805406731016355,
+    "lo": 0.8567856280412488,
+    "hi": 0.9041924737355209
    },
    "rise": {
     "mean": 0.23432401248865195,
     "lo": 0.19412454649617977,
     "hi": 0.27488172106374525
    },
-   "fires_positive_rise": 22,
-   "fires": 22
+   "fires_positive_rise": 22
   },
   "c_relabel_010": {
+   "fires": 31,
+   "fires_without_near_band": 0,
+   "fires_without_far_band": 0,
+   "far_band_used": {
+    "10-inf": 31
+   },
    "near": {
     "mean": 0.5189366347682847,
     "lo": 0.4660857746523381,
@@ -86,10 +102,15 @@
     "lo": 0.22964441652265857,
     "hi": 0.2862765768371796
    },
-   "fires_positive_rise": 31,
-   "fires": 31
+   "fires_positive_rise": 31
   },
   "mcd64a1_010": {
+   "fires": 31,
+   "fires_without_near_band": 0,
+   "fires_without_far_band": 0,
+   "far_band_used": {
+    "10-inf": 31
+   },
    "near": {
     "mean": 0.6548170480378475,
     "lo": 0.6258899896240088,
@@ -105,10 +126,15 @@
     "lo": 0.20778305565291744,
     "hi": 0.26150899268401046
    },
-   "fires_positive_rise": 31,
-   "fires": 31
+   "fires_positive_rise": 31
   },
   "a_s2_label_027": {
+   "fires": 31,
+   "fires_without_near_band": 0,
+   "fires_without_far_band": 0,
+   "far_band_used": {
+    "10-inf": 31
+   },
    "near": {
     "mean": 0.6125520154781124,
     "lo": 0.5794709087726385,
@@ -124,10 +150,15 @@
     "lo": 0.24939200316453625,
     "hi": 0.29440655906318486
    },
-   "fires_positive_rise": 31,
-   "fires": 31
+   "fires_positive_rise": 31
   },
   "b_drop_ambiguous_027": {
+   "fires": 31,
+   "fires_without_near_band": 0,
+   "fires_without_far_band": 0,
+   "far_band_used": {
+    "10-inf": 31
+   },
    "near": {
     "mean": 0.6631290822994105,
     "lo": 0.6343608977225851,
@@ -143,10 +174,15 @@
     "lo": 0.20049734091284532,
     "hi": 0.2554544894054987
    },
-   "fires_positive_rise": 31,
-   "fires": 31
+   "fires_positive_rise": 31
   },
   "c_relabel_027": {
+   "fires": 31,
+   "fires_without_near_band": 0,
+   "fires_without_far_band": 0,
+   "far_band_used": {
+    "10-inf": 31
+   },
    "near": {
     "mean": 0.6354092084014048,
     "lo": 0.6027967743978022,
@@ -162,8 +198,7 @@
     "lo": 0.2099810728584181,
     "hi": 0.26396339602303603
    },
-   "fires_positive_rise": 31,
-   "fires": 31
+   "fires_positive_rise": 31
   }
  },
  "transfer_fire_level": {
@@ -203,5 +238,43 @@
    "hi": 0.0005229549892984054
   }
  },
- "note": "Statistics computed by build_values_figures.py from the analysis outputs. transfer_fire_level supersedes the direction-level intervals in claim4_summary.json (plan amendment 3)."
+ "note": "Statistics computed by build_values_figures.py from the analysis outputs. transfer_fire_level supersedes the direction-level intervals in claim4_summary.json (plan amendment 3). label_variants: near, far and rise are means over the same fires (those with both bands scored); far is the farthest band beyond 0.5 km with at least 20 unburned cells, and far_band_used counts which band that was.",
+ "provenance": {
+  "analysis_checkout": {
+   "commit": "f35f959155e99f1fbdd3c20a0fe6323e1faad347",
+   "uncommitted_changes": true
+  },
+  "build_checkout": {
+   "commit": "69356980226d6821b4841178aec551714b86f354",
+   "uncommitted_changes": true
+  },
+  "bootstrap": {
+   "resamples": 2000,
+   "seed": 42,
+   "unit": "fire (node bootstrap for transfer directions)"
+  },
+  "inputs_sha256": {
+   "claim3_summary.json": "e2cd1d7f915278d01e963845828b1e09af23f2084b77d5a998002b0e4705ee20",
+   "claim4_summary.json": "a6597d55eac992a414ed03c1343b57ccf7ffbe50b1beff8f0215294620188e1e",
+   "claim5_summary.json": "bb4c4f8a2ff66e8519b802f28837389c8aa3eb02f59fb0e1913aa08088ede663",
+   "claim6_summary.json": "0bd248e648beed0588d78174142edf82c35561d7177cfaa11fe9a4c912357843",
+   "claim7_alberta_ci.json": "242cc99a133a264c37f6e55ef05dac83d6146b11a048542364c5149c922f7ac3",
+   "claim7_open_data.json": "cb5b64f853832fb48418df4de6d3ce753e2c8fc6078d5ec98801279f1d9b69ba",
+   "claims12_summary.json": "5a3f051493e7c86187a5b5d13e8bbb539159627fd329efce2a399b56939e95b2",
+   "claim3_label_error_by_band.csv": "1b20ddebb6a0921442104081e7d8b45e2359265b2485e2d0f36c14029a7dc9d3",
+   "claim3_per_fire.csv": "2cb15d10b032bd9a033a097a39119a106d6bc6de87f2aa683e131dd30d6bc52d",
+   "claim3_rescored_bands.csv": "f70e13cfe73e7f920cd97b35e14a0278dbd01819100a8ee7926bbab973399874",
+   "claim4_curve.csv": "494fdd31f8cdfc3971845d6a0ffbf95a0b72be01f2e0c68a1b8dc36497e849e8",
+   "claim4_pooled_lofo.csv": "7e1ccb477df6462f3342d778d183a73de7151864aded1a774e8f10ecea98d678",
+   "claim4_transfer.csv": "8b58239546e9ddf3d1f878ae20b3bd3e68b6bda305c9a7ca0fbf0ce3fcd876e4",
+   "claim5_lst_sign.csv": "397269b251d4f7bc24330d55ff112070f831a66652036ee73311f43a6363713a",
+   "claim6_aggregation_check.csv": "73f66db3af3744ba259f0d7774f037e5b7e51a7ee9250e5097cb85d5082db700",
+   "claim6_bands.csv": "360489a5de5bcb88183ce71de313c2af90e1064325dddd80e7f336139a6f0e20",
+   "claim6_per_fire.csv": "393d3874a41589f3996cf537fb480fa9f5ffea7a009b26ba644b7e3c65fa5b03",
+   "claim7_open_data.csv": "e6a233df0d0029fe95a44a8e9a65b907637c02879e2e8a6c54ad492123b85036",
+   "claims12_bands.csv": "c1b65a33e08e5416a291c911348921c2acafb381cab631429d0c4f2f7003789f",
+   "claims12_env_quintiles.csv": "5aa42cec2382b298e98f12d4f4a69e1b54161f090d6d194b189e2d8191edc70e",
+   "claims12_per_fire.csv": "37178b9764031ea8f53f85b2375e45d6fc7a99ebbffcc74f966c8dd875521e4d"
+  }
+ }
 }

@@ -18,7 +18,8 @@ Manuscript "A predictor-free geographic reference for evaluating wildfire suscep
 
 ## Code versions
 
-- Analysis: branch `scaleup-31fires` of this repository, scripts in `scripts/scaleup/`, plan and its three
+- Analysis: branch `scaleup-31fires` of this repository (the commit used for a build is recorded in
+  `manuscript_statistics.json` under `provenance`), scripts in `scripts/scaleup/`, plan and its three
   amendments in `docs/scaleup/ANALYSIS_PLAN.md`. It builds on the upstream pipeline
   `emrehann17/satellite-thermal-digital-twin` at commit `6381f4c`.
 - The analysis reads two files of the `main` branch through `THERMAL_TWIN_PAPER` (the `paper/` folder):
@@ -38,7 +39,9 @@ Set three environment variables:
 
 Then run, from `scripts/scaleup/` on branch `scaleup-31fires`:
 
-1. `run_batch.sh` on the three worker clones (pipeline for the 31 experiments; the worker lists are in the run folder).
+1. `run_batch.sh` on the three worker clones, which also needs `THERMAL_TWIN_PYTHON` (the Python of the
+   pipeline environment). The experiment lists are the three lines of `workers.txt`, for example
+   `bash run_batch.sh w1 $(sed -n 1p workers.txt)`.
 2. `analysis_official.py` (claims 1 and 2, with the reproduction gates).
 3. `s2_label_check_export.py`, then `claim3_label_check.py` (Sentinel-2 label check).
 4. `claim4_transfer.py` (transfer and pooling).

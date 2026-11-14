@@ -133,9 +133,9 @@ for b, tag in ((1, "One"), (2, "Two"), (5, "Five"), (10, "Ten")):
     scored = total = fires = 0
     for r in _fr.itertuples():
         hits = list((AN / "cache").glob(f"{r.fire}_buffer{b}_b10_*.npy"))
-        if len(hits) != 1:
-            continue
+        assert len(hits) == 1, f"expected one buffer cache file for {r.fire} at {b} km, found {len(hits)}"
         o = np.load(hits[0])[0]
+        assert len(o) == r.cells, (r.fire, b, len(o), r.cells)       # one prediction slot per population cell
         n_ok = int(np.isfinite(o).sum())
         scored, total, fires = scored + n_ok, total + len(o), fires + (n_ok > 0)
     MS["buffers"][f"{b}_km"] = {"cells_scored": scored, "cells_total": total, "fires_with_scored_cells": fires}
@@ -192,12 +192,20 @@ RB["threshold"] = RB.threshold.str.zfill(3)
 RB = RB[RB.model == "rf_thermal"]
 _bandcols = list(names)
 MS["label_variants"] = {}
+_outer = _bandcols[1:]          # the farthest band is chosen among the bands beyond 0.5 km
 for (th, vn), g in RB.groupby(["threshold", "variant"]):
     near = g["0-0.5"].to_numpy(float)
-    far = g[_bandcols].apply(lambda r: r.dropna().iloc[-1] if r.notna().any() else np.nan, axis=1).to_numpy(float)
+    far_band = g[_outer].apply(lambda r: r.dropna().index[-1] if r.notna().any() else None, axis=1)
+    far = np.array([g.loc[i, b] if b is not None else np.nan for i, b in far_band.items()], float)
+    both = np.isfinite(near) & np.isfinite(far)            # every mean below is over the same fires
     rise = far - near
     tag = {"mcd64a1": "Mcd", "b_drop_ambiguous": "Drop", "c_relabel": "Relabel", "a_s2_label": "Stwo"}[vn] + ("" if th == "027" else "Loose")
-    st = {"near": boot(near), "far": boot(far), "rise": boot(rise), "fires_positive_rise": int((rise > 0).sum()), "fires": int(np.isfinite(rise).sum())}
+    st = {"fires": int(both.sum()), "fires_without_near_band": int((~np.isfinite(near)).sum()),
+          "fires_without_far_band": int((~np.isfinite(far)).sum()),
+          "far_band_used": {str(k): int(v) for k, v in far_band[both].value_counts().items()},
+          "near": boot(near[both]), "far": boot(far[both]), "rise": boot(rise[both]),
+          "fires_positive_rise": int((rise[both] > 0).sum())}
+    put(f"vnoNear{tag}", st["fires_without_near_band"])
     MS["label_variants"][f"{vn}_{th}"] = st
     ci(f"vfar{tag}", st["far"]), ci(f"vrise{tag}", st["rise"]), put(f"vrisePos{tag}", f"{st['fires_positive_rise']} of {st['fires']}"), put(f"vriseN{tag}", st["fires"])
 
@@ -284,7 +292,32 @@ if (AN / "claim4_summary.json").exists():
     put("curveLastK", ks[-1])
 
 MS["note"] = ("Statistics computed by build_values_figures.py from the analysis outputs. transfer_fire_level supersedes "
-              "the direction-level intervals in claim4_summary.json (plan amendment 3).")
+              "the direction-level intervals in claim4_summary.json (plan amendment 3). label_variants: near, far and rise "
+              "are means over the same fires (those with both bands scored); far is the farthest band beyond 0.5 km with "
+              "at least 20 unburned cells, and far_band_used counts which band that was.")
+
+
+def _git(path):
+    import subprocess
+    r = subprocess.run(["git", "-C", str(path), "rev-parse", "HEAD"], capture_output=True, text=True)
+    d = subprocess.run(["git", "-C", str(path), "status", "--porcelain"], capture_output=True, text=True)
+    return {"commit": r.stdout.strip(), "uncommitted_changes": bool(d.stdout.strip())}
+
+
+def _sha(p):
+    import hashlib
+    h = hashlib.sha256()
+    with open(p, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+MS["provenance"] = {
+    "analysis_checkout": _git(REPO), "build_checkout": _git(HERE),
+    "bootstrap": {"resamples": 2000, "seed": 42, "unit": "fire (node bootstrap for transfer directions)"},
+    "inputs_sha256": {p.name: _sha(p) for p in sorted(AN.glob("*.json")) + sorted(AN.glob("*.csv"))},
+}
 (HERE / "manuscript_statistics.json").write_text(json.dumps(MS, indent=1), encoding="utf-8")
 (HERE / "values.tex").write_text("% written by build_values_figures.py, do not edit\n" +
                                  "".join(f"\\newcommand{{\\v{k}}}{{{v}}}\n" for k, v in sorted(V.items())), encoding="utf-8")
@@ -341,18 +374,19 @@ fig.savefig(FIG / "Figure_2.pdf")
 plt.close(fig)
 
 # graphical abstract: its own wide layout, 5:2 (7.5 x 3 in at 200 dpi = 1500 x 600 px), two models only
-with plt.rc_context({"font.size": 12, "axes.labelsize": 12, "xtick.labelsize": 11, "ytick.labelsize": 11, "legend.fontsize": 11}):
-    fig, ax = plt.subplots(figsize=(7.5, 3.0))
+# 5 x 2 in at 300 dpi = 1500 x 600 px (Elsevier: 5:2, at least 300 dpi); fonts sized for that print width
+with plt.rc_context({"font.size": 8, "axes.labelsize": 8, "xtick.labelsize": 7.5, "ytick.labelsize": 7.5, "legend.fontsize": 7.5}):
+    fig, ax = plt.subplots(figsize=(5.0, 2.0))
     for m, lab in (("null", "Predictor-free geographic model"), ("rf_thermal", "Random forest")):
         mean = [P["bands"][b][f"auc_{m}"]["mean"] for b in order]
-        ax.plot(xs, mean, marker=MRK[m], color=COL[m], ms=7, lw=2, label=lab)
+        ax.plot(xs, mean, marker=MRK[m], color=COL[m], ms=4.5, lw=1.4, label=lab)
     ax.set_xticks(xs, ["0-0.5", "0.5-1", "1-2", "2-5", "5-10", ">10"])
     ax.set_xlabel("Distance of unburned test cells from the fire (km)")
     ax.set_ylabel("AUC, mean of 31 fires")
     ax.set_ylim(0.55, 1.02)
     ax.legend(frameon=False, loc="lower right")
     fig.tight_layout()
-    fig.savefig(HERE / "graphical_abstract.png", dpi=200)
+    fig.savefig(HERE / "graphical_abstract.png", dpi=300)
 plt.close(fig)
 
 # Fig. 3: label check, share of MCD64A1-unburned cells that Sentinel-2 maps as at least half burned, by band
