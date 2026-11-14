@@ -84,3 +84,11 @@ paper/tex/manuscript_natural_hazards_assembled.md
 paper/submissions/natural_hazards/suggested_reviewers.md
 paper/submissions/natural_hazards/cover_letter.docx
 paper/submissions/natural_hazards/cover_letter.pdf
+# IJWF: the publisher's Word template, the reviewer list and the signed cover letter stay local
+paper/submissions/ijwf/template/
+paper/submissions/ijwf/suggested_reviewers.md
+paper/submissions/ijwf/cover_letter.docx
+paper/submissions/ijwf/cover_letter.pdf
+
+# EMS package: publisher guide and downloaded template stay local (Elsevier text)
+paper/submissions/ems/template/
