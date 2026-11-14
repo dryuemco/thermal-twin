@@ -520,3 +520,10 @@ of mean D), two-year horizon, full population, secondary comparison.
   and sAUC_c on the focal event, and the history share alone as a score.
 - G1d: the three repeat pairs; chronology and shared cells checked first; AUC on the later fire's label of the
   thermal and coordinate RF trained on the earlier fire; descriptive only.
+
+### 9.9 Correction to 9.2 (15 November 2026, from a one-fire label test, before any G1 comparison)
+
+In Earth Engine, MCD64A1 BurnDate is masked on unburned land, so "BurnDate < 0 or masked" flagged nearly every
+cell as unmapped (33,345 cells in the test fire px25_2017). An unmapped month is now one whose QA bit 0 (valid
+land data) is 0 or masked; the 0.10 exclusion rule is unchanged. The test also fixed a type error in the band of
+first future-burn years; its label counts (no scores) were the only output seen.
