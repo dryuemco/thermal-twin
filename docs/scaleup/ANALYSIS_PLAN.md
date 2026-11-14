@@ -293,3 +293,22 @@ which drops the fire's own monthly image (MCD64A1 images are dated on the first 
 share was 4.1% against about 10% for the single-event label, and two fires had no burned cell. The export now
 takes the label-start month with BurnDate >= the start day and all later months to 2023; the result of the
 first export is discarded and the label is re-exported and re-analysed. The label stays descriptive.
+
+### 6.6 Timeline and reporting addition (14 November 2026, while the semi-synthetic run was in progress)
+
+Times in UTC. Commit times are the author's and are not independent evidence; the other times are.
+- 18:56:51 commit 579ed1b (amendment 6), 18:57:47 commit 951b4dd (6.3; the unit test of the module that
+  prompted it ran after amendment 6 was written).
+- 19:00:18 claim9_synthetic.py started (creation time of its log file); 19:02:59 the results of the first
+  fire (32 scenarios) were written to claim9_synthetic_runs.csv. They were not inspected before the push.
+- 19:05:28 push of commit d29e04e (amendment 6, 6.3, 6.4 and the unchanged claim9_synthetic.py) to GitHub,
+  recorded server-side in the repository's activity log.
+- 19:05:38 Software Heritage archive of the repository, snapshot
+  swh:1:snp:d76d390439762f05fe54abb877ef42841794daa4, branch scaleup-31fires at d29e04e.
+So the independent records show the plan, the decision rule and the experiment code as they were about five
+minutes after the run started, when one of 31 fires had been written. The finish time of the run is added to
+its summary file.
+- Reporting addition, decision rule unchanged: agreement is also given separately for the six scenarios with
+  a = 0 and b > 0 (no environmental signal, so the truth is close to a coin toss) and for the 18 with a > 0.
+- Note on 6.3: it changed the measure used by the decision rule from sAUC to the corrected sAUC_c, before any
+  synthetic result; the max(0.5, .) correction is the one of the calibrated AUC (Hijmans 2012, plan claim 1).

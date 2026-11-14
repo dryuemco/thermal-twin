@@ -124,6 +124,9 @@ def summarise(R):
     S = {"fires": int(R.fire.nunique()), "runs": int(len(R)),
          "agreement_b_positive": {m: float(cl[f"ok_{m}"].mean()) for m in ("auc", "cauc", "saucc")},
          "agreement_all": {m: float(per[f"ok_{m}"].mean()) for m in ("auc", "cauc", "saucc")},
+         # reporting only (plan 6.6): scenarios without environmental signal (a = 0) have no meaningful truth
+         "agreement_b_positive_a_zero": {m: float(cl[cl.a == 0][f"ok_{m}"].mean()) for m in ("auc", "cauc", "saucc")},
+         "agreement_b_positive_a_positive": {m: float(cl[cl.a > 0][f"ok_{m}"].mean()) for m in ("auc", "cauc", "saucc")},
          "per_scenario": per.to_dict("records")}
     d_auc = S["agreement_b_positive"]["saucc"] - S["agreement_b_positive"]["auc"]
     d_cauc = S["agreement_b_positive"]["saucc"] - S["agreement_b_positive"]["cauc"]
