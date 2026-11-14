@@ -1,0 +1,1146 @@
+[
+ {
+  "experiment": "px01_2023",
+  "year": 2023,
+  "grid_pixels": 4209,
+  "search_box": [
+   25.55,
+   40.75,
+   26.35,
+   41.35
+  ],
+  "anchor": "2023-08-17",
+  "event_last_burn": "2023-09-11",
+  "event_pixels": 5567,
+  "year_pixels_in_box": 5846,
+  "event_share": 0.952,
+  "predictor_start": "2023-06-20",
+  "predictor_end": "2023-08-16",
+  "label_start": "2023-08-17",
+  "label_end": "2023-10-04",
+  "baseline_years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "scar_bounds": [
+   25.6109,
+   40.7814,
+   26.3268,
+   41.2351
+  ],
+  "aoi": [
+   25.46,
+   40.63,
+   26.48,
+   41.39
+  ],
+  "aoi_deg": [
+   1.02,
+   0.76
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px02_2018",
+  "year": 2018,
+  "grid_pixels": 1436,
+  "search_box": [
+   -8.75,
+   37.15,
+   -8.25,
+   37.55
+  ],
+  "anchor": "2018-08-02",
+  "event_last_burn": "2018-08-14",
+  "event_pixels": 1768,
+  "year_pixels_in_box": 1768,
+  "event_share": 1.0,
+  "predictor_start": "2018-06-05",
+  "predictor_end": "2018-08-01",
+  "label_start": "2018-08-02",
+  "label_end": "2018-09-19",
+  "baseline_years": [
+   2014,
+   2015,
+   2016,
+   2017
+  ],
+  "scar_bounds": [
+   -8.6174,
+   37.1938,
+   -8.3594,
+   37.4102
+  ],
+  "aoi": [
+   -8.77,
+   37.04,
+   -8.2,
+   37.57
+  ],
+  "aoi_deg": [
+   0.57,
+   0.53
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px03_2022",
+  "year": 2022,
+  "grid_pixels": 1454,
+  "search_box": [
+   -7.65,
+   40.25,
+   -7.05,
+   40.65
+  ],
+  "anchor": "2022-08-05",
+  "event_last_burn": "2022-08-30",
+  "event_pixels": 1701,
+  "year_pixels_in_box": 1848,
+  "event_share": 0.92,
+  "predictor_start": "2022-06-08",
+  "predictor_end": "2022-08-04",
+  "label_start": "2022-08-05",
+  "label_end": "2022-09-22",
+  "baseline_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "scar_bounds": [
+   -7.5811,
+   40.3153,
+   -7.2232,
+   40.6066
+  ],
+  "aoi": [
+   -7.74,
+   40.16,
+   -7.07,
+   40.76
+  ],
+  "aoi_deg": [
+   0.67,
+   0.6
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px04_2017",
+  "year": 2017,
+  "grid_pixels": 1187,
+  "search_box": [
+   16.25,
+   43.35,
+   16.85,
+   44.25
+  ],
+  "anchor": "2017-07-07",
+  "event_last_burn": "2017-08-24",
+  "event_pixels": 1672,
+  "year_pixels_in_box": 1814,
+  "event_share": 0.922,
+  "predictor_start": "2017-05-10",
+  "predictor_end": "2017-07-06",
+  "label_start": "2017-07-07",
+  "label_end": "2017-08-24",
+  "baseline_years": [
+   2013,
+   2014,
+   2015,
+   2016
+  ],
+  "scar_bounds": [
+   16.2797,
+   43.4659,
+   16.8499,
+   44.1277
+  ],
+  "aoi": [
+   16.12,
+   43.31,
+   17.0,
+   44.28
+  ],
+  "aoi_deg": [
+   0.88,
+   0.97
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px05_2021",
+  "year": 2021,
+  "grid_pixels": 1127,
+  "search_box": [
+   -5.15,
+   40.35,
+   -4.35,
+   40.65
+  ],
+  "anchor": "2021-08-05",
+  "event_last_burn": "2021-08-20",
+  "event_pixels": 1403,
+  "year_pixels_in_box": 1405,
+  "event_share": 0.999,
+  "predictor_start": "2021-06-08",
+  "predictor_end": "2021-08-04",
+  "label_start": "2021-08-05",
+  "label_end": "2021-09-22",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   -5.009,
+   40.4318,
+   -4.4846,
+   40.5525
+  ],
+  "aoi": [
+   -5.16,
+   40.28,
+   -4.33,
+   40.71
+  ],
+  "aoi_deg": [
+   0.83,
+   0.43
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px06_2017",
+  "year": 2017,
+  "grid_pixels": 1100,
+  "search_box": [
+   -8.65,
+   41.95,
+   -8.05,
+   42.55
+  ],
+  "anchor": "2017-10-09",
+  "event_last_burn": "2017-10-25",
+  "event_pixels": 1389,
+  "year_pixels_in_box": 1454,
+  "event_share": 0.955,
+  "predictor_start": "2017-08-12",
+  "predictor_end": "2017-10-08",
+  "label_start": "2017-10-09",
+  "label_end": "2017-11-26",
+  "baseline_years": [
+   2013,
+   2014,
+   2015,
+   2016
+  ],
+  "scar_bounds": [
+   -8.605,
+   41.951,
+   -8.1721,
+   42.4504
+  ],
+  "aoi": [
+   -8.76,
+   41.8,
+   -8.02,
+   42.61
+  ],
+  "aoi_deg": [
+   0.74,
+   0.81
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px07_2017",
+  "year": 2017,
+  "grid_pixels": 926,
+  "search_box": [
+   -8.95,
+   40.15,
+   -8.55,
+   40.65
+  ],
+  "anchor": "2017-10-12",
+  "event_last_burn": "2017-10-27",
+  "event_pixels": 1192,
+  "year_pixels_in_box": 1306,
+  "event_share": 0.913,
+  "predictor_start": "2017-08-15",
+  "predictor_end": "2017-10-11",
+  "label_start": "2017-10-12",
+  "label_end": "2017-11-29",
+  "baseline_years": [
+   2013,
+   2014,
+   2015,
+   2016
+  ],
+  "scar_bounds": [
+   -8.8505,
+   40.2237,
+   -8.5675,
+   40.5609
+  ],
+  "aoi": [
+   -9.01,
+   40.07,
+   -8.41,
+   40.72
+  ],
+  "aoi_deg": [
+   0.6,
+   0.65
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "rhodes_2023",
+  "year": 2023,
+  "grid_pixels": 957,
+  "search_box": [
+   27.75,
+   35.95,
+   28.15,
+   36.35
+  ],
+  "anchor": "2023-07-19",
+  "event_last_burn": "2023-07-29",
+  "event_pixels": 1150,
+  "year_pixels_in_box": 1150,
+  "event_share": 1.0,
+  "predictor_start": "2023-05-22",
+  "predictor_end": "2023-07-18",
+  "label_start": "2023-07-19",
+  "label_end": "2023-09-05",
+  "baseline_years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "scar_bounds": [
+   27.8709,
+   36.0159,
+   28.0457,
+   36.2657
+  ],
+  "aoi": [
+   27.72,
+   35.86,
+   28.2,
+   36.42
+  ],
+  "aoi_deg": [
+   0.48,
+   0.56
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px09_2021",
+  "year": 2021,
+  "grid_pixels": 917,
+  "search_box": [
+   21.45,
+   37.55,
+   21.95,
+   37.85
+  ],
+  "anchor": "2021-08-03",
+  "event_last_burn": "2021-08-16",
+  "event_pixels": 1125,
+  "year_pixels_in_box": 1125,
+  "event_share": 1.0,
+  "predictor_start": "2021-06-06",
+  "predictor_end": "2021-08-02",
+  "label_start": "2021-08-03",
+  "label_end": "2021-09-20",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   21.4739,
+   37.6142,
+   21.8818,
+   37.7307
+  ],
+  "aoi": [
+   21.32,
+   37.46,
+   22.04,
+   37.89
+  ],
+  "aoi_deg": [
+   0.72,
+   0.43
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px10_2022",
+  "year": 2022,
+  "grid_pixels": 824,
+  "search_box": [
+   -7.15,
+   42.25,
+   -6.45,
+   42.55
+  ],
+  "anchor": "2022-07-13",
+  "event_last_burn": "2022-07-26",
+  "event_pixels": 1029,
+  "year_pixels_in_box": 1071,
+  "event_share": 0.961,
+  "predictor_start": "2022-05-16",
+  "predictor_end": "2022-07-12",
+  "label_start": "2022-07-13",
+  "label_end": "2022-08-30",
+  "baseline_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "scar_bounds": [
+   -7.1483,
+   42.3006,
+   -6.5614,
+   42.5253
+  ],
+  "aoi": [
+   -7.3,
+   42.15,
+   -6.41,
+   42.68
+  ],
+  "aoi_deg": [
+   0.89,
+   0.53
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px11_2020",
+  "year": 2020,
+  "grid_pixels": 837,
+  "search_box": [
+   -6.95,
+   37.55,
+   -6.55,
+   37.85
+  ],
+  "anchor": "2020-08-27",
+  "event_last_burn": "2020-09-03",
+  "event_pixels": 997,
+  "year_pixels_in_box": 997,
+  "event_share": 1.0,
+  "predictor_start": "2020-06-30",
+  "predictor_end": "2020-08-26",
+  "label_start": "2020-08-27",
+  "label_end": "2020-10-14",
+  "baseline_years": [
+   2016,
+   2017,
+   2018,
+   2019
+  ],
+  "scar_bounds": [
+   -6.8527,
+   37.6266,
+   -6.6446,
+   37.8056
+  ],
+  "aoi": [
+   -7.01,
+   37.47,
+   -6.49,
+   37.96
+  ],
+  "aoi_deg": [
+   0.52,
+   0.49
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px12_2022",
+  "year": 2022,
+  "grid_pixels": 674,
+  "search_box": [
+   -2.05,
+   41.25,
+   -1.65,
+   41.55
+  ],
+  "anchor": "2022-07-14",
+  "event_last_burn": "2022-07-24",
+  "event_pixels": 874,
+  "year_pixels_in_box": 874,
+  "event_share": 1.0,
+  "predictor_start": "2022-05-17",
+  "predictor_end": "2022-07-13",
+  "label_start": "2022-07-14",
+  "label_end": "2022-08-31",
+  "baseline_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "scar_bounds": [
+   -1.9499,
+   41.3183,
+   -1.7584,
+   41.4474
+  ],
+  "aoi": [
+   -2.1,
+   41.16,
+   -1.6,
+   41.6
+  ],
+  "aoi_deg": [
+   0.5,
+   0.44
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px13_2021",
+  "year": 2021,
+  "grid_pixels": 746,
+  "search_box": [
+   18.65,
+   42.45,
+   19.05,
+   43.05
+  ],
+  "anchor": "2021-07-20",
+  "event_last_burn": "2021-09-01",
+  "event_pixels": 871,
+  "year_pixels_in_box": 926,
+  "event_share": 0.941,
+  "predictor_start": "2021-05-23",
+  "predictor_end": "2021-07-19",
+  "label_start": "2021-07-20",
+  "label_end": "2021-09-06",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   18.6729,
+   42.5669,
+   19.0141,
+   42.9956
+  ],
+  "aoi": [
+   18.52,
+   42.41,
+   19.17,
+   43.15
+  ],
+  "aoi_deg": [
+   0.65,
+   0.74
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px14_2022",
+  "year": 2022,
+  "grid_pixels": 601,
+  "search_box": [
+   -5.85,
+   34.95,
+   -5.55,
+   35.25
+  ],
+  "anchor": "2022-07-10",
+  "event_last_burn": "2022-07-26",
+  "event_pixels": 806,
+  "year_pixels_in_box": 806,
+  "event_share": 1.0,
+  "predictor_start": "2022-05-13",
+  "predictor_end": "2022-07-09",
+  "label_start": "2022-07-10",
+  "label_end": "2022-08-27",
+  "baseline_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "scar_bounds": [
+   -5.7998,
+   35.0004,
+   -5.5958,
+   35.1711
+  ],
+  "aoi": [
+   -5.95,
+   34.85,
+   -5.44,
+   35.33
+  ],
+  "aoi_deg": [
+   0.51,
+   0.48
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px15_2022",
+  "year": 2022,
+  "grid_pixels": 621,
+  "search_box": [
+   -0.45,
+   38.65,
+   -0.05,
+   38.95
+  ],
+  "anchor": "2022-08-13",
+  "event_last_burn": "2022-08-27",
+  "event_pixels": 763,
+  "year_pixels_in_box": 763,
+  "event_share": 1.0,
+  "predictor_start": "2022-06-16",
+  "predictor_end": "2022-08-12",
+  "label_start": "2022-08-13",
+  "label_end": "2022-09-30",
+  "baseline_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "scar_bounds": [
+   -0.3184,
+   38.7337,
+   -0.0978,
+   38.8419
+  ],
+  "aoi": [
+   -0.47,
+   38.58,
+   0.06,
+   39.0
+  ],
+  "aoi_deg": [
+   0.53,
+   0.42
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px16_2022",
+  "year": 2022,
+  "grid_pixels": 593,
+  "search_box": [
+   -6.45,
+   40.35,
+   -6.05,
+   40.65
+  ],
+  "anchor": "2022-07-08",
+  "event_last_burn": "2022-07-20",
+  "event_pixels": 757,
+  "year_pixels_in_box": 757,
+  "event_share": 1.0,
+  "predictor_start": "2022-05-11",
+  "predictor_end": "2022-07-07",
+  "label_start": "2022-07-08",
+  "label_end": "2022-08-25",
+  "baseline_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "scar_bounds": [
+   -6.345,
+   40.436,
+   -6.1452,
+   40.6025
+  ],
+  "aoi": [
+   -6.5,
+   40.28,
+   -5.99,
+   40.76
+  ],
+  "aoi_deg": [
+   0.51,
+   0.48
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px17_2022",
+  "year": 2022,
+  "grid_pixels": 537,
+  "search_box": [
+   7.65,
+   36.35,
+   8.05,
+   36.75
+  ],
+  "anchor": "2022-08-14",
+  "event_last_burn": "2022-09-02",
+  "event_pixels": 730,
+  "year_pixels_in_box": 736,
+  "event_share": 0.992,
+  "predictor_start": "2022-06-17",
+  "predictor_end": "2022-08-13",
+  "label_start": "2022-08-14",
+  "label_end": "2022-10-01",
+  "baseline_years": [
+   2018,
+   2019,
+   2020,
+   2021
+  ],
+  "scar_bounds": [
+   7.7517,
+   36.3697,
+   8.0139,
+   36.6694
+  ],
+  "aoi": [
+   7.6,
+   36.21,
+   8.17,
+   36.82
+  ],
+  "aoi_deg": [
+   0.57,
+   0.61
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px18_2021",
+  "year": 2021,
+  "grid_pixels": 554,
+  "search_box": [
+   17.75,
+   42.75,
+   18.15,
+   43.15
+  ],
+  "anchor": "2021-07-28",
+  "event_last_burn": "2021-08-14",
+  "event_pixels": 723,
+  "year_pixels_in_box": 724,
+  "event_share": 0.999,
+  "predictor_start": "2021-05-31",
+  "predictor_end": "2021-07-27",
+  "label_start": "2021-07-28",
+  "label_end": "2021-09-14",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   17.753,
+   42.8749,
+   18.0569,
+   43.1496
+  ],
+  "aoi": [
+   17.6,
+   42.72,
+   18.21,
+   43.3
+  ],
+  "aoi_deg": [
+   0.61,
+   0.58
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px19_2021",
+  "year": 2021,
+  "grid_pixels": 590,
+  "search_box": [
+   22.25,
+   36.65,
+   22.65,
+   36.95
+  ],
+  "anchor": "2021-08-01",
+  "event_last_burn": "2021-08-14",
+  "event_pixels": 691,
+  "year_pixels_in_box": 692,
+  "event_share": 0.999,
+  "predictor_start": "2021-06-04",
+  "predictor_end": "2021-07-31",
+  "label_start": "2021-08-01",
+  "label_end": "2021-09-18",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   22.3812,
+   36.7152,
+   22.5435,
+   36.8483
+  ],
+  "aoi": [
+   22.23,
+   36.56,
+   22.7,
+   37.0
+  ],
+  "aoi_deg": [
+   0.47,
+   0.44
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px20_2021",
+  "year": 2021,
+  "grid_pixels": 565,
+  "search_box": [
+   6.65,
+   35.25,
+   7.05,
+   35.55
+  ],
+  "anchor": "2021-07-01",
+  "event_last_burn": "2021-07-11",
+  "event_pixels": 674,
+  "year_pixels_in_box": 713,
+  "event_share": 0.945,
+  "predictor_start": "2021-05-04",
+  "predictor_end": "2021-06-30",
+  "label_start": "2021-07-01",
+  "label_end": "2021-08-18",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   6.7737,
+   35.2876,
+   7.0192,
+   35.4666
+  ],
+  "aoi": [
+   6.62,
+   35.13,
+   7.17,
+   35.62
+  ],
+  "aoi_deg": [
+   0.55,
+   0.49
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px21_2017",
+  "year": 2017,
+  "grid_pixels": 511,
+  "search_box": [
+   -6.95,
+   36.95,
+   -6.55,
+   37.35
+  ],
+  "anchor": "2017-06-06",
+  "event_last_burn": "2017-06-30",
+  "event_pixels": 666,
+  "year_pixels_in_box": 667,
+  "event_share": 0.999,
+  "predictor_start": "2017-04-09",
+  "predictor_end": "2017-06-05",
+  "label_start": "2017-06-06",
+  "label_end": "2017-07-24",
+  "baseline_years": [
+   2013,
+   2014,
+   2015,
+   2016
+  ],
+  "scar_bounds": [
+   -6.8444,
+   37.0564,
+   -6.6488,
+   37.2229
+  ],
+  "aoi": [
+   -7.0,
+   36.9,
+   -6.49,
+   37.38
+  ],
+  "aoi_deg": [
+   0.51,
+   0.48
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px22_2021",
+  "year": 2021,
+  "grid_pixels": 488,
+  "search_box": [
+   15.65,
+   37.95,
+   16.05,
+   38.25
+  ],
+  "anchor": "2021-07-28",
+  "event_last_burn": "2021-08-25",
+  "event_pixels": 666,
+  "year_pixels_in_box": 672,
+  "event_share": 0.991,
+  "predictor_start": "2021-05-31",
+  "predictor_end": "2021-07-27",
+  "label_start": "2021-07-28",
+  "label_end": "2021-09-14",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   15.6804,
+   38.0012,
+   16.0092,
+   38.1552
+  ],
+  "aoi": [
+   15.53,
+   37.85,
+   16.16,
+   38.31
+  ],
+  "aoi_deg": [
+   0.63,
+   0.46
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px23_2023",
+  "year": 2023,
+  "grid_pixels": 503,
+  "search_box": [
+   35.85,
+   35.55,
+   36.25,
+   35.95
+  ],
+  "anchor": "2023-07-12",
+  "event_last_burn": "2023-08-13",
+  "event_pixels": 649,
+  "year_pixels_in_box": 649,
+  "event_share": 1.0,
+  "predictor_start": "2023-05-15",
+  "predictor_end": "2023-07-11",
+  "label_start": "2023-07-12",
+  "label_end": "2023-08-29",
+  "baseline_years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "scar_bounds": [
+   35.9327,
+   35.683,
+   36.1408,
+   35.8411
+  ],
+  "aoi": [
+   35.78,
+   35.53,
+   36.3,
+   36.0
+  ],
+  "aoi_deg": [
+   0.52,
+   0.47
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px24_2019",
+  "year": 2019,
+  "grid_pixels": 561,
+  "search_box": [
+   -8.25,
+   39.55,
+   -7.85,
+   39.85
+  ],
+  "anchor": "2019-07-18",
+  "event_last_burn": "2019-07-24",
+  "event_pixels": 636,
+  "year_pixels_in_box": 689,
+  "event_share": 0.923,
+  "predictor_start": "2019-05-21",
+  "predictor_end": "2019-07-17",
+  "label_start": "2019-07-18",
+  "label_end": "2019-09-04",
+  "baseline_years": [
+   2015,
+   2016,
+   2017,
+   2018
+  ],
+  "scar_bounds": [
+   -8.1763,
+   39.6452,
+   -7.9723,
+   39.7867
+  ],
+  "aoi": [
+   -8.33,
+   39.49,
+   -7.82,
+   39.94
+  ],
+  "aoi_deg": [
+   0.51,
+   0.45
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px25_2017",
+  "year": 2017,
+  "grid_pixels": 456,
+  "search_box": [
+   6.25,
+   36.55,
+   6.95,
+   37.15
+  ],
+  "anchor": "2017-07-05",
+  "event_last_burn": "2017-08-30",
+  "event_pixels": 629,
+  "year_pixels_in_box": 629,
+  "event_share": 1.0,
+  "predictor_start": "2017-05-08",
+  "predictor_end": "2017-07-04",
+  "label_start": "2017-07-05",
+  "label_end": "2017-08-22",
+  "baseline_years": [
+   2013,
+   2014,
+   2015,
+   2016
+  ],
+  "scar_bounds": [
+   6.2867,
+   36.6111,
+   6.8694,
+   37.0814
+  ],
+  "aoi": [
+   6.13,
+   36.46,
+   7.02,
+   37.24
+  ],
+  "aoi_deg": [
+   0.89,
+   0.78
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ },
+ {
+  "experiment": "px26_2021",
+  "year": 2021,
+  "grid_pixels": 464,
+  "search_box": [
+   -5.35,
+   36.35,
+   -5.05,
+   36.65
+  ],
+  "anchor": "2021-09-07",
+  "event_last_burn": "2021-09-23",
+  "event_pixels": 544,
+  "year_pixels_in_box": 558,
+  "event_share": 0.975,
+  "predictor_start": "2021-07-11",
+  "predictor_end": "2021-09-06",
+  "label_start": "2021-09-07",
+  "label_end": "2021-10-25",
+  "baseline_years": [
+   2017,
+   2018,
+   2019,
+   2020
+  ],
+  "scar_bounds": [
+   -5.2462,
+   36.453,
+   -5.1172,
+   36.5986
+  ],
+  "aoi": [
+   -5.4,
+   36.3,
+   -4.96,
+   36.75
+  ],
+  "aoi_deg": [
+   0.44,
+   0.45
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": []
+ }
+]

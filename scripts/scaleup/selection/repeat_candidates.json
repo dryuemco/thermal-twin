@@ -1,0 +1,149 @@
+[
+ {
+  "experiment": "rp01_2020",
+  "year": 2020,
+  "grid_pixels": 534,
+  "search_box": [
+   7.75,
+   36.35,
+   8.45,
+   36.85
+  ],
+  "anchor": "2020-07-25",
+  "event_last_burn": "2020-09-09",
+  "event_pixels": 730,
+  "year_pixels_in_box": 733,
+  "event_share": 0.996,
+  "predictor_start": "2020-05-28",
+  "predictor_end": "2020-07-24",
+  "label_start": "2020-07-25",
+  "label_end": "2020-09-11",
+  "baseline_years": [
+   2016,
+   2017,
+   2018,
+   2019
+  ],
+  "scar_bounds": [
+   7.7892,
+   36.3572,
+   8.4468,
+   36.8317
+  ],
+  "aoi": [
+   7.63,
+   36.2,
+   8.6,
+   36.99
+  ],
+  "aoi_deg": [
+   0.97,
+   0.79
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": [
+   "2022-08-14"
+  ],
+  "partners": [
+   "px17_2022"
+  ]
+ },
+ {
+  "experiment": "rp02_2023",
+  "year": 2023,
+  "grid_pixels": 535,
+  "search_box": [
+   -6.65,
+   40.15,
+   -6.25,
+   40.45
+  ],
+  "anchor": "2023-05-17",
+  "event_last_burn": "2023-06-03",
+  "event_pixels": 663,
+  "year_pixels_in_box": 663,
+  "event_share": 1.0,
+  "predictor_start": "2023-03-20",
+  "predictor_end": "2023-05-16",
+  "label_start": "2023-05-17",
+  "label_end": "2023-07-04",
+  "baseline_years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "scar_bounds": [
+   -6.5364,
+   40.2237,
+   -6.3283,
+   40.3361
+  ],
+  "aoi": [
+   -6.69,
+   40.07,
+   -6.17,
+   40.49
+  ],
+  "aoi_deg": [
+   0.52,
+   0.42
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": [
+   "2022-07-08"
+  ],
+  "partners": [
+   "px16_2022"
+  ]
+ },
+ {
+  "experiment": "rp03_2023",
+  "year": 2023,
+  "grid_pixels": 458,
+  "search_box": [
+   22.55,
+   38.15,
+   23.05,
+   38.55
+  ],
+  "anchor": "2023-08-17",
+  "event_last_burn": "2023-08-31",
+  "event_pixels": 581,
+  "year_pixels_in_box": 581,
+  "event_share": 1.0,
+  "predictor_start": "2023-06-20",
+  "predictor_end": "2023-08-16",
+  "label_start": "2023-08-17",
+  "label_end": "2023-10-04",
+  "baseline_years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "scar_bounds": [
+   22.6767,
+   38.2218,
+   22.9139,
+   38.4174
+  ],
+  "aoi": [
+   22.52,
+   38.07,
+   23.07,
+   38.57
+  ],
+  "aoi_deg": [
+   0.55,
+   0.5
+  ],
+  "inside_existing_study_area": [],
+  "overlaps": [
+   "evia_2021_extended"
+  ],
+  "partners": [
+   "evia_2021_extended"
+  ]
+ }
+]

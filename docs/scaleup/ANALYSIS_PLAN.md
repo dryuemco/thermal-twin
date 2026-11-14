@@ -187,3 +187,15 @@ Changes made after the results of claims 1 to 7 were known. Each is reported as 
   Earth Engine project from THERMAL_TWIN_SCALEUP, THERMAL_TWIN_PYTHON and GEE_PROJECT, and the worker lists of
   the official run are committed as workers.txt. The >= 0.5 change of claim 3 affects only the error-share
   counter, not the labels of the rescoring variants, so no rescored AUC changed.
+
+## Amendment 4 (14 November 2026, after all results were seen, prompted by a reviewer-style assessment)
+
+Robustness analyses added post hoc; they are reported as such and change no decision rule.
+- claim1_robustness.py: a model with the THERMAL predictors plus the distance to the nearest burned training
+  cell, in the same folds, against the null model; AUC within folds (size-weighted mean); designs with the
+  block grid shifted by half a block and fold seeds 7 and 2026; per-fold counts of the 20 km design; the
+  calibrated AUC for matching tolerances 0.20, 0.33 and 0.50 and three orders of the burned cells.
+- claim3_geometry.py: the Sentinel-2 variants that change the burned cells rescored with distance bands
+  recomputed from their own burned cells, beside the fixed-geometry check, with paired differences from the
+  MCD64A1 reference on the same fires.
+- scripts/scaleup/selection/: the fire selection scripts and their outputs, copied from the pilot folder.
