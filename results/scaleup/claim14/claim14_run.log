@@ -1,0 +1,45 @@
+manavgat_2021 excluded 0
+bejis_2022 {'future_burned': 235, 'coord_primary_loss_auc': 0.055, 'coord_primary_loss_cauc': 0.055, 'coord_primary_loss_saucc': 0.055}
+mugla_2021 {'future_burned': 322, 'coord_primary_loss_auc': 0.107, 'coord_primary_loss_cauc': 0.107, 'coord_primary_loss_saucc': 0.107}
+evia_2021_extended excluded 21
+montiferru_2021_fullwindow excluded 0
+px01_2023 excluded 0
+px02_2018 {'future_burned': 688, 'coord_primary_loss_auc': 0.109, 'coord_primary_loss_cauc': 0.109, 'coord_primary_loss_saucc': 0.109}
+px03_2022 excluded 2
+px04_2017 {'future_burned': 1353, 'coord_primary_loss_auc': 0.26, 'coord_primary_loss_cauc': 0.26, 'coord_primary_loss_saucc': 0.26}
+px05_2021 {'future_burned': 222, 'coord_primary_loss_auc': 0.0, 'coord_primary_loss_cauc': 0.0, 'coord_primary_loss_saucc': 0.058}
+px06_2017 {'future_burned': 554, 'coord_primary_loss_auc': 0.019, 'coord_primary_loss_cauc': 0.019, 'coord_primary_loss_saucc': 0.019}
+px07_2017 {'future_burned': 169, 'coord_primary_loss_auc': 0.01, 'coord_primary_loss_cauc': 0.0, 'coord_primary_loss_saucc': 0.01}
+rhodes_2023 excluded 0
+px09_2021 {'future_burned': 40, 'coord_primary_loss_auc': 0.503, 'coord_primary_loss_cauc': 0.503, 'coord_primary_loss_saucc': 0.503}
+px10_2022 excluded 15
+px11_2020 excluded 0
+px12_2022 excluded 0
+px13_2021 {'future_burned': 231, 'coord_primary_loss_auc': 0.0, 'coord_primary_loss_cauc': 0.0, 'coord_primary_loss_saucc': 0.0}
+px14_2022 excluded 9
+px15_2022 {'future_burned': 141, 'coord_primary_loss_auc': 0.156, 'coord_primary_loss_cauc': 0.156, 'coord_primary_loss_saucc': 0.156}
+px16_2022 {'future_burned': 285, 'coord_primary_loss_auc': 0.226, 'coord_primary_loss_cauc': 0.226, 'coord_primary_loss_saucc': 0.226}
+px17_2022 {'future_burned': 107, 'coord_primary_loss_auc': 0.57, 'coord_primary_loss_cauc': 0.57, 'coord_primary_loss_saucc': 0.57}
+px18_2021 {'future_burned': 129, 'coord_primary_loss_auc': 0.062, 'coord_primary_loss_cauc': 0.062, 'coord_primary_loss_saucc': 0.062}
+px19_2021 excluded 22
+px20_2021 excluded 1
+px21_2017 {'future_burned': 125, 'coord_primary_loss_auc': 0.0, 'coord_primary_loss_cauc': 0.0, 'coord_primary_loss_saucc': 0.027}
+px22_2021 {'future_burned': 454, 'coord_primary_loss_auc': 0.0, 'coord_primary_loss_cauc': 0.0, 'coord_primary_loss_saucc': 0.0}
+px23_2023 excluded 0
+px24_2019 {'future_burned': 773, 'coord_primary_loss_auc': 0.087, 'coord_primary_loss_cauc': 0.087, 'coord_primary_loss_saucc': 0.087}
+px25_2017 {'future_burned': 1005, 'coord_primary_loss_auc': 0.119, 'coord_primary_loss_cauc': 0.119, 'coord_primary_loss_saucc': 0.119}
+px26_2021 {'future_burned': 218, 'coord_primary_loss_auc': 0.008, 'coord_primary_loss_cauc': 0.008, 'coord_primary_loss_saucc': 0.008}
+{
+ "fires": 18,
+ "clusters": 18,
+ "mean_D": 0.0005633003578505282,
+ "ci95": [
+  0.0,
+  0.0016899010735515845
+ ],
+ "ci90": [
+  0.0,
+  0.0016899010735515845
+ ],
+ "verdict": "equivalence"
+}
