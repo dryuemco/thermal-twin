@@ -9,28 +9,6 @@
   "lo": 0.008903630866406321,
   "hi": 0.045530638702379
  },
- "buffers": {
-  "1_km": {
-   "cells_scored": 436721,
-   "cells_total": 436721,
-   "fires_with_scored_cells": 31
-  },
-  "2_km": {
-   "cells_scored": 436721,
-   "cells_total": 436721,
-   "fires_with_scored_cells": 31
-  },
-  "5_km": {
-   "cells_scored": 398242,
-   "cells_total": 436721,
-   "fires_with_scored_cells": 31
-  },
-  "10_km": {
-   "cells_scored": 64627,
-   "cells_total": 436721,
-   "fires_with_scored_cells": 7
-  }
- },
  "label_variants": {
   "a_s2_label_010": {
    "fires": 31,
@@ -242,11 +220,11 @@
  "provenance": {
   "analysis_checkout": {
    "commit": "c205876ba67ea8bb7ed31f692a0080c93bf5dde7",
-   "uncommitted_changes": false
+   "uncommitted_changes": true
   },
   "build_checkout": {
-   "commit": "7374cdc39fe8e1e1844c15de0184a7693aed798b",
-   "uncommitted_changes": false
+   "commit": "007bc484b2bd5b8bd8c88f1cd62733a6b8be01dd",
+   "uncommitted_changes": true
   },
   "bootstrap": {
    "resamples": 2000,
@@ -254,6 +232,10 @@
    "unit": "fire (node bootstrap for transfer directions)"
   },
   "inputs_sha256": {
+   "buffer_coverage.json": "e5b98d71509c243a8ce56d10be88985d37c48b59c25e2b2015c4c1a07c6d4296",
+   "claim1_combined_summary.json": "8e4fbf843c5bc85a4eae44a1a8ac4418c46513175aec2c5b3299d29d3984a77d",
+   "claim1_robustness_summary.json": "47d0e0ab3018b17ba19be1dfeb56507098569fb4ef4c0d7d94e84ade6f29d5b9",
+   "claim3_geometry_summary.json": "0eaba93949cc072a818a32252d27dea529fe7c3ca8ee87c5540a9f5cbe2a069b",
    "claim3_summary.json": "e2cd1d7f915278d01e963845828b1e09af23f2084b77d5a998002b0e4705ee20",
    "claim4_summary.json": "a6597d55eac992a414ed03c1343b57ccf7ffbe50b1beff8f0215294620188e1e",
    "claim5_summary.json": "bb4c4f8a2ff66e8519b802f28837389c8aa3eb02f59fb0e1913aa08088ede663",
@@ -261,6 +243,12 @@
    "claim7_alberta_ci.json": "242cc99a133a264c37f6e55ef05dac83d6146b11a048542364c5149c922f7ac3",
    "claim7_open_data.json": "cb5b64f853832fb48418df4de6d3ce753e2c8fc6078d5ec98801279f1d9b69ba",
    "claims12_summary.json": "5a3f051493e7c86187a5b5d13e8bbb539159627fd329efce2a399b56939e95b2",
+   "claim1_combined_per_fire.csv": "9d50c3bde70d4842f740f1b646804ca22ed5f57166bff15296da367f0a319aef",
+   "claim1_folds20.csv": "e566bebf881eebb0e6e9045f990be48cf3cc0df2a9f866513a2e543328171b15",
+   "claim1_matching.csv": "c1704fa1ed94c394ebbd6fdf4a5b777ccf59fdce3801f44f1955b1693d753a2a",
+   "claim1_robustness_designs.csv": "bd28f072690fc099a0e53cc0d585a689a7250ab06651d9e6493a4f6e94cf8bc3",
+   "claim1_robustness_per_fire.csv": "59112c57e7252e31d20851c5573cc2da870911288ae625fcf51fc740842ab7f6",
+   "claim3_geometry_per_fire.csv": "50c3c3c783cb94e9f3a62783c6e653bc82e4a9cea22be8e001bcd5f1076bab9c",
    "claim3_label_error_by_band.csv": "1b20ddebb6a0921442104081e7d8b45e2359265b2485e2d0f36c14029a7dc9d3",
    "claim3_per_fire.csv": "2cb15d10b032bd9a033a097a39119a106d6bc6de87f2aa683e131dd30d6bc52d",
    "claim3_rescored_bands.csv": "f70e13cfe73e7f920cd97b35e14a0278dbd01819100a8ee7926bbab973399874",

@@ -127,19 +127,36 @@ put("prevMean", 100 * _fr.prevalence.mean(), 1)
 put("prevMin", 100 * _fr.prevalence.min(), 1), put("prevMax", 100 * _fr.prevalence.max(), 1)
 MS["paired_pairs_rf_auc_5km"] = boot(_fr.pwd_auc_rf_thermal_b10)
 MS["cauc_thermal_minus_baseline_5km"] = boot(_fr.cauc_rf_thermal_b10 - _fr.cauc_rf_baseline_b10)
-# buffered validation: test cells and fires that remain scored (skipped folds leave their test cells unscored)
-MS["buffers"] = {}
+# buffered validation coverage, from the versioned analysis output (never from the prediction cache)
+BC_ = load("buffer_coverage.json")
 for b, tag in ((1, "One"), (2, "Two"), (5, "Five"), (10, "Ten")):
-    scored = total = fires = 0
-    for r in _fr.itertuples():
-        hits = list((AN / "cache").glob(f"{r.fire}_buffer{b}_b10_*.npy"))
-        assert len(hits) == 1, f"expected one buffer cache file for {r.fire} at {b} km, found {len(hits)}"
-        o = np.load(hits[0])[0]
-        assert len(o) == r.cells, (r.fire, b, len(o), r.cells)       # one prediction slot per population cell
-        n_ok = int(np.isfinite(o).sum())
-        scored, total, fires = scored + n_ok, total + len(o), fires + (n_ok > 0)
-    MS["buffers"][f"{b}_km"] = {"cells_scored": scored, "cells_total": total, "fires_with_scored_cells": fires}
-    put(f"bufCellsPct{tag}", 100 * scored / total, 0), put(f"bufFires{tag}", fires)
+    v = BC_["buffers"][f"{b}_km"]
+    assert set(v["per_fire"]) == set(_fr.fire), "buffer coverage does not cover the primary fires"
+    assert all(v["per_fire"][r.fire]["cells"] == r.cells for r in _fr.itertuples()), "population sizes differ"
+    put(f"bufCellsPct{tag}", 100 * v["cells_scored"] / v["cells_total"], 0), put(f"bufFires{tag}", v["fires_with_scored_cells"])
+# robustness of claim 1 (amendment 4)
+RB1 = load("claim1_robustness_summary.json")
+# combined model: the version whose training distance mimics the test geometry (claim1_combined.py)
+CB = load("claim1_combined_summary.json")
+ci("combAuc", CB["auc_combined"]), put("combWins", CB["combined_beats_null"])
+ci("combNear", CB["near_combined"]), ci("combNearNull", CB["near_null"]), ci("combNearRf", CB["near_rf"])
+put("combNearWins", CB["near_combined_beats_null"])
+ci("combMinusNull", CB["combined_minus_null"]), ci("combNearMinusNull", CB["near_combined_minus_null"])
+ci("naiveAuc", RB1["combined"]["auc_combined"])
+ci("fwNull", RB1["foldwise"]["null"]), ci("fwRf", RB1["foldwise"]["rf"]), put("fwWins", RB1["foldwise"]["null_beats_rf"])
+_dw = [int(v["null_beats_rf"].split()[0]) for v in RB1["designs"].values()]
+put("designMinWins", min(_dw)), put("designN", len(_dw))
+F20 = RB1["folds20"]
+_f20 = pd.read_csv(AN / "claim1_folds20.csv")
+put("ftFolds", len(_f20)), put("ftOneBlock", int((_f20.blocks == 1).sum())), put("ftNoBurn", int((_f20.burned == 0).sum()))
+put("ftMinBlocks", F20["min_blocks"]), put("ftMinBurned", F20["min_burned"]), put("ftMinUnburned", F20["min_unburned"])
+_mt = RB1["matching"]
+_cm = [v["cauc"]["mean"] for v in _mt.values()]
+put("caucSensMin", min(_cm)), put("caucSensMax", max(_cm))
+_ks = [v["kept_share"]["mean"] for v in _mt.values()]
+put("keptSensMin", 100 * min(_ks), 0), put("keptSensMax", 100 * max(_ks), 0)
+ci("distKept", RB1["matching_distances_main"]["kept_burned_median_km"], 2)
+ci("distDropped", RB1["matching_distances_main"]["dropped_burned_median_km"], 2)
 # windows: rule for the 26 added fires, the earlier study's own windows for the five earlier regions
 sys.path.insert(0, str(REPO))
 from datetime import date  # noqa: E402
@@ -209,8 +226,19 @@ for (th, vn), g in RB.groupby(["threshold", "variant"]):
     MS["label_variants"][f"{vn}_{th}"] = st
     ci(f"vfar{tag}", st["far"]), ci(f"vrise{tag}", st["rise"]), put(f"vrisePos{tag}", f"{st['fires_positive_rise']} of {st['fires']}"), put(f"vriseN{tag}", st["fires"])
 
+# Sentinel-2 check with bands recomputed from each variant's own burned cells (amendment 4)
+G3 = load("claim3_geometry_summary.json")
+for vn, vt in (("a_s2_label", "Stwo"), ("c_relabel", "Relabel")):
+    for th, tt in (("027", ""), ("010", "Loose")):
+        v = G3[f"{vn}_{th}"]
+        ci(f"geo{vt}{tt}Rise", v["recomputed_rise"]), put(f"geo{vt}{tt}Pos", v["recomputed_rise_positive"])
+        ci(f"geo{vt}{tt}Near", v["recomputed_near"]), ci(f"geo{vt}{tt}Far", v["recomputed_far"])
+        ci(f"fix{vt}{tt}DNear", v["fixed_minus_ref_near"]), ci(f"fix{vt}{tt}DFar", v["fixed_minus_ref_far"])
+
 # ---------------------------------------------------------------- claim 6
 S6 = load("claim6_summary.json")
+put("histSkipped", ", ".join(s["fire"].replace("_", "\\_") for s in S6["skipped"]))
+put("histSkippedBurned", ", ".join(str(s["burned"]) for s in S6["skipped"]))
 put("aggAgree", 100 * S6["aggregation_check"]["agreement"]["mean"], 1)
 put("aggKappa", S6["aggregation_check"]["kappa"]["mean"], 2)
 A6 = S6["all_2001_2023"]
@@ -291,6 +319,14 @@ if (AN / "claim4_summary.json").exists():
     put("curveFirst", cv[str(ks[0])]["mean"]), put("curveTen", cv["10"]["mean"]), put("curveLast", cv[str(ks[-1])]["mean"])
     put("curveLastK", ks[-1])
 
+# fire selection counts, from the committed selection outputs of the analysis branch
+SEL = REPO / "scripts" / "scaleup" / "selection"
+_cands = json.loads((SEL / "candidates.json").read_text(encoding="utf-8"))
+_pass = [r for r in _cands if 5 <= int(r["anchor"][5:7]) <= 10 and r["event_share"] >= 0.9 and max(r["aoi_deg"]) <= 1.1]
+put("selCandidates", len(_cands)), put("selPass", len(_pass))
+put("selKept", len(json.loads((SEL / "batch_candidates.json").read_text(encoding="utf-8"))))
+put("selRepeat", len(json.loads((SEL / "repeat_candidates.json").read_text(encoding="utf-8"))))
+
 MS["note"] = ("Statistics computed by build_values_figures.py from the analysis outputs. transfer_fire_level supersedes "
               "the direction-level intervals in claim4_summary.json (plan amendment 3). label_variants: near, far and rise "
               "are means over the same fires (those with both bands scored); far is the farthest band beyond 0.5 km with "
@@ -326,6 +362,81 @@ MS["provenance"] = {
 (HERE / "values.tex").write_text("% written by build_values_figures.py, do not edit\n" +
                                  "".join(f"\\newcommand{{\\v{k}}}{{{v}}}\n" for k, v in sorted(V.items())), encoding="utf-8")
 print(len(V), "values")
+
+# ---------------------------------------------------------------- supplementary tables (supp_tables.tex)
+def f3(x):
+    return "--" if x is None or (isinstance(x, float) and not np.isfinite(x)) else f"{x:.3f}"
+
+
+def civ(d, nd=3):
+    return f"{d['mean']:.{nd}f} [{d['lo']:.{nd}f}, {d['hi']:.{nd}f}]"
+
+
+ST = []
+# S1: the fires, in the order of Figure 1
+_fr1 = _fr.sort_values("auc_rf_thermal_b10", ascending=False).reset_index(drop=True)
+ST.append("\\begin{table}[p]\\centering\\caption{The 31 fires, in the order of the rows of Fig.~1 from the top. Window: first and "
+          "last day of the label window. Cells and burned: population cells and burned cells. AUC with 5~km blocks.}"
+          "\\label{tab:s-fires}\\footnotesize\\begin{tabular}{rllrrrcc}\\toprule\n"
+          "Row & Fire & Label window & Cells & Burned & Burned \\% & Random forest & Null model \\\\\\midrule\n")
+for i, r in _fr1.iterrows():
+    e = regions.EXPERIMENTS[r.fire]
+    ST.append(f"{i + 1} & {r.fire.replace('_', chr(92) + '_')} & {e['label_start_date']} to {e['label_end_date']} & {int(r.cells):,} & "
+              f"{int(r.burned):,} & {100 * r.prevalence:.1f} & {r.auc_rf_thermal_b10:.3f} & {r.auc_null_b10:.3f} \\\\\n")
+ST.append("\\bottomrule\\end{tabular}\\end{table}\n\n")
+# S2: robustness of claim 1
+ST.append("\\begin{table}[p]\\centering\\caption{Robustness of the comparison with the geographic null model (5~km blocks unless "
+          "stated). Means over fires with 95\\% bootstrap intervals over fires; wins are counts of fires.}\\label{tab:s-robust}"
+          "\\footnotesize\\begin{tabular}{L{5.2cm}L{6.4cm}L{3.6cm}}\\toprule Check & Result & Null model wins \\\\\\midrule\n")
+ST.append(f"Pooled out-of-fold AUC, null / forest & {civ(P['blocks_10_cells']['auc_null'])} / {civ(P['blocks_10_cells']['auc_rf_thermal'])} & {P['blocks_10_cells']['null_beats_rf_thermal']} \\\\\n")
+ST.append(f"Within-fold AUC, null / forest & {civ(RB1['foldwise']['null'])} / {civ(RB1['foldwise']['rf'])} & {RB1['foldwise']['null_beats_rf']} \\\\\n")
+for k, v in RB1["designs"].items():
+    sh, sd = k.replace("shift", "").split("_seed")
+    ST.append(f"Blocks shifted by {sh} cells, fold seed {sd} & {civ(v['auc_null'])} / {civ(v['auc_rf'])} & {v['null_beats_rf']} \\\\\n")
+ST.append(f"Forest with distance feature, all cells & {civ(CB['auc_combined'])} & combined beats null in {CB['combined_beats_null']} \\\\\n")
+ST.append(f"Forest with distance feature, 0--0.5 km band & {civ(CB['near_combined'])} (null {civ(CB['near_null'])}) & combined beats null in {CB['near_combined_beats_null']} \\\\\n")
+ST.append(f"Same, training distance to all other burned training cells & {civ(RB1['combined']['auc_combined'])} & combined beats null in {RB1['combined']['combined_beats_null']} \\\\\n")
+ST.append("\\midrule\\multicolumn{3}{L{15.2cm}}{Calibrated AUC of the forest by matching tolerance and order of the burned cells} \\\\\n")
+for k, v in RB1["matching"].items():
+    t, sd = k.replace("tol", "").split("_seed")
+    ST.append(f"Tolerance {t}, order seed {sd} & cAUC {civ(v['cauc'])} & kept {100 * v['kept_share']['mean']:.0f}\\% of burned cells \\\\\n")
+ST.append(f"\\midrule\\multicolumn{{3}}{{L{{15.2cm}}}}{{20~km design, {F20['fires']} fires, {len(_f20)} test folds: median {F20['median_blocks']:.0f} "
+          f"blocks per fold, {int((_f20.blocks == 1).sum())} folds with one block, {int((_f20.burned == 0).sum())} with no burned cell, "
+          f"at least {F20['min_unburned']} unburned cells}} \\\\\n")
+ST.append("\\bottomrule\\end{tabular}\\end{table}\n\n")
+# S3: Sentinel-2 check, fixed and recomputed bands, same fires
+ST.append("\\begin{table}[p]\\centering\\caption{Sentinel-2 check of the thermal random forest. Fixed: distance bands of the MCD64A1 "
+          "label. Recomputed: bands from the variant's own burned cells. Paired differences from the MCD64A1 reference are over the same "
+          "fires and valid cells. Means over fires with 95\\% bootstrap intervals.}\\label{tab:s-labels}\\footnotesize"
+          "\\begin{tabular}{L{3.4cm}L{3.6cm}L{3.6cm}L{4.4cm}}\\toprule Variant, threshold & Near band, fixed minus reference & Far band, fixed minus reference & "
+          "Rise, recomputed bands \\\\\\midrule\n")
+for vn, vl in (("a_s2_label", "Sentinel-2 label"), ("c_relabel", "Missed cells relabelled")):
+    for th in ("010", "027"):
+        v = G3[f"{vn}_{th}"]
+        ST.append(f"{vl}, {int(th) / 100:.2f} & {civ(v['fixed_minus_ref_near'])} & {civ(v['fixed_minus_ref_far'])} & "
+                  f"{civ(v['recomputed_rise'])}, positive in {v['recomputed_rise_positive']} \\\\\n")
+ST.append("\\bottomrule\\end{tabular}\\end{table}\n\n")
+# S4: published datasets, what was compared
+_rows = [
+    ("Alberta, temporal", T7[(T7.dataset == "alberta")].iloc[0], "AUC on the 2018--2021 test cells; package bootstrap table",
+     "AUC on the same cells"),
+    ("British Columbia", None, "As reported (10-fold spatial CV)", "Pooled out-of-fold AUC, mean over 10 point samples"),
+    ("Mesogeos", T7[T7.dataset == "mesogeos"].iloc[0], "Benchmark AUPRC on test years", "Average precision on the same samples"),
+    ("South Korea", T7[T7.dataset == "korea"].iloc[0], "AUC on the 30\\% test split", "AUC on the same split"),
+    ("Alberta, blocks", T7[(T7.dataset == "alberta")].iloc[2], "Mean of fold AUC", "Mean of fold AUC, folds from the block rule"),
+    ("Italy", T7[T7.dataset == "italy"].iloc[0], "Median of 100 runs", "Pooled out-of-fold AUC of one run"),
+]
+ST.append("\\begin{table}[p]\\centering\\caption{Published datasets: size of the evaluated set, prevalence and how each score "
+          "is summarised.}\\label{tab:s-open}\\footnotesize\\begin{tabular}{lrrL{3.6cm}L{3.6cm}}\\toprule Dataset & Fire & Non-fire & "
+          "Published score & Our score \\\\\\midrule\n")
+for name, r, pub, ours in _rows:
+    if r is None:
+        nf, nn = int(bc.n_fire.mean()), int(bc.n_nonfire.mean())
+    else:
+        nf, nn = int(r.n_fire), int(r.n_nonfire)
+    ST.append(f"{name} & {nf:,} & {nn:,} & {pub} & {ours} \\\\\n")
+ST.append("\\bottomrule\\end{tabular}\\end{table}\n")
+(HERE / "supp_tables.tex").write_text("% written by build_values_figures.py, do not edit\n" + "".join(ST), encoding="utf-8")
 
 # ---------------------------------------------------------------- figures
 FR = pd.read_csv(AN / "claims12_per_fire.csv")

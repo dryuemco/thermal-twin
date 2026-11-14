@@ -49,6 +49,18 @@ Then run, from `scripts/scaleup/` on branch `scaleup-31fires`:
 6. `multiyear_label_export.py`, then `claim6_multiyear.py` (multi-year label).
 7. `claim7_open_data.py`, then `claim7_alberta_ci.py` (published datasets; download the five datasets first,
    sources in the manuscript's data availability section).
+8. Post hoc checks (plan amendment 4): `buffer_coverage.py`, `claim1_robustness.py`, `claim1_combined.py` and
+   `claim3_geometry.py`.
+
+Inputs read from the run folder besides the pipeline tables: the 500 m label grid of each fire
+(`step8a/step8a_500m_grid_burned_label.tif` of its experiment folder) for the Sentinel-2, multi-year and Aqua
+exports, and the experiment DEM (`data/dem/elevation.tif`) for the aspect control of the temperature analysis.
+For the five earlier regions these files sit in the experiment folders of the original pipeline checkout
+(`outputs/experiments/<region>/`), and the Bejís DEM in `data/data/dem/` or `step7b/aligned_inputs/`. The
+fire selection scripts and their outputs are in `scripts/scaleup/selection/`.
+
+The build reads only the JSON and CSV files that these scripts write to `analysis/` (their SHA-256 values are
+recorded in `manuscript_statistics.json`), never the prediction cache.
 
 ## Building the manuscript
 
@@ -56,6 +68,7 @@ Then run, from `scripts/scaleup/` on branch `scaleup-31fires`:
 THERMAL_TWIN_ANALYSIS=<run folder>/analysis THERMAL_TWIN_REPO=<checkout of scaleup-31fires> python build_values_figures.py
 python make_highlights.py
 pdflatex manuscript && bibtex manuscript && pdflatex manuscript && pdflatex manuscript
+pdflatex supplementary && pdflatex supplementary
 ```
 
 The analysis outputs, the modelling tables of the 31 fires and the Sentinel-2 and multi-year label rasters
