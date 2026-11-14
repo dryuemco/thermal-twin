@@ -14,6 +14,7 @@ Run:  <venv-step10>/python analysis_official.py [--fires a,b,c]   (writes D:/The
 import argparse
 import json
 import math
+import os
 import re
 import sys
 import time
@@ -35,8 +36,10 @@ from sklearn.preprocessing import OneHotEncoder
 sys.dont_write_bytecode = True
 sys.stdout.reconfigure(encoding="utf-8")
 REPO = Path(__file__).resolve().parents[2]
-PAPER = Path("C:/Users/CORSAIR/projects/ThermalTwin/thermal-twin-main/paper")
-SCALEUP = Path("D:/ThermalTwin/scaleup")
+# THERMAL_TWIN_PAPER: the paper/ folder of the main branch (paper/code/_canonical.py and the frozen reference values);
+# THERMAL_TWIN_SCALEUP: the run folder (worker clones w1..w3 with their outputs, analysis/ for results)
+PAPER = Path(os.environ["THERMAL_TWIN_PAPER"])
+SCALEUP = Path(os.environ["THERMAL_TWIN_SCALEUP"])
 sys.path.insert(0, str(PAPER / "code"))
 sys.path.insert(0, str(REPO))
 import _canonical as C  # noqa: E402
@@ -245,7 +248,8 @@ def load_fires(only=None):
 
 
 def table_s8():
-    text = (PAPER / "submissions" / "ijwf" / "text" / "supplementary.md").read_text(encoding="utf-8")
+    # committed copy of Supplementary Table S8 on the main branch (the same 20 values as the IJWF package)
+    text = (PAPER / "supplementary.md").read_text(encoding="utf-8")
     rev = {v: k for k, v in NAME.items()}
     out = {(rev[s], rev[t]): float(v) for s, t, v in re.findall(r"(?m)^\| (\w+)→(\w+) \| (\d\.\d{3}) \[", text)}
     assert len(out) == 20, f"{len(out)} directions read from Table S8"

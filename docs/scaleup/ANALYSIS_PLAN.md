@@ -179,3 +179,7 @@ Changes made after the results of claims 1 to 7 were known. Each is reported as 
   interval over fires.
 - Claim 7: the Alberta temporal comparison gets a 95% interval for the null model from 2000 bootstrap
   resamples of the test cells, beside the intervals the package reports for the published models.
+- Claim 3 (second review round): the error share at 0.5 now uses "at least half" (>= 0.5), the same rule as
+  the Sentinel-2 label; the shares changed in the fourth decimal.
+- Implementation only: paths are read from THERMAL_TWIN_PAPER and THERMAL_TWIN_SCALEUP, and the transfer
+  gate reads Table S8 from the committed paper/supplementary.md (identical 20 values); both gates pass as before.

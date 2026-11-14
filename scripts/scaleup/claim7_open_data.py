@@ -16,6 +16,7 @@ Datasets (D:/ThermalTwin/scaleup/open_data, downloaded 14 Nov 2026, CC BY 4.0 / 
 Run:  <venv-step10>/python -I claim7_open_data.py   (writes D:/ThermalTwin/scaleup/analysis/claim7_*)
 """
 import json
+import os
 import math
 from pathlib import Path
 
@@ -26,8 +27,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import GroupKFold, train_test_split
 
-ROOT = Path("D:/ThermalTwin/scaleup/open_data")
-OUT = Path("D:/ThermalTwin/scaleup/analysis")
+ROOT = Path(os.environ["THERMAL_TWIN_SCALEUP"]) / "open_data"
+OUT = Path(os.environ["THERMAL_TWIN_SCALEUP"]) / "analysis"
 SEED = 42
 
 

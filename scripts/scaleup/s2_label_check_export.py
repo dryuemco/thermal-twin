@@ -31,7 +31,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO))
 from core import regions  # noqa: E402
 
-SCALEUP = Path("D:/ThermalTwin/scaleup")
+SCALEUP = Path(os.environ["THERMAL_TWIN_SCALEUP"])
 PAPER_OUT = REPO / "outputs" / "experiments"
 OUT = SCALEUP / "analysis" / "s2"
 OUT.mkdir(parents=True, exist_ok=True)

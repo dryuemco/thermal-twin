@@ -8,6 +8,7 @@ package's test predictions carry no cell identifiers.
 Run:  <venv-step10>/python -I claim7_alberta_ci.py   (writes D:/ThermalTwin/scaleup/analysis/claim7_alberta_ci.json)
 """
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -15,7 +16,8 @@ import pandas as pd
 from scipy.spatial import cKDTree
 from sklearn.metrics import roc_auc_score
 
-BASE = Path("D:/ThermalTwin/scaleup/open_data/alberta/x/Alberta_Wildfire_Reproducibility_Package")
+SCALEUP = Path(os.environ["THERMAL_TWIN_SCALEUP"])
+BASE = SCALEUP / "open_data/alberta/x/Alberta_Wildfire_Reproducibility_Package"
 d = pd.read_csv(BASE / "Alberta_model_inputs" / "model_ready" / "sample_metadata_model_2001_2021_buffer10km.csv")
 xy = np.c_[d["col"].to_numpy() * 0.5, d["row"].to_numpy() * 0.5]
 y = d.fire_label.to_numpy()
@@ -31,5 +33,5 @@ for _ in range(2000):
 pub = pd.read_csv(BASE / "supplementary_tables" / "Table_S3_model_performance_bootstrap_CI_2018_2021.csv")
 out = {"null_auc": float(roc_auc_score(yt, s)), "null_lo": float(np.percentile(bs, 2.5)), "null_hi": float(np.percentile(bs, 97.5)),
        "published": {r.Model: {"auc": r.AUC, "lo": r.AUC_95CI_lower, "hi": r.AUC_95CI_upper} for r in pub.itertuples()}}
-Path("D:/ThermalTwin/scaleup/analysis/claim7_alberta_ci.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+(SCALEUP / "analysis" / "claim7_alberta_ci.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
 print(json.dumps(out, indent=1))

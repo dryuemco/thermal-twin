@@ -74,7 +74,7 @@ def main():
                 er = {"fire": fid, "threshold": th, "band": name, "unburned_cells": int(neg.sum()),
                       "unburned_cells_excluded": int((neg_all & ~ok).sum())}
                 for c in (0.05, 0.25, 0.5):
-                    er[f"unburned_share_above_{c}"] = float((x[neg] > c).mean())
+                    er[f"unburned_share_above_{c}"] = float(((x[neg] >= c) if c == 0.5 else (x[neg] > c)).mean())   # 0.5: same rule as the label (at least half)
                 if th == "010" and fr["firecci_available"]:
                     er["unburned_firecci_share_above_0.5"] = float((cci[neg] > 0.5).mean())
                 err_rows.append(er)
