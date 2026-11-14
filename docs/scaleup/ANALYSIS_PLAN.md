@@ -434,3 +434,89 @@ and of centring within the fire.
 - The constant rules ("always env", "always geo") are labelled as references that know the distribution of
   the truth, which only a simulation provides; they are not candidate measures.
 - No statement about the size of the loss is written before the calibrated scenarios of 8.5 are known.
+
+## Amendment 9 (15 November 2026): G1, transfer of the focal-event model choice to later real burning
+
+Written after a design review by two independent reviewers; declared before any G1 score was compared with any
+future label. Everything in amendment 9 is exploratory except the decision rule of 9.5, which is fixed here.
+
+### 9.0 Seen before this design
+
+All results up to amendment 8. Label counts only, from the existing multi-year rasters: 18 of 31 fires have at
+least 30 cells burned after the focal label window (approximate count; prospective minus window band); future
+burns overlap the focal scar in at most 21 cells per fire; burns before the focal year are abundant (21 to
+8,182 cells). The population choice of 9.2 was made after this inspection of label counts. No comparison of a
+G1 score with a future label has been seen. A precision estimate from the claim9 synthetic runs (9.6) was
+computed for this amendment.
+
+### 9.1 Question
+
+How well does the choice between two models made on the focal event carry over to later real burning in the
+same study rectangle? The future label is one realisation of later burning, which depends on weather and
+ignitions; it is not the true underlying susceptibility. The out-of-fold map is assembled from five fold
+models and is not a single operational model trained on all focal data.
+
+### 9.2 Labels and populations
+
+- Future label (future_label_export.py, MCD64A1 v061): a 500 m cell is future-burned if at least half of its
+  area has a BurnDate after the focal label_end and on or before 2023-12-31. Monthly images are dated on the
+  first of the month; the month of label_end uses BurnDate > day of year of label_end, later months any
+  BurnDate > 0. Taken directly from BurnDate, not by subtracting masks, so reburned cells are kept.
+- Unmapped observations: per pixel the share of months in the horizon with BurnDate < 0 or masked; cells whose
+  mean unmapped share exceeds 0.10 are excluded from the future population, never counted as unburned.
+- Two-year horizon (sensitivity): label_end < BurnDate date <= label_end + 730 days, same rules.
+- Primary future population: the model population of the fire minus the focal-scar cells (focal y = 1) minus
+  unmapped cells. Cells burned before the focal window stay. Full population (scar included) is a sensitivity.
+- Measures on the focal event are computed on the full focal population, as in claims 1-8.
+- Eligible fires: at least 30 future-burned and 30 future-unburned cells in the primary future population.
+  The excluded fires are listed with the reason (too few future burns, horizon, unmapped).
+
+### 9.3 Candidate models
+
+Primary comparison: thermal RF (cached out-of-fold scores, 5 km blocks, claims 1-2) against a coordinate RF
+whose two features are the cell centre coordinates in km on the fire's grid (f.xy, north-south and east-west
+km from the grid origin), RandomForestClassifier(300 trees, min_samples_leaf 3, class_weight balanced,
+random_state 42), the same five folds (StratifiedGroupKFold, blocks of 10 cells, seed 42). Secondary: thermal
+RF against baseline RF. The null model is a descriptive reference, not a candidate. No combined model in G1.
+
+### 9.4 Measures and losses
+
+Each measure chooses on the focal event: pooled AUC, cAUC (primary pair), sAUC_c (secondary; when it is not
+supported the choice counts as the model with the worse future AUC). For each fire, future AUC of both
+candidates on the primary future population; loss L of a measure = best future AUC minus future AUC of its
+choice. Primary quantity D = L(pooled AUC) - L(cAUC); secondary L(pooled AUC) - L(sAUC_c) and
+L(cAUC) - L(sAUC_c). Relative loss (mean L / mean |future AUC difference|) is reported, not primary.
+
+### 9.5 Decision rule (fixed now)
+
+Fires weighted equally. Paired bootstrap over fires, 10,000 resamples, seed 42; fires whose study rectangles
+intersect are resampled together as one geographic cluster.
+- Advantage of cAUC over the pooled AUC for this target is claimed only if the lower end of the 95% interval
+  of mean D is above 0. It is called practically important only if mean D >= 0.01 AUC as well (0.01 is about
+  one eighth of the mean difference of 0.082 between the two models' truth AUCs in the claim9 runs).
+- Equivalence is claimed only if the 90% interval of mean D lies within -0.01 to 0.01.
+- Otherwise the result is inconclusive, which is not evidence of equivalence.
+
+### 9.6 Expected precision
+
+From the claim9 synthetic runs (b > 0), the run-level SD of D is 0.055 AUC, so with 18 fires and one
+comparison per fire the smallest difference detectable with 80% power at alpha 0.05 is about
+2.8 * 0.055 / sqrt(18) = 0.036 AUC. Differences near the 0.01 threshold are therefore not expected to be
+detectable; an inconclusive result is the likely outcome unless the real difference is large.
+
+### 9.7 Clustering of future burns and sensitivities
+
+Per fire: number of future burning events (8-connected components of future-burned cells per year of first
+future burn) and years, and the share of the largest event. Sensitivities, all reported, none changes 9.5:
+equal weight per event (sample weights so that each event's positives sum to one), leave one event out (range
+of mean D), two-year horizon, full population, secondary comparison.
+
+### 9.8 G1b, G1c, G1d (descriptive, exploratory)
+
+- G1b: future AUC of minus the distance to the nearest focal-scar cell (higher = closer), on the primary
+  future population; the expected direction is not assumed; not called rho.
+- G1c: burn history from 2001-01-01 to the day before the focal predictor window starts (share of the cell
+  burned at least once); thermal RF against thermal RF plus this history share, same folds, pooled AUC, cAUC
+  and sAUC_c on the focal event, and the history share alone as a score.
+- G1d: the three repeat pairs; chronology and shared cells checked first; AUC on the later fire's label of the
+  thermal and coordinate RF trained on the earlier fire; descriptive only.
