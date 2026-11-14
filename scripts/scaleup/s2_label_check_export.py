@@ -90,7 +90,7 @@ def export(exp):
         doy_hi = d_le.timetuple().tm_yday
         cci_b = cci.map(lambda im: im.select("BurnDate").gte(doy_lo).And(im.select("BurnDate").lte(doy_hi))
                         .And(im.select("ConfidenceLevel").gte(50))).max().unmask(0)
-        cci_frac = cci_b.reproject(cci.first().projection()).reduceResolution(ee.Reducer.mean(), maxPixels=4096).rename("cci")
+        cci_frac = cci_b.reproject(cci.first().select("BurnDate").projection()).reduceResolution(ee.Reducer.mean(), maxPixels=4096).rename("cci")
     else:
         cci_frac = ee.Image.constant(-1).rename("cci")   # product does not cover the year
     img = ee.Image.cat([frac.select("b10"), frac.select("b27"), vfrac, cci_frac]).toFloat()
