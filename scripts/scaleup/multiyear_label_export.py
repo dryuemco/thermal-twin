@@ -58,7 +58,15 @@ def export_prospective(exp):
     with rasterio.open(S.grid_path(exp)) as g:
         t, (h, w) = g.transform, g.shape
     proj = ee.ImageCollection(MCD).first().projection()
-    img = ever(e["label_start_date"], "2024-01-01").reproject(proj).reduceResolution(ee.Reducer.mean(), maxPixels=1024).toFloat()
+    # MCD64A1 images are dated on the first of the month, so filterDate(label_start, ...) would drop the fire's own
+    # month (first version of this export, 14 Nov 2026); the first month is taken with BurnDate >= the start day
+    d0 = date.fromisoformat(e["label_start_date"])
+    m0 = date(d0.year, d0.month, 1)
+    m1 = date(d0.year + (d0.month == 12), d0.month % 12 + 1, 1)
+    first = ee.ImageCollection(MCD).filterDate(m0.isoformat(), m1.isoformat()).map(
+        lambda im: im.select("BurnDate").gte(d0.timetuple().tm_yday)).max().unmask(0)
+    lab = ee.Image.cat([first, ever(m1.isoformat(), "2024-01-01")]).reduce(ee.Reducer.max())
+    img = lab.reproject(proj).reduceResolution(ee.Reducer.mean(), maxPixels=1024).toFloat()
     url = img.getDownloadURL({"crs": "EPSG:4326", "crs_transform": [t.a, t.b, t.c, t.d, t.e, t.f],
                               "dimensions": f"{w}x{h}", "format": "GEO_TIFF"})
     OUTP.mkdir(parents=True, exist_ok=True)

@@ -285,3 +285,11 @@ sAUC_c = sAUC_model + 0.5 - max(0.5, sAUC_null) is reported beside sAUC; the dec
 - Comparisons between sAUC and cAUC are made on the same fires (those where sAUC is supported).
 - The frozen text above (sections written before amendment 4) is kept unchanged, including its references to
   internal notes and to the earlier manuscript.
+
+### 6.5 Correction (14 November 2026)
+
+The first export of the prospective label (amendment 5) filtered MCD64A1 from the first day of the label window,
+which drops the fire's own monthly image (MCD64A1 images are dated on the first of the month): its mean burned
+share was 4.1% against about 10% for the single-event label, and two fires had no burned cell. The export now
+takes the label-start month with BurnDate >= the start day and all later months to 2023; the result of the
+first export is discarded and the label is re-exported and re-analysed. The label stays descriptive.
