@@ -135,3 +135,32 @@ Two facts of implementation, no change of rule.
   covers only the fires of 2017 to 2020. The Sentinel-2 reference covers every fire.
 - The Sentinel-2 shares are fetched in tiles of 24 x 24 cells because a single whole-grid request
   did not finish; the computation per pixel is the one fixed in claim 3.
+
+## Amendment 2 (14 November 2026, after the results of claims 1 and 2 were seen)
+
+Two analyses are added because the literature review found that most wildfire susceptibility studies
+use multi-year inventories, not one fire's scar, and because the claim is about published results.
+They do not change claims 1 to 5; they are written before any of their numbers exist.
+
+Claim 6. Multi-year label.
+- Label: a cell is burned if MCD64A1 (MODIS/061/MCD64A1, BurnDate > 0) marks at least half of the
+  cell burned at least once in the period. Burned share per cell from the native 500 m product
+  aggregated to the fire's step8a grid by area mean. Two periods: (i) 2001 to 2023 (all years, the
+  common inventory design); (ii) 2001 to the year before the fire (history only, the fire itself
+  excluded).
+- Check of the aggregation: the same rule applied to the fire's own label window must agree with the
+  step8a label; the agreement (share of cells and Cohen's kappa) is reported.
+- Same population, predictors, models, folds, null model, cAUC and distance bands as claims 1 and 2.
+  Predictors are those of the fire's predictor window, as in inventory studies that use one recent
+  predictor date.
+- Decision rule: if the null model beats the THERMAL RF in at least 28 of the 31 fires under label
+  (i) at 5 km blocks, the claim is stated for multi-year inventories too; otherwise the paper limits
+  claim 1 to single-event labels and reports claim 6 as the boundary.
+
+Claim 7. Re-analysis of published open datasets.
+- Datasets: every openly downloadable wildfire susceptibility dataset with coordinates and labels
+  found by the search of 14 November (list in the project research notes), up to ten.
+- For each: the authors' split if it can be recovered, otherwise their declared split rule
+  (random or spatial) re-created with seed 42; the geographic null model scored on the same test
+  points; its AUC compared with the AUC the paper reports and with a RF on the authors' predictors.
+- Reported per dataset, no pooling across datasets; whatever it shows.
