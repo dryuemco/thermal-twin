@@ -356,3 +356,9 @@ sAUC_c with the truth. On the 31 fires, the share of fires in which cAUC and sAU
 sAUC_c) rank the thermal and the baseline RF the same way.
 
 Run order: claim10_persistent.py after claim9_synthetic.py has finished, then claim9_intervals.py.
+
+### 7.4 Addition to 7.1 (14 November 2026, before claim10_persistent.py was run)
+
+rho = 0 is added to the truth labels of 7.1 (same fits, a third truth label with S2 = S_new, no extra random
+draws), so that the effect of rho is read on the same models as {0, 0.5, 0.8}. rho = 0 is included as a
+within-run reference; it does not replace the decision of 6.2. The saved scores gain a y2_rho0 column.

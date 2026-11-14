@@ -83,18 +83,18 @@ def main():
         R10 = pd.read_csv(p10)
         syn = {}
         for k, (cov, mn, ratio) in SETTINGS.items():
-            ok = {0.5: [], 0.8: []}
+            ok = {0.0: [], 0.5: [], 0.8: []}
             for fi, fid in enumerate(ids):
                 if not (npz / f"{fid}.npz").exists():
                     continue
                 D = np.load(npz / f"{fid}.npz")
                 f = F[fid]
                 for key in [x for x in D.files if x.startswith("s")]:
-                    env, geo, null, y1, y05, y08 = D[key].T
+                    env, geo, null, y1, y00, y05, y08 = D[key].T
                     z = -null
                     e, g = saucc(y1, env, null, z, cov, mn, ratio), saucc(y1, geo, null, z, cov, mn, ratio)
                     pick = None if not (np.isfinite(e) and np.isfinite(g)) or e == g else ("env" if e > g else "geo")
-                    for rho, y2 in ((0.5, y05), (0.8, y08)):
+                    for rho, y2 in ((0.0, y00), (0.5, y05), (0.8, y08)):
                         te, tg = G.auc(y2, env), G.auc(y2, geo)
                         truth = "env" if te > tg else ("geo" if te < tg else "tie")
                         ok[rho].append(pick == truth)

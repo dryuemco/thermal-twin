@@ -2,7 +2,7 @@
 
 Same landscapes, latent risk, label rule, models, folds and measures as claim9_synthetic.py, for the 24
 scenarios with b > 0. The truth label is drawn with the same E and S2 = rho * S1 + sqrt(1 - rho^2) * S_new
-(S_new independent, same L) and new noise, for rho in {0.5, 0.8}. The training label, the folds and the fitted
+(S_new independent, same L) and new noise, for rho in {0, 0.5, 0.8} (0 is the within-run reference). The training label, the folds and the fitted
 models are the same for both rho (one fit per fire and scenario, two truth labels), so the measures are
 identical across rho and only the truth changes.
 
@@ -25,7 +25,7 @@ import geonull as G  # noqa: E402
 import analysis_official as A  # noqa: E402
 import claim9_synthetic as C9  # noqa: E402
 
-RHOS = (0.5, 0.8)
+RHOS = (0.0, 0.5, 0.8)        # 0.0: within-run reference with the same fits (plan 7.1)
 SCEN = [(i, s) for i, s in enumerate(C9.SCEN) if s[1] > 0]           # 24, scenario index as in claim9
 OUTCSV = A.OUT / "claim10_persistent_runs.csv"
 NPZ = A.OUT / "claim10_scores"
@@ -65,12 +65,12 @@ def run_fire(fi, fid, f, done):
             r = {"fire": fid, "scenario": si, "a": a, "b": b, "L": L, "rho": rho, **meas,
                  "truth_env": G.auc(y2[rho], sc["env"]), "truth_geo": G.auc(y2[rho], sc["geo"])}
             out.append(r)
-        store[f"s{si}"] = np.c_[sc["env"], sc["geo"], null, y1, y2[0.5], y2[0.8]]
+        store[f"s{si}"] = np.c_[sc["env"], sc["geo"], null, y1, y2[0.0], y2[0.5], y2[0.8]]
         print(fid, si, (a, b, L), {k: round(v, 3) for k, v in out[-1].items() if k.startswith(("truth_", "saucc_"))}, flush=True)
     if store:
         NPZ.mkdir(exist_ok=True)
         old = dict(np.load(NPZ / f"{fid}.npz")) if (NPZ / f"{fid}.npz").exists() else {}
-        np.savez_compressed(NPZ / f"{fid}.npz", folds_note=np.array("columns: env, geo, null, y1, y2_rho0.5, y2_rho0.8"),
+        np.savez_compressed(NPZ / f"{fid}.npz", folds_note=np.array("columns: env, geo, null, y1, y2_rho0, y2_rho0.5, y2_rho0.8"),
                             **old, **store)
     return out
 
