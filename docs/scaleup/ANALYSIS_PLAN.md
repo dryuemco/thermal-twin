@@ -125,3 +125,13 @@ the raw transfer AUC of Supplementary Table S8 within 0.002. The script stops if
 1. Claims 1 and 2 (`scripts/scaleup/analysis_official.py`).
 2. Claim 3 (Sentinel-2 export, then re-scoring).
 3. Claim 4, then claim 5.
+
+## Amendment 1 (14 November 2026, written after the results of claims 1 and 2 were seen)
+
+Two facts of implementation, no change of rule.
+- montiferru_2021_fullwindow has only 4 blocks of 40 cells, fewer than the 5 folds, so it has no
+  20 km block result; the 20 km summary covers 30 fires and names the missing one.
+- FireCCI51 in Earth Engine (ESA/CCI/FireCCI/5_1) ends in 2020, so the FireCCI51 agreement of claim 3
+  covers only the fires of 2017 to 2020. The Sentinel-2 reference covers every fire.
+- The Sentinel-2 shares are fetched in tiles of 24 x 24 cells because a single whole-grid request
+  did not finish; the computation per pixel is the one fixed in claim 3.
