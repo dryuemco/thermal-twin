@@ -199,3 +199,67 @@ Robustness analyses added post hoc; they are reported as such and change no deci
   recomputed from their own burned cells, beside the fixed-geometry check, with paired differences from the
   MCD64A1 reference on the same fires.
 - scripts/scaleup/selection/: the fire selection scripts and their outputs, copied from the pilot folder.
+
+## Amendment 5 (14 November 2026, after all results were seen, prompted by a second reviewer-style assessment)
+
+Post hoc checks, reported as such; no decision rule changes.
+- claim1_validity.py: the fixed 5 km predictions rescored inside the burned-cell bounding box plus 0.05 and
+  0.10 degree; the thermal RF refitted without land cover; the 2022-2023 fires alone; distance bands with the
+  unburned cells restricted to the middle three quintiles of their Mahalanobis distance to the burned cells.
+- claim6_multiyear.py: a third label, burns from the first day of the label window to the end of 2023
+  (no burn before the predictor window enters the label); export by multiyear_label_export.py --prospective.
+- claim7_protocol.py: null AUC, cAUC and distance bands on the four open datasets that ship predictors, with a
+  random forest on the authors' split; the distance from each Alberta negative to the same year's positives.
+- planned_outputs.py: FireCCI51 agreement, per-fire Spearman trend over bands, landscape heterogeneity by
+  band and the paired near-band difference, which the plan listed and the first draft did not report.
+- s2_label_check_export.py --offset (dNBR offset, Key and Benson 2006): attempted; the first fire did not
+  finish in 25 minutes and the run was stopped. Not reported unless it is completed.
+- geonull/: the three numbers as a standalone module with unit tests; check_against_study.py compares it with
+  this code on the 31 fires.
+
+## Amendment 6 (14 November 2026, declared BEFORE any of the following is computed on the fires or simulated)
+
+The paper is reframed around the question of when a model comparison carries over when the evaluation
+geometry changes. Two analyses are added; their definitions, settings and decision rule are fixed here.
+
+### 6.1 Distance-standardised AUC (sAUC)
+
+- Covariate z of a test cell: its distance (km) to the nearest burned cell of its fold's training set (the
+  null model's score, sign reversed); defined for burned and unburned cells alike.
+- Strata of z: [0, 0.5), [0.5, 1), [1, 2), [2, 5), [5, 10), [10, inf) km. AUC_b is the AUC between the test
+  burned and test unburned cells of stratum b, out-of-fold predictions pooled over folds. A stratum is
+  supported when it holds at least 20 burned and 20 unburned test cells.
+- sAUC_Q = sum_b q_b AUC_b / sum_{b supported} q_b over the supported strata, coverage = sum_{b supported} q_b.
+  sAUC is reported only when coverage >= 0.80; otherwise "not supported" with the coverage.
+- Primary Q: the distribution of z among the fire's burned test cells (AUC at equal distance from known
+  burns, averaged over where burns occur; the target that the calibrated AUC approximates by matching).
+  Secondary Q: uniform over the supported strata, and one common reference Q_ref, the distribution of z among
+  all burned test cells of the 31 fires pooled, for comparison across fires and datasets.
+- Reported for the null model, the thermal and baseline RF and HGB at 5, 10 and 20 km blocks, with the
+  fire bootstrap (2000, seed 42) as elsewhere, and on the four open datasets of claim7_protocol.py.
+- The pooled AUC is also written as sum_b w_b AUC_b over the distance-to-fire bands of the unburned cells
+  (w_b = share of unburned cells in band b, exact when the burned cells are fixed); the AUC under the study
+  rectangle margins 0.05, 0.10 and 0.15 degree is reported from this identity and from direct rescoring.
+
+### 6.2 Semi-synthetic experiment with known truth
+
+- Landscapes: the population cells (coordinates and real predictors) of the 31 primary fires.
+- Latent risk: eta = a * E + b * S + noise (standard normal), where E is the standardised mean of four real
+  predictors (NDVI, elevation, slope and the predictor-window LST, each standardised within the fire, signs
+  +, -, +, + in that order) and S a Gaussian random field with exponential correlation of length L
+  (independent of E, unit variance). Burned = the cells whose eta exceeds the quantile that gives the fire's
+  real burned share.
+- Grid: a in {0, 0.5, 1, 2}, b in {0, 1, 2, 4}, L in {2, 10} km (32 scenarios), one draw per fire and
+  scenario, seed = 1000 * fire index + scenario index.
+- Candidate models (RF, 300 trees, min_samples_leaf 3, balanced): M_env on the four signal predictors plus
+  two independent standard-normal noise predictors; M_geo on the cell coordinates. Both are fitted and scored
+  with the 5 km block design of the study.
+- Truth: the model with the higher AUC on a second label of the same landscape drawn with the same E and a
+  new, independent S field and noise (the comparison that carries over to a new geometry of burning).
+- Measures compared: pooled AUC, calibrated AUC, sAUC (primary Q). For each scenario, the share of fires in
+  which each measure ranks M_env and M_geo as the truth does (ties count as wrong).
+- Decision rule (fixed now): the paper claims an advantage of sAUC only if, averaged over the 24 scenarios
+  with b > 0, its agreement with the truth exceeds that of the pooled AUC by at least 10 percentage points and
+  is not lower than that of the calibrated AUC by more than 2 points. Otherwise sAUC is reported as a
+  descriptive re-expression of the cAUC idea and no advantage is claimed. Scenarios where sAUC is not
+  supported count as wrong for sAUC.
