@@ -164,3 +164,18 @@ Claim 7. Re-analysis of published open datasets.
   (random or spatial) re-created with seed 42; the geographic null model scored on the same test
   points; its AUC compared with the AUC the paper reports and with a RF on the authors' predictors.
 - Reported per dataset, no pooling across datasets; whatever it shows.
+
+## Amendment 3 (14 November 2026, after all results were seen, prompted by an internal review)
+
+Changes made after the results of claims 1 to 7 were known. Each is reported as post hoc in the paper.
+- Claim 3: a cell enters the Sentinel-2 check only if at least half of its 20 m pixels have a valid dNBR,
+  and shares are shares of the observed part of the cell. The MCD64A1 reference and the three variants are
+  all scored on these cells. 111 of 436,721 cells are excluded; the decision is unchanged.
+- Claim 3: the paper reports both thresholds. Reading the 0.27 threshold as the interpretable one (because
+  the 0.10 threshold flags about a tenth of the cells beyond 10 km) is a post hoc judgement.
+- Claim 4: intervals of transfer means are recomputed with fires as the resampling unit (a direction is
+  counted once per copy of its source and of its target), as for the similarity correlations.
+- Claim 1: the mean within-fire difference between the thermal and baseline cAUC gets a paired bootstrap
+  interval over fires.
+- Claim 7: the Alberta temporal comparison gets a 95% interval for the null model from 2000 bootstrap
+  resamples of the test cells, beside the intervals the package reports for the published models.

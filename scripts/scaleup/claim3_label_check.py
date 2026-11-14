@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import analysis_official as A  # noqa: E402
 
 S2 = A.OUT / "s2"
+VALID_MIN = 0.5      # amendment 3: minimum share of valid 20 m Sentinel-2 pixels for a cell to enter the check
 MODELS = ("rf_thermal", "hgb_thermal", "null")
 
 
@@ -60,22 +61,29 @@ def main():
         fr = {"fire": fid, "cells": f.n, "burned": f.nb, "s2_valid_share_median": float(np.nanmedian(valid)),
               "cells_valid_below_half": int((valid < 0.5).sum()), "firecci_available": bool(np.nanmax(cci) >= 0)}
         for th, x in sh.items():
-            fr[f"burned_cells_share_below_0.1_{th}"] = float((x[y == 1] < 0.1).mean())
+            # amendment 3: a cell enters the check only if at least half of its 20 m pixels have a valid dNBR;
+            # shares are shares of the observed part of the cell
+            ok = np.isfinite(x) & (valid >= VALID_MIN)
+            fr[f"burned_cells_share_below_0.1_{th}"] = float((x[(y == 1) & ok] < 0.1).mean())
+            fr[f"cells_used_{th}"], fr[f"cells_excluded_{th}"] = int(ok.sum()), int((~ok).sum())
             for name, (lo, hi) in zip(A.BAND_NAMES, A.BANDS):
-                neg = (y == 0) & (dist >= lo) & (dist < hi)
+                neg_all = (y == 0) & (dist >= lo) & (dist < hi)
+                neg = neg_all & ok
                 if neg.sum() == 0:
                     continue
-                er = {"fire": fid, "threshold": th, "band": name, "unburned_cells": int(neg.sum())}
+                er = {"fire": fid, "threshold": th, "band": name, "unburned_cells": int(neg.sum()),
+                      "unburned_cells_excluded": int((neg_all & ~ok).sum())}
                 for c in (0.05, 0.25, 0.5):
                     er[f"unburned_share_above_{c}"] = float((x[neg] > c).mean())
                 if th == "010" and fr["firecci_available"]:
                     er["unburned_firecci_share_above_0.5"] = float((cci[neg] > 0.5).mean())
                 err_rows.append(er)
+            # every variant, the MCD64A1 reference included, is scored on the same valid cells
             variants = {
-                "mcd64a1": (y, np.ones(f.n, bool)),
-                "a_s2_label": ((x >= 0.5).astype(int), np.isfinite(x)),
-                "b_drop_ambiguous": (y, ~((y == 0) & (x > 0.05))),
-                "c_relabel": (np.where((y == 0) & (x >= 0.5), 1, y), np.ones(f.n, bool)),
+                "mcd64a1": (y, ok),
+                "a_s2_label": ((x >= 0.5).astype(int), ok),
+                "b_drop_ambiguous": (y, ok & ~((y == 0) & (x > 0.05))),
+                "c_relabel": (np.where((y == 0) & (x >= 0.5), 1, y), ok),
             }
             for vname, (yv, keep) in variants.items():
                 if th == "027" and vname == "mcd64a1":
@@ -99,7 +107,12 @@ def main():
         return v[-1] if v else np.nan
 
     S = {"fires": len(FR), "cells_valid_below_half_total": int(FR.cells_valid_below_half.sum()),
-         "firecci_fires": int(FR.firecci_available.sum())}
+         "firecci_fires": int(FR.firecci_available.sum()),
+         "cells_used": int(FR.cells_used_010.sum()), "cells_excluded": int(FR.cells_excluded_010.sum()),
+         "unburned_used_by_band": {n: int(E[(E.threshold == "010") & (E.band == n)].unburned_cells.sum()) for n in A.BAND_NAMES},
+         "unburned_excluded_by_band": {n: int(E[(E.threshold == "010") & (E.band == n)].unburned_cells_excluded.sum()) for n in A.BAND_NAMES},
+         "gap_closed_definition": "mean over fires of (near-band AUC of the variant - near-band AUC of MCD64A1) / "
+                                  "(farthest-band AUC of MCD64A1 - near-band AUC of MCD64A1), all on the valid cells"}
     for th in ("010", "027"):
         e = E[E.threshold == th]
         S[f"label_error_{th}"] = {n: {c: A.boot_mean(e[e.band == n][c]) for c in
