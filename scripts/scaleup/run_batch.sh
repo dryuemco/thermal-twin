@@ -3,13 +3,20 @@
 # experiments, one after another, and records the wall time of every step. A failure in one fire does not
 # stop the batch. Same step order as the pilot (scratch/pilot_scaleup/run_batch.sh); the two preparation
 # scripts are not called by the stage chain and run before step7.
-# Usage: bash run_batch.sh <clone folder under D:/ThermalTwin/scaleup> id1 id2 ...
+# Usage:
+#   export THERMAL_TWIN_SCALEUP=<run folder> THERMAL_TWIN_PYTHON=<python of the pipeline environment>
+#   export GEE_PROJECT=<Earth Engine project>
+#   bash run_batch.sh <clone folder inside the run folder> id1 id2 ...
+# The clone is a checkout of branch scaleup-31fires. The official run used three clones, w1 to w3; their
+# experiment lists are lines 1 to 3 of workers.txt beside this script, for example
+#   bash run_batch.sh w1 $(sed -n 1p workers.txt)
 set -u
-ROOT="/d/ThermalTwin/scaleup"
+ROOT="${THERMAL_TWIN_SCALEUP:?set THERMAL_TWIN_SCALEUP to the run folder}"
+PY="${THERMAL_TWIN_PYTHON:?set THERMAL_TWIN_PYTHON to the python of the pipeline environment}"
+: "${GEE_PROJECT:?set GEE_PROJECT to the Earth Engine project}"
+export GEE_PROJECT
 CLONE=$1; shift
 cd "$ROOT/$CLONE"
-PY="/c/Users/CORSAIR/projects/ThermalTwin/thermal-twin/.venv-step10/Scripts/python.exe"
-export GEE_PROJECT=thermaltwin
 mkdir -p "$ROOT/batch_logs"
 SUMMARY="$ROOT/batch_times.csv"
 [ -f "$SUMMARY" ] || echo "experiment,step,seconds,exit_code,finished,clone,commit" > "$SUMMARY"

@@ -183,3 +183,7 @@ Changes made after the results of claims 1 to 7 were known. Each is reported as 
   the Sentinel-2 label; the shares changed in the fourth decimal.
 - Implementation only: paths are read from THERMAL_TWIN_PAPER and THERMAL_TWIN_SCALEUP, and the transfer
   gate reads Table S8 from the committed paper/supplementary.md (identical 20 values); both gates pass as before.
+- Implementation only (third review round): run_batch.sh reads the run folder, the Python interpreter and the
+  Earth Engine project from THERMAL_TWIN_SCALEUP, THERMAL_TWIN_PYTHON and GEE_PROJECT, and the worker lists of
+  the official run are committed as workers.txt. The >= 0.5 change of claim 3 affects only the error-share
+  counter, not the labels of the rescoring variants, so no rescored AUC changed.
