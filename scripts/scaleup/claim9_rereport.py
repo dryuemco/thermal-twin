@@ -38,6 +38,7 @@ def choices(R):
         e, g = R[f"{m}_env"].to_numpy(float), R[f"{m}_geo"].to_numpy(float)
         c = np.where(~(np.isfinite(e) & np.isfinite(g)) | (e == g), "none", np.where(e > g, "env", "geo"))
         out[m] = c
+    # references that know the distribution of the truth (simulation only), not candidate measures (plan 8.7)
     out["always_env"] = np.full(len(R), "env")
     out["always_geo"] = np.full(len(R), "geo")
     return out
@@ -56,7 +57,8 @@ def stats_for(R):
         chosen = np.where(c == "env", R.truth_env, np.where(c == "geo", R.truth_geo, worst))
         d = {"preference_env": float((c == "env").mean()), "agreement": float(po),
              "balanced_acc": float(np.mean(rec)), "kappa": float((po - pe) / (1 - pe)) if pe < 1 else np.nan,
-             "auc_loss": float(np.mean(best - chosen))}
+             "auc_loss": float(np.mean(best - chosen)),
+             "relative_loss": float(np.mean(best - chosen) / np.mean(best - worst))}   # plan 8.7
         if m in MEAS:
             rhos = []
             for _, g in R.groupby(["a", "b", "L"]):
@@ -110,7 +112,7 @@ def main():
     fig.savefig(A.OUT / "claim9_rereport_heatmap.pdf")
     for name, v in S.items():
         a = v["all"]
-        print(name, "truth_env", round(a["truth_env"], 3), {m: {q: round(a[m][q], 3) for q in ("preference_env", "agreement", "balanced_acc", "kappa", "auc_loss")} | ({"spearman": round(a[m]["spearman"], 3)} if m in MEAS else {}) for m in (*MEAS, "always_env")})
+        print(name, "truth_env", round(a["truth_env"], 3), {m: {q: round(a[m][q], 3) for q in ("preference_env", "agreement", "balanced_acc", "kappa", "auc_loss", "relative_loss")} | ({"spearman": round(a[m]["spearman"], 3)} if m in MEAS else {}) for m in (*MEAS, "always_env")})
 
 
 if __name__ == "__main__":

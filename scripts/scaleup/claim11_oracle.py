@@ -81,6 +81,7 @@ def main():
              "exp_auc_diff_env_minus_geo": A.boot_mean(g.exp_auc_env - g.exp_auc_geo)}
         for meas in (*MEAS, "always_env", "always_geo"):
             d[f"loss_{meas}"] = float(g[f"loss_{meas}"].mean())
+            d[f"relative_loss_{meas}"] = float(g[f"loss_{meas}"].mean() / (g.exp_auc_env - g.exp_auc_geo).abs().mean())
             if meas in MEAS:
                 c = g[f"choice_{meas}"]
                 ok = (c == g.oracle).to_numpy()

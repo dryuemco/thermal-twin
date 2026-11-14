@@ -425,3 +425,12 @@ simulated and the real fires on null AUC, kept share, sAUC support and burned sh
 Realised correlation of the simulated field against distance (0.5 to 40 km) in five fires of different size,
 compared with exp(-r/L), and the same with the padding doubled to 4x, to show the effect of the finite raster
 and of centring within the fire.
+
+### 8.7 Reporting additions (15 November 2026, before 8.2-8.5 results)
+
+- Relative loss: the mean AUC loss of a measure's choice divided by the mean achievable difference, the
+  absolute difference between the two models' truth AUCs (ratio of means over runs). Reported with the
+  absolute loss in 8.1, 8.2 (expected AUCs), 8.3, 8.4 and 8.5.
+- The constant rules ("always env", "always geo") are labelled as references that know the distribution of
+  the truth, which only a simulation provides; they are not candidate measures.
+- No statement about the size of the loss is written before the calibrated scenarios of 8.5 are known.
