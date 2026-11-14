@@ -312,3 +312,6 @@ its summary file.
   a = 0 and b > 0 (no environmental signal, so the truth is close to a coin toss) and for the 18 with a > 0.
 - Note on 6.3: it changed the measure used by the decision rule from sAUC to the corrected sAUC_c, before any
   synthetic result; the max(0.5, .) correction is the one of the calibrated AUC (Hijmans 2012, plan claim 1).
+- Sensitivity check, added while the run was in progress (decision rule unchanged): the rule is also computed
+  without the first fire (manavgat_2021, written at 19:02:59, before the archived push), i.e. on the 30 fires
+  whose results were written after 19:05:38. Both decisions are reported; if they differ, the paper says so.

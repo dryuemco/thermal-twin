@@ -150,6 +150,8 @@ def main():
             prev.to_csv(OUTCSV, index=False)
     if prev.fire.nunique() == len(ids) and len(prev) == len(ids) * len(SCEN):
         S = summarise(prev)
+        # sensitivity check (plan 6.6): without the first fire, whose results were on disk before the archived push
+        S["without_first_fire"] = {k: v for k, v in summarise(prev[prev.fire != ids[0]]).items() if k != "per_scenario"}
         (A.OUT / "claim9_synthetic_summary.json").write_text(json.dumps(S, indent=1, default=float), encoding="utf-8")
         print(json.dumps({k: S[k] for k in ("agreement_b_positive", "agreement_all", "decision")}, indent=1))
 
