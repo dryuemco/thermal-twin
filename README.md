@@ -1,5 +1,11 @@
 # Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: five large Mediterranean fires
 
+> **Current work.** The 31-fire study prepared for Environmental Modelling & Software ("A predictor-free
+> geographic reference for evaluating wildfire susceptibility models") is in
+> [`paper/submissions/ems/`](paper/submissions/ems/README.md), with its analysis on branch
+> `scaleup-31fires`. The five-fire material below and the other folders in `paper/submissions/` are the
+> archive of the earlier manuscript.
+
 Analysis code, frozen outputs and manuscript sources for a study that tests whether pre-fire thermal
 predictors transfer between wildfire regions. Five Mediterranean fires are compared: Manavgat 2021
 and Muğla 2021 (Türkiye), Bejís 2022 (Spain), North Evia 2021 (Greece) and Montiferru 2021

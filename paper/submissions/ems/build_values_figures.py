@@ -5,9 +5,9 @@ the JSON and CSV files the analysis scripts produce (scripts/scaleup on branch s
 repository; plan docs/scaleup/ANALYSIS_PLAN.md). Method settings, numbers quoted from the literature and the
 highlights are written in the text. Figures go to figures/ as PDF.
 
-Inputs: the analysis output folder, given by the environment variable THERMAL_TWIN_ANALYSIS (default
-D:/ThermalTwin/scaleup/analysis), and the analysis repository for the fire windows, given by
-THERMAL_TWIN_REPO (default C:/Users/CORSAIR/projects/ThermalTwin/thermal-twin/repo).
+Inputs (both required): the analysis output folder, given by the environment variable THERMAL_TWIN_ANALYSIS,
+and a checkout of branch scaleup-31fires for the fire windows, given by THERMAL_TWIN_REPO. Statistics computed
+here, not in the analysis scripts, are also written to manuscript_statistics.json.
 
 Run:  python build_values_figures.py
 """
@@ -24,8 +24,9 @@ import pandas as pd
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
-AN = Path(os.environ.get("THERMAL_TWIN_ANALYSIS", "D:/ThermalTwin/scaleup/analysis"))
-REPO = Path(os.environ.get("THERMAL_TWIN_REPO", "C:/Users/CORSAIR/projects/ThermalTwin/thermal-twin/repo"))
+AN = Path(os.environ["THERMAL_TWIN_ANALYSIS"])
+REPO = Path(os.environ["THERMAL_TWIN_REPO"])
+MS = {}      # statistics computed here (not in the analysis scripts), written to manuscript_statistics.json
 HERE = Path(__file__).resolve().parent
 FIG = HERE / "figures"
 FIG.mkdir(exist_ok=True)
@@ -124,6 +125,21 @@ put("pwdKeptFive", 100 * _fr.pwd_share_pos_b10.mean(), 0)
 ci("caucDiff", boot(_fr.cauc_rf_thermal_b10 - _fr.cauc_rf_baseline_b10))
 put("prevMean", 100 * _fr.prevalence.mean(), 1)
 put("prevMin", 100 * _fr.prevalence.min(), 1), put("prevMax", 100 * _fr.prevalence.max(), 1)
+MS["paired_pairs_rf_auc_5km"] = boot(_fr.pwd_auc_rf_thermal_b10)
+MS["cauc_thermal_minus_baseline_5km"] = boot(_fr.cauc_rf_thermal_b10 - _fr.cauc_rf_baseline_b10)
+# buffered validation: test cells and fires that remain scored (skipped folds leave their test cells unscored)
+MS["buffers"] = {}
+for b, tag in ((1, "One"), (2, "Two"), (5, "Five"), (10, "Ten")):
+    scored = total = fires = 0
+    for r in _fr.itertuples():
+        hits = list((AN / "cache").glob(f"{r.fire}_buffer{b}_b10_*.npy"))
+        if len(hits) != 1:
+            continue
+        o = np.load(hits[0])[0]
+        n_ok = int(np.isfinite(o).sum())
+        scored, total, fires = scored + n_ok, total + len(o), fires + (n_ok > 0)
+    MS["buffers"][f"{b}_km"] = {"cells_scored": scored, "cells_total": total, "fires_with_scored_cells": fires}
+    put(f"bufCellsPct{tag}", 100 * scored / total, 0), put(f"bufFires{tag}", fires)
 # windows: rule for the 26 added fires, the earlier study's own windows for the five earlier regions
 sys.path.insert(0, str(REPO))
 from datetime import date  # noqa: E402
@@ -170,6 +186,20 @@ put("nearMcd", S3["variant_b_drop_ambiguous_027"]["rf_thermal"]["near_band_auc_m
 put("farMcd", S3["variant_b_drop_ambiguous_027"]["rf_thermal"]["far_band_auc_mcd64a1"]["mean"])
 put("firecciFires", S3["firecci_fires"])
 put("sTwoExcluded", S3["cells_excluded"]), put("sTwoUsed", f"{S3['cells_used']:,}")
+# near and farthest band and their rise under every label variant (rf_thermal, fixed predictions)
+RB = pd.read_csv(AN / "claim3_rescored_bands.csv", dtype={"threshold": str})
+RB["threshold"] = RB.threshold.str.zfill(3)
+RB = RB[RB.model == "rf_thermal"]
+_bandcols = list(names)
+MS["label_variants"] = {}
+for (th, vn), g in RB.groupby(["threshold", "variant"]):
+    near = g["0-0.5"].to_numpy(float)
+    far = g[_bandcols].apply(lambda r: r.dropna().iloc[-1] if r.notna().any() else np.nan, axis=1).to_numpy(float)
+    rise = far - near
+    tag = {"mcd64a1": "Mcd", "b_drop_ambiguous": "Drop", "c_relabel": "Relabel", "a_s2_label": "Stwo"}[vn] + ("" if th == "027" else "Loose")
+    st = {"near": boot(near), "far": boot(far), "rise": boot(rise), "fires_positive_rise": int((rise > 0).sum()), "fires": int(np.isfinite(rise).sum())}
+    MS["label_variants"][f"{vn}_{th}"] = st
+    ci(f"vfar{tag}", st["far"]), ci(f"vrise{tag}", st["rise"]), put(f"vrisePos{tag}", f"{st['fires_positive_rise']} of {st['fires']}"), put(f"vriseN{tag}", st["fires"])
 
 # ---------------------------------------------------------------- claim 6
 S6 = load("claim6_summary.json")
@@ -216,6 +246,7 @@ ci("alNullCi", {"mean": ACI["null_auc"], "lo": ACI["null_lo"], "hi": ACI["null_h
 _best = max(ACI["published"].items(), key=lambda kv: kv[1]["auc"])
 put("alBestName", _best[0]), ci("alBestCi", {"mean": _best[1]["auc"], "lo": _best[1]["lo"], "hi": _best[1]["hi"]})
 put("alTempRep", _best[1]["auc"])      # the package's own bootstrap table (Table S3), the source with intervals
+put("alDiff", ACI["null_auc"] - _best[1]["auc"])
 
 # ---------------------------------------------------------------- claim 5
 S5 = load("claim5_summary.json")
@@ -236,6 +267,9 @@ if (AN / "claim4_summary.json").exists():
         ci(f"tr{t}", node_boot(T4, m))       # amendment 3: fires as the resampling unit
     T4["thermal_minus_baseline"] = T4.raw - T4.baseline
     ci("trThermMinusBase", node_boot(T4, "thermal_minus_baseline"))
+    # these fire-level intervals replace the direction-level ones in claim4_summary.json
+    MS["transfer_fire_level"] = {m: node_boot(T4, m) for m in ("raw", "raw_near", "raw_far", "baseline", "zscore", "minmax",
+                                                              "thermal_minus_baseline")}
     put("trAboveSix", f"{100 * S4['share_raw_above_0.6']:.1f}")
     put("trBelowHalf", f"{100 * S4['share_raw_below_0.5']:.1f}")
     for m, t in (("distance_km", "Dist"), ("same_year", "Year"), ("domain_auc", "Dom"), ("mean_shift", "Shift")):
@@ -249,6 +283,9 @@ if (AN / "claim4_summary.json").exists():
     put("curveFirst", cv[str(ks[0])]["mean"]), put("curveTen", cv["10"]["mean"]), put("curveLast", cv[str(ks[-1])]["mean"])
     put("curveLastK", ks[-1])
 
+MS["note"] = ("Statistics computed by build_values_figures.py from the analysis outputs. transfer_fire_level supersedes "
+              "the direction-level intervals in claim4_summary.json (plan amendment 3).")
+(HERE / "manuscript_statistics.json").write_text(json.dumps(MS, indent=1), encoding="utf-8")
 (HERE / "values.tex").write_text("% written by build_values_figures.py, do not edit\n" +
                                  "".join(f"\\newcommand{{\\v{k}}}{{{v}}}\n" for k, v in sorted(V.items())), encoding="utf-8")
 print(len(V), "values")
@@ -301,7 +338,21 @@ ax.set_ylim(0.45, 1.01)
 ax.legend(frameon=False, loc="lower right")
 fig.tight_layout()
 fig.savefig(FIG / "Figure_2.pdf")
-fig.savefig(HERE / "graphical_abstract.png", dpi=400)      # 3.6 in at 400 dpi = 1440 px, above the 1328 px minimum
+plt.close(fig)
+
+# graphical abstract: its own wide layout, 5:2 (7.5 x 3 in at 200 dpi = 1500 x 600 px), two models only
+with plt.rc_context({"font.size": 12, "axes.labelsize": 12, "xtick.labelsize": 11, "ytick.labelsize": 11, "legend.fontsize": 11}):
+    fig, ax = plt.subplots(figsize=(7.5, 3.0))
+    for m, lab in (("null", "Predictor-free geographic model"), ("rf_thermal", "Random forest")):
+        mean = [P["bands"][b][f"auc_{m}"]["mean"] for b in order]
+        ax.plot(xs, mean, marker=MRK[m], color=COL[m], ms=7, lw=2, label=lab)
+    ax.set_xticks(xs, ["0-0.5", "0.5-1", "1-2", "2-5", "5-10", ">10"])
+    ax.set_xlabel("Distance of unburned test cells from the fire (km)")
+    ax.set_ylabel("AUC, mean of 31 fires")
+    ax.set_ylim(0.55, 1.02)
+    ax.legend(frameon=False, loc="lower right")
+    fig.tight_layout()
+    fig.savefig(HERE / "graphical_abstract.png", dpi=200)
 plt.close(fig)
 
 # Fig. 3: label check, share of MCD64A1-unburned cells that Sentinel-2 maps as at least half burned, by band
@@ -315,7 +366,7 @@ for th, mk, lab in (("027", "o", "dNBR >= 0.27"), ("010", "s", "dNBR >= 0.10")):
                 color="#0072B2" if th == "027" else "#D55E00", label=lab)
 ax.set_xticks(xs, ["0-0.5", "0.5-1", "1-2", "2-5", "5-10", ">10"])
 ax.set_xlabel("Distance of unburned cells from the burned area (km)")
-ax.set_ylabel("Unburned cells mapped burned by Sentinel-2 (%)")
+ax.set_ylabel("Unburned cells at least\nhalf burned in Sentinel-2 (%)")
 ax.legend(frameon=False)
 fig.tight_layout()
 fig.savefig(FIG / "Figure_3.pdf")
