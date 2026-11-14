@@ -315,3 +315,44 @@ its summary file.
 - Sensitivity check, added while the run was in progress (decision rule unchanged): the rule is also computed
   without the first fire (manavgat_2021, written at 19:02:59, before the archived push), i.e. on the 30 fires
   whose results were written after 19:05:38. Both decisions are reported; if they differ, the paper says so.
+
+## Amendment 7 (14 November 2026, while the claim9 run was in progress, before any of the following is run)
+
+### 7.0 Corrections of wording in amendment 6 (no change to any computation)
+
+- 6.1 called the calibrated AUC an approximation of the primary sAUC target. That is withdrawn. Matching
+  equalises the distance distributions of the burned and unburned cells kept, but the AUC on the pairs still
+  compares cells at different distances; sAUC compares cells within the same distance stratum. The two answer
+  different questions and the paper says so, with a small analytic example.
+- The null correction max(0.5, .) shifts both models of a fire by the same amount, so sAUC and sAUC_c rank
+  two models identically, as cAUC and the AUC on the pairs do. The semi-synthetic experiment therefore compares
+  three evaluation geometries: pooled AUC, AUC on distance-matched pairs, AUC within distance strata.
+- Fires without support are described as "not supported under the declared strata and support rule", not as
+  fires in which the comparison is undefined.
+
+### 7.1 Partly persistent spatial field (claim10_persistent.py)
+
+The truth of 6.2 redraws the spatial field independently, which penalises any spatial signal that would
+persist in a new geometry of burning. A second experiment varies this: for the 24 scenarios of 6.2 with b > 0,
+the truth label uses S2 = rho * S1 + sqrt(1 - rho^2) * S_new with rho in {0.5, 0.8} (S_new independent with
+the same L, same E, new noise). Training label, folds, models and measures are as in 6.2 (one fit per fire
+and scenario; seed 10,000,000 + 1000 * fire index + scenario index). The decision quantities of 6.2 are
+computed separately for each rho, with and without the first fire. They are reported for each rho whatever
+they show; they do not change the decision of 6.2. A smaller advantage of sAUC_c at larger rho is expected
+if part of the geographic signal carries over, and is reported as such.
+
+### 7.2 Fire-level paired intervals (claim9_intervals.py, reporting only)
+
+For 6.2 and for each rho of 7.1: per fire, the agreement of each measure with the truth over the scenarios
+with b > 0; paired differences sAUC_c - AUC and sAUC_c - cAUC with 95% intervals from 2000 bootstrap resamples
+of fires (seed 42).
+
+### 7.3 Support sensitivity (claim9_intervals.py, reporting only)
+
+Coverage 0.70 / 0.80 / 0.90, minimum 10 / 20 / 40 burned and unburned cells per stratum and stratum ratio
+1.20 / 1.33 / 1.50, each varied alone from the declared setting (0.80, 20, 1.33): on the 31 fires the number
+of fires supported and the mean sAUC_c of the thermal RF (5 km); on the saved scores of 7.1 the agreement of
+sAUC_c with the truth. On the 31 fires, the share of fires in which cAUC and sAUC_c (and the pooled AUC and
+sAUC_c) rank the thermal and the baseline RF the same way.
+
+Run order: claim10_persistent.py after claim9_synthetic.py has finished, then claim9_intervals.py.
