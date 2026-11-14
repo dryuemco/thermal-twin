@@ -300,7 +300,7 @@ MS["note"] = ("Statistics computed by build_values_figures.py from the analysis 
 def _git(path):
     import subprocess
     r = subprocess.run(["git", "-C", str(path), "rev-parse", "HEAD"], capture_output=True, text=True)
-    d = subprocess.run(["git", "-C", str(path), "status", "--porcelain"], capture_output=True, text=True)
+    d = subprocess.run(["git", "-C", str(path), "status", "--porcelain", "--untracked-files=no"], capture_output=True, text=True)
     return {"commit": r.stdout.strip(), "uncommitted_changes": bool(d.stdout.strip())}
 
 
