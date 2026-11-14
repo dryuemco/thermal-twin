@@ -1,8 +1,15 @@
 % written by build_values_figures.py, do not edit
 \newcommand{\vaggAgree}{98.6}
 \newcommand{\vaggKappa}{0.91}
+\newcommand{\valBestCi}{0.864}
+\newcommand{\valBestCiHi}{0.873}
+\newcommand{\valBestCiLo}{0.854}
+\newcommand{\valBestName}{RF}
 \newcommand{\valBlockNull}{0.757}
 \newcommand{\valBlockRep}{0.850}
+\newcommand{\valNullCi}{0.874}
+\newcommand{\valNullCiHi}{0.883}
+\newcommand{\valNullCiLo}{0.865}
 \newcommand{\valTempNull}{0.874}
 \newcommand{\valTempNullSeventeen}{0.877}
 \newcommand{\valTempRep}{0.864}
@@ -149,6 +156,7 @@
 \newcommand{\vbcNull}{0.878}
 \newcommand{\vbcNullMax}{0.888}
 \newcommand{\vbcNullMin}{0.870}
+\newcommand{\vbcRep}{0.92}
 \newcommand{\vbcRf}{0.917}
 \newcommand{\vbufFolds}{155}
 \newcommand{\vbufNullFive}{0.819}
@@ -194,6 +202,9 @@
 \newcommand{\vcaucBaseTwenty}{0.601}
 \newcommand{\vcaucBaseTwentyHi}{0.632}
 \newcommand{\vcaucBaseTwentyLo}{0.568}
+\newcommand{\vcaucDiff}{0.026}
+\newcommand{\vcaucDiffHi}{0.046}
+\newcommand{\vcaucDiffLo}{0.009}
 \newcommand{\vcaucFive}{0.641}
 \newcommand{\vcaucFiveHi}{0.663}
 \newcommand{\vcaucFiveLo}{0.618}
@@ -219,12 +230,21 @@
 \newcommand{\vclosedDrop}{4}
 \newcommand{\vclosedDropHi}{7}
 \newcommand{\vclosedDropLo}{1}
+\newcommand{\vclosedDropLoose}{2}
+\newcommand{\vclosedDropLooseHi}{9}
+\newcommand{\vclosedDropLooseLo}{-7}
 \newcommand{\vclosedRelabel}{-11}
 \newcommand{\vclosedRelabelHi}{-4}
 \newcommand{\vclosedRelabelLo}{-22}
+\newcommand{\vclosedRelabelLoose}{-63}
+\newcommand{\vclosedRelabelLooseHi}{-42}
+\newcommand{\vclosedRelabelLooseLo}{-84}
 \newcommand{\vclosedStwo}{-28}
-\newcommand{\vclosedStwoHi}{-13}
+\newcommand{\vclosedStwoHi}{-12}
 \newcommand{\vclosedStwoLo}{-46}
+\newcommand{\vclosedStwoLoose}{-72}
+\newcommand{\vclosedStwoLooseHi}{-50}
+\newcommand{\vclosedStwoLooseLo}{-94}
 \newcommand{\vcurveFirst}{0.571}
 \newcommand{\vcurveLast}{0.606}
 \newcommand{\vcurveLastK}{30}
@@ -244,6 +264,7 @@
 \newcommand{\vexclRise}{0.227}
 \newcommand{\vexclRiseHi}{0.254}
 \newcommand{\vexclRiseLo}{0.198}
+\newcommand{\vfarMcd}{0.889}
 \newcommand{\vfirecciFires}{8}
 \newcommand{\vgateBand}{0.0000}
 \newcommand{\vgateTransfer}{0.0005}
@@ -261,6 +282,9 @@
 \newcommand{\vkoNull}{0.744}
 \newcommand{\vkoRep}{0.829}
 \newcommand{\vkoRf}{0.825}
+\newcommand{\vlabelDays}{49}
+\newcommand{\vlabelDaysEarlyMax}{59}
+\newcommand{\vlabelDaysEarlyMin}{35}
 \newcommand{\vlerrA}{5.4}
 \newcommand{\vlerrAHi}{7.5}
 \newcommand{\vlerrALo}{3.3}
@@ -279,6 +303,24 @@
 \newcommand{\vlerrF}{1.1}
 \newcommand{\vlerrFHi}{2.3}
 \newcommand{\vlerrFLo}{0.2}
+\newcommand{\vlerrLooseA}{21.0}
+\newcommand{\vlerrLooseAHi}{27.4}
+\newcommand{\vlerrLooseALo}{15.0}
+\newcommand{\vlerrLooseB}{16.0}
+\newcommand{\vlerrLooseBHi}{21.6}
+\newcommand{\vlerrLooseBLo}{10.7}
+\newcommand{\vlerrLooseC}{12.0}
+\newcommand{\vlerrLooseCHi}{16.9}
+\newcommand{\vlerrLooseCLo}{7.5}
+\newcommand{\vlerrLooseD}{11.0}
+\newcommand{\vlerrLooseDHi}{15.7}
+\newcommand{\vlerrLooseDLo}{6.7}
+\newcommand{\vlerrLooseE}{11.5}
+\newcommand{\vlerrLooseEHi}{16.4}
+\newcommand{\vlerrLooseELo}{7.1}
+\newcommand{\vlerrLooseF}{10.4}
+\newcommand{\vlerrLooseFHi}{14.9}
+\newcommand{\vlerrLooseFLo}{6.2}
 \newcommand{\vlerrTenFarBand}{10.4}
 \newcommand{\vlstAuc}{0.393}
 \newcommand{\vlstAucCtl}{0.439}
@@ -296,6 +338,7 @@
 \newcommand{\vmeNull}{0.821}
 \newcommand{\vmeNullPr}{0.697}
 \newcommand{\vmePrev}{0.331}
+\newcommand{\vmeRepPr}{0.853--0.858}
 \newcommand{\vmyBurned}{23.2}
 \newcommand{\vmyBurnedHi}{28.2}
 \newcommand{\vmyBurnedLo}{19.1}
@@ -320,23 +363,40 @@
 \newcommand{\vmyRiseLo}{0.214}
 \newcommand{\vmyWins}{26 of 31}
 \newcommand{\vmyWinsTen}{20 of 31}
+\newcommand{\vnAdded}{26}
 \newcommand{\vnFires}{31}
 \newcommand{\vnearDrop}{0.663}
 \newcommand{\vnearDropHi}{0.692}
 \newcommand{\vnearDropLo}{0.634}
+\newcommand{\vnearDropLoose}{0.646}
+\newcommand{\vnearDropLooseHi}{0.689}
+\newcommand{\vnearDropLooseLo}{0.605}
 \newcommand{\vnearMcd}{0.655}
-\newcommand{\vnearRelabel}{0.636}
+\newcommand{\vnearRelabel}{0.635}
 \newcommand{\vnearRelabelHi}{0.666}
 \newcommand{\vnearRelabelLo}{0.603}
-\newcommand{\vnearStwo}{0.612}
-\newcommand{\vnearStwoHi}{0.643}
+\newcommand{\vnearRelabelLoose}{0.519}
+\newcommand{\vnearRelabelLooseHi}{0.571}
+\newcommand{\vnearRelabelLooseLo}{0.466}
+\newcommand{\vnearStwo}{0.613}
+\newcommand{\vnearStwoHi}{0.644}
 \newcommand{\vnearStwoLo}{0.579}
+\newcommand{\vnearStwoLoose}{0.502}
+\newcommand{\vnearStwoLooseHi}{0.554}
+\newcommand{\vnearStwoLooseLo}{0.449}
 \newcommand{\vnullWinsFive}{31 of 31}
 \newcommand{\vnullWinsHgbFive}{31 of 31}
 \newcommand{\vnullWinsHgbTen}{31 of 31}
 \newcommand{\vnullWinsHgbTwenty}{30 of 30}
 \newcommand{\vnullWinsTen}{31 of 31}
 \newcommand{\vnullWinsTwenty}{29 of 30}
+\newcommand{\vpredDays}{58}
+\newcommand{\vpredDaysEarlyMax}{61}
+\newcommand{\vpredDaysEarlyMin}{57}
+\newcommand{\vprevMax}{28.7}
+\newcommand{\vprevMean}{10.3}
+\newcommand{\vprevMin}{5.1}
+\newcommand{\vpwdKeptFive}{57}
 \newcommand{\vpwdNullFive}{0.526}
 \newcommand{\vpwdNullFiveHi}{0.531}
 \newcommand{\vpwdNullFiveLo}{0.522}
@@ -346,6 +406,9 @@
 \newcommand{\vpwdNullTwenty}{0.508}
 \newcommand{\vpwdNullTwentyHi}{0.511}
 \newcommand{\vpwdNullTwentyLo}{0.506}
+\newcommand{\vpwdRfFive}{0.667}
+\newcommand{\vpwdRfFiveHi}{0.691}
+\newcommand{\vpwdRfFiveLo}{0.643}
 \newcommand{\vrhoDist}{-0.07}
 \newcommand{\vrhoDistHi}{0.05}
 \newcommand{\vrhoDistLo}{-0.23}
@@ -363,21 +426,23 @@
 \newcommand{\vriseFiresHgb}{31 of 31}
 \newcommand{\vriseHi}{0.261}
 \newcommand{\vriseLo}{0.208}
+\newcommand{\vsTwoExcluded}{111}
+\newcommand{\vsTwoUsed}{436,610}
 \newcommand{\vtrAboveSix}{29.1}
 \newcommand{\vtrBase}{0.545}
-\newcommand{\vtrBaseHi}{0.552}
-\newcommand{\vtrBaseLo}{0.538}
+\newcommand{\vtrBaseHi}{0.567}
+\newcommand{\vtrBaseLo}{0.524}
 \newcommand{\vtrBelowHalf}{40.6}
 \newcommand{\vtrDirections}{930}
 \newcommand{\vtrFar}{0.532}
-\newcommand{\vtrFarHi}{0.541}
-\newcommand{\vtrFarLo}{0.522}
+\newcommand{\vtrFarHi}{0.561}
+\newcommand{\vtrFarLo}{0.505}
 \newcommand{\vtrMinmax}{0.541}
-\newcommand{\vtrMinmaxHi}{0.548}
-\newcommand{\vtrMinmaxLo}{0.534}
+\newcommand{\vtrMinmaxHi}{0.563}
+\newcommand{\vtrMinmaxLo}{0.522}
 \newcommand{\vtrNear}{0.526}
-\newcommand{\vtrNearHi}{0.531}
-\newcommand{\vtrNearLo}{0.521}
+\newcommand{\vtrNearHi}{0.539}
+\newcommand{\vtrNearLo}{0.514}
 \newcommand{\vtrPoolMinmax}{0.601}
 \newcommand{\vtrPoolMinmaxHi}{0.628}
 \newcommand{\vtrPoolMinmaxLo}{0.574}
@@ -394,11 +459,14 @@
 \newcommand{\vtrPoolZNearHi}{0.593}
 \newcommand{\vtrPoolZNearLo}{0.536}
 \newcommand{\vtrRaw}{0.530}
-\newcommand{\vtrRawHi}{0.537}
-\newcommand{\vtrRawLo}{0.522}
+\newcommand{\vtrRawHi}{0.555}
+\newcommand{\vtrRawLo}{0.507}
 \newcommand{\vtrSingle}{0.530}
 \newcommand{\vtrSingleHi}{0.542}
 \newcommand{\vtrSingleLo}{0.517}
+\newcommand{\vtrThermMinusBase}{-0.015}
+\newcommand{\vtrThermMinusBaseHi}{0.001}
+\newcommand{\vtrThermMinusBaseLo}{-0.031}
 \newcommand{\vtrZ}{0.553}
-\newcommand{\vtrZHi}{0.560}
-\newcommand{\vtrZLo}{0.546}
+\newcommand{\vtrZHi}{0.573}
+\newcommand{\vtrZLo}{0.533}

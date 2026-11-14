@@ -1,12 +1,20 @@
 """build_values_figures.py: numbers and figures of the EMS manuscript, read from the analysis outputs.
 
-Every number quoted in manuscript.tex is a macro from values.tex, which this script writes from the JSON and
-CSV files in D:/ThermalTwin/scaleup/analysis (scripts/scaleup in the analysis repository, plan commit
-067e676). Nothing in the text is typed by hand. Figures go to figures/ as PDF.
+Every result of this study quoted in manuscript.tex is a macro from values.tex, which this script writes from
+the JSON and CSV files the analysis scripts produce (scripts/scaleup on branch scaleup-31fires of the analysis
+repository; plan docs/scaleup/ANALYSIS_PLAN.md). Method settings, numbers quoted from the literature and the
+highlights are written in the text. Figures go to figures/ as PDF.
 
-Run:  <venv-step10>/python build_values_figures.py
+Inputs: the analysis output folder, given by the environment variable THERMAL_TWIN_ANALYSIS (default
+D:/ThermalTwin/scaleup/analysis), and the analysis repository for the fire windows, given by
+THERMAL_TWIN_REPO (default C:/Users/CORSAIR/projects/ThermalTwin/thermal-twin/repo).
+
+Run:  python build_values_figures.py
 """
 import json
+import math
+import os
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -16,7 +24,8 @@ import pandas as pd
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
-AN = Path("D:/ThermalTwin/scaleup/analysis")
+AN = Path(os.environ.get("THERMAL_TWIN_ANALYSIS", "D:/ThermalTwin/scaleup/analysis"))
+REPO = Path(os.environ.get("THERMAL_TWIN_REPO", "C:/Users/CORSAIR/projects/ThermalTwin/thermal-twin/repo"))
 HERE = Path(__file__).resolve().parent
 FIG = HERE / "figures"
 FIG.mkdir(exist_ok=True)
@@ -43,6 +52,32 @@ def ci(name, d, nd=3):
 
 def load(n):
     return json.loads((AN / n).read_text(encoding="utf-8"))
+
+
+def boot(v, B=2000, seed=42):
+    """Mean over fires with a percentile interval from B bootstrap resamples of fires."""
+    v = np.asarray([x for x in v if np.isfinite(x)], float)
+    rng = np.random.default_rng(seed)
+    bs = [v[rng.integers(0, len(v), len(v))].mean() for _ in range(B)]
+    return {"mean": float(v.mean()), "lo": float(np.percentile(bs, 2.5)), "hi": float(np.percentile(bs, 97.5))}
+
+
+def node_boot(T, col, B=2000, seed=42):
+    """Mean over source-target directions with fires as the resampling unit: in each resample a direction
+    is counted once per copy of its source fire and once per copy of its target fire."""
+    ids = sorted(set(T.source) | set(T.target))
+    pos = {f: i for i, f in enumerate(ids)}
+    s_i, t_i = T.source.map(pos).to_numpy(), T.target.map(pos).to_numpy()
+    x = T[col].to_numpy(float)
+    ok = np.isfinite(x)
+    rng = np.random.default_rng(seed)
+    bs = []
+    for _ in range(B):
+        c = np.bincount(rng.integers(0, len(ids), len(ids)), minlength=len(ids))
+        w = c[s_i] * c[t_i] * ok
+        if w.sum():
+            bs.append(float((w * np.nan_to_num(x)).sum() / w.sum()))
+    return {"mean": float(x[ok].mean()), "lo": float(np.percentile(bs, 2.5)), "hi": float(np.percentile(bs, 97.5))}
 
 
 # ---------------------------------------------------------------- claims 1 and 2
@@ -84,6 +119,32 @@ put("caucGap", P["blocks_10_cells"]["auc_rf_thermal"]["mean"] - P["blocks_10_cel
 put("bufFolds", 5 * S12["primary_fires"])
 _fr = pd.read_csv(AN / "claims12_per_fire.csv")
 _fr = _fr[_fr.fire != "montiferru_2021"]
+ci("pwdRfFive", boot(_fr.pwd_auc_rf_thermal_b10))
+put("pwdKeptFive", 100 * _fr.pwd_share_pos_b10.mean(), 0)
+ci("caucDiff", boot(_fr.cauc_rf_thermal_b10 - _fr.cauc_rf_baseline_b10))
+put("prevMean", 100 * _fr.prevalence.mean(), 1)
+put("prevMin", 100 * _fr.prevalence.min(), 1), put("prevMax", 100 * _fr.prevalence.max(), 1)
+# windows: rule for the 26 added fires, the earlier study's own windows for the five earlier regions
+sys.path.insert(0, str(REPO))
+from datetime import date  # noqa: E402
+from core import regions  # noqa: E402
+
+
+def days(a, b):
+    return (date.fromisoformat(b) - date.fromisoformat(a)).days + 1
+
+
+_earlier = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended", "montiferru_2021_fullwindow"]
+_added = [i for i in _fr.fire if i not in _earlier]
+_pd = [days(regions.EXPERIMENTS[i]["predictor_start_date"], regions.EXPERIMENTS[i]["predictor_end_date"]) for i in _added]
+_ld = [days(regions.EXPERIMENTS[i]["label_start_date"], regions.EXPERIMENTS[i]["label_end_date"]) for i in _added]
+assert len(set(_pd)) == 1 and len(set(_ld)) == 1, (set(_pd), set(_ld))
+put("predDays", _pd[0]), put("labelDays", _ld[0])
+_pe = [days(regions.EXPERIMENTS[i]["predictor_start_date"], regions.EXPERIMENTS[i]["predictor_end_date"]) for i in _earlier]
+_le = [days(regions.EXPERIMENTS[i]["label_start_date"], regions.EXPERIMENTS[i]["label_end_date"]) for i in _earlier]
+put("predDaysEarlyMin", min(_pe)), put("predDaysEarlyMax", max(_pe))
+put("labelDaysEarlyMin", min(_le)), put("labelDaysEarlyMax", max(_le))
+put("nAdded", len(_added))
 put("cellsMin", f"{int(_fr.cells.min()):,}"), put("cellsMax", f"{int(_fr.cells.max()):,}")
 put("burnedMin", f"{int(_fr.burned.min()):,}"), put("burnedMax", f"{int(_fr.burned.max()):,}")
 E = S12["exclusion_sensitivity"]
@@ -97,13 +158,18 @@ S3 = load("claim3_summary.json")
 le = S3["label_error_027"]
 for b, t in names.items():
     ci(f"lerr{t}", {k: 100 * v for k, v in le[b]["unburned_share_above_0.5"].items() if k in ("mean", "lo", "hi")}, 1)
+for b, t in names.items():
+    ci(f"lerrLoose{t}", {k: 100 * v for k, v in S3["label_error_010"][b]["unburned_share_above_0.5"].items() if k in ("mean", "lo", "hi")}, 1)
 put("lerrTenFarBand", f"{100 * S3['label_error_010']['10-inf']['unburned_share_above_0.5']['mean']:.1f}")
-for vname, tag in (("b_drop_ambiguous", "Drop"), ("c_relabel", "Relabel"), ("a_s2_label", "Stwo")):
-    v = S3[f"variant_{vname}_027"]["rf_thermal"]
-    ci(f"near{tag}", v["near_band_auc_variant"])
-    ci(f"closed{tag}", {k: 100 * x for k, x in v["share_of_gap_closed"].items() if k in ("mean", "lo", "hi")}, 0)
+for th, ttag in (("027", ""), ("010", "Loose")):
+    for vname, tag in (("b_drop_ambiguous", "Drop"), ("c_relabel", "Relabel"), ("a_s2_label", "Stwo")):
+        v = S3[f"variant_{vname}_{th}"]["rf_thermal"]
+        ci(f"near{tag}{ttag}", v["near_band_auc_variant"])
+        ci(f"closed{tag}{ttag}", {k: 100 * x for k, x in v["share_of_gap_closed"].items() if k in ("mean", "lo", "hi")}, 0)
 put("nearMcd", S3["variant_b_drop_ambiguous_027"]["rf_thermal"]["near_band_auc_mcd64a1"]["mean"])
+put("farMcd", S3["variant_b_drop_ambiguous_027"]["rf_thermal"]["far_band_auc_mcd64a1"]["mean"])
 put("firecciFires", S3["firecci_fires"])
+put("sTwoExcluded", S3["cells_excluded"]), put("sTwoUsed", f"{S3['cells_used']:,}")
 
 # ---------------------------------------------------------------- claim 6
 S6 = load("claim6_summary.json")
@@ -143,6 +209,13 @@ put("itNull", float(it.null_auc)), put("itRf", float(it.rf_auc_same_folds)), put
 put("itFolds", int(str(it.protocol).split("(")[1].split()[0]))
 me = T7[T7.dataset == "mesogeos"].iloc[0]
 put("meNull", float(me.null_auc)), put("meNullPr", float(me.null_auprc)), put("mePrev", float(me.test_prevalence))
+put("meRepPr", str(me.reported_auprc).replace("-", "--"))
+put("bcRep", float(bc.reported_auc.iloc[0]), 2)
+ACI = load("claim7_alberta_ci.json")
+ci("alNullCi", {"mean": ACI["null_auc"], "lo": ACI["null_lo"], "hi": ACI["null_hi"]})
+_best = max(ACI["published"].items(), key=lambda kv: kv[1]["auc"])
+put("alBestName", _best[0]), ci("alBestCi", {"mean": _best[1]["auc"], "lo": _best[1]["lo"], "hi": _best[1]["hi"]})
+put("alTempRep", _best[1]["auc"])      # the package's own bootstrap table (Table S3), the source with intervals
 
 # ---------------------------------------------------------------- claim 5
 S5 = load("claim5_summary.json")
@@ -157,9 +230,12 @@ ci("lstCorr", S5["corr_morning_afternoon"], 2)
 # ---------------------------------------------------------------- claim 4 (when available)
 if (AN / "claim4_summary.json").exists():
     S4 = load("claim4_summary.json")
+    T4 = pd.read_csv(AN / "claim4_transfer.csv")
     put("trDirections", S4["directions"])
     for m, t in (("raw", "Raw"), ("raw_near", "Near"), ("raw_far", "Far"), ("baseline", "Base"), ("zscore", "Z"), ("minmax", "Minmax")):
-        ci(f"tr{t}", S4[m])
+        ci(f"tr{t}", node_boot(T4, m))       # amendment 3: fires as the resampling unit
+    T4["thermal_minus_baseline"] = T4.raw - T4.baseline
+    ci("trThermMinusBase", node_boot(T4, "thermal_minus_baseline"))
     put("trAboveSix", f"{100 * S4['share_raw_above_0.6']:.1f}")
     put("trBelowHalf", f"{100 * S4['share_raw_below_0.5']:.1f}")
     for m, t in (("distance_km", "Dist"), ("same_year", "Year"), ("domain_auc", "Dom"), ("mean_shift", "Shift")):
@@ -185,18 +261,20 @@ BR = BR[BR.fire != "montiferru_2021"]
 
 # Fig. 1: per-fire AUC of the null model and the thermal RF at three block sizes
 fig, axs = plt.subplots(1, 3, figsize=(7.2, 3.0), sharey=True)
+_order = FR.sort_values("auc_rf_thermal_b10").fire.tolist()       # one order, from the 5 km design, in all panels
+_row = {f: i for i, f in enumerate(_order)}
 for ax, k, title in zip(axs, (10, 20, 40), ("5 km blocks", "10 km blocks", "20 km blocks")):
-    g = FR.dropna(subset=[f"auc_null_b{k}"]).sort_values(f"auc_rf_thermal_b{k}").reset_index(drop=True)
-    yy = np.arange(len(g))
+    g = FR.dropna(subset=[f"auc_null_b{k}"])
+    yy = g.fire.map(_row).to_numpy()
     ax.hlines(yy, g[f"auc_rf_thermal_b{k}"], g[f"auc_null_b{k}"], color="#bbbbbb", lw=0.8)
-    for m in ("rf_thermal", "null"):
-        ax.plot(g[f"auc_{m}_b{k}"], yy, MRK[m], color=COL[m], ms=3.5, label=LAB[m])
+    for m, dy in (("rf_thermal", -0.2), ("null", 0.2)):          # small vertical offset keeps equal scores visible
+        ax.plot(g[f"auc_{m}_b{k}"], yy + dy, MRK[m], color=COL[m], ms=3.5, label=LAB[m])
     ax.set_title(title)
     ax.set_xlabel("ROC AUC")
-    ax.set_xlim(0.45, 1.0)
+    ax.set_xlim(min(0.45, float(np.floor(10 * FR[[f"auc_rf_thermal_b{kk}" for kk in (10, 20, 40)]].min().min()) / 10)), 1.0)
     ax.axvline(0.5, color="#888888", lw=0.5, ls=":")
     ax.set_yticks([])
-axs[0].set_ylabel("Fires, ordered by random-forest AUC")
+axs[0].set_ylabel("Fires, ordered by random-forest AUC at 5 km")
 fig.legend(*axs[0].get_legend_handles_labels(), loc="lower center", ncol=2, frameon=False, bbox_to_anchor=(0.5, -0.02))
 fig.tight_layout(rect=(0, 0.07, 1, 1))
 fig.savefig(FIG / "Figure_1.pdf")
@@ -223,6 +301,7 @@ ax.set_ylim(0.45, 1.01)
 ax.legend(frameon=False, loc="lower right")
 fig.tight_layout()
 fig.savefig(FIG / "Figure_2.pdf")
+fig.savefig(HERE / "graphical_abstract.png", dpi=400)      # 3.6 in at 400 dpi = 1440 px, above the 1328 px minimum
 plt.close(fig)
 
 # Fig. 3: label check, share of MCD64A1-unburned cells that Sentinel-2 maps as at least half burned, by band
@@ -244,7 +323,7 @@ plt.close(fig)
 
 # Fig. 4: open datasets, reported AUC and the null model's AUC under the authors' protocol
 rows = [("Alberta, temporal test", float(al.iloc[0].reported_auc), float(al.iloc[0].null_auc)),
-        ("British Columbia, 50 km blocks", 0.92, float(bc.null_auc.mean())),
+        ("British Columbia, 50 km blocks", float(bc.reported_auc.iloc[0]), float(bc.null_auc.mean())),
         ("Korea, random 70/30", float(ko.reported_auc), float(ko.null_auc)),
         ("Alberta, 100 km blocks", float(al.iloc[2].reported_auc), float(al.iloc[2].null_auc)),
         ("Italy, regional blocks", float(it.reported_auc), float(it.null_auc))]
@@ -274,7 +353,8 @@ if (AN / "claim4_curve.csv").exists():
     fig, ax = plt.subplots(figsize=(3.6, 2.6))
     ax.errorbar(ks, mean, yerr=[np.subtract(mean, lo), np.subtract(hi, mean)], marker="o", color=COL["rf_thermal"], ms=3.5,
                 lw=1, capsize=1.5, label="Pooled random forest, z-scored predictors")
-    ax.axhline(S4["raw"]["mean"], color="#888888", ls="--", lw=0.8, label="Single source fire, raw predictors")
+    ax.axhline(S4["zscore"]["mean"], color="#0072B2", ls="--", lw=0.8, label="Single source fire, z-scored predictors")
+    ax.axhline(S4["baseline"]["mean"], color="#E69F00", ls="-.", lw=0.8, label="Single source fire, baseline set")
     ax.axhline(0.5, color="#888888", ls=":", lw=0.5)
     ax.set_xticks(ks)
     ax.set_xlabel("Number of source fires")
