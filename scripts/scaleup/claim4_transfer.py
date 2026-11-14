@@ -9,7 +9,7 @@ fire-resampling interval. Leave-one-fire-out pooling (4000 cells per source, see
 curve over 2, 5, 10, 15, 20, 30 source fires, three draws each. Source and target means stand in for
 the mixed model (statsmodels is not installed in the analysis environment).
 
-Run:  <venv-step10>/python claim4_transfer.py   (writes D:/ThermalTwin/scaleup/analysis/claim4_*)
+Run:  python claim4_transfer.py   (writes $THERMAL_TWIN_SCALEUP/analysis/claim4_*)
 """
 import json
 import math

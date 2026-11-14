@@ -6,7 +6,7 @@ the residual of LST after (a) elevation, (b) elevation, NDVI and tree cover, (c)
 eastness from the experiment DEM (30 m aspect averaged over each 500 m cell). The same for the
 afternoon Aqua LST of aqua_lst_export.py. Reported as a secondary observation.
 
-Run:  <venv-step10>/python claim5_lst_sign.py   (writes D:/ThermalTwin/scaleup/analysis/claim5_*)
+Run:  python claim5_lst_sign.py   (writes $THERMAL_TWIN_SCALEUP/analysis/claim5_*)
 """
 import json
 import sys

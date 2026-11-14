@@ -4,7 +4,7 @@ MODIS/061/MYD11A1 (Aqua, overpass about 13:30), LST_Day_1km, the pipeline's QC r
 and bits 2-3 == 0, LST > 0), mean in degrees C over the fire's predictor window, pixels with fewer than
 3 accepted days set to NaN; written on the fire's 500 m step8a grid.
   band 1  mean afternoon LST (C)      band 2  number of accepted days
-Writes D:/ThermalTwin/scaleup/analysis/aqua_lst/<fire>.tif
+Writes $THERMAL_TWIN_SCALEUP/analysis/aqua_lst/<fire>.tif
 """
 import os
 import sys

@@ -10,8 +10,8 @@ Fixed rules (plan, claim 3): COPERNICUS/S2_SR_HARMONIZED, SCL classes 0, 1, 3, 8
 pre = median NBR over the predictor window, post = median NBR over the 30 days after label_end, or over
 60 days where a pixel has fewer than 3 valid observations in 30; NBR = (B8 - B12) / (B8 + B12).
 
-Writes D:/ThermalTwin/scaleup/analysis/s2/<fire>.tif and <fire>.json (image counts).
-Run:  <venv-step10>/python s2_label_check_export.py [fire ...]
+Writes $THERMAL_TWIN_SCALEUP/analysis/s2/<fire>.tif and <fire>.json (image counts).
+Run:  python s2_label_check_export.py [fire ...]
 """
 import json
 import os
@@ -33,7 +33,8 @@ from core import regions  # noqa: E402
 
 SCALEUP = Path(os.environ["THERMAL_TWIN_SCALEUP"])
 PAPER_OUT = REPO / "outputs" / "experiments"
-OUT = SCALEUP / "analysis" / "s2"
+OFFSET_MODE = "--offset" in sys.argv[1:]          # amendment 5: offset-corrected dNBR, written to analysis/s2_offset
+OUT = SCALEUP / "analysis" / ("s2_offset" if OFFSET_MODE else "s2")
 OUT.mkdir(parents=True, exist_ok=True)
 PAPER = ["manavgat_2021", "bejis_2022", "mugla_2021", "evia_2021_extended"]
 MASK_SCL = (0, 1, 3, 8, 9, 10, 11)
@@ -75,6 +76,19 @@ def export(exp):
     p60 = col.filterDate(after, end60).map(nbr)
     post = p30.median().where(p30.count().lt(3), p60.median())
     dnbr = pre_c.median().subtract(post)
+    offset = None
+    if OFFSET_MODE:
+        # amendment 5: dNBR offset (Key and Benson 2006), the median dNBR of pixels more than 10 km from any
+        # MCD64A1 burn of the label window, subtracted before the thresholds
+        yr = int(ls[:4])
+        d0 = date.fromisoformat(ls)
+        mcd = ee.ImageCollection("MODIS/061/MCD64A1").filterDate(f"{yr}-{d0.month:02d}-01", f"{yr}-{d_le.month:02d}-28").map(
+            lambda im: im.select("BurnDate").gte(d0.timetuple().tm_yday).And(im.select("BurnDate").lte(d_le.timetuple().tm_yday))
+        ).max().unmask(0)
+        near = mcd.selfMask().focalMax(10000, "circle", "meters").unmask(0)
+        offset = dnbr.updateMask(near.Not()).reduceRegion(ee.Reducer.median(), aoi, 60, bestEffort=True,
+                                                          maxPixels=1e9).get("nbr").getInfo()
+        dnbr = dnbr.subtract(offset if offset is not None else 0)
     valid = dnbr.mask().reduce(ee.Reducer.min()).rename("valid")
     b10 = dnbr.gte(0.10).rename("b10")
     b27 = dnbr.gte(0.27).rename("b27")
@@ -125,14 +139,14 @@ def export(exp):
         out.descriptions = ("s2_burned_share_dnbr010", "s2_burned_share_dnbr027", "s2_valid_share", "firecci51_burned_share")
     info = {"experiment": exp, "predictor_window": [ps, pe], "label_window": [ls, le],
             "pre_images": pre_c.size().getInfo(), "post30_images": p30.size().getInfo(), "post60_images": p60.size().getInfo(),
-            "firecci51_images": n_cci, "grid": [h, w]}
+            "firecci51_images": n_cci, "grid": [h, w], "dnbr_offset": offset}
     (OUT / f"{exp}.json").write_text(json.dumps(info, indent=1), encoding="utf-8")
     print(exp, info, flush=True)
 
 
 def main():
     ee.Initialize(project=os.environ.get("GEE_PROJECT", "thermaltwin"))
-    fires = sys.argv[1:] or (PAPER + [x for x in regions.SCALEUP_EXPERIMENT_IDS if not x.startswith("rp")])
+    fires = [a for a in sys.argv[1:] if a != "--offset"] or (PAPER + [x for x in regions.SCALEUP_EXPERIMENT_IDS if not x.startswith("rp")])
     for exp in fires:
         if (OUT / f"{exp}.tif").exists():
             print(exp, "exists, skipped", flush=True)

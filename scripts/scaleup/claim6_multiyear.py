@@ -5,7 +5,7 @@ label from multiyear_label_export.py (burned share >= 0.5). Label (i) all years 
 2001 to the year before the fire. Everything else is analysis_official.analyse_fire unchanged.
 Aggregation check: the label-window band against the step8a label (agreement, Cohen's kappa).
 
-Run:  <venv-step10>/python claim6_multiyear.py   (writes D:/ThermalTwin/scaleup/analysis/claim6_*)
+Run:  python claim6_multiyear.py   (writes $THERMAL_TWIN_SCALEUP/analysis/claim6_*)
 """
 import json
 import sys
@@ -20,7 +20,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import analysis_official as A  # noqa: E402
 
 MY = A.OUT / "multiyear"
-LABELS = {"all_2001_2023": 0, "history_before_fire": 1}
+LABELS = {"all_2001_2023": 0, "history_before_fire": 1, "prospective_label_start_to_2023": 3}
+# band 3 is the one band of multiyear_prospective/<fire>.tif (amendment 5), stacked under the three others
+MYP = A.OUT / "multiyear_prospective"
 MIN_BURNED = 30
 
 
@@ -37,6 +39,8 @@ def main():
     for fid in primary:
         with rasterio.open(MY / f"{fid}.tif") as r:
             a = r.read()
+        with rasterio.open(MYP / f"{fid}.tif") as r:
+            a = np.concatenate([a, r.read()], axis=0)
         full = full_table(fid)
         rr, cc = full.row_500m.to_numpy(int), full.col_500m.to_numpy(int)
         pop = (full.valid_for_modeling == True) & (full.burnable_tree_shrub_grass == True)  # noqa: E712
@@ -55,7 +59,7 @@ def main():
             f = A.Fire(f"{fid}__{lab}", t, F[fid].meta["lat"], {**F[fid].meta, "label": lab})
             try:
                 row, b, _ = A.analyse_fire(f)
-            except ValueError as exc:      # e.g. too few blocks with burned cells for 5 stratified folds
+            except (ValueError, IndexError) as exc:   # too few blocks with burned cells, or a training fold with one class
                 skipped.append({"fire": fid, "label": lab, "burned": nb, "reason": str(exc)[:120]})
                 continue
             row["base_fire"], row["label"] = fid, lab

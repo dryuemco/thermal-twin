@@ -274,3 +274,14 @@ AUC: [0, 0.51) km, then [0.51 * 1.33^k, 0.51 * 1.33^(k+1)) for k = 0, 1, ... (on
 sAUC became 0.51-0.53). Everything else in 6.1 stands (support of 20 and 20, coverage >= 0.80, primary Q the
 burned cells' z, fire bootstrap). In addition, as in the calibrated AUC, the corrected value
 sAUC_c = sAUC_model + 0.5 - max(0.5, sAUC_null) is reported beside sAUC; the decision rule of 6.2 uses sAUC_c.
+
+### 6.4 Status note (14 November 2026, before the push of this branch)
+
+- The prospective multi-year label of amendment 5 has no decision rule; it was added after the results of
+  the two other labels were known and is reported descriptively only.
+- The sAUC of 6.1/6.3 was computed on the 31 fires (claim8_sauc.py) after 6.3 was committed and before this
+  push; its commit order is the only record of that sequence. The semi-synthetic experiment of 6.2
+  (claim9_synthetic.py) was started after 6.3 and is still running at the time of this push.
+- Comparisons between sAUC and cAUC are made on the same fires (those where sAUC is supported).
+- The frozen text above (sections written before amendment 4) is kept unchanged, including its references to
+  internal notes and to the earlier manuscript.

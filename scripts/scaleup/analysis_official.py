@@ -9,7 +9,7 @@ Reproduction gates (stop on failure): band AUC of the five paper regions against
 paper/labelfix_rerun/geometry/a1_band_auc.csv (k = 0) within 0.0015; raw transfer among them against
 Supplementary Table S8 within 0.002.
 
-Run:  <venv-step10>/python analysis_official.py [--fires a,b,c]   (writes D:/ThermalTwin/scaleup/analysis)
+Run:  python analysis_official.py [--fires a,b,c]   (writes $THERMAL_TWIN_SCALEUP/analysis)
 """
 import argparse
 import json
@@ -248,7 +248,7 @@ def load_fires(only=None):
 
 
 def table_s8():
-    # committed copy of Supplementary Table S8 on the main branch (the same 20 values as the IJWF package)
+    # committed copy of Supplementary Table S8 on the main branch (the same 20 values as the earlier manuscript's table)
     text = (PAPER / "supplementary.md").read_text(encoding="utf-8")
     rev = {v: k for k, v in NAME.items()}
     out = {(rev[s], rev[t]): float(v) for s, t, v in re.findall(r"(?m)^\| (\w+)→(\w+) \| (\d\.\d{3}) \[", text)}

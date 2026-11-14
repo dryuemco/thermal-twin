@@ -12,7 +12,7 @@ unburned cells with share >= 0.5 relabelled burned. Primary threshold dNBR >= 0.
 Decision rule: mean over fires of the share of the near-to-far gap closed by a variant in the 0-0.5 km
 band; above 0.5 means claim 2 is rewritten as a label-error finding.
 
-Run:  <venv-step10>/python claim3_label_check.py   (writes D:/ThermalTwin/scaleup/analysis/claim3_*)
+Run:  python claim3_label_check.py   (writes $THERMAL_TWIN_SCALEUP/analysis/claim3_*)
 """
 import json
 import sys

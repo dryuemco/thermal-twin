@@ -5,7 +5,7 @@ For each dataset the authors' split is rebuilt from their code or package, the g
 and a random forest on the authors' predictors (where the package has them) is run on the same split
 as a reproduction check. The AUC the paper reports is copied from the package files.
 
-Datasets (D:/ThermalTwin/scaleup/open_data, downloaded 14 Nov 2026, CC BY 4.0 / MIT):
+Datasets ($THERMAL_TWIN_SCALEUP/open_data, downloaded 14 Nov 2026, CC BY 4.0 / MIT):
   korea     Heo, Zenodo 10.5281/zenodo.18408642: random stratified 70/30, random_state 42 (rf_code.txt)
   alberta   Zenodo 10.5281/zenodo.23008173: temporal (train 2001-2014, test 2018-2021) and 5-fold
             spatial blocks of 100 km (2001-2014); 10 km control buffer (main protocol)
@@ -13,7 +13,7 @@ Datasets (D:/ThermalTwin/scaleup/open_data, downloaded 14 Nov 2026, CC BY 4.0 / 
             (compute_block_ids in src/c8c11_non_pso_cli.py), 70 ha points, seeds 42 ... 909
   italy, mesogeos: added when their files are unpacked
 
-Run:  <venv-step10>/python -I claim7_open_data.py   (writes D:/ThermalTwin/scaleup/analysis/claim7_*)
+Run:  python -I claim7_open_data.py   (writes $THERMAL_TWIN_SCALEUP/analysis/claim7_*)
 """
 import json
 import os

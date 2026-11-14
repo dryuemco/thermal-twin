@@ -4,7 +4,7 @@
   band 2  share burned at least once from 2001 to the year before the fire (history only)
   band 3  share burned inside the fire's own label window (check against the step8a label)
 MODIS/061/MCD64A1, BurnDate > 0, native 500 m sinusoidal product aggregated by area mean.
-Writes D:/ThermalTwin/scaleup/analysis/multiyear/<fire>.tif
+Writes $THERMAL_TWIN_SCALEUP/analysis/multiyear/<fire>.tif
 """
 import os
 import sys
@@ -48,11 +48,35 @@ def export(exp):
     print(exp, "done", flush=True)
 
 
+OUTP = S.SCALEUP / "analysis" / "multiyear_prospective"
+
+
+def export_prospective(exp):
+    """Amendment 5: share of the cell burned at least once from the first day of the label window to the end of
+    2023, so that no burn before the predictor window enters the label (one band)."""
+    e = S.regions.EXPERIMENTS[exp]
+    with rasterio.open(S.grid_path(exp)) as g:
+        t, (h, w) = g.transform, g.shape
+    proj = ee.ImageCollection(MCD).first().projection()
+    img = ever(e["label_start_date"], "2024-01-01").reproject(proj).reduceResolution(ee.Reducer.mean(), maxPixels=1024).toFloat()
+    url = img.getDownloadURL({"crs": "EPSG:4326", "crs_transform": [t.a, t.b, t.c, t.d, t.e, t.f],
+                              "dimensions": f"{w}x{h}", "format": "GEO_TIFF"})
+    OUTP.mkdir(parents=True, exist_ok=True)
+    with urllib.request.urlopen(url, timeout=1800) as resp, open(OUTP / f"{exp}.tif", "wb") as f:
+        f.write(resp.read())
+    print(exp, "prospective done", flush=True)
+
+
 def main():
-    ee.Initialize(project=os.environ.get("GEE_PROJECT", "thermaltwin"))
-    fires = sys.argv[1:] or (S.PAPER + [x for x in S.regions.SCALEUP_EXPERIMENT_IDS if not x.startswith("rp")])
+    ee.Initialize(project=os.environ["GEE_PROJECT"])
+    args = [a for a in sys.argv[1:] if a != "--prospective"]
+    prospective = "--prospective" in sys.argv[1:]
+    fires = args or (S.PAPER + [x for x in S.regions.SCALEUP_EXPERIMENT_IDS if not x.startswith("rp")])
     for exp in fires:
-        if not (OUT / f"{exp}.tif").exists():
+        if prospective:
+            if not (OUTP / f"{exp}.tif").exists():
+                export_prospective(exp)
+        elif not (OUT / f"{exp}.tif").exists():
             export(exp)
 
 

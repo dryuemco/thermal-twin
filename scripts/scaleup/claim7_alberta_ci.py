@@ -5,7 +5,7 @@ from 2000 bootstrap resamples of the test cells, the resampling the package uses
 intervals for the four published models are copied beside it. No paired comparison is possible because the
 package's test predictions carry no cell identifiers.
 
-Run:  <venv-step10>/python -I claim7_alberta_ci.py   (writes D:/ThermalTwin/scaleup/analysis/claim7_alberta_ci.json)
+Run:  python -I claim7_alberta_ci.py   (writes $THERMAL_TWIN_SCALEUP/analysis/claim7_alberta_ci.json)
 """
 import json
 import os
