@@ -131,7 +131,10 @@ def summarise(R):
     d_auc = S["agreement_b_positive"]["saucc"] - S["agreement_b_positive"]["auc"]
     d_cauc = S["agreement_b_positive"]["saucc"] - S["agreement_b_positive"]["cauc"]
     S["decision"] = {"saucc_minus_auc_pp": 100 * d_auc, "saucc_minus_cauc_pp": 100 * d_cauc,
-                     "advantage_claimed": bool(d_auc >= 0.10 and d_cauc >= -0.02)}
+                     "advantage_claimed": bool(d_auc >= 0.10 and d_cauc >= -0.02),
+                     # reporting only: distance to each threshold in percentage points (within 0.5 = borderline)
+                     "margin_to_auc_threshold_pp": 100 * d_auc - 10, "margin_to_cauc_threshold_pp": 100 * d_cauc + 2,
+                     "truth_ties": int((R.truth == "tie").sum())}
     return S
 
 
