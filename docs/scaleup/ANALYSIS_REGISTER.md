@@ -31,7 +31,7 @@ Status: confirmatory = a decision rule fixed before the result; exploratory = ev
 | Field checks (8.6) | field_checks.py | amendment 8 | before it ran | server | descriptive | no |
 | G1: focal choice against later burning, rule 9.5 | claim14_future.py | amendment 9, 21:53 UTC; 9.9 before any comparison | before its own results; all earlier results known | server | confirmatory (rule 9.5: equivalence) | no |
 | G1 future AUC difference thermal vs coordinate RF | claim14_future.py | amendment 9 (losses), 10.1 rule for G2 | before (losses), rule 10.1 after G1 | server | exploratory | yes |
-| G2: location-using models, rule 10.1 | claim15_location.py | amendment 10, 07:37:14 UTC; run 07:38:17-07:40:20 | before its own results, after G1 | server | confirmatory for 10.1 (met for coordinate-only models, not met for thermal+coord and thermal+distance) | yes |
+| G2: location-using models, rule 10.1 | claim15_location.py | amendment 10, 07:37:14 UTC; run 07:38:17-07:40:20 | before its own results, after G1 | server | confirmatory for 10.1 only for the pairs whose results were unseen: met for coord-kNN, not met for thermal+coord and thermal+distance; the coordinate RF pair was known from G1 when 10.1 was written | yes |
 | D of the distance-feature pair | claim15_followup.py | 10.5 | after | server | descriptive | no |
 | G5: leave-one-fire/year/country out, largest event removed | claim15_location.py, claim15_followup.py | 10.2; countries 10.5 | before (10.2), countries after | server | sensitivity | no |
 | G1d repeat pairs | claim15_location.py, claim15_followup.py | 10.3; shared cells 10.5 | before (10.3), tolerance after | server | descriptive | no |
