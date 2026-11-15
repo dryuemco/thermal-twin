@@ -1,0 +1,45 @@
+manavgat_2021 done
+bejis_2022 done
+mugla_2021 done
+evia_2021_extended done
+montiferru_2021_fullwindow done
+px01_2023 done
+px02_2018 done
+px03_2022 done
+px04_2017 done
+px05_2021 done
+px06_2017 done
+px07_2017 done
+rhodes_2023 done
+px09_2021 done
+px10_2022 done
+px11_2020 done
+px12_2022 done
+px13_2021 done
+px14_2022 done
+px15_2022 done
+px16_2022 done
+px17_2022 done
+px18_2021 done
+px19_2021 done
+px20_2021 done
+px21_2017 done
+px22_2021 done
+px23_2023 done
+px24_2019 done
+px25_2017 done
+px26_2021 done
+{
+ "real": {
+  "auc_null": 0.9635576921247309,
+  "kept_share": 0.5727297324273388,
+  "sauc_supported": 0.6129032258064516,
+  "burned_share": 0.10278388989229044
+ },
+ "simulated": {
+  "auc_null": 0.9258836326675206,
+  "kept_share": 0.8165811756087301,
+  "sauc_supported": 0.982078853046595,
+  "burned_share": 0.10278388989229048
+ }
+}
