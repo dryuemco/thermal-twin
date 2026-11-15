@@ -1,0 +1,23 @@
+{
+ "auc_all": {
+  "mean": 0.5218681823413297,
+  "n": 21
+ },
+ "auc_to2022": {
+  "mean": 0.4736260656275321,
+  "n": 14
+ },
+ "auc_from2023": {
+  "mean": 0.5063545227363047,
+  "n": 19
+ },
+ "auc_two_year": {
+  "mean": 0.5106401629371882,
+  "n": 18
+ },
+ "transitions_mean_auc": 0.568334520533757,
+ "transitions_n": 273,
+ "honesty_other_sites_minus_realised": 0.044854958013468206,
+ "honesty_own_past_minus_realised": 0.048538635124811984,
+ "honesty_n": 21
+}
