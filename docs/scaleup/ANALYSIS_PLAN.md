@@ -570,3 +570,17 @@ whose later fire has no analysis table is reported as missing. Descriptive only.
 The calibrated scenarios of 8.5 reached the real null AUC only in part (0.926 against 0.964) and kept far more
 burned cells in matching (0.82 against 0.57). The 13 fires without enough later burning are mostly 2021-2023
 fires, so G1 and G2 lean on 2017-2021 fires.
+
+### 10.5 Follow-ups (15 November 2026, after the claim15 results)
+
+- claim15_location.py ran from 07:38:17 (log creation) to 07:40:20 UTC (summary written), after the push of
+  its script (7163c8b, 07:38:11 local commit time); amendment 10 reached the server at 07:37:14.
+- Countries: the regions file has no country for the 26 added fires, so the leave-one-country-out check of
+  10.2 had only three groups. Countries are assigned from the centroid of each fire's burned cells with the
+  LSIB 2017 boundaries in Earth Engine (selection/fire_countries.json) and the check is rerun
+  (claim15_followup.py); everything else of 10.2 is unchanged.
+- G1d shared cells: the lon/lat match rounded to five decimals counted no shared cell because the rectangles
+  of the two fires of a pair have different grid origins. Shared cells are recounted as cells of the later
+  fire whose centre lies within half a cell (0.0023 degree) of a cell centre of the earlier fire.
+- The D of the distance-feature pair (L pooled AUC - L cAUC = +0.018) has no declared rule; it is reported
+  with its fire-bootstrap interval as a descriptive observation.
