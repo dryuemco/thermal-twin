@@ -1,0 +1,326 @@
+mugla_2021 evaluated
+px01_2023 evaluated
+px03_2022 evaluated
+px04_2017 evaluated
+px05_2021 evaluated
+px06_2017 evaluated
+px07_2017 evaluated
+px09_2021 evaluated
+px10_2022 evaluated
+px11_2020 evaluated
+px13_2021 evaluated
+px15_2022 evaluated
+px16_2022 evaluated
+px17_2022 evaluated
+px18_2021 evaluated
+px22_2021 evaluated
+px23_2023 evaluated
+px25_2017 evaluated
+{
+ "eligible": 18,
+ "secondary_fires": [
+  "px01_2023",
+  "px03_2022",
+  "px10_2022",
+  "px11_2020",
+  "px23_2023"
+ ],
+ "not_eligible": [
+  {
+   "fire": "manavgat_2021",
+   "late_burned": 10
+  },
+  {
+   "fire": "bejis_2022",
+   "late_burned": 25
+  },
+  {
+   "fire": "evia_2021_extended",
+   "late_burned": 0
+  },
+  {
+   "fire": "montiferru_2021_fullwindow",
+   "late_burned": 0
+  },
+  {
+   "fire": "px02_2018",
+   "late_burned": 11
+  },
+  {
+   "fire": "rhodes_2023",
+   "late_burned": 0
+  },
+  {
+   "fire": "px12_2022",
+   "late_burned": 0
+  },
+  {
+   "fire": "px14_2022",
+   "late_burned": 0
+  },
+  {
+   "fire": "px19_2021",
+   "late_burned": 0
+  },
+  {
+   "fire": "px20_2021",
+   "late_burned": 4
+  },
+  {
+   "fire": "px21_2017",
+   "late_burned": 2
+  },
+  {
+   "fire": "px24_2019",
+   "late_burned": 9
+  },
+  {
+   "fire": "px26_2021",
+   "late_burned": 24
+  }
+ ],
+ "rule_9_5": {
+  "primary": {
+   "mean": -0.00020062489962035154,
+   "ci95": [
+    -0.0006018746988610546,
+    0.0
+   ],
+   "ci90": [
+    -0.0006018746988610546,
+    0.0
+   ],
+   "p_gt0": 1.0,
+   "fires": 18,
+   "clusters": 18,
+   "p_holm": 1.0,
+   "verdict": "equivalence",
+   "same_choice": 17
+  },
+  "secondary": {
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "ci90": [
+    0.0,
+    0.0
+   ],
+   "p_gt0": 1.0,
+   "fires": 5,
+   "clusters": 5,
+   "p_holm": 1.0,
+   "verdict": "equivalence",
+   "same_choice": 5
+  }
+ },
+ "rule_10_1": {
+  "coord_rf": {
+   "primary": {
+    "mean": 0.0690933051028646,
+    "ci95": [
+     0.003077339488423506,
+     0.13484754336713115
+    ],
+    "ci90": [
+     0.013005631033888052,
+     0.1251426329354067
+    ],
+    "p_gt0": 0.0201,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 17,
+    "saucc_chooses_location": 14,
+    "thermal_better": 12,
+    "loss": {
+     "auc": 0.0940905079295456,
+     "cauc": 0.09429113282916594,
+     "saucc": 0.11590762348260873
+    },
+    "p_holm": 0.0201,
+    "transfer_failure": true
+   },
+   "secondary": {
+    "mean": 0.08257846648897346,
+    "ci95": [
+     0.03574978371830826,
+     0.12990516257928203
+    ],
+    "ci90": [
+     0.03871569017494451,
+     0.12462159315714061
+    ],
+    "p_gt0": 0.0001,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 5,
+    "saucc_chooses_location": 5,
+    "thermal_better": 4,
+    "loss": {
+     "auc": 0.08265077249629074,
+     "cauc": 0.08265077249629074,
+     "saucc": 0.08265077249629074
+    },
+    "p_holm": 0.0002,
+    "transfer_failure": true
+   }
+  },
+  "coord_knn": {
+   "primary": {
+    "mean": 0.07134405433590266,
+    "ci95": [
+     0.01548342067246918,
+     0.1258786714065631
+    ],
+    "ci90": [
+     0.024321891341381206,
+     0.11743612623103161
+    ],
+    "p_gt0": 0.0074,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 17,
+    "saucc_chooses_location": 14,
+    "thermal_better": 14,
+    "loss": {
+     "auc": 0.09015867795383156,
+     "cauc": 0.09461632784160347,
+     "saucc": 0.10562952906897573
+    },
+    "p_holm": 0.0148,
+    "transfer_failure": true
+   },
+   "secondary": {
+    "mean": 0.07379905409785045,
+    "ci95": [
+     -0.006751099257218229,
+     0.15215312027753464
+    ],
+    "ci90": [
+     0.0010768170178221959,
+     0.146399053904545
+    ],
+    "p_gt0": 0.047,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 5,
+    "saucc_chooses_location": 5,
+    "thermal_better": 3,
+    "loss": {
+     "auc": 0.0858366351078756,
+     "cauc": 0.0858366351078756,
+     "saucc": 0.0858366351078756
+    },
+    "p_holm": 0.047,
+    "transfer_failure": false
+   }
+  },
+  "thermal_coord": {
+   "primary": {
+    "mean": 0.012681374674987755,
+    "ci95": [
+     -0.03726446455167756,
+     0.06017043714812035
+    ],
+    "ci90": [
+     -0.028490582714212603,
+     0.052925320993074954
+    ],
+    "p_gt0": 0.2944,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 16,
+    "saucc_chooses_location": 14,
+    "thermal_better": 10,
+    "loss": {
+     "auc": 0.05225139994565439,
+     "cauc": 0.05351800083009274,
+     "saucc": 0.06311674040559997
+    },
+    "p_holm": 0.5888,
+    "transfer_failure": false
+   },
+   "secondary": {
+    "mean": -0.003578689991072026,
+    "ci95": [
+     -0.11636126446780051,
+     0.08771428575059712
+    ],
+    "ci90": [
+     -0.09487166573274117,
+     0.07775123213334663
+    ],
+    "p_gt0": 0.5197,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 5,
+    "saucc_chooses_location": 5,
+    "thermal_better": 3,
+    "loss": {
+     "auc": 0.04535550368379526,
+     "cauc": 0.04535550368379526,
+     "saucc": 0.04535550368379526
+    },
+    "p_holm": 0.5888,
+    "transfer_failure": false
+   }
+  },
+  "thermal_dist": {
+   "primary": {
+    "mean": 0.03141434013226768,
+    "ci95": [
+     -0.0002019449006884637,
+     0.06737601772425515
+    ],
+    "ci90": [
+     0.0044834033700375175,
+     0.061556212305191045
+    ],
+    "p_gt0": 0.0254,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 6,
+    "saucc_chooses_location": 7,
+    "thermal_better": 11,
+    "loss": {
+     "auc": 0.043686555489028556,
+     "cauc": 0.026030939153599806,
+     "saucc": 0.03808079874516496
+    },
+    "p_holm": 0.0254,
+    "transfer_failure": false
+   },
+   "secondary": {
+    "mean": 0.027368559384420243,
+    "ci95": [
+     0.007452368320543745,
+     0.04594562573495509
+    ],
+    "ci90": [
+     0.009614181139251343,
+     0.04456510972199283
+    ],
+    "p_gt0": 0.0061,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 2,
+    "saucc_chooses_location": 2,
+    "thermal_better": 4,
+    "loss": {
+     "auc": 0.028328553410217627,
+     "cauc": 0.01129234442373328,
+     "saucc": 0.01129234442373328
+    },
+    "p_holm": 0.0122,
+    "transfer_failure": true
+   }
+  

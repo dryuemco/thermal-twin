@@ -694,6 +694,6 @@ eta_t = a * E_t + c * P + b * S_t - f * D_t + noise_t,
   with mean <= 0) below 0.025, Holm-adjusted across the primary and secondary sets; equivalence of 9.5 keeps the
   90% interval within +-0.01 (unadjusted). Bootstrap over geographic clusters as in 9.5, 10,000 resamples, seed 42.
 - The count condition of 10.1 ("at least 12 of 18 fires") is scaled to a set of n fires as ceil(12 / 18 * n).
-- Order: (1) the focal out-of-fold scores of all candidates on all 30 primary sites are recomputed with the
+- Order: (1) the focal out-of-fold scores of all candidates on all 31 primary sites are recomputed with the
   seeds and folds of G1/G2, written with a sha256 manifest and pushed; (2) only then is the 2024-2026 label
   exported; (3) evaluation checks every score file against the manifest.
