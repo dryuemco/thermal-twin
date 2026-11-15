@@ -670,3 +670,20 @@ eta_t = a * E_t + c * P + b * S_t - f * D_t + noise_t,
   the primary set that were excluded from G1 (no later-burning score of them was ever seen); listed by the script.
 - Rules 9.5 (D between the losses of pooled AUC and cAUC) and 10.1 (transfer failure) unchanged; Holm correction
   across the two sets for each rule.
+
+### 11.2a Correction to 11.2 and 11.3 (15 November 2026, before 11.2 or 11.3 is run, after label counts only)
+
+- Leak: in 11.2 a past year s could be evaluated on years s + 1 and s + 2 that reach into the focal year or into
+  2024-2026 (the labels of G1 and of 11.4). Now both the training year and every evaluation year must lie
+  entirely before the focal year (calendar years up to focal year - 1); if s + 2 does not, only s + 1 is used; if
+  neither does, the year is not used. The same rule applies to the simulated past years of 11.3.
+- Definition made explicit: a target year counts toward the support of 11.2 only if it has at least 30 burned
+  evaluation cells (an AUC can be estimated). This definition was written after the counts below were seen.
+- Recount (label counts only, label_counts_11a.json): with the cut-off, the 6 sites of 11.0 keep at least 3
+  target years, but with the 30-cell definition only 2 sites are supported (px03_2022: 2015-2019, px10_2022:
+  2016, 2017, 2019). The threshold (3 years, 100 cells) is not changed. 11.2 on real data is therefore a
+  descriptive demonstration on 2 sites; the evidence for the method rests on 11.3 and 11.4, and this is stated
+  as a limitation.
+- No regional pooling of past events across sites is added: the question of 11.1 is selection by the site's own
+  history, the calendar cut-off limits pooled sites in the same way, and a pooled selector would be a different
+  method that has not been declared.

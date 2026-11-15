@@ -1,0 +1,251 @@
+{
+ "manavgat_2021": {
+  "focal_year": 2021,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "bejis_2022": {
+  "focal_year": 2022,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "mugla_2021": {
+  "focal_year": 2021,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "evia_2021_extended": {
+  "focal_year": 2021,
+  "target_years": [
+   2015,
+   2016,
+   2020
+  ],
+  "target_burned_cells_approx": 64,
+  "supported": false
+ },
+ "montiferru_2021_fullwindow": {
+  "focal_year": 2021,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px01_2023": {
+  "focal_year": 2023,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px02_2018": {
+  "focal_year": 2018,
+  "target_years": [
+   2017
+  ],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px03_2022": {
+  "focal_year": 2022,
+  "target_years": [
+   2014,
+   2015,
+   2016,
+   2017,
+   2018,
+   2019
+  ],
+  "target_burned_cells_approx": 6043,
+  "supported": true
+ },
+ "px04_2017": {
+  "focal_year": 2017,
+  "target_years": [
+   2016
+  ],
+  "target_burned_cells_approx": 232,
+  "supported": false
+ },
+ "px05_2021": {
+  "focal_year": 2021,
+  "target_years": [
+   2020
+  ],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px06_2017": {
+  "focal_year": 2017,
+  "target_years": [
+   2014,
+   2015,
+   2016
+  ],
+  "target_burned_cells_approx": 1778,
+  "supported": true
+ },
+ "px07_2017": {
+  "focal_year": 2017,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "rhodes_2023": {
+  "focal_year": 2023,
+  "target_years": [
+   2014,
+   2015
+  ],
+  "target_burned_cells_approx": 19,
+  "supported": false
+ },
+ "px09_2021": {
+  "focal_year": 2021,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px10_2022": {
+  "focal_year": 2022,
+  "target_years": [
+   2016,
+   2017,
+   2018,
+   2019,
+   2021
+  ],
+  "target_burned_cells_approx": 1993,
+  "supported": true
+ },
+ "px11_2020": {
+  "focal_year": 2020,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px12_2022": {
+  "focal_year": 2022,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px13_2021": {
+  "focal_year": 2021,
+  "target_years": [
+   2016,
+   2017,
+   2018,
+   2019
+  ],
+  "target_burned_cells_approx": 583,
+  "supported": true
+ },
+ "px14_2022": {
+  "focal_year": 2022,
+  "target_years": [
+   2021
+  ],
+  "target_burned_cells_approx": 8,
+  "supported": false
+ },
+ "px15_2022": {
+  "focal_year": 2022,
+  "target_years": [
+   2019,
+   2020
+  ],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px16_2022": {
+  "focal_year": 2022,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px17_2022": {
+  "focal_year": 2022,
+  "target_years": [
+   2018,
+   2019,
+   2021
+  ],
+  "target_burned_cells_approx": 508,
+  "supported": true
+ },
+ "px18_2021": {
+  "focal_year": 2021,
+  "target_years": [
+   2018,
+   2019
+  ],
+  "target_burned_cells_approx": 95,
+  "supported": false
+ },
+ "px19_2021": {
+  "focal_year": 2021,
+  "target_years": [
+   2018,
+   2019
+  ],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px20_2021": {
+  "focal_year": 2021,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px21_2017": {
+  "focal_year": 2017,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px22_2021": {
+  "focal_year": 2021,
+  "target_years": [
+   2018,
+   2019
+  ],
+  "target_burned_cells_approx": 5,
+  "supported": false
+ },
+ "px23_2023": {
+  "focal_year": 2023,
+  "target_years": [
+   2014,
+   2015,
+   2016,
+   2017,
+   2021,
+   2022
+  ],
+  "target_burned_cells_approx": 243,
+  "supported": true
+ },
+ "px24_2019": {
+  "focal_year": 2019,
+  "target_years": [
+   2017,
+   2018
+  ],
+  "target_burned_cells_approx": 4842,
+  "supported": false
+ },
+ "px25_2017": {
+  "focal_year": 2017,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ },
+ "px26_2021": {
+  "focal_year": 2021,
+  "target_years": [],
+  "target_burned_cells_approx": 0,
+  "supported": false
+ }
+}
