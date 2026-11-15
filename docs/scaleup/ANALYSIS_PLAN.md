@@ -584,3 +584,89 @@ fires, so G1 and G2 lean on 2017-2021 fires.
   fire whose centre lies within half a cell (0.0023 degree) of a cell centre of the earlier fire.
 - The D of the distance-feature pair (L pooled AUC - L cAUC = +0.018) has no declared rule; it is reported
   with its fire-bootstrap interval as a descriptive observation.
+
+## Amendment 11 (15 November 2026): forward selection across past events, a sequence simulation, and a
+## replication of G1/G2 on burning from 2024 to September 2026
+
+Declared before any computation or export that scores a model against a label named here. Rules, settings and
+seeds below are fixed now and are not changed afterwards.
+
+### 11.0 Seen before this amendment
+
+All results of amendments 1-10. Label counts only (label_counts_11.json, commit 39b35ff): for each primary fire,
+the burned cells outside the focal scar in each year 2013-2026 (MCD64A1 v061, last published image
+2026-09-01). From them: 6 sites have at least 3 past years with at least 100 such cells (px06_2017, px13_2021,
+px03_2022, px10_2022, px17_2022, px23_2023); 18 sites have at least 30 such cells in 2024-2026. The
+eligibility of 11.4 rests on these counts. No score has been compared with any 2024-2026 label. The support
+threshold of 11.2 (3 years, 100 cells) is the one proposed before the counts and is not changed.
+
+### 11.1 Question and candidates
+
+For a model family trained on one focal fire, can the site's own burning history choose between an
+environmental and a location-using model better than within-fire AUC? Primary candidates: thermal RF against
+thermal RF plus the two cell-centre coordinates (as in 10.1). The coordinate-only RF is a secondary stress test.
+
+### 11.2 Forward selection (the proposed selector)
+
+- Past events: every calendar year from 2013 to the year before the focal predictor window with at least 100
+  burned cells outside the focal scar on the focal grid. For each such year s, predictors are produced from its
+  own pre-event window (58 days ending the day before the first burn date of the year's largest cluster, as in
+  the fire selection rule), the label is the year's burned share >= 0.5, the population is the focal model
+  population minus the focal scar, and the candidates are trained on year s (all cells) and scored on the burns
+  of years s + 1 and s + 2 (cells burned in year s removed from that evaluation).
+- Support: at least 3 distinct target years and in total at least 100 burned and 100 unburned evaluation cells.
+  Replicates of the same target year are averaged within the year first. Years are weighted equally.
+- Rule: the location-using model is selected only if the lower end of the 95% interval of the mean paired AUC
+  difference (location minus environmental), from 10,000 bootstrap resamples of target years (seed 42), is above
+  0.01; otherwise the environmental model is selected. Sites without support default to the environmental model,
+  and the share of sites with support is reported. The focal-fire AUC is not used in this selection.
+- After selection, every candidate is trained on all focal cells with the same settings; selections and final
+  maps are frozen before any 2024-2026 label is exported.
+- Comparators, fixed: within-fire pooled AUC, within-fire cAUC, "always environmental", "always location"; the
+  last two are truth-informed references in the simulation and fixed rules in real data.
+- Secondary competitor: today's focal map scored against burns at least 5 years old at the focal window
+  (2013 to focal year - 5), cells burned in the 5 years before the focal window removed, focal scar removed,
+  same thresholds. A 10-year limit and a symmetric 5 km buffer around the focal scar are sensitivities only.
+- On real data, forward selection is run on the 6 supported sites and reported descriptively (11.0).
+
+### 11.3 Sequence simulation (the evidence for the method)
+
+On the 31 landscapes (population cells and real predictors), years 2013-2026 are simulated:
+eta_t = a * E_t + c * P + b * S_t - f * D_t + noise_t,
+- E_t: the environmental index of 6.2 computed from the observed predictors at t; NDVI and LST observed at t are
+  shifted by -0.5 and +0.5 standard deviations times D_t (post-fire effect, only from burns before t);
+- P: persistent field (L = 10 km, fixed per landscape and draw); S_t: event field (L calibrated, new each year);
+- D_t = sum over earlier years u of B_u * exp(-(t - u) / 8) (fuel deficit recovering with an 8-year scale);
+- burned share per year 0.03 for past and future years and the fire's real share in the focal year (2017-2023 as
+  for the real fire); the focal label is drawn in the real focal year.
+- Regimes (8): c in {0, 1} (persistent location signal), f in {0, 2} (fuel depletion), relation stable or
+  drifting (the four weights of E rotate linearly so that by 2026 each has moved by 0.5 of its 2013 value
+  toward the mean weight).
+- a = 1; b and L of S_t calibrated once, before the main run, on the focal year with seeds 80,000,000 + ...,
+  over b in {2, 4, 8, 16} and L in {5, 10, 20, 40} km, to the real null AUC 0.964, the median largest-event
+  share 0.59 of later burning and the real matching support (kept share 0.57); the pair minimising the sum of
+  |difference| / (0.05, 0.10, 0.10) is used for all regimes.
+- Draws: 3 per landscape and regime, seed 70,000,000 + 1000 * landscape index + 100 * regime index + draw.
+- Models: RF with 100 trees, min_samples_leaf 3, balanced (cost), candidates as in 11.1; within-fire measures
+  under the 5 km block design; forward selection as in 11.2 on the simulated past years.
+- Oracle: for each candidate trained on all focal cells, the expected AUC over 50 independent future
+  trajectories of 2024-2026 (same regime and fields, new S_t and noise); loss = best expected AUC minus that of
+  the selected candidate.
+- Success rule (fixed now): the paired loss reduction of forward selection over the pooled AUC and over cAUC,
+  each averaged over landscapes, regimes and draws, must both be positive by one-sided tests with Holm
+  correction at 0.05 (bootstrap over landscapes, 10,000 resamples, seed 42; landscapes whose rectangles
+  intersect resampled together), and both mean reductions must be at least 0.01 AUC. Reported in full: loss,
+  preference, balanced accuracy, kappa, the fixed references, and per regime. If the rule is not met, or the
+  real data are inconclusive, the paper does not say that model selection is solved.
+
+### 11.4 Replication of G1/G2 on 2024-2026 burning
+
+- Label: a cell is later-burned if at least half of its area has a BurnDate from 2024-01-01 to the last published
+  month (2026-09); the QA rule of 9.9 over the same months; population = focal model population minus the focal
+  scar minus unmapped cells. Cells burned in 2017-2023 stay in the population and are counted separately.
+- Scores: the frozen focal out-of-fold scores of G1 and G2 (thermal, coordinate RF, coord-kNN, thermal+coord,
+  thermal+distance), unchanged.
+- Primary set: all sites with at least 30 later-burned and 30 later-unburned cells. Secondary set: the sites of
+  the primary set that were excluded from G1 (no later-burning score of them was ever seen); listed by the script.
+- Rules 9.5 (D between the losses of pooled AUC and cAUC) and 10.1 (transfer failure) unchanged; Holm correction
+  across the two sets for each rule.
