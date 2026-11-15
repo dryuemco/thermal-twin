@@ -1,0 +1,186 @@
+{
+ "pooled_z": {
+  "all_mean": 0.5677324315412476,
+  "all_n": 273,
+  "common_mean": 0.5726041598947411,
+  "common_n": 253
+ },
+ "pooled_abs_lst": {
+  "all_mean": 0.5724403031151849,
+  "all_n": 273,
+  "common_mean": 0.5753723414973363,
+  "common_n": 253
+ },
+ "pooled_site_z": {
+  "all_mean": 0.5636318629869754,
+  "all_n": 273,
+  "common_mean": 0.5668728681680417,
+  "common_n": 253
+ },
+ "pooled_monthly": {
+  "all_mean": 0.5791208389211006,
+  "all_n": 273,
+  "common_mean": 0.5835250073584498,
+  "common_n": 253
+ },
+ "pooled_aqua": {
+  "all_mean": 0.5698823797455433,
+  "all_n": 273,
+  "common_mean": 0.5738970258140671,
+  "common_n": 253
+ },
+ "local": {
+  "all_mean": 0.642339164832085,
+  "all_n": 253,
+  "common_mean": 0.642339164832085,
+  "common_n": 253
+ },
+ "blend_rank": {
+  "all_mean": 0.6381748650294109,
+  "all_n": 253,
+  "common_mean": 0.6381748650294109,
+  "common_n": 253
+ },
+ "blend_w": {
+  "all_mean": 0.646930771235834,
+  "all_n": 245,
+  "common_mean": 0.646930771235834,
+  "common_n": 245
+ },
+ "density_h1_tauinf": {
+  "all_mean": 0.6339855110397846,
+  "all_n": 273,
+  "common_mean": 0.6393826898079771,
+  "common_n": 253
+ },
+ "density_h1_tau8": {
+  "all_mean": 0.6275327180585989,
+  "all_n": 273,
+  "common_mean": 0.6324037530983538,
+  "common_n": 253
+ },
+ "density_h2_tauinf": {
+  "all_mean": 0.6405881410022208,
+  "all_n": 273,
+  "common_mean": 0.643551932097143,
+  "common_n": 253
+ },
+ "density_h2_tau8": {
+  "all_mean": 0.6342274564435467,
+  "all_n": 273,
+  "common_mean": 0.6366096873912227,
+  "common_n": 253
+ },
+ "density_h5_tauinf": {
+  "all_mean": 0.6397310659837023,
+  "all_n": 273,
+  "common_mean": 0.6398076166060748,
+  "common_n": 253
+ },
+ "density_h5_tau8": {
+  "all_mean": 0.6318571171513002,
+  "all_n": 273,
+  "common_mean": 0.6309696066822386,
+  "common_n": 253
+ },
+ "density_h10_tauinf": {
+  "all_mean": 0.6259959163737467,
+  "all_n": 273,
+  "common_mean": 0.6258299231631014,
+  "common_n": 253
+ },
+ "density_h10_tau8": {
+  "all_mean": 0.6189346814608067,
+  "all_n": 273,
+  "common_mean": 0.617086305135009,
+  "common_n": 253
+ },
+ "selected_pooled_variant": "pooled_monthly",
+ "selected_density": "density_h2_tauinf",
+ "blend_w_by_year": [
+  {
+   "T": 2005,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2006,
+   "w_local": 0.4
+  },
+  {
+   "T": 2007,
+   "w_local": 0.4
+  },
+  {
+   "T": 2008,
+   "w_local": 0.6000000000000001
+  },
+  {
+   "T": 2009,
+   "w_local": 0.9
+  },
+  {
+   "T": 2010,
+   "w_local": 0.8
+  },
+  {
+   "T": 2011,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2012,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2013,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2014,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2015,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2016,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2017,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2018,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2019,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2020,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2021,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2022,
+   "w_local": 0.7000000000000001
+  },
+  {
+   "T": 2023,
+   "w_local": 0.8
+  },
+  {
+   "T": 2024,
+   "w_local": 0.8
+  },
+  {
+   "T": 2025,
+   "w_local": 0.8
+  }
+ ]
+}
