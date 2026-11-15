@@ -1,0 +1,190 @@
+bejis_2022 {'coord_rf_fut': 0.461, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.383, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.431, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.483, 'coord_knn_choice_auc': 'c'}
+mugla_2021 {'coord_rf_fut': 0.503, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.708, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.622, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.482, 'coord_knn_choice_auc': 'c'}
+px02_2018 {'coord_rf_fut': 0.566, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.528, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.597, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.479, 'coord_knn_choice_auc': 'c'}
+px04_2017 {'coord_rf_fut': 0.43, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.543, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.428, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.474, 'coord_knn_choice_auc': 'c'}
+px05_2021 {'coord_rf_fut': 0.492, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.674, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.514, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.471, 'coord_knn_choice_auc': 'c'}
+px06_2017 {'coord_rf_fut': 0.459, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.51, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.48, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.472, 'coord_knn_choice_auc': 'c'}
+px07_2017 {'coord_rf_fut': 0.371, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.293, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.399, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.448, 'coord_knn_choice_auc': 'c'}
+px09_2021 {'coord_rf_fut': 0.411, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.726, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.697, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.462, 'coord_knn_choice_auc': 'c'}
+px13_2021 {'coord_rf_fut': 0.652, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.666, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.743, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.659, 'coord_knn_choice_auc': 'c'}
+px15_2022 {'coord_rf_fut': 0.424, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.625, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.521, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.471, 'coord_knn_choice_auc': 'c'}
+px16_2022 {'coord_rf_fut': 0.436, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.489, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.574, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.471, 'coord_knn_choice_auc': 'c'}
+px17_2022 {'coord_rf_fut': 0.302, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.58, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.612, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.437, 'coord_knn_choice_auc': 'c'}
+px18_2021 {'coord_rf_fut': 0.521, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.586, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.617, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.572, 'coord_knn_choice_auc': 'c'}
+px21_2017 {'coord_rf_fut': 0.385, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.362, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.427, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.458, 'coord_knn_choice_auc': 'c'}
+px22_2021 {'coord_rf_fut': 0.572, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.582, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.521, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.509, 'coord_knn_choice_auc': 'c'}
+px24_2019 {'coord_rf_fut': 0.457, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.422, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.545, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.494, 'coord_knn_choice_auc': 'c'}
+px25_2017 {'coord_rf_fut': 0.534, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.646, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.614, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.515, 'coord_knn_choice_auc': 'c'}
+px26_2021 {'coord_rf_fut': 0.89, 'coord_rf_choice_auc': 'c', 'thermal_coord_fut': 0.949, 'thermal_coord_choice_auc': 'c', 'thermal_dist_fut': 0.921, 'thermal_dist_choice_auc': 'c', 'coord_knn_fut': 0.739, 'coord_knn_choice_auc': 'c'}
+{
+ "coord_rf": {
+  "future_diff_thermal_minus_cand": {
+   "mean": 0.11626788379349705,
+   "lo": 0.04382192013879875,
+   "hi": 0.20419335227634453
+  },
+  "thermal_better": "14 of 18",
+  "chooses_location_model_auc": "18 of 18",
+  "chooses_location_model_cauc": "17 of 18",
+  "chooses_location_model_saucc": "11 of 18",
+  "loss_auc": 0.12727645995122933,
+  "loss_cauc": 0.1267131595933788,
+  "loss_saucc": 0.13201123105130672,
+  "relative_loss_auc": 0.920392137374444,
+  "relative_loss_cauc": 0.9163186643964519,
+  "relative_loss_saucc": 0.9546313525007042,
+  "transfer_failure_rule_10_1": true
+ },
+ "thermal_coord": {
+  "future_diff_thermal_minus_cand": {
+   "mean": 0.03814740503614697,
+   "lo": -0.019921149285972304,
+   "hi": 0.09610071846876381
+  },
+  "thermal_better": "9 of 18",
+  "chooses_location_model_auc": "18 of 18",
+  "chooses_location_model_cauc": "16 of 18",
+  "chooses_location_model_saucc": "11 of 18",
+  "loss_auc": 0.07208136470627874,
+  "loss_cauc": 0.07066735681477199,
+  "loss_saucc": 0.08853484562177151,
+  "relative_loss_auc": 0.6799145796163556,
+  "relative_loss_cauc": 0.6665768107624277,
+  "relative_loss_saucc": 0.8351136606197227,
+  "transfer_failure_rule_10_1": false
+ },
+ "thermal_dist": {
+  "future_diff_thermal_minus_cand": {
+   "mean": 0.03869893851532676,
+   "lo": -0.009969192538837102,
+   "hi": 0.09155587439536901
+  },
+  "thermal_better": "8 of 18",
+  "chooses_location_model_auc": "18 of 18",
+  "chooses_location_model_cauc": "7 of 18",
+  "chooses_location_model_saucc": "6 of 18",
+  "loss_auc": 0.060498861521149,
+  "loss_cauc": 0.042457214854112614,
+  "loss_saucc": 0.04772044391388997,
+  "relative_loss_auc": 0.735112454805722,
+  "relative_loss_cauc": 0.5158911531700494,
+  "relative_loss_saucc": 0.5798438480977913,
+  "transfer_failure_rule_10_1": false
+ },
+ "coord_knn": {
+  "future_diff_thermal_minus_cand": {
+   "mean": 0.10355958849275244,
+   "lo": 0.03695946314275643,
+   "hi": 0.1790707911263603
+  },
+  "thermal_better": "13 of 18",
+  "chooses_location_model_auc": "18 of 18",
+  "chooses_location_model_cauc": "17 of 18",
+  "chooses_location_model_saucc": "11 of 18",
+  "loss_auc": 0.118050564115395,
+  "loss_cauc": 0.12175545387672942,
+  "loss_saucc": 0.1293653030398007,
+  "relative_loss_auc": 0.8906684225090237,
+  "relative_loss_cauc": 0.9186210912999324,
+  "relative_loss_saucc": 0.976035915196741,
+  "transfer_failure_rule_10_1": true
+ },
+ "g1d": [
+  {
+   "earlier": "rp01_2020",
+   "later": "px17_2022",
+   "dates": [
+    "2020-07-25",
+    "2022-08-14"
+   ],
+   "shared_cells": 0,
+   "later_burned": 932,
+   "later_cells": 11733,
+   "later_auc_thermal": 0.7126835736478064,
+   "later_auc_coord": 0.556637380182172,
+   "earlier_focal_auc_thermal": 0.8257160260591998,
+   "earlier_focal_auc_coord": 0.8350434300364011,
+   "earlier_choice_pooled_auc": "coord"
+  },
+  {
+   "earlier": "px16_2022",
+   "later": "rp02_2023",
+   "dates": [
+    "2022-07-08",
+    "2023-05-17"
+   ],
+   "shared_cells": 0,
+   "later_burned": 603,
+   "later_cells": 10107,
+   "later_auc_thermal": 0.44071624202221216,
+   "later_auc_coord": 0.47785143097643096,
+   "earlier_focal_auc_thermal": 0.8474827780998362,
+   "earlier_focal_auc_coord": 0.9880184553605809,
+   "earlier_choice_pooled_auc": "coord"
+  },
+  {
+   "earlier": "evia_2021_extended",
+   "later": "rp03_2023",
+   "dates": [
+    "2021-08-03",
+    "2023-08-17"
+   ],
+   "shared_cells": 0,
+   "later_burned": 557,
+   "later_cells": 7001,
+   "later_auc_thermal": 0.4698021178455569,
+   "later_auc_coord": 0.5,
+   "earlier_focal_auc_thermal": 0.8641886346702445,
+   "earlier_focal_auc_coord": 0.9933566084172808,
+   "earlier_choice_pooled_auc": "coord"
+  }
+ ]
+}
+{
+ "coord_rf": {
+  "leave_one_country_out": {
+   "Spain": 0.11987942654276262,
+   "Turkey": 0.11680097871969636,
+   "not assigned (scale-up)": 0.08103846355204558
+  },
+  "leave_one_year_out": {
+   "2022": 0.07757474908051498,
+   "2021": 0.14400987935646894,
+   "2018": 0.11668032012912267,
+   "2017": 0.13167866513230356,
+   "2019": 0.11798496377461104
+  },
+  "leave_one_fire_out_min_max": [
+   0.08957077068609536,
+   0.12688895780409815
+  ],
+  "largest_event_removed": {
+   "fires": 14,
+   "mean_diff": 0.07903311765103006,
+   "thermal_better": 12
+  }
+ },
+ "thermal_coord": {
+  "leave_one_country_out": {
+   "Spain": 0.032578238412626095,
+   "Turkey": 0.04611093266358141,
+   "not assigned (scale-up)": 0.01779533650288173
+  },
+  "leave_one_year_out": {
+   "2022": 0.009600353751061814,
+   "2021": 0.0934383125659871,
+   "2018": 0.03172334256039627,
+   "2017": 0.03693645895284263,
+   "2019": 0.033230351879303996
+  },
+  "leave_one_fire_out_min_max": [
+   0.02321931351309231,
+   0.054526280703470514
+  ],
+  "largest_event_removed": {
+   "fires": 14,
+   "mean_diff": 0.04192666313928204,
+   "thermal_better": 10
+  }
+ }
+}
