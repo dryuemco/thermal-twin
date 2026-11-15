@@ -1,0 +1,68 @@
+{
+ "transitions_all": {
+  "n_common": 219,
+  "tma_cell": 0.6641905765769213,
+  "tma": 0.6562727596394663,
+  "f_only": 0.6550440232125594,
+  "density": 0.659027553151399,
+  "pooled_density_rank": 0.6044247947852817,
+  "standard_spatial": 0.6206845403334338,
+  "coord_dist_forest": 0.6212683755065981
+ },
+ "transitions_wildfire": {
+  "n_common": 216,
+  "tma_cell": 0.6654128709141952,
+  "tma": 0.6573102364193028,
+  "f_only": 0.6560105584876953,
+  "density": 0.6613074601103247,
+  "pooled_density_rank": 0.6040971495147356,
+  "standard_spatial": 0.6215296609889146,
+  "coord_dist_forest": 0.6214452756295864
+ },
+ "later_all_all": {
+  "n_common": 21,
+  "tma_cell": 0.6318727067482423,
+  "tma": 0.5979669511093584,
+  "f_only": 0.5979618866586391,
+  "density": 0.6750815653707731,
+  "pooled_density_rank": 0.5676374608619087,
+  "standard_spatial": 0.5783695152549606,
+  "coord_dist_forest": 0.5993672429077735
+ },
+ "later_all_two_year": {
+  "n_common": 18,
+  "tma_cell": 0.6200039324760008,
+  "tma": 0.5801468221136795,
+  "f_only": 0.5801405120422646,
+  "density": 0.6994694841379032,
+  "pooled_density_rank": 0.5532645188975602,
+  "standard_spatial": 0.6322463047752858,
+  "coord_dist_forest": 0.6140529733509182
+ },
+ "later_wildfire_all": {
+  "n_common": 20,
+  "tma_cell": 0.6342971542455278,
+  "tma": 0.5973775547846827,
+  "f_only": 0.5973715970802741,
+  "density": 0.6972502962892896,
+  "pooled_density_rank": 0.5590190559608101,
+  "standard_spatial": 0.5870891124309393,
+  "coord_dist_forest": 0.6102296470402557
+ },
+ "later_wildfire_two_year": {
+  "n_common": 18,
+  "tma_cell": 0.6206299533266297,
+  "tma": 0.5803195653306952,
+  "f_only": 0.5803133099174693,
+  "density": 0.7011020915297053,
+  "pooled_density_rank": 0.554438260612509,
+  "standard_spatial": 0.6307962012916866,
+  "coord_dist_forest": 0.6144123507461609
+ },
+ "stopping_rule": {
+  "site_years": 238,
+  "tma_cell_minus_density": -0.003177014771467577,
+  "continue": false
+ },
+ "honesty_gate_estimated_minus_realised": -0.011455570876393078
+}

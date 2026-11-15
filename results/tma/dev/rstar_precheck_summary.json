@@ -1,0 +1,19 @@
+{
+ "all": {
+  "site_years": 402,
+  "sites": 31,
+  "auc_r1": 0.6364032983241974,
+  "auc_large_summer": 0.6441463293456693,
+  "diff": 0.007743031021471859,
+  "large_summer_better": 241
+ },
+ "wildfire": {
+  "site_years": 402,
+  "sites": 31,
+  "auc_r1": 0.6359801063222397,
+  "auc_large_summer": 0.6437464114786242,
+  "diff": 0.007766305156384478,
+  "large_summer_better": 241
+ },
+ "full_rstar_tried": false
+}

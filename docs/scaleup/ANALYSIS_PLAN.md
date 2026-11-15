@@ -1054,3 +1054,16 @@ as "consistent with management burning, a recurrent regime".
 1 TMA-cell and R* pre-check; 2 protocol table on the development data (all candidates, three tasks, two targets,
 skill measures, honesty); 3 blind scan (counts, clusters, power; selection level only); 4 freeze push; 5 blind
 evaluation; 6 paper draft. Each with a short pushed summary.
+
+### 14.8 Checkpoint 1 outcome (15 November 2026)
+
+- TMA-cell (13.14): mean out-of-group transition AUC 0.664 against 0.659 for burn density on the 219 site-years
+  common to all candidates, and -0.003 against density on the 238 site-years where both exist (the set of the
+  stopping rule). The stopping rule of 13.14 and 14.2 (at least 0.01) is not met. On later burning TMA-cell is
+  0.632 against 0.675 for density. Its gate chose kappa = 1, no time decay, mostly gamma = 1.
+- R* pre-check (14.2) on G-C: density from past large summer events 0.644 against R1 0.636 (+0.008; better in 241 of
+  402 site-years); the same for the wildfire target. "Clearly beats" was implemented as at least 0.01 (a threshold
+  set by the analyst when the check was written, recorded here); not met, so the full R* is not tried.
+- Corrected pooled forest + density rank: 0.604 on transitions, 0.568 on later burning.
+- No candidate beat R1 by 0.01 in G-A, so there is no method candidate. The search for a method ends; the paper
+  reports that no model-based approach beat the persistence reference, and the blind test tests this finding.
