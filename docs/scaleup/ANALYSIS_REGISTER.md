@@ -35,11 +35,35 @@ Status: confirmatory = a decision rule fixed before the result; exploratory = ev
 | D of the distance-feature pair | claim15_followup.py | 10.5 | after | server | descriptive | no |
 | G5: leave-one-fire/year/country out, largest event removed | claim15_location.py, claim15_followup.py | 10.2; countries 10.5 | before (10.2), countries after | server | sensitivity | no |
 | G1d repeat pairs | claim15_location.py, claim15_followup.py | 10.3; shared cells 10.5 | before (10.3), tolerance after | server | descriptive | no |
+| 11.4: G1/G2 replication on 2024-2026 burning | claim16_replication.py | amendment 11, 10:17:02 UTC; 11.4a and script 10:31:18 | rules before the 2024-2026 labels were exported; per-site counts of 2024-2026 burned cells known (39b35ff, 10:01:51) | server; file times below (author) | confirmatory (rules 9.5, 10.1 via 11.4a) | yes |
 
 The comparisons of cAUC with the pooled AUC and every result involving rho are exploratory. The paper does not
 use "pre-registration"; it says that each rule was fixed before its own results but with the earlier results
 known, and points to this register. The independent record of the semi-synthetic rule (Software Heritage,
 19:05:38) is later than the first fire's output of that run (19:02:59); this is stated in the paper.
+
+Order of 11.4 (15 November 2026, UTC). Push times are the server record; file times are the creation times on the
+analysis machine (NTFS, written by the scripts), which the authors could change and which no third party holds.
+
+| Step | Time (UTC) | Evidence |
+|---|---|---|
+| Amendment 11 pushed (rules of 11.4) | 10:17:02 | server, 941b045 |
+| 11.4a and the script pushed, nothing run | 10:31:18 | server, ba0fb01 |
+| Frozen focal scores written, 31 files | 10:31:28 to 10:34:21 | file times |
+| SHA-256 manifest written | 10:34:21 | file time |
+| Scores and manifest pushed | 10:34:45 | server, db95a46 |
+| Label export log opened | 10:35:06 | file time |
+| 2024-2026 label files written, 31 files | 10:35:12 to 10:36:05 | file times |
+| Evaluation log opened; per-fire table, summary | 10:36:06; 10:36:11, 10:36:13 | file times |
+| Results and logs pushed | 10:36:33 | server, aa783fc |
+
+Every label file was created after the score push, and the evaluation checked each score file against the
+manifest (logged). The 108 s between the two pushes is the export and evaluation run itself. Only the server times
+are independent; the order between 10:34:45 and 10:36:33 rests on the file times and the logs. Earlier, for the
+support count of amendment 11, yearly burned shares per cell for 2013-2026 (2026 to the last published month) were
+exported on each fire's grid and only per-site counts were read from them (39b35ff, 10:01:51; burned cells outside
+the scar in 2024, 2025 and 2026). No score was computed against them. The 11.4 target is the separate label file
+exported after the score push; the evaluation reads the yearly file only for the 2017-2023 bands (burned before).
 
 ## TMA (amendment 13), kept apart from the rows above
 
@@ -47,3 +71,7 @@ known, and points to this register. The independent record of the semi-synthetic
 |---|---|---|---|---|---|---|
 | Pooled leave-one-fire-out baseline and blend | explore/pooled_baseline.py | amendment 12 (exploratory) | after G1, G2 and 11.4 | server (ae231af) | development data, 18 sites | no |
 | Data audit (checkpoint 1) | tma/data_audit.py | amendment 13 | metadata only | server | descriptive | no |
+| Environmental baseline and baseline search (burn density best) | tma/env_baseline.py, tma/baseline_explore.py | 13.11, 13.12 | after the panel, during development | server (d90452d, 57120e1) | exploratory | no |
+| TMA development run | tma/tma_dev.py | 13.12, 13.13 | before its run, after the baseline search | server (0ab8101) | exploratory | no |
+| TMA-cell, corrected pooled forest + density rank, stopping rule | tma/tma_cell.py | 13.14 | before its run | server (b46bf31) | exploratory (rule not met) | no |
+| R* pre-check on G-C | tma/rstar_precheck.py | 14.2; 0.01 threshold for "clearly beats" set by the analyst at implementation (14.8) | before its run | server (b46bf31) | exploratory | no |
