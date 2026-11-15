@@ -935,3 +935,25 @@ as a methodological evaluation, not a new algorithm.
   chosen like the gate on transitions of the other groups.
 - Gate: in development gamma is chosen per (group, T) by the mean transition AUC of the other groups' sites over
   target years <= T - 1; the numerical gate rule is fixed at the freeze.
+
+### 13.14 One more attempt, TMA-cell, and the stopping rule (15 November 2026, before the attempt is run)
+
+- First development run (results/tma/dev): TMA was indistinguishable from its baseline (transitions 0.656 against
+  0.655; later burning 0.598 against 0.598) because the moment estimate of the persistent variance at the 5-20 km
+  bases hit its floor and the BLUP shrank the component to about zero; the unshrunk raw mean was worse (0.548).
+  Burn density (h = 2 km) led on later burning (0.675; 16 of 21 sites) and also for the wildfire target (0.697
+  against 0.597), so its advantage does not come from management burning; this contradicts the earlier guess that
+  the persistent signal is management burning.
+- TMA-cell (single attempt): the persistent component is estimated per cell. For target year T and past years
+  t <= T - 1 (t >= 2005, where the calibrated baseline exists), observed and expected burns are smoothed with a
+  Gaussian kernel of h = 2 km on the site grid, O_t = K * y_t and E_t = K * p_E,t, weighted in time by
+  w_t = exp(-(T - t) / tau), and combined as an empirical-Bayes relative risk RR = (sum w O + kappa) /
+  (sum w E + kappa); cells and periods with little information (small sum w E) are shrunk towards RR = 1. Score
+  S = logit p_E,T + gamma * log RR. kappa in {1, 3, 10, 30, 100}, tau in {none, 8 years} and gamma in
+  {0, 0.25, 0.5, 1} are chosen per (group, T) by the mean out-of-group transition AUC over target years <= T - 1.
+- Corrected comparator: the pooled forest with burn density as a predictor gets the density as its rank within
+  the site-year, so that a cross-site model can use it.
+- Stopping rule: if TMA-cell does not exceed burn density (h = 2 km) by at least 0.01 in mean out-of-group
+  transition AUC (common site-years, target (i)), the search for a method ends here; the paper is written as a
+  methodological evaluation, and the primary blind comparison becomes burn density against the best model-based
+  method. If it does, TMA-cell is frozen and tested blind against burn density.
