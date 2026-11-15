@@ -894,3 +894,31 @@ as a methodological evaluation, not a new algorithm.
   sampling weights used to train the forest do not enter it.
 - For the paper: predictors are standardised within each site-year, so the model learns the spatial ranking
   within a year, not the level of hazard between years.
+
+### 13.12 Baseline, primary comparator and targets (15 November 2026, after the baseline exploration, before TMA)
+
+- Exploration (results/tma/explore): on the same 245 site-years, mean out-of-group transition AUC was 0.651 for
+  burn density (Gaussian kernel, h = 2 km, no time decay), 0.647 for the learned-weight blend of the pooled and
+  local forests, 0.643 for the local forest, and 0.567-0.584 for the pooled variants (best: monthly burn history).
+  The single selection criterion therefore selected burn density.
+- The environmental baseline f of TMA is nevertheless the learned-weight blend (pooled forest with monthly burn
+  history plus the local forest, weight on the local rank chosen on transitions of earlier years), the best of the
+  model-based candidates: the persistent component of TMA is estimated from the residuals of a predictor-based
+  baseline, and a density map is not a predictor model. For TMA the blend is calibrated to a probability by a
+  Platt map fitted on earlier target years only.
+- Primary blind comparison changes, before the freeze: TMA against burn density (h = 2 km, no decay).
+  Secondary: TMA against its own baseline, and against the standard persistent + transient spatial model. The
+  threshold is unchanged: mean AUC gain at least 0.01 and the lower end of the cluster-level paired 95% interval
+  above zero.
+- Added comparator: the environmental model with burn density as a predictor (density at the cut-off from burns
+  known then), the model a practitioner would most naturally build; reported whether TMA's separate, shrunk
+  spatial component does better than this.
+- Two targets in every real-data evaluation (development and blind): (i) all burns; (ii) a wildfire target that
+  removes from evaluation the cells burned 3 or more times in the 10 earlier target years (known at the cut-off)
+  and the burns of the target year that form patches of 4 cells or fewer. The reburn analysis (relative risk 6.3
+  for frequently burned cells, stronger in small patches and in grass and shrub) points to management burning;
+  if an advantage appears only for target (i), this is stated.
+- Standard spatial model: R (mgcv, INLA) is not installed on the analysis machine and installing it is a system
+  change left to the authors. The comparator is implemented in Python as a jointly fitted penalised logistic
+  model with the same offset, persistent radial-basis coefficients shared across years and transient
+  coefficients per year, penalties chosen on earlier transitions; mgcv can replace it if the authors install R.
