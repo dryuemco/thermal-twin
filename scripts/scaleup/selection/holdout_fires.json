@@ -1,0 +1,366 @@
+{
+ "kept": [
+  {
+   "year": 2013,
+   "grid_pixels": 756,
+   "search_box": [
+    -7.15,
+    41.05,
+    -6.55,
+    41.35
+   ],
+   "anchor": "2013-07-06",
+   "event_last_burn": "2013-07-16",
+   "event_pixels": 931,
+   "year_pixels_in_box": 958,
+   "event_share": 0.972,
+   "predictor_start": "2013-05-09",
+   "predictor_end": "2013-07-05",
+   "label_start": "2013-07-06",
+   "label_end": "2013-08-23",
+   "baseline_years": [
+    2009,
+    2010,
+    2011,
+    2012
+   ],
+   "scar_bounds": [
+    -7.0775,
+    41.156,
+    -6.6863,
+    41.285
+   ],
+   "aoi": [
+    -7.23,
+    41.0,
+    -6.53,
+    41.44
+   ],
+   "aoi_deg": [
+    0.7,
+    0.44
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [],
+   "experiment": "ho01_2013"
+  },
+  {
+   "year": 2015,
+   "grid_pixels": 460,
+   "search_box": [
+    -0.95,
+    34.55,
+    -0.35,
+    35.15
+   ],
+   "anchor": "2015-07-22",
+   "event_last_burn": "2015-08-21",
+   "event_pixels": 760,
+   "year_pixels_in_box": 795,
+   "event_share": 0.956,
+   "predictor_start": "2015-05-25",
+   "predictor_end": "2015-07-21",
+   "label_start": "2015-07-22",
+   "label_end": "2015-09-08",
+   "baseline_years": [
+    2011,
+    2012,
+    2013,
+    2014
+   ],
+   "scar_bounds": [
+    -0.9052,
+    34.5509,
+    -0.3517,
+    35.0961
+   ],
+   "aoi": [
+    -1.06,
+    34.4,
+    -0.2,
+    35.25
+   ],
+   "aoi_deg": [
+    0.86,
+    0.85
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [],
+   "experiment": "ho02_2015"
+  },
+  {
+   "year": 2015,
+   "grid_pixels": 471,
+   "search_box": [
+    -3.25,
+    37.55,
+    -2.95,
+    37.85
+   ],
+   "anchor": "2015-07-06",
+   "event_last_burn": "2015-07-11",
+   "event_pixels": 575,
+   "year_pixels_in_box": 575,
+   "event_share": 1.0,
+   "predictor_start": "2015-05-09",
+   "predictor_end": "2015-07-05",
+   "label_start": "2015-07-06",
+   "label_end": "2015-08-23",
+   "baseline_years": [
+    2011,
+    2012,
+    2013,
+    2014
+   ],
+   "scar_bounds": [
+    -3.1735,
+    37.6142,
+    -3.0112,
+    37.7515
+   ],
+   "aoi": [
+    -3.33,
+    37.46,
+    -2.86,
+    37.91
+   ],
+   "aoi_deg": [
+    0.47,
+    0.45
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [],
+   "experiment": "ho03_2015"
+  }
+ ],
+ "dropped": [
+  {
+   "year": 2016,
+   "grid_pixels": 2428,
+   "search_box": [
+    -8.55,
+    40.75,
+    -7.75,
+    41.35
+   ],
+   "anchor": "2016-08-03",
+   "event_last_burn": "2016-08-28",
+   "event_pixels": 3009,
+   "year_pixels_in_box": 3224,
+   "event_share": 0.933,
+   "predictor_start": "2016-06-06",
+   "predictor_end": "2016-08-02",
+   "label_start": "2016-08-03",
+   "label_end": "2016-09-20",
+   "baseline_years": [
+    2012,
+    2013,
+    2014,
+    2015
+   ],
+   "scar_bounds": [
+    -8.5134,
+    40.7898,
+    -7.8391,
+    41.3392
+   ],
+   "aoi": [
+    -8.67,
+    40.63,
+    -7.68,
+    41.49
+   ],
+   "aoi_deg": [
+    0.99,
+    0.86
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [
+    "px03_2022",
+    "px07_2017"
+   ]
+  },
+  {
+   "year": 2013,
+   "grid_pixels": 951,
+   "search_box": [
+    -7.75,
+    41.15,
+    -6.95,
+    42.05
+   ],
+   "anchor": "2013-07-31",
+   "event_last_burn": "2013-09-12",
+   "event_pixels": 1735,
+   "year_pixels_in_box": 1779,
+   "event_share": 0.975,
+   "predictor_start": "2013-06-03",
+   "predictor_end": "2013-07-30",
+   "label_start": "2013-07-31",
+   "label_end": "2013-09-17",
+   "baseline_years": [
+    2009,
+    2010,
+    2011,
+    2012
+   ],
+   "scar_bounds": [
+    -7.7476,
+    41.2434,
+    -6.9526,
+    42.0134
+   ],
+   "aoi": [
+    -7.9,
+    41.09,
+    -6.8,
+    42.17
+   ],
+   "aoi_deg": [
+    1.1,
+    1.08
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [
+    "px10_2022"
+   ]
+  },
+  {
+   "year": 2016,
+   "grid_pixels": 589,
+   "search_box": [
+    -8.55,
+    40.25,
+    -8.25,
+    40.75
+   ],
+   "anchor": "2016-08-06",
+   "event_last_burn": "2016-08-16",
+   "event_pixels": 761,
+   "year_pixels_in_box": 761,
+   "event_share": 1.0,
+   "predictor_start": "2016-06-09",
+   "predictor_end": "2016-08-05",
+   "label_start": "2016-08-06",
+   "label_end": "2016-09-23",
+   "baseline_years": [
+    2012,
+    2013,
+    2014,
+    2015
+   ],
+   "scar_bounds": [
+    -8.5384,
+    40.3861,
+    -8.3053,
+    40.7149
+   ],
+   "aoi": [
+    -8.69,
+    40.23,
+    -8.15,
+    40.87
+   ],
+   "aoi_deg": [
+    0.54,
+    0.64
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [
+    "px07_2017"
+   ]
+  },
+  {
+   "year": 2013,
+   "grid_pixels": 604,
+   "search_box": [
+    -8.45,
+    40.45,
+    -7.95,
+    40.85
+   ],
+   "anchor": "2013-08-20",
+   "event_last_burn": "2013-09-05",
+   "event_pixels": 711,
+   "year_pixels_in_box": 756,
+   "event_share": 0.94,
+   "predictor_start": "2013-06-23",
+   "predictor_end": "2013-08-19",
+   "label_start": "2013-08-20",
+   "label_end": "2013-10-07",
+   "baseline_years": [
+    2009,
+    2010,
+    2011,
+    2012
+   ],
+   "scar_bounds": [
+    -8.3427,
+    40.5317,
+    -8.0805,
+    40.7107
+   ],
+   "aoi": [
+    -8.5,
+    40.38,
+    -7.93,
+    40.87
+   ],
+   "aoi_deg": [
+    0.57,
+    0.49
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [
+    "px07_2017"
+   ]
+  },
+  {
+   "year": 2015,
+   "grid_pixels": 454,
+   "search_box": [
+    18.95,
+    42.25,
+    19.55,
+    42.65
+   ],
+   "anchor": "2015-07-05",
+   "event_last_burn": "2015-08-09",
+   "event_pixels": 560,
+   "year_pixels_in_box": 581,
+   "event_share": 0.964,
+   "predictor_start": "2015-05-08",
+   "predictor_end": "2015-07-04",
+   "label_start": "2015-07-05",
+   "label_end": "2015-08-22",
+   "baseline_years": [
+    2011,
+    2012,
+    2013,
+    2014
+   ],
+   "scar_bounds": [
+    19.01,
+    42.3422,
+    19.422,
+    42.6044
+   ],
+   "aoi": [
+    18.85,
+    42.19,
+    19.58,
+    42.76
+   ],
+   "aoi_deg": [
+    0.73,
+    0.57
+   ],
+   "inside_existing_study_area": [],
+   "overlaps": [
+    "px13_2021"
+   ]
+  }
+ ],
+ "scanned": 12,
+ "pass_filters": 8
+}

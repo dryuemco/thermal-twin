@@ -20,6 +20,7 @@ Output: candidates.json (one record per candidate, largest first).
 import datetime as dt
 import json
 import math
+import os
 import sys
 from pathlib import Path
 
@@ -32,7 +33,8 @@ ee.Initialize(project="thermaltwin")
 HERE = Path(__file__).resolve().parent
 LON0, LAT0, LON1, LAT1 = -10.0, 30.0, 37.0, 46.0
 STEP = 0.1
-YEARS = range(2017, 2024)
+_y = os.environ.get("SCAN_YEARS", "2017-2023").split("-")      # holdout scan: SCAN_YEARS=2013-2016
+YEARS = range(int(_y[0]), int(_y[1]) + 1)
 MIN_CELL, MIN_CLUSTER, GAP, MARGIN = 15, 450, 5, 0.15
 PX = 463.3127
 REGION = ee.Geometry.BBox(LON0, LAT0, LON1, LAT1)
@@ -128,5 +130,5 @@ for c in sorted(cands, key=lambda c: -c["grid_pixels"]):
     print(f"{c['year']} px {e['event_pixels']:5d} ({e['event_pixels'] * 21.47 / 1000:6.1f} kha) share {e['event_share']:.2f} "
           f"anchor {e['anchor']} aoi {e['aoi']} {inside}", flush=True)
 out.sort(key=lambda r: -r["event_pixels"])
-(HERE / "candidates.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+(HERE / os.environ.get("SCAN_OUT", "candidates.json")).write_text(json.dumps(out, indent=1), encoding="utf-8")
 print("candidates:", len(out))

@@ -697,3 +697,15 @@ eta_t = a * E_t + c * P + b * S_t - f * D_t + noise_t,
 - Order: (1) the focal out-of-fold scores of all candidates on all 31 primary sites are recomputed with the
   seeds and folds of G1/G2, written with a sha256 manifest and pushed; (2) only then is the 2024-2026 label
   exported; (3) evaluation checks every score file against the manifest.
+
+## Amendment 12 (15 November 2026): exploratory method development and a held-out test set
+
+From here on, method development is exploratory: all existing data may be used freely and steps are not
+declared one by one. The test set is held out: fires found by the same selection rule in a scan of years not
+used so far, on which only the selection rule is applied and no model is run or scored until the method is
+frozen, written into this plan and run once. Scan of 2013-2016 (selection/holdout_candidates_2013_2016.json,
+select_holdout.py): 12 clusters, 8 pass the filters, 3 kept after dropping overlaps with any rectangle already
+used (ho01_2013, ho02_2015, ho03_2015; selection/holdout_fires.json). Their Landsat 8 LST baseline years
+(2009-2012 for ho01, 2011-2014 for ho02 and ho03) lie partly or wholly before Landsat 8, which the pipeline's
+anomaly step needs; whether and how these fires can be processed, and whether the held-out set is extended with
+a scan of later years, is decided before any of them is processed.
