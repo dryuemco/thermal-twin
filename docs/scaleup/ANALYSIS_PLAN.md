@@ -957,3 +957,100 @@ as a methodological evaluation, not a new algorithm.
   transition AUC (common site-years, target (i)), the search for a method ends here; the paper is written as a
   methodological evaluation, and the primary blind comparison becomes burn density against the best model-based
   method. If it does, TMA-cell is frozen and tested blind against burn density.
+
+## Amendment 14 (15 November 2026): persistence-referenced evaluation protocol
+
+This direction was chosen AFTER the development results of amendment 13 were seen (TMA indistinguishable from its
+baseline; burn density ahead on later burning) and after a literature review. Development is exploratory; the only
+confirmatory part is the blind test of 14.5. TMA and a regime-weighted density (R*) remain inside the protocol as
+candidates that try to beat the density reference.
+
+### 14.0 Reasons
+
+- Checkpoint 4: TMA 0.598 against 2 km burn density 0.675 on later burning; 0.597 against 0.697 for the wildfire
+  target, so the advantage of density does not come from management burning.
+- Literature: almost no study evaluates remote-sensing susceptibility models on a temporal hold-out by skill against
+  a fire-history density reference. Closest: Gholami et al. (2021, AAAI; three areas in India, one test year, no
+  kernel density, no skill score). Moran et al. (2025, Sci Rep) use flat and shuffled maps as references. Murphy
+  (1988, 1992): the reference of a skill score should be the most accurate naive method; the best combination of
+  climatology and persistence beats either.
+- The paper combines four parts: diagnosis (within-event evaluation selects location-using models whose advantage
+  does not carry over), honesty (cross-site evaluation estimates later performance within 0.02-0.05, within-event
+  evaluation overstates it by 0.23-0.47), the proposed protocol, and what the protocol finds.
+
+### 14.1 Protocol
+
+1. Tasks, all with the 1 May cut-off and only data known at the prediction date:
+   G-A (development): rank next year's burning within a site, evaluated out of group on transitions;
+   G-B (primary real-data task): rank later burning outside the focal scar with the first-May map after the focal
+   fire, horizon to September 2026, fixed two-year horizon as sensitivity;
+   G-C (secondary): cells burned in events of 100 ha or more that start in June to September of the next two
+   summers (Galizia et al. 2021: satellite records agree well with agency records above 100 ha).
+2. Targets: every task with all burns and with the wildfire target (cells burned 3 or more times in 10 years and
+   patches of 4 cells or fewer removed).
+3. References: R1 burn density, h = 2 km, no time decay, burns known at the prediction date (primary); R0 flat
+   prevalence (climatology); RM the Murphy reference, the best logistic combination of R0 and R1, fitted on earlier
+   years and out of group only. Skill against RM is secondary.
+4. Skill measures, after Platt calibration of every model and reference on earlier years and out of group:
+   delta AUC = AUC(model) - AUC(reference); Brier skill score BSS = 1 - BS_model / BS_ref; logarithmic skill score
+   LSS = 1 - LS_model / LS_ref (as in Moran et al. 2025); AP with its prevalence; share of burning captured in the
+   10% of area with the highest risk.
+5. Honesty: for every model, the estimate available at evaluation time (within-event, cross-site or the site's own
+   history) minus the realised value.
+6. Uncertainty: bootstrap over geographic groups or clusters, 10,000 resamples, seed 42; never over cells.
+
+### 14.2 Candidates
+
+Same tasks, targets, population and date rules for all: pooled MODIS forest, local temporal forest, learned blend,
+TMA (BLUP), standard persistent + transient spatial model, coordinate and distance forests; pooled forest + density
+feature with the density standardised or ranked within the site-year (not used in the paper uncorrected); the
+earlier within-event thermal forest as a historical reference, in G-B and on supported sites only.
+Two last attempts to beat density: TMA-cell (13.14); and an R* pre-check on G-C: (i) density from all past events,
+(ii) a hard-filtered density from past large summer events only (100 ha or more, June to September). Events are
+8-connected burned cells with burn dates at most 7 days apart, extracted with a buffer beyond the study rectangle.
+The full R* (event level, two-component mixture with partial pooling across sites) is tried only if (ii) clearly
+beats (i), and must then also beat (ii); this guards against circularity, because the inputs of the mixture overlap
+with the definition of the target.
+Stopping rule (fixed now): candidates that beat R1 by at least 0.01 mean delta AUC in G-A (out-of-group criterion)
+become method candidates, at most two. If none does, the search ends; the paper reports that no model-based approach
+beat the persistence reference, and the blind test tests this finding.
+
+### 14.5 Blind test
+
+1. Scan of 2005-2016 focal fires with the existing selection rule, natural-cover filter with the previous year's
+   MCD12Q1 map; overlaps with the 31 sites and the 3 repeat fires removed; ho01-ho03 included. First only counts,
+   geographic clusters and power at selection level are pushed.
+2. Open: history before the prediction date and the focal label (for the within-event evaluation). Closed: every
+   target label after the prediction date and summary maps of that period.
+3. Freeze, with a SHA-256 manifest: protocol definitions, references, method candidates and base comparators (R1,
+   learned blend, pooled forest), skill measures, success criteria, all blind-site scores and file creation times.
+   Labels are then opened once and evaluated once.
+4. Blind hypotheses:
+   H1: for each method candidate, in G-B, mean delta AUC against R1 at least 0.01 and the cluster-level 95% lower
+   bound above 0. Without method candidates, the delta AUC of the best model-based approach against R1 and its
+   interval are reported descriptively; if the interval stays below 0.01 the paper says "did not beat the
+   persistence reference", never "equivalent".
+   H2 (honesty replication): on the blind sites, the error of the within-event estimate (|within-event AUC -
+   realised|) exceeds that of the cross-site estimate, paired over clusters, with the 95% lower bound above 0.
+5. Power: with few clusters the thresholds stay and the test is a precision check. The blind test is a test in new
+   geography, not a forward-in-time forecast; the paper keeps this distinction.
+
+### 14.6 Paper
+
+Hourglass structure (introduction: territory, niche, this study; data, protocol, experiments, results in the order
+diagnosis, honesty, protocol table, candidates, blind test; discussion of why persistence wins, with the reburn and
+fuel literature and the detection limit, and limitations with their size; conclusion). Working title: "Fire history
+as the reference for wildfire susceptibility models: a persistence-referenced evaluation across 31 Mediterranean
+landscapes". Narrowest novelty sentence: a protocol that evaluates susceptibility models by their skill relative to
+a fire-history density reference under temporal hold-out, applied to 31 Mediterranean landscapes. Must cite:
+Gholami 2021, Murphy 1988 and 1992, Moran 2025, Preisler and Westerling 2007, Nadeem 2020, Phelps and Woolford 2021,
+Mila 2024, Hijmans 2012, Roberts 2017, Trucchia 2022, Bekar and Tavsanoglu 2017, Galizia 2021. Not to be used: "first
+to show that fire history beats machine learning", "a new skill score", "first regime-aware susceptibility map", "we
+detect pasture burning", "solved location bias". Without external evidence the management interpretation is written
+as "consistent with management burning, a recurrent regime".
+
+### 14.7 Checkpoints
+
+1 TMA-cell and R* pre-check; 2 protocol table on the development data (all candidates, three tasks, two targets,
+skill measures, honesty); 3 blind scan (counts, clusters, power; selection level only); 4 freeze push; 5 blind
+evaluation; 6 paper draft. Each with a short pushed summary.
