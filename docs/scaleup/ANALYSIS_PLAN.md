@@ -1067,3 +1067,33 @@ evaluation; 6 paper draft. Each with a short pushed summary.
 - Corrected pooled forest + density rank: 0.604 on transitions, 0.568 on later burning.
 - No candidate beat R1 by 0.01 in G-A, so there is no method candidate. The search for a method ends; the paper
   reports that no model-based approach beat the persistence reference, and the blind test tests this finding.
+
+### 14.9 Implementation of checkpoint 2 (16 November 2026, before the protocol table is computed)
+
+Development data, exploratory. Choices made by the analyst when the script was written:
+
+- Candidates: pooled MODIS forest, local temporal forest, learned blend (f, with its pooled-rank fallback), TMA
+  (BLUP, gated), TMA-cell (recomputed from its gate log), standard spatial model, coordinate + distance forest,
+  pooled forest + density rank, density from past large summer events (the R* pre-check layer), R1 itself (skill
+  against R0 and RM), and in G-B on the 18 supported sites the within-event thermal forest (frozen out-of-fold
+  scores of 11.4). The thermal forest has no earlier-year history, so it gets only rank measures (AUC, AP, top 10%).
+- R0 is the site's climatology: its mean burned share over complete target years up to T - 1, flat over the map.
+  RM is the logistic combination of logit(R0) and log(R1 + 0.001).
+- Platt calibration of every model and reference, per task and target, with history from sites outside the
+  site's geographic group and outcomes known at the cut-off: G-A target years up to T - 1; G-B cut-offs u with
+  u + h - 1 <= T0 - 1, label "burned in years u to u + h - 1" with h the site's horizon (2027 - T0, or 2 for the
+  two-year horizon), no scar removed; G-C cut-offs u <= T - 2. Score scale for Platt: logit for probabilities, the
+  score itself for logits, log(x + 0.001) for densities. 1,000 random cells per site-year of history (seed 42).
+- G-C: cut-offs 2005-2024 (both summers observed); target cells in events of 100 ha or more starting 1 June to
+  30 September of calendar years T and T + 1 (events as in the pre-check); wildfire target drops cells burned 3 or
+  more times in the 10 earlier target years.
+- Units: site-years (G-A, G-C) or sites (G-B) with at least 30 positives and 30 negatives on the cells where the
+  model and R1 both exist; every comparison is paired on those cells.
+- Measures: delta AUC = mean over units of AUC(model) - AUC(R1) on the raw scores; BSS and LSS = 1 - sum over units
+  of the unit mean loss of the model / the same sum for the reference (equal weight per unit), against R1, R0 and
+  RM; AP and prevalence as unit means; share of positives in the top 10% of cells (ties broken at random, seed 42).
+- Honesty: per unit, estimate minus realised AUC, with the estimates available at the cut-off: cross-site = mean
+  AUC of the model on the units of other groups whose outcome is known (G-A and G-B: transitions up to T - 1; G-C:
+  cut-offs up to T - 2); own history = the same on the site's own units; within-event = focal AUC (thermal forest,
+  G-B). Reported as mean signed and mean absolute error.
+- Uncertainty: bootstrap over clusters of sites whose grids intersect (as in 9.5), 10,000 resamples, seed 42.
