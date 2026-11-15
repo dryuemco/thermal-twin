@@ -1,0 +1,43 @@
+{
+ "nw_iberia": [
+  "px06_2017",
+  "px10_2022",
+  "px07_2017",
+  "px03_2022",
+  "px24_2019",
+  "px16_2022"
+ ],
+ "sw_iberia_morocco": [
+  "px02_2018",
+  "px11_2020",
+  "px21_2017",
+  "px26_2021",
+  "px14_2022"
+ ],
+ "central_east_spain": [
+  "px05_2021",
+  "bejis_2022",
+  "px12_2022",
+  "px15_2022"
+ ],
+ "central_mediterranean": [
+  "montiferru_2021_fullwindow",
+  "px17_2022",
+  "px20_2021",
+  "px25_2017",
+  "px22_2021",
+  "px04_2017",
+  "px13_2021",
+  "px18_2021"
+ ],
+ "eastern_mediterranean": [
+  "evia_2021_extended",
+  "px01_2023",
+  "rhodes_2023",
+  "px09_2021",
+  "px19_2021",
+  "manavgat_2021",
+  "mugla_2021",
+  "px23_2023"
+ ]
+}

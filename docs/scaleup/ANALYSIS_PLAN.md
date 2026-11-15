@@ -883,3 +883,14 @@ as a methodological evaluation, not a new algorithm.
   flagged in comparisons with the earlier models.
 - Limitation for the paper: the previous year's MCD12Q1 map is published after 1 May and is not available on
   the cut-off day; the mask is valid only in a retrospective study.
+- Correction (15 November 2026, before any baseline result): the five site groups of 13.11 were first formed
+  by alphabetical round-robin. They are replaced by five geographic groups (selection/site_groups.json):
+  north-west Iberia (6 sites), south-west Iberia and Morocco (5), central and eastern Spain (4), central
+  Mediterranean (Sardinia, Algeria, Calabria, Croatia, Montenegro, Bosnia; 8) and eastern Mediterranean (Greece,
+  Turkey, Syria; 8). No two rectangles overlap; sites closer than about 100 km share a group. The same groups are
+  used for gate selection and for the variance components of the BLUP; the group of a predicted site never
+  enters its training. The first run with the round-robin groups was stopped before any result was written.
+- Calibration: the Platt map is fitted on all cells of earlier target years (no negative subsampling), so the
+  sampling weights used to train the forest do not enter it.
+- For the paper: predictors are standardised within each site-year, so the model learns the spatial ranking
+  within a year, not the level of hazard between years.
