@@ -687,3 +687,13 @@ eta_t = a * E_t + c * P + b * S_t - f * D_t + noise_t,
 - No regional pooling of past events across sites is added: the question of 11.1 is selection by the site's own
   history, the calendar cut-off limits pooled sites in the same way, and a pooled selector would be a different
   method that has not been declared.
+
+### 11.4a Implementation of the 11.4 rules (15 November 2026, before scores are frozen or labels exported)
+
+- "95% interval above 0" of rules 9.5 and 10.1 is implemented as a one-sided bootstrap p (share of resamples
+  with mean <= 0) below 0.025, Holm-adjusted across the primary and secondary sets; equivalence of 9.5 keeps the
+  90% interval within +-0.01 (unadjusted). Bootstrap over geographic clusters as in 9.5, 10,000 resamples, seed 42.
+- The count condition of 10.1 ("at least 12 of 18 fires") is scaled to a set of n fires as ceil(12 / 18 * n).
+- Order: (1) the focal out-of-fold scores of all candidates on all 30 primary sites are recomputed with the
+  seeds and folds of G1/G2, written with a sha256 manifest and pushed; (2) only then is the 2024-2026 label
+  exported; (3) evaluation checks every score file against the manifest.
