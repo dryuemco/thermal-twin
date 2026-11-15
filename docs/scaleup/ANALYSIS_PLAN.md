@@ -922,3 +922,16 @@ as a methodological evaluation, not a new algorithm.
   change left to the authors. The comparator is implemented in Python as a jointly fitted penalised logistic
   model with the same offset, persistent radial-basis coefficients shared across years and transient
   coefficients per year, penalties chosen on earlier transitions; mgcv can replace it if the authors install R.
+
+### 13.13 TMA development choices (15 November 2026, before the 31-site development run)
+
+- Bases: Gaussian radial bases with spacing and width 5, 10 and 20 km; the 2 km scale is left out in development
+  because it gives up to about a thousand bases per site.
+- V_lt: the block sandwich over 5 km blocks is rank-deficient when a site has fewer blocks than bases, and its
+  inverse made the BLUP unstable in a five-site smoke run (BLUP below the raw mean and below f). V_lt is now the
+  model-based covariance inflated by a scalar block design effect, tr(sandwich) / tr(H^-1), at least 1.
+- Standard spatial model: persistent smooth with year intercepts and no transient term, the joint penalised
+  logistic estimate approximated from the yearly fits by (sum_t H_t + lambda I)^-1 sum_t H_t a_hat_t; lambda
+  chosen like the gate on transitions of the other groups.
+- Gate: in development gamma is chosen per (group, T) by the mean transition AUC of the other groups' sites over
+  target years <= T - 1; the numerical gate rule is fixed at the freeze.
