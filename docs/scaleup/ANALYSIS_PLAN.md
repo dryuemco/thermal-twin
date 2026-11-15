@@ -846,3 +846,18 @@ as a methodological evaluation, not a new algorithm.
   agreement between the held-out-site evaluation used to choose the gate and the realised blind result is
   reported.
 - The pooled-baseline exploration (commit ae231af) is development data: exploratory and limited to 18 sites.
+
+### 13.10 Panel decisions (15 November 2026, before the panel is built)
+
+- Population mask: natural vegetation (MCD12Q1 LC_Type1 classes 1-10, as in the selection rule) from the map of
+  the year before the cut-off year (y - 1); for y = 2001 the 2001 map, and for years without a published y - 1
+  map the latest published map before y (flagged per site-year). MCD12Q1 for y - 1 is published after 1 May y,
+  so this is information about the state before the cut-off rather than information available on that day;
+  the fixed 2001 map is the sensitivity that is available at every cut-off. The 2021 WorldCover mask is not used
+  in the TMA panel. The chosen mask is applied identically to every comparator.
+- Resampling: MODIS reflectance (MOD13A1, 500 m) and LST (MOD11A1, 1 km) are averaged, and burned and unmapped
+  shares area-weighted, onto the existing 500 m grid of each fire (its crs_transform), so later-burning
+  evaluation and the earlier models use the same cells. Static terrain from Copernicus GLO-30 (the asset Earth
+  Engine now marks as superseded, kept for consistency with the earlier tables), averaged onto the grid.
+- Target year 2026 (May 2026 to April 2027) is filled only to the last published MCD64A1 month and is marked
+  incomplete; it is not used as a full year in training or in the estimation of variance components.
