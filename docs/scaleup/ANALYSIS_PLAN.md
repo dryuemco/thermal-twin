@@ -865,3 +865,21 @@ as a methodological evaluation, not a new algorithm.
   bits 0-1 equal to 0 (good quality); night LST then survived in a handful of cells per site. The filter now
   keeps every produced LST value (QC bits 0-1 <= 1, good or other quality) for day and night alike; the year
   files were re-exported.
+
+### 13.11 Rules for the environmental baseline (15 November 2026, checkpoint 3)
+
+- Two training rules. Residuals of past years may use all data known on the prediction day, other sites' same
+  past year included. A model that predicts a target year T is trained only on target years before T (target
+  year u covers 1 May u to 30 April u + 1, so u <= T - 1) and never on any site's year T, which would let that
+  year's regional fire weather leak in. The same rule holds for past-to-next-year transitions.
+- Out of site: sites are split into five fixed groups; a site is predicted by the model of the other four groups.
+- Calibration: a logistic (Platt) map fitted only on out-of-group predictions of earlier target years.
+- alpha_lt of the target year is unknown at the prediction date; AUC ranks cells within a site-year and is not
+  affected by it.
+- Results on later burning (all target years from the first cut-off after the focal fire to the incomplete 2026
+  year; split into target years up to 2022 and from 2023, which approximate the 2017-2023 and 2024-2026 windows
+  in May-April years) and on past-to-next-year transitions, each with the honesty of the evaluation (estimated
+  minus realised AUC). The four sites with low overlap with the earlier population (px23, px17, px14, px25) are
+  flagged in comparisons with the earlier models.
+- Limitation for the paper: the previous year's MCD12Q1 map is published after 1 May and is not available on
+  the cut-off day; the mask is valid only in a retrospective study.
