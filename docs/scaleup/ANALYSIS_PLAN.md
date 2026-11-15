@@ -709,3 +709,127 @@ used (ho01_2013, ho02_2015, ho03_2015; selection/holdout_fires.json). Their Land
 (2009-2012 for ho01, 2011-2014 for ho02 and ho03) lie partly or wholly before Landsat 8, which the pipeline's
 anomaly step needs; whether and how these fires can be processed, and whether the held-out set is extended with
 a scan of later years, is decided before any of them is processed.
+
+## Amendment 13 (15 November 2026): the repeatable spatial residual method (TMA), replacing 11.3 and updating the held-out set of amendment 12
+
+Source: a design text matured over two rounds between two reviewers (Claude and Codex) and adopted by the
+authors on 15 November 2026. Some formulas arrived truncated and are restated here in their standard form;
+the restatements are marked [restated].
+
+### 13.0 Working mode
+
+Development is exploratory. All existing data may be used: the 31 sites, their history since 2001, the
+2017-2023 and 2024-2026 later-burning labels and simulations. No interval or p value obtained during development
+counts as confirmatory evidence. The record status of G1, G2 and 11.4 is unchanged; TMA results are kept in
+separate rows of the analysis register. The method is frozen once at the end; the target labels of the blind
+sites are opened once, after the freeze.
+
+### 13.1 Task
+
+Primary real-data task: rank later burning outside the focal scar with one fixed map produced on the first
+1 May after the focal fire. Primary horizon: from that date to September 2026; a fixed two-year horizon is a
+mandatory sensitivity. The map is never updated. This task differs from the focal-event map of G1, and the
+paper says so.
+
+### 13.2 Method (TMA)
+
+1. Calendar: annual cut-off 1 May at every site; predictor window the 58 days before the cut-off; training
+   target the burning in the 12 months after the cut-off (1 May to 30 April). Burns before the window do not
+   enter the target. Anomalies are computed from earlier years only.
+2. Predictors (MODIS era, from 2001). Primary set: Terra MOD13 NDVI and EVI, MOD11 day and night LST, LST
+   anomalies against earlier years, topography, and burn-history variables. A MOD13 composite is used only if
+   its whole observation interval ends before the cut-off (the date stamp is not enough). Aqua products start in
+   2002 and are a separate candidate. Same-year MCD12Q1 land cover is not used; the primary model has no land
+   cover, and the previous year's cover is only an audited sensitivity. This also removes the problem of the
+   2021 WorldCover map in 20 fires.
+3. Burn history: time since the last burn, the number of recent burns and a recovering fuel deficit. A cell not
+   burned since 2001 is not coded "never burned" but flagged as censored. Fuel effects are not assumed to be
+   fully captured; sensitivity to the time constant and to a missing variable is tested.
+4. Panel: predictor-label panels for all usable years of the 31 sites, years without burning included, made by
+   batched Earth Engine exports per site (not the full pipeline). For each site-year: missingness, censoring,
+   number of positives and spatial information support.
+5. Environmental baseline f(X): a random forest weighting sites equally, with calibrated probabilities. The
+   predictions needed for residuals are made out of site and in temporal order: a site-year is predicted by a
+   model trained without that site and only with data known at that date [restated].
+6. Spatial representation: radial bases at 2, 5, 10 and 20 km with centres chosen independently of the labels;
+   centre spacing and regularisation are chosen during development.
+7. Model (logistic scale) [restated]: logit p_lti = logit p_E(X_lti) + alpha_lt + phi(s_i)' a_lt, with
+   a_lt = P_l + U_lt (persistent site component P_l and transient year component U_lt); alpha_lt absorbs the
+   yearly prevalence. For each site-year a regularised logistic fit gives a_hat_lt and its information
+   covariance V_lt, which must reflect dependence at the level of spatial blocks, not independent cells.
+8. Persistent component, BLUP (primary) [restated]:
+   P_hat_l = [C_P^-1 + sum_t (C_U + V_lt)^-1]^-1 sum_t (C_U + V_lt)^-1 a_hat_lt.
+   C_P and C_U are estimated across sites; the primary version uses one variance per scale. The regional prior is
+   a zero-mean variance structure; site coordinates are not assumed aligned. Years with few or no burns are not
+   dropped; they enter with their weight. A version with full cross-basis covariance
+   (H = C_P (C_T + lambda I)^-1) is analysed and enters the final model only if it helps.
+9. Gate: final score S = logit p_E + gamma * phi' P_hat_l, gamma in {0, 0.25, 0.5, 1}, chosen on held-out groups
+   of sites by transitions from a past year to the next; in every transition P_l, scaling, anomaly base and burn
+   history use only data known at the prediction date. The final gate rule (candidate: lower bound of the gain
+   above 0.01) is fixed numerically at the freeze.
+
+### 13.3 Comparators
+
+TMA and its environmental baseline share the same f; the primary comparison measures only the contribution of
+the spatial correction. Also present: forests with coordinates and with distance to earlier burns, with access to
+the same history under the same date rule (only burns known at that date) [restated]; a standard persistent +
+transient spatial random-effect model (mgcv, INLA or equivalent) on the same data, the implementation choice and
+its reason recorded; this is the most critical comparator, and if TMA is equivalent to it the contribution is
+written as a methodological evaluation, not a new algorithm [restated]; ablations: unfiltered (raw mean
+residual), ungated (gamma = 1) and gate only; historical references: the earlier thermal forest (2013 onward),
+within-event selection by cAUC, with their different tasks and supports stated [restated].
+
+### 13.4 Simulation (replaces 11.3)
+
+A multi-site generator with a shared environmental relation and a site-specific persistent field; recovering fuel
+deficit and post-fire predictor effects (NDVI down, LST up); a drifting environmental relation; mixed c regimes
+(sites with and without persistence in one region); scenarios that break the BLUP assumptions: heavy-tailed and
+year-correlated or time-varying persistent fields, a misspecified environmental model [restated]. Calibration
+targets (null AUC about 0.96, kept share about 0.57, largest-event share about 0.59) are a starting point and are
+not forced on every regime. Separate seeds for calibration, development and final evaluation. Oracle loss defined
+against the same candidate set for all methods, with the expected future AUC reported beside it.
+Success: TMA's oracle loss lower than "always environmental", than the standard spatio-temporal model and than
+within-event selection; not worse than the environmental model when c = 0; a gain when c = 1.
+
+### 13.5 Blind test (updates amendment 12)
+
+Primary blind set: focal fires 2005-2016, with MODIS predictors and follow-up to 2026. The selection rule is
+applied unchanged except that the natural-cover filter uses the previous year's MCD12Q1 map instead of the same
+year's (recorded change). Candidates overlapping the 31 development sites or the 3 repeat fires are removed; the
+rest are grouped into independent geographic clusters [restated]. ho01_2013, ho02_2015 and ho03_2015 are part
+of this scan and can be processed with MODIS predictors. On these sites only the history before the prediction
+date is opened; target labels after that date and summary maps of that period are not touched until the freeze.
+The 2024-2025 fires stay closed; their follow-up is too short for this task; they may later serve another target.
+Power: after the scan, the number of candidates, independent clusters and eligibility counts are computed. As a
+hypothetical, with a paired SD of 0.05 about 49 clusters give 80% power for a gain of 0.02. With fewer clusters
+the thresholds stay and the test is presented as a precision check. Applying parameters learned on the
+development data to earlier years is a blind test in new geography, not a forward-in-time test; the paper keeps
+this distinction.
+Decision rule [restated]: primary comparison TMA against its own environmental baseline: mean AUC gain with the
+lower end of the cluster-level paired 95% interval above zero. Secondary comparisons: coordinate and distance
+forests and the standard spatio-temporal model. All results are reported, negative ones included.
+
+### 13.6 Single freeze and single evaluation
+
+At the freeze, with a SHA-256 manifest, pushed: final algorithm, predictors, date rules, comparators,
+exclusions, success criteria and all blind-site scores. Target labels are then opened once and evaluated once;
+any change after that is not a blind validation and is reported as such [restated]. File creation times are
+written into the register.
+
+### 13.7 Order and checkpoints
+
+1 data audit (product versions, actual observation intervals, composite ends; no variable may use the target
+period); 2 MODIS panel of the 31 sites and support counts per site; 3 environmental baseline results;
+4 TMA development results with comparators and ablations, above all against the standard spatio-temporal
+model; 5 simulation results; 6 blind-set scan (counts, clusters, power; selection level only); 7 freeze push;
+8 blind evaluation. A short summary is pushed and reported at each checkpoint.
+
+### 13.8 Claims
+
+Diagnosis: within-event evaluation can select location-using models and this preference may not carry over to
+later burning [restated]; not "location information is always harmful". Method: a persistent spatial residual
+estimated from repeated history, shrunk by its uncertainty and used through a gate chosen on held-out sites.
+Narrowest claim: the joint development and evaluation of repeatable spatial residual estimation and a transfer
+gate for ranking later burning. Not to be used: "first invariant fire model", "solved location bias",
+"general safe transfer". If TMA does not beat the standard spatio-temporal model, the contribution is written
+as a methodological evaluation, not a new algorithm.
