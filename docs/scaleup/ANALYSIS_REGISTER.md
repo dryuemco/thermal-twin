@@ -40,3 +40,10 @@ The comparisons of cAUC with the pooled AUC and every result involving rho are e
 use "pre-registration"; it says that each rule was fixed before its own results but with the earlier results
 known, and points to this register. The independent record of the semi-synthetic rule (Software Heritage,
 19:05:38) is later than the first fire's output of that run (19:02:59); this is stated in the paper.
+
+## TMA (amendment 13), kept apart from the rows above
+
+| Result | Script | Specified | Relative to its results | Time evidence | Status | Abstract |
+|---|---|---|---|---|---|---|
+| Pooled leave-one-fire-out baseline and blend | explore/pooled_baseline.py | amendment 12 (exploratory) | after G1, G2 and 11.4 | server (ae231af) | development data, 18 sites | no |
+| Data audit (checkpoint 1) | tma/data_audit.py | amendment 13 | metadata only | server | descriptive | no |

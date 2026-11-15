@@ -833,3 +833,16 @@ Narrowest claim: the joint development and evaluation of repeatable spatial resi
 gate for ranking later burning. Not to be used: "first invariant fire model", "solved location bias",
 "general safe transfer". If TMA does not beat the standard spatio-temporal model, the contribution is written
 as a methodological evaluation, not a new algorithm.
+
+### 13.9 Addendum (15 November 2026): two changes from the pooled-baseline exploration
+
+- One more comparator: the rank average of the pooled model (no location, predictors standardised within each
+  fire) and the local model. In the exploration it gave the highest AUC on 2017-2023 later burning (0.622). The
+  primary comparison of TMA stays against its own environmental baseline, but the paper also reports whether TMA
+  beats this simple blend, and says so plainly if it does not.
+- Secondary outcome for every model, "honesty of the evaluation": the difference between the performance
+  estimated at evaluation time (within-event AUC or cross-fire AUC) and the AUC realised on later burning. In
+  the exploration the gap was 0.017 for the pooled model and 0.23-0.47 for the local models. For TMA, the
+  agreement between the held-out-site evaluation used to choose the gate and the realised blind result is
+  reported.
+- The pooled-baseline exploration (commit ae231af) is development data: exploratory and limited to 18 sites.
