@@ -3,7 +3,7 @@ sites on their existing 500 m fire grids. One GeoTIFF per site and target year y
 
   ndvi, evi    mean of the MOD13A1 v061 composites whose whole 16-day interval lies inside the 58 days before
                1 May y (three per year; SummaryQA <= 1), scaled, averaged onto the grid cell
-  lst_day,     mean MOD11A1 v061 LST_Day_1km and LST_Night_1km (K) over the same 58 days (QC bits 0-1 == 0)
+  lst_day,     mean MOD11A1 v061 LST_Day_1km and LST_Night_1km (K) over the same 58 days (QC bits 0-1 <= 1: LST produced; good or other quality)
   lst_night
   burn         share of the cell area with an MCD64A1 BurnDate from 1 May y to 30 April y+1 (area-weighted)
   unmapped     mean share of the target months whose MCD64A1 QA bit 0 is 0 or masked
@@ -56,8 +56,8 @@ def year_image(y):
     vi = m13.map(lambda im: im.select(["NDVI", "EVI"]).updateMask(im.select("SummaryQA").lte(1)).multiply(0.0001)).mean()
     m11 = ee.ImageCollection("MODIS/061/MOD11A1").filterDate(w0.isoformat(), cut.isoformat())
     lst = m11.map(lambda im: ee.Image.cat(
-        im.select("LST_Day_1km").updateMask(im.select("QC_Day").bitwiseAnd(3).eq(0)),
-        im.select("LST_Night_1km").updateMask(im.select("QC_Night").bitwiseAnd(3).eq(0))).multiply(0.02)).mean()
+        im.select("LST_Day_1km").updateMask(im.select("QC_Day").bitwiseAnd(3).lte(1)),
+        im.select("LST_Night_1km").updateMask(im.select("QC_Night").bitwiseAnd(3).lte(1))).multiply(0.02)).mean()
     t0, t1 = cut, date(y + 1, 4, 30)
     mcd = ee.ImageCollection("MODIS/061/MCD64A1").filterDate(t0.isoformat(), (t1 + timedelta(days=1)).isoformat())
     burn = mcd.map(lambda im: im.select("BurnDate").gt(0).unmask(0)).max().unmask(0)

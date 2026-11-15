@@ -861,3 +861,7 @@ as a methodological evaluation, not a new algorithm.
   Engine now marks as superseded, kept for consistency with the earlier tables), averaged onto the grid.
 - Target year 2026 (May 2026 to April 2027) is filled only to the last published MCD64A1 month and is marked
   incomplete; it is not used as a full year in training or in the estimation of variance components.
+- Correction while building the panel (15 November 2026): the first export kept only MOD11A1 pixels with QC
+  bits 0-1 equal to 0 (good quality); night LST then survived in a handful of cells per site. The filter now
+  keeps every produced LST value (QC bits 0-1 <= 1, good or other quality) for day and night alike; the year
+  files were re-exported.
