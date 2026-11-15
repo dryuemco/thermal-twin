@@ -527,3 +527,46 @@ In Earth Engine, MCD64A1 BurnDate is masked on unburned land, so "BurnDate < 0 o
 cell as unmapped (33,345 cells in the test fire px25_2017). An unmapped month is now one whose QA bit 0 (valid
 land data) is 0 or masked; the 0.10 exclusion rule is unchanged. The test also fixed a type error in the band of
 first future-burn years; its label counts (no scores) were the only output seen.
+
+## Amendment 10 (15 November 2026): G2, G5, G1d; written after the G1, Z3, Z4 and Z5 results were seen
+
+All exploratory. Seen before this amendment: every result up to amendment 9, including G1 (the coordinate RF
+was chosen on the focal event by the pooled AUC in 18 of 18 and by cAUC in 17 of 18 fires and did worse on
+later burning; between the thermal and baseline RF the pooled AUC chose the thermal RF in 18 of 18), the
+Monte Carlo, 20 km and calibrated runs.
+
+### 10.1 G2: location-using models that are used in practice (claim15_location.py)
+
+Same 18 fires, focal folds, future labels, populations and losses as 9.2-9.4. Pairs, each against the thermal RF:
+- primary: thermal RF plus the two cell-centre coordinates (km, f.xy) as features (thermal+coord);
+- secondary: thermal RF plus the distance to the nearest burned cell of the training folds, measured for
+  training cells by the inner split of claim1_combined.py and for test cells to the burned training cells
+  (thermal+distance);
+- tertiary: k-nearest-neighbour classifier on the coordinates, k = 25, distance-weighted (coord-kNN), to check
+  that the G1 coordinate result is not specific to random forests.
+RF settings as in 9.3. For each pair and measure (pooled AUC, cAUC, sAUC_c): number of fires in which the
+measure chooses the location-using model, loss and relative loss on later burning, and the mean future AUC
+difference (thermal minus location-using) with a 95% fire-bootstrap interval (10,000, seed 42, clusters of 9.5).
+Rule fixed here: a pair is called a transfer failure of within-event evaluation if the pooled AUC chooses the
+location-using model in at least 12 of 18 fires and the 95% interval of the mean future AUC difference is above 0.
+
+### 10.2 G5: dependence on single fires, countries, years and events (claim15_location.py)
+
+For the G1 pair (thermal vs coordinate RF) and the 10.1 primary pair: the mean future AUC difference and the
+mean loss of each measure recomputed leaving out one country at a time (regions.EXPERIMENTS country), one focal
+year at a time and one fire at a time (min and max reported), and with the largest future event of each fire
+removed from the positives (cells of other events kept).
+
+### 10.3 G1d: repeat pairs (claim15_location.py)
+
+Pairs (earlier -> later): rp01_2020 -> px17_2022, px16_2022 -> rp02_2023, evia_2021_extended -> rp03_2023.
+Chronology and the number of cells shared on the 500 m grid (lon/lat match) are reported first. Thermal RF and
+coordinate RF (lon/lat in km) trained on all cells of the earlier fire, scored on the later fire's cells with the
+later fire's predictors; AUC on the later fire's label beside the measures' choice on the earlier fire. A pair
+whose later fire has no analysis table is reported as missing. Descriptive only.
+
+### 10.4 Limits written into the paper
+
+The calibrated scenarios of 8.5 reached the real null AUC only in part (0.926 against 0.964) and kept far more
+burned cells in matching (0.82 against 0.57). The 13 fires without enough later burning are mostly 2021-2023
+fires, so G1 and G2 lean on 2017-2021 fires.
