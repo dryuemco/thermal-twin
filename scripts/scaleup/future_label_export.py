@@ -3,10 +3,13 @@
 Bands (MODIS/061/MCD64A1, BurnDate; monthly images dated on the first of the month):
   1 fut_all     share of the cell with a BurnDate after label_end and on or before 2023-12-31
   2 fut_2y      the same, up to label_end + 730 days
-  3 unmapped    mean share of months in the full horizon whose QA bit 0 (valid data) is 0 or masked
+  3 unmapped    mean share of months in the full horizon whose selected QA bit is 0 or masked
   4 fut_year    first year with a future burn (0 if none; mode of the 500 m pixels)
   5 hist_pre    share burned at least once from 2001-01-01 to the day before predictor_start
-Writes $THERMAL_TWIN_SCALEUP/analysis/future/<fire>.tif
+THERMAL_TWIN_LABEL_SUFFIX unset or empty uses QA bit 0 (land/water) and writes analysis/future/<fire>.tif.
+Set it to _qa1 to use QA bit 1 (valid data) and write analysis/future_qa1/<fire>.tif.
+When redirecting stdout/stderr, use analysis/future_export.log or analysis/future_export_qa1.log respectively.
+All other suffix values are errors.
 """
 import os
 import sys
@@ -18,9 +21,10 @@ import ee
 import rasterio
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from label_variant import QA_MASK, variant_name  # noqa: E402
 import s2_label_check_export as S  # noqa: E402
 
-OUT = S.SCALEUP / "analysis" / "future"
+OUT = S.SCALEUP / "analysis" / variant_name("future")
 MCD = "MODIS/061/MCD64A1"
 
 
@@ -46,7 +50,7 @@ def burned_between(d_after, d_to):
     return ee.ImageCollection(imgs).max()
 
 
-def export(exp):
+def export(exp, out=OUT, qa_mask=QA_MASK):
     e = S.regions.EXPERIMENTS[exp]
     le, ps = date.fromisoformat(e["label_end_date"]), date.fromisoformat(e["predictor_start_date"])
     end = date(2023, 12, 31)
@@ -54,8 +58,8 @@ def export(exp):
         t, (h, w) = g.transform, g.shape
     proj = ee.ImageCollection(MCD).first().projection()
     col = ee.ImageCollection(MCD).filterDate(month_start(le).isoformat(), "2024-01-01")
-    # BurnDate is masked on unburned land in Earth Engine; valid data = bit 0 of QA (plan 9.9)
-    unm = col.map(lambda im: im.select("QA").unmask(0).bitwiseAnd(1).eq(0)).mean()
+    # QA bit 0 is land/water (original); bit 1 is valid data (Amendment 15).
+    unm = col.map(lambda im: im.select("QA").unmask(0).bitwiseAnd(qa_mask).eq(0)).mean()
     years = col.map(lambda im: im.select("BurnDate").gt(0).multiply(ee.Number.parse(im.date().format("YYYY"))).toInt16().selfMask())
     fut_all = burned_between(le, end)
     fut_year = years.min().unmask(0).updateMask(fut_all).unmask(0)   # approx: first burn year of the horizon
@@ -67,8 +71,8 @@ def export(exp):
     img = ee.Image.cat(reduced).toFloat()
     url = img.getDownloadURL({"crs": "EPSG:4326", "crs_transform": [t.a, t.b, t.c, t.d, t.e, t.f],
                               "dimensions": f"{w}x{h}", "format": "GEO_TIFF"})
-    OUT.mkdir(parents=True, exist_ok=True)
-    with urllib.request.urlopen(url, timeout=1800) as resp, open(OUT / f"{exp}.tif", "wb") as f:
+    out.mkdir(parents=True, exist_ok=True)
+    with urllib.request.urlopen(url, timeout=1800) as resp, open(out / f"{exp}.tif", "wb") as f:
         f.write(resp.read())
     print(exp, "done", flush=True)
 

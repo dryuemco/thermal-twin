@@ -4,6 +4,8 @@ later real burning; no refit except the coordinate RF (9.3) and the history RF (
 Inputs: the cached focal scores of analysis_official.py (thermal and baseline RF, 5 km blocks), the future/<fire>.tif
 rasters of future_label_export.py and claim8_sauc settings (geonull defaults).
 Writes claim14_future_per_fire.csv, claim14_events.csv, claim14_history.csv and claim14_future_summary.json.
+THERMAL_TWIN_LABEL_SUFFIX unset or empty selects original labels and names. Set it to _qa1 to read
+future_qa1 and append _qa1 before each output extension. All other values are errors.
 """
 import json
 import sys
@@ -23,12 +25,19 @@ from sklearn.preprocessing import OneHotEncoder
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "geonull"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from label_variant import SUFFIX, variant_name  # noqa: E402
 import geonull as G  # noqa: E402
 import analysis_official as A  # noqa: E402
 
-FUT = A.OUT / "future"
+FUT = A.OUT / variant_name("future")
 MIN = 30
 NB = 10_000
+
+
+def focal_rf(f, features, tag):
+    if SUFFIX:
+        return np.load(f._cache(f"{tag}_rf_b10"))
+    return f.oof(features, tag, "rf", 10)
 
 
 def rf():
@@ -92,8 +101,8 @@ def main():
         yf2 = (fut_2y >= 0.5).astype(int)
         npos, nneg = int(yf[pop].sum()), int((1 - yf[pop]).sum())
         folds = f.folds(10)
-        st = f.oof(A.THERMAL, "thermal", "rf", 10)
-        sb = f.oof(A.BASELINE, "baseline", "rf", 10)
+        st = focal_rf(f, A.THERMAL, "thermal")
+        sb = focal_rf(f, A.BASELINE, "baseline")
         null = f.null_oof(10)
         z = -null
         pairs = f.pwd_pairs(10)
@@ -170,9 +179,9 @@ def main():
         print(fid, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items()
                     if k.startswith("coord_primary_loss") or k in ("future_burned",)}, flush=True)
     R = pd.DataFrame(rows)
-    R.to_csv(A.OUT / "claim14_future_per_fire.csv", index=False)
-    pd.DataFrame(evrows).to_csv(A.OUT / "claim14_events.csv", index=False)
-    pd.DataFrame(hist).to_csv(A.OUT / "claim14_history.csv", index=False)
+    R.to_csv(A.OUT / variant_name("claim14_future_per_fire.csv"), index=False)
+    pd.DataFrame(evrows).to_csv(A.OUT / variant_name("claim14_events.csv"), index=False)
+    pd.DataFrame(hist).to_csv(A.OUT / variant_name("claim14_history.csv"), index=False)
     S = {"eligible": int(len(R)), "excluded": excluded, "decision": decide(R, F, "coord_primary"),
          "sensitivity": {k: decide(R, F, k) for k in ("coord_full", "coord_two_year", "baseline_primary")}}
     S["sensitivity"]["coord_event_weighted"] = decide_cols(R, F, "coord_eventweighted_loss_auc", "coord_eventweighted_loss_cauc")
@@ -184,7 +193,7 @@ def main():
     H = pd.DataFrame(hist)
     S["g1c_history"] = {k: A.boot_mean(H[k]) for k in ("thermal_auc", "thermal_hist_auc", "thermal_cauc", "thermal_hist_cauc",
                                                         "hist_only_auc")}
-    (A.OUT / "claim14_future_summary.json").write_text(json.dumps(S, indent=1, default=float), encoding="utf-8")
+    (A.OUT / variant_name("claim14_future_summary.json")).write_text(json.dumps(S, indent=1, default=float), encoding="utf-8")
     print(json.dumps(S["decision"], indent=1, default=float))
 
 

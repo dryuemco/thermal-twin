@@ -1,6 +1,6 @@
 """claim16_replication.py: plan 11.4, replication of G1/G2 on burning from 2024-01-01 to the last published month.
 
-Three steps, run in this order and pushed between them:
+Original workflow:
   python claim16_replication.py freeze    focal out-of-fold scores of every candidate on all 30 primary sites,
                                           written to claim16_scores/<fire>.npz with a sha256 manifest, BEFORE any
                                           2024-2026 label exists on disk
@@ -8,6 +8,12 @@ Three steps, run in this order and pushed between them:
   python claim16_replication.py evaluate  rules 9.5 and 10.1 on the primary and secondary sets, Holm across sets
 Candidates and settings are those of G1/G2 (claim14_future.py, claim15_location.py); the scores are recomputed with
 the same seeds and folds and then frozen.
+
+THERMAL_TWIN_LABEL_SUFFIX unset or empty uses QA bit 0 (land/water). Set it to _qa1 to use QA bit 1
+(valid data), export/read labels in analysis/late_qa1 and suffix the evaluation outputs.
+Both evaluations verify the original frozen scores against the original manifest and use the original
+Claim 14 CSV to identify sites whose G1 scores had already been seen.
+Freeze requires an empty or unset suffix. All other suffix values are errors.
 """
 import hashlib
 import json
@@ -22,13 +28,14 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "geonull"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from label_variant import QA_MASK, SUFFIX, variant_name  # noqa: E402
 import geonull as G  # noqa: E402
 import analysis_official as A  # noqa: E402
 import claim14_future as C14  # noqa: E402
 import claim15_location as C15  # noqa: E402
 
 SC = A.OUT / "claim16_scores"
-LAB = A.OUT / "late"
+LAB = A.OUT / variant_name("late")
 CANDS = ("coord_rf", "coord_knn", "thermal_coord", "thermal_dist")
 START, END = date(2024, 1, 1), date(2026, 9, 30)
 
@@ -38,6 +45,8 @@ def primary_ids(F):
 
 
 def freeze():
+    if SUFFIX:
+        raise SystemExit("freeze requires THERMAL_TWIN_LABEL_SUFFIX to be unset or empty")
     F = A.load_fires()
     SC.mkdir(exist_ok=True)
     man = {}
@@ -70,7 +79,8 @@ def export():
         proj = ee.ImageCollection(X.MCD).first().projection()
         col = ee.ImageCollection(X.MCD).filterDate(START.isoformat(), "2026-10-01")
         burned = X.burned_between(date(2023, 12, 31), END)
-        unm = col.map(lambda im: im.select("QA").unmask(0).bitwiseAnd(1).eq(0)).mean()
+        # QA bit 0 is land/water (original); bit 1 is valid data (Amendment 15).
+        unm = col.map(lambda im: im.select("QA").unmask(0).bitwiseAnd(QA_MASK).eq(0)).mean()
         img = ee.Image.cat([b.reproject(proj).reduceResolution(ee.Reducer.mean(), maxPixels=1024) for b in (burned, unm)]).toFloat()
         url = img.getDownloadURL({"crs": "EPSG:4326", "crs_transform": [t.a, t.b, t.c, t.d, t.e, t.f],
                                   "dimensions": f"{w}x{h}", "format": "GEO_TIFF"})
@@ -104,11 +114,13 @@ def evaluate():
     import rasterio
     F = A.load_fires()
     man = json.loads((A.OUT / "claim16_scores_manifest.json").read_text())
+    # The secondary set excludes sites whose G1 scores had already been seen (plan 11.4).
     g1 = set(pd.read_csv(A.OUT / "claim14_future_per_fire.csv").fire)
     rows = []
     for fid in primary_ids(F):
         p = SC / f"{fid}.npz"
-        assert hashlib.sha256(p.read_bytes()).hexdigest() == man[fid], f"scores of {fid} changed after freezing"
+        if hashlib.sha256(p.read_bytes()).hexdigest() != man[fid]:
+            raise ValueError(f"scores of {fid} changed after freezing")
         D = np.load(p)
         f = F[fid]
         with rasterio.open(LAB / f"{fid}.tif") as r:
@@ -144,7 +156,7 @@ def evaluate():
         rows.append(r)
         print(fid, "evaluated", flush=True)
     R = pd.DataFrame(rows)
-    R.to_csv(A.OUT / "claim16_per_fire.csv", index=False)
+    R.to_csv(A.OUT / variant_name("claim16_per_fire.csv"), index=False)
     E = R[R.eligible]
     sets = {"primary": E, "secondary": E[~E.in_g1]}
     S = {"eligible": int(len(E)), "secondary_fires": sets["secondary"].fire.tolist(),
@@ -183,7 +195,7 @@ def evaluate():
                 v["transfer_failure"] = bool(v["pooled_auc_chooses_location"] >= int(np.ceil(12 / 18 * n)) and pa < 0.025)
         r101[cand] = res
     S["rule_10_1"] = r101
-    (A.OUT / "claim16_summary.json").write_text(json.dumps(S, indent=1, default=float), encoding="utf-8")
+    (A.OUT / variant_name("claim16_summary.json")).write_text(json.dumps(S, indent=1, default=float), encoding="utf-8")
     print(json.dumps(S, indent=1, default=float)[:6000])
 
 

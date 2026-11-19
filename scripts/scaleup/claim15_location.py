@@ -1,6 +1,8 @@
 """claim15_location.py: G2 (plan 10.1), G5 (10.2) and G1d (10.3). Exploratory.
 
-Writes claim15_g2_per_fire.csv, claim15_g5.json, claim15_g1d.json and claim15_summary.json.
+Writes claim15_g2_per_fire.csv and claim15_summary.json (including G5 and G1d).
+THERMAL_TWIN_LABEL_SUFFIX unset or empty selects original inputs and names. Set it to _qa1 to read
+future_qa1 and the suffixed Claim 14 CSV, and append _qa1 before each output extension. Other values are errors.
 """
 import json
 import sys
@@ -19,6 +21,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "geonull"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from label_variant import variant_name  # noqa: E402
 import geonull as G  # noqa: E402
 import analysis_official as A  # noqa: E402
 import claim14_future as C14  # noqa: E402
@@ -78,7 +81,7 @@ def boot(d, groups):
 
 def main():
     F = A.load_fires()
-    E = pd.read_csv(A.OUT / "claim14_future_per_fire.csv")
+    E = pd.read_csv(A.OUT / variant_name("claim14_future_per_fire.csv"))
     ids = E.fire.tolist()
     rows = []
     for fid in ids:
@@ -93,7 +96,7 @@ def main():
         null = f.null_oof(10)
         z, pairs = -null, f.pwd_pairs(10)
         sn = G.standardised_auc(f.y, null, z)["sauc"]
-        st = f.oof(A.THERMAL, "thermal", "rf", 10)
+        st = C14.focal_rf(f, A.THERMAL, "thermal")
         cands = {"coord_rf": C14.oof(f.xy, f.y, folds),
                  "thermal_coord": oof_extra(f, folds, lambda tr, te: (f.xy[tr], f.xy[te]), ["x_km", "y_km"]),
                  "thermal_dist": oof_extra(f, folds, dist_feature(f), ["dist_train_burn"]),
@@ -120,7 +123,7 @@ def main():
         rows.append(r)
         print(fid, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items() if k.endswith(("_fut", "choice_auc"))}, flush=True)
     R = pd.DataFrame(rows)
-    R.to_csv(A.OUT / "claim15_g2_per_fire.csv", index=False)
+    R.to_csv(A.OUT / variant_name("claim15_g2_per_fire.csv"), index=False)
     cl = C14.clusters(F, R.fire.tolist())
     S = {}
     for name in ("coord_rf", "thermal_coord", "thermal_dist", "coord_knn"):
@@ -146,7 +149,7 @@ def main():
         g5[name] = out
     S["g5"] = g5
     S["g1d"] = repeat_pairs(F)
-    (A.OUT / "claim15_summary.json").write_text(json.dumps(S, indent=1, default=float), encoding="utf-8")
+    (A.OUT / variant_name("claim15_summary.json")).write_text(json.dumps(S, indent=1, default=float), encoding="utf-8")
     print(json.dumps({k: v for k, v in S.items() if k != "g5"}, indent=1, default=float)[:4000])
     print(json.dumps(g5, indent=1, default=float)[:2500])
 
@@ -179,7 +182,7 @@ def repeat_pairs(F):
         s_c = C14.rf().fit(km(e.df), e.y).predict_proba(km(l.df))[:, 1]
         rec["later_auc_thermal"], rec["later_auc_coord"] = G.auc(l.y, s_t), G.auc(l.y, s_c)
         folds = e.folds(10)
-        st, sc = e.oof(A.THERMAL, "thermal", "rf", 10), C14.oof(e.xy, e.y, folds)
+        st, sc = C14.focal_rf(e, A.THERMAL, "thermal"), C14.oof(e.xy, e.y, folds)
         rec["earlier_focal_auc_thermal"], rec["earlier_focal_auc_coord"] = G.auc(e.y, st), G.auc(e.y, sc)
         rec["earlier_choice_pooled_auc"] = "thermal" if rec["earlier_focal_auc_thermal"] > rec["earlier_focal_auc_coord"] else "coord"
         out.append(rec)
