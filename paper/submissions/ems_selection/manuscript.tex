@@ -1,0 +1,270 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lineno}
+\linenumbers
+
+\input{values_frozen.tex}
+\input{values.tex}
+
+\journal{Environmental Modelling \& Software}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Within-event spatial cross-validation selects coordinate-only wildfire models that rank later burning worse: evidence from 31 Mediterranean fires}
+
+\author[cu]{Emrehan Metin}
+\author[cu]{Yunus Emre Cogurcu\corref{cor1}}
+\ead{ycogurcu@cu.edu.tr}
+\cortext[cor1]{Corresponding author.}
+\affiliation[cu]{organization={Department of Computer Engineering, Faculty of Engineering, \c{C}ukurova University},
+            city={Sar\i\c{c}am, Adana},
+            postcode={01330},
+            country={T\"urkiye}}
+
+\begin{abstract}
+Wildfire susceptibility models are often compared by their area under the receiver operating characteristic curve (AUC) under spatial block cross-validation inside mapped fires. What such a choice costs in ranking later burning is unknown. On 31 Mediterranean fires, we retrospectively fitted a random forest on thermal and environmental predictors and a forest given only cell coordinates, and scored both on later burning nearby. With 5~km blocks the coordinate-only forest scored higher in all 31 fires. In the \sAElig{} fires with enough later burning to 2023, the thermal forest's mean AUC on that burning was higher by \sACrfDiff{} (95\% interval \sACrfDiffLo{} to \sACrfDiffHi). In a frozen-score replication on \sBElig{} fires burning from 2024 to September 2026 it was higher by \sBCrfDiff{} (\sBCrfDiffLo{} to \sBCrfDiffHi). The distance-calibrated AUC made the same choice in \sACrfChCauc{} of \sAElig{} fires. Within-event scores should not choose between such models for ranking future burning.
+\end{abstract}
+
+\begin{graphicalabstract}
+\includegraphics[width=\linewidth]{graphical_abstract.png}
+\end{graphicalabstract}
+
+\begin{highlights}
+\item A coordinate-only forest beat a thermal forest on focal-fire AUC in \sAllCoordChose{} of \sAllN{} fires
+\item Pooled AUC chose the coordinate-only forest in \sACrfChAuc{} of \sAElig{} fires with later burning
+\item The choice cost \sACrfLossAuc{} AUC on burning to 2023 and \sBCrfLossAuc{} on burning in 2024-2026
+\item The distance-calibrated AUC made the same choice in \sACrfChCauc{} of \sAElig{} fires
+\item In simulations tuned to the real fires, all three measures chose near chance
+\end{highlights}
+
+\begin{keyword}
+wildfire susceptibility \sep model selection \sep spatial cross-validation \sep temporal validation \sep random forest \sep MODIS burned area
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+\label{sec:intro}
+
+Maps of where wildfires are likely to burn are now mostly built with machine learning, trained on burned areas or ignitions mapped from satellites and judged by the area under the receiver operating characteristic curve (AUC) on held-out cells. A review of 298 machine-learning studies in wildfire science discussed the need for cross-validation suited to spatially autocorrelated data \citep{Jain2020}, and the best AUC reported in recent susceptibility studies is often above 0.9 \citep{Iban2022,Trucchia2023,Zerouali2026}. Blocking the cross-validation in space is the remedy recommended for such data \citep{Roberts2017}, and software for it is widely used \citep{Valavi2019}. Burned cells form contiguous patches, though, and a test block cut from the middle of one fire scar can still lie next to burned training cells. In species distribution modelling, \citet{Hijmans2012} showed that a predictor-free model scoring cells by their distance to training presences can match or beat environmental models. \citet{Bahn2007} found that spatial interpolation could outperform niche-based models, and \citet{Ploton2020} that a biomass model given only coordinates scored as well as one given environmental predictors under random validation. A high within-event AUC can therefore come from knowing where the scar is, with little help from the predictors.
+
+A cross-validated AUC is rarely reported for its own sake. It is used to choose a model, a predictor set or a tuning, and the chosen model is then used to rank places where fire has not yet been seen. Whether that choice is the right one can only be checked against independent outcomes. In species distribution modelling, \citet{Baker2024} asked whether internal cross-validation picks the bias correction that does best on independent survey data, and \citet{Finn2024} compared the ranking of candidate models by internal AUC with their ranking on an independent field survey. \citet{Mila2024} used simulations with known prediction performance to test whether validation procedures rank random forests with and without spatial proxies correctly, and found that random cross-validation tended to favour the proxies in settings where they did not help. Hydrology has a similar line of work on whether calibration choices hold up on untouched periods \citep{Arsenault2018} and on the benchmarks a forecast has to beat \citep{Pappenberger2015}. In wildfire research, later burning has been used to evaluate maps. \citet{Trucchia2022} scored a summer susceptibility map of Italy against selected large fires of summer 2021, \citet{Moran2025} benchmarked annual burn probability maps against subsequent wildfires in California, and \citet{Preisler2008} compared fire probabilities with smoothed historic fire frequencies. \citet{PhelpsWoolford2021} set out how fire occurrence models should be evaluated and compared, and warned that an evaluation not matched to the operational use can select a model that is ineffective in that use. The studies we found do not report the loss incurred by choosing between two susceptibility models by their within-event cross-validated score, measured on the later burning that the models are meant to rank.
+
+This paper measures that cost on 31 large Mediterranean fires mapped by MODIS. We fitted a random forest (RF) on thermal and environmental predictors (thermal RF) and a coordinate-only RF under 5~km block cross-validation. Three within-event measures chose between them, the pooled AUC, the calibrated AUC (cAUC) of \citet{Hijmans2012} and a distance-stratified version of it. We then scored both models on the burning that MODIS recorded in the same study rectangles after the focal fire. The first window runs to the end of 2023. The second, a replication with scores frozen before the labels were exported, runs from January 2024 to September 2026. Two hybrids that add coordinates or distance to training burns to the thermal RF test whether the result carries over to location features used in practice. A simulation in which the better model is known for each run tests how often each measure picks it. Section~\ref{sec:methods} describes the data, the models and the decision rules, Section~\ref{sec:results} the results, Section~\ref{sec:discussion} what they mean for model selection and Section~\ref{sec:conclusions} concludes.
+
+\section{Data and methods}
+\label{sec:methods}
+
+The analysis needs fires with a burned label and predictors on a common grid, candidate models fitted under a fixed validation design, measures that choose between them on the focal fire and a later outcome against which the choice can be checked. Section~\ref{sec:fires} describes the fires and Section~\ref{sec:models} the candidate models. Section~\ref{sec:measures} defines the within-event measures, Section~\ref{sec:later} the later-burning labels and Section~\ref{sec:loss} the selection loss and the decision rules. Section~\ref{sec:sim} describes the simulation and Section~\ref{sec:order} the order in which the rules and the results were produced.
+
+\subsection{Fires, cells and predictors}
+\label{sec:fires}
+
+The fires are five Mediterranean regions of an earlier study (Manavgat 2021, Bej\'is 2022, Mu\u{g}la 2021, North Evia 2021 and Montiferru 2021) and \vnAdded{} fires from 2017 to 2023 selected by rule from the MODIS MCD64A1 burned-area product \citep{MCD64A1,Giglio2018}. The rule took burned-area clusters of natural vegetation over the Mediterranean and kept those with a start between May and October, one dominant event and a rectangle of at most 1.1\textdegree{}. Clusters that overlapped one already chosen were dropped (\vselCandidates{} candidates, \vselPass{} after the filters, \vselKept{} kept, supplementary Section~S1). They are large single-event summer fires, and each study rectangle is drawn around one of them. For an added fire, a \vpredDays-day predictor window ends the day before the first burn date of the dominant event and a \vlabelDays-day label window starts on that day. The study rectangle is the extent of the labelled cells plus 0.15\textdegree{}. The five earlier regions keep the windows and rectangles of the earlier study. We call the fire whose burned area is the label the focal event.
+
+All inputs were processed in Google Earth Engine \citep{Gorelick2017} by one open pipeline \citep{ThermalTwinRepo} and aggregated to cells of about 500~m. A cell is burned if MCD64A1 records a burn date inside the label window. The predictors are the Normalised Difference Vegetation Index (NDVI), elevation and slope from the Copernicus DEM \citep{CopernicusDEM}, land cover from the 2021 ESA WorldCover map \citep{Zanaga2022} and six thermal predictors from Landsat 8 \citep{LandsatC2L2} and MODIS MOD11A1 \citep{MOD11A1}. The thermal predictors are the land surface temperature (LST) of the predictor window, its anomaly against earlier years, a temperature-vegetation dryness index and its change, and a downscaled and a gap-filled LST. The population of each fire is the set of valid cells dominated by tree, shrub or grass cover in that map. For fires before 2021 the land cover postdates the predictor window, and for some it falls inside the later-burning window, so the analysis is retrospective and does not use only data available when a forecast would have been issued. The 31 fires hold between \vcellsMin{} and \vcellsMax{} such cells and \vburnedMin{} to \vburnedMax{} burned ones, and the burned share is \vprevMean\% on average (\vprevMin\% to \vprevMax\%). Supplementary Table~S1 lists the fires.
+
+\subsection{Candidate models and validation}
+\label{sec:models}
+
+The model under evaluation is the thermal RF \citep{Breiman2001}, with 300 trees, a minimum leaf size of 3 and balanced class weights, trained on NDVI, elevation, slope, land cover and the six thermal predictors. Its main competitor is a coordinate-only RF with the same settings, whose two features are the coordinates of the cell centre in kilometres on the fire's grid. A $k$-nearest-neighbour classifier on the same coordinates ($k = 25$, distance-weighted, coordinate-only kNN) checks that the result is not specific to forests. Two hybrids represent location features that are used in practice. The first adds the two coordinates to the thermal RF. The second adds the distance to the nearest burned cell of the training folds, measured for training cells through an inner split by the same blocks so that the feature has the same geometry at training and at test time. A thermal RF without the six thermal predictors (baseline RF) is a secondary comparison.
+
+Every model is fitted to each fire separately with five-fold cross-validation, stratified by label and grouped by blocks of 10 by 10 cells. A block is about 5~km north to south and somewhat less east to west, since cells are fixed in degrees. All models share the same folds and seed. The out-of-fold predictions of the five fold models are pooled into one score per cell. This is the map that a within-event evaluation scores, and it is also the map we score on later burning. It is not a single model trained on all cells of the fire.
+
+\subsection{Within-event measures}
+\label{sec:measures}
+
+Three measures choose between two candidates on the focal event, each by the higher value. The pooled AUC is the ROC AUC of the pooled out-of-fold predictions. The cAUC follows \citet{Hijmans2012}. Inside each test fold, every burned cell with distance $d_p$ to the nearest burned training cell is paired with the unused unburned cell whose distance $d_n$ is most similar. The burned cells are taken in a seeded random order, and the pair is kept if $|d_n - d_p| \le 0.33 \max(d_p, 0.51\ \mathrm{km})$. The floor of 0.51~km, one cell, is our addition to the relative tolerance of \citet{Hijmans2012}. The kept pairs of all folds are pooled, and
+\begin{equation}
+\mathrm{cAUC} = \mathrm{AUC}_\mathrm{pairs} + 0.5 - \max(0.5, \mathrm{AUC}_\mathrm{null,pairs}),
+\end{equation}
+where the null model scores a cell by minus its distance to the nearest burned training cell. The null correction is the same for both candidates of a fire, so only the matching can make the cAUC choose differently from the pooled AUC. The stratified cAUC computes the AUC within strata of that distance, $[0, 0.51)$~km and then geometric strata whose bounds grow by a factor of 1.33. It averages the supported strata (at least 20 burned and 20 unburned test cells) with weights from the distance distribution of the burned test cells, renormalised over the supported strata. It is reported only if the supported strata cover at least 80\% of that distribution, and it is corrected by the null model in the same way as the cAUC. When a measure is not available for a fire or ties, no choice is recorded, and its loss is charged as if it had chosen the candidate that did worse on later burning.
+
+The null model itself is not a candidate. Its AUC under the same folds shows how far closeness to burned training cells alone separates the classes in a given split, and we use it as a diagnostic of the split. When it is close to 1, the within-event test mostly asks whether a model can interpolate the scar.
+
+\subsection{Later burning}
+\label{sec:later}
+
+Later burning is the burning that MCD64A1 version 6.1 recorded in the study rectangle after the focal label window. A cell is later-burned if at least half of its area has a burn date in the target window. Pixel-months without sufficient valid data (quality bit 1 clear, or no quality value) are counted, and cells in which more than 10\% of the pixel-months of the window lack valid data are left out of the population. The primary population is the model population of the fire minus the focal scar and minus these unmapped cells. Cells that burned before the target window stay in it. Window A runs from the end of the focal label window to 31 December 2023, so its length varies from fire to fire. Window B runs from 1 January 2024 to the last published month, September 2026. A fire is eligible in a window if it has at least 30 later-burned and 30 later-unburned cells in the primary population.
+
+\subsection{Selection loss and decision rules}
+\label{sec:loss}
+
+For a fire and a pair of candidates, the loss of a measure is the AUC on later burning of the better candidate minus that of the candidate the measure chose. A measure that chooses the better model has no loss. Fires are weighted equally. Intervals come from a paired bootstrap over fires with 10,000 resamples and seed 42. Fires whose modelled cells have intersecting bounding boxes are resampled together as one cluster.
+
+Two rules were fixed in advance. The first compares the pooled AUC with the cAUC through $D = L_\mathrm{pooled} - L_\mathrm{cAUC}$, the difference between their losses for the thermal and the coordinate-only RF. The cAUC is called better for this target if the lower end of the 95\% interval of the mean $D$ is above zero, and practically better if the mean $D$ is also at least 0.01 AUC. The two are called equivalent if the 90\% interval lies within $\pm 0.01$ AUC. The second calls a pair a transfer failure of within-event evaluation if the pooled AUC chooses the location-using candidate in at least 12 of 18 fires and the 95\% interval of the mean later-AUC difference (thermal RF minus candidate) is above zero. In window B the count threshold is $\lceil 12n/18 \rceil$ for $n$ fires, and every interval condition above zero is applied as a one-sided bootstrap $p < 0.025$. For each comparison these $p$ values are Holm-adjusted across the primary set and a secondary set, made of the eligible fires that were not eligible in window A. Equivalence keeps the unadjusted 90\% interval.
+
+Sensitivities for the coordinate-only RF were set out with the first rule and are reported whatever they show. They are a two-year horizon, the full population with the focal scar included and equal weight per later fire event, where an event is an 8-connected component of later-burned cells grouped by an approximate year of first burning. They also include leaving out one event, one focal year or one fire at a time, and removing the largest later event of each fire. Leaving out one country was planned too, but countries were assigned to the 26 added fires only after the window-A results were known, and the $D$ of the distance hybrid was added at the same time. As a descriptive check we scored later burning by minus the distance to the focal scar, with an interval from 2,000 bootstrap resamples of fires. For three pairs of fires in which a later fire overlapped the rectangle of an earlier one, both RFs were trained on all cells of the earlier fire and scored on the later fire with its own predictors.
+
+\subsection{Simulation}
+\label{sec:sim}
+
+Real later burning is a single realisation for each fire, so a simulation checks how often each measure picks the better model when the outcome can be generated anew. The landscapes are the population cells of the 31 fires with their real coordinates and predictors. A latent risk $\eta = aE + bS + \varepsilon$ has three parts. $E$ is an environmental index, the standardised mean of NDVI, minus elevation, slope and LST. $S$ is a Gaussian random field with exponential correlation of length $L$, and $\varepsilon$ is standard normal noise. The cells with the highest $\eta$ are burned, up to the real burned share of the fire. An environmental RF on the four signal predictors and two pure-noise predictors competes with a coordinate-only RF, both under the 5~km block design. The better model of a run is the one with the higher AUC on a second label of the same landscape, drawn once with the same $E$ and a new $S$ and $\varepsilon$. It stands for a later fire whose spatial footprint is not tied to the first one, and it is a realised ranking under this scenario, not an expected one.
+
+The nominal design crosses $a \in \{0, 0.5, 1, 2\}$, $b \in \{0, 1, 2, 4\}$ and $L \in \{2, 10\}$~km, with \sSimTenDraws{} draws per fire and setting (\sSimTenAllRuns{} runs). It was repeated with one draw and 20~km blocks on the \sSimFortyFires{} fires large enough for them (\sSimFortyAllRuns{} runs). We report the runs with $b > 0$ (\sSimTenRuns{} and \sSimFortyRuns), since without a spatial field the two models have no spatial signal to differ on. A second design was tuned for each fire and each $a \in \{0.5, 1, 2\}$. Of 16 settings of $b \in \{2, 4, 8, 16\}$ and $L \in \{5, 10, 20, 40\}$~km, it kept the one whose null-model AUC and share of burned cells kept by matching came closest to fixed targets of 0.958 and 0.57 taken from the real fires, and then drew three new labels at that setting (\sSimCalRuns{} runs). For each measure we report its balanced accuracy against the truth and the mean AUC loss of its choice. Balanced accuracy is used because the environmental model is the truth in most nominal runs, so plain agreement would reward a measure that always picks it.
+
+\subsection{Order of analysis}
+\label{sec:order}
+
+The analysis plan and its amendments are kept in the code repository (Section~\ref{sec:software}). An analysis register there records, for every reported result, when its rule was written relative to its own results and which time records are independent of the authors. The first rule of Section~\ref{sec:loss} was declared before any window-A score was compared with later burning, but after the within-event results and the simulations were known. The second rule was written after the window-A result for the coordinate-only RF was seen, so it is confirmatory only for the pairs whose results were still unseen (the hybrids and the coordinate-only kNN). For window B, the rules, the focal scores of all candidates and a SHA-256 manifest of those scores were pushed to the repository server on 15 November 2026, before the 2024 to 2026 labels were exported. The evaluation checked every score file against the manifest. Window B is therefore a frozen-score replication and not a blind test. The scores were frozen after the target period had passed, and per-fire counts of burned cells in those years had been read beforehand to set the eligibility rule. The pushes are recorded by the server, while the order of label export and evaluation between them rests on local file times and logs. The simulations and all other analyses are exploratory. Three analyses of the plan have no result. A forward selection that chooses between candidates by each site's own earlier fires had support at only two sites, and neither it nor its comparison with older fire labels produced a result file. Its sequence simulation was replaced by a later amendment before it ran. Supplementary Table~S4 lists every registered analysis with its status.
+
+The labels of both windows were exported once more after all results were known. The first export excluded unmapped cells with bit 0 of the MCD64A1 quality layer, which is the land/water flag. An audit before submission found the error, and a plan amendment written before the new export replaced it with bit 1, the valid-data flag, leaving every other rule and the frozen scores unchanged. A check reproduced the original label of one fire exactly before the change. Over the 31 fires, the corrected mask removed \sQaCellsA{} cells (\sQaPctA\%) from the window-A populations, \sQaBurnedA{} of them later-burned, and \sQaCellsB{} (\sQaPctB\%) from window B, \sQaBurnedB{} of them later-burned. No fire changed eligibility. Refitting the location-using candidates in the rerun changed some AUC values in the eighth decimal place, which changed no reported value or choice. All results in the main text use the corrected labels, and supplementary Table~S3 sets them beside the original ones.
+
+\section{Results}
+\label{sec:results}
+
+The results start with what the within-event test measures on these fires (Section~\ref{sec:res-diag}) and then follow the choice through the two windows of later burning (Sections~\ref{sec:res-a} and \ref{sec:res-b}). Section~\ref{sec:res-hybrid} reports the hybrids, Section~\ref{sec:res-sens} the sensitivities and Section~\ref{sec:res-sim} the simulation.
+
+\subsection{What the within-event test rewards}
+\label{sec:res-diag}
+
+With 5~km blocks the null model reached a mean AUC of \vaucNullFive{} [\vaucNullFiveLo, \vaucNullFiveHi] against \vaucRfFive{} [\vaucRfFiveLo, \vaucRfFiveHi] for the thermal RF and scored higher in \vnullWinsFive{} fires. The coordinate-only RF reached a mean of \sAllFocCoord{} and scored higher than the thermal RF in \sAllCoordChose{} of \sAllN{} fires and higher than the null model in \sAllCoordBeatsNull{}. Distance matching kept \vpwdKeptFive\% of the burned cells on average, and on the kept pairs the null model still scored \vpwdNullFive{}. In these splits, closeness to burned training cells alone separated the classes better than the predictors did, and the coordinate-only RF learned the position of the scar from the coordinates.
+
+\subsection{Selection and later burning to 2023}
+\label{sec:res-a}
+
+\sAElig{} fires had enough later burning in window A, and \sAExcl{} were left out, most of them fires of 2021 to 2023 with little time for later burning. In the eligible fires later burning came as a median of \sAEventsMed{} separate events (\sAEventsMin{} to \sAEventsMax), and the largest event held a median of \sALargestMed\% of the later-burned cells.
+
+On the focal event the coordinate-only RF had a mean AUC of \sAFocCoord{} and the thermal RF \sAFocTherm{} in these fires, so the pooled AUC chose the coordinate-only RF in \sACrfChAuc{} of \sAElig{} fires (Table~\ref{tab:select}). The cAUC chose it in \sACrfChCauc{} and the stratified cAUC in \sACrfChSauc, the latter being unsupported in \sAUnsupSauc{} fires. On later burning the ranking reversed on average. The thermal RF had a mean AUC of \sALateTherm{} and the coordinate-only RF \sALateCoord, close to chance, and the thermal RF was better in \sACrfBetter{} fires, by \sACrfDiff{} [\sACrfDiffLo, \sACrfDiffHi] on average. The choice of the pooled AUC therefore lost \sACrfLossAuc{} AUC on average, which is \sACrfRel{} of the mean absolute difference between the two models on later burning. The baseline RF without thermal predictors reached a mean of \sABaseLate{} on the same later burning, so most of the gain over the coordinate-only RF comes from the environmental predictors as a whole. Scar exclusion does not explain the reversal either. With the focal scar kept in the population, the mean later AUC was \sAFullTherm{} for the thermal RF and \sAFullCoord{} for the coordinate-only RF. Fig.~\ref{fig:fires} shows the reversal fire by fire. The coordinate-only kNN gave the same picture, with a later-AUC difference of \sAKnnDiff{} [\sAKnnDiffLo, \sAKnnDiffHi]. Both pairs met the transfer-failure rule.
+
+\begin{table}[t]
+\centering
+\caption{Choices on the focal event and their outcome on later burning, for the thermal RF against four location-using candidates. Chosen: number of fires in which the pooled AUC, the cAUC and the stratified cAUC chose the candidate. Better: fires in which the thermal RF had the higher AUC on later burning. Difference: mean AUC on later burning, thermal RF minus candidate, with 95\% bootstrap interval over fires. Loss: mean AUC loss of the pooled AUC's choice. Rule: transfer-failure rule of Section~\ref{sec:loss}. Window A has \sAElig{} fires and window B \sBElig, \sBOverlap{} of them in both.}
+\label{tab:select}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{L{3.0cm}cccL{3.1cm}cc}
+\toprule
+Candidate & Chosen & Better & & Difference & Loss & Rule \\
+\midrule
+\multicolumn{7}{l}{\emph{Window A, later burning to 2023}} \\
+Coordinate-only RF & \sACrfChAuc{} / \sACrfChCauc{} / \sACrfChSauc & \sACrfBetter & & \sACrfDiff{} [\sACrfDiffLo, \sACrfDiffHi] & \sACrfLossAuc & \sACrfRule \\
+Coordinate-only kNN & \sAKnnChAuc{} / \sAKnnChCauc{} / \sAKnnChSauc & \sAKnnBetter & & \sAKnnDiff{} [\sAKnnDiffLo, \sAKnnDiffHi] & \sAKnnLossAuc & \sAKnnRule \\
+Thermal RF + coordinates & \sATcChAuc{} / \sATcChCauc{} / \sATcChSauc & \sATcBetter & & \sATcDiff{} [\sATcDiffLo, \sATcDiffHi] & \sATcLossAuc & \sATcRule \\
+Thermal RF + distance & \sATdChAuc{} / \sATdChCauc{} / \sATdChSauc & \sATdBetter & & \sATdDiff{} [\sATdDiffLo, \sATdDiffHi] & \sATdLossAuc & \sATdRule \\
+\midrule
+\multicolumn{7}{l}{\emph{Window B, later burning January 2024 to September 2026, frozen scores}} \\
+Coordinate-only RF & \sBCrfChAuc{} / \sBCrfChCauc{} / \sBCrfChSauc & \sBCrfBetter & & \sBCrfDiff{} [\sBCrfDiffLo, \sBCrfDiffHi] & \sBCrfLossAuc & \sBCrfRule \\
+Coordinate-only kNN & \sBKnnChAuc{} / \sBKnnChCauc{} / \sBKnnChSauc & \sBKnnBetter & & \sBKnnDiff{} [\sBKnnDiffLo, \sBKnnDiffHi] & \sBKnnLossAuc & \sBKnnRule \\
+Thermal RF + coordinates & \sBTcChAuc{} / \sBTcChCauc{} / \sBTcChSauc & \sBTcBetter & & \sBTcDiff{} [\sBTcDiffLo, \sBTcDiffHi] & \sBTcLossAuc & \sBTcRule \\
+Thermal RF + distance & \sBTdChAuc{} / \sBTdChCauc{} / \sBTdChSauc & \sBTdBetter & & \sBTdDiff{} [\sBTdDiffLo, \sBTdDiffHi] & \sBTdLossAuc & \sBTdRule \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/Figure_1.pdf}
+\caption{Focal-event choice against outcome on later burning, one marker per fire and window. The horizontal axis is the pooled AUC of the thermal RF minus that of the coordinate-only RF under 5~km block cross-validation on the focal fire, so every marker left of the vertical line is a fire in which the pooled AUC chose the coordinate-only RF. The vertical axis is the same difference in AUC on later burning in the same study rectangle, so markers above the horizontal line are fires in which that choice was the worse one. Filled circles: later burning to the end of 2023. Hollow squares: later burning from January 2024 to September 2026, scored with frozen focal predictions. Where two markers would overlap, one is shifted slightly and joined to its true position by a short line.}
+\label{fig:fires}
+\end{figure}
+
+The two calibrated measures did not change the outcome. The mean of $D$, the loss of the pooled AUC minus that of the cAUC, was \sADMean{} with a 90\% interval of [\sADLo, \sADHi]. This lies inside the margin of $\pm 0.01$, so the first rule called the two measures equivalent. They made the same choice in nearly every fire, and the mean cAUC of the coordinate-only RF (\sAFocCoordC) stayed above that of the thermal RF (\sAFocThermC). Between the thermal and the baseline RF the pooled AUC chose the thermal RF in \sABaseChoseTherm{} fires, and the baseline RF did better on later burning in \sABaseBetter{} of them, for a loss of \sABaseLossAuc. Between two models with the same kind of predictors the within-event choice was mostly right, and it went wrong when one candidate could learn the location of the scar.
+
+\subsection{Replication on burning from 2024 to September 2026}
+\label{sec:res-b}
+
+\sBElig{} fires had enough later burning in window B, \sBOverlap{} of them also eligible in window A and \sBSec{} new (Table~\ref{tab:select}). The pooled AUC chose the coordinate-only RF in all \sBCrfChAuc, and on burning from 2024 the thermal RF was better in \sBCrfBetter{} fires, by \sBCrfDiff{} [\sBCrfDiffLo, \sBCrfDiffHi] on average (Holm-adjusted $p = \sBCrfP$). The mean AUC on later burning was \sBLateTherm{} for the thermal RF and \sBLateCoord{} for the coordinate-only RF, and the loss of the pooled AUC's choice \sBCrfLossAuc. The coordinate-only kNN gave a difference of \sBKnnDiff{} [\sBKnnDiffLo, \sBKnnDiffHi]. Both pairs met the transfer-failure rule again. In the \sBSec{} fires that had not been eligible in window A, whose later-burning scores had never been seen, the difference for the coordinate-only RF was \sBSCrfDiff{} [\sBSCrfDiffLo, \sBSCrfDiffHi], with the thermal RF better in \sBSCrfBetter. The pooled AUC and the cAUC were again equivalent (mean $D$ \sBDMean, 90\% interval [\sBDLo, \sBDHi]) and made the same choice in \sBDSame{} of \sBElig{} fires. The effect was smaller than in window A, and its interval came close to zero.
+
+\subsection{Hybrid models}
+\label{sec:res-hybrid}
+
+Adding coordinates or the distance to training burns to the thermal RF also raised its within-event AUC, and the pooled AUC chose each hybrid over the plain thermal RF in all fires of both windows. On later burning the plain thermal RF was ahead on average, but by less (Table~\ref{tab:select}, Fig.~\ref{fig:pairs}). The hybrid with coordinates did not meet the transfer-failure rule in either window. The hybrid with distance did not meet it in window A and met it in window B with a Holm-adjusted $p$ of \sBTdPfour, just below the threshold of 0.025. With the original labels (Section~\ref{sec:order}) the same $p$ was \sOBTdP{} and the rule was not met, so this result sits on the threshold. For the thermal RF with coordinates the later-AUC difference was \sATcDiff{} [\sATcDiffLo, \sATcDiffHi] in window A and \sBTcDiff{} [\sBTcDiffLo, \sBTcDiffHi] in window B. For the thermal RF with distance it was \sATdDiff{} [\sATdDiffLo, \sATdDiffHi] and \sBTdDiff{} [\sBTdDiffLo, \sBTdDiffHi]. The cAUC behaved differently for this second hybrid. It chose the hybrid in only \sATdChCauc{} fires in window A and \sBTdChCauc{} in window B. Its loss was lower than that of the pooled AUC (\sATdLossCauc{} against \sATdLossAuc{} in window A), although the interval of the difference included zero (\sATdD{} [\sATdDLo, \sATdDHi]). In the \sBSec{} secondary fires of window B the distance hybrid met the rule with both label versions, with a difference of \sBSTdDiff{} [\sBSTdDiffLo, \sBSTdDiffHi], but five fires carry little weight. The selection result of this paper is clear for coordinate-only learners. For the distance hybrid it holds in one window and at the threshold, and for the coordinate hybrid it was not shown, so it does not extend to location features in general.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/Figure_2.pdf}
+\caption{Mean AUC on later burning of the thermal RF minus that of each location-using candidate, with 95\% bootstrap intervals over fires. Filled circles: later burning to the end of 2023 (\sAElig{} fires). Hollow squares: later burning from January 2024 to September 2026 (\sBElig{} fires). Values above zero mean that the thermal RF ranked later burning better. In both windows the pooled AUC chose the candidate in every fire.}
+\label{fig:pairs}
+\end{figure}
+
+\subsection{Sensitivity}
+\label{sec:res-sens}
+
+For the coordinate-only RF in window A, $D$ stayed within the equivalence margin with the full population including the focal scar (\sADFull, 90\% interval [\sADFullLo, \sADFullHi]), with a two-year horizon (\sADTwoYear, \sATwoYearFires{} fires) and with equal weight per later event (\sADEvent). Leaving out one later event at a time moved the per-fire $D$ between \sALoeoMin{} and \sALoeoMax. The later-AUC difference stayed positive when one focal year was left out (\sALoyoMin{} to \sALoyoMax), one fire (\sALofoMin{} to \sALofoMax) or, in the check added later, one country (\sALocoMin{} to \sALocoMax{} over \sACountries{} countries). Removing the largest later event of each fire left \sANoLargestFires{} fires with enough burning, and the thermal RF was still better in \sANoLargestBetter{} of them, by \sANoLargest{} on average. Closeness to the focal scar ranked later burning weakly on average, with a mean AUC of \sAScar{} [\sAScarLo, \sAScarHi] for minus the distance to the scar and single fires from \sAScarMin{} to \sAScarMax. In the \sRpN{} pairs of overlapping fires, the pooled AUC on the earlier fire chose the coordinate-only RF in all \sRpCoordChosen, and the thermal RF trained on the earlier fire scored the later one better in \sRpThermBetter. The pairs overlap to very different degrees, and in one of them the two fires share almost no cells, so they are only illustrations (supplementary Table~S5). Supplementary Table~S2 gives the per-fire values of the two windows, and Table~S4 lists every analysis of the plan with its status and result.
+
+\subsection{Simulation}
+\label{sec:res-sim}
+
+In the nominal design the cAUC picked the better model more often than the pooled AUC (Fig.~\ref{fig:sim}). Its balanced accuracy was \sSimTenBalCauc{} against \sSimTenBalAuc{} with 5~km blocks and \sSimFortyBalCauc{} against \sSimFortyBalAuc{} with 20~km blocks, and the stratified cAUC lay between them. Its mean AUC loss was \sSimTenLossCauc{} against \sSimTenLossAuc{} for the pooled AUC with 5~km blocks. In the design tuned to the real fires the advantage disappeared. The environmental model was the better one in \sCalEnvWon{} of \sSimCalRuns{} runs, yet the pooled AUC never chose it and the cAUC chose it \sCalCaucEnv{} time. In that run the coordinate model was in fact the better one. The stratified cAUC never chose it, with unsupported runs counted as failures. All three measures thus chose at about chance level (balanced accuracy \sSimCalBalAuc, \sSimCalBalCauc{} and \sSimCalBalSauc), with a mean loss of about \sSimCalLossAuc. A fixed rule that always picks the environmental model, which only a simulation can know to be the safer default, lost less than any measure (\sSimTenLossEnv{} and \sSimFortyLossEnv{} in the nominal designs, \sSimCalLossEnv{} in the tuned one). On average the tuned scenarios still fell short of the real fires. Their mean null-model AUC was \sCalNullSim{} against \sCalNullReal, matching kept \sCalKeptSim\% of the burned cells against \sCalKeptReal\%, and the stratified cAUC was supported in \sCalSupSim\% of runs against \sCalSupReal\% of the real fires. The real fires are thus on average a more extreme case than the tuned scenarios.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/Figure_3.pdf}
+\caption{Balanced accuracy with which three within-event measures chose the model that was better on an independent second label, in three simulation settings. Nominal: latent risk with a fixed grid of environmental and spatial weights, runs with a spatial weight $b > 0$ only (\sSimTenRuns{} runs with 5~km blocks, \sSimFortyRuns{} with 20~km blocks). Tuned: spatial weight and range set per fire and environmental weight so that the null-model AUC and the matched share came close to targets taken from the real fires (\sSimCalRuns{} runs). The dashed line marks a choice no better than chance.}
+\label{fig:sim}
+\end{figure}
+
+\section{Discussion}
+\label{sec:discussion}
+
+On these fires, the within-event test rewarded the model that knew where the scar was, and that model ranked later burning worse in both windows. Section~\ref{sec:disc-why} discusses why, Section~\ref{sec:disc-lit} relates the result to earlier work, Section~\ref{sec:disc-rec} turns it into recommendations and Section~\ref{sec:disc-limits} gives the limits of the study.
+
+\subsection{Why the within-event score points the wrong way}
+\label{sec:disc-why}
+
+With 5~km blocks inside one fire, closeness to burned training cells separated the classes with a mean AUC of \vaucNullFive, so a learner that can interpolate the scar scores high. The null model did so with no predictor, and the coordinate-only RF did slightly better in most fires, which fits its ability to learn the shape of the scar as well as its position. Later burning was scored outside the focal scar, and closeness to the scar ranked it with a mean AUC of only \sAScar. The coordinate-only RF carried the scar's geometry into a period in which that geometry mattered little, and its mean AUC on later burning was close to chance. The thermal RF ranked later burning better than the coordinate-only RF, but only slightly better than the baseline RF without thermal predictors in window A (\sALateTherm{} against \sABaseLate) and about equally in window B (\sBLateTherm{} against \sBBaseLate). What carried over to later fires is thus a weak environmental signal, and these data do not single out the thermal predictors. The cAUC and its stratified version did not repair the choice. Their null correction shifts both candidates equally, so only the matching or the strata could change the order, and on these splits the coordinate-only RF kept the higher cAUC in \sACrfChCauc{} of \sAElig{} fires.
+
+The simulation agrees with this reading without proving it. In the nominal scenarios the cAUC chose better than the pooled AUC, as \citet{Hijmans2012} intended. In the scenarios tuned towards the spatial separation of the real fires, the measures almost never chose the environmental model and their choices were at about chance level. The averages do not locate a threshold at which the cAUC stops helping, but they show that its benefit seen in the nominal settings did not carry over to settings resembling these fires.
+
+\subsection{Relation to earlier work}
+\label{sec:disc-lit}
+
+The selection question is not new. \citet{Baker2024}, \citet{Finn2024} and \citet{Mila2024} checked choices made by internal validation against independent data or simulated truth, and \citet{Mila2024} found that random cross-validation favours spatial proxies in settings where they do not help. Our fires add three things to that picture. The outcome is real later burning in the same areas, in two windows, the second one scored with frozen predictions. The within-event split is spatial block cross-validation, the remedy recommended for spatial dependence \citep{Roberts2017}, and the calibrated AUC of \citet{Hijmans2012} is included as a selector. The simulations show that the advantage of the calibrated measure in nominal settings did not hold in settings tuned towards the real fires. The coordinate-only learner is close to the interpolators that \citet{Bahn2007} and \citet{Ploton2020} used as references, and our results agree with theirs that such learners can match or beat environmental models within the sampled area.
+
+For wildfire, evaluation against later burning is established \citep{Verde2010,Trucchia2022,Moran2025}, and \citet{PhelpsWoolford2021} recommended evaluation designs matched to the intended use of a model, warning that a mismatched evaluation can select an operationally ineffective one. Our results put a size on that warning for one common design, since the within-event score and the score on later burning pointed to different models.
+
+\subsection{Recommendations}
+\label{sec:disc-rec}
+
+Three practices follow from the results. First, when a susceptibility map is meant to rank where future fires will burn, candidate models should be chosen on later burning. This needs a temporal hold-out in which the training data end before the target period starts. Within-event cross-validation can still serve to check a model, but on our evidence its AUC should not decide between an environmental model and one that can learn location from coordinates alone. For hybrids the evidence is weaker, and a temporal hold-out is the safer basis for that choice too. Second, studies should report the AUC of the predictor-free null model under their own split. It costs one nearest-neighbour query per fold, and a value close to 1 shows that the within-event test mostly rewards interpolation of the scar. Third, the cAUC should not be relied on to correct the choice in such splits. In our fires it made the same choice as the pooled AUC in nearly every case, while in simulations with weaker spatial separation it helped. A selection made on later burning needs no correction of this kind. The analysis code computes all three within-event measures and the later-burning loss for any set of fires with burned-area labels (Section~\ref{sec:software}).
+
+\subsection{Limitations}
+\label{sec:disc-limits}
+
+Window A has \sAElig{} eligible fires and window B \sBElig, of which \sBOverlap{} are shared, so the two windows are not independent replications, and window B is a frozen-score replication run after its target period had passed. The direction held on average, but in single fires the coordinate-only RF did better on later burning in \sACrfCoordBetter{} of \sAElig{} fires in window A. Eligibility required at least 30 later-burned and 30 later-unburned cells, which an operational user cannot know in advance, so the results are conditional on later burning having occurred. Window A leans on fires of 2017 to 2021, because more recent fires had little time to reburn nearby. Later burning came in few events per fire and is a single realisation of weather and ignitions, not the underlying susceptibility. The results held when the largest event was removed, but a few events still weigh heavily in each fire, and the year used to group later burning into events is approximate. The scored map is assembled from five fold models and is not an operational model trained on all cells. The land cover predictor and population mask come from a 2021 map, so the analysis is retrospective. The validation of the previous MCD64A1 collection showed that a 500~m product misses small fires and partly burned cells \citep{Boschetti2019}. The fires are large single-event summer fires with rectangles drawn around them, and the results may not hold for regional inventories of many small fires.
+
+The comparison is limited to AUC on later burning. We did not score calibrated probabilities with proper scoring rules, and we did not compare the candidates with a reference built only from the fire history of each landscape. Both are needed before the thermal RF can be called useful for forecasting, since a better rank than the coordinate-only RF does not show skill against simpler references. The selection rule of the first window was written after the within-event results were known, the transfer-failure rule after the coordinate-only result of that window, and the simulations are exploratory. The tuned simulation did not reach the spatial separation of the real fires.
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+Within-event spatial block cross-validation on 31 Mediterranean fires preferred a coordinate-only random forest to a forest on thermal and environmental predictors in every fire. On the burning that followed in the same areas, in two sets of \sAElig{} and \sBElig{} eligible fires, the choice cost a mean of \sACrfLossAuc{} AUC to the end of 2023 and \sBCrfLossAuc{} from 2024 to September 2026. The calibrated AUC of \citet{Hijmans2012} made the same choice in \sACrfChCauc{} of \sAElig{} fires in window A and \sBCrfChCauc{} of \sBElig{} in window B. For hybrids that add location to the thermal predictors the evidence was weaker. Only the distance hybrid met the declared rule, in window B and at the threshold. Model selection for susceptibility maps that will rank future burning should therefore use later burning, and the null-model AUC of the split should be reported to show how much a within-event score rewards interpolation. The next steps are a comparison with fire-history references under proper scores and a selection test in landscapes and seasons whose outcomes are unknown when the choice is fixed.
+
+\section*{Software and data availability}
+\label{sec:software}
+
+Software name: thermal-twin analysis code (branch scaleup-31fires). Developers: Y.E. Cogurcu and E. Metin, ycogurcu@cu.edu.tr. First available: 2026. Hardware: a desktop computer with 32 threads. Software required: Python 3.12 with NumPy, pandas, SciPy, scikit-learn, rasterio and the Earth Engine Python API. Programming language: Python. Availability and cost: free, MIT licence, at \url{https://github.com/dryuemco/thermal-twin}. The analysis plan, its amendments and the analysis register are in the same repository. The upstream processing pipeline is at \url{https://github.com/emrehann17/satellite-thermal-digital-twin}. All satellite inputs are public and were accessed through Google Earth Engine. The modelling tables of the 31 fires, the later-burning labels, the frozen focal scores with their SHA-256 manifest and the outputs behind every figure and table will be archived with the code in a versioned Zenodo release before publication.
+
+\section*{CRediT authorship contribution statement}
+
+Emrehan Metin: Software, Data curation, Investigation, Validation, Writing -- review and editing. Yunus Emre Cogurcu: Conceptualization, Methodology, Formal analysis, Investigation, Visualization, Writing -- original draft, Writing -- review and editing, Supervision, Project administration, Funding acquisition.
+
+\section*{Declaration of competing interest}
+
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+
+This work was supported by the \c{C}ukurova University Scientific Research Projects Coordination Unit under project FKB-2025-17608. The funder had no role in the study design, the analysis, the writing or the decision to submit.
+
+\section*{Acknowledgements}
+
+The authors thank the Department of Computer Engineering at \c{C}ukurova University for the laboratory environment in which this work was carried out.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+
+During the preparation of this work the authors used Claude (Anthropic) and Codex (OpenAI) to write analysis and figure code, to run analysis scripts, to check reported numbers against the result files, to review the design and to draft and edit the text. After using these tools, the authors reviewed and edited the content as needed and take full responsibility for the content of the published article.
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\end{document}

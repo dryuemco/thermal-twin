@@ -1,0 +1,201 @@
+{
+ "inputs": {
+  "results\\scaleup\\claim14\\claim14_future_summary.json": "6f62c4d751c0da5cebbe05e827d218a7ce0e674158fb411a2d23d1af6be4c3df",
+  "results\\scaleup\\claim14\\claim14_future_per_fire.csv": "fee1a0c4f993aac990a6e4bd11156d7650b3f58dcd2866c3c2f43acff5168d43",
+  "results\\scaleup\\claim14\\claim14_events.csv": "8764d95c0b98b4bfb3ffb8510417d565af82e1b7ed7bffc03e1eea96384b8ebc",
+  "results\\scaleup\\claim15\\claim15_summary.json": "db8e268afb4923a265d45915390c68a4ce40b1ab2c0e48704fc91feeeda6ade8",
+  "results\\scaleup\\claim15\\claim15_followup.json": "9abaeccc2c3d55367902c5cb803cad47318341dedfe2b1062913d33505f0c7c3",
+  "results\\scaleup\\claim16\\claim16_summary.json": "46d76a1cc3713d246d323321b543553d76906e58ad9af4d28cbde14d561e841c",
+  "results\\scaleup\\claim16\\claim16_per_fire.csv": "9a25aa17032c292f65b917af573fb16066e80d6d510034370082b53b1ee5b075",
+  "results\\scaleup\\claim14_qa1\\claim14_future_summary_qa1.json": "c6c5243ca892b6ea8fb51200bda5953ba294de2e1779ee2d0c618ea61049e608",
+  "results\\scaleup\\claim14_qa1\\claim14_future_per_fire_qa1.csv": "4204e1213793ff17ae4de08378ea811bc1021fd0c19be6cdd203f8be7b35fa82",
+  "results\\scaleup\\claim14_qa1\\claim14_events_qa1.csv": "4891851cc9b4d2248dadf90a9f292b8538aeb7df8e217ba4c8599b57486eccda",
+  "results\\scaleup\\claim15_qa1\\claim15_summary_qa1.json": "47d7532f22e44706f7c08eb5b12d65da3f27bccfb3860fda2caa7a46f8509863",
+  "results\\scaleup\\claim15_qa1\\claim15_followup_qa1.json": "f912ad02aa6d476414418cf653ecfc0bedaf2fae529200b8c4c9a9c714cadc7e",
+  "results\\scaleup\\claim16_qa1\\claim16_summary_qa1.json": "307dad4317f9d182323c1c45519418710647c34893153a4927ab18b2280948c3",
+  "results\\scaleup\\claim16_qa1\\claim16_per_fire_qa1.csv": "37f4012dae3502f159e9345eb7d6f8d6b20521c947e46774e234e0337df28489",
+  "results\\scaleup\\claim16\\claim16_scores_manifest.json": "a7e2eb1f02c9e9c9d2010e296b1309a4261541f8f11eff8d2b2fb4f637897c7b",
+  "results\\scaleup\\claim12\\claim12_summary.json": "76772603f0f710752ccc41ebe3d0bea3a129f1e8f331c067cddd0b92b22539cd",
+  "results\\scaleup\\claim12\\claim13_runs.csv": "18b92c2b66afa96752cf0fdd86844dbd191e80738178b917557895d0a11c4a1e",
+  "results\\scaleup\\claim12\\claim12_runs_b10.csv": "667b089e690830f651d924c1eac77552856a105ba1847959e47fc0a39f7ac9e1",
+  "results\\scaleup\\claim12\\claim12_runs_b40.csv": "57e02af48efa332580343e06e703db5ad29fefc885f84acf4afc083180d726e2",
+  "results\\scaleup\\label_counts_11a.json": "d94e35f3e02cca4db4010509008443a9025b59e0a98acd436f0d047db3637bbb",
+  "scripts\\scaleup\\selection\\fire_countries.json": "f02cec77dcdad7cba6d31d9b69a631e7cdb6c276822cf587375def20fc7709c5",
+  "results\\scaleup\\claim14_qa1\\claim14_history_qa1.csv": "31f3f79e8f2a8cd6f270da6443e9000f88a1f634797543dc413b301f36b097a7",
+  "results\\scaleup\\claim15_qa1\\claim15_g2_per_fire_qa1.csv": "9e532fa33aceb237e0ba35e1391ee3f498a2e39c1b99a25b71cfff8bb6b4e565",
+  "ems_selection\\fires_table_source.tex": "8f00b5edefff752c87f27a21cbbd661ba55c52d0a3c8c0ea9eea2c5a29c3ffe6",
+  "ems_selection\\values_frozen.tex": "a04b408f194130fa9925ca5bc3519886934bb0d4412911572257fdcb07f6682a"
+ },
+ "repo_head": "ee90c35b9dec15a90adc9bba1f9943b295136251",
+ "label_variant": "corrected (_qa1)",
+ "focal_auc_recomputed": {
+  "manavgat_2021": {
+   "thermal": 0.882224,
+   "coord_rf": 0.995498,
+   "null": 0.984313
+  },
+  "bejis_2022": {
+   "thermal": 0.824469,
+   "coord_rf": 0.989629,
+   "null": 0.97901
+  },
+  "mugla_2021": {
+   "thermal": 0.777327,
+   "coord_rf": 0.979625,
+   "null": 0.979145
+  },
+  "evia_2021_extended": {
+   "thermal": 0.864189,
+   "coord_rf": 0.993357,
+   "null": 0.979903
+  },
+  "montiferru_2021_fullwindow": {
+   "thermal": 0.714292,
+   "coord_rf": 0.929744,
+   "null": 0.917004
+  },
+  "px01_2023": {
+   "thermal": 0.864746,
+   "coord_rf": 0.987096,
+   "null": 0.968169
+  },
+  "px02_2018": {
+   "thermal": 0.926917,
+   "coord_rf": 0.989797,
+   "null": 0.981336
+  },
+  "px03_2022": {
+   "thermal": 0.908344,
+   "coord_rf": 0.990357,
+   "null": 0.983381
+  },
+  "px04_2017": {
+   "thermal": 0.775762,
+   "coord_rf": 0.958832,
+   "null": 0.947936
+  },
+  "px05_2021": {
+   "thermal": 0.835889,
+   "coord_rf": 0.993042,
+   "null": 0.988568
+  },
+  "px06_2017": {
+   "thermal": 0.7552,
+   "coord_rf": 0.927181,
+   "null": 0.912765
+  },
+  "px07_2017": {
+   "thermal": 0.930332,
+   "coord_rf": 0.97113,
+   "null": 0.965339
+  },
+  "rhodes_2023": {
+   "thermal": 0.817023,
+   "coord_rf": 0.975686,
+   "null": 0.964145
+  },
+  "px09_2021": {
+   "thermal": 0.839729,
+   "coord_rf": 0.992995,
+   "null": 0.982323
+  },
+  "px10_2022": {
+   "thermal": 0.809751,
+   "coord_rf": 0.979749,
+   "null": 0.970314
+  },
+  "px11_2020": {
+   "thermal": 0.906195,
+   "coord_rf": 0.987401,
+   "null": 0.985669
+  },
+  "px12_2022": {
+   "thermal": 0.853072,
+   "coord_rf": 0.995547,
+   "null": 0.988254
+  },
+  "px13_2021": {
+   "thermal": 0.737971,
+   "coord_rf": 0.929544,
+   "null": 0.932682
+  },
+  "px14_2022": {
+   "thermal": 0.843585,
+   "coord_rf": 0.979104,
+   "null": 0.971291
+  },
+  "px15_2022": {
+   "thermal": 0.831251,
+   "coord_rf": 0.981446,
+   "null": 0.982586
+  },
+  "px16_2022": {
+   "thermal": 0.847483,
+   "coord_rf": 0.988018,
+   "null": 0.985452
+  },
+  "px17_2022": {
+   "thermal": 0.788539,
+   "coord_rf": 0.918918,
+   "null": 0.910813
+  },
+  "px18_2021": {
+   "thermal": 0.846522,
+   "coord_rf": 0.954906,
+   "null": 0.962332
+  },
+  "px19_2021": {
+   "thermal": 0.826138,
+   "coord_rf": 0.987164,
+   "null": 0.97819
+  },
+  "px20_2021": {
+   "thermal": 0.856729,
+   "coord_rf": 0.966297,
+   "null": 0.95906
+  },
+  "px21_2017": {
+   "thermal": 0.904375,
+   "coord_rf": 0.989878,
+   "null": 0.974593
+  },
+  "px22_2021": {
+   "thermal": 0.89508,
+   "coord_rf": 0.969509,
+   "null": 0.961179
+  },
+  "px23_2023": {
+   "thermal": 0.904133,
+   "coord_rf": 0.972356,
+   "null": 0.969829
+  },
+  "px24_2019": {
+   "thermal": 0.937796,
+   "coord_rf": 0.98539,
+   "null": 0.985166
+  },
+  "px25_2017": {
+   "thermal": 0.766162,
+   "coord_rf": 0.844352,
+   "null": 0.829021
+  },
+  "px26_2021": {
+   "thermal": 0.81905,
+   "coord_rf": 0.984798,
+   "null": 0.990518
+  }
+ },
+ "frozen_checks": [
+  "vCalBalAuc",
+  "vMcBalCauc",
+  "vgCrfBetter",
+  "vgCrfChAuc",
+  "vgCrfChCauc",
+  "vgCrfDiff",
+  "vgCrfLossAuc",
+  "vgEligible",
+  "vgHistAuc",
+  "vgKnnDiff",
+  "vgScar"
+ ]
+}

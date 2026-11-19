@@ -1,0 +1,30 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.0cm]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{pdflscape}
+\usepackage[hidelinks]{hyperref}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thesection}{S\arabic{section}}
+\setlength{\tabcolsep}{3pt}
+\input{values_frozen.tex}
+\input{values.tex}
+
+\title{Supplementary material for ``Within-event spatial cross-validation selects coordinate-only wildfire models that rank later burning worse: evidence from 31 Mediterranean fires''}
+\author{Emrehan Metin and Yunus Emre Cogurcu}
+\date{}
+
+\begin{document}
+\maketitle
+
+This supplement gives the rule by which the added fires were selected (Section~\ref{sec:s-selection}), the list of the 31 fires (Table~\ref{tab:s-fires}), the per-fire values behind the two windows of later burning (Table~\ref{tab:s-perfire}) and the main results with the original and the corrected later-burning labels (Table~\ref{tab:s-qa}). Table~\ref{tab:s-plan} lists every analysis registered in the plan for the later-burning comparison, with its status and result, and Table~\ref{tab:s-pairs} the three pairs of overlapping fires.
+
+\section{Selection of the added fires}
+\label{sec:s-selection}
+
+The added fires were found by rule from MODIS MCD64A1 in Google Earth Engine, over longitude $-10$ to 37 and latitude 30 to 46 and the years 2017 to 2023. Burned pixels whose MCD12Q1 class is natural vegetation (IGBP classes 1 to 10) were counted on a 0.1\textdegree{} grid, grid cells with at least 15 such pixels were joined into 8-connected clusters, and a cluster with at least 450 pixels became a candidate (\vselCandidates{} candidates). The event of a candidate is the run of burn dates without a gap of more than five days that holds most of its pixels, and its first date is the anchor. Candidates were kept if the anchor fell in May to October, the event held at least 90\% of the burned pixels of its box and the rectangle was at most 1.1\textdegree{} on a side (\vselPass{} candidates). Taken from the largest, a candidate whose rectangle overlapped a study area of the earlier study or a candidate already kept was dropped, which left \vselKept{} fires. \vselRepeat{} dropped candidates overlapped a fire of another year, and these form the three pairs of overlapping fires scored across events in the main text. The scripts and their outputs are in the analysis repository.
+
+\input{supp_selection_tables.tex}
+
+\end{document}
