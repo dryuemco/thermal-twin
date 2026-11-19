@@ -1,0 +1,310 @@
+{
+ "eligible": 18,
+ "secondary_fires": [
+  "px01_2023",
+  "px03_2022",
+  "px10_2022",
+  "px11_2020",
+  "px23_2023"
+ ],
+ "not_eligible": [
+  {
+   "fire": "manavgat_2021",
+   "late_burned": 10
+  },
+  {
+   "fire": "bejis_2022",
+   "late_burned": 25
+  },
+  {
+   "fire": "evia_2021_extended",
+   "late_burned": 0
+  },
+  {
+   "fire": "montiferru_2021_fullwindow",
+   "late_burned": 0
+  },
+  {
+   "fire": "px02_2018",
+   "late_burned": 11
+  },
+  {
+   "fire": "rhodes_2023",
+   "late_burned": 0
+  },
+  {
+   "fire": "px12_2022",
+   "late_burned": 0
+  },
+  {
+   "fire": "px14_2022",
+   "late_burned": 0
+  },
+  {
+   "fire": "px19_2021",
+   "late_burned": 0
+  },
+  {
+   "fire": "px20_2021",
+   "late_burned": 4
+  },
+  {
+   "fire": "px21_2017",
+   "late_burned": 2
+  },
+  {
+   "fire": "px24_2019",
+   "late_burned": 9
+  },
+  {
+   "fire": "px26_2021",
+   "late_burned": 24
+  }
+ ],
+ "rule_9_5": {
+  "primary": {
+   "mean": -0.00020062489962035154,
+   "ci95": [
+    -0.0006018746988610546,
+    0.0
+   ],
+   "ci90": [
+    -0.0006018746988610546,
+    0.0
+   ],
+   "p_gt0": 1.0,
+   "fires": 18,
+   "clusters": 18,
+   "p_holm": 1.0,
+   "verdict": "equivalence",
+   "same_choice": 17
+  },
+  "secondary": {
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "ci90": [
+    0.0,
+    0.0
+   ],
+   "p_gt0": 1.0,
+   "fires": 5,
+   "clusters": 5,
+   "p_holm": 1.0,
+   "verdict": "equivalence",
+   "same_choice": 5
+  }
+ },
+ "rule_10_1": {
+  "coord_rf": {
+   "primary": {
+    "mean": 0.06975604147870867,
+    "ci95": [
+     0.0036028158412539715,
+     0.13540170103302362
+    ],
+    "ci90": [
+     0.013562290895445814,
+     0.1257506700851683
+    ],
+    "p_gt0": 0.0196,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 17,
+    "saucc_chooses_location": 14,
+    "thermal_better": 12,
+    "loss": {
+     "auc": 0.09475220393655118,
+     "cauc": 0.09495282883617152,
+     "saucc": 0.11654629594777738
+    },
+    "p_holm": 0.0196,
+    "transfer_failure": true
+   },
+   "secondary": {
+    "mean": 0.08443312166162185,
+    "ci95": [
+     0.04003732650116296,
+     0.1318256226922746
+    ],
+    "ci90": [
+     0.04056075553430705,
+     0.12504706740217078
+    ],
+    "p_gt0": 0.0001,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 5,
+    "saucc_chooses_location": 5,
+    "thermal_better": 4,
+    "loss": {
+     "auc": 0.08450542766893913,
+     "cauc": 0.08450542766893913,
+     "saucc": 0.08450542766893913
+    },
+    "p_holm": 0.0002,
+    "transfer_failure": true
+   }
+  },
+  "coord_knn": {
+   "primary": {
+    "mean": 0.07206882535934776,
+    "ci95": [
+     0.015804766809211734,
+     0.12682265489124453
+    ],
+    "ci90": [
+     0.025139442268992396,
+     0.11837292491054
+    ],
+    "p_gt0": 0.0073,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 17,
+    "saucc_chooses_location": 14,
+    "thermal_better": 14,
+    "loss": {
+     "auc": 0.09085703900164063,
+     "cauc": 0.09531468888941257,
+     "saucc": 0.10630148014114876
+    },
+    "p_holm": 0.0146,
+    "transfer_failure": true
+   },
+   "secondary": {
+    "mean": 0.07578778935571474,
+    "ci95": [
+     -0.0066083878896120996,
+     0.15428456690300507
+    ],
+    "ci90": [
+     0.0029228409080803595,
+     0.1499775071964226
+    ],
+    "p_gt0": 0.047,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 5,
+    "saucc_chooses_location": 5,
+    "thermal_better": 3,
+    "loss": {
+     "auc": 0.0878253703657399,
+     "cauc": 0.0878253703657399,
+     "saucc": 0.0878253703657399
+    },
+    "p_holm": 0.047,
+    "transfer_failure": false
+   }
+  },
+  "thermal_coord": {
+   "primary": {
+    "mean": 0.01268673471610233,
+    "ci95": [
+     -0.037287008429451075,
+     0.060118043330813234
+    ],
+    "ci90": [
+     -0.028458656425603024,
+     0.05284929907446719
+    ],
+    "p_gt0": 0.2939,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 16,
+    "saucc_chooses_location": 14,
+    "thermal_better": 10,
+    "loss": {
+     "auc": 0.05218080324013624,
+     "cauc": 0.05342787742183247,
+     "saucc": 0.06305411765090857
+    },
+    "p_holm": 0.5878,
+    "transfer_failure": false
+   },
+   "secondary": {
+    "mean": -0.0033048676986554117,
+    "ci95": [
+     -0.11611496660298418,
+     0.08776933460579768
+    ],
+    "ci90": [
+     -0.0943790700031085,
+     0.07805257885336352
+    ],
+    "p_gt0": 0.5197,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 5,
+    "saucc_chooses_location": 5,
+    "thermal_better": 3,
+    "loss": {
+     "auc": 0.04538302811139554,
+     "cauc": 0.04538302811139554,
+     "saucc": 0.04538302811139554
+    },
+    "p_holm": 0.5878,
+    "transfer_failure": false
+   }
+  },
+  "thermal_dist": {
+   "primary": {
+    "mean": 0.0318607186720654,
+    "ci95": [
+     0.0003200642994722639,
+     0.06788740513891511
+    ],
+    "ci90": [
+     0.004893654769154436,
+     0.061944843506497906
+    ],
+    "p_gt0": 0.0238,
+    "fires": 18,
+    "clusters": 18,
+    "pooled_auc_chooses_location": 18,
+    "cauc_chooses_location": 6,
+    "saucc_chooses_location": 7,
+    "thermal_better": 12,
+    "loss": {
+     "auc": 0.043847058646604556,
+     "cauc": 0.025799571208695384,
+     "saucc": 0.037886662510908525
+    },
+    "p_holm": 0.0238,
+    "transfer_failure": true
+   },
+   "secondary": {
+    "mean": 0.02865302134109655,
+    "ci95": [
+     0.011301396183227475,
+     0.045948531073185216
+    ],
+    "ci90": [
+     0.01218019971437383,
+     0.0445665623911079
+    ],
+    "p_gt0": 0.0,
+    "fires": 5,
+    "clusters": 5,
+    "pooled_auc_chooses_location": 5,
+    "cauc_chooses_location": 2,
+    "saucc_chooses_location": 2,
+    "thermal_better": 5,
+    "loss": {
+     "auc": 0.02865302134109655,
+     "cauc": 0.010332350397935897,
+     "saucc": 0.010332350397935897
+    },
+    "p_holm": 0.0,
+    "transfer_failure": true
+   }
+  }
+ }
+}

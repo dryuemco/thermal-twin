@@ -1,0 +1,90 @@
+{
+ "countries": {
+  "Spain": 7,
+  "Portugal": 3,
+  "Algeria": 2,
+  "Turkey": 1,
+  "Croatia": 1,
+  "Greece": 1,
+  "Montenegro": 1,
+  "Bosnia & Herzegovina": 1,
+  "Italy": 1
+ },
+ "coord_rf": {
+  "leave_one_country_out": {
+   "Spain": 0.15851584816584674,
+   "Turkey": 0.11853416190774253,
+   "Portugal": 0.1277121317602933,
+   "Croatia": 0.10773063717152036,
+   "Greece": 0.0952280680526009,
+   "Montenegro": 0.12786454075720846,
+   "Algeria": 0.08959158478096327,
+   "Bosnia & Herzegovina": 0.12120527946147469,
+   "Italy": 0.1285209198059773
+  }
+ },
+ "thermal_coord": {
+  "leave_one_country_out": {
+   "Spain": 0.06912913769087459,
+   "Turkey": 0.04649610579908064,
+   "Portugal": 0.022362724320573214,
+   "Croatia": 0.03191603521999717,
+   "Greece": 0.02967201830053331,
+   "Montenegro": 0.044422431277134515,
+   "Algeria": 0.024635310556032717,
+   "Bosnia & Herzegovina": 0.04096497542961768,
+   "Italy": 0.04507016565335422
+  }
+ },
+ "thermal_dist": {
+  "leave_one_country_out": {
+   "Spain": 0.05855245300472159,
+   "Turkey": 0.04197126286260215,
+   "Portugal": 0.04281585162242381,
+   "Croatia": 0.02549450362117946,
+   "Greece": 0.02846048999985039,
+   "Montenegro": 0.04954278526714749,
+   "Algeria": 0.02518639877374934,
+   "Bosnia & Herzegovina": 0.043273978264091684,
+   "Italy": 0.042048797446220074
+  }
+ },
+ "coord_knn": {
+  "leave_one_country_out": {
+   "Spain": 0.13967554364509197,
+   "Turkey": 0.10401782704134817,
+   "Portugal": 0.11453765699491275,
+   "Croatia": 0.09669545789862499,
+   "Greece": 0.08498274713132183,
+   "Montenegro": 0.11519078525858087,
+   "Algeria": 0.08280301150884786,
+   "Bosnia & Herzegovina": 0.11096447022761867,
+   "Italy": 0.11165076400886448
+  }
+ },
+ "thermal_dist_D": {
+  "mean": 0.017961577828049052,
+  "lo": -0.014684313311153609,
+  "hi": 0.05588364092171818
+ },
+ "g1d_shared": [
+  {
+   "earlier": "rp01_2020",
+   "later": "px17_2022",
+   "later_cells_total": 11733,
+   "shared_cells_half_cell": 11155
+  },
+  {
+   "earlier": "px16_2022",
+   "later": "rp02_2023",
+   "later_cells_total": 10488,
+   "shared_cells_half_cell": 3347
+  },
+  {
+   "earlier": "evia_2021_extended",
+   "later": "rp03_2023",
+   "later_cells_total": 13310,
+   "shared_cells_half_cell": 3
+  }
+ ]
+}
