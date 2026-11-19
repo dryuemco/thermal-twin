@@ -75,3 +75,20 @@ exported after the score push; the evaluation reads the yearly file only for the
 | TMA development run | tma/tma_dev.py | 13.12, 13.13 | before its run, after the baseline search | server (0ab8101) | exploratory | no |
 | TMA-cell, corrected pooled forest + density rank, stopping rule | tma/tma_cell.py | 13.14 | before its run | server (b46bf31) | exploratory (rule not met) | no |
 | R* pre-check on G-C | tma/rstar_precheck.py | 14.2; 0.01 threshold for "clearly beats" set by the analyst at implementation (14.8) | before its run | server (b46bf31) | exploratory | no |
+
+## Amendment 15 (19 November 2026), corrected valid-data mask of the later-burning labels
+
+| Result | Script | Specified | Relative to its results | Time evidence | Status | Abstract |
+|---|---|---|---|---|---|---|
+| G1, G2, G5, G1d and 11.4 with the QA bit-1 mask (_qa1) | future_label_export.py, claim14_future.py, claim15_location.py, claim15_followup.py, claim16_replication.py with THERMAL_TWIN_LABEL_SUFFIX=_qa1 | amendment 15 (920e9fe), code f2422e6 | after all results of amendments 9 to 14 were known, before the corrected labels were exported | server (push of 920e9fe before the export; results fb21316) | corrected results primary; rules and frozen scores unchanged | yes |
+
+Order: the amendment was pushed first, the code change was committed without running anything, a sanity export reproduced
+the stored original label of manavgat_2021 exactly (all five bands, maximum absolute difference 0), and then the two
+windows were exported and evaluated (19 November 2026, 12:35 to 12:43 local time, logs in results/scaleup/claim1x_qa1).
+No fire changed eligibility. The only rule outcome that changed is rule 10.1 for thermal+distance in the window-B
+primary set (Holm p 0.0254 with the original labels, 0.0238 with the corrected ones). Refitted location-using
+candidates differ from the original run in the eighth decimal place of some AUC values (thread scheduling), which
+changes no reported value or choice.
+
+Note on clusters (9.5): the code forms clusters from the bounding boxes of each fire's modelled cells, not from the
+nominal study rectangles; the paper describes the implementation.
