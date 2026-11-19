@@ -319,6 +319,90 @@ if (AN / "claim4_summary.json").exists():
     put("curveFirst", cv[str(ks[0])]["mean"]), put("curveTen", cv["10"]["mean"]), put("curveLast", cv[str(ks[-1])]["mean"])
     put("curveLastK", ks[-1])
 
+# ---------------------------------------------------------------- route B (plan amendments 6-10)
+def cnt(s):
+    return int(str(s).split()[0])
+
+
+S8 = load("claim8_sauc_summary.json")
+_b = S8["blocks_10_cells"]
+ci("saucNull", _b["sauc_pos_null"]), ci("saucRf", _b["sauc_pos_rf_thermal"]), ci("saucCRf", _b["saucc_pos_rf_thermal"])
+put("saucSupported", cnt(_b["supported_pos_rf_thermal"]))
+_ns = S8["margin_identity"]["negative_share_by_band"]
+put("negFarPct", 100 * (_ns["5-10"] + _ns["10-inf"]), 0), put("negNearPct", 100 * (_ns["0-0.5"] + _ns["0.5-1"]), 0)
+_m = S8["margins_deg"]
+for k, t in (("0.05", "A"), ("0.10", "B"), ("0.15", "C")):
+    put(f"margin{t}Rf", _m[k]["mean"]), put(f"margin{t}Null", _m[f"null_{k}"]["mean"])
+I9 = load("claim9_intervals.json")
+_sr = {k: v for k, v in I9["support_real"].items()}
+put("supMin", min(v["fires_supported"] for v in _sr.values())), put("supMax", max(v["fires_supported"] for v in _sr.values()))
+put("supSaucMin", min(v["saucc_rf_thermal"]["mean"] for v in _sr.values())), put("supSaucMax", max(v["saucc_rf_thermal"]["mean"] for v in _sr.values()))
+S9 = load("claim9_synthetic_summary.json")
+put("ruleAuc", S9["decision"]["saucc_minus_auc_pp"], 1), put("ruleCauc", S9["decision"]["saucc_minus_cauc_pp"], 1)
+put("ruleAucThirty", S9["without_first_fire"]["decision"]["saucc_minus_auc_pp"], 1)
+put("ruleCaucThirty", S9["without_first_fire"]["decision"]["saucc_minus_cauc_pp"], 1)
+S12 = load("claim12_summary.json")
+for key, tag in (("blocks_10", "Mc"), ("blocks_40", "Tw"), ("calibrated", "Cal")):
+    a = S12[key]["all"]
+    put(f"{tag}TruthEnv", a["truth_env"], 2)
+    for m, mt in (("auc", "Auc"), ("cauc", "Cauc"), ("saucc", "Sauc")):
+        put(f"{tag}Pref{mt}", a[m]["preference_env"], 2), put(f"{tag}Bal{mt}", a[m]["balanced_acc"], 2)
+        put(f"{tag}Loss{mt}", a[m]["auc_loss"], 3), put(f"{tag}Rel{mt}", a[m]["relative_loss"], 2)
+    for q, qt in (("cauc_minus_auc", "CA"), ("saucc_minus_auc", "SA"), ("saucc_minus_cauc", "SC")):
+        ci(f"{tag}D{qt}", a["agreement_diffs_fire_bootstrap"][q], 3)
+put("McDraws", S12["blocks_10"]["draws"])
+_cc = S12["calibrated"]["compare"]
+put("calNullSim", _cc["simulated"]["auc_null"]), put("calNullReal", _cc["real"]["auc_null"])
+put("calKeptSim", _cc["simulated"]["kept_share"], 2), put("calKeptReal", _cc["real"]["kept_share"], 2)
+S14 = load("claim14_future_summary.json")
+put("gEligible", S14["eligible"]), put("gExcluded", len(S14["excluded"]))
+_d = S14["decision"]
+put("gD", _d["mean_D"], 4), put("gDLo", _d["ci90"][0], 4), put("gDHi", _d["ci90"][1], 4), put("gVerdict", _d["verdict"])
+ci("gHistAuc", S14["g1c_history"]["hist_only_auc"]), ci("gThermHist", S14["g1c_history"]["thermal_hist_auc"])
+ci("gScar", S14["g1b_future_auc_minus_dist_to_scar"])
+F14 = pd.read_csv(AN / "claim14_future_per_fire.csv")
+put("gEventsMedian", int(F14.events.median())), put("gLargestMedian", 100 * F14.largest_event_share.median(), 0)
+put("gFutTherm", F14.coord_primary_fut_thermal.mean()), put("gFutCoord", F14.coord_primary_fut_cand.mean())
+put("gBaseAucChoice", int((F14.baseline_primary_choice_auc == "t").sum()))
+put("gBaseCaucChoice", int((F14.baseline_primary_choice_cauc == "t").sum()))
+put("gBaseLossAuc", F14.baseline_primary_loss_auc.mean()), put("gBaseLossCauc", F14.baseline_primary_loss_cauc.mean())
+put("gBaseBetter", int((F14.baseline_primary_fut_thermal > F14.baseline_primary_fut_cand).sum()))
+ci("gBaseDiff", boot(F14.baseline_primary_fut_thermal - F14.baseline_primary_fut_cand))
+put("gBaseSaucChoice", int((F14.baseline_primary_choice_saucc == "t").sum()))
+put("gBaseLossSauc", F14.baseline_primary_loss_saucc.mean())
+MS["g1_baseline_future_diff_fire_bootstrap"] = boot(F14.baseline_primary_fut_thermal - F14.baseline_primary_fut_cand)
+put("gTwoYear", (F14.coord_two_year_fut_thermal - F14.coord_two_year_fut_cand).mean())
+put("gFullPop", (F14.coord_full_fut_thermal - F14.coord_full_fut_cand).mean())
+S15 = load("claim15_summary.json")
+for key, tag in (("coord_rf", "Crf"), ("coord_knn", "Knn"), ("thermal_coord", "Tc"), ("thermal_dist", "Td")):
+    v = S15[key]
+    ci(f"g{tag}Diff", v["future_diff_thermal_minus_cand"])
+    put(f"g{tag}Better", cnt(v["thermal_better"]))
+    for m, mt in (("auc", "Auc"), ("cauc", "Cauc"), ("saucc", "Sauc")):
+        put(f"g{tag}Ch{mt}", cnt(v[f"chooses_location_model_{m}"])), put(f"g{tag}Loss{mt}", v[f"loss_{m}"])
+    put(f"g{tag}Rel", v["relative_loss_auc"], 2)
+F15 = pd.read_csv(AN / "claim15_g2_per_fire.csv")
+put("gCrfUnsup", int((F15.coord_rf_choice_saucc == "none").sum()))
+_g5 = S15["g5"]
+put("gLofoMin", _g5["coord_rf"]["leave_one_fire_out_min_max"][0]), put("gLofoMax", _g5["coord_rf"]["leave_one_fire_out_min_max"][1])
+put("gLoyoMin", min(_g5["coord_rf"]["leave_one_year_out"].values())), put("gLoyoMax", max(_g5["coord_rf"]["leave_one_year_out"].values()))
+put("gNoLargest", _g5["coord_rf"]["largest_event_removed"]["mean_diff"])
+put("gNoLargestBetter", _g5["coord_rf"]["largest_event_removed"]["thermal_better"])
+put("gNoLargestFires", _g5["coord_rf"]["largest_event_removed"]["fires"])
+put("gTcLoyoMin", min(_g5["thermal_coord"]["leave_one_year_out"].values()))
+FU = load("claim15_followup.json")
+put("gCountries", len(FU["countries"]))
+put("gLocoMin", min(FU["coord_rf"]["leave_one_country_out"].values())), put("gLocoMax", max(FU["coord_rf"]["leave_one_country_out"].values()))
+put("gTcLocoMin", min(FU["thermal_coord"]["leave_one_country_out"].values()))
+ci("gTdD", FU["thermal_dist_D"])
+_rp = [p for p in S15["g1d"] if p["earlier"] == "rp01_2020"][0]
+put("rpThermal", _rp["later_auc_thermal"]), put("rpCoord", _rp["later_auc_coord"])
+_sh = {p["earlier"]: p for p in FU["g1d_shared"]}
+put("rpShared", f"{_sh['rp01_2020']['shared_cells_half_cell']:,}"), put("rpCells", f"{_sh['rp01_2020']['later_cells_total']:,}")
+MS["route_b_sources"] = ["claim8_sauc_summary.json", "claim9_intervals.json", "claim9_synthetic_summary.json", "claim12_summary.json",
+                         "claim14_future_summary.json", "claim14_future_per_fire.csv", "claim15_summary.json",
+                         "claim15_g2_per_fire.csv", "claim15_followup.json"]
+
 # fire selection counts, from the committed selection outputs of the analysis branch
 SEL = REPO / "scripts" / "scaleup" / "selection"
 _cands = json.loads((SEL / "candidates.json").read_text(encoding="utf-8"))
@@ -540,6 +624,25 @@ ax.axvline(0.5, color="#888888", lw=0.5, ls=":")
 fig.legend(*ax.get_legend_handles_labels(), frameon=False, loc="lower center", ncol=2, bbox_to_anchor=(0.5, 0.0))
 fig.tight_layout(rect=(0, 0.08, 1, 1))
 fig.savefig(FIG / "Figure_4.pdf")
+plt.close(fig)
+
+# Figure_later: within-fire choice against later burning, 18 fires, two pairs
+G2T = pd.read_csv(AN / "claim15_g2_per_fire.csv")
+fig, axs = plt.subplots(1, 2, figsize=(7.2, 3.2), sharey=True)
+for ax, cand, lab in ((axs[0], "coord_rf", "Random forest on coordinates"), (axs[1], "thermal_coord", "Thermal forest plus coordinates")):
+    g = G2T.sort_values("fut_thermal").reset_index(drop=True)
+    yy = np.arange(len(g))
+    ax.hlines(yy, g.fut_thermal, g[f"{cand}_fut"], color="#bbbbbb", lw=0.8)
+    ax.plot(g.fut_thermal, yy + 0.15, MRK["rf_thermal"], color=COL["rf_thermal"], ms=3.5, label="Random forest, thermal set")
+    ax.plot(g[f"{cand}_fut"], yy - 0.15, "D", color="#D55E00", ms=3.5, label=lab)
+    ax.axvline(0.5, color="#888888", lw=0.5, ls=":")
+    ax.set_xlabel("ROC AUC on later burning")
+    ax.set_title(lab)
+    ax.set_yticks([])
+    ax.legend(frameon=False, loc="lower right", fontsize=6)
+axs[0].set_ylabel("Fires, ordered by the thermal forest")
+fig.tight_layout()
+fig.savefig(FIG / "Figure_later.pdf")
 plt.close(fig)
 
 # Fig. 5: transfer learning curve (when available)

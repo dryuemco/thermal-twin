@@ -1,0 +1,36 @@
+{
+ "figure": "Fig. 7 - feature removal costs within-region skill and gives no measurable transfer gain, IJWF package",
+ "script": "paper/submissions/ijwf/figures/fig7_feature_drop.py",
+ "source": "copy of paper/figures/fig7_feature_drop.py with the same data and asserts",
+ "ijwf_changes": "8 pt and 7 pt text, 0.8 pt axis lines; sentence case: All ten predictors, Without LST anomaly, Without elevation, Without both, Mean ROC-AUC",
+ "data": {
+  "path": "paper/figures/data/fig_data_corrected.json",
+  "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
+  "deltas": "paper/labelfix_rerun/round3/feature_drop_transfer.json",
+  "deltas_sha256": "f54c524735d9cceadc34f8d6008fa1362865b3b84c9956673215fc44c3aa43ac"
+ },
+ "asserts": "the four means 0.896/0.883/0.840/0.820 (within) and 0.527/0.529/0.533/0.541 (transfer) equal the frozen values at 3 dp (_conservation_common.py); within strictly decreasing and transfer strictly increasing along the rows; transfer change +0.014, pair-t over ten region pairs [-0.028, +0.056], found verbatim in 04 and 05 and spanning zero; the same computation reproduces the frozen [-0.017, +0.045]; every value inside the axes",
+ "transfer_change": {
+  "delta": 0.014,
+  "pair_t_95": [
+   -0.028,
+   0.056
+  ],
+  "unit": "ten unordered region pairs, direction deltas averaged within a pair"
+ },
+ "design": "2026-10-23 redraw: two dot plots sharing rows, equal 0.12 AUC axis spans",
+ "canvas_mm": [
+  170.0,
+  52
+ ],
+ "font_pt": {
+  "body": 8.0,
+  "minimum": 7.0,
+  "used": [
+   7.0,
+   8.0
+  ]
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

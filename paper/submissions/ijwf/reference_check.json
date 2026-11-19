@@ -1,0 +1,646 @@
+[
+ {
+  "key": "AlkanAkinci2023",
+  "doi": "10.1007/s12145-023-00953-5",
+  "differs": {
+   "first author": {
+    "bibliography": "akinci",
+    "resolved": "ak nc"
+   }
+  },
+  "zotero": "PD9PXL9V",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "Machine learning based forest fire susceptibility assessment of Manavgat district (Antalya), Turkey",
+  "abstract": "This study primarily aims to produce forest fire susceptibility maps for the Manavgat district of Antalya province in Turkey using different machine learning (ML) techniques. Forest fire inventory data were obtained from the General Directorate of Forestry. The inventory data comprise a total of 545 forest fire ignition points during the years 2013�2021. For model training and validation, 70% and 30% of these points were used, respectively. Average annual temperature, average annual rainfall, aspect, distance to rivers, elevation, distance to settlements, forest type, distance to roads, land cover, plan curvature, slope, solar radiation, tree cover density, topographic wetness index, and wind effect parameters were used in the study. Multicollinearity analysis of these 15 factors showed that they are independent of each other. Tree-based ML models, namely, eXtreme gradient boosting (XGBoost), random forest, and gradient boosting machine, as well as artificial neural networks (ANN) were used to produce forest fire susceptibility maps. The metrics of overall accuracy, precision, recall, F1 score and area under the receiver operating characteristic curve (AU-ROC) were used to evaluate the performance of the ML models. Based on our results, the XGBoost model revealed the most appropriate susceptibility map that could be used for fire prevention measures."
+ },
+ {
+  "key": "Almeida2023",
+  "doi": "10.2760/562495",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.2760/562495"
+ },
+ {
+  "key": "Barve2011",
+  "doi": "10.1016/j.ecolmodel.2011.02.011",
+  "differs": {},
+  "zotero": "CRQGGC3C",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "The crucial role of the accessible area in ecological niche modeling and species distribution modeling",
+  "abstract": ""
+ },
+ {
+  "key": "Bekar2020",
+  "doi": "10.1071/WF19158",
+  "differs": {},
+  "zotero": "6XLNEH7J",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Cross-regional modelling of fire occurrence in the Alps and the Mediterranean Basin",
+  "abstract": "In recent decades, changes in fire activity have been observed in Europe. Fires can have large consequences for the provisioning of ecosystem services and for human well-being. Therefore, understanding the drivers of fire occurrence and improving the predictive capability of fire occurrence models is of utmost importance. So far, most studies have focused on individual regions with rather low spatial resolution, and have lacked the ability to apply the models in different regions. Here, a species distribution modelling approach (Maxent) was used to model fire occurrence in four regions across the Mediterranean Basin and the Alps using several environmental variables at two spatial resolutions. Additionally, a cross-regional model was developed and spatial transferability tested. Most models showed good performance, with fine resolution models always featuring somewhat higher performance than coarse resolution models. When transferred across regions, the performance of regional models was good only under similar environmental conditions. The cross-regional model showed a higher performance than the regional models in the transfer tests. The results suggest that a cross-regional approach is most robust when aiming to use fire occurrence models at the regional scale but beyond current environmental conditions, for example in scenario analyses of the impacts of climate change."
+ },
+ {
+  "key": "Bergonse2021",
+  "doi": "10.1080/19475705.2021.1909664",
+  "differs": {},
+  "zotero": "5XA6I4D2",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Predicting burnt areas during the summer season in Portugal by combining wildfire susceptibility and spring meteorological conditions",
+  "abstract": ""
+ },
+ {
+  "key": "Boschetti2019",
+  "doi": "10.1016/j.rse.2019.111490",
+  "differs": {},
+  "zotero": "Y5XSVLR8",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Global validation of the collection 6 MODIS burned area product",
+  "abstract": ""
+ },
+ {
+  "key": "Breiman2001",
+  "doi": "10.1023/A:1010933404324",
+  "differs": {},
+  "zotero": "BANW8BU4",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Random Forests",
+  "abstract": "Random forests are a combination of tree predictors such that each tree depends on the values of a random vector sampled independently and with the same distribution for all trees in the forest. The generalization error for forests converges a.s. to a limit as the number of trees in the forest becomes large. The generalization error of a forest of tree classifiers depends on the strength of the individual trees in the forest and the correlation between them. Using a random selection of features to split each node yields error rates that compare favorably to Adaboost (Y. Freund &amp; R. Schapire, Machine Learning: Proceedings of the Thirteenth International conference, ***, 148�156), but are more robust with respect to noise. Internal estimates monitor error, strength, and correlation and these are used to show the response to increasing the number of features used in the splitting. Internal estimates are also used to measure variable importance. These ideas are also applicable to regression."
+ },
+ {
+  "key": "Chuvieco2004",
+  "doi": "10.1016/j.rse.2004.01.019",
+  "differs": {},
+  "zotero": "TKWN65CR",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Combining NDVI and surface temperature for the estimation of live fuel moisture content in forest fire danger rating",
+  "abstract": ""
+ },
+ {
+  "key": "CopernicusDEM",
+  "doi": "10.5270/ESA-c5d3d65",
+  "differs": {
+   "title": {
+    "bibliography": "copernicus dem glo 30 dataset",
+    "resolved": "copernicus dem"
+   },
+   "journal": {
+    "bibliography": "european space agency",
+    "resolved": ""
+   },
+   "number of authors": {
+    "bibliography": "1",
+    "resolved": "2"
+   }
+  },
+  "zotero": "87A2PANL",
+  "status": "differs",
+  "type": "dataset",
+  "resolved_title": "Copernicus DEM",
+  "abstract": ""
+ },
+ {
+  "key": "Dimarco2026",
+  "doi": "10.3390/geomatics6010013",
+  "differs": {},
+  "zotero": "PLEH67N5",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Generalizing Human-Driven Wildfire Ignition Models Across Mediterranean Regions Using Harmonized Remote-Sensing and Machine-Learning Data",
+  "abstract": "Wildfires represent a growing environmental and socio-economic threat across Mediterranean landscapes, where prolonged summer droughts and human activity increasingly shape ignition susceptibility. This study presents an open and reproducible modelling framework for comparing the relative influence of anthropogenic and biophysical drivers of wildfire ignition susceptibility across selected Mediterranean regions. Using harmonized 500 m predictors derived from global remote-sensing datasets, we integrate vegetation condition, topography, climatic context, and human pressure indicators within a cloud-based Google Earth Engine workflow. Two tree-based machine-learning models (Random Forest and Extreme Gradient Boosting) are trained and evaluated using spatial cross-validation and cross-region transfer experiments. Results consistently highlight the dominant role of anthropogenic pressure in shaping ignition susceptibility across all study areas, with night-time lights and human modification indices contributing to the largest share of model importance. Both models achieve high predictive performance (AUC &gt; 0.90) and retain stable accuracy under cross-region transfer (mean transfer AUC ? 0.85), indicating partial generalization of human-driven ignition patterns across Mediterranean landscapes. Beyond predictive performance, the principal contribution of this work lies in its harmonized cross-regional comparison and explicit evaluation of model transferability using open data and scalable cloud processing. The resulting susceptibility maps provide a transparent and operational basis for comparative wildfire risk assessment and prevention planning within comparable Mediterranean contexts."
+ },
+ {
+  "key": "Eker2024",
+  "doi": "10.1007/s11069-024-06622-0",
+  "differs": {
+   "title": {
+    "bibliography": "remote sensing and gis based inventory and analysis of the unprecedented 2021 forest fires in turkiye s history",
+    "resolved": "remote sensing and gis based inventory and analysis of the unprecedented 2021 forest fires in t rkiye s history"
+   }
+  },
+  "zotero": "EVWCDGND",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "Remote sensing and GIS-based inventory and analysis of the unprecedented 2021 forest fires in T�rkiye�s history",
+  "abstract": "AbstractIn the summer of 2021, T�rkiye experienced unprecedented forest fire events. Throughout that fire season, a total of 291 fire incidents, covering an area of 202,361 hectares, dominated the public agenda. This study aimed to document and analyze the 30 large fires (affecting over 100 hectares) of 2021 using remote sensing and GIS techniques. A comprehensive fire database was established, encompassing information on burned areas, fire severity, and fuel types, determined from forest-stand types and topographical properties including slope, elevation, and aspect (in eight directions). Sentinel-2 satellite images were utilized to calculate dNBR values for assessing fire severity, analyzed in the Google Earth Engine platform. Three GIS-integrated Python scripts were developed to construct the fire database. In total, 164,658 hectares were affected by these large fires, occurring solely in three regions of T�rkiye: the Mediterranean, Aegean, and Eastern Anatolian. The majority of the burned area was situated in the Mediterranean region (59%), with only 3% in Eastern Anatolia. The burned areas ranged from a minimum of 150 hectares to a maximum of 58,798 hectares. Additionally, 679 hectares of residential areas and 22,601 hectares of agricultural land were impacted by the fire events. For each fire, 21 fuel types and their distribution were determined. The most prevalent fire-prone class, �Pure Turkish pine species (Pr-�z),� accounted for 59.56% of the total affected area (99,516 hectares). Another significant fire-prone pine species, the �Pure Black pine species (Pr-�k),� covered 7.67% (12,811 hectares) of the affected area. Fuel types were evaluated by considering both forest-stand development stages and canopy closure. Regarding forest-stand development stages, the largest area percentage burned belonged to the �Mature� class (26.48%)."
+ },
+ {
+  "key": "FernandezGuisuraga2023",
+  "doi": "10.1186/s42408-023-00232-0",
+  "differs": {
+   "first author": {
+    "bibliography": "fernandez guisuraga",
+    "resolved": "fern ndez guisuraga"
+   }
+  },
+  "zotero": "4X43UTAH",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "Fuel build-up promotes an increase in fire severity of reburned areas in fire-prone ecosystems of the western Mediterranean Basin",
+  "abstract": "Abstract Background Fire-vegetation feedbacks can modulate the global change effects conducive to extreme fire behavior and high fire severity of subsequent wildfires in reburn areas by altering the composition, flammability traits, and spatial arrangement of fuels. Repeated, high-severity wildfires at short return intervals may trigger long-term vegetation state transitions. However, empirical evidence about these feedbacks is absent in fire-prone ecosystems of the western Mediterranean Basin, where the response of fire activity has been enhanced by contemporary socioeconomic and land-use changes. Here, we evaluated whether fire severity differs between initial burns and subsequent wildfires in reburn areas (fire-free periods = 10�15 years) of maritime pine and Aleppo pine forests, holm oak woodlands, and shrublands in the western Mediterranean Basin, and whether there is a relationship between the severity of such interactive wildfire disturbances. We also tested how the type of ecosystem and changes in vegetation structure after the initial wildfires influence these relationships. We leveraged Landsat-based fire severity estimates for initial and last wildfires using the Relativized Burn Ratio (RBR) and Light Detection and Ranging (LiDAR) data acquired before the last wildfire. Results Fire severity of the last wildfire was significantly higher than that of the initial wildfire for each dominant ecosystem type in reburn areas. These differences were very pronounced in maritime pine forests and shrublands. For consistency, the same patterns were evidenced for the fire severity in reburn and first-entry areas of the last wildfire for each dominant ecosystem type. Fire severity of the last wildfire in forests and woodlands (particularly maritime pine-dominated) raised with increasing severity of the previous wildfire to a greater extent than in shrublands. Pre-fire fuel density in the lower vegetation strata (up to 4 m high in maritime and Aleppo pine forests, as well as in shrublands, and up to 2 m high in holm oak forests) was significantly higher in reburn than in first-entry areas of the last wildfire. Conclusions Our results suggest that land managers should promote more fire-resistant landscapes to high fire severity by minimizing fuel build-up and thus fire hazard through pre-fire fuel reduction treatments such as prescribed burning."
+ },
+ {
+  "key": "Ghasemiazma2026",
+  "doi": "10.1038/s44304-026-00197-5",
+  "differs": {},
+  "zotero": "A9C8QYTB",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Megafires in Mediterranean Europe: the compound role of fire weather and drought",
+  "abstract": "Abstract Large wildfires and megafires in Mediterranean Europe cause disproportionate social, ecological and economic impacts, yet the processes that allow some ignitions to grow into landscape-scale events remain poorly quantified. Here we analyse 11,403 summer wildfires across Mediterranean Europe during 2008�2022, classified into medium (30�100 ha), large (100�1000 ha), very large (1000�10,000 ha) and megafires (?10,000 ha). Combining official fire perimeters with a high-resolution environmental and drought dataset, we quantify how fast-reacting weather and slow-reacting fuel and drought indicators jointly control transitions between fire-size classes. Very large fires are preferentially associated with anomalously hot, windy conditions acting on stressed fuels and multi-month drought, whereas the transition to megafire size is closely associated with unusually warm nights and strong winds near ignition. Using Random Forest classifiers and logistic regression, we show that these transitions are predictable from a small set of interpretable variables, including nighttime land-surface temperature, wind speed, and 3-month standardized precipitation�evapotranspiration index. Model performance indicates that up to two-thirds of megafires are correctly identified out of sample. Our results highlight that megafires in Mediterranean Europe emerge from the alignment of preconditioned fuels with exceptional short-term fire weather and emphasize the need to jointly manage fuel continuity and anticipate periods of persistent hot, dry and windy conditions in a warming climate."
+ },
+ {
+  "key": "Giglio2018",
+  "doi": "10.1016/j.rse.2018.08.005",
+  "differs": {},
+  "zotero": "YQSB25VS",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "The Collection 6 MODIS burned area mapping algorithm and product",
+  "abstract": ""
+ },
+ {
+  "key": "Gorelick2017",
+  "doi": "10.1016/j.rse.2017.06.031",
+  "differs": {},
+  "zotero": "AYY9EXTA",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Google Earth Engine: Planetary-scale geospatial analysis for everyone",
+  "abstract": ""
+ },
+ {
+  "key": "Iban2022",
+  "doi": "10.1016/j.ecoinf.2022.101647",
+  "differs": {},
+  "zotero": "KX3YKUVI",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Machine learning based wildfire susceptibility mapping using remotely sensed fire data and GIS: A case study of Adana and Mersin provinces, Turkey",
+  "abstract": ""
+ },
+ {
+  "key": "Jain2020",
+  "doi": "10.1139/er-2020-0019",
+  "differs": {},
+  "zotero": "SWLILEVT",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "A review of machine learning applications in wildfire science and management",
+  "abstract": "Artificial intelligence has been applied in wildfire science and management since the 1990s, with early applications including neural networks and expert systems. Since then, the field has rapidly progressed congruently with the wide adoption of machine learning (ML) methods in the environmental sciences. Here, we present a scoping review of ML applications in wildfire science and management. Our overall objective is to improve awareness of ML methods among wildfire researchers and managers, as well as illustrate the diverse and challenging range of problems in wildfire science available to ML data scientists. To that end, we first present an overview of popular ML approaches used in wildfire science to date and then review the use of ML in wildfire science as broadly categorized into six problem domains, including (i) fuels characterization, fire detection, and mapping; (ii) fire weather and climate change; (iii) fire occurrence, susceptibility, and risk; (iv) fire behavior prediction; (v) fire effects; and (vi) fire management. Furthermore, we discuss the advantages and limitations of various ML approaches relating to data size, computational requirements, generalizability, and interpretability, as well as identify opportunities for future advances in the science and management of wildfires within a data science context. In total, to the end of 2019, we identified 300 relevant publications in which the most frequently used ML methods across problem domains included random forests, MaxEnt, artificial neural networks, decision trees, support vector machines, and genetic algorithms. As such, there exists opportunities to apply more current ML methods � including deep learning and agent-based learning � in the wildfire sciences, especially in instances involving very large multivariate datasets. We must recognize, however, that despite the ability of ML models to learn on their own, expertise in wildfire science is necessary to ensure realistic modelling of fire processes across multiple scales, while the complexity of some ML methods such as deep learning requires a dedicated and sophisticated knowledge of their application. Finally, we stress that the wildfire research and management communities play an active role in providing relevant, high-quality, and freely available wildfire data for use by practitioners of ML methods."
+ },
+ {
+  "key": "Katagis2022",
+  "doi": "10.3390/rs14030602",
+  "differs": {},
+  "zotero": "9MBQ2UKB",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Assessing the Accuracy of MODIS MCD64A1 C6 and FireCCI51 Burned Area Products in Mediterranean Ecosystems",
+  "abstract": "The catastrophic impact of wildfires on the economy and ecosystems of Mediterranean countries in recent years, along with insufficient policies that favor disproportionally high funding for fire suppression, demand a more comprehensive understanding of fire regimes. Satellite remote sensing products support the generation of relevant burned-area (BA) information, since they provide the means for the systematic monitoring of large areas worldwide at low cost. This research study assesses the accuracy of the two publicly available MODIS BA products, MCD64A1 C6 and FireCCI51, at a national scale in a Mediterranean country. The research period covered four fire seasons, and a comparison was conducted against a higher-resolution Sentinel-2 dataset. The specific objectives were to assess their performance in detecting fire events occurring primarily in forest and semi-natural lands and to investigate their spatial and temporal uncertainties. Monthly fire observations were processed and analyzed to derive a comprehensive set of accuracy metrics. We found that fire size has an impact on their detection accuracy, with higher detection occurring in fires larger than 100 ha. Detection of smaller (&lt;100 ha) fires was favored by the 250 m FireCCI51 product, but not from MCD64A1 C6, which exhibited less than 50% detection probability in the same range. Their spatial estimates of burned area exhibited a fairly satisfactory agreement with the reference data, reaching an average of 78% in detection rate. MCD64A1 C6 exhibited a more consistent spatial performance overall and better temporal accuracy, whereas FireCCI51 did not substantially outperform the former despite its finer resolution. Additional research is required for a more rigorous assessment of the variability of these burned area products, yet this research provides further insight and has implications for their use in fire-related applications at the local to the national scale."
+ },
+ {
+  "key": "LandsatC2L2",
+  "doi": "10.5066/P9OGBGM6",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.5066/P9OGBGM6"
+ },
+ {
+  "key": "Lobo2008",
+  "doi": "10.1111/j.1466-8238.2007.00358.x",
+  "differs": {
+   "year": {
+    "bibliography": "2008",
+    "resolved": "2007"
+   }
+  },
+  "zotero": "48GWSEEV",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "AUC: a misleading measure of the performance of predictive distribution models",
+  "abstract": "ABSTRACT The area under the receiver operating characteristic (ROC) curve, known as the AUC, is currently considered to be the standard method to assess the accuracy of predictive distribution models. It avoids the supposed subjectivity in the threshold selection process, when continuous probability derived scores are converted to a binary presence�absence variable, by summarizing overall model performance over all possible thresholds. In this manuscript we review some of the features of this measure and bring into question its reliability as a comparative measure of accuracy between model results. We do not recommend using AUC for five reasons: (1) it ignores the predicted probability values and the goodness?of?fit of the model; (2) it summarises the test performance over regions of the ROC space in which one would rarely operate; (3) it weights omission and commission errors equally; (4) it does not give information about the spatial distribution of model errors; and, most importantly, (5) the total extent to which models are carried out highly influences the rate of well?predicted absences and the AUC scores."
+ },
+ {
+  "key": "Ludwig2023",
+  "doi": "10.1111/geb.13635",
+  "differs": {},
+  "zotero": "4GNVZE8X",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Assessing and improving the transferability of current global spatial prediction models",
+  "abstract": "Abstract Aim Global?scale maps of the environment are an important source of information for researchers and decision makers. Often, these maps are created by training machine learning algorithms on field?sampled reference data using remote sensing information as predictors. Since field samples are often sparse and clustered in geographic space, model prediction requires a transfer of the trained model to regions where no reference data are available. However, recent studies question the feasibility of predictions far beyond the location of training data. Innovation We propose a novel workflow for spatial predictive mapping that leverages recent developments in this field and combines them in innovative ways with the aim of improved model transferability and performance assessment. We demonstrate, evaluate and discuss the workflow with data from recently published global environmental maps. Main conclusions Reducing predictors to those relevant for spatial prediction leads to an increase of model transferability and map accuracy without a decrease of prediction quality in areas with high sampling density. Still, reliable gap?free global predictions were not possible, highlighting that global maps and their evaluation are hampered by limited availability of reference data."
+ },
+ {
+  "key": "MCD64A1",
+  "doi": "10.5067/MODIS/MCD64A1.061",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.5067/MODIS/MCD64A1.061"
+ },
+ {
+  "key": "MOD11A1",
+  "doi": "10.5067/MODIS/MOD11A1.061",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.5067/MODIS/MOD11A1.061"
+ },
+ {
+  "key": "Maffei2018",
+  "doi": "10.3390/rs10111777",
+  "differs": {},
+  "zotero": "T5GCXF4L",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Relating Spatiotemporal Patterns of Forest Fires Burned Area and Duration to Diurnal Land Surface Temperature Anomalies",
+  "abstract": "Forest fires are a major source of ecosystem disturbance. Vegetation reacts to meteorological factors contributing to fire danger by reducing stomatal conductance, thus leading to an increase of canopy temperature. The latter can be detected by remote sensing measurements in the thermal infrared as a deviation of observed land surface temperature (LST) from climatological values, that is as an LST anomaly. A relationship is thus expected between LST anomalies and forest fires burned area and duration. These two characteristics are indeed controlled by a large variety of both static and dynamic factors related to topography, land cover, climate, weather (including those affecting LST) and anthropic activity. To investigate the predicting capability of remote sensing measurements, rather than constructing a comprehensive model, it would be relevant to determine whether anomalies of LST affect the probability distributions of burned area and fire duration. This research approached the outlined knowledge gap through the analysis of a dataset of forest fires in Campania (Italy) covering years 2003�2011 against estimates of LST anomaly. An LST climatology was first computed from time series of daily Aqua-MODIS LST data (product MYD11A1, collection 6) over the longest available sequence of complete annual datasets (2003�2017), through the Harmonic Analysis of Time Series (HANTS) algorithm. HANTS was also used to create individual annual models of LST data, to minimize the effect of varying observation geometry and cloud contamination on LST estimates while retaining its seasonal variation. LST anomalies where thus quantified as the difference between LST annual models and LST climatology. Fire data were intersected with LST anomaly maps to associate each fire with the LST anomaly value observed at its position on the day previous to the event. Further to this step, the closest probability distribution function describing burned area and fire duration were identified against a selection of parametric models through the maximization of the Anderson-Darling goodness-of-fit. Parameters of the identified distributions conditional to LST anomaly where then determined along their confidence intervals. Results show that in the study area log-transformed burned area is described by a normal distribution, whereas log-transformed fire duration is closer to a generalized extreme value (GEV) distribution. The parameters of these distributions conditional to LST anomaly show clear trends with increasing LST anomaly; significance of this observation was verified through a likelihood ratio test. This confirmed that LST anomaly is a covariate of both burned area and fire duration. As a consequence, it was observed that conditional probabilities of extreme events appear to increase with increasing positive deviations of LST from its climatology values. This confirms the stated hypothesis that LST anomalies affect forest fires burned area and duration and highlights the informative content of time series of LST with respect to fire danger."
+ },
+ {
+  "key": "Maffei2021",
+  "doi": "10.1016/j.isprsjprs.2021.09.016",
+  "differs": {},
+  "zotero": "BZ5MK9MG",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Combining multi-spectral and thermal remote sensing to predict forest fire characteristics",
+  "abstract": ""
+ },
+ {
+  "key": "Marino2024",
+  "doi": "10.3390/fire7080276",
+  "differs": {},
+  "zotero": "EGEVCZUI",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Transferability of Empirical Models Derived from Satellite Imagery for Live Fuel Moisture Content Estimation and Fire Risk Prediction",
+  "abstract": "Estimating live fuel moisture content (LFMC) is critical for assessing vegetation flammability and predicting potential fire behaviour, thus providing relevant information for wildfire prevention and management. Previous research has demonstrated that empirical modelling based on spectral data derived from remote sensing is useful for retrieving LFMC. However, these types of models are often very site-specific and generally considered difficult to extrapolate. In the present study, we analysed the performance of empirical models based on Sentinel-2 spectral data for estimating LFMC in fire-prone shrubland dominated by Cistus ladanifer. We used LFMC data collected in the field between June 2021 and September 2022 in 27 plots in the region of Andalusia (southern Spain). The specific objectives of the study included (i) to test previous existing models fitted for the same shrubland species in a different study area in the region of Madrid (central Spain); (ii) to calibrate empirical models with the field data from the region of Andalusia, comparing the model performance with that of existing models; and (iii) to test the capacity of the best empirical models to predict decreases in LFMC to critical threshold values in historical wildfire events. The results showed that the empirical models derived from Sentinel-2 data provided accurate LFMC monitoring, with a mean absolute error (MAE) of 15% in the estimation of LFMC variability throughout the year and with the MAE decreasing to 10% for the critical lower LFMC values (&lt;100%). They also showed that previous models could be easily recalibrated for extrapolation to different geographical areas, yielding similar errors to the specific empirical models fitted in the study area in an independent validation. Finally, the results showed that decreases in LFMC in historical wildfire events were accurately predicted by the empirical models, with LFMC &lt;80% in this fire-prone shrubland species."
+ },
+ {
+  "key": "Meyer2018",
+  "doi": "10.1016/j.envsoft.2017.12.001",
+  "differs": {},
+  "zotero": "LJJ4XA2K",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Improving performance of spatio-temporal machine learning models using forward feature selection and target-oriented validation",
+  "abstract": ""
+ },
+ {
+  "key": "Meyer2021",
+  "doi": "10.1111/2041-210X.13650",
+  "differs": {},
+  "zotero": "SMWYP6BE",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Predicting into unknown space? Estimating the area of applicability of spatial prediction models",
+  "abstract": "Abstract Machine learning algorithms have become very popular for spatial mapping of the environment due to their ability to fit nonlinear and complex relationships. However, this ability comes with the disadvantage that they can only be applied to new data if these are similar to the training data. Since spatial mapping requires predictions to new geographic space which in many cases goes along with new predictor properties, a method to assess the area to which a prediction model can be reliably applied is required. Here, we suggest a methodology that delineates the �area of applicability� (AOA) that we define as the area where we enabled the model to learn about relationships based on the training data, and where the estimated cross?validation performance holds. We first propose a �dissimilarity index� (DI) that is based on the minimum distance to the training data in the multidimensional predictor space, with predictors being weighted by their respective importance in the model. The AOA is then derived by applying a threshold which is the (outlier?removed) maximum DI of the training data derived via cross?validation. We further use the relationship between the DI and the cross?validation performance to map the estimated performance of predictions. We illustrate the approach in a simulated case study chosen to mimic ecological realities and test the credibility by using a large set of simulated data. The simulation studies showed that the prediction error within the AOA is comparable to the cross?validation error of the trained model, while the cross?validation error does not apply outside the AOA. This applies to models being trained with randomly distributed training data, as well as when training data are clustered in space and where spatial cross?validation is applied. Using the relationship between DI and cross?validation performance showed potential to limit predictions to the area where a user?defined performance applies. We suggest to add the AOA computation to the modeller's standard toolkit and to present predictions for the AOA only. We further suggest to report a map of DI?dependent performance estimates alongside prediction maps and complementary to (cross?)validation performance measures and the common uncertainty estimates."
+ },
+ {
+  "key": "Meyer2022",
+  "doi": "10.1038/s41467-022-29838-9",
+  "differs": {},
+  "zotero": "99VUSI9Z",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Machine learning-based global maps of ecological variables and the challenge of assessing them",
+  "abstract": "The recent wave of published global maps of ecological variables has caused as much excitement as it has received criticism. Here we look into the data and methods mostly used for creating these maps, and discuss whether the quality of predicted values can be assessed, globally and locally."
+ },
+ {
+  "key": "Moreira2020",
+  "doi": "10.1088/1748-9326/ab541e",
+  "differs": {},
+  "zotero": "HVSYD4G3",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Wildfire management in Mediterranean-type regions: paradigm change needed",
+  "abstract": "Abstract During the last decades, climate and land use changes led to an increased prevalence of megafires in Mediterranean-type climate regions (MCRs). Here, we argue that current wildfire management policies in MCRs are destined to fail. Focused on fire suppression, these policies largely ignore ongoing climate warming and landscape-scale buildup of fuels. The result is a �firefighting trap� that contributes to ongoing fuel accumulation precluding suppression under extreme fire weather, and resulting in more severe and larger fires. We believe that a �business as usual� approach to wildfire in MCRs will not solve the fire problem, and recommend that policy and expenditures be rebalanced between suppression and mitigation of the negative impacts of fire. This requires a paradigm shift: policy effectiveness should not be primarily measured as a function of area burned (as it usually is), but rather as a function of avoided socio-ecological damage and loss."
+ },
+ {
+  "key": "MorenoTorres2012",
+  "doi": "10.1016/j.patcog.2011.06.019",
+  "differs": {},
+  "zotero": "DH66ENIC",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "A unifying view on dataset shift in classification",
+  "abstract": ""
+ },
+ {
+  "key": "MunozSabater2021",
+  "doi": "10.5194/essd-13-4349-2021",
+  "differs": {
+   "first author": {
+    "bibliography": "munoz sabater",
+    "resolved": "mu oz sabater"
+   }
+  },
+  "zotero": "69UXWSZ3",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "ERA5-Land: a state-of-the-art global reanalysis dataset for land applications",
+  "abstract": "Framed within the Copernicus Climate Change Service (C3S) of the European Commission, the European Centre for Medium-Range Weather Forecasts (ECMWF) is producing an enhanced global dataset for the land component of the fifth generation of European ReAnalysis (ERA5), hereafter referred to as ERA5-Land. Once completed, the period covered will span from 1950 to the present, with continuous updates to support land monitoring applications. ERA5-Land describes the evolution of the water and energy cycles over land in a consistent manner over the production period, which, among others, could be used to analyse trends and anomalies. This is achieved through global high-resolution numerical integrations of the ECMWF land surface model driven by the downscaled meteorological forcing from the ERA5 climate reanalysis, including an elevation correction for the thermodynamic near-surface state. ERA5-Land shares with ERA5 most of the parameterizations that guarantees the use of the state-of-the-art land surface modelling applied to numerical weather prediction (NWP) models. A main advantage of ERA5-Land compared to ERA5 and the older ERA-Interim is the horizontal resolution, which is enhanced globally to 9 km compared to 31 km (ERA5) or 80 km (ERA-Interim), whereas the temporal resolution is hourly as in ERA5. Evaluation against independent in situ observations and global model or satellite-based reference datasets shows the added value of ERA5-Land in the description of the hydrological cycle, in particular with enhanced soil moisture and lake description, and an overall better agreement of river discharge estimations with available observations. However, ERA5-Land snow depth fields present a mixed performance when compared to those of ERA5, depending on geographical location and altitude. The description of the energy cycle shows comparable results with ERA5. Nevertheless, ERA5-Land reduces the global averaged root mean square error of the skin temperature, taking as reference MODIS data, mainly due to the contribution of coastal points where spatial resolution is important. Since January 2020, the ERA5-Land period available has extended from January 1981 to the near present, with a 2- to 3-month delay with respect to real time. The segment prior to 1981 is in production, aiming for a release of the whole dataset in summer/autumn 2021. The high spatial and temporal resolution of ERA5-Land, its extended period, and the consistency of the fields produced makes it a valuable dataset to support hydrological studies, to initialize NWP and climate models, and to support diverse applications dealing with water resource, land, and environmental management. The full ERA5-Land hourly (Mu�oz-Sabater, 2019a) and monthly (Mu�oz-Sabater, 2019b) averaged datasets presented in this paper are available through the C3S Climate Data Store at https://doi.org/10.24381/cds.e2161bac and https://doi.org/10.24381/cds.68d2bb30, respectively."
+ },
+ {
+  "key": "Oliveira2012",
+  "doi": "10.1016/j.foreco.2012.03.003",
+  "differs": {},
+  "zotero": "EVHYEBK3",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Modeling spatial patterns of fire occurrence in Mediterranean Europe using Multiple Regression and Random Forest",
+  "abstract": ""
+ },
+ {
+  "key": "ParisienMoritz2009",
+  "doi": "10.1890/07-1289.1",
+  "differs": {},
+  "zotero": "SZFYQFW3",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Environmental controls on the distribution of wildfire at multiple spatial scales",
+  "abstract": "Despite its widespread occurrence globally, wildfire preferentially occupies an environmental middle ground and is significantly less prevalent in biomes characterized by environmental extremes (e.g., tundra, rain forests, and deserts). We evaluated the biophysical �environmental space� of wildfire from regional to subcontinental extents, with methods widely used for modeling habitat distributions. This approach is particularly suitable for the biogeographic study of wildfire, because it simultaneously considers patterns in multiple factors controlling wildfire suitability over large areas. We used the Maxent and boosted regression tree algorithms to assess wildfire�environment relationships for three levels of complexity (in terms of inclusion of variables) at three spatial scales: the conterminous United States, the state of California, and five wildfire?prone ecoregions of California. The resulting models were projected geographically to obtain spatial predictions of wildfire suitability and were also applied to other regions to assess their generality and spatial transferability. Predictions of the potential range of wildfire had high classification accuracy; they also highlighted areas where wildfires had not recently been observed, indicating the potential (or past) suitability of these areas. The models identified several key variables that were not suspected to be important in the large?scale control of wildfires, but which might indirectly affect control by influencing the presence of flammable vegetation. Models transferred to different areas were useful only when they overlapped appreciably with the target area's environmental space. This approach should allow exploration of the potential shifts in wildfire range in a changing climate, the potential for restoration of wildfire where it has been �extirpated,� and, conversely, the �invasiveness� of wildfire after changes in plant species composition. Our study demonstrates that habitat distribution models and related concepts can be used to characterize environmental controls on a natural disturbance process, but also that future work is needed to refine our understanding of the direct causal factors controlling wildfire at multiple spatial scales."
+ },
+ {
+  "key": "PascoliniCampbell2025",
+  "doi": "10.1038/s41598-025-06814-z",
+  "differs": {},
+  "zotero": "2WRXWFQE",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Assessment of spatial autocorrelation and scalability in fine-scale wildfire random forest prediction models",
+  "abstract": "Abstract Wildfire prediction models that can be applied across diverse regions at fine scales (&lt; 100 m) are critical for wildfire management. Remote sensing offers a path forward by providing heterogeneous and dynamic measurements of fuel load, type, and flammability. Machine learning methods such as random forests provide an empirical framework that are high-accuracy, computationally efficient, interpretable and able to model complex ecological relationships. Here we use high resolution (70 m, every 3�5 days) remote sensing observations of evapotranspiration and evaporative stress index, which represent plant water stress, from Ecosystem Spaceborne Thermal Radiometer on Space Station (ECOSTRESS), as well as topography and weather data, to predict burn severity and occurrence for 8 large wildfires that burned 3715 km2 from 2021 and 2022 in New Mexico, USA. These fires ranged from low to high burn intensity, and covered a diverse range of ecoregions (deserts, grasslands, forests), plant species, and topographies. We used a single model to predict the burn severity of all wildfires one week before occurrence. The prediction accuracy was greatest when using all predictors (ECOSTRESS, weather, topography) (R2 = 0.77). We assessed the role of spatial autocorrelation in driving model performance by: (1) increasing the sample spacing of our dataset, (2) introducing new predictors that represent spatial structure in the data, and (3) training our model on half the fires and predicting the other half of the fires. We found that after increasing sample spacing, model accuracy declined. However, we found declines in model accuracy were more impacted by decreased training set size compared to the distance spacing-indicating that the models are likely accurately capturing fine-scale processes. Scalability of random forest models was also found to be more challenging for regression problems but was accurate for classification of burned pixel occurrence (total pixel accuracy of 67%). These results provide promising results for application of random forest models to predict fine-scale fire severity and occurrence with applications for fire management."
+ },
+ {
+  "key": "Pausas2021",
+  "doi": "10.1002/fee.2359",
+  "differs": {},
+  "zotero": "FUDUAM54",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Wildfires and global change",
+  "abstract": "No single factor produces wildfires; rather, they occur when fire thresholds (ignitions, fuels, and drought) are crossed. Anomalous weather events may lower these thresholds and thereby enhance the likelihood and spread of wildfires. Climate change increases the frequency with which some of these thresholds are crossed, extending the duration of the fire season and increasing the frequency of dry years. However, climate?related factors do not explain all of the complexity of global fire?regime changes, as altered ignition patterns (eg human behavior) and fuel structures (eg land?use changes, fire suppression, drought?induced dieback, fragmentation) are extremely important. When the thresholds are crossed, the size of a fire will largely depend on the duration of the fire weather and the extent of the available area with continuous fuels in the landscape."
+ },
+ {
+  "key": "PausasPaula2012",
+  "doi": "10.1111/j.1466-8238.2012.00769.x",
+  "differs": {},
+  "zotero": "ZJ6F5N6C",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Fuel shapes the fire�climate relationship: evidence from Mediterranean ecosystems",
+  "abstract": "ABSTRACTAim To understand how vegetation mediates the interplay between fire and climate. Specifically, we predict that neither the switching of climatic conditions to high flammability nor the sensitivity of fire to such conditions are universal, but rather depend on fuel (vegetation) structure, which in turn changes with productivity.Location An aridity/productivity gradient on the Iberian Peninsula (Mediterranean Basin).Methods We defined 13 regions distributed along an aridity gradient, which thus differ in productivity and fuel structure. We then assessed the changes in the temporal fire�climate relationship across regions. Specifically, for each region we estimated three variables: the aridity level for switching to flammable conditions (i.e. climatic conditions conducive to fire), the frequency of these flammable conditions and the area burnt under such conditions. These variables were then related to regional aridity and fuel structure indicators.Results In mediterranean ecosystems, the aridity level for switching to flammable conditions increased along the aridity gradient. Differences in fire activity between regions were not explained by the frequency of flammable conditions but by the sensitivity of fire to such conditions, which was higher in wetter and more productive regions.Main conclusions Under mediterranean climatic conditions, fuel structure is more relevant in driving fire activity than the frequency of climatic conditions conducive to fire. At a global scale, fuel also drives the fire�climate relationship because it determines the climatic (aridity) threshold for switching to flammable conditions. Our results emphasize the role of landscape structure in shaping current and future fire�climate relationships at a regional scale, and suggest that future changes in the fire regime (i.e. under global warming) might be different from what it is predicted by climate alone."
+ },
+ {
+  "key": "Ploton2020",
+  "doi": "10.1038/s41467-020-18321-y",
+  "differs": {},
+  "zotero": "HJNYK8TK",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Spatial validation reveals poor predictive performance of large-scale ecological mapping models",
+  "abstract": "Abstract Mapping aboveground forest biomass is central for assessing the global carbon balance. However, current large-scale maps show strong disparities, despite good validation statistics of their underlying models. Here, we attribute this contradiction to a flaw in the validation methods, which ignore spatial autocorrelation (SAC) in data, leading to overoptimistic assessment of model predictive power. To illustrate this issue, we reproduce the approach of large-scale mapping studies using a massive forest inventory dataset of 11.8 million trees in central Africa to train and validate a random forest model based on multispectral and environmental variables. A standard nonspatial validation method suggests that the model predicts more than half of the forest biomass variation, while spatial validation methods accounting for SAC reveal quasi-null predictive power. This study underscores how a common practice in big data mapping studies shows an apparent high predictive power, even when predictors have poor relationships with the ecological variable of interest, thus possibly leading to erroneous maps and interpretations."
+ },
+ {
+  "key": "Podschwit2022",
+  "doi": "10.1186/s42408-022-00150-7",
+  "differs": {},
+  "zotero": "NA9HEMYU",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Reliability of cross-regional applications of global fire danger models: a Peruvian case study",
+  "abstract": "Abstract Background Fire danger indexes (FDIs) are used as proxies for fire potential and are often developed for specific locations. For practical purposes, the extrapolation of the underlying calculations into novel locations is common, but it is generally uncertain if the relationships between FDIs and fire potential observed in the environment in which the index was developed are equally relevant in others. For example, although a topographically, ecologically, and climatologically complex country, f ire danger forecasts in Peru use a standard set of nationwide thresholds applied to the Fire Weather Index. In this study, we validate the underlying assumption that weather-fire relationships are spatially uniform within Peru by (1) making cross-regional comparisons of the statistical distributions of four FDIs�Burning Index, Energy Release Component, Fire Weather Index, and Keetch-Byram Drought Index, and (2) making cross-regional comparisons of the expected daily MODIS hotspot count percentiles conditioned on FDI values. Results Significant regional differences in the distributions of daily FDI values were observed in every pair of regions within Peru, and with the exception of a pair of regions within the Amazon, little data ( $$&lt;90$$ &lt; 90 days) were necessary to detect these differences. After controlling for FDI values and seasonal and annual effects with regressions, differences in predicted hotspot percentiles were common, differing by as much as 47 percentage points. Across the pairs of regions, the magnitude of these differences tended to decrease as climatic similarity increased, but some counterexamples were also apparent. Conclusions The noticeable differences in the distributions of daily FDI values suggest that a standard set of breakpoints may produce unreliable inferences regarding fire potential. We also find that even if the climatic conditions were similar across Peru, the same FDI values in two locations can produce substantially differing predictions of wildfire activity. This suggests that other factors besides FDI values can strongly mediate wildfire activity and that better fire potential predictions could be produced if these factors are accounted for."
+ },
+ {
+  "key": "Roberts2017",
+  "doi": "10.1111/ecog.02881",
+  "differs": {},
+  "zotero": "L6BGGMXM",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Cross?validation strategies for data with temporal, spatial, hierarchical, or phylogenetic structure",
+  "abstract": "Ecological data often show temporal, spatial, hierarchical (random effects), or phylogenetic structure. Modern statistical approaches are increasingly accounting for such dependencies. However, when performing cross?validation, these structures are regularly ignored, resulting in serious underestimation of predictive error. One cause for the poor performance of uncorrected (random) cross?validation, noted often by modellers, are dependence structures in the data that persist as dependence structures in model residuals, violating the assumption of independence. Even more concerning, because often overlooked, is that structured data also provides ample opportunity for overfitting with non?causal predictors. This problem can persist even if remedies such as autoregressive models, generalized least squares, or mixed models are used. Block cross?validation, where data are split strategically rather than randomly, can address these issues. However, the blocking strategy must be carefully considered. Blocking in space, time, random effects or phylogenetic distance, while accounting for dependencies in the data, may also unwittingly induce extrapolations by restricting the ranges or combinations of predictor variables available for model training, thus overestimating interpolation errors. On the other hand, deliberate blocking in predictor space may also improve error estimates when extrapolation is the modelling goal. Here, we review the ecological literature on non?random and blocked cross?validation approaches. We also provide a series of simulations and case studies, in which we show that, for all instances tested, block cross?validation is nearly universally more appropriate than random cross?validation if the goal is predicting to new data or predictor space, or for selecting causal predictors. We recommend that block cross?validation be used wherever dependence structures exist in a dataset, even if no correlation structure is visible in the fitted model residuals, or if the fitted models account for such correlations."
+ },
+ {
+  "key": "Rousseau2022",
+  "doi": "10.1111/ecog.06060",
+  "differs": {
+   "pages": {
+    "bibliography": "e06060",
+    "resolved": ""
+   }
+  },
+  "zotero": "NG3Z9I7U",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "Factors influencing transferability in species distribution models",
+  "abstract": "Species distribution models (SDMs) provide insights into species' ecology and distributions and are frequently used to guide conservation priorities. However, many uses of SDMs require model transferability, which refers to the degree to which a model built in one place or time can successfully predict distributions in a different place or time. If a species' model has high spatial transferability, the relationship between abundance and predictor variables should be consistent across a geographical distribution. We used Breeding Bird Surveys, climate and remote sensing data, and a novel method for quantifying model transferability to test whether SDMs can be transferred across the geographic ranges of 129 species of North American birds. We also assessed whether species' traits are correlated with model transferability. We expected that prediction accuracy between modeled regions should decrease with 1) geographical distance, 2) degree of extrapolation and 3) the distance from the core of a species' range. Our results suggest that very few species have a high model transferability index (MTI). Species with large distributions, with distributions located in areas with low topographic relief, and with short lifespans are more likely to exhibit low transferability. Transferability between modeled regions also decreased with geographical distance and degree of extrapolation. We expect that low transferability in SDMs potentially resulted from both ecological non?stationarity (i.e. biological differences within a species across its range) and over?extrapolation. Accounting for non?stationarity and extrapolation should substantially increase the prediction success of species distribution models, therefore enhancing the success of conservation efforts."
+ },
+ {
+  "key": "Sandholt2002",
+  "doi": "10.1016/S0034-4257(01)00274-7",
+  "differs": {},
+  "zotero": "KNB96PY9",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "A simple interpretation of the surface temperature/vegetation index space for assessment of surface moisture status",
+  "abstract": ""
+ },
+ {
+  "key": "Schoener1968",
+  "doi": "10.2307/1935534",
+  "differs": {},
+  "zotero": "Q26G2Y4U",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "The Anolis Lizards of Bimini: Resource Partitioning in a Complex Fauna",
+  "abstract": "The tiny island of South Bimini contains 4 species of lizards of he genus Anolis, a number surpassed only on the 4 largest islands of the Greater Antilles and on 2 very large and nearby satellite islands. These species are syntopic with respect to a two�dimensional area of the ground but divide the habitat according to perch height and perch diameter: sagrei is partly terrestrial but occurs more often on small and large low perches; distichus prefers the trunks and large branches of medium to large trees; angusticipes inhabits small twigs, especially at great heights; and carolinensis is found mostly on leaves or on the adjacent twigs and brances. The size classes of the species are staggered in such a way that the interspecific classes which overlap most in habitat overlap least in prey size. Similarities in prey size and prey taxa for classes of the same species are somewhat greater than those expected on the basis of habitat and morphology alone. The distribution of the species among the vegetation communities of Bimini can be explained on the basis of perch height and diameter preference. Within the same species, the larger lizards usually eat larger food, fewer items, and in sagrei more fruit; and they have a greater average range of food size per digestive tract. One species (distichus) is extremely myrmecophagous: about 75�90% of its food items are ants. In 3 of the 4 species, subadult males take more food and average smaller prey then females of the same head length. That species (distichus) which takes the smallest food items and whose classes overlap the most in habitat preference with those of other species is least dimorphic is size between the sexes. It is suggested that such small, nondimorphic species are best suited for insinuation into complex faunas, whereas larger, dimorphic forms are best for the colonization of empty areas. The usefulness of various measures of o verlap and s pecialization is evaluated for this lizard association."
+ },
+ {
+  "key": "Sofaer2019",
+  "doi": "10.1111/2041-210X.13140",
+  "differs": {},
+  "zotero": "UA2CHBYM",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "The area under the precision?recall curve as a performance metric for rare binary events",
+  "abstract": "Abstract Species distribution models are used to study biogeographic patterns and guide decision?making. The variable quality of these models makes it critical to assess whether a model's outputs are suitable for the intended use, but commonly used evaluation approaches are inappropriate for many ecological contexts. In particular, unrealistically high performance assessments have been associated with models for rare species and predictions over large geographic extents. We evaluated the area under the precision?recall curve ( AUC ? PR ) as a performance metric for rare binary events, focusing on the assessment of species distribution models. Precision is the probability that a species is present given a predicted presence, while recall (more commonly called sensitivity) is the probability the model predicts presence in locations where the species has been observed. We simulated species at three levels of prevalence, compared AUC ? PR and the area under the receiver operating characteristic curve ( AUC ? ROC ) when the geographic extent of predictions was increased and assessed how well each metric reflected a model's utility to guide surveys for new populations. AUC ? PR was robust to species rarity and, unlike AUC ? ROC , not affected by an increasing geographic extent. The major advantages of AUC ? PR arise because it does not incorporate correctly predicted absences and is therefore less prone to exaggerate model performance for unbalanced datasets. AUC ? PR and precision were useful indicators of a model's utility for guiding surveys. We show that AUC ? PR has important advantages for evaluating models of rare species, and its benefits in the context of unbalanced binary responses will make it applicable for other ecological studies. By not considering the true negative quadrant of the confusion matrix, AUC ? PR ameliorates issues that arise when the geographic extent is increased beyond the species� range or when a large number of background points are used when absence information is unavailable. However, no single metric captures all aspects of performance nor provides an absolute index that can be compared across datasets. Our results indicate AUC ? PR and precision can provide useful and intuitive metrics for evaluating a model's utility for guiding sampling, and can complement other metrics to help delineate a model's appropriate use."
+ },
+ {
+  "key": "Sun2016",
+  "doi": "10.1609/aaai.v30i1.10306",
+  "differs": {
+   "journal": {
+    "bibliography": "proceedings of the thirtieth aaai conference on artificial intelligence aaai 16",
+    "resolved": "proceedings of the aaai conference on artificial intelligence"
+   },
+   "volume": {
+    "bibliography": "",
+    "resolved": "30"
+   },
+   "pages": {
+    "bibliography": "2058-2065",
+    "resolved": ""
+   }
+  },
+  "zotero": "FQ4UANY5",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "Return of Frustratingly Easy Domain Adaptation",
+  "abstract": "Unlike human learning, machine learning often fails to handle changes between training (source) and test (target) input distributions. Such domain shifts, common in practical scenarios, severely damage the performance of conventional machine learning methods. Supervised domain adaptation methods have been proposed for the case when the target data have labels, including some that perform very well despite being ``frustratingly easy'' to implement. However, in practice, the target domain is often unlabeled, requiring unsupervised adaptation. We propose a simple, effective, and efficient method for unsupervised domain adaptation called CORrelation ALignment (CORAL). CORAL minimizes domain shift by aligning the second-order statistics of source and target distributions, without requiring any target labels. Even though it is extraordinarily simple--it can be implemented in four lines of Matlab code--CORAL performs remarkably well in extensive evaluations on standard benchmark datasets."
+ },
+ {
+  "key": "ThermalTwinRepo",
+  "doi": "10.5281/zenodo.23070876",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.5281/zenodo.23070876"
+ },
+ {
+  "key": "Tonini2020",
+  "doi": "10.3390/geosciences10030105",
+  "differs": {},
+  "zotero": "R2UBVZEL",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "A Machine Learning-Based Approach for Wildfire Susceptibility Mapping. The Case Study of the Liguria Region in Italy",
+  "abstract": "Wildfire susceptibility maps display the spatial probability of an area to burn in the future, based solely on the intrinsic local proprieties of a site. Current studies in this field often rely on statistical models, often improved by expert knowledge for data retrieving and processing. In the last few years, machine learning algorithms have proven to be successful in this domain, thanks to their capability of learning from data through the modeling of hidden relationships. In the present study, authors introduce an approach based on random forests, allowing elaborating a wildfire susceptibility map for the Liguria region in Italy. This region is highly affected by wildfires due to the dense and heterogeneous vegetation, with more than 70% of its surface covered by forests, and due to the favorable climatic conditions. Susceptibility was assessed by considering the dataset of the mapped fire perimeters, spanning a 21-year period (1997�2017) and different geo-environmental predisposing factors (i.e., land cover, vegetation type, road network, altitude, and derivatives). One main objective was to compare different models in order to evaluate the effect of: (i) including or excluding the neighboring vegetation type as additional predisposing factors and (ii) using an increasing number of folds in the spatial-cross validation procedure. Susceptibility maps for the two fire seasons were finally elaborated and validated. Results highlighted the capacity of the proposed approach to identify areas that could be affected by wildfires in the near future, as well as its goodness in assessing the efficiency of fire-fighting activities."
+ },
+ {
+  "key": "Trucchia2022",
+  "doi": "10.3390/fire5010030",
+  "differs": {},
+  "zotero": "HEUSV5KZ",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Defining Wildfire Susceptibility Maps in Italy for Understanding Seasonal Wildfire Regimes at the National Level",
+  "abstract": "Wildfires constitute an extremely serious social and environmental issue in the Mediterranean region, with impacts on human lives, infrastructures and ecosystems. It is therefore important to produce susceptibility maps for wildfire management. The wildfire susceptibility is defined as a static probability of experiencing wildfire in a certain area, depending on the intrinsic characteristics of the territory. In this work, a machine learning model based on the Random Forest Classifier algorithm is employed to obtain national scale susceptibility maps for Italy at a 500 m spatial resolution. In particular, two maps are produced, one for each specific wildfire season, the winter and the summer one. Developing such analysis at the national scale allows for having a deep understanding on the wildfire regimes furnishing a tool for wildfire risk management. The selected machine learning model is capable of associating a data-set of geographic, climatic, and anthropic information to the synoptic past burned area. The model is then used to classify each pixel of the study area, producing the susceptibility map. Several stages of validation are proposed, with the analysis of ground retrieved wildfire databases and with recent wildfire events obtained through remote sensing techniques."
+ },
+ {
+  "key": "Trucchia2023",
+  "doi": "10.1071/WF22138",
+  "differs": {},
+  "zotero": "QBLZMF4H",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Wildfire hazard mapping in the eastern Mediterranean landscape",
+  "abstract": "Background Wildfires are a growing threat to many ecosystems, bringing devastation to human safety and health, infrastructure, the environment and wildlife. Aims A thorough understanding of the characteristics determining the susceptibility of an area to wildfires is crucial to prevention and management activities. The work focused on a case study of 13 countries in the eastern Mediterranean and southern Black Sea basins. Methods A data-driven approach was implemented where a decade of past wildfires was linked to geoclimatic and anthropic descriptors via a machine learning classification technique (Random Forest). Empirical classification of fuel allowed linking of fire intensity and hazard to environmental drivers. Key results Wildfire susceptibility, intensity and hazard were obtained for the study area. For the first time, the methodology is applied at a supranational scale characterised by a diverse climate and vegetation landscape, relying on open data. Conclusions This approach successfully allowed identification of the main wildfire drivers and led to identification of areas that are more susceptible to impactful wildfire events. Implications This work demonstrated the feasibility of the proposed framework and settled the basis for its scalability at a supranational level."
+ },
+ {
+  "key": "VNP64A1",
+  "doi": "10.5067/VIIRS/VNP64A1.002",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.5067/VIIRS/VNP64A1.002"
+ },
+ {
+  "key": "Valavi2019",
+  "doi": "10.1111/2041-210X.13107",
+  "differs": {
+   "title": {
+    "bibliography": "blockcv an r package for generating spatially or environmentally separated folds for k fold cross validation of species distribution models",
+    "resolved": "span style font variant small caps block span span style font variant small caps cv span an span style font variant small caps r span package for generating spatially or environmentally separated folds for i k i fold cross validation of species distribution models"
+   },
+   "year": {
+    "bibliography": "2019",
+    "resolved": "2018"
+   }
+  },
+  "zotero": "G97VZDWV",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "<span style=\"font-variant:small-caps;\">block</span>                    <span style=\"font-variant:small-caps;\">CV</span>                    : An                    <span style=\"font-variant:small-caps;\">r</span>                    package for generating spatially or environmentally separated folds for                    <i>k</i>                    ?fold cross?validation of species distribution models",
+  "abstract": "Abstract When applied to structured data, conventional random cross?validation techniques can lead to underestimation of prediction error, and may result in inappropriate model selection. We present the r package block CV , a new toolbox for cross?validation of species distribution modelling. Although it has been developed with species distribution modelling in mind, it can be used for any spatial modelling. The package can generate spatially or environmentally separated folds. It includes tools to measure spatial autocorrelation ranges in candidate covariates, providing the user with insights into the spatial structure in these data. It also offers interactive graphical capabilities for creating spatial blocks and exploring data folds. Package block CV enables modellers to more easily implement a range of evaluation approaches. It will help the modelling community learn more about the impacts of evaluation approaches on our understanding of predictive performance of species distribution models."
+ },
+ {
+  "key": "Vesk2021",
+  "doi": "10.1111/ecog.05179",
+  "differs": {
+   "year": {
+    "bibliography": "2021",
+    "resolved": "2020"
+   }
+  },
+  "zotero": "J32DNKJJ",
+  "status": "differs",
+  "type": "journalArticle",
+  "resolved_title": "Transferability of trait?based species distribution models",
+  "abstract": "The need for reliable prediction of species distributions dependent upon traits has been hindered by a lack of model transferability testing. We tested the predictive capacity of trait?SDMs by fitting hierarchical generalised linear models with three trait and four environmental predictors for 20 eucalypt taxa in a reference region. We used these models to predict occurrence for a much larger set of taxa and target areas (82 taxa across 18 target regions) in south?eastern Australia. Median predictive performance for new species in target regions was 0.65 (area under receiver operating curve) and 1.24 times random (area under precision recall curve). Prediction in target regions did not worsen with increasing geographic, environmental or community compositional distance from the reference region, and was improved with reliable trait�environment relationships. Transfer testing also identified trait�environment relationships that did not transfer. These results give confidence that traits and transfer testing can assist in the hard problem of predicting environmental responses for new species, environmental conditions and regions."
+ },
+ {
+  "key": "Vitolo2020",
+  "doi": "10.1038/s41597-020-0554-z",
+  "differs": {},
+  "zotero": "SZKZPR78",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "ERA5-based global meteorological wildfire danger maps",
+  "abstract": "Abstract Forest fires are an integral part of the natural Earth system dynamics, however they are becoming more devastating and less predictable as anthropogenic climate change exacerbates their impacts. In order to advance fire science, fire danger reanalysis products can be used as proxy for fire weather observations with the advantage of being homogeneously distributed both in space and time. This manuscript describes a reanalysis dataset of fire danger indices based on the Canadian Fire Weather Index system and the ECMWF ERA5 reanalysis dataset, which supersedes the previous dataset based on ERA-Interim. The new fire danger reanalysis dataset provides a number of benefits compared to the one based on ERA-Interim: it relies on better estimates of precipitation, evaporation and soil moisture, it is available in a deterministic form as well as a probabilistic ensemble and it is characterised by a considerably higher spatial resolution. It is a valuable resource for forestry agencies and scientists in the field of wildfire danger modeling and beyond. The global dataset is produced by ECMWF, as the computational centre of the European Forest Fire information System (EFFIS) of the Copernicus Emergency Management Service, and it is made available free of charge through the Climate Data Store."
+ },
+ {
+  "key": "Wadoux2021",
+  "doi": "10.1016/j.ecolmodel.2021.109692",
+  "differs": {},
+  "zotero": "L3QW35RM",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Spatial cross-validation is not the right way to evaluate map accuracy",
+  "abstract": ""
+ },
+ {
+  "key": "Warren2008",
+  "doi": "10.1111/j.1558-5646.2008.00482.x",
+  "differs": {},
+  "zotero": "ACKAHHD3",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "ENVIRONMENTAL NICHE EQUIVALENCY VERSUS CONSERVATISM: QUANTITATIVE APPROACHES TO NICHE EVOLUTION",
+  "abstract": ""
+ },
+ {
+  "key": "Wenger2012",
+  "doi": "10.1111/j.2041-210X.2011.00170.x",
+  "differs": {},
+  "zotero": "CQN8EPII",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Assessing transferability of ecological models: an underappreciated aspect of statistical validation",
+  "abstract": "Summary 1. Ecologists have long sought to distinguish relationships that are general from those that are idiosyncratic to a narrow range of conditions. Conventional methods of model validation and selection assess in? or out?of?sample prediction accuracy but do not assess model generality or transferability, which can lead to overestimates of performance when predicting in other locations, time periods or data sets. 2. We propose an intuitive method for evaluating transferability based on techniques currently in use in the area of species distribution modelling. The method involves cross?validation in which data are assigned non?randomly to groups that are spatially, temporally or otherwise distinct, thus using heterogeneity in the data set as a surrogate for heterogeneity among data sets. 3. We illustrate the method by applying it to distribution modelling of brook trout ( Salvelinus fontinalis Mitchill) and brown trout ( Salmo trutta Linnaeus) in western United States. We show that machine?learning techniques such as random forests and artificial neural networks can produce models with excellent in?sample performance but poor transferability, unless complexity is constrained. In our example, traditional linear models have greater transferability. 4. We recommend the use of a transferability assessment whenever there is interest in making inferences beyond the data set used for model fitting. Such an assessment can be used both for validation and for model selection and provides important information beyond what can be learned from conventional validation and selection techniques."
+ },
+ {
+  "key": "Xu2026",
+  "doi": "10.48550/arXiv.2605.18911",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.48550/arXiv.2605.18911"
+ },
+ {
+  "key": "Yates2018",
+  "doi": "10.1016/j.tree.2018.08.001",
+  "differs": {},
+  "zotero": "QSZN5YQZ",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "Outstanding Challenges in the Transferability of Ecological Models",
+  "abstract": ""
+ },
+ {
+  "key": "Yebra2013",
+  "doi": "10.1016/j.rse.2013.05.029",
+  "differs": {},
+  "zotero": "L4KQQ57L",
+  "status": "matches",
+  "type": "journalArticle",
+  "resolved_title": "A global review of remote sensing of live fuel moisture content for fire danger assessment: Moving towards operational products",
+  "abstract": ""
+ },
+ {
+  "key": "Zanaga2021",
+  "doi": "10.5281/zenodo.5571936",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.5281/zenodo.5571936"
+ },
+ {
+  "key": "Zanaga2022",
+  "doi": "10.5281/zenodo.7254221",
+  "differs": {},
+  "status": "DOI not added: DOI not found on CrossRef: 10.5281/zenodo.7254221"
+ }
+]

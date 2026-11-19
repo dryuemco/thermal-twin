@@ -1,0 +1,30 @@
+{
+ "figure": "Fig. 8 - contrast pairs, IJWF package",
+ "script": "paper/submissions/ijwf/figures/fig8_contrast_pairs.py",
+ "copy_of": "paper/figures/fig8_contrast_pairs.py with the same data and asserts",
+ "ijwf_changes": "8 pt and 7 pt text, 0.8 pt axis lines; sentence case: Slope, Elevation, Current LST, Current TVDI, Downscaled LST, Fused LST, Excludes 0.5, Includes 0.5, Signed AUC (...); legend anchors at -0.015 of the axes height (shared -0.02) for the smaller font",
+ "source": {
+  "path": "paper/labelfix_rerun/round5/out_official/figure_contrast_pairs.json",
+  "sha256": "bbb70787fe5e99ddf475db8b3e6d29365b2e8f231127725792ac766a2d487e9a"
+ },
+ "asserts": "corrected-label source (Manavgat parquet prefix is not the frozen 054a1961); D-bar means 0.799/0.479; jointly supported features exactly the six [slope, elevation, current LST, current TVDI, downscaled LST, fused LST] in (a), all opposite in sign, and [] in (b); sign agreement 2/9 and 7/9; four transfer AUCs (0.438, 0.345 from the abstract; 0.594, 0.548) and 2-cell CI-off-chance checks; 10-cell verdicts from round5/s7 (only Mugla->Manavgat supported); Table S7 rows and Section S3.4 statements; every plotted value inside the axes",
+ "s7": {
+  "path": "paper/labelfix_rerun/round5/s7_contrast_pair.json",
+  "sha256": "746d9a6bd4aa4f14c42200eb0ad1806374b83435d9a6649929714cd58620da67"
+ },
+ "design": "2026-10-23 redraw: dot + interval per region and feature, filled = interval excludes 0.5; region = colour and vertical offset; no arrows, shading or side bars",
+ "canvas_mm": [
+  170.0,
+  96
+ ],
+ "font_pt": {
+  "body": 8.0,
+  "minimum": 7.0,
+  "used": [
+   7.0,
+   8.0
+  ]
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

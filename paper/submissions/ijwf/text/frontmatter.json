@@ -1,0 +1,48 @@
+{
+  "title": "Evaluation area and the limits of cross-region transfer of single-season wildfire models with pre-fire thermal predictors: five large Mediterranean fires",
+  "journal": "Natural Hazards",
+  "keywords": [
+    "wildfire susceptibility",
+    "Mediterranean",
+    "model transferability",
+    "evaluation area",
+    "land surface temperature",
+    "spatial cross-validation"
+  ],
+  "natural_hazards": {
+    "title": "Evaluation area and the limits of cross-region transfer of wildfire susceptibility models in five Mediterranean fires"
+  },
+  "fire_ecology": {
+    "title": "Evaluation area and the limits of wildfire model transfer",
+    "keywords": [
+      "Burned area",
+      "Fire susceptibility",
+      "Greece",
+      "Italy",
+      "Land surface temperature",
+      "Mediterranean Basin",
+      "Satellite thermal data",
+      "Spain",
+      "Spatial cross-validation",
+      "Türkiye"
+    ]
+  },
+  "ijwf": {
+    "journal": "International Journal of Wildland Fire",
+    "article_type": "Research Article",
+    "title": "Evaluation area and the limits of cross-region transfer of single-season wildfire models in five Mediterranean fires",
+    "keywords": [
+      "burned area",
+      "domain adaptation",
+      "evaluation area",
+      "land surface temperature",
+      "Mediterranean Basin",
+      "model transferability",
+      "random forest",
+      "satellite thermal data",
+      "spatial cross-validation",
+      "wildfire susceptibility"
+    ],
+    "title_before_reviewer_simulation": "Evaluation area and the limits of cross-region transfer of wildfire susceptibility models in five Mediterranean fires"
+  }
+}

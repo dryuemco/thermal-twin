@@ -1,0 +1,27 @@
+{
+ "figure": "Fig. 5 - label-free adaptation moves transfer toward chance, IJWF package",
+ "script": "paper/submissions/ijwf/figures/fig5_adaptation.py",
+ "source": "copy of paper/figures/fig5_adaptation.py with the same data and asserts",
+ "ijwf_changes": "8 pt and 7 pt text, 0.8 pt axis lines; sentence case: Raw transfer, After adaptation",
+ "data": {
+  "path": "paper/figures/data/fig_data_corrected.json",
+  "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
+  "note": "step10_metrics.json of all 10 pairs, corrected-label overlay; sha256 inside"
+ },
+ "asserts": "all 60 plotted values equal Table S8 at 3 dp; means raw 0.527, z-score 0.510, CORAL 0.517; 13 (z-score) and 16 (CORAL) of 20 directions closer to chance; ranges 0.302-0.630 and 0.406-0.624; the decomposition asserts in _conservation_common.py",
+ "design": "2026-10-23 redraw: 20 directions, raw (open grey) to adapted (filled blue), one panel per method; no target-label choice of method",
+ "canvas_mm": [
+  170.0,
+  118
+ ],
+ "font_pt": {
+  "body": 8.0,
+  "minimum": 7.0,
+  "used": [
+   7.0,
+   8.0
+  ]
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

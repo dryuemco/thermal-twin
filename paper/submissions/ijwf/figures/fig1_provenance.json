@@ -1,0 +1,202 @@
+{
+ "figure": "Fig. 1 - study-area location map, IJWF package",
+ "script": "paper/submissions/ijwf/figures/fig1_study_map.py",
+ "source": "copy of paper/figures/fig1_study_map.py with the same data and asserts",
+ "ijwf_changes": "part labels and titles of (b) 8 pt; map labels (9 pt in the shared figure), graticule labels, scale bars and keys 7 pt; sentence case in the two keys (Study area, Gate control, not modelled, Burned, Within 10 km, Beyond 10 km, Not modelled); labels of (a) placed again, see label_placement",
+ "label_placement": {
+  "rule": "gaps between bounding boxes in points, asserted at build time: 1.5 to 15 pt to the own marker, every other marker at least 9 pt and two and a half times as far away, key and scale bar at least 6 pt away, any two texts at least 6 pt apart (layout check)",
+  "labels": {
+   "Manavgat 2021": {
+    "anchor_deg": [
+     0.95,
+     0.55,
+     "center",
+     "bottom"
+    ],
+    "own_marker_pt": 3.3,
+    "nearest_other_marker": "Kozan 2023",
+    "nearest_other_marker_pt": 9.7
+   },
+   "Bejís 2022": {
+    "anchor_deg": [
+     0.5,
+     0.45,
+     "left",
+     "bottom"
+    ],
+    "own_marker_pt": 2.4,
+    "nearest_other_marker": "Montiferru 2021",
+    "nearest_other_marker_pt": 37.9
+   },
+   "North Evia 2021": {
+    "anchor_deg": [
+     -0.35,
+     0.6,
+     "center",
+     "bottom"
+    ],
+    "own_marker_pt": 4.1,
+    "nearest_other_marker": "Muğla 2021",
+    "nearest_other_marker_pt": 24.4
+   },
+   "Muğla 2021": {
+    "anchor_deg": [
+     0.45,
+     0.55,
+     "center",
+     "bottom"
+    ],
+    "own_marker_pt": 3.3,
+    "nearest_other_marker": "Manavgat 2021",
+    "nearest_other_marker_pt": 12.8
+   },
+   "Montiferru 2021": {
+    "anchor_deg": [
+     0.0,
+     -1.35,
+     "center",
+     "top"
+    ],
+    "own_marker_pt": 12.6,
+    "nearest_other_marker": "Bejís 2022",
+    "nearest_other_marker_pt": 60.3
+   },
+   "Kozan 2023": {
+    "anchor_deg": [
+     0.6,
+     0.0,
+     "left",
+     "center"
+    ],
+    "own_marker_pt": 2.5,
+    "nearest_other_marker": "Manavgat 2021",
+    "nearest_other_marker_pt": 40.9
+   }
+  }
+ },
+ "aoi_data": {
+  "path": "paper/figures/data/fig1_aoi.json",
+  "sha256": "9484187f0677ef845018a3b189b5f7c92bbb0f7163cda9636bbf6f02cb4c5636",
+  "note": "step0 geojson / 30m-grid-derived; sha256 per source inside"
+ },
+ "panel_b_data": {
+  "path": "paper/figures/data/fig1b_frames.npz",
+  "sha256": "7155336e32c3bc449d078c4b9b1189378c512eeb5d16f155165c460bcb17bd89",
+  "written_by": "paper/figures/fig1b_data.py (project venv, modelling datasets via _canonical.py)",
+  "stats": {
+   "bejis_2022": {
+    "beyond_10km_pct": 63.1,
+    "burned": 1100,
+    "cells": 15190,
+    "cols": 153,
+    "edge_burned": 0,
+    "ew_km": 0.3911758277994422,
+    "ns_km": 0.5100023328837442,
+    "rows": 103,
+    "scars_ge_50": 1
+   },
+   "evia_2021_extended": {
+    "beyond_10km_pct": 43.7,
+    "burned": 2664,
+    "cells": 9298,
+    "cols": 175,
+    "edge_burned": 0,
+    "ew_km": 0.39718626637560567,
+    "ns_km": 0.5100023328837442,
+    "rows": 131,
+    "scars_ge_50": 1
+   },
+   "manavgat_2021": {
+    "beyond_10km_pct": 58.5,
+    "burned": 2935,
+    "cells": 20511,
+    "cols": 175,
+    "edge_burned": 0,
+    "ew_km": 0.4071247378910127,
+    "ns_km": 0.5100023328837442,
+    "rows": 138,
+    "scars_ge_50": 1
+   },
+   "montiferru_2021": {
+    "beyond_10km_pct": 2.1,
+    "burned": 539,
+    "cells": 2544,
+    "cols": 66,
+    "edge_burned": 0,
+    "ew_km": 0.38978066962045965,
+    "ns_km": 0.5100023328837442,
+    "rows": 49,
+    "scars_ge_50": 2
+   },
+   "mugla_2021": {
+    "beyond_10km_pct": 55.3,
+    "burned": 2911,
+    "cells": 41730,
+    "cols": 393,
+    "edge_burned": 15,
+    "ew_km": 0.40717820337739874,
+    "ns_km": 0.5100023328837442,
+    "rows": 186,
+    "scars_ge_50": 4
+   }
+  }
+ },
+ "basemap": {
+  "dataset": "Natural Earth 1:50m physical: coastline + land",
+  "fetched_via": "cartopy 0.25.0 downloader; files read from the cartopy cache",
+  "note": "Natural Earth is public domain; version as shipped by NACIS CDN on the download date below (the cache files carry no version string)",
+  "files": {
+   "ne_50m_land.shp": {
+    "sha256": "140d1419f7ace66bf0ea8ceb068cab544d413170f4e8c48e0a11bde6c978b319",
+    "downloaded": "2026-10-25T16:30:45"
+   },
+   "ne_50m_land.shx": {
+    "sha256": "c1b93ee40fe83d6322197251517c141c2c91970915ac61d7bf7a4821fc2a68d7",
+    "downloaded": "2026-10-25T16:30:45"
+   },
+   "ne_50m_land.dbf": {
+    "sha256": "d082add78c82e01b9bf422df3143ad6fbe43ca1bcb798d12a334f9e001b67bc0",
+    "downloaded": "2026-10-25T16:30:45"
+   },
+   "ne_50m_coastline.shp": {
+    "sha256": "797d675af9613f80b51ab6049fa32e589974d7a97c6497ca56772965f179ed26",
+    "downloaded": "2026-10-25T16:30:47"
+   },
+   "ne_50m_coastline.shx": {
+    "sha256": "0ff1792f2d16b58246d074215edd9d12fa280880ecaad61a91b9382fee854065",
+    "downloaded": "2026-10-25T16:30:47"
+   },
+   "ne_50m_coastline.dbf": {
+    "sha256": "f100fa5a99786c63ec9eb2cd430e389bc6235b8e26d2712d33f9bfd6cb6aadfc",
+    "downloaded": "2026-10-25T16:30:47"
+   }
+  },
+  "same_files_as_shared_figure": true
+ },
+ "geo_stack": {
+  "cartopy": "0.25.0",
+  "shapely": "2.2.0",
+  "geos": "3.14.1",
+  "pyproj": "3.8.0",
+  "proj": "9.8.1"
+ },
+ "reproducibility": "Drawn for the IJWF package on 2026-11-11 in a separate environment with cartopy (the project environments have none), from the Natural Earth files of the cartopy cache. same_files_as_shared_figure compares their sha256 with those in paper/figures/fig1_provenance.json. The history of the shared render is recorded there and is not repeated here.",
+ "asserts": "all five AOI bboxes match Table S13 to 5e-3 deg; panel (b) cells, burned cells and the share beyond 10 km match Table 1",
+ "design": "2026-10-23 redraw: one blue dot per study area (no regime grouping implied); no topography/satellite; Kozan 2023 as an open grey square with its own key entry, so its location is findable from the gate section without implying it entered any model; 170 mm wide (SpringerOpen full page width), key inside the graphic",
+ "kozan_bbox_source": "drive_new/kozan-legacy/step8a/step8a_dataset_stats.json (30 m reference-grid transform); cross-checked in-script against the independent step2b_dem_metadata.json AOI polygon to 5e-3 deg",
+ "palette": "Okabe-Ito blue (study) / neutral grey (control) on very light neutral land; greyscale-safe",
+ "canvas_mm": [
+  170.0,
+  108.6
+ ],
+ "font_pt": {
+  "body": 8.0,
+  "minimum": 7.0,
+  "used": [
+   7.0,
+   8.0
+  ]
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2, cartopy 0.25.0"
+}

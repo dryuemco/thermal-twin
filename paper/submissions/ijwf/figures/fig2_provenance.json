@@ -1,0 +1,20 @@
+{
+ "figure": "Fig. 2 - methods schematic, IJWF package",
+ "source": "copy of the shared Fig. 2 without the Methods section numbers (headings are unnumbered)",
+ "ijwf_changes": "8 pt box titles and 7 pt box lines; sentence case: Natural vegetation, Five regions pass, Baseline: terrain, Thermal: baseline, Spatial-block CV, Raw and adapted, Whole region, Scar frames, Distance collars",
+ "data": "none (schematic)",
+ "canvas_mm": [
+  170.0,
+  50.0
+ ],
+ "font_pt": {
+  "body": 8.0,
+  "minimum": 7.0,
+  "used": [
+   7.0,
+   8.0
+  ]
+ },
+ "layout_check": "0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

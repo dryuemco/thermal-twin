@@ -1,0 +1,27 @@
+{
+ "figure": "Figure 3 - within-region thermal gain by block size, IJWF package",
+ "script": "paper/submissions/ijwf/figures/fig3_within_robustness.py",
+ "source": "copy of paper/figures/fig3_within_robustness.py with the same data and asserts",
+ "ijwf_changes": "8 pt and 7 pt text, 0.8 pt axis lines; part labels (a) to (e) before the region names; sentence case: Block size (km), Thermal, Baseline",
+ "data": {
+  "path": "paper/figures/data/fig_data_corrected.json",
+  "sha256": "b21926a395334562af1d73a130a43c91c53f0a3025000c13e7ef094fc06269f9",
+  "note": "step8c + robustness outputs of the corrected-label overlay; per-source sha256 inside"
+ },
+ "asserts": "all 75 printed values of 04 Table 2 equal the source rounded to 3 dp, zero tolerance; every delta CI lower bound > 0 (15 region-block cells); every plotted value inside its axis view",
+ "design": "2026-10-23 redraw: small multiples, baseline grey/open, thermal blue/filled, gain as a light band; intervals left to Table 2",
+ "canvas_mm": [
+  170.0,
+  62
+ ],
+ "font_pt": {
+  "body": 8.0,
+  "minimum": 7.0,
+  "used": [
+   7.0,
+   8.0
+  ]
+ },
+ "layout_check": "paper/figures/_layout_check.py; 0 problems at build time",
+ "environment": "matplotlib 3.11.2"
+}

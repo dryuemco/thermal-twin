@@ -1,0 +1,89 @@
+{
+ "analysis": "check of transferred thermal models against the burns of the five previous years",
+ "date": "2026-11-11",
+ "status": "exploratory, added after the reviewer simulation",
+ "environment": {
+  "scikit-learn": "1.9.0",
+  "pandas": "3.0.2",
+  "numpy": "2.4.4"
+ },
+ "reproduction_gate": "all 20 raw transfer AUCs within 0.0015 of Supplementary Table S8",
+ "min_hist_cells": 50,
+ "directions_used": 16,
+ "targets_used": [
+  "bejis_2022",
+  "evia_2021_extended",
+  "montiferru_2021",
+  "mugla_2021"
+ ],
+ "targets_without_earlier_burns": [
+  "manavgat_2021"
+ ],
+ "spearman_hist_vs_event": {
+  "rho": -0.38823529411764707,
+  "ci95": [
+   -0.7715183232580571,
+   0.1509763791844822
+  ],
+  "bootstrap": "pair-cluster",
+  "replicates": 2000,
+  "seed": 42
+ },
+ "spearman_hist_vs_event_event_cells_removed": {
+  "rho": -0.2764705882352941,
+  "ci95": [
+   -0.758286281072036,
+   0.24343623353596602
+  ]
+ },
+ "same_side_of_chance": {
+  "count": 5,
+  "of": 16
+ },
+ "mean_auc_hist": 0.45426558725150246,
+ "mean_auc_event": 0.5496336257537601,
+ "source_picked_by_check": {
+  "bejis_2022": {
+   "hist_cells": 163,
+   "hist_also_event": 0,
+   "picked_source": "manavgat_2021",
+   "picked_auc_event": 0.3964026711400735,
+   "mean_auc_event": 0.4939757403703464,
+   "best_auc_event": 0.5831912381443964,
+   "best_source": "mugla_2021",
+   "within_target_rho": -0.7999999999999999
+  },
+  "evia_2021_extended": {
+   "hist_cells": 366,
+   "hist_also_event": 88,
+   "picked_source": "manavgat_2021",
+   "picked_auc_event": 0.6540092625033838,
+   "mean_auc_event": 0.5691072063924039,
+   "best_auc_event": 0.6540092625033838,
+   "best_source": "manavgat_2021",
+   "within_target_rho": 0.39999999999999997
+  },
+  "montiferru_2021": {
+   "hist_cells": 58,
+   "hist_also_event": 32,
+   "picked_source": "manavgat_2021",
+   "picked_auc_event": 0.5178084473417569,
+   "mean_auc_event": 0.5723703265028524,
+   "best_auc_event": 0.6467042042389389,
+   "best_source": "evia_2021_extended",
+   "within_target_rho": -0.7999999999999999
+  },
+  "mugla_2021": {
+   "hist_cells": 194,
+   "hist_also_event": 25,
+   "picked_source": "manavgat_2021",
+   "picked_auc_event": 0.4376617829318566,
+   "mean_auc_event": 0.5630812297494376,
+   "best_auc_event": 0.6193519007685069,
+   "best_source": "montiferru_2021",
+   "within_target_rho": -0.7999999999999999
+  }
+ },
+ "picked_minus_mean_event_auc": -0.04816308477449238,
+ "picked_is_best": 1
+}
