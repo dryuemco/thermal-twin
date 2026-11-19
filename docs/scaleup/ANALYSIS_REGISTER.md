@@ -87,7 +87,7 @@ the stored original label of manavgat_2021 exactly (all five bands, maximum abso
 windows were exported and evaluated (19 November 2026, 12:35 to 12:43 local time, logs in results/scaleup/claim1x_qa1).
 No fire changed eligibility. The only rule outcome that changed is rule 10.1 for thermal+distance in the window-B
 primary set (Holm p 0.0254 with the original labels, 0.0238 with the corrected ones). Refitted location-using
-candidates differ from the original run in the eighth decimal place of some AUC values (thread scheduling), which
+candidates differ from the original run in the eighth decimal place of some AUC values (cause not established), which
 changes no reported value or choice.
 
 Note on clusters (9.5): the code forms clusters from the bounding boxes of each fire's modelled cells, not from the
