@@ -1097,3 +1097,30 @@ Development data, exploratory. Choices made by the analyst when the script was w
   cut-offs up to T - 2); own history = the same on the site's own units; within-event = focal AUC (thermal forest,
   G-B). Reported as mean signed and mean absolute error.
 - Uncertainty: bootstrap over clusters of sites whose grids intersect (as in 9.5), 10,000 resamples, seed 42.
+
+## Amendment 15 (19 November 2026): valid-data mask of the later-burning labels
+
+Written after all results of amendments 9 to 14 were known, before any label is re-exported.
+
+### 15.1 Error
+
+An independent audit of the EMS selection manuscript (19 November 2026) found that the unmapped mask of 9.2/9.9
+(future_label_export.py) and of 11.4 (claim16_replication.py) uses QA bit 0 of MODIS/061/MCD64A1. In version 6.1
+bit 0 is the land/water flag (1 = land); the valid-data flag is bit 1 (1 = sufficient valid data in the reflectance
+time series; water cells always have it clear). Checked against the Earth Engine catalogue entry of the product.
+With bit 0, land pixels without sufficient valid data were not flagged, and because BurnDate is masked and
+unmasked to 0, they could be counted as unburned.
+
+### 15.2 Correction (fixed now)
+
+- Unmapped pixel-month: QA bit 1 equal to 0, or QA masked. Everything else of 9.2, 9.9 and 11.4 is unchanged: the
+  0.10 threshold on the cell mean of the unmapped share, horizons, populations, eligibility (30 and 30), losses,
+  rules 9.5 and 10.1, 11.4a (one-sided p, Holm across primary and secondary sets, ceil(12/18 n)), clusters,
+  bootstrap settings and seeds.
+- The frozen focal scores of 11.4 (claim16_scores, manifest db95a46) are reused unchanged and checked against
+  the manifest. The focal out-of-fold scores of G1/G2 are not refitted.
+- Window A (future_label_export.py, then claim14_future.py, claim15_location.py, claim15_followup.py) and window B
+  (claim16_replication.py export and evaluate) are re-exported and re-evaluated into new output names with suffix
+  _qa1; the original outputs are kept.
+- Reporting: the corrected results are primary; the original ones are reported beside them with this amendment
+  cited. If eligibility changes, the sites entering or leaving are listed.
